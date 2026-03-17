@@ -13,7 +13,7 @@ This dashboard synthesizes reporting from investigative journalists, leaked gove
 | Layer | Section | What It Maps |
 |-------|---------|-------------|
 | 01 | Data Collection | Raw data sources: IDENT (270M+ biometrics), Medicaid (80M patients), IRS, TECS, SEVIS, SSA |
-| 02 | Watchlists | Secret systems: SPARTA, GRAPEVINE, SLIPSTREAM, HUMMINGBIRD, REAPER, BLUEKEY/SIENNA |
+| 02 | Watchlists | Secret systems (SPARTA, GRAPEVINE, SLIPSTREAM, HUMMINGBIRD, REAPER, BLUEKEY/SIENNA) + federal watchlisting pipeline (TIDE → TSDB → screeners), reasonable suspicion standard, biometric-only nominations, No Fly criteria — sourced from the 2013 Watchlisting Guidance |
 | 03 | Palantir Layer | Integration platform: FALCON, ICM, ImmigrationOS, Foundry, Gotham, IRS-NG, LEAD TRACKER |
 | 04 | Field Tools | Mobile surveillance: ELITE targeting, Mobile Fortify facial recognition, I.R.I.S./MORIS iris scanning |
 | 05 | Policy Framework | Legal basis: NSPM-7, "Eliminating Silos" EO, IRS-ICE agreement, HHS Medicaid order, 287(g), Secure Communities |
@@ -184,6 +184,7 @@ for category, kws in keywords.items():
 - **404 Media** — ELITE system exposure (Jan 2026)
 - **POGO** — Stephen Miller Palantir stock investigation (June 2025)
 - **Distributed Denial of Secrets** — ICE Contracts leak (March 2026)
+- **Snowden Archive (via DDoSecrets)** — 2013 Watchlisting Guidance (U//FOUO), 166-page interagency document detailing TIDE/TSDB nomination procedures, reasonable suspicion standards, No Fly/Selectee criteria, and encounter management
 - **SAM.gov** — ImmigrationOS contract 70CMSD24F00000213
 - **DHS Privacy Impact Assessments** — IRS-NG system documentation
 

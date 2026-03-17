@@ -1486,12 +1486,138 @@
 
       </div>
 
-      <div class="flow-box">
+      <!-- Formal Watchlisting Infrastructure -->
+      <div class="flow-box" style="margin-top:2.5rem;">
+        <h4>The Federal Watchlisting Pipeline</h4>
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1rem;">Per the 2013 Watchlisting Guidance (U//FOUO), leaked by Edward Snowden. This is the formal nomination-to-screening process that feeds the systems above.</p>
+        <div class="flow-item"><strong>ORIGINATORS</strong> (CIA, NSA, DIA, DHS I&amp;A) collect raw intelligence <span class="flow-arrow">&rarr;</span> <strong>NOMINATORS</strong> (FBI, DHS, DOJ components) formally nominate individuals</div>
+        <div class="flow-item"><strong>NOMINATORS</strong> <span class="flow-arrow">&rarr;</span> <strong>NCTC / TIDE</strong> (Terrorist Identities Datamart Environment) &mdash; the classified master database</div>
+        <div class="flow-item"><strong>TIDE</strong> <span class="flow-arrow">&rarr;</span> <strong>TSC / TSDB</strong> (Terrorist Screening Database) &mdash; the consolidated watchlist exported to screeners</div>
+        <div class="flow-item"><strong>TSDB</strong> <span class="flow-arrow">&rarr;</span> <strong>SCREENERS:</strong> CBP (borders), TSA (No Fly / Selectee), DOS (CLASS-VISA), FBI (NCIC/KSTF), DHS (TECS, ATS, WLS), state/local (NCIC), foreign partners (TUSCAN, TACTICS)</div>
+      </div>
+
+      <div class="card-grid" style="margin-top:2rem;">
+
+        <div class="sys-card">
+          <h3>Reasonable Suspicion Standard</h3>
+          <div class="card-fn">The Threshold for Watchlisting</div>
+          <div class="card-body">
+            <ul>
+              <li>"Irrefutable evidence or concrete facts are not necessary" (&sect;3.5)</li>
+              <li>Single-source information &mdash; including social media posts &mdash; can support a nomination (&sect;3.6)</li>
+              <li>Behavioral indicators include travel patterns, "associations," and online activity (&sect;3.9)</li>
+              <li>DHS and DOS have <em>lower</em> standards for immigration-related watchlisting (&sect;2.5)</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">NCTC</span>
+            <span class="tag">TSC</span>
+            <span class="tag sec">U//FOUO</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Biometric-Only Nominations</h3>
+          <div class="card-fn">No Name Required</div>
+          <div class="card-body">
+            <ul>
+              <li>A fingerprint, iris scan, facial image, or DNA sample alone is sufficient to nominate to TIDE/TSDB (&sect;2.1)</li>
+              <li>No biographical information required</li>
+              <li>Links Layer 01 (IDENT biometrics) directly to watchlist placement</li>
+              <li>Field scans at the border become nominations</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">IDENT</span>
+            <span class="tag">TIDE</span>
+            <span class="tag sec">U//FOUO</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Non-Terrorist Records in TIDE</h3>
+          <div class="card-fn">Guilt by Association</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Spouses &amp; children</strong> of suspected terrorists (TIDE Code 17)</li>
+              <li><strong>Associates</strong> with unknown involvement (Code 50)</li>
+              <li><strong>Other relatives</strong> &mdash; fathers, brothers, etc. (Code 160)</li>
+              <li><strong>"Possible nexus"</strong> &mdash; insufficient evidence for suspicion (Code 99)</li>
+              <li>Lost/stolen passports (Code 89)</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">NCTC</span>
+            <span class="tag">TIDE</span>
+            <span class="tag sec">U//FOUO</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Threat-Based Upgrades</h3>
+          <div class="card-fn">White House Override</div>
+          <div class="card-body">
+            <ul>
+              <li>The White House can direct TSC/NCTC to place <em>entire categories</em> of people on No Fly or Selectee lists (&sect;1.59)</li>
+              <li>Valid for 72 hours without normal review</li>
+              <li>Renewable in 30-day increments</li>
+              <li>Directly relevant to NSPM-7 targeting of protesters</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">White House</span>
+            <span class="tag">TSC</span>
+            <span class="tag hot">ACTIVE CONCERN</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Encounter Feedback Loop</h3>
+          <div class="card-fn">Field Data Feeds Back Into Watchlists</div>
+          <div class="card-body">
+            <ul>
+              <li>CBP encounters at ports of entry generate "encounter packages" (&sect;5.4.1)</li>
+              <li>Includes pocket litter, companion info, interview notes, biometrics</li>
+              <li>Fed back into TIDE via the Encounter Management Application (EMA)</li>
+              <li>DHS has more encounters than any other agency (&sect;5.4)</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">CBP</span>
+            <span class="tag">TSC</span>
+            <span class="tag">EMA</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>No Fly List Criteria</h3>
+          <div class="card-fn">Four Grounds for Inclusion</div>
+          <div class="card-body">
+            <ul>
+              <li>Threat of international or domestic terrorism involving aircraft (&sect;4.5.1)</li>
+              <li>Threat of domestic terrorism to the homeland (&sect;4.5.2)</li>
+              <li>Threat of international terrorism against U.S. facilities abroad (&sect;4.5.3)</li>
+              <li>"Operationally capable" of a violent act of terrorism (&sect;4.5.4)</li>
+              <li>All Guantanamo Bay detainees automatically included (&sect;4.6)</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">TSA</span>
+            <span class="tag">TSC</span>
+            <span class="tag sec">U//FOUO</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flow-box" style="margin-top:2rem;">
         <h4>System Interlinking</h4>
         <div class="flow-item">GRAPEVINE <span class="flow-arrow">↔</span> SLIPSTREAM: Social contacts linked to real-world networks</div>
         <div class="flow-item">SPARTA <span class="flow-arrow">↔</span> GRAPEVINE: Pulls relational data for HEL-C reports</div>
         <div class="flow-item">HUMMINGBIRD <span class="flow-arrow">→</span> SPARTA: Protester tracking feeds high-level targeting</div>
         <div class="flow-item">BLUEKEY/SIENNA <span class="flow-arrow">→</span> ALL: Metadata enriches all systems</div>
+        <div class="flow-item">IDENT biometrics <span class="flow-arrow">→</span> TIDE (biometric-only nomination) <span class="flow-arrow">→</span> TSDB <span class="flow-arrow">→</span> TECS / ATS / No Fly</div>
+        <div class="flow-item">CBP field encounter <span class="flow-arrow">→</span> EMA <span class="flow-arrow">→</span> TIDE <span class="flow-arrow">→</span> TSDB update (feedback loop)</div>
       </div>
     </section>
 
