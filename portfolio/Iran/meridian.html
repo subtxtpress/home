@@ -874,9 +874,9 @@
         }
 
         .conflict-chip[data-type="strategic"] {
-            background: rgba(100, 181, 246, 0.12);
-            border-color: rgba(100, 181, 246, 0.3);
-            color: #64b5f6;
+            background: rgba(0, 229, 255, 0.12);
+            border-color: rgba(0, 229, 255, 0.3);
+            color: #00e5ff;
         }
         .conflict-chip[data-type="strategic"].off {
             background: var(--bg-tertiary);
@@ -914,10 +914,10 @@
             letter-spacing: 0.5px;
         }
 
-        .conflict-chip[data-type="protests"] { border-color: rgba(255,214,0,0.3); color: #ffd600; }
-        .conflict-chip[data-type="protests"].off { opacity: 0.3; border-color: var(--border); color: var(--text-muted); }
-        .conflict-chip[data-type="strategic"] { border-color: rgba(255,255,255,0.15); color: var(--text-muted); }
-        .conflict-chip[data-type="strategic"].off { opacity: 0.3; border-color: var(--border); color: var(--text-muted); }
+        .conflict-chip[data-type="protests"] { background: rgba(255,214,0,0.12); border-color: rgba(255,214,0,0.3); color: #ffd600; }
+        .conflict-chip[data-type="protests"].off { opacity: 0.3; background: var(--bg-tertiary); border-color: var(--border); color: var(--text-muted); }
+        .conflict-chip[data-type="strategic"] { background: rgba(0,229,255,0.12); border-color: rgba(0,229,255,0.3); color: #00e5ff; }
+        .conflict-chip[data-type="strategic"].off { opacity: 0.3; background: var(--bg-tertiary); border-color: var(--border); color: var(--text-muted); }
 
         /* Conflict source tabs */
         .conflict-source-tabs {
@@ -1651,7 +1651,7 @@
             <div class="legend-item"><svg width="12" height="12" viewBox="0 0 32 32" style="margin-right:8px;flex-shrink:0;"><path fill="#ff9100" d="M16 2L18 12L28 8L20 16L28 24L18 20L16 30L14 20L4 24L12 16L4 8L14 12Z"/></svg><span class="legend-label">Terror/Explosions</span></div>
             <div class="legend-item"><svg width="12" height="12" viewBox="0 0 32 32" style="margin-right:8px;flex-shrink:0;"><path fill="#b388ff" d="M16 2L18 12L28 8L20 16L28 24L18 20L16 30L14 20L4 24L12 16L4 8L14 12Z"/></svg><span class="legend-label">Violence</span></div>
             <div class="legend-item"><svg width="12" height="12" viewBox="0 0 32 32" style="margin-right:8px;flex-shrink:0;"><path fill="#ffd600" d="M16 2L18 12L28 8L20 16L28 24L18 20L16 30L14 20L4 24L12 16L4 8L14 12Z"/></svg><span class="legend-label">Protests</span></div>
-            <div class="legend-item"><svg width="12" height="12" viewBox="0 0 32 32" style="margin-right:8px;flex-shrink:0;"><path fill="#64b5f6" d="M16 2L18 12L28 8L20 16L28 24L18 20L16 30L14 20L4 24L12 16L4 8L14 12Z"/></svg><span class="legend-label">Military</span></div>
+            <div class="legend-item"><svg width="12" height="12" viewBox="0 0 32 32" style="margin-right:8px;flex-shrink:0;"><path fill="#00e5ff" d="M16 2L18 12L28 8L20 16L28 24L18 20L16 30L14 20L4 24L12 16L4 8L14 12Z"/></svg><span class="legend-label">Military</span></div>
         </div>
         <div id="maritimeLegend" style="display:none; margin-top:8px;">
             <div class="legend-title">Maritime Boundaries</div>
@@ -1831,15 +1831,42 @@
                     type: 'geojson',
                     data: { type: 'FeatureCollection', features: [] }
                 });
+                // Coastline source (soft outline along shores)
+                map.addSource('coastlines', {
+                    type: 'geojson',
+                    data: { type: 'FeatureCollection', features: [] }
+                });
+                map.addLayer({
+                    id: 'coastlines-glow',
+                    type: 'line',
+                    source: 'coastlines',
+                    layout: { 'line-cap': 'round', 'line-join': 'round' },
+                    paint: {
+                        'line-color': 'rgba(100, 170, 220, 0.15)',
+                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 4, 6, 6, 10, 8],
+                        'line-blur': ['interpolate', ['linear'], ['zoom'], 3, 3, 6, 5, 10, 6]
+                    }
+                });
+                map.addLayer({
+                    id: 'coastlines',
+                    type: 'line',
+                    source: 'coastlines',
+                    layout: { 'line-cap': 'round', 'line-join': 'round' },
+                    paint: {
+                        'line-color': 'rgba(160, 200, 240, 0.55)',
+                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1, 6, 1.8, 10, 2.5]
+                    }
+                });
+                // Border layers (toned-down glow)
                 map.addLayer({
                     id: 'country-borders-glow',
                     type: 'line',
                     source: 'country-borders',
                     layout: { 'line-cap': 'round', 'line-join': 'round' },
                     paint: {
-                        'line-color': 'rgba(100, 180, 255, 0.35)',
-                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 8, 6, 14, 10, 18],
-                        'line-blur': ['interpolate', ['linear'], ['zoom'], 3, 5, 6, 8, 10, 10]
+                        'line-color': 'rgba(100, 170, 220, 0.15)',
+                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 4, 6, 6, 10, 8],
+                        'line-blur': ['interpolate', ['linear'], ['zoom'], 3, 3, 6, 5, 10, 6]
                     }
                 });
                 map.addLayer({
@@ -1848,8 +1875,8 @@
                     source: 'country-borders',
                     layout: { 'line-cap': 'round', 'line-join': 'round' },
                     paint: {
-                        'line-color': 'rgba(180, 215, 255, 0.85)',
-                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.5, 6, 2.5, 10, 3]
+                        'line-color': 'rgba(160, 200, 240, 0.55)',
+                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1, 6, 1.8, 10, 2.5]
                     }
                 });
                 // Fetch boundary lines GeoJSON
@@ -1860,6 +1887,14 @@
                         console.log(`[BORDERS] Loaded ${data.features.length} boundary lines`);
                     })
                     .catch(e => console.warn('[BORDERS] Failed to load:', e));
+                // Fetch coastline GeoJSON (soft outline along shores so borders don't stop abruptly)
+                fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_coastline.geojson')
+                    .then(r => r.json())
+                    .then(data => {
+                        map.getSource('coastlines').setData(data);
+                        console.log(`[COASTLINES] Loaded ${data.features.length} coastline segments`);
+                    })
+                    .catch(e => console.warn('[COASTLINES] Failed to load:', e));
 
                 map.addSource('detections', {
                     type: 'geojson',
@@ -2747,7 +2782,7 @@
         function getAcledColor(eventType) {
             const map = {
                 'Armed Conflict': '#ff1744', 'Terror/Explosions': '#ff9100',
-                'Violence': '#b388ff', 'Protests': '#ffd600', 'Military': '#64b5f6'
+                'Violence': '#b388ff', 'Protests': '#ffd600', 'Military': '#00e5ff'
             };
             return map[eventType] || '#888';
         }
@@ -3357,7 +3392,7 @@
                 // Build type breakdown from clusterProperties (instant, no async needed)
                 const typeColors = {
                     'Armed Conflict': '#ff1744', 'Terror/Explosions': '#ff9100',
-                    'Violence': '#b388ff', 'Protests': '#ffd600', 'Military': '#64b5f6'
+                    'Violence': '#b388ff', 'Protests': '#ffd600', 'Military': '#00e5ff'
                 };
                 const typeCounts = [
                     ['Armed Conflict', p.cnt_battles || 0],
@@ -3452,7 +3487,7 @@
                         'Terror/Explosions', '#ff9100',
                         'Violence', '#b388ff',
                         'Protests', '#ffd600',
-                        'Military', '#64b5f6',
+                        'Military', '#00e5ff',
                         '#888'
                     ],
                     'circle-opacity': 0.08,
@@ -3480,7 +3515,7 @@
                         'Terror/Explosions', '#ff9100',
                         'Violence', '#b388ff',
                         'Protests', '#ffd600',
-                        'Military', '#64b5f6',
+                        'Military', '#00e5ff',
                         '#888'
                     ],
                     'icon-opacity': 0.8
