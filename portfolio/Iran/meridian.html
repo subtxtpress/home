@@ -1777,18 +1777,15 @@
             map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
             map.on('load', async () => {
-                // Country borders overlay — vector tiles from OpenMapTiles
-                map.addSource('openmaptiles', {
-                    type: 'vector',
-                    url: 'https://tiles.stadiamaps.com/data/openmaptiles.json'
+                // Country borders overlay — Natural Earth 50m admin boundary lines (no API key)
+                map.addSource('country-borders', {
+                    type: 'geojson',
+                    data: { type: 'FeatureCollection', features: [] }
                 });
-                // Glow behind borders for contrast against dark basemap
                 map.addLayer({
                     id: 'country-borders-glow',
                     type: 'line',
-                    source: 'openmaptiles',
-                    'source-layer': 'boundary',
-                    filter: ['all', ['==', 'admin_level', 2], ['!=', 'maritime', 1]],
+                    source: 'country-borders',
                     layout: { 'line-cap': 'round', 'line-join': 'round' },
                     paint: {
                         'line-color': 'rgba(100, 180, 255, 0.35)',
@@ -1799,15 +1796,21 @@
                 map.addLayer({
                     id: 'country-borders',
                     type: 'line',
-                    source: 'openmaptiles',
-                    'source-layer': 'boundary',
-                    filter: ['all', ['==', 'admin_level', 2], ['!=', 'maritime', 1]],
+                    source: 'country-borders',
                     layout: { 'line-cap': 'round', 'line-join': 'round' },
                     paint: {
                         'line-color': 'rgba(180, 215, 255, 0.85)',
                         'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.5, 6, 2.5, 10, 3]
                     }
                 });
+                // Fetch boundary lines GeoJSON
+                fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_boundary_lines_land.geojson')
+                    .then(r => r.json())
+                    .then(data => {
+                        map.getSource('country-borders').setData(data);
+                        console.log(`[BORDERS] Loaded ${data.features.length} boundary lines`);
+                    })
+                    .catch(e => console.warn('[BORDERS] Failed to load:', e));
 
                 map.addSource('detections', {
                     type: 'geojson',
