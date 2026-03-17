@@ -80,6 +80,8 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            min-width: 0;
+            flex-shrink: 0;
         }
 
         .logo-mark {
@@ -115,6 +117,8 @@
         .topbar-right {
             display: flex;
             align-items: center;
+            min-width: 0;
+            flex-shrink: 1;
             gap: 16px;
         }
 
@@ -149,6 +153,14 @@
             font-family: var(--font-mono);
             font-size: 10px;
             color: var(--text-muted);
+        }
+
+        .utc-clock {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         /* MAP */
@@ -1116,8 +1128,12 @@
            RESPONSIVE — TABLET (≤768px)
            ═══════════════════════════════════════════ */
         @media (max-width: 768px) {
-            .logo-text { font-size: 14px; }
-            .logo-sub { font-size: 9px; }
+            .topbar { padding: 0 12px; }
+            .topbar-left { gap: 8px; }
+            .topbar-right { gap: 10px; }
+            .logo-text { font-size: 12px; letter-spacing: 2px; }
+            .logo-sub { font-size: 8px; }
+            .utc-clock { font-size: 9px; }
             .last-update { display: none; }
 
             .legend {
@@ -1135,10 +1151,15 @@
            RESPONSIVE — PHONE (≤480px)
            ═══════════════════════════════════════════ */
         @media (max-width: 480px) {
-            /* Topbar: shrink height */
-            .topbar { height: 40px; }
+            /* Topbar: shrink height, tighten spacing */
+            .topbar { height: 40px; padding: 0 8px; }
+            .topbar-left { gap: 6px; }
+            .topbar-right { gap: 6px; }
+            .logo-text { font-size: 11px; letter-spacing: 1.5px; }
             .logo-sub { display: none; }
-            .status-badge { font-size: 9px; padding: 2px 6px; }
+            .utc-clock { font-size: 8px; letter-spacing: 0; }
+            .status-badge { font-size: 8px; padding: 2px 5px; letter-spacing: 0; }
+            .last-update { display: none; }
 
             /* Map + sidebar + loading overlay: adjust for 40px topbar */
             #map { top: 40px; }
@@ -1233,7 +1254,7 @@
             <div class="logo-sub">Thermal Anomaly Monitor</div>
         </div>
         <div class="topbar-right">
-            <span id="utcClock" style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.5px;"></span>
+            <span id="utcClock" class="utc-clock"></span>
             <span id="statusBadge" class="status-badge status-ready">Ready</span>
             <span id="lastUpdate" class="last-update"></span>
         </div>
@@ -1681,7 +1702,12 @@
             const dd = String(now.getUTCDate()).padStart(2, '0');
             const mon = now.toLocaleString('en', { month: 'short', timeZone: 'UTC' }).toUpperCase();
             const yyyy = now.getUTCFullYear();
-            document.getElementById('utcClock').textContent = `${dd} ${mon} ${yyyy} ${hh}:${mm}:${ss} UTC`;
+            const narrow = window.innerWidth <= 480;
+            if (narrow) {
+                document.getElementById('utcClock').textContent = `${hh}:${mm}:${ss} UTC`;
+            } else {
+                document.getElementById('utcClock').textContent = `${dd} ${mon} ${yyyy} ${hh}:${mm}:${ss} UTC`;
+            }
         }
         updateUtcClock();
         setInterval(updateUtcClock, 1000);
