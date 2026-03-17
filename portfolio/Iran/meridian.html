@@ -1782,6 +1782,20 @@
                     type: 'vector',
                     url: 'https://tiles.stadiamaps.com/data/openmaptiles.json'
                 });
+                // Glow behind borders for contrast against dark basemap
+                map.addLayer({
+                    id: 'country-borders-glow',
+                    type: 'line',
+                    source: 'openmaptiles',
+                    'source-layer': 'boundary',
+                    filter: ['all', ['==', 'admin_level', 2], ['!=', 'maritime', 1]],
+                    layout: { 'line-cap': 'round', 'line-join': 'round' },
+                    paint: {
+                        'line-color': 'rgba(100, 180, 255, 0.35)',
+                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 8, 6, 14, 10, 18],
+                        'line-blur': ['interpolate', ['linear'], ['zoom'], 3, 5, 6, 8, 10, 10]
+                    }
+                });
                 map.addLayer({
                     id: 'country-borders',
                     type: 'line',
@@ -1790,7 +1804,7 @@
                     filter: ['all', ['==', 'admin_level', 2], ['!=', 'maritime', 1]],
                     layout: { 'line-cap': 'round', 'line-join': 'round' },
                     paint: {
-                        'line-color': 'rgba(255, 255, 255, 0.45)',
+                        'line-color': 'rgba(180, 215, 255, 0.85)',
                         'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.5, 6, 2.5, 10, 3]
                     }
                 });
@@ -3375,8 +3389,11 @@
                 const lat = e.lngLat.lat;
                 // Only query within the Middle East theater
                 if (lng < 25 || lng > 65 || lat < 12 || lat > 42) return;
-                // Small BBOX around click (~0.1 degree)
-                const d = 0.05;
+
+                // Use INTERSECTS with a point geometry for accurate polygon identification
+                const pointWkt = `POINT(${lng} ${lat})`;
+                // Small BBOX for boundary lines only (~0.02 degree)
+                const d = 0.02;
                 const bboxStr = `${lng - d},${lat - d},${lng + d},${lat + d}`;
 
                 // Query EEZ boundaries (lines) and EEZ/12nm polygons in parallel via WFS
@@ -3386,13 +3403,13 @@
 
                 if (maritimeLayers.eez) {
                     queries.push(
-                        fetch(`${MARITIME_WFS}?service=WFS&version=1.0.0&request=GetFeature&typeName=MarineRegions:eez&outputFormat=application/json&maxFeatures=2&propertyName=${props}&cql_filter=BBOX(the_geom,${bboxStr})`).then(r => r.json()).catch(() => null),
+                        fetch(`${MARITIME_WFS}?service=WFS&version=1.0.0&request=GetFeature&typeName=MarineRegions:eez&outputFormat=application/json&maxFeatures=3&propertyName=${props}&cql_filter=INTERSECTS(the_geom,${pointWkt})`).then(r => r.json()).catch(() => null),
                         fetch(`${MARITIME_WFS}?service=WFS&version=1.0.0&request=GetFeature&typeName=MarineRegions:eez_boundaries&outputFormat=application/json&maxFeatures=2&propertyName=${lineProps}&cql_filter=BBOX(the_geom,${bboxStr})`).then(r => r.json()).catch(() => null)
                     );
                 }
                 if (maritimeLayers['12nm']) {
                     queries.push(
-                        fetch(`${MARITIME_WFS}?service=WFS&version=1.0.0&request=GetFeature&typeName=MarineRegions:eez_12nm&outputFormat=application/json&maxFeatures=2&propertyName=${props}&cql_filter=BBOX(the_geom,${bboxStr})`).then(r => r.json()).catch(() => null)
+                        fetch(`${MARITIME_WFS}?service=WFS&version=1.0.0&request=GetFeature&typeName=MarineRegions:eez_12nm&outputFormat=application/json&maxFeatures=3&propertyName=${props}&cql_filter=INTERSECTS(the_geom,${pointWkt})`).then(r => r.json()).catch(() => null)
                     );
                 }
                 if (queries.length === 0) return;
