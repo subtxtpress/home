@@ -12,7 +12,7 @@ MERIDIAN fuses multiple open-source intelligence layers into a single interactiv
 
 - **Thermal Anomalies** — Near real-time fire and heat detections from NASA FIRMS across four satellite sensors (VIIRS NOAA-20, NOAA-21, Suomi-NPP, MODIS Aqua/Terra). Filterable by confidence level, satellite source, time range, and geographic region.
 - **Industrial Sites** — 108 known refineries, power plants, gas processing facilities, and petrochemical complexes. Detections within ~2km of these sites are automatically tagged and visually de-emphasized to separate routine industrial flaring from conflict-relevant activity.
-- **Conflict Events** — Dual-source conflict intelligence: live GDELT Global Knowledge Graph data (armed conflict, terror/explosions, violence, protests, military activity) and UCDP GED verified events (2024 data with fatality counts, conflict classifications, and source citations). Switchable source tabs with event-type filtering and temporal alignment to thermal detections.
+- **Conflict Events** — Triple-source conflict intelligence: live GDELT Global Knowledge Graph data (armed conflict, terror/explosions, violence, protests, military activity), ACLED expert-coded events (human-verified with actor details, fatality counts, and event sub-types; rolling 30-day window), and UCDP GED verified archive (through Dec 2024 with fatality estimates and conflict classifications). Switchable source tabs with event-type filtering and temporal alignment to thermal detections.
 - **Nighttime Lights** — NASA GIBS VIIRS Day/Night Band imagery with before/after comparison mode for assessing infrastructure damage and power grid disruption.
 - **MODIS True-Color** — NASA GIBS MODIS Terra Corrected Reflectance daily imagery with date picker and opacity controls for visual corroboration of thermal detections.
 - **Sentinel-2 Optical** — On-demand 10m true-color imagery via AWS Earth Search STAC API. Queries recent cloud-free scenes for the current map view, with date-labeled footprints, thumbnail previews, and direct links to Copernicus Browser for full-resolution viewing.
@@ -35,7 +35,7 @@ MERIDIAN fuses multiple open-source intelligence layers into a single interactiv
 
 ## Architecture
 
-The entire application is a single HTML file (~4,650 lines). No build step, no backend, no dependencies to install. Open it in a browser and it works.
+The entire application is a single HTML file (~5,000 lines). No build step, no backend, no dependencies to install. Open it in a browser and it works.
 
 **Stack:** MapLibre GL JS v4.1.2 / Turf.js v7 / IBM Plex typography / CartoDB + Esri basemaps
 
@@ -45,7 +45,8 @@ The entire application is a single HTML file (~4,650 lines). No build step, no b
 | Thermal | [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/) | Near real-time (~3hr latency) |
 | Industrial | [EOG/VIIRS Nightfire](https://eogdata.mines.edu/products/vnf/global_gas_flare.html), [World Bank GGFR](https://www.worldbank.org/en/programs/gasflaringreduction) | Static catalog |
 | Conflict (Live) | [GDELT](https://www.gdeltproject.org/) GKG | Live, 24-hour rolling window |
-| Conflict (Verified) | [UCDP GED](https://ucdp.uu.se/) v25.1 | Annual release (through Dec 2024) |
+| Conflict (Coded) | [ACLED](https://acleddata.com/) | Expert-coded, ~1-2 week lag, rolling 30-day window |
+| Conflict (Archive) | [UCDP GED](https://ucdp.uu.se/) v25.1 | Annual release (through Dec 2024) |
 | Nighttime | [NASA GIBS](https://earthdata.nasa.gov/gibs) VIIRS DNB | Daily composites |
 | MODIS True-Color | [NASA GIBS](https://earthdata.nasa.gov/gibs) MODIS Terra | Daily composites |
 | Sentinel-2 | [AWS Earth Search](https://earth-search.aws.element84.com/v1) STAC | On-demand query |
@@ -84,7 +85,7 @@ Use the sidebar panels to narrow results:
 ### 4. Add overlay layers
 Toggle these in the sidebar for multi-source analysis:
 - **Industrial Sites** — Shows refineries and plants so you can distinguish routine flaring from unusual activity
-- **Conflict Events** — GDELT (live) and UCDP GED (verified) data showing armed conflict, protests, and military activity
+- **Conflict Events** — GDELT (live), ACLED (expert-coded), and UCDP GED (archive) data showing armed conflict, protests, and military activity
 - **Nighttime Lights** — Before/after satellite imagery to spot power grid disruption
 - **MODIS / Sentinel-2 / Maxar** — Optical satellite imagery for visual confirmation
 - **Maritime Boundaries** — EEZ, territorial seas, and contiguous zones
@@ -99,8 +100,21 @@ Toggle these in the sidebar for multi-source analysis:
 - Switch basemaps (bottom of sidebar) between dark, satellite, and terrain views
 - The sidebar auto-collapses on mobile — tap the toggle to reopen it
 
-## License
+## Data Attribution & Terms of Use
 
-Data attributions: NASA FIRMS, NASA GIBS, GDELT (Global Database of Events, Language & Tone), UCDP GED (Uppsala Conflict Data Program), EOG/VIIRS Nightfire, World Bank GGFR, ESA Copernicus Sentinel-2, Maxar Open Data (CC-BY-NC 4.0), Marine Regions/VLIZ, airplanes.live, adsb.lol, OpenSky Network, OpenStreetMap.
+This project uses the following data sources in compliance with their respective terms of service:
+
+- **[NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/)** — Near real-time fire data from VIIRS and MODIS instruments. Open data, no restrictions on use. Credit: NASA/GSFC, LANCE FIRMS.
+- **[NASA GIBS](https://earthdata.nasa.gov/gibs)** — VIIRS Day/Night Band and MODIS imagery tiles. Open data. Credit: NASA Worldview, EOSDIS.
+- **[GDELT](https://www.gdeltproject.org/)** — Global Database of Events, Language & Tone. Open data under GDELT's open research terms. All GDELT data is free and open for any use.
+- **[ACLED](https://acleddata.com/)** — Armed Conflict Location & Event Data. Used under ACLED's terms of use for non-commercial research and journalism. ACLED data must be attributed as: "Armed Conflict Location & Event Data Project (ACLED); www.acleddata.com". ACLED data is not to be redistributed.
+- **[UCDP GED](https://ucdp.uu.se/)** — Uppsala Conflict Data Program Georeferenced Event Dataset. Open academic data. Citation: Davies et al. (2024). UCDP Georeferenced Event Dataset Codebook, Version 25.1.
+- **[EOG/VIIRS Nightfire](https://eogdata.mines.edu/products/vnf/global_gas_flare.html)**, **[World Bank GGFR](https://www.worldbank.org/en/programs/gasflaringreduction)** — Industrial gas flare site locations. Open data.
+- **[ESA Copernicus Sentinel-2](https://earth-search.aws.element84.com/v1)** — 10m optical imagery via AWS Earth Search STAC. Open data under Copernicus license (free, full, and open).
+- **[Maxar Open Data](https://www.maxar.com/open-data)** — Crisis imagery under CC-BY-NC 4.0 license. Attribution: "Maxar Open Data Program".
+- **[Marine Regions](https://marineregions.org/) / VLIZ** — Maritime boundary data. Credit: Flanders Marine Institute (VLIZ). Data used in accordance with Marine Regions' terms of use.
+- **[airplanes.live](https://airplanes.live)**, **[adsb.lol](https://adsb.lol)**, **[OpenSky Network](https://opensky-network.org)** — Live ADS-B aircraft positions. OpenSky data used under Creative Commons Attribution 4.0 license.
+- **[OpenStreetMap](https://www.openstreetmap.org/)** — Base map data. &copy; OpenStreetMap contributors, ODbL license.
+- **[Natural Earth](https://www.naturalearthdata.com/)** — Country boundary data. Public domain.
 
 Built by [Subtxt Press](https://subtxtpress.github.io/home/)

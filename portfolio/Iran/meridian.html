@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MERIDIAN — Middle East Thermal Anomaly Monitor</title>
-    <meta name="description" content="Multi-layer satellite intelligence for the Middle East theater. NASA FIRMS thermal anomalies cross-referenced with GDELT and UCDP GED conflict events to surface probable strikes, VIIRS nighttime lights for infrastructure damage assessment, and 108 known oil/gas sites. Fully client-side — no backend, no registration.">
+    <meta name="description" content="Multi-layer satellite intelligence for the Middle East theater. NASA FIRMS thermal anomalies cross-referenced with GDELT, ACLED, and UCDP GED conflict events to surface probable strikes, VIIRS nighttime lights for infrastructure damage assessment, and 108 known oil/gas sites. Fully client-side — no backend, no registration.">
     <link rel="canonical" href="https://subtxtpress.github.io/home/portfolio/Iran/meridian.html">
     <!-- Open Graph -->
     <meta property="og:title" content="MERIDIAN – Middle East Thermal Anomaly Monitor">
-    <meta property="og:description" content="Real-time satellite thermal intelligence for the Middle East theater. Ingests NASA FIRMS data from four VIIRS and MODIS sensors, cross-references GDELT/UCDP conflict events, and overlays 108 known oil/gas infrastructure sites to separate industrial activity from unexplained thermal anomalies. Fully client-side — no API keys, no backend, no registration.">
+    <meta property="og:description" content="Real-time satellite thermal intelligence for the Middle East theater. Ingests NASA FIRMS data from four VIIRS and MODIS sensors, cross-references GDELT/ACLED/UCDP conflict events, and overlays 108 known oil/gas infrastructure sites to separate industrial activity from unexplained thermal anomalies. Fully client-side — no API keys, no backend, no registration.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://subtxtpress.github.io/home/portfolio/Iran/meridian.html">
     <meta property="og:image" content="https://subtxtpress.github.io/home/portfolio/Iran/img/meridian.png">
@@ -19,7 +19,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MERIDIAN – Middle East Thermal Anomaly Monitor">
-    <meta name="twitter:description" content="Real-time satellite thermal intelligence for the Middle East theater. Ingests NASA FIRMS data from four VIIRS and MODIS sensors, cross-references GDELT/UCDP conflict events, and overlays 108 known oil/gas infrastructure sites to separate industrial activity from unexplained thermal anomalies. Fully client-side — no API keys, no backend, no registration.">
+    <meta name="twitter:description" content="Real-time satellite thermal intelligence for the Middle East theater. Ingests NASA FIRMS data from four VIIRS and MODIS sensors, cross-references GDELT/ACLED/UCDP conflict events, and overlays 108 known oil/gas infrastructure sites to separate industrial activity from unexplained thermal anomalies. Fully client-side — no API keys, no backend, no registration.">
     <meta name="twitter:image" content="https://subtxtpress.github.io/home/portfolio/Iran/img/meridian.png">
     <!-- Favicons & Manifest -->
     <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
@@ -1377,7 +1377,8 @@
             <div id="conflictControls" style="display:none;">
                 <div class="conflict-source-tabs">
                     <div class="conflict-source-tab active" data-source="gdelt" onclick="switchConflictSource('gdelt')">GDELT — Live</div>
-                    <div class="conflict-source-tab" data-source="ucdp" onclick="switchConflictSource('ucdp')">UCDP GED — Verified</div>
+                    <div class="conflict-source-tab" data-source="acled" onclick="switchConflictSource('acled')">ACLED — Coded</div>
+                    <div class="conflict-source-tab" data-source="ucdp" onclick="switchConflictSource('ucdp')">UCDP — Archive</div>
                 </div>
                 <div class="conflict-filter-chips" id="conflictChips">
                     <div class="conflict-chip" data-type="battles" onclick="toggleConflictType(this)">Armed Conflict</div>
@@ -1593,7 +1594,7 @@
             Satellite: NOAA-20, NOAA-21, Suomi-NPP, Aqua/Terra<br>
             Map: <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> via MapLibre GL JS<br>
             Industrial: <a href="https://eogdata.mines.edu/products/vnf/global_gas_flare.html" target="_blank">EOG/VIIRS Nightfire</a>, <a href="https://www.worldbank.org/en/programs/gasflaringreduction" target="_blank">World Bank GGFR</a><br>
-            Conflict: <a href="https://www.gdeltproject.org/" target="_blank">GDELT</a> (Global Database of Events, Language &amp; Tone), <a href="https://ucdp.uu.se/" target="_blank">UCDP GED</a> (Uppsala Conflict Data Program)<br>
+            Conflict: <a href="https://www.gdeltproject.org/" target="_blank">GDELT</a> (Global Database of Events, Language &amp; Tone), <a href="https://acleddata.com/" target="_blank">ACLED</a> (Armed Conflict Location &amp; Event Data Project; acleddata.com), <a href="https://ucdp.uu.se/" target="_blank">UCDP GED</a> (Uppsala Conflict Data Program)<br>
             Maritime: <a href="https://marineregions.org/" target="_blank">Marine Regions</a> / Flanders Marine Institute (VLIZ)<br>
             Nighttime: <a href="https://earthdata.nasa.gov/gibs" target="_blank">NASA GIBS</a> VIIRS Day/Night Band<br>
             Optical: <a href="https://earthdata.nasa.gov/gibs" target="_blank">NASA GIBS</a> MODIS, <a href="https://earth-search.aws.element84.com/v1" target="_blank">Sentinel-2 L2A</a>, <a href="https://www.maxar.com/open-data" target="_blank">Maxar Open Data</a><br>
@@ -2197,7 +2198,7 @@
         // ═══════════════════════════════════════════
         // CONFLICT CORRELATION ENGINE
         // ═══════════════════════════════════════════
-        // Cross-references thermal detections with GDELT/UCDP conflict events
+        // Cross-references thermal detections with GDELT/ACLED/UCDP conflict events
         // to flag probable strikes vs industrial/agricultural noise
 
         const CONFLICT_RADIUS_DEG = 0.09; // ~10km at mid-latitudes
@@ -2696,7 +2697,9 @@
         let gdeltFetched = false;
         let ucdpFetched = false;
         let ucdpLiveData = null;
-        let conflictSource = 'gdelt'; // 'gdelt' or 'ucdp'
+        let acledFetched = false;
+        let acledLiveData = null;
+        let conflictSource = 'gdelt'; // 'gdelt', 'acled', or 'ucdp'
 
         // Map GDELT GKG themes to conflict categories
         function classifyGdeltThemes(themes) {
@@ -2732,10 +2735,143 @@
             violence: 'Violence', protests: 'Protests', strategic: 'Military'
         };
 
-        function isConflictLive() { return conflictLiveData !== null || ucdpLiveData !== null; }
+        function isConflictLive() { return conflictLiveData !== null || ucdpLiveData !== null || acledLiveData !== null; }
         function getConflictSource() {
             if (conflictSource === 'ucdp') return ucdpLiveData || CONFLICT_DATA;
+            if (conflictSource === 'acled') return acledLiveData || CONFLICT_DATA;
             return conflictLiveData || CONFLICT_DATA;
+        }
+
+        // ACLED via Supabase Edge Function proxy (OAuth credentials stored server-side)
+        const ACLED_PROXY = 'https://qgcparzkjpezbyoqualm.supabase.co/functions/v1/acled-proxy';
+
+        const ACLED_ME_COUNTRIES = [
+            'Iran', 'Iraq', 'Syria', 'Yemen', 'Lebanon', 'Israel', 'Palestine',
+            'Jordan', 'Saudi Arabia', 'Kuwait', 'Bahrain', 'Qatar',
+            'United Arab Emirates', 'Oman', 'Turkey', 'Egypt'
+        ];
+
+        function classifyAcledEvent(ev) {
+            const et = (ev.event_type || '').toLowerCase();
+            const set = (ev.sub_event_type || '').toLowerCase();
+            if (et.includes('battles') || set.includes('armed clash') || set.includes('government regains')) return 'battles';
+            if (et.includes('explosion') || set.includes('remote') || set.includes('suicide') || set.includes('shelling') || set.includes('air')) return 'explosions';
+            if (et.includes('violence against') || set.includes('attack') || set.includes('abduction') || set.includes('sexual')) return 'violence';
+            if (et.includes('protest') || et.includes('riot') || set.includes('demonstration') || set.includes('mob')) return 'protests';
+            if (et.includes('strategic') || set.includes('agreement') || set.includes('headquarters')) return 'strategic';
+            return 'strategic';
+        }
+
+        async function fetchAcledConflict() {
+            if (acledFetched) { renderConflict(); return; }
+
+            setConflictStatus('Fetching ACLED coded events…', '#ff6d00');
+
+            try {
+                const allFeatures = [];
+
+                // Probe ACLED for latest available data date (account may have recency restrictions)
+                setConflictStatus('ACLED: checking data availability…', '#ff6d00');
+                const today = new Date().toISOString().split('T')[0];
+                const probeResp = await fetch(`${ACLED_PROXY}?limit=1&country=Syria&event_date=${today}%7C2099-12-31&event_date_where=BETWEEN`);
+                const probeJson = await probeResp.json();
+
+                let dateTo, dateFrom;
+                if (probeJson.data && probeJson.data.length > 0) {
+                    // Use server's most recent date
+                    dateTo = probeJson.data[0].event_date;
+                } else {
+                    // Fallback: use recency restriction date if available
+                    const recency = probeJson.data_query_restrictions?.date_recency?.date;
+                    dateTo = recency || new Date().toISOString().split('T')[0];
+                }
+                // 30-day window back from latest available
+                const toDate = new Date(dateTo + 'T00:00:00Z');
+                const fromDate = new Date(toDate.getTime() - 30 * 24 * 60 * 60 * 1000);
+                dateFrom = fromDate.toISOString().split('T')[0];
+
+                // Fetch all ME countries in parallel for speed
+                setConflictStatus(`ACLED: fetching ${ACLED_ME_COUNTRIES.length} countries (${dateFrom} → ${dateTo})…`, '#ff6d00');
+
+                const fetches = ACLED_ME_COUNTRIES.map(async (country) => {
+                    const params = new URLSearchParams({
+                        country: country,
+                        limit: '5000',
+                        event_date: `${dateFrom}|${dateTo}`,
+                        event_date_where: 'BETWEEN',
+                    });
+                    try {
+                        const resp = await fetch(`${ACLED_PROXY}?${params}`);
+                        if (!resp.ok) { console.warn(`ACLED: ${country} HTTP ${resp.status}`); return []; }
+                        const json = await resp.json();
+                        return json.data || [];
+                    } catch (e) {
+                        console.warn(`ACLED: ${country} error:`, e);
+                        return [];
+                    }
+                });
+
+                const results = await Promise.all(fetches);
+                let completed = 0;
+
+                for (const data of results) {
+                    completed++;
+                    for (const ev of data) {
+                        const lat = parseFloat(ev.latitude);
+                        const lng = parseFloat(ev.longitude);
+                        if (isNaN(lat) || isNaN(lng)) continue;
+
+                        const category = classifyAcledEvent(ev);
+                        allFeatures.push({
+                            type: 'Feature',
+                            geometry: { type: 'Point', coordinates: [lng, lat] },
+                            properties: {
+                                event_date: ev.event_date || '',
+                                week: ev.event_date || '',
+                                country: ev.country || '',
+                                admin1: ev.admin1 || '',
+                                admin2: ev.admin2 || '',
+                                location: ev.location || ev.admin1 || '',
+                                event_type: GDELT_CATEGORY_LABELS[category],
+                                sub_event_type: ev.sub_event_type || ev.event_type || '',
+                                fatalities: parseInt(ev.fatalities) || 0,
+                                deaths_best: parseInt(ev.fatalities) || 0,
+                                events: 1,
+                                notes: ev.notes || '',
+                                source: ev.source || '',
+                                source_scale: ev.source_scale || '',
+                                actor1: ev.actor1 || '',
+                                actor2: ev.actor2 || '',
+                                interaction: ev.interaction || '',
+                                disorder_type: ev.disorder_type || '',
+                                civilian_targeting: ev.civilian_targeting || '',
+                                urltone: 0,
+                                _live: true,
+                                _acled: true
+                            }
+                        });
+                    }
+                }
+
+                acledLiveData = { type: 'FeatureCollection', features: allFeatures };
+                acledFetched = true;
+
+                const totalFatalities = allFeatures.reduce((s, f) => s + (f.properties.deaths_best || 0), 0);
+                setConflictStatus(`${allFeatures.length.toLocaleString()} coded events, ${totalFatalities.toLocaleString()} fatalities (last 30 days)`, '#ff6d00');
+
+                initTimeFilterDefaults();
+                if (conflictVisible && conflictSource === 'acled') renderConflict();
+
+                if (allDetections.length > 0) {
+                    tagConflictCorroboration();
+                    renderDetections();
+                    updateStats();
+                }
+
+            } catch (err) {
+                setConflictStatus('ACLED error: ' + err.message, '#ff5252');
+                console.error('ACLED fetch error:', err);
+            }
         }
 
         // GDELT GKG via Supabase Edge Function proxy (GDELT v1 has no CORS)
@@ -2972,18 +3108,23 @@
             });
             // Update data note
             const note = document.getElementById('conflictDataNote');
-            if (src === 'ucdp') {
-                note.innerHTML = 'Verified events from <a href="https://ucdp.uu.se/" target="_blank" style="color:#00b0ff;">UCDP GED</a> (Uppsala Conflict Data Program) — academically coded with fatality estimates. Coverage: 2024+.';
+            if (src === 'acled') {
+                note.innerHTML = 'Expert-coded events from <a href="https://acleddata.com/" target="_blank" style="color:#ff6d00;">ACLED</a> (Armed Conflict Location &amp; Event Data) — human-coded with event types, actors, and fatality counts. Last 30 days, ~1-2 day lag. Data: Armed Conflict Location &amp; Event Data Project (ACLED); acleddata.com.';
+            } else if (src === 'ucdp') {
+                note.innerHTML = 'Verified events from <a href="https://ucdp.uu.se/" target="_blank" style="color:#00b0ff;">UCDP GED</a> (Uppsala Conflict Data Program) — academically coded with fatality estimates. Coverage through Dec 2024.';
             } else {
                 note.innerHTML = 'Live from <a href="https://www.gdeltproject.org/" target="_blank" style="color:#e040fb;">GDELT</a> Global Knowledge Graph — updates every 15 min. Events extracted from worldwide news coverage, geolocated to mentioned places.';
             }
-            // Update legend title color
+            // Update legend title
             const legendTitle = document.querySelector('#conflictLegend .legend-title');
-            if (legendTitle) legendTitle.textContent = src === 'ucdp' ? 'UCDP Conflict' : 'GDELT Conflict';
+            if (legendTitle) {
+                legendTitle.textContent = src === 'acled' ? 'ACLED Conflict' : src === 'ucdp' ? 'UCDP Conflict' : 'GDELT Conflict';
+            }
 
             // Fetch if needed, then render
             if (conflictVisible) {
-                if (src === 'ucdp') fetchUcdpConflict();
+                if (src === 'acled') fetchAcledConflict();
+                else if (src === 'ucdp') fetchUcdpConflict();
                 else fetchGdeltConflict();
             }
         }
@@ -3007,7 +3148,8 @@
             }
 
             if (conflictVisible) {
-                if (conflictSource === 'ucdp') fetchUcdpConflict();
+                if (conflictSource === 'acled') fetchAcledConflict();
+                else if (conflictSource === 'ucdp') fetchUcdpConflict();
                 else fetchGdeltConflict();
             }
         }
@@ -3053,7 +3195,7 @@
             const topCountry = Object.entries(byCty).sort((a,b) => b[1] - a[1])[0];
 
             let middleStat;
-            if (conflictSource === 'ucdp') {
+            if (conflictSource === 'ucdp' || conflictSource === 'acled') {
                 middleStat = `
                     <div class="conflict-stat-val" style="color: #ff5252;">${totalFatalities.toLocaleString()}</div>
                     <div class="conflict-stat-label">Fatalities</div>`;
@@ -3207,8 +3349,8 @@
                     .map(([t, n]) => `<div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:${typeColors[t]}">${t}</span><span style="color:var(--text-secondary)">${n}</span></div>`)
                     .join('');
 
-                const clusterSrcLabel = conflictSource === 'ucdp' ? 'UCDP' : 'GDELT';
-                const clusterSrcColor = conflictSource === 'ucdp' ? '#00b0ff' : '#e040fb';
+                const clusterSrcLabel = conflictSource === 'acled' ? 'ACLED' : conflictSource === 'ucdp' ? 'UCDP' : 'GDELT';
+                const clusterSrcColor = conflictSource === 'acled' ? '#ff6d00' : conflictSource === 'ucdp' ? '#00b0ff' : '#e040fb';
                 let html = `<div class="popup-conflict-header" style="color:${clusterSrcColor};">${count.toLocaleString()} ${clusterSrcLabel} Events</div>`;
                 html += `<div style="margin:6px 0;font-size:10px;">${typeRows}</div>`;
 
@@ -3335,14 +3477,26 @@
                                    typeKey === 'protests' ? 'popup-conflict-explosions' : 'popup-conflict-violence';
 
                 const isUcdp = p._ucdp === true || p._ucdp === 'true';
-                const srcLabel = isUcdp ? 'UCDP' : 'GDELT';
-                const srcColor = isUcdp ? '#00b0ff' : '#e040fb';
+                const isAcled = p._acled === true || p._acled === 'true';
+                const srcLabel = isAcled ? 'ACLED' : isUcdp ? 'UCDP' : 'GDELT';
+                const srcColor = isAcled ? '#ff6d00' : isUcdp ? '#00b0ff' : '#e040fb';
 
                 let html = `<div class="popup-conflict-header ${colorClass}">${srcLabel} — ${p.event_type}</div>`;
                 html += `<div class="popup-row"><span class="popup-key">Date</span><span class="popup-val">${p.event_date || '—'}${p.date_end && p.date_end !== p.event_date ? ' → ' + p.date_end : ''}</span></div>`;
                 html += `<div class="popup-row"><span class="popup-key">Location</span><span class="popup-val">${p.location || p.country}</span></div>`;
 
-                if (isUcdp) {
+                if (isAcled) {
+                    html += `<div class="popup-row"><span class="popup-key">Type</span><span class="popup-val" style="font-size:9px;">${p.sub_event_type}</span></div>`;
+                    if (p.actor1) html += `<div class="popup-row"><span class="popup-key">Actor 1</span><span class="popup-val" style="font-size:9px;">${p.actor1}</span></div>`;
+                    if (p.actor2) html += `<div class="popup-row"><span class="popup-key">Actor 2</span><span class="popup-val" style="font-size:9px;">${p.actor2}</span></div>`;
+                    const fat = parseInt(p.fatalities) || 0;
+                    if (fat > 0) {
+                        html += `<div class="popup-row"><span class="popup-key">Fatalities</span><span class="popup-val" style="color:#ff5252;font-weight:600;">${fat}</span></div>`;
+                    }
+                    if (p.civilian_targeting) html += `<div class="popup-row"><span class="popup-key">Targeting</span><span class="popup-val" style="color:#ff5252;">${p.civilian_targeting}</span></div>`;
+                    if (p.source) html += `<div class="popup-row"><span class="popup-key">Source</span><span class="popup-val" style="font-size:8px;">${p.source}</span></div>`;
+                    if (p.notes) html += `<div class="popup-row"><span class="popup-key">Detail</span><span class="popup-val" style="font-size:8px;">${p.notes.length > 200 ? p.notes.substring(0, 200) + '…' : p.notes}</span></div>`;
+                } else if (isUcdp) {
                     html += `<div class="popup-row"><span class="popup-key">Conflict</span><span class="popup-val" style="font-size:9px;">${p.sub_event_type}</span></div>`;
                     if (p.dyad_name) html += `<div class="popup-row"><span class="popup-key">Actors</span><span class="popup-val" style="font-size:9px;">${p.dyad_name}</span></div>`;
                     const best = parseInt(p.deaths_best) || 0;
