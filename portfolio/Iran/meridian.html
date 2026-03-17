@@ -1233,6 +1233,7 @@
             <div class="logo-sub">Thermal Anomaly Monitor</div>
         </div>
         <div class="topbar-right">
+            <span id="utcClock" style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.5px;"></span>
             <span id="statusBadge" class="status-badge status-ready">Ready</span>
             <span id="lastUpdate" class="last-update"></span>
         </div>
@@ -1670,6 +1671,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
     <script>
         // ═══════════════════════════════════════════
+        // UTC CLOCK
+        // ═══════════════════════════════════════════
+        function updateUtcClock() {
+            const now = new Date();
+            const hh = String(now.getUTCHours()).padStart(2, '0');
+            const mm = String(now.getUTCMinutes()).padStart(2, '0');
+            const ss = String(now.getUTCSeconds()).padStart(2, '0');
+            const dd = String(now.getUTCDate()).padStart(2, '0');
+            const mon = now.toLocaleString('en', { month: 'short', timeZone: 'UTC' }).toUpperCase();
+            const yyyy = now.getUTCFullYear();
+            document.getElementById('utcClock').textContent = `${dd} ${mon} ${yyyy} ${hh}:${mm}:${ss} UTC`;
+        }
+        updateUtcClock();
+        setInterval(updateUtcClock, 1000);
+
+        // ═══════════════════════════════════════════
         // CONFIGURATION
         // ═══════════════════════════════════════════
 
@@ -1771,10 +1788,10 @@
                     source: 'openmaptiles',
                     'source-layer': 'boundary',
                     filter: ['all', ['==', 'admin_level', 2], ['!=', 'maritime', 1]],
+                    layout: { 'line-cap': 'round', 'line-join': 'round' },
                     paint: {
-                        'line-color': 'rgba(200, 200, 220, 0.6)',
-                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.2, 6, 2, 10, 2.5],
-                        'line-dasharray': [4, 2]
+                        'line-color': 'rgba(255, 255, 255, 0.45)',
+                        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.5, 6, 2.5, 10, 3]
                     }
                 });
 
