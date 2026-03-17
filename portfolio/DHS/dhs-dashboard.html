@@ -968,6 +968,155 @@
     ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
+    /* ─── CONTRACT SEARCH ─── */
+    .search-wrap {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      background: rgba(6, 11, 20, 0.5);
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+    .search-input:focus {
+      border-color: var(--accent-border);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.875rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      pointer-events: none;
+    }
+    .search-count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .contract-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+    .contract-table thead th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      text-align: left;
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid var(--border-strong);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+    .contract-table thead th:hover {
+      color: var(--text-pure);
+    }
+    .contract-table thead th.sort-active {
+      color: var(--text-pure);
+    }
+    .contract-table tbody tr {
+      border-bottom: 1px solid var(--border-mid);
+      transition: background 0.15s ease;
+    }
+    .contract-table tbody tr:hover {
+      background: var(--surface-2);
+    }
+    .contract-table td {
+      padding: 0.625rem 0.75rem;
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+    .contract-table td:first-child {
+      color: var(--text-pure);
+      font-weight: 500;
+    }
+    .contract-table td.amt {
+      font-family: 'IBM Plex Mono', monospace;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      text-align: right;
+    }
+    .contract-table td.yr {
+      font-family: 'IBM Plex Mono', monospace;
+      white-space: nowrap;
+    }
+    .show-more-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(6, 11, 20, 0.5);
+      border: 1px solid var(--border-mid);
+      border-radius: 6px;
+      color: var(--text-label);
+      padding: 0.625rem 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      margin-top: 1rem;
+    }
+    .show-more-btn:hover {
+      background: var(--surface-2);
+      color: var(--text-pure);
+    }
+    .cat-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .cat-bar-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      min-width: 180px;
+      flex-shrink: 0;
+    }
+    .cat-bar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(6, 11, 20, 0.5);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .cat-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--grad-g03);
+      transition: width 0.4s ease;
+    }
+    .cat-bar-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .contract-table { font-size: 0.75rem; }
+      .contract-table td, .contract-table th { padding: 0.5rem; }
+      .cat-bar-label { min-width: 120px; font-size: 0.6875rem; }
+      .cat-bar-val { min-width: 70px; font-size: 0.625rem; }
+    }
+
     /* ─── UTILITY ─── */
     .hidden { display: none !important; }
     .mt-sm { margin-top: 1rem; }
@@ -1057,7 +1206,7 @@
     <div class="header-inner">
       <div class="header-eyebrow">
         <span class="live-dot"></span>
-        Subtxt Press &mdash; Report
+        Subtxt Press &mdash; Ongoing Project
       </div>
       <h1>Dept. of Homeland Security</h1>
       <p class="header-sub">Mapping the Surveillance Infrastructure</p>
@@ -1074,6 +1223,7 @@
       <button class="nav-btn" onclick="showLayer(event,'field')">Field Tools</button>
       <button class="nav-btn" onclick="showLayer(event,'policy')">Policy Framework</button>
       <button class="nav-btn" onclick="showLayer(event,'actors')">Key Players</button>
+      <button class="nav-btn" onclick="showLayer(event,'contractors')">Contractors</button>
     </div>
   </nav>
 
@@ -1098,13 +1248,17 @@
         <div class="stat-num">$970M</div>
         <div class="stat-lbl">Palantir Contracts<br>2025</div>
       </div>
+      <div class="stat-card">
+        <div class="stat-num">6,800+</div>
+        <div class="stat-lbl">DHS Contractors<br>Leaked March 2026</div>
+      </div>
     </div>
 
     <!-- ─── LAYER 1: DATA COLLECTION ─── -->
     <section class="layer-section layer-content reveal" data-layer="data" id="layer-data">
       <div class="section-label">Layer 01 &mdash; Data Collection &amp; Ingestion</div>
       <h2>Data Collection</h2>
-      <p class="layer-desc">Raw data capture from field operations, government databases, and social media</p>
+      <p class="layer-desc">Raw data capture from field operations, government databases and social media</p>
 
       <div class="card-grid">
 
@@ -1221,7 +1375,7 @@
     <section class="layer-section layer-content reveal" data-layer="watchlist" id="layer-watchlist">
       <div class="section-label">Layer 02 &mdash; Watchlist &amp; Processing Systems</div>
       <h2>Watchlists</h2>
-      <p class="layer-desc">Linking individuals, assigning risk scores, and generating intelligence reports</p>
+      <p class="layer-desc">Linking individuals, assigning risk scores and generating intelligence reports</p>
 
       <div class="card-grid">
 
@@ -1345,7 +1499,7 @@
     <section class="layer-section layer-content reveal" data-layer="palantir" id="layer-palantir">
       <div class="section-label">Layer 03 &mdash; Palantir Integration Layer</div>
       <h2>Palantir Layer</h2>
-      <p class="layer-desc">The brain: where all data is integrated, analyzed, and made searchable</p>
+      <p class="layer-desc">The brain: where all data is integrated, analyzed and made searchable</p>
 
       <div class="card-grid">
 
@@ -1491,7 +1645,7 @@
 
       <div class="db-panel" id="db-panel" hidden>
         <h4>The 28+ Databases Accessible Through IRS-NG</h4>
-        <p>According to leaked DHS documents, the Intelligence Reporting System — Next Generation gives federal agents simultaneous access to at least 28 different databases, plus DMV records, seized device data, and "certain law enforcement and/or intelligence data."</p>
+        <p>According to leaked DHS documents, the Intelligence Reporting System — Next Generation gives federal agents simultaneous access to at least 28 different databases, plus DMV records, seized device data and "certain law enforcement and/or intelligence data."</p>
         <div class="db-grid">
           <div class="db-cat">
             <h5>Terrorism &amp; Watchlists</h5>
@@ -1564,7 +1718,7 @@
             </ul>
           </div>
         </div>
-        <p><strong>Result:</strong> A single domestic terrorism investigation can query travel history, criminal records, biometrics, visa status, school enrollment, seized assets, death records, and device data — all without a warrant.</p>
+        <p><strong>Result:</strong> A single domestic terrorism investigation can query travel history, criminal records, biometrics, visa status, school enrollment, seized assets, death records and device data — all without a warrant.</p>
       </div>
 
       <div class="info-alert info-box mt-md">
@@ -1802,7 +1956,7 @@
     <section class="layer-section layer-content reveal" data-layer="actors" id="layer-actors">
       <div class="section-label">Key Players &mdash; Hover or tap to reveal</div>
       <h2>Key Players</h2>
-      <p class="layer-desc">The network of individuals whose financial interests, political decisions, and policy choices built and maintain the surveillance apparatus</p>
+      <p class="layer-desc">The network of individuals whose financial interests, political decisions and policy choices built and maintain the surveillance apparatus</p>
 
       <div class="flip-grid">
 
@@ -1887,6 +2041,196 @@
       </div>
     </section>
 
+    <!-- ─── LAYER 6: CONTRACTOR ECOSYSTEM ─── -->
+    <section class="layer-section layer-content reveal" data-layer="contractors" id="layer-contractors">
+      <div class="section-label">Layer 06 &mdash; The Contractor Ecosystem</div>
+      <h2>Contractor Ecosystem</h2>
+      <p class="layer-desc">On March 1, 2026, hacktivists breached DHS's Office of Industry Partnership (oip.dhs.gov) and leaked the details of 6,800+ organizations that applied for DHS contracts &mdash; and the 1,409 contracts awarded totaling $844.6 million.</p>
+
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="sys-card">
+          <h3>6,885</h3>
+          <div class="card-fn">Organizations Applied</div>
+          <div class="card-body">
+            <p>Private companies, defense contractors, universities and government agencies &mdash; all seeking DHS contracts through the Office of Industry Partnership.</p>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>1,409</h3>
+          <div class="card-fn">Contracts Awarded</div>
+          <div class="card-body">
+            <p>Won contracts spanning SBIR, LRBAA and SVIP programs from 2004 to 2025, awarded to 640 unique companies.</p>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>$844.6M</h3>
+          <div class="card-fn">Total Award Value</div>
+          <div class="card-body">
+            <p>Combined value of all awarded contracts. This is the R&amp;D pipeline &mdash; operational contracts (like Palantir's $970M) flow through separate procurement.</p>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>50 States</h3>
+          <div class="card-fn">Geographic Spread</div>
+          <div class="card-body">
+            <p>Top states: California (947), Virginia (859), Maryland (444), Texas (365), Florida (345). The beltway corridor dominates.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label mt-md">Contract Spending by Category</div>
+      <div style="padding: 1.25rem 0;">
+        <div class="cat-bar">
+          <div class="cat-bar-label">Border &amp; Maritime</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:100%"></div></div>
+          <div class="cat-bar-val">$584.5M</div>
+        </div>
+        <div class="cat-bar">
+          <div class="cat-bar-label">Surveillance &amp; Tracking</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:41.6%"></div></div>
+          <div class="cat-bar-val">$243.4M</div>
+        </div>
+        <div class="cat-bar">
+          <div class="cat-bar-label">Intelligence &amp; Analytics</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:35.7%"></div></div>
+          <div class="cat-bar-val">$208.9M</div>
+        </div>
+        <div class="cat-bar">
+          <div class="cat-bar-label">Chemical &amp; Explosive Detection</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:30.3%"></div></div>
+          <div class="cat-bar-val">$177.3M</div>
+        </div>
+        <div class="cat-bar">
+          <div class="cat-bar-label">Cyber &amp; Digital</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:29.2%"></div></div>
+          <div class="cat-bar-val">$170.6M</div>
+        </div>
+        <div class="cat-bar">
+          <div class="cat-bar-label">Immigration &amp; Screening</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:28.2%"></div></div>
+          <div class="cat-bar-val">$164.8M</div>
+        </div>
+        <div class="cat-bar">
+          <div class="cat-bar-label">Communications &amp; Social Media</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:24.8%"></div></div>
+          <div class="cat-bar-val">$144.7M</div>
+        </div>
+        <div class="cat-bar">
+          <div class="cat-bar-label">Biometrics &amp; Identity</div>
+          <div class="cat-bar-track"><div class="cat-bar-fill" style="width:23.7%"></div></div>
+          <div class="cat-bar-val">$138.4M</div>
+        </div>
+      </div>
+
+      <div class="section-label mt-md">Notable Applicants in the Leak</div>
+      <div class="card-grid card-grid-sm">
+        <div class="sys-card">
+          <h3>Palantir Technologies</h3>
+          <div class="card-fn">Denver, CO</div>
+          <div class="card-body">
+            <p>The primary systems integrator for ICE/DHS surveillance. Applied through OIP in addition to their massive sole-source contracts ($970M+) through other procurement channels.</p>
+          </div>
+          <div class="tags">
+            <span class="tag hot">$970M+ via other channels</span>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>Anduril Industries</h3>
+          <div class="card-fn">Irvine, CA</div>
+          <div class="card-body">
+            <p>Peter Thiel-backed defense startup. Builds autonomous surveillance towers and drone systems for border monitoring.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Border Tech</span>
+            <span class="tag">Thiel-backed</span>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>Raytheon</h3>
+          <div class="card-fn">13 Entries &mdash; Multiple Divisions</div>
+          <div class="card-body">
+            <p>Won contracts including SeaSCRAPER ($6.3M) undersea surveillance cable and maritime domain awareness tools. 13 separate division entries in the applicant pool.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">$7.3M awarded</span>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>Booz Allen Hamilton</h3>
+          <div class="card-fn">McLean, VA</div>
+          <div class="card-body">
+            <p>Won identity and biometric fusion contracts ($3.5M+) including Identity Capability Exploration and Multimodal Biometric Fusion studies feeding IDENT/HART.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Biometrics</span>
+            <span class="tag">Identity</span>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>Microsoft &amp; Amazon</h3>
+          <div class="card-fn">Cloud &amp; AI Infrastructure</div>
+          <div class="card-body">
+            <p>Both appear in the applicant pool. Microsoft Corporation (Redmond, WA) and Amazon Web Services &mdash; providing the cloud backbone for DHS systems.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Cloud</span>
+            <span class="tag">AI</span>
+          </div>
+        </div>
+        <div class="sys-card">
+          <h3>HBGary</h3>
+          <div class="card-fn">2 Contracts &mdash; $1.1M</div>
+          <div class="card-body">
+            <p>Infamous for proposing to attack WikiLeaks and journalists. Won DHS botnet detection contracts before being exposed by Anonymous in 2011.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Cyber</span>
+            <span class="tag sec">Exposed by Anonymous</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label mt-md">Searchable Contract Database</div>
+      <div class="search-wrap">
+        <span class="search-icon">&#9906;</span>
+        <input type="text" class="search-input" id="contract-search" placeholder="Search by company, project name, or keyword..." autocomplete="off">
+      </div>
+      <div class="search-count" id="search-count">Showing top 25 surveillance-relevant contracts of 1,409 total</div>
+      <div style="overflow-x: auto;">
+        <table class="contract-table" id="contract-table">
+          <thead>
+            <tr>
+              <th onclick="sortContracts('c')" id="th-c">Company</th>
+              <th onclick="sortContracts('t')" id="th-t">Project</th>
+              <th onclick="sortContracts('a')" id="th-a" class="sort-active">Amount ↓</th>
+              <th onclick="sortContracts('d')" id="th-d">Year</th>
+            </tr>
+          </thead>
+          <tbody id="contract-tbody"></tbody>
+        </table>
+      </div>
+      <button class="show-more-btn" id="show-more-btn" onclick="showMoreContracts()">Show more contracts →</button>
+
+      <div class="info-alert info-box mt-md">
+        <div class="info-head">▲ &nbsp;What This Leak Reveals</div>
+        <p>The OIP breach exposes the full R&amp;D pipeline behind DHS surveillance &mdash; <strong>6,800+ organizations</strong> competing to build the tools documented in this dashboard. While the largest operational contracts (Palantir, NEC) flow through separate procurement, this data reveals the <strong>breadth of the surveillance-industrial complex</strong>: from <strong>$59.2M biometric accuracy programs</strong> (SAIC's DEBIASE) to <strong>SIM card cracking tools</strong> ($69K to EWA Government Systems) to <strong>social media analytics toolkits</strong> (Progeny Systems).</p>
+        <p>The pipeline runs from small Phase I research grants ($100K) to multi-million dollar Phase II deployments &mdash; a conveyor belt turning academic research into field-deployed surveillance technology.</p>
+      </div>
+
+      <div class="flow-box">
+        <h4>The R&amp;D to Deployment Pipeline</h4>
+        <div class="flow-item">SBIR Phase I ($100K research) <span class="flow-arrow">→</span> Phase II ($750K prototype) <span class="flow-arrow">→</span> Operational contract (millions)</div>
+        <div class="flow-item">University biometric research <span class="flow-arrow">→</span> SAIC DEBIASE ($59.2M) <span class="flow-arrow">→</span> IDENT / HART deployment</div>
+        <div class="flow-item">Border sensor R&amp;D <span class="flow-arrow">→</span> Anduril tower contracts <span class="flow-arrow">→</span> CBP field operations</div>
+        <div class="flow-item">Social media analytics research <span class="flow-arrow">→</span> SLIPSTREAM / IRS-NG integration <span class="flow-arrow">→</span> Domestic surveillance</div>
+      </div>
+
+      <div class="info-neutral info-box mt-md">
+        <div class="info-head">◉ &nbsp;Source</div>
+        <p>Data from the <strong>"ICE Contracts"</strong> leak published by <strong>Distributed Denial of Secrets</strong> on March 1, 2026. Originally exfiltrated from <strong>DHS Office of Industry Partnership</strong> (oip.dhs.gov) by a group calling themselves the <strong>"Department of Peace."</strong> Contains details on 6,681 organizations that applied for DHS contracts and 1,409 awarded contracts. Personal identifying information has been excluded from this dashboard.</p>
+      </div>
+    </section>
+
     <!-- ─── REAL CASES ─── -->
     <section class="layer-section reveal" id="cases">
       <div class="section-label">Data Flow to Consequences &mdash; Real Cases</div>
@@ -1924,7 +2268,7 @@
           <h3>Dustin Ragsdale</h3>
           <div class="card-fn">Portland — The "Aggressive" Protester</div>
           <div class="card-body">
-            <p><strong>Dustin Ragsdale</strong> holds a pride flag, wears Batman sweatpants, and uses a megaphone at protests. Lives across from an ICE detention center. No crime alleged.</p>
+            <p><strong>Dustin Ragsdale</strong> holds a pride flag, wears Batman sweatpants and uses a megaphone at protests. Lives across from an ICE detention center. No crime alleged.</p>
           </div>
           <div class="case-detail" id="case-2" hidden>
             <div class="case-step"><span class="arrow">→</span> DHS "open-source research" notes he's "aggressive to counterprotesters"</div>
@@ -2029,7 +2373,7 @@
       <div class="info-neutral info-box mt-md">
         <div class="info-head">◉ &nbsp;The Pattern</div>
         <p>Every case follows the same architecture: <strong>data collected for legitimate purposes</strong> (tax compliance, healthcare, court observation, mutual aid) → <strong>fed into Palantir's systems via IRS-NG</strong> → <strong>weaponized for surveillance and enforcement</strong> → <strong>constitutional rights chilled</strong>.</p>
-        <p>The "evidence" standard is dystopian: <strong>Fox News segments, random Twitter posts, and living near an ICE facility</strong> are treated as intelligence. DHS agents admit to "Alex Jones-level paranoia and wild leaps" in their analysis. The infrastructure doesn't just target "criminals" — it transforms ordinary civic participation into grounds for permanent federal surveillance.</p>
+        <p>The "evidence" standard is dystopian: <strong>Fox News segments, random Twitter posts and living near an ICE facility</strong> are treated as intelligence. DHS agents admit to "Alex Jones-level paranoia and wild leaps" in their analysis. The infrastructure doesn't just target "criminals" — it transforms ordinary civic participation into grounds for permanent federal surveillance.</p>
       </div>
     </section>
 
@@ -2037,7 +2381,7 @@
     <section class="layer-section reveal" id="network">
       <div class="section-label">Network Map &mdash; Follow the money and influence</div>
       <h2>The Thiel-Musk-Miller Network</h2>
-      <p class="layer-desc">How political donations, personal relationships, and policy decisions created a closed loop of profit and power</p>
+      <p class="layer-desc">How political donations, personal relationships and policy decisions created a closed loop of profit and power</p>
 
       <div class="net-rows">
         <div class="net-row">
@@ -2150,6 +2494,10 @@
           <div class="tl-year">Jan 2026</div>
           <div class="tl-event">Klippenstein reveals secret watchlists; 404 Media exposes ELITE; ICE agent tells observer she's in "domestic terrorist" database</div>
         </div>
+        <div class="tl-item">
+          <div class="tl-year">Mar 2026</div>
+          <div class="tl-event">"Department of Peace" breaches DHS Office of Industry Partnership; leaks details of 6,800+ contractors and 1,409 awarded contracts via Distributed Denial of Secrets</div>
+        </div>
 
       </div>
     </section>
@@ -2158,7 +2506,7 @@
     <section class="layer-section reveal" id="sources">
       <div class="section-label">Sources &amp; References</div>
       <h2>Sources</h2>
-      <p class="layer-desc">This dashboard synthesizes reporting from investigative journalists, leaked government documents, federal contracts, and FOIA requests. All claims are sourced from publicly available documents or verified reporting.</p>
+      <p class="layer-desc">This dashboard synthesizes reporting from investigative journalists, leaked government documents, federal contracts and FOIA requests. All claims are sourced from publicly available documents or verified reporting.</p>
 
       <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
 
@@ -2182,7 +2530,7 @@
                 <a href="https://www.404media.co/" target="_blank" rel="noopener">404media.co</a>
               </li>
               <li>
-                <strong>Alex Ellis / Subtxt Press</strong> — "The Deportation Machine Comes Home" (Jan 2026)<br>
+                <strong>Subtxt Press</strong> — "The Deportation Machine Comes Home" (Jan 2026)<br>
                 <span class="src-meta">Comprehensive ICE surveillance infrastructure investigation</span>
                 <a href="https://substack.com/@subtxtpress" target="_blank" rel="noopener">substack.com/@subtxtpress</a>
               </li>
@@ -2215,6 +2563,23 @@
               <li>
                 <strong>Executive Order</strong> — "Eliminating Information Silos"<br>
                 <span class="src-meta">Cross-agency data sharing mandate (March 2025)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sys-card source-card">
+          <h3>Leaked Data</h3>
+          <div class="card-fn">Breach Disclosures</div>
+          <div class="card-body">
+            <ul>
+              <li>
+                <strong>DHS OIP Breach</strong> — "Department of Peace" (March 2026)<br>
+                <span class="src-meta">6,681 contractor applicants + 1,409 awarded contracts from DHS Office of Industry Partnership</span>
+              </li>
+              <li>
+                <strong>Distributed Denial of Secrets</strong> — "ICE Contracts" Release<br>
+                <span class="src-meta">Published March 1, 2026. Source data for Layer 06 contractor analysis</span>
               </li>
             </ul>
           </div>
@@ -2308,11 +2673,15 @@
               </li>
               <li>
                 <strong>Interactive Dashboards</strong><br>
-                <span class="src-meta">Index of recent <strong><a href="../home/portfolio/portfolio.html" target="_blank">data projects</a></strong> from TX data centers to Epstein's Amazon Account.</span>
+                <span class="src-meta">Index of recent <strong><a href="../home/portfolio/portfolio.html" target="_blank">data projects</a></strong> from real-time satellite thermal intelligence for the Middle East theater to 112+ registered qualifying data centers in Texas &mdash; tracking ownership, shell entities, crypto miners on cloud exemptions and community costs.</span>
               </li>
               <li>
                 <strong>Subtxt Press Editorial Policies</strong><br>
                 <span class="src-meta">Find our <strong><a href="policies.html" target="_blank">on/off the record ground rules</a></strong>, how to contact us securely and various editorial policies.</span>
+              </li>
+              <li>
+                <strong>Project Documentation</strong><br>
+                <span class="src-meta">Technical <strong><a href="README.md" target="_blank">README</a></strong> with data schemas, query examples and methodology for the leaked contractor datasets.</span>
               </li>
             </ul>
           </div>
@@ -2321,7 +2690,7 @@
       </div>
 
       <div class="about-box">
-        <strong>About This Dashboard:</strong> Created by <strong><a href="https://substack.com/@subtxtpress" target="_blank">Subtxt Press</a></strong> as part of ongoing investigative reporting on corruption, extremism in law enforcement, due process and institutional failures. This dashboard is a living document&mdash;updated as new information becomes available through FOIA requests, leaked documents, and verified reporting.
+        <strong>About This Dashboard:</strong> Created by <strong><a href="https://substack.com/@subtxtpress" target="_blank">Subtxt Press</a></strong> as part of ongoing investigative reporting on corruption, extremism in law enforcement, due process and institutional failures. This dashboard is a living document&mdash;updated as new information becomes available through FOIA requests, leaked documents and verified reporting.
       </div>
 
     </section>
@@ -2388,6 +2757,130 @@
     }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ─── CONTRACT SEARCH & TABLE ─── */
+    const CONTRACT_DATA = [
+      {c:"SAIC",t:"DEBIASE — Biometric & Identity Accuracy, Scalability and Equitability",a:59194225,d:"2023"},
+      {c:"Cyber Apex Solutions",t:"Non-Traditional Approach to Support the Cyber Apex Program",a:70000000,d:"2017"},
+      {c:"Underwriters Laboratories",t:"Emergency Response Information Fusion & Innovative Analytics Hub",a:29730149,d:"2023"},
+      {c:"Syzygy Integration",t:"Soter (Border Security)",a:24681729,d:"2021"},
+      {c:"Auburn University",t:"Detection Canine Sciences, Innovation, Technology & Education",a:23999035,d:"2022"},
+      {c:"Phoenix Nuclear Labs",t:"IN-STINCT — Neutron Screening for Threats & Narcotics in Cargo",a:16868666,d:"2021"},
+      {c:"Raytheon BBN Technologies",t:"SeaSCRAPER: Seabottom Surveillance Cable for Point-of-Entry Risks",a:6261046,d:"2022"},
+      {c:"Corner Alliance",t:"Integrating the Smart Community to Improve Information Sharing",a:3836311,d:"2017"},
+      {c:"Booz Allen Hamilton",t:"Identity Capability Exploration",a:2741110,d:"2020"},
+      {c:"IMSAR LLC",t:"Counter Unmanned Aerial Systems Solution",a:2140410,d:"2023"},
+      {c:"SUNY Research Foundation",t:"Extremist Violent & Nonviolent US (EVAN-US) Database",a:2083647,d:"2020"},
+      {c:"Kiernan Group Holdings",t:"Adversarial Intimacy Exploitation",a:1640696,d:"2014"},
+      {c:"TeleSecurity Sciences",t:"Automated Threat Recognition for Explosives in Air Cargo",a:1618510,d:"2020"},
+      {c:"International Biometric Group",t:"Synthetic Biometric Image Generator (fingerprint, face, iris)",a:1375000,d:"2011"},
+      {c:"Shine Micro",t:"Low Cost AIS Transponders (vessel tracking)",a:1210026,d:"2004"},
+      {c:"Charles River Analytics",t:"Tracking Nuclear Threats in Security Camera Networks (TNT-SCAN)",a:1009986,d:"2019"},
+      {c:"Mod9 Technologies",t:"Privacy Protecting Conversation Recorder",a:1009963,d:"2016"},
+      {c:"Intellisense Systems",t:"Maritime Activity Recognition through Video Analytics",a:999988,d:"2025"},
+      {c:"Intellisense Systems",t:"Infrared & Optical Wilderness Location & Surveillance System",a:998996,d:"2018"},
+      {c:"Prescient Edge",t:"DHS SBIR — Surveillance & Intelligence",a:985950,d:"2022"},
+      {c:"SNA International",t:"Biometric Standards: Pilot Software for Rapid DNA",a:947588,d:"2017"},
+      {c:"VTO Inc.",t:"Drone Forensics",a:928541,d:"2017"},
+      {c:"SRI International",t:"Automatic Speaker Verification for USCIS Applications",a:851953,d:"2019"},
+      {c:"C360 Technologies",t:"360 Degree Single Sensor Camera System",a:843590,d:"2021"},
+      {c:"Booz Allen Hamilton",t:"Multimodal Biometric Fusion Study & Pilot",a:775163,d:"2017"},
+      {c:"Intelligent Automation",t:"DARTS: Dismounted Adversary Recognition & Tracking System",a:749996,d:"2018"},
+      {c:"Neya Systems",t:"Machine Learning for Iris Recognition Image Quality Assessment",a:732805,d:"2012"},
+      {c:"Member of the Family LLC",t:"Mitigation of Contact Lens & Eye Surgery Challenges in Iris Recognition",a:749990,d:"2012"},
+      {c:"intuVision",t:"Smart Sensing & Tracking with Video and Sensor Collaboration",a:749914,d:"2009"},
+      {c:"21st Century Technologies",t:"Strategic Effects-based Approach to Determine Terrorist Attack Likelihood",a:749957,d:"2005"},
+      {c:"S34A Inc.",t:"Integrated Solution for SSD Forensics",a:749876,d:"2013"},
+      {c:"TIAX LLC",t:"Non-Contact Device for Latent Fingerprint Capture",a:749803,d:"2016"},
+      {c:"Advanced Liquid Logic",t:"Low-cost Rapid DNA Sequencer for Biometric Applications",a:741920,d:"2010"},
+      {c:"Trident Research",t:"Global Biometrics Gateway System",a:722055,d:"2009"},
+      {c:"LAURETTA AI",t:"Non-biometric Tracking of Persons of Interest",a:199637,d:"2023"},
+      {c:"Progeny Systems",t:"Scanigo: Social Media Analytics Toolkit",a:180191,d:"2015"},
+      {c:"Intellisense Systems",t:"Video Integrity through Secure Trusted Authentication",a:174987,d:"2025"},
+      {c:"Vadum Inc.",t:"Video Analysis of Drug & Human Smuggling Activities",a:174851,d:"2024"},
+      {c:"Idea Mind LLC",t:"VIBE: Versatile Integration for Biometric Equipment",a:174464,d:"2025"},
+      {c:"Integrated Biometrics",t:"Mobile Device to Biometric Collection Interconnection",a:167627,d:"2025"},
+      {c:"SNA International",t:"Reach-Back Capability for Fielded Rapid DNA Systems",a:149935,d:"2019"},
+      {c:"Intelligent Automation",t:"ARGUS: RF Sensing for Long-Duration Personnel Tracking",a:100000,d:"2013"},
+      {c:"Xandem Technology",t:"RF Tracking in Wooded Areas",a:100000,d:"2013"},
+      {c:"Lynntech",t:"Multi-Dimensional Digital Print Collection for DNA from Same Sample",a:100000,d:"2015"},
+      {c:"PercepTek",t:"Border Surveillance System",a:99968,d:"2006"},
+      {c:"AFIS and Biometrics Consulting",t:"Framework for Biometric Identification on the Move",a:99606,d:"2008"},
+      {c:"Parabon NanoLabs",t:"SNP-based Biometric Device — Identity & Kinship from DNA",a:99037,d:"2009"},
+      {c:"Raytheon",t:"Core Ontology for Maritime Domain Awareness Technologies",a:998840,d:"2018"},
+      {c:"HBGary",t:"Enterprise Botnet Detection System",a:100000,d:"2009"},
+      {c:"HBGary",t:"Enterprise Botnet Detection & Mitigation System",a:975000,d:"2010"},
+      {c:"EWA Government Systems",t:"Methods to Unlock PIN/PUK Codes from SIM Cards",a:69021,d:"2012"},
+      {c:"Physical Optics Corp.",t:"Real-time Information Contextual Correlation & Analysis",a:749346,d:"2017"},
+      {c:"Cobalt Solutions",t:"5G-based Passive Radar UAS Tracking & Targeting",a:750000,d:"2021"},
+      {c:"Toyon Research",t:"Signal Processing for Southern Border Surveillance System",a:198648,d:"2014"}
+    ];
+
+    let contractVisible = 25;
+    let contractSort = {key:'a', dir:-1};
+    let contractFilter = '';
+
+    function getFilteredContracts() {
+      let list = CONTRACT_DATA;
+      if (contractFilter) {
+        const q = contractFilter.toLowerCase();
+        list = list.filter(r => r.c.toLowerCase().includes(q) || r.t.toLowerCase().includes(q));
+      }
+      list = [...list].sort((a,b) => {
+        const va = a[contractSort.key], vb = b[contractSort.key];
+        if (typeof va === 'number') return (va - vb) * contractSort.dir;
+        return String(va).localeCompare(String(vb)) * contractSort.dir;
+      });
+      return list;
+    }
+
+    function renderContracts() {
+      const list = getFilteredContracts();
+      const show = list.slice(0, contractVisible);
+      const tbody = document.getElementById('contract-tbody');
+      tbody.innerHTML = show.map(r =>
+        `<tr><td>${r.c}</td><td>${r.t}</td><td class="amt">$${r.a.toLocaleString()}</td><td class="yr">${r.d}</td></tr>`
+      ).join('');
+      const countEl = document.getElementById('search-count');
+      if (contractFilter) {
+        countEl.textContent = `${list.length} contract${list.length!==1?'s':''} matching "${contractFilter}" — showing ${Math.min(contractVisible, list.length)}`;
+      } else {
+        countEl.textContent = `Showing ${Math.min(contractVisible, list.length)} of ${list.length} curated contracts (1,409 total in dataset)`;
+      }
+      const btn = document.getElementById('show-more-btn');
+      btn.style.display = contractVisible >= list.length ? 'none' : '';
+    }
+
+    function sortContracts(key) {
+      if (contractSort.key === key) {
+        contractSort.dir *= -1;
+      } else {
+        contractSort.key = key;
+        contractSort.dir = key === 'a' ? -1 : 1;
+      }
+      document.querySelectorAll('.contract-table thead th').forEach(th => {
+        th.classList.remove('sort-active');
+        th.textContent = th.textContent.replace(/ [↑↓]$/, '');
+      });
+      const th = document.getElementById('th-' + key);
+      th.classList.add('sort-active');
+      th.textContent += contractSort.dir === 1 ? ' ↑' : ' ↓';
+      contractVisible = 25;
+      renderContracts();
+    }
+
+    function showMoreContracts() {
+      contractVisible += 25;
+      renderContracts();
+    }
+
+    document.getElementById('contract-search').addEventListener('input', function() {
+      contractFilter = this.value.trim();
+      contractVisible = 25;
+      renderContracts();
+    });
+
+    renderContracts();
   </script>
 
 </body>
