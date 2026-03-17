@@ -374,7 +374,7 @@
       color: var(--text-secondary);
       border-left: 3px solid var(--accent);
       padding-left: 1rem;
-      max-width: 60ch;
+      /*max-width: 60ch;*/
       line-height: 1.5;
       margin-bottom: 2rem;
     }
@@ -1252,6 +1252,10 @@
         <div class="stat-num">6,800+</div>
         <div class="stat-lbl">DHS Contractors<br>Leaked March 2026</div>
       </div>
+      <div class="stat-card">
+        <div class="stat-num">84.4%</div>
+        <div class="stat-lbl">Noncitizens Self-Censoring<br>Social Media (UAW Survey)</div>
+      </div>
     </div>
 
     <!-- ─── LAYER 1: DATA COLLECTION ─── -->
@@ -1363,11 +1367,105 @@
 
       </div>
 
-      <div class="flow-box">
+      <div class="section-label mt-md">Social Media Surveillance Tools</div>
+      <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:1.25rem;">Commercial OSINT platforms licensed by DHS/ICE/CBP to monitor, scrape and analyze social media activity. Exposed in <em>UAW v. Department of State</em> (Case 1:25-cv-08566, Oct 2025).</p>
+
+      <div class="card-grid">
+
+        <div class="sys-card">
+          <h3>ShadowDragon / SocialNet</h3>
+          <div class="card-fn">Social Network Mapping (200+ platforms)</div>
+          <div class="card-body">
+            <ul>
+              <li>Maps connections across 200+ social media platforms</li>
+              <li>Builds relationship graphs from public posts</li>
+              <li>Licensed by both ICE and State Department</li>
+              <li>Used by Tiger Team to produce Reports of Analysis</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">ICE</span>
+            <span class="tag">State Dept</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Fivecast ONYX</h3>
+          <div class="card-fn">AI-Driven Open Source Intelligence</div>
+          <div class="card-body">
+            <ul>
+              <li>Automated OSINT with AI-driven analysis</li>
+              <li>Cross-platform social media monitoring</li>
+              <li>Licensed by CBP, ICE and TSA simultaneously</li>
+              <li>Deployed at National Vetting Center</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">CBP</span>
+            <span class="tag">ICE</span>
+            <span class="tag">TSA</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Babel X</h3>
+          <div class="card-fn">Multilingual Social Media Monitoring</div>
+          <div class="card-body">
+            <ul>
+              <li>DHS-wide license maintained since 2017</li>
+              <li>Multilingual content analysis and translation</li>
+              <li>Monitors foreign-language social media posts</li>
+              <li>Part of the National Targeting Center toolkit</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">DHS-wide</span>
+            <span class="tag hot">Since 2017</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Cobwebs / Pen-Link</h3>
+          <div class="card-fn">Web Intelligence Platform ($5.3M)</div>
+          <div class="card-body">
+            <ul>
+              <li>$5.3 million ICE contract</li>
+              <li>Deep and dark web monitoring</li>
+              <li>Automated identity resolution</li>
+              <li>Link analysis across web activity</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">ICE</span>
+            <span class="tag">$5.3M</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Skopenow</h3>
+          <div class="card-fn">Automated OSINT for Social Media</div>
+          <div class="card-body">
+            <ul>
+              <li>Automated social media profiling</li>
+              <li>Generates comprehensive digital dossiers</li>
+              <li>Licensed by both ICE and DHS</li>
+              <li>Behavioral pattern analysis</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">ICE</span>
+            <span class="tag">DHS</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flow-box" style="margin-top:2rem;">
         <h4>Data Flows</h4>
         <div class="flow-item">Field Reports <span class="flow-arrow">→</span> Fusion Centers <span class="flow-arrow">→</span> Federal Databases</div>
-        <div class="flow-item">Social Media <span class="flow-arrow">→</span> SLIPSTREAM <span class="flow-arrow">→</span> Intelligence Reports</div>
+        <div class="flow-item">Social Media <span class="flow-arrow">→</span> ShadowDragon / Babel X / Fivecast <span class="flow-arrow">→</span> Tiger Team ROAs <span class="flow-arrow">→</span> SLIPSTREAM <span class="flow-arrow">→</span> Intelligence Reports</div>
         <div class="flow-item">Agency Databases <span class="flow-arrow">→</span> DOGE Mega API <span class="flow-arrow">→</span> Palantir Integration</div>
+        <div class="flow-item"><strong>"Catch and Revoke" Pipeline:</strong> Tiger Team ROA <span class="flow-arrow">→</span> ICE flags individual <span class="flow-arrow">→</span> State Dept revokes visa <span class="flow-arrow">→</span> ICE arrest / deportation</div>
       </div>
     </section>
 
@@ -1618,6 +1716,8 @@
         <div class="flow-item">BLUEKEY/SIENNA <span class="flow-arrow">→</span> ALL: Metadata enriches all systems</div>
         <div class="flow-item">IDENT biometrics <span class="flow-arrow">→</span> TIDE (biometric-only nomination) <span class="flow-arrow">→</span> TSDB <span class="flow-arrow">→</span> TECS / ATS / No Fly</div>
         <div class="flow-item">CBP field encounter <span class="flow-arrow">→</span> EMA <span class="flow-arrow">→</span> TIDE <span class="flow-arrow">→</span> TSDB update (feedback loop)</div>
+        <div class="flow-item"><strong>Tiger Team (HSI Office of Intelligence):</strong> ShadowDragon + Babel X + Fivecast <span class="flow-arrow">→</span> Report of Analysis (ROA) <span class="flow-arrow">→</span> Field office or State Dept <span class="flow-arrow">→</span> Arrest or visa revocation</div>
+        <div class="flow-item"><strong>National Targeting Center + National Vetting Center:</strong> Centrally manage OSINT tool deployment <span class="flow-arrow">→</span> Feed watchlists, TSDB and ICM</div>
       </div>
     </section>
 
@@ -2026,6 +2126,42 @@
         </div>
 
         <div class="sys-card">
+          <h3>EO 14161 — "Protecting From Foreign Terrorists"</h3>
+          <div class="card-fn">Viewpoint-Based Screening (January 20, 2025)</div>
+          <div class="card-body">
+            <ul>
+              <li>Signed on inauguration day</li>
+              <li>Directs "enhanced vetting" of all visa applicants</li>
+              <li>Authorizes ideological screening of social media</li>
+              <li>Legal basis for the "Catch and Revoke" initiative</li>
+              <li>Cited in UAW v. DOS as enabling viewpoint discrimination</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">Trump Administration</span>
+            <span class="tag">State Dept</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>EO 14188 — "Protecting Against Invasion"</h3>
+          <div class="card-fn">Expanded Enforcement Powers (January 29, 2025)</div>
+          <div class="card-body">
+            <ul>
+              <li>Declares immigration emergency</li>
+              <li>Authorizes "all necessary resources" for enforcement</li>
+              <li>Enables interagency surveillance coordination</li>
+              <li>Provides legal cover for ICE social media monitoring</li>
+              <li>Works in tandem with EO 14161 to create dual legal basis</li>
+            </ul>
+          </div>
+          <div class="tags">
+            <span class="tag">Trump Administration</span>
+            <span class="tag">DHS</span>
+          </div>
+        </div>
+
+        <div class="sys-card">
           <h3>Section 287(g) Agreements</h3>
           <div class="card-fn">Local Law Enforcement Integration</div>
           <div class="card-body">
@@ -2070,6 +2206,7 @@
         <div class="flow-item">IRS-ICE agreement <span class="flow-arrow">→</span> W-2 data analyzed <span class="flow-arrow">→</span> ELITE identifies worksite raid targets</div>
         <div class="flow-item">HHS Medicaid order <span class="flow-arrow">→</span> Patient addresses extracted <span class="flow-arrow">→</span> ICM updates target locations</div>
         <div class="flow-item">287(g) agreement <span class="flow-arrow">→</span> Traffic stop <span class="flow-arrow">→</span> IDENT fingerprint match <span class="flow-arrow">→</span> ICE detainer</div>
+        <div class="flow-item">EO 14161 + 14188 <span class="flow-arrow">→</span> Tiger Team social media screening <span class="flow-arrow">→</span> ROA produced <span class="flow-arrow">→</span> "Catch and Revoke" <span class="flow-arrow">→</span> Visa revoked <span class="flow-arrow">→</span> ICE arrest</div>
       </div>
 
       <div class="info-neutral info-box mt-md">
@@ -2160,6 +2297,71 @@
             </div>
             <div class="flip-face flip-back">
               <div class="flip-detail">Issued memos defining immigration activists as potential domestic terrorists under NSPM-7. First implementation memo September 2025.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-wrap" title="Hover to flip" aria-label="Todd Lyons — click to reveal details">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-name">Todd Lyons</div>
+              <div class="flip-role">Acting ICE Director</div>
+              <div class="flip-hint">Hover to reveal →</div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="flip-detail">Oversees ICE operations including the Tiger Team and "Catch and Revoke" initiative. Directs social media surveillance targeting of noncitizens.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-wrap" title="Hover to flip" aria-label="Joseph Edlow — click to reveal details">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-name">Joseph Edlow</div>
+              <div class="flip-role">USCIS Director</div>
+              <div class="flip-hint">Hover to reveal →</div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="flip-detail">Manages visa revocation pipeline. USCIS's Fraud Prevention Unit generates "derog tips" that feed ICE enforcement actions against noncitizens.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-wrap" title="Hover to flip" aria-label="Troy Edgar — click to reveal details">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-name">Troy Edgar</div>
+              <div class="flip-role">Deputy DHS Secretary</div>
+              <div class="flip-hint">Hover to reveal →</div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="flip-detail">Coordinates interagency surveillance operations between DHS components. Oversees National Targeting Center and National Vetting Center.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-wrap" title="Hover to flip" aria-label="Roy Stanley — click to reveal details">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-name">Roy Stanley</div>
+              <div class="flip-role">HSI Office of Intelligence</div>
+              <div class="flip-hint">Hover to reveal →</div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="flip-detail">Runs the HSI Office of Intelligence. Oversees the Tiger Team — the dedicated unit that uses ShadowDragon, Babel X and Fivecast to produce Reports of Analysis on surveillance targets.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-wrap" title="Hover to flip" aria-label="Adam Leason — click to reveal details">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-name">Adam Leason</div>
+              <div class="flip-role">Miller's Deputy (DPC)</div>
+              <div class="flip-hint">Hover to reveal →</div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="flip-detail">Stephen Miller's deputy at the Domestic Policy Council. Helps direct the viewpoint-based screening program and coordinates between the White House and DHS enforcement.</div>
             </div>
           </div>
         </div>
@@ -2478,6 +2680,61 @@
         </div>
 
         <div class="sys-card">
+          <h3>Mahmoud Khalil</h3>
+          <div class="card-fn">Columbia — "Catch and Revoke" Target</div>
+          <div class="card-body">
+            <p><strong>Mahmoud Khalil</strong>, Columbia University graduate student and lawful permanent resident, organized campus protests. Visa revoked under "Catch and Revoke" initiative.</p>
+          </div>
+          <div class="case-detail" id="case-khalil" hidden>
+            <div class="case-step"><span class="arrow">→</span> Tiger Team analysts monitor his social media using ShadowDragon and Babel X</div>
+            <div class="case-step"><span class="arrow">→</span> Report of Analysis (ROA) produced documenting his protest activity</div>
+            <div class="case-step"><span class="arrow">→</span> ROA sent to State Department via "Catch and Revoke" pipeline</div>
+            <div class="case-step"><span class="arrow">→</span> State Dept revokes visa based on ROA — no criminal charge</div>
+            <div class="case-step"><span class="arrow">→</span> ICE arrests Khalil; detained and threatened with deportation</div>
+            <div class="case-step result">Result: Lawful permanent resident targeted for protest speech. The "Catch and Revoke" pipeline in action.</div>
+          </div>
+          <div class="card-actions">
+            <button class="act-btn primary" onclick="toggleCase('case-khalil',this)">Show details →</button>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>R&uuml;meysa &Ouml;zt&uuml;rk</h3>
+          <div class="card-fn">Tufts — Social Media Surveillance Target</div>
+          <div class="card-body">
+            <p><strong>R&uuml;meysa &Ouml;zt&uuml;rk</strong>, Tufts University student, flagged through social media surveillance. ICE attempted arrest based on viewpoint-based screening.</p>
+          </div>
+          <div class="case-detail" id="case-ozturk" hidden>
+            <div class="case-step"><span class="arrow">→</span> Social media posts critical of foreign policy flagged by OSINT tools</div>
+            <div class="case-step"><span class="arrow">→</span> Tiger Team produces Report of Analysis</div>
+            <div class="case-step"><span class="arrow">→</span> Visa status challenged based on "ideological" grounds per EO 14161</div>
+            <div class="case-step"><span class="arrow">→</span> ICE attempts detention</div>
+            <div class="case-step result">Result: Student targeted for social media speech. EO 14161's "enhanced vetting" used retroactively against existing visa holders.</div>
+          </div>
+          <div class="card-actions">
+            <button class="act-btn primary" onclick="toggleCase('case-ozturk',this)">Show details →</button>
+          </div>
+        </div>
+
+        <div class="sys-card">
+          <h3>Mohsen Mahdawi</h3>
+          <div class="card-fn">Columbia — Citizenship Ceremony Arrest</div>
+          <div class="card-body">
+            <p><strong>Mohsen Mahdawi</strong>, Columbia University student who organized campus encampment, arrested by ICE at his own citizenship ceremony.</p>
+          </div>
+          <div class="case-detail" id="case-mahdawi" hidden>
+            <div class="case-step"><span class="arrow">→</span> Protest organizing activity monitored via social media surveillance tools</div>
+            <div class="case-step"><span class="arrow">→</span> ROA generated; flagged in immigration databases</div>
+            <div class="case-step"><span class="arrow">→</span> Appeared at USCIS for naturalization ceremony</div>
+            <div class="case-step"><span class="arrow">→</span> ICE agents waiting at ceremony; arrested on arrival</div>
+            <div class="case-step result">Result: Civic participation (citizenship ceremony) used as a trap. Surveillance → database flag → arrest at government building.</div>
+          </div>
+          <div class="card-actions">
+            <button class="act-btn primary" onclick="toggleCase('case-mahdawi',this)">Show details →</button>
+          </div>
+        </div>
+
+        <div class="sys-card">
           <h3>Medicaid Patients</h3>
           <div class="card-fn">2025–Present — Healthcare as Intelligence</div>
           <div class="card-body">
@@ -2500,6 +2757,18 @@
         <div class="info-head">◉ &nbsp;The Pattern</div>
         <p>Every case follows the same architecture: <strong>data collected for legitimate purposes</strong> (tax compliance, healthcare, court observation, mutual aid) → <strong>fed into Palantir's systems via IRS-NG</strong> → <strong>weaponized for surveillance and enforcement</strong> → <strong>constitutional rights chilled</strong>.</p>
         <p>The "evidence" standard is dystopian: <strong>Fox News segments, random Twitter posts and living near an ICE facility</strong> are treated as intelligence. DHS agents admit to "Alex Jones-level paranoia and wild leaps" in their analysis. The infrastructure doesn't just target "criminals" — it transforms ordinary civic participation into grounds for permanent federal surveillance.</p>
+      </div>
+
+      <div class="info-alert info-box mt-md">
+        <div class="info-head">▲ &nbsp;Measured Chilling Effect</div>
+        <p>Union surveys filed in <em>UAW v. Department of State</em> (Oct 2025) quantify the speech suppression:</p>
+        <ul style="margin:0.75rem 0 0.5rem 1.25rem;font-size:0.875rem;line-height:1.6;">
+          <li><strong>84.4%</strong> of noncitizen UAW respondents changed their social media activity</li>
+          <li><strong>97.2%</strong> of those who changed behavior cited fear of immigration consequences</li>
+          <li><strong>1,000+</strong> UAW members, <strong>223</strong> CWA members and <strong>1,655</strong> AFT members surveyed</li>
+          <li>Respondents report deleting posts, avoiding protests, self-censoring political opinions and withdrawing from campus organizations</li>
+        </ul>
+        <p>This is no longer theoretical. The surveillance infrastructure documented in this dashboard is producing <strong>measurable, population-level speech suppression</strong> among noncitizen workers, students and academics across the United States.</p>
       </div>
     </section>
 
@@ -2594,7 +2863,7 @@
         </div>
         <div class="tl-item">
           <div class="tl-year">Jan 2025</div>
-          <div class="tl-event">Trump inaugurated; IRS-ICE data sharing agreement signed; Miller files disclosure showing Palantir stock ownership</div>
+          <div class="tl-event">Trump inaugurated; EO 14161 signed (inauguration day) enabling viewpoint-based visa screening; EO 14188 signed (Jan 29) declaring immigration emergency; IRS-ICE data sharing agreement signed; Miller files disclosure showing Palantir stock ownership; "Catch and Revoke" initiative begins</div>
         </div>
         <div class="tl-item">
           <div class="tl-year">Mar 2025</div>
@@ -2615,6 +2884,10 @@
         <div class="tl-item">
           <div class="tl-year">Dec 2025</div>
           <div class="tl-event">HUD awards Palantir $200K "demonstration" contract for GNMA financial systems; modified one day after Trump inauguration</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Oct 2025</div>
+          <div class="tl-event">ICE posts RFI on SAM.gov for 24/7 social media surveillance team (reported by Wired); UAW, CWA and AFT file federal lawsuit (<em>UAW v. Department of State</em>, Case 1:25-cv-08566) challenging viewpoint-based social media surveillance; 84.4% of surveyed noncitizen workers report self-censoring</div>
         </div>
         <div class="tl-item">
           <div class="tl-year">Jan 2026</div>
@@ -2712,6 +2985,27 @@
         </div>
 
         <div class="sys-card source-card">
+          <h3>Legal Filings</h3>
+          <div class="card-fn">Court Documents</div>
+          <div class="card-body">
+            <ul>
+              <li>
+                <strong>UAW v. Department of State</strong> — Case 1:25-cv-08566 (Oct 16, 2025)<br>
+                <span class="src-meta">95-page federal complaint by UAW, CWA and AFT. Details social media surveillance tools (ShadowDragon, Fivecast ONYX, Babel X, Cobwebs, Skopenow), "Catch and Revoke" pipeline, Tiger Team operations, chilling effects survey data and specific cases (Khalil, &Ouml;zt&uuml;rk, Mahdawi, Taal, Chung, Khan Suri). Source for Layer 01 OSINT tools, EOs 14161/14188 and new key players.</span>
+              </li>
+              <li>
+                <strong>Executive Order 14161</strong> — "Protecting the United States from Foreign Terrorists and Other National Security and Public Safety Threats" (January 20, 2025)<br>
+                <span class="src-meta">Enables viewpoint-based visa screening and "enhanced vetting" of social media</span>
+              </li>
+              <li>
+                <strong>Executive Order 14188</strong> — "Protecting the American People Against Invasion" (January 29, 2025)<br>
+                <span class="src-meta">Declares immigration emergency; authorizes expanded interagency surveillance</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sys-card source-card">
           <h3>Historical Context</h3>
           <div class="card-fn">Background &amp; Precedent</div>
           <div class="card-body">
@@ -2782,6 +3076,10 @@
               <li>
                 <strong>Secure Communities Program</strong><br>
                 <span class="src-meta">Automatic fingerprint-to-immigration screening in jails</span>
+              </li>
+              <li>
+                <strong>Snowden Archive (via DDoSecrets)</strong> — 2013 Watchlisting Guidance (U//FOUO)<br>
+                <span class="src-meta">166-page interagency document detailing TIDE/TSDB pipeline, reasonable suspicion standard, biometric-only nominations and No Fly criteria. Source for Layer 02 watchlisting infrastructure.</span>
               </li>
             </ul>
           </div>
