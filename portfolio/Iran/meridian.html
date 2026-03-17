@@ -931,15 +931,16 @@
         .conflict-source-tab {
             flex: 1;
             font-family: var(--font-mono);
-            font-size: 9px;
-            padding: 5px 8px;
+            font-size: 7.5px;
+            padding: 5px 4px;
             text-align: center;
             cursor: pointer;
             background: var(--bg-tertiary);
             color: var(--text-muted);
             border: none;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
             transition: all 0.2s;
+            white-space: nowrap;
         }
         .conflict-source-tab:not(:last-child) { border-right: 1px solid var(--border); }
         .conflict-source-tab.active[data-source="gdelt"] { background: rgba(224,64,251,0.12); color: #e040fb; }
@@ -1410,7 +1411,7 @@
                     <div class="conflict-chip" data-type="strategic" onclick="toggleConflictType(this)">Military</div>
                 </div>
                 <div id="conflictStats" class="conflict-stats"></div>
-                <div id="conflictFetchStatus" style="font-family:var(--font-mono);font-size:9px;color:var(--text-muted);margin-top:4px;display:none;"></div>
+                <div id="conflictFetchStatus" style="font-family:var(--font-mono);font-size:8px;color:var(--text-muted);margin-top:4px;display:none;word-break:break-word;line-height:1.4;"></div>
                 <div id="conflictDataNote" class="data-note" style="margin-top: 8px;">
                     Live from <a href="https://www.gdeltproject.org/" target="_blank" style="color:#e040fb;">GDELT</a> Global Knowledge Graph — updates every 15 min. Events extracted from worldwide news coverage, geolocated to mentioned places.
                 </div>
@@ -2827,20 +2828,43 @@
             try {
                 const allFeatures = [];
 
-                // Probe ACLED for latest available data date (account may have recency restrictions)
+                // Probe ACLED to find the latest available data date for this account
                 setConflictStatus('ACLED: checking data availability…', '#ff6d00');
                 const today = new Date().toISOString().split('T')[0];
-                const probeResp = await fetch(`${ACLED_PROXY}?limit=1&country=Syria&event_date=${today}%7C2099-12-31&event_date_where=BETWEEN`);
-                const probeJson = await probeResp.json();
 
-                let dateTo, dateFrom;
-                if (probeJson.data && probeJson.data.length > 0) {
-                    // Use server's most recent date
-                    dateTo = probeJson.data[0].event_date;
-                } else {
-                    // Fallback: use recency restriction date if available
-                    const recency = probeJson.data_query_restrictions?.date_recency?.date;
-                    dateTo = recency || new Date().toISOString().split('T')[0];
+                // Strategy: probe multiple date windows to find the true data ceiling
+                // Research tier has lagged data — we don't know the cutoff, so binary-search
+                const probeWindows = [
+                    // Try recent first, then fall back to older
+                    { from: '2026-02-01', to: today },
+                    { from: '2026-01-01', to: '2026-01-31' },
+                    { from: '2025-11-01', to: '2025-12-31' },
+                    { from: '2025-08-01', to: '2025-10-31' },
+                    { from: '2025-01-01', to: '2025-07-31' },
+                    { from: '2024-06-01', to: '2024-12-31' },
+                ];
+
+                let dateTo = null, dateFrom;
+                for (const win of probeWindows) {
+                    try {
+                        const pResp = await fetch(`${ACLED_PROXY}?limit=1&country=Iran&event_date=${win.from}|${win.to}&event_date_where=BETWEEN`);
+                        const pJson = await pResp.json();
+                        if (pJson.data && pJson.data.length > 0) {
+                            // Found data in this window — now get the latest date from a larger sample
+                            const batchResp = await fetch(`${ACLED_PROXY}?limit=100&country=Iran&event_date=${win.from}|${win.to}&event_date_where=BETWEEN`);
+                            const batchJson = await batchResp.json();
+                            const dates = (batchJson.data || []).map(e => e.event_date).filter(Boolean).sort();
+                            dateTo = dates[dates.length - 1];
+                            console.log(`[ACLED] Found data in ${win.from}→${win.to}, latest event: ${dateTo}`);
+                            break;
+                        }
+                    } catch (e) { console.warn(`[ACLED] Probe error for ${win.from}→${win.to}:`, e); }
+                }
+
+                if (!dateTo) {
+                    // Last resort: just use today and let the fetch return whatever it can
+                    dateTo = today;
+                    console.warn('[ACLED] Could not determine data ceiling, using today');
                 }
                 // 30-day window back from latest available
                 const toDate = new Date(dateTo + 'T00:00:00Z');
@@ -2914,7 +2938,7 @@
                 acledFetched = true;
 
                 const totalFatalities = allFeatures.reduce((s, f) => s + (f.properties.deaths_best || 0), 0);
-                setConflictStatus(`${allFeatures.length.toLocaleString()} coded events, ${totalFatalities.toLocaleString()} fatalities (last 30 days)`, '#ff6d00');
+                setConflictStatus(`${allFeatures.length.toLocaleString()} coded events, ${totalFatalities.toLocaleString()} fatalities (${dateFrom} → ${dateTo})`, '#ff6d00');
 
                 initTimeFilterDefaults();
                 if (conflictVisible && conflictSource === 'acled') renderConflict();
@@ -3172,6 +3196,10 @@
             } else {
                 note.innerHTML = 'Live from <a href="https://www.gdeltproject.org/" target="_blank" style="color:#e040fb;">GDELT</a> Global Knowledge Graph — updates every 15 min. Events extracted from worldwide news coverage, geolocated to mentioned places.';
             }
+            // Clear previous source's status message
+            const statusEl = document.getElementById('conflictFetchStatus');
+            if (statusEl) { statusEl.style.display = 'none'; statusEl.textContent = ''; }
+
             // Update legend title
             const legendTitle = document.querySelector('#conflictLegend .legend-title');
             if (legendTitle) {
