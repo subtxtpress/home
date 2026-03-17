@@ -2,22 +2,22 @@
 
 **Middle East Regional Intelligence Dashboard for Infrared Anomaly Notification**
 
-A zero-dependency, single-file OSINT tool for monitoring thermal anomalies, infrastructure impact, conflict events, satellite imagery, orbital passes, and live aircraft tracking across the Middle East theater. Built for investigative journalists, OSINT analysts, and GIS researchers.
+A zero-dependency, single-file OSINT tool for monitoring thermal anomalies, infrastructure impact, conflict events, satellite imagery, maritime boundaries, and live aircraft tracking across the Middle East theater. Built for investigative journalists, OSINT analysts, and GIS researchers.
 
 ![MERIDIAN](img/meridian.png)
 
 ## What It Does
 
-MERIDIAN fuses nine open-source intelligence layers into a single interactive map:
+MERIDIAN fuses multiple open-source intelligence layers into a single interactive map:
 
 - **Thermal Anomalies** — Near real-time fire and heat detections from NASA FIRMS across four satellite sensors (VIIRS NOAA-20, NOAA-21, Suomi-NPP, MODIS Aqua/Terra). Filterable by confidence level, satellite source, time range, and geographic region.
 - **Industrial Sites** — 108 known refineries, power plants, gas processing facilities, and petrochemical complexes. Detections within ~2km of these sites are automatically tagged and visually de-emphasized to separate routine industrial flaring from conflict-relevant activity.
-- **Conflict Events** — Live GDELT Global Knowledge Graph data (armed conflict, terror/explosions, violence, protests, military activity) with event-type filtering and temporal alignment to thermal detections. Auto-fetched from GDELT's free API — no registration required.
+- **Conflict Events** — Dual-source conflict intelligence: live GDELT Global Knowledge Graph data (armed conflict, terror/explosions, violence, protests, military activity) and UCDP GED verified events (2024 data with fatality counts, conflict classifications, and source citations). Switchable source tabs with event-type filtering and temporal alignment to thermal detections.
 - **Nighttime Lights** — NASA GIBS VIIRS Day/Night Band imagery with before/after comparison mode for assessing infrastructure damage and power grid disruption.
 - **MODIS True-Color** — NASA GIBS MODIS Terra Corrected Reflectance daily imagery with date picker and opacity controls for visual corroboration of thermal detections.
-- **Sentinel-2 Optical** — On-demand 10m true-color imagery via AWS Earth Search STAC API. Queries recent cloud-free scenes for the current map view, with clickable footprints and COG tile rendering.
+- **Sentinel-2 Optical** — On-demand 10m true-color imagery via AWS Earth Search STAC API. Queries recent cloud-free scenes for the current map view, with date-labeled footprints, thumbnail previews, and direct links to Copernicus Browser for full-resolution viewing.
 - **Maxar Crisis Imagery** — High-resolution event-driven imagery from the Maxar Open Data Program (CC-BY-NC 4.0). Displays available crisis imagery footprints with metadata and optional COG overlay loading.
-- **Satellite Pass Predictor** — Real-time orbital tracking of the seven EO satellites behind MERIDIAN's data (NOAA-20, NOAA-21, Suomi-NPP, Terra, Aqua, Sentinel-2A/2B). CelesTrak TLE data with SGP4 propagation shows live positions, 90-minute ground tracks, and next-pass predictions for the current map center.
+- **Maritime Boundaries** — Interactive territorial waters layer from Marine Regions/VLIZ showing EEZ boundaries, 12nm territorial seas, and 24nm contiguous zones. Click anywhere in the water to identify the maritime zone via WFS queries.
 - **Aircraft Tracking** — Live ADS-B aircraft positions from airplanes.live, adsb.lol, and OpenSky Network (automatic fallback chain) across the Middle East bounding box. Filterable by aircraft type (large, medium, rotorcraft, ground vehicle), with 30-second auto-refresh, click popups showing callsign, altitude, velocity, heading, and squawk code.
 
 ## Key Features
@@ -26,8 +26,8 @@ MERIDIAN fuses nine open-source intelligence layers into a single interactive ma
 - **Confidence filtering** — Defaults to high-confidence detections only. Nominal and low thresholds available for full coverage including agricultural burns and sensor noise.
 - **Proximity tagging** — Automatic spatial analysis flags detections near known industrial infrastructure, helping analysts distinguish conflict signatures from routine operations.
 - **Satellite imagery** — Three toggleable optical imagery layers (MODIS, Sentinel-2, Maxar) for visual corroboration of thermal detections. All free and open, no API keys needed.
-- **Orbital awareness** — SGP4-propagated satellite positions and pass predictions using CelesTrak TLE data. Know when the next imaging satellite will overfly your area of interest.
-- **Aircraft surveillance** — OpenSky Network ADS-B integration shows live air traffic with type filtering, callsign labels, and detailed metadata popups.
+- **Maritime awareness** — Interactive maritime boundary layers (EEZ, territorial seas, contiguous zones) for understanding territorial context of offshore activity.
+- **Aircraft surveillance** — ADS-B integration via airplanes.live/adsb.lol/OpenSky shows live air traffic with type filtering, callsign labels, and detailed metadata popups.
 - **Timeline animation** — Step through each day of the observation window with play/pause controls at 1x/2x/4x speed.
 - **Shareable views** — Current map state (position, zoom, active layers, filters) encoded into a URL hash for one-click sharing.
 - **Export** — Screenshot the current view as a PNG with title bar, legend overlay, detection stats, and source attribution baked in.
@@ -37,19 +37,20 @@ MERIDIAN fuses nine open-source intelligence layers into a single interactive ma
 
 The entire application is a single HTML file (~4,650 lines). No build step, no backend, no dependencies to install. Open it in a browser and it works.
 
-**Stack:** MapLibre GL JS v4.1.2 / Turf.js v7 / satellite.js v5 / IBM Plex typography / CartoDB + Esri basemaps
+**Stack:** MapLibre GL JS v4.1.2 / Turf.js v7 / IBM Plex typography / CartoDB + Esri basemaps
 
 **Data sources:**
 | Layer | Source | Update Frequency |
 |-------|--------|-----------------|
 | Thermal | [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/) | Near real-time (~3hr latency) |
 | Industrial | [EOG/VIIRS Nightfire](https://eogdata.mines.edu/products/vnf/global_gas_flare.html), [World Bank GGFR](https://www.worldbank.org/en/programs/gasflaringreduction) | Static catalog |
-| Conflict | [GDELT](https://www.gdeltproject.org/) GKG | Live, 24-hour rolling window |
+| Conflict (Live) | [GDELT](https://www.gdeltproject.org/) GKG | Live, 24-hour rolling window |
+| Conflict (Verified) | [UCDP GED](https://ucdp.uu.se/) v25.1 | Annual release (through Dec 2024) |
 | Nighttime | [NASA GIBS](https://earthdata.nasa.gov/gibs) VIIRS DNB | Daily composites |
 | MODIS True-Color | [NASA GIBS](https://earthdata.nasa.gov/gibs) MODIS Terra | Daily composites |
 | Sentinel-2 | [AWS Earth Search](https://earth-search.aws.element84.com/v1) STAC | On-demand query |
 | Maxar Crisis | [Maxar Open Data](https://www.maxar.com/open-data) | Event-driven |
-| Satellite Passes | [CelesTrak](https://celestrak.org) TLE + [satellite.js](https://github.com/shashwatak/satellite-js) SGP4 | TLE cached 24h, positions every 5s |
+| Maritime | [Marine Regions](https://marineregions.org/) / VLIZ WMS+WFS | Static boundaries |
 | Aircraft | [airplanes.live](https://airplanes.live), [adsb.lol](https://adsb.lol), [OpenSky](https://opensky-network.org) ADS-B | Live, 30-second refresh |
 
 ## Usage
@@ -61,7 +62,7 @@ open meridian.html
 
 1. Click **Load Satellite Data** to pull the latest detections from NASA FIRMS
 2. Use the confidence, satellite, and time filters to narrow the signal
-3. Toggle overlay layers (Industrial Sites, Conflict Events, Nighttime Lights, Satellite Imagery, Satellite Passes, Aircraft Tracking) for multi-source analysis
+3. Toggle overlay layers (Industrial Sites, Conflict Events, Nighttime Lights, Satellite Imagery, Maritime Boundaries, Aircraft Tracking) for multi-source analysis
 4. Click any detection for full metadata including satellite, FRP, brightness temperature, and industrial proximity
 5. Use **Share View** to copy a stateful URL or **Export** to save a publication-ready screenshot
 
@@ -83,10 +84,10 @@ Use the sidebar panels to narrow results:
 ### 4. Add overlay layers
 Toggle these in the sidebar for multi-source analysis:
 - **Industrial Sites** — Shows refineries and plants so you can distinguish routine flaring from unusual activity
-- **Conflict Events** — GDELT data showing armed conflict, protests, and military activity
+- **Conflict Events** — GDELT (live) and UCDP GED (verified) data showing armed conflict, protests, and military activity
 - **Nighttime Lights** — Before/after satellite imagery to spot power grid disruption
 - **MODIS / Sentinel-2 / Maxar** — Optical satellite imagery for visual confirmation
-- **Satellite Passes** — See when imaging satellites will next fly over your area
+- **Maritime Boundaries** — EEZ, territorial seas, and contiguous zones
 - **Aircraft Tracking** — Live air traffic with callsigns and altitude
 
 ### 5. Share or export
@@ -100,6 +101,6 @@ Toggle these in the sidebar for multi-source analysis:
 
 ## License
 
-Data attributions: NASA FIRMS, NASA GIBS, GDELT (Global Database of Events, Language & Tone), EOG/VIIRS Nightfire, World Bank GGFR, ESA Copernicus Sentinel-2, Maxar Open Data (CC-BY-NC 4.0), CelesTrak, airplanes.live, adsb.lol, OpenSky Network, OpenStreetMap.
+Data attributions: NASA FIRMS, NASA GIBS, GDELT (Global Database of Events, Language & Tone), UCDP GED (Uppsala Conflict Data Program), EOG/VIIRS Nightfire, World Bank GGFR, ESA Copernicus Sentinel-2, Maxar Open Data (CC-BY-NC 4.0), Marine Regions/VLIZ, airplanes.live, adsb.lol, OpenSky Network, OpenStreetMap.
 
 Built by [Subtxt Press](https://subtxtpress.github.io/home/)
