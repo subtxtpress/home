@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Services – Subtxt Press</title>
+  <meta name="description" content="Full lifecycle management: drafting targeted requests, tracking across agencies, handling appeals, and organizing production for litigation or editorial use.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/services">
+
+  <meta property="og:title" content="Services // Subtxt Press">
+  <meta property="og:description" content="Full lifecycle management: drafting targeted requests, tracking across agencies, handling appeals, and organizing production for litigation or editorial use.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/services">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Subtxt Press">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services // Subtxt Press">
+  <meta name="twitter:description" content="Full lifecycle management: drafting targeted requests, tracking across agencies, handling appeals, and organizing production for litigation or editorial use.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --peach:   #E8956A;
+      --cream:   #F4EDE3;
+      --sand:    #DDD0BC;
+      --plum:    #3E2436;
+      --carmine: #7A5063;
+      --ink:     #241620;
+
+      --surface-page:     #F4EDE3;
+      --surface-card:     #FFFFFF;
+      --surface-elevated: #EDE5D8;
+
+      --text-heading: #241620;
+      --text-body:    #44373C;
+      --text-label:   #7A5063;
+      --text-muted:   rgba(68, 55, 60, 0.45);
+
+      --accent:        #E8956A;
+      --accent-subtle: rgba(232, 149, 106, 0.15);
+      --accent-border: rgba(232, 149, 106, 0.40);
+
+      --border-light:  rgba(221, 208, 188, 0.55);
+      --border-mid:    rgba(180, 140, 100, 0.22);
+
+      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface-page);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: var(--carmine); }
+    a:hover { color: var(--accent); }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 5vw;
+      transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-nav.scrolled {
+      padding: 14px 5vw;
+      background: rgba(244, 237, 227, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--border-light);
+      box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
+    }
+
+    .nav-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .site-nav.scrolled .nav-brand { color: var(--ink); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover  { color: #fff; }
+    .nav-links a.active { color: var(--peach); }
+
+    .site-nav.scrolled .nav-links a        { color: var(--text-label); }
+    .site-nav.scrolled .nav-links a:hover  { color: var(--ink); }
+    .site-nav.scrolled .nav-links a.active { color: var(--accent); }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.52)  0%,
+        rgba(0, 0, 0, 0.18) 45%,
+        rgba(0, 0, 0, 0.38) 100%
+      );
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 72px;
+      left: 5vw;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: var(--peach);
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
+    }
+
+    /* ─── Content area ──────────────────────────────────────── */
+    .services-content {
+      padding: 0 5vw 80px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ─── Section label ──────────────────────────────────────── */
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 36px 0 24px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-mid);
+    }
+
+    /* ─── 2-column grid ─────────────────────────────────────── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 900px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .card-full { grid-column: 1 / -1; }
+    }
+
+    /* ─── Standard card ─────────────────────────────────────── */
+    .policy-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      padding: 26px 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .policy-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad-neutral);
+      border-radius: 10px 10px 0 0;
+      pointer-events: none;
+    }
+
+    .policy-card:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.10),
+        0 0 0 1px var(--accent-border);
+    }
+
+    /* ─── Card label ─────────────────────────────────────────── */
+    .card-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-bottom: 1rem;
+      padding-bottom: 0.875rem;
+      border-bottom: 1px solid var(--border-mid);
+    }
+
+    /* ─── Lists and text ─────────────────────────────────────── */
+    .policy-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .policy-card ul li {
+      padding: 9px 0;
+      font-size: 13.5px;
+      line-height: 1.72;
+      color: var(--text-body);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .policy-card ul li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .policy-card p {
+      font-size: 13.5px;
+      line-height: 1.72;
+      color: var(--text-body);
+      margin-bottom: 10px;
+    }
+
+    .policy-card p:last-child { margin-bottom: 0; }
+
+    .policy-card strong {
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+
+    /* ─── Note (italic sub-text) ─────────────────────────────── */
+    .card-note {
+      margin-top: 12px;
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      font-style: italic;
+      border-top: 1px solid var(--border-light);
+      padding-top: 12px;
+    }
+
+    /* ─── Intro card — dark editorial ────────────────────────── */
+    .card-intro {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--ink) 100%);
+      border-color: transparent;
+      padding: 32px 36px;
+    }
+
+    .card-intro::before {
+      background: linear-gradient(to right, var(--sand), var(--peach), var(--carmine));
+    }
+
+    .card-intro .card-label {
+      color: rgba(244, 237, 227, 0.5);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .card-intro p {
+      color: rgba(244, 237, 227, 0.78);
+    }
+
+    .card-intro p:first-of-type {
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    .card-intro strong { color: var(--peach); }
+
+    /* ─── Accent callout card ────────────────────────────────── */
+    .card-accent {
+      background: var(--surface-card);
+      border-color: var(--accent-border);
+    }
+
+    .card-accent::before {
+      background: linear-gradient(to right, var(--sand), var(--peach));
+    }
+
+    .card-accent .card-label {
+      color: var(--accent);
+      border-bottom-color: var(--accent-border);
+    }
+
+    /* ─── Contact / closing dark card ───────────────────────── */
+    .card-contact {
+      background: linear-gradient(140deg, var(--carmine) 0%, var(--plum) 100%);
+      border-color: transparent;
+    }
+
+    .card-contact::before {
+      background: linear-gradient(to right, var(--sand), var(--peach));
+    }
+
+    .card-contact .card-label {
+      color: rgba(244, 237, 227, 0.5);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .card-contact p {
+      color: rgba(244, 237, 227, 0.85);
+    }
+
+    .card-contact strong { color: var(--peach); }
+
+    .card-contact a.email-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--peach);
+      text-decoration: underline;
+      text-decoration-color: rgba(232, 149, 106, 0.4);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .card-contact a.email-link:hover {
+      text-decoration-color: var(--peach);
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 24px 5vw;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      color: var(--text-muted);
+      font-size: 15px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--carmine); }
+
+    /* ─── Scroll top ─────────────────────────────────────────── */
+    .scroll-top {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 38px; height: 38px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, background 0.2s;
+      z-index: 100;
+    }
+
+    .scroll-top.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top:hover { background: var(--ink); color: var(--cream); }
+
+    /* ─── Mobile ─────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .site-nav,
+      .site-nav.scrolled { padding: 14px 20px; }
+      .nav-links          { gap: 20px; }
+      .services-content   { padding: 0 16px 60px; }
+      .hero-content       { left: 20px; bottom: 36px; }
+      .site-footer        { padding: 24px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" id="siteNav">
+    <a href="index" class="nav-brand">Subtxt Press</a>
+    <ul class="nav-links">
+      <li><a href="index">Home</a></li>
+      <li><a href="policies">Policies</a></li>
+      <li><a href="portfolio/portfolio">Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img" src="assets/img/landscape.jpg" alt="Red Rock Canyon">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Subtxt Press</p>
+      <h1 class="hero-title">Research &amp; Consulting</h1>
+    </div>
+  </section>
+
+  <div class="services-content">
+
+    <div class="section-label">Services · J. Turner</div>
+
+    <div class="card-grid">
+
+      <!-- Intro — full-width dark card -->
+      <div class="policy-card card-intro card-full" data-aos="fade-up">
+        <h3 class="card-label">Investigative Research &amp; FOIA Consulting</h3>
+        <p>Whether you're building a defense, filing a civil rights suit, or producing a documentary — public records and digital evidence can make or break your case.</p>
+        <p>I help attorneys, journalists, and investigators get the documents, data, and analysis that move things forward.</p>
+      </div>
+
+      <!-- FOIA & Public Records -->
+      <div class="policy-card" data-aos="fade-up" data-aos-delay="40">
+        <h3 class="card-label">FOIA &amp; Public Records</h3>
+        <p>Full lifecycle management: drafting targeted requests, tracking across agencies, handling appeals, and organizing production for litigation or editorial use.</p>
+        <p>Active portfolios across 15+ federal and state agencies. I know which exemptions to challenge and how to push back when agencies stall.</p>
+      </div>
+
+      <!-- Forensic Data Research -->
+      <div class="policy-card" data-aos="fade-up" data-aos-delay="80">
+        <h3 class="card-label">Forensic Data Research &amp; Analysis</h3>
+        <p>Documentation and analysis of outputs from mobile device extractions (Cellebrite, GrayKey), Apple Health records, carrier ping data, and geofence warrants — identifying what the data shows, flagging inconsistencies, and organizing findings for attorney review.</p>
+        <div class="card-note">Research and analysis work only — not expert witness testimony or certified forensic examination. If you need a testifying expert, I can help you understand the records before that engagement begins.</div>
+      </div>
+
+      <!-- OSINT -->
+      <div class="policy-card" data-aos="fade-up" data-aos-delay="40">
+        <h3 class="card-label">OSINT &amp; Investigative Research</h3>
+        <p>Open-source intelligence gathering, corporate and public records research, and background analysis for legal strategy, journalism, and documentary production.</p>
+      </div>
+
+      <!-- Data Tools -->
+      <div class="policy-card card-accent" data-aos="fade-up" data-aos-delay="80">
+        <h3 class="card-label">Data Tools &amp; Visualization</h3>
+        <p>Custom tools for investigators who need more than a spreadsheet: interactive dashboards, geospatial viewers, and data pipelines built to your project.</p>
+        <p>I also develop <a href="https://foia.io">FOIA.io</a>, a SaaS platform for FOIA request management.</p>
+      </div>
+
+      <!-- Records Organization -->
+      <div class="policy-card" data-aos="fade-up" data-aos-delay="40">
+        <h3 class="card-label">Records Organization &amp; Production</h3>
+        <p>Structuring large document productions for litigation or editorial review — indexing, deduplication, timeline building, and exhibit preparation from public records and agency responses.</p>
+      </div>
+
+      <!-- Ongoing cases -->
+      <div class="policy-card" data-aos="fade-up" data-aos-delay="80">
+        <h3 class="card-label">Investigative Support for Ongoing Cases</h3>
+        <p>Extended research partnerships for law firms and productions with active matters that need consistent records coverage — agency monitoring, follow-up requests, and interim reporting on request status and new productions.</p>
+      </div>
+
+      <!-- Who I work with — full-width -->
+      <div class="policy-card card-full" data-aos="fade-up">
+        <h3 class="card-label">Who I Work With</h3>
+        <ul>
+          <li>Criminal defense and civil rights law firms</li>
+          <li>Personal injury and plaintiff-side litigation teams</li>
+          <li>Private investigation firms subcontracting OSINT and records work</li>
+          <li>Documentary filmmakers and investigative journalists</li>
+          <li>Nonprofits and advocacy organizations</li>
+          <li>True crime researchers and producers</li>
+        </ul>
+      </div>
+
+      <!-- Published Areas -->
+      <div class="policy-card" data-aos="fade-up" data-aos-delay="40">
+        <h3 class="card-label">Published Areas of Focus</h3>
+        <p>Civil asset forfeiture abuse. Officer-involved shootings. ICE surveillance infrastructure. I've done this work in public, and I stand behind it.</p>
+      </div>
+
+      <!-- Rate -->
+      <div class="policy-card" data-aos="fade-up" data-aos-delay="80">
+        <h3 class="card-label">Rate</h3>
+        <p><strong>$75/hour.</strong> No retainer required for initial projects. I'll scope the work before we start so there are no surprises.</p>
+      </div>
+
+      <!-- Contact — full-width dark card -->
+      <div class="policy-card card-contact card-full" data-aos="fade-up">
+        <h3 class="card-label">Get in Touch</h3>
+        <p>Tell me what you're working on. I'll tell you what's possible.</p>
+        <a class="email-link" href="mailto:info@subtxtpress.com">info@subtxtpress.com</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span class="footer-brand">Subtxt Press</span>
+    <div class="footer-social">
+      <a href="https://substack.com/@subtxtpress" aria-label="Substack"><i class="bi bi-substack"></i></a>
+      <a href="https://www.tiktok.com/@subtxtpress" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+      <a href="https://vimeo.com/user253808178?fl=pp&fe=sh" aria-label="Vimeo"><i class="bi bi-vimeo"></i></a>
+      <a href="https://www.youtube.com/@subtxtpress" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      <a href="https://x.com/subtxtpress" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top" id="scrollTop"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, easing: 'ease-out-quart', once: true, offset: 50 });
+
+    const nav = document.getElementById('siteNav');
+    const scrollBtn = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 60);
+      scrollBtn.classList.toggle('visible', y > 300);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
