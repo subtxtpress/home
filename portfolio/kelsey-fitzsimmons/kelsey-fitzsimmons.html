@@ -557,7 +557,7 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
 
 .transcript-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 14px;
 }
 .transcript-pane { display: flex; flex-direction: column; }
@@ -651,6 +651,7 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
 @media (max-width: 900px) {
   .fp-layout { grid-template-columns: 1fr; }
   .transcript-grid { grid-template-columns: 1fr; }
+  .transcript-grid .transcript-pane:last-child { grid-column: 1; }
   .trans-iframe { height: 60vh; min-height: 300px; }
   .img-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
 }
@@ -685,6 +686,7 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
 <nav class="nav">
   <div class="nav-title">NOONAN <span>/</span> FITZSIMMONS</div>
   <button class="tab-btn active" onclick="switchTab('inconsistencies', this)">Testimony Inconsistencies</button>
+  <button class="tab-btn" onclick="switchTab('kelsey', this)">Kelsey's Testimony</button>
   <button class="tab-btn" onclick="switchTab('floorplan', this)">Floor Plan Geometry</button>
   <button class="tab-btn" onclick="switchTab('transcripts', this)">Source Transcripts</button>
   <button class="tab-btn" onclick="switchTab('images', this)">Photos &amp; Floor Plans</button>
@@ -1094,6 +1096,238 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
 
 
 <!-- ══════════════════════════════════════════ -->
+<!--  TAB 2 — KELSEY'S TESTIMONY               -->
+<!-- ══════════════════════════════════════════ -->
+<div id="tab-kelsey" class="tab-panel">
+
+  <!-- Section 1 — Header -->
+  <div class="tracker-header">
+    <div>
+      <h2>Kelsey Fitzsimmons — Direct Testimony</h2>
+      <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-top:5px;letter-spacing:0.06em">Testified March 25, 2026 · Commonwealth v. Fitzsimmons · Defense direct + prosecution cross</div>
+      <div style="font-family:var(--body);font-size:0.8125rem;color:var(--text2);margin-top:8px;line-height:1.5">Core claim: gun raised to her own temple in a suicidal crisis — never pointed at Noonan.</div>
+    </div>
+    <div class="legend-strip">
+      <span class="legend-chip chip-critical">Critical</span>
+      <span class="legend-chip chip-high">High</span>
+      <span class="legend-chip chip-medium">Medium</span>
+    </div>
+  </div>
+
+  <!-- Section 2 — Internal Consistencies -->
+  <div class="consist-section" style="margin-top:0;padding-top:0;border-top:none">
+    <div class="tracker-header" style="margin-bottom:10px">
+      <h2 style="color:var(--green)">Consistent with Evidence</h2>
+    </div>
+    <div class="consist-grid">
+      <div class="consist-card">
+        <div class="consist-label">Guns in basement — intentional misdirection</div>
+        <div class="consist-body">Testified she lied about gun location specifically to keep officers from interfering with her suicide. Established in defense opening on Day 1 — not invented on the stand.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Gun physics support her account</div>
+        <div class="consist-body">Gun recovered under her leg. If raised to her temple (already lateral to her body) when she fell backward from a chest shot, this position is geometrically consistent. Inconsistent with Noonan's version of a forward-pointing weapon.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Trying to clear the room</div>
+        <div class="consist-body">Asked Houston to take baby for a walk. Asked officers to take items downstairs. Consistent throughout — defense framed this as suicide attempt preparation, not attack staging.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Postpartum depression — documented pre-incident</div>
+        <div class="consist-body">Involuntarily committed March 9, 2025 for PPD at Lowell General — four months before the shooting. Court record corroboration, not self-serving testimony.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">"Kelsey, no" — Noonan's own words</div>
+        <div class="consist-body">Defense argument: "You don't say 'Kelsey, no' when staring at a muzzle. You say it to someone with a gun to their own head." Noonan's in-moment language supports her account.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Relationship ended without warning</div>
+        <div class="consist-body">Confirmed she had no prior warning the relationship was over. Restraining order was the breakup. Consistent with documented emotional crisis on the day.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 — Vulnerabilities Under Cross -->
+  <div class="consist-section">
+    <div class="tracker-header">
+      <h2>Vulnerabilities Under Cross</h2>
+    </div>
+
+    <!-- V1 -->
+    <div class="incon-block">
+      <div class="incon-header" onclick="toggleIncon(this)">
+        <div class="incon-num">01</div>
+        <div>
+          <div class="incon-title">"Confused and surprised" vs. prior-day behavior</div>
+          <div class="incon-sub">Cross established she may have known something was coming</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="severity-badge sev-high">High</span>
+          <span class="chevron">▶</span>
+        </div>
+      </div>
+      <div class="incon-body">
+        <div class="compare-grid">
+          <div class="compare-col">
+            <div class="compare-label label-direct">◀ Direct Testimony <span class="compare-ts">March 25, 2026</span></div>
+            <div class="compare-text">
+              Testified she was confused and surprised by the restraining order. Had no warning it was coming. The relationship ended when the order was handed to her.
+            </div>
+          </div>
+          <div class="compare-col">
+            <div class="compare-label label-cross">Cross-Examination (Gubitose) ▶</div>
+            <div class="compare-text">
+              Gubitose asked if anything the prior weekend might explain it. Aylaian's sister testified Kelsey drove by the house where Aylaian was deciding to file. Mitchell testified Kelsey was crying, driving around North Andover saying she <span class="hi-amber">"needed Justin"</span> hours before the service.
+            </div>
+          </div>
+        </div>
+        <div class="delta-row">
+          <div class="delta-icon">⚠</div>
+          <div class="delta-text"><strong>"Confused and surprised"</strong> is vulnerable to the prior-day pattern of behavior. She may have sensed something was wrong without knowing the specific legal action. The judge has heard the sister and Mitchell testimony.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 -->
+    <div class="incon-block">
+      <div class="incon-header" onclick="toggleIncon(this)">
+        <div class="incon-num">02</div>
+        <div>
+          <div class="incon-title">Suicidal intent — when exactly did it form?</div>
+          <div class="incon-sub">Defense opening vs. her own account creates a timing gap</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="severity-badge sev-medium">Medium</span>
+          <span class="chevron">▶</span>
+        </div>
+      </div>
+      <div class="incon-body">
+        <div class="compare-grid">
+          <div class="compare-col">
+            <div class="compare-label label-direct">◀ Defense Opening (Day 1)</div>
+            <div class="compare-text">
+              Defense opening stated she decided to kill herself and <em>then</em> misdirected officers about the guns being in the basement — intent formed downstairs. <mark>Causal chain: intent → misdirection → retrieve gun upstairs.</mark>
+            </div>
+          </div>
+          <div class="compare-col">
+            <div class="compare-label label-cross">Her Own Testimony ▶</div>
+            <div class="compare-text">
+              Her own account places the decision in the bedroom. If intent formed downstairs before she went up, her normal behavior while packing clothes upstairs requires explanation. If it formed in the bedroom, the basement misdirection happened <span class="hi-amber">before suicidal intent</span> — which undercuts the clean causal chain.
+            </div>
+          </div>
+        </div>
+        <div class="delta-row">
+          <div class="delta-icon">⚠</div>
+          <div class="delta-text"><strong>Minor but exploitable.</strong> The sequence of when she decided vs. when she lied about gun location needs to be airtight. As reported, there's a gap between the defense's framing and her own account.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 -->
+    <div class="incon-block">
+      <div class="incon-header" onclick="toggleIncon(this)">
+        <div class="incon-num">03</div>
+        <div>
+          <div class="incon-title">The tap-rack sequence is unaddressed</div>
+          <div class="incon-sub">Her account does not explain what happened after the first click</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="severity-badge sev-critical">Critical</span>
+          <span class="chevron">▶</span>
+        </div>
+      </div>
+      <div class="incon-body">
+        <div class="compare-grid">
+          <div class="compare-col">
+            <div class="compare-label label-direct">◀ Her Testimony</div>
+            <div class="compare-text">
+              She testified she raised the gun to her own temple and pulled the trigger. <mark>Gun clicked — misfire.</mark>
+            </div>
+          </div>
+          <div class="compare-col">
+            <div class="compare-label label-cross">Noonan's Competing Account ▶</div>
+            <div class="compare-text">
+              Noonan testified she then performed <span class="hi-amber">two tap-rack attempts while backpedaling across the room.</span> If she was attempting suicide, what was she doing during those 4 seconds of movement? Available sources do not show her addressing this sequence.
+            </div>
+          </div>
+        </div>
+        <div class="delta-row">
+          <div class="delta-icon">⚠</div>
+          <div class="delta-text"><strong>This is the hardest gap in her account.</strong> A tap-rack is a deliberate malfunction-clearing drill. Performing it while backpedaling away from officers — rather than standing still and re-raising the gun to her own head — is more consistent with Noonan's version than hers. The prosecution will press this hard if they haven't already.</div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /consist-section vulnerabilities -->
+
+  <!-- Section 4 — Head-to-Head Comparison Table -->
+  <div class="consist-section">
+    <div class="tracker-header" style="margin-bottom:6px">
+      <h2>Noonan vs. Fitzsimmons — Core Disputes</h2>
+    </div>
+    <p style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);margin-bottom:16px;letter-spacing:0.04em">Same facts, irreconcilable interpretations</p>
+
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-family:var(--body);font-size:0.8125rem">
+        <thead>
+          <tr style="background:var(--border2)">
+            <th style="text-align:left;padding:9px 13px;font-family:var(--mono);font-size:0.55rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text);font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap">Point of Dispute</th>
+            <th style="text-align:left;padding:9px 13px;font-family:var(--mono);font-size:0.55rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);font-weight:600;border-bottom:1px solid var(--border)">Noonan's Account</th>
+            <th style="text-align:left;padding:9px 13px;font-family:var(--mono);font-size:0.55rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--amber);font-weight:600;border-bottom:1px solid var(--border)">Kelsey's Account</th>
+            <th style="text-align:left;padding:9px 13px;font-family:var(--mono);font-size:0.55rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border)">Analytical Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:var(--surface)">
+            <td style="padding:9px 13px;color:var(--text2);font-weight:600;border-bottom:1px solid var(--border);vertical-align:top;white-space:nowrap">Gun direction</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Leveled at his face, two-handed modified weaver (revised to one-handed)</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Raised to her own temple — never pointed at Noonan</td>
+            <td style="padding:9px 13px;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top;font-style:italic">Irreconcilable. No third eyewitness inside the room.</td>
+          </tr>
+          <tr style="background:var(--card-bg)">
+            <td style="padding:9px 13px;color:var(--text2);font-weight:600;border-bottom:1px solid var(--border);vertical-align:top;white-space:nowrap">Trigger intent</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">To shoot him</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">To shoot herself</td>
+            <td style="padding:9px 13px;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top;font-style:italic">Irreconcilable. Turns entirely on direction of gun.</td>
+          </tr>
+          <tr style="background:var(--surface)">
+            <td style="padding:9px 13px;color:var(--text2);font-weight:600;border-bottom:1px solid var(--border);vertical-align:top;white-space:nowrap">Tap-rack sequence</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">She cleared the misfire, raised arm toward him, he fired</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Not addressed in available testimony</td>
+            <td style="padding:9px 13px;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top;font-style:italic">Critical gap in her account. Most vulnerable point.</td>
+          </tr>
+          <tr style="background:var(--card-bg)">
+            <td style="padding:9px 13px;color:var(--text2);font-weight:600;border-bottom:1px solid var(--border);vertical-align:top;white-space:nowrap">Basement gun claim</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Accepted at face value; found no gun</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Deliberate lie to clear room for suicide</td>
+            <td style="padding:9px 13px;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top;font-style:italic">Both agree on facts. Dispute is motive only.</td>
+          </tr>
+          <tr style="background:var(--surface)">
+            <td style="padding:9px 13px;color:var(--text2);font-weight:600;border-bottom:1px solid var(--border);vertical-align:top;white-space:nowrap">Requests to take things downstairs</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Suspicious — possibly pre-attack staging</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Attempts to isolate herself to complete suicide</td>
+            <td style="padding:9px 13px;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top;font-style:italic">Same facts, opposite interpretation. No resolution available.</td>
+          </tr>
+          <tr style="background:var(--card-bg)">
+            <td style="padding:9px 13px;color:var(--text2);font-weight:600;border-bottom:1px solid var(--border);vertical-align:top;white-space:nowrap">Gun under her leg</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">"The way she fell" — couldn't explain physics</td>
+            <td style="padding:9px 13px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top">Temple placement + backward fall = lateral gun position. Consistent with physics.</td>
+            <td style="padding:9px 13px;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top;font-style:italic">Her physics argument is stronger and went unanswered.</td>
+          </tr>
+          <tr style="background:var(--surface)">
+            <td style="padding:9px 13px;color:var(--text2);font-weight:600;vertical-align:top;white-space:nowrap">"Kelsey, no" commands</td>
+            <td style="padding:9px 13px;color:var(--text2);vertical-align:top">Telling her to stop pointing at him</td>
+            <td style="padding:9px 13px;color:var(--text2);vertical-align:top">Defense: language used to someone with gun to their head, not muzzle in your face</td>
+            <td style="padding:9px 13px;color:var(--muted);vertical-align:top;font-style:italic">Noonan's own words in the moment support her account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- /comparison table section -->
+
+</div><!-- /tab-kelsey -->
+
+
+<!-- ══════════════════════════════════════════ -->
 <!--  TAB 2 — FLOOR PLAN                       -->
 <!-- ══════════════════════════════════════════ -->
 <div id="tab-floorplan" class="tab-panel">
@@ -1157,6 +1391,7 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
     <div class="trans-links">
       <a class="trans-link" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">↗ Day 1 — raw file</a>
       <a class="trans-link" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">↗ Day 2 — raw file</a>
+      <a class="trans-link" href="transcripts/Restraining Order Exposed Breakup, Ex-Officer Testifies" target="_blank">↗ Day 3 — raw file</a>
     </div>
   </div>
   <p class="trans-note">Transcripts are rendered below. Use Ctrl+F / Cmd+F within each pane to search by timestamp (e.g. "21:14"). Click ↗ links above to open raw files.</p>
@@ -1168,6 +1403,10 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
     <div class="transcript-pane">
       <div class="trans-pane-label">Day 2 — Cross Examination (Noonan Denies)</div>
       <iframe class="trans-iframe" src="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" title="Day 2 Cross Examination Transcript"></iframe>
+    </div>
+    <div class="transcript-pane">
+      <div class="trans-pane-label">Day 3 — Kelsey Fitzsimmons Testimony (Restraining Order)</div>
+      <iframe class="trans-iframe" src="transcripts/Restraining Order Exposed Breakup, Ex-Officer Testifies" title="Day 3 Kelsey Fitzsimmons Testimony Transcript"></iframe>
     </div>
   </div>
 </div><!-- /tab-transcripts -->
@@ -1244,6 +1483,8 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
     Transcripts via <a href="https://youtu.be/OgburgQnFI0?si=UyBbzTDayaD4A8Sv" target="_blank" rel="noopener">@CourtTV Day 1</a>
     &nbsp;/&nbsp;
     <a href="https://youtu.be/2_JsRmyikEc?si=ZfFxUO__LRJN5PEs" target="_blank" rel="noopener">Day 2</a>
+    &nbsp;/&nbsp;
+    <a href="https://youtu.be/DyKkDiBGqDo?si=cgdaJJZmKxf2j7V6" target="_blank" rel="noopener">Day 3</a>
   </div>
 
 </div><!-- /tab-images -->
@@ -1323,7 +1564,8 @@ function segV(x, y1, y2, color, lw) {
 /* ── Door frame: gap + swing arc + leaf ── */
 // swingLeft=true → door opens into hall (left/west of wall)
 // swingLeft=false → door opens into room (right/east of wall)
-function drawDoor(wallX, gapY1, gapY2, color, swingLeft) {
+// hingeAtY2=true → hinge at the gapY2 (south/bottom) end of the opening
+function drawDoor(wallX, gapY1, gapY2, color, swingLeft, hingeAtY2) {
   const r = (gapY2 - gapY1) * SCALE;
   const col = color || '#4a5878';
 
@@ -1332,28 +1574,46 @@ function drawDoor(wallX, gapY1, gapY2, color, swingLeft) {
   ctx.fillRect(ft(wallX) - 3, fy(gapY1) - 1, 6, 3);
   ctx.fillRect(ft(wallX) - 3, fy(gapY2) - 1, 6, 3);
 
+  const hingeX = ft(wallX);
+  const hingeY = hingeAtY2 ? fy(gapY2) : fy(gapY1);
+
   // Door swing arc
   ctx.beginPath();
   ctx.strokeStyle = col;
   ctx.lineWidth = 1;
   ctx.setLineDash([4, 3]);
   if (swingLeft) {
-    // Opens into hallway (west): arc from south (closed) → west (open), clockwise
-    ctx.arc(ft(wallX), fy(gapY1), r, Math.PI / 2, Math.PI);
+    if (hingeAtY2) {
+      // Hinge at bottom: closed position is upward (3π/2), opens left (π) — upper-left quadrant
+      ctx.arc(hingeX, hingeY, r, Math.PI, 3 * Math.PI / 2);
+    } else {
+      // Hinge at top: closed position is downward (π/2), opens left (π) — lower-left quadrant
+      ctx.arc(hingeX, hingeY, r, Math.PI / 2, Math.PI);
+    }
   } else {
-    // Opens into room (east): arc from east (open) → south (closed), clockwise
-    ctx.arc(ft(wallX), fy(gapY1), r, 0, Math.PI / 2);
+    if (hingeAtY2) {
+      // Hinge at bottom: closed position is upward (3π/2), opens right (0) — upper-right quadrant
+      ctx.arc(hingeX, hingeY, r, 3 * Math.PI / 2, 0);
+    } else {
+      // Hinge at top: closed position is downward (π/2), opens right (0) — lower-right quadrant
+      ctx.arc(hingeX, hingeY, r, 0, Math.PI / 2);
+    }
   }
   ctx.stroke();
   ctx.setLineDash([]);
 
   // Door leaf (~45° open)
-  const angle = swingLeft ? (3 * Math.PI / 4) : (Math.PI / 4);
+  let angle;
+  if (swingLeft) {
+    angle = hingeAtY2 ? (5 * Math.PI / 4) : (3 * Math.PI / 4);
+  } else {
+    angle = hingeAtY2 ? (7 * Math.PI / 4) : (Math.PI / 4);
+  }
   ctx.beginPath();
   ctx.strokeStyle = col;
   ctx.lineWidth = 1.5;
-  ctx.moveTo(ft(wallX), fy(gapY1));
-  ctx.lineTo(ft(wallX) + r * Math.cos(angle), fy(gapY1) + r * Math.sin(angle));
+  ctx.moveTo(hingeX, hingeY);
+  ctx.lineTo(hingeX + r * Math.cos(angle), hingeY + r * Math.sin(angle));
   ctx.stroke();
 }
 
@@ -1398,7 +1658,7 @@ function drawBase() {
   // Baby's room right wall = Hall left wall (with baby door gap)
   segV(13.25, 0, BABY_Y1, WC);
   segV(13.25, BABY_Y2, 14.58, WC);
-  drawDoor(13.25, BABY_Y1, BABY_Y2, '#3d5c56', true);
+  drawDoor(13.25, BABY_Y1, BABY_Y2, '#3d5c56', true, true);
 
   // Hall top and bottom
   segH(13.25, 20.17, 0, WC);
