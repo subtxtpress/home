@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kelsey Fitzsimmons Trial</title>
+  <meta name="description" content="Interactive analysis of Officer Noonan's testimony in State v. Kelsey Fitzsimmons — a cop-on-cop shooting case in North Andover, MA. Tracks 8 documented inconsistencies between direct and cross-examination, with floor plan geometry and source transcript reference.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/portfolio/kelsey-fitzsimmons">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kelsey Fitzsimmons Trial">
+  <meta property="og:description" content="Interactive analysis of Officer Noonan's testimony in State v. Kelsey Fitzsimmons — a cop-on-cop shooting case in North Andover, MA. Tracks 8 documented inconsistencies between direct and cross-examination, with floor plan geometry and source transcript reference.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/portfolio/kelsey-fitzsimmons">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/kelsey-fitzsimmons.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kelsey Fitzsimmons Trial">
+  <meta name="twitter:description" content="Interactive analysis of Officer Noonan's testimony in State v. Kelsey Fitzsimmons — a cop-on-cop shooting case in North Andover, MA. Tracks 8 documented inconsistencies between direct and cross-examination, with floor plan geometry and source transcript reference.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/kelsey-fitzsimmons.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg: #060B14;
+  --surface: rgba(18,64,60,0.22);
+  --surface2: #12403C;
+  --border: rgba(244,229,196,0.10);
+  --border2: rgba(244,229,196,0.26);
+  --border-subtle: rgba(18,64,60,0.45);
+
+  --red: #C04E01;
+  --red-dim: rgba(192,78,1,0.10);
+  --red-border: rgba(192,78,1,0.55);
+  --amber: #ebe2cd;
+  --amber-dim: rgba(235,226,205,0.10);
+  --blue: #D8DADB;
+  --blue-dim: rgba(216,218,219,0.10);
+  --green: #4a8a7c;
+  --green-dim: rgba(18,64,60,0.22);
+
+  --text: #F5F5F5;
+  --text2: #D8DADB;
+  --text-label: #ebe2cd;
+  --muted: rgba(216,218,219,0.50);
+
+  --card-bg: rgba(6,11,20,0.45);
+  --grad-g03: linear-gradient(to right, #D8DADB, #C04E01);
+  --grad-teal: linear-gradient(to bottom, #F5F5F5, #12403C);
+
+  --mono: 'IBM Plex Mono', 'Courier Prime', monospace;
+  --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text2);
+  font-family: var(--body);
+  font-size: 13px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── NAV ── */
+.nav {
+  background: rgba(6,11,20,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text2);
+  margin-right: 20px;
+  padding: 14px 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-title span { color: var(--red); }
+
+.tab-btn {
+  font-family: var(--body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 14px 15px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--text2); background: rgba(18,64,60,0.20); }
+.tab-btn.active { color: var(--text); border-bottom-color: var(--red); }
+
+.tab-panel { display: none; padding: 20px; }
+.tab-panel.active { display: block; }
+
+/* ── INCONSISTENCY TRACKER ── */
+.tracker-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.tracker-header h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1;
+}
+.legend-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+.legend-chip {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.chip-critical { background: var(--red-dim); color: var(--red); border: 1px solid var(--red-border); }
+.chip-high     { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(235,226,205,0.4); }
+.chip-medium   { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(216,218,219,0.4); }
+.chip-confirm  { background: var(--green-dim); color: var(--green); border: 1px solid rgba(74,138,124,0.4); }
+
+.incon-block {
+  position: relative;
+  border: 1px solid var(--border);
+  border-top: 3px solid transparent;
+  margin-bottom: 8px;
+  background: var(--card-bg);
+  overflow: hidden;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
+}
+.incon-block::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-g03);
+  border-radius: 8px 8px 0 0;
+  pointer-events: none;
+}
+.incon-header {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: background 0.12s;
+  user-select: none;
+}
+.incon-header:hover { background: rgba(18,64,60,0.20); }
+.incon-header.open { border-bottom-color: var(--border); }
+
+.incon-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+}
+.incon-title {
+  font-family: var(--body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.incon-sub {
+  font-family: var(--mono);
+  font-size: 0.575rem;
+  color: var(--muted);
+  margin-top: 2px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.severity-badge {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.sev-critical { background: var(--red-dim); color: var(--red); border: 1px solid rgba(192,78,1,0.4); }
+.sev-high     { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(235,226,205,0.4); }
+.sev-medium   { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(216,218,219,0.4); }
+
+.chevron {
+  font-size: 0.68rem;
+  color: var(--muted);
+  transition: transform 0.2s;
+  margin-left: 6px;
+}
+.open .chevron { transform: rotate(90deg); }
+
+.incon-body { display: none; }
+.incon-body.open { display: block; }
+
+/* COMPARISON GRID */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.compare-col { padding: 13px 15px; }
+.compare-col:first-child { border-right: 1px solid var(--border); }
+
+.compare-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.label-direct { color: var(--blue); }
+.label-cross  { color: var(--amber); }
+
+.compare-ts {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-left: auto;
+}
+.compare-text {
+  font-family: var(--body);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--text2);
+}
+.compare-text em { font-style: italic; color: var(--text); }
+.compare-text mark {
+  background: rgba(192,78,1,0.18);
+  color: var(--red);
+  padding: 0 2px;
+  font-style: normal;
+}
+.compare-text .hi-amber {
+  background: rgba(235,226,205,0.12);
+  color: var(--amber);
+  padding: 0 2px;
+}
+
+/* DELTA */
+.delta-row {
+  border-top: 1px solid var(--border);
+  padding: 9px 15px;
+  background: rgba(0,0,0,0.2);
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+.delta-icon { font-size: 0.75rem; margin-top: 1px; flex-shrink: 0; }
+.delta-text { font-family: var(--body); font-size: 0.8125rem; line-height: 1.6; color: var(--text2); }
+.delta-text strong { color: var(--text); font-weight: 600; }
+
+/* SOURCE ROW */
+.source-row {
+  border-top: 1px solid var(--border);
+  padding: 6px 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.12);
+  align-items: center;
+}
+.source-row-label {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+.source-tag {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+a.source-tag {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(216,218,219,0.4);
+  transition: color 0.1s, border-color 0.1s;
+}
+a.source-tag:hover { color: var(--text); border-bottom-color: var(--text); }
+
+/* CONSISTENCIES */
+.consist-section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+.consist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.consist-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  padding: 10px 13px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.consist-card::before {
+  content: '';
+  position: absolute;
+  left: -3px; top: -1px; bottom: -1px;
+  width: 3px;
+  background: var(--grad-teal);
+  border-radius: 6px 0 0 6px;
+  pointer-events: none;
+}
+.consist-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--green);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.consist-body {
+  font-family: var(--body);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+
+/* ── FLOOR PLAN TAB ── */
+.fp-layout {
+  display: grid;
+  grid-template-columns: 1fr 290px;
+  gap: 18px;
+  align-items: start;
+}
+.step-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.step-btn {
+  font-family: var(--mono);
+  font-size: 0.575rem;
+  padding: 4px 10px;
+  background: rgba(6,11,20,0.5);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.12s;
+}
+.step-btn:hover { border-color: var(--amber); color: var(--amber); background: rgba(235,226,205,0.06); }
+.step-btn.active { background: var(--amber); border-color: var(--amber); color: #060B14; font-weight: 700; }
+.step-btn.flag { border-color: rgba(192,78,1,0.5); }
+.step-btn.flag.active { background: var(--red); border-color: var(--red); color: #F5F5F5; }
+
+.canvas-wrap {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-x: auto;
+}
+.canvas-wrap::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-g03);
+  border-radius: 10px 10px 0 0;
+  pointer-events: none;
+}
+canvas { display: block; width: 100%; height: auto; min-width: 420px; }
+
+.step-desc {
+  font-family: var(--body);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text2);
+  padding: 10px 13px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-top: 8px;
+  min-height: 52px;
+}
+.step-desc .slabel {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.fp-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fp-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-top: 3px solid transparent;
+  border-radius: 10px;
+  padding: 12px 14px;
+  overflow: hidden;
+}
+.fp-card::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-g03);
+  border-radius: 10px 10px 0 0;
+  pointer-events: none;
+}
+.fp-card-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.fp-flag {
+  position: relative;
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+  padding: 7px 10px;
+  margin-bottom: 7px;
+  background: var(--surface);
+  font-family: var(--body);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  overflow: hidden;
+}
+.fp-flag:last-child { margin-bottom: 0; }
+.fp-flag::before {
+  content: '';
+  position: absolute;
+  left: -3px; top: -1px; bottom: -1px;
+  width: 3px;
+  background: linear-gradient(to bottom, #D8DADB, #C04E01);
+  border-radius: 6px 0 0 6px;
+  pointer-events: none;
+}
+.fp-flag .fhead {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--red);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 3px;
+}
+.fp-flag.amber::before { background: linear-gradient(to bottom, #F5F5F5, #ebe2cd); }
+.fp-flag.amber .fhead { color: var(--amber); }
+.fp-flag.blue::before { background: linear-gradient(to bottom, #F5F5F5, #D8DADB); }
+.fp-flag.blue .fhead { color: var(--blue); }
+
+.fp-legend { display: flex; flex-direction: column; gap: 5px; }
+.fp-leg-row { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; color: var(--muted); }
+.fp-leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.fp-leg-line { width: 16px; height: 2px; flex-shrink: 0; }
+
+/* ── TRANSCRIPTS TAB ── */
+.trans-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.trans-links {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.trans-link {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--blue);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border: 1px solid rgba(216,218,219,0.35);
+  border-radius: 4px;
+  transition: all 0.12s;
+}
+.trans-link:hover { color: var(--text); border-color: var(--blue); background: var(--blue-dim); }
+
+.transcript-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.transcript-pane { display: flex; flex-direction: column; }
+.trans-pane-label {
+  font-family: var(--mono);
+  font-size: 0.57rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  padding: 7px 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+.trans-iframe {
+  width: 100%;
+  height: calc(100vh - 240px);
+  min-height: 400px;
+  border: 1px solid var(--border);
+  background: #fff;
+  filter: invert(0.88) hue-rotate(180deg) brightness(0.95);
+  border-radius: 0 0 6px 6px;
+}
+.trans-note {
+  font-family: var(--body);
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 8px 0 4px;
+  font-style: italic;
+}
+
+/* ── IMAGES TAB ── */
+.img-section-label {
+  font-family: var(--mono);
+  font-size: 0.57rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.img-section-label:first-child { margin-top: 0; }
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.img-card {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  position: relative;
+}
+.img-card a { display: block; }
+.img-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: opacity 0.15s;
+}
+.img-card img:hover { opacity: 0.85; }
+.img-card-cap {
+  font-family: var(--mono);
+  font-size: 0.575rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 9px;
+}
+.img-credit {
+  font-family: var(--mono);
+  font-size: 0.575rem;
+  letter-spacing: 0.07em;
+  color: rgba(216,218,219,0.30);
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.img-credit a {
+  color: rgba(216,218,219,0.50);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(216,218,219,0.20);
+}
+.img-credit a:hover { color: var(--text2); border-bottom-color: var(--text2); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .fp-layout { grid-template-columns: 1fr; }
+  .transcript-grid { grid-template-columns: 1fr; }
+  .trans-iframe { height: 60vh; min-height: 300px; }
+  .img-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .tab-panel { padding: 14px; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .consist-grid { grid-template-columns: 1fr; }
+  .tracker-header { flex-direction: column; gap: 8px; }
+  .tracker-header .legend-strip { margin-left: 0; }
+  .nav-title { font-size: 0.9rem; }
+  .img-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  .tab-panel { padding: 10px; }
+  .incon-header { grid-template-columns: 24px 1fr auto; gap: 7px; padding: 8px 10px; }
+  .incon-title { font-size: 0.8rem; }
+  .incon-sub { font-size: 0.575rem; }
+  .compare-col { padding: 10px 11px; }
+  .delta-row { padding: 8px 11px; }
+  .source-row { padding: 5px 11px; gap: 7px; }
+  .fp-flag { font-size: 0.75rem; }
+  .img-grid { grid-template-columns: 1fr; }
+  .trans-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-title">NOONAN <span>/</span> FITZSIMMONS</div>
+  <button class="tab-btn active" onclick="switchTab('inconsistencies', this)">Testimony Inconsistencies</button>
+  <button class="tab-btn" onclick="switchTab('floorplan', this)">Floor Plan Geometry</button>
+  <button class="tab-btn" onclick="switchTab('transcripts', this)">Source Transcripts</button>
+  <button class="tab-btn" onclick="switchTab('images', this)">Photos &amp; Floor Plans</button>
+</nav>
+
+<!-- ══════════════════════════════════════════ -->
+<!--  TAB 1 — INCONSISTENCIES                  -->
+<!-- ══════════════════════════════════════════ -->
+<div id="tab-inconsistencies" class="tab-panel active">
+
+  <div class="tracker-header">
+    <h2>Testimony Inconsistencies</h2>
+    <div class="legend-strip">
+      <span class="legend-chip chip-critical">Critical</span>
+      <span class="legend-chip chip-high">High</span>
+      <span class="legend-chip chip-medium">Medium</span>
+    </div>
+  </div>
+
+  <!-- I1 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">01</div>
+      <div>
+        <div class="incon-title">Firing sequence — "rapid succession" vs. shot / commands / shot</div>
+        <div class="incon-sub">Directly contradicts state police statement from July 3, 2025</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-critical">Critical</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1) <span class="compare-ts">~12:17</span></div>
+          <div class="compare-text">
+            "She after she successfully got around in the chamber, her right arm started to come up and <mark>I shot twice in rapid succession</mark> at her."
+            <br><br>Described as a single, near-simultaneous double-tap. Demonstrated as "boom boom" when asked.
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~21:14–23:52</span></div>
+          <div class="compare-text">
+            Defense reads back state police statement from July 3rd: <em>"I pulled the trigger <span class="hi-amber">once</span>. I kept giving commands. I pulled the trigger <span class="hi-amber">again</span>."</em>
+            <br><br>Under pressure, Noonan tries to merge both: "I was giving commands <mark>and shooting at the same time</mark>." Then: "It all happened in 4 seconds or less."
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> A sequential interrupted sequence (shoot → pause → commands → shoot) became a simultaneous double-tap. Defense explicitly asked: "Both of those things can't be true, can they?" His answer — "They can be true" — was not credible on its face. The July 3rd statement is days after the incident; the trial testimony is 8+ months later.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <a class="source-tag" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">Day 1 Transcript ~12:17</a>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 21:14, 22:43, 23:33, 35:10–36:02</a>
+        <span class="source-tag">State police statement: July 3, 2025 @ audio 12:32</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- I2 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">02</div>
+      <div>
+        <div class="incon-title">Kelsey's stance — two-handed modified weaver → one hand</div>
+        <div class="incon-sub">Changed description mid-cross-examination, same session</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-critical">Critical</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1) <span class="compare-ts">~12:17</span></div>
+          <div class="compare-text">
+            Noonan physically demonstrated the stance for the judge during direct. Showed a <mark>two-handed grip</mark>. Later confirmed on cross: "And yesterday when you were being questioned, you assumed a two-handed stance to show that, didn't you? That's correct."
+            <br><br>Confirmed the name: <em>"modified weaver stance."</em>
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~41:51</span></div>
+          <div class="compare-text">
+            Later in the same cross, while re-walking the sequence, Noonan states unprompted: <span class="hi-amber">"No, no weaver stance. It's a one hand."</span>
+            <br><br>Defense immediately noted the contradiction. Noonan does not reconcile the two descriptions. When asked what stance it was: "It's a one-handed…" — trial counsel re-asks, Noonan can't name it.
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> He demonstrated two hands on direct, named it a modified weaver stance, and confirmed that characterization at the start of cross — then switched to one-handed later in the same cross without explanation. This matters to trajectory, grip, and the plausibility of the threat posture he describes.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <a class="source-tag" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">Day 1 Transcript ~12:17 (demonstrated)</a>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 29:13–30:34, reversal 41:51–41:59</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- I3 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">03</div>
+      <div>
+        <div class="incon-title">Distance at time of firing — ~3 ft → "about 15 ft"</div>
+        <div class="incon-sub">5× increase in stated distance; no measurement evidence offered</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-critical">Critical</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1) <span class="compare-ts">~9:22, 20:29</span></div>
+          <div class="compare-text">
+            "She was <mark>3 feet in front of me</mark>" — stated during the bedroom sequence. At exhibit 50: confirmed he was right before the door frame when he first observed her draw. General impression throughout direct is close-quarters confrontation at or near the door.
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~36:48–37:06</span></div>
+          <div class="compare-text">
+            Defense: "Your first shot, you missed her from about 7 ft away."
+            <br>Noonan: <span class="hi-amber">"I did. Uh, it was longer than 7 ft. It was at that point about <mark>15 ft</mark>."</span>
+            <br><br>Offers a rationale: "if you remove the bed and you were to walk diagonal from where I shot, it was probably around 15." No measurements. Defense immediately: "Do you have any measurements on this?" Answer: No.
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> 3 feet at initial contact → 15 feet "diagonal" by the time he fired. The room is 11'3" × 12'10". His diagonal estimate requires Kelsey to have moved nearly the full room depth while tap-racking. This is geometrically possible but was never established on direct. He also corrects the defense's own 7-foot estimate upward — volunteering a larger number unprompted.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <a class="source-tag" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">Day 1 Transcript 9:22, 20:29–20:56</a>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 28:37–28:49, 36:48–37:06</a>
+        <span class="source-tag">Room dims: 11'3" × 12'10" per floor plan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- I4 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">04</div>
+      <div>
+        <div class="incon-title">"Whack job" — no opinion → on-stand slur during testimony</div>
+        <div class="incon-sub">Bias statement made live; also surfaced via neighbor witness</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-critical">Critical</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1) <span class="compare-ts">~0:54–1:05</span></div>
+          <div class="compare-text">
+            "Knew her but not well. Um she was on maternity most of the time that when I first transferred over."
+            <br><br>Later confirmed got along with her on the calls they worked together. Framing: professional indifference, limited contact, <mark>no strong opinion</mark>.
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~8:09–8:53, 33:14</span></div>
+          <div class="compare-text">
+            Defense: Did you call her a whack job to your neighbor Moren Teresi?
+            <br>Noonan: "I don't recall." Then: <span class="hi-amber">"It's possible."</span>
+            <br><br>Then, spontaneously during the sequence re-walk at 33:14: <mark>"Yes, she's a well-trained police officer who's a whack job who tried to kill me."</mark>
+            <br><br>Used the term unprompted, present tense, mid-testimony.
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> "No real opinion" on direct becomes a documented bias term used to a neighbor, then restated voluntarily on the stand. The 33:14 instance is the most damaging — he said it while describing her tactical behavior, suggesting it's his settled characterization of her, not a reactive slip. This goes to pre-existing mindset at the time of the service call.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <a class="source-tag" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">Day 1 Transcript 0:54, 7:39–8:08</a>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 8:09–8:53 (neighbor ref.), on-stand use: 33:14</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- I5 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">05</div>
+      <div>
+        <div class="incon-title">Handing off the baby — comfort vs. tactical readiness</div>
+        <div class="incon-sub">Omission on direct; contradicted by state police statement</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-high">High</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1) <span class="compare-ts">~4:57–5:12</span></div>
+          <div class="compare-text">
+            "Um he was screaming. I was trying to calm him down... I wear an elder carrier vest and I have all my equipment in the front. So it was kind of hard to create [comfort]."
+            <br><br>Sole stated reason: <mark>baby's physical discomfort</mark> on his vest. No mention of tactical considerations.
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~15:00–15:47</span></div>
+          <div class="compare-text">
+            Defense: "That's what you told the state police — that you didn't like having anything in your hands and it was really a tactical reason why you gave the baby up, right?"
+            <br>Noonan: "Uh, no. It wasn't a tactical."
+            <br>Then concedes: <span class="hi-amber">"I'm sure it could apply."</span> And: <span class="hi-amber">"I want to have my hands free on every call."</span>
+            <br><br>Defense: "You left it out. Not on purpose. We'll see."
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> His stated motivation shifts from baby welfare to tactical hands-free readiness — or he has two reasons and chose to present only the sympathetic one at trial. Defense's inference: he wanted his hands free because he anticipated the encounter would escalate. His concession that "it could apply" after initially denying it is the tell.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <a class="source-tag" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">Day 1 Transcript 4:57–5:12</a>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 14:29–16:10</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- I6 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">06</div>
+      <div>
+        <div class="incon-title">"Sectioning" — not mentioned on direct; state police statement says otherwise</div>
+        <div class="incon-sub">Pre-operational intent to 5150/section Kelsey omitted from direct narrative</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-high">High</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1)</div>
+          <div class="compare-text">
+            No mention of sectioning, involuntary psychiatric hold, or pre-planning to take Kelsey into custody on mental health grounds. Direct narrative: respond, serve papers, retrieve firearms, transfer baby. <mark>No indication of anticipated psychiatric intervention.</mark>
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~9:06–10:33</span></div>
+          <div class="compare-text">
+            Defense: "You told the state police that the job was to section her, didn't you?"
+            <br>Noonan: <span class="hi-amber">"It was spoken about that if she reacts badly during the restraining order, she may have to get sectioned."</span>
+            <br><br>Defense presses: "You told the state police that part of the job was to section her." Noonan: <span class="hi-amber">"I don't recall."</span>
+            <br><br>Also confirms he discussed boxing her in with the car, and taking her into custody.
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> The pre-call discussion included contingency planning to involuntarily commit Kelsey if she reacted badly. This was entirely absent from direct. Combined with "whack job" and tactical gloves, it builds a picture of officers who went in with a threat assessment already formed — which directly contradicts the "routine service call" framing of his direct testimony.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <span class="source-tag">Day 1: omitted entirely</span>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 9:06–10:33</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- I7 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">07</div>
+      <div>
+        <div class="incon-title">"Sounds good" — didn't get the plan on the phone vs. grand jury</div>
+        <div class="incon-sub">Contradicted by his own grand jury testimony</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-medium">Medium</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1) <span class="compare-ts">~0:20–0:43</span></div>
+          <div class="compare-text">
+            "Houston said, 'Hey, can you meet me at the CCC?' He said, 'We have to serve papers to Officer Kelsey.'"
+            <br><br>Implication: minimal information conveyed on the phone. He didn't know the full scope. Met at CCC where the plan was explained by Lieutenant Daly.
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~17:40–18:20</span></div>
+          <div class="compare-text">
+            Defense reads from grand jury transcript, page 36: Houston told him about serving papers, custody transfer, firearms, and Noonan's response was <span class="hi-amber">"Okay, sounds good."</span>
+            <br><br>Noonan: "I don't I don't recall." Does not deny the substance. Defense: "You knew those papers were a restraining order for Kelsey to give up the baby, give up her guns, <mark>lose her job</mark>."
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> "I only knew to show up at the CCC" becomes "sounds good" after being briefed on firearms, custody, and the stakes for Kelsey's career. This matters because Noonan's direct testimony framed his knowledge as limited going in — the grand jury record suggests he understood the full picture before arriving.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <a class="source-tag" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">Day 1 Transcript 0:20–0:43</a>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 17:40–18:35</a>
+        <span class="source-tag">Grand jury transcript: page 36</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- I8 -->
+  <div class="incon-block">
+    <div class="incon-header" onclick="toggleIncon(this)">
+      <div class="incon-num">08</div>
+      <div>
+        <div class="incon-title">Gun location — "she still has it" → "I don't recall where it was"</div>
+        <div class="incon-sub">Certainty on direct collapses under cross on physical evidence</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="severity-badge sev-high">High</span>
+        <span class="chevron">▶</span>
+      </div>
+    </div>
+    <div class="incon-body">
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="compare-label label-direct">◀ Direct Exam (Day 1) <span class="compare-ts">~13:33–13:50</span></div>
+          <div class="compare-text">
+            Daly: "Where's the gun?"
+            <br>Noonan: <mark>"She still has it."</mark>
+            <br><br>Described Daly rolling her and finding the gun. Then Noonan moved it to the other side of the room — to the white shelf — and ordered Core to secure it.
+            <br><br>Confident, sequential account of the gun's location and chain of custody.
+          </div>
+        </div>
+        <div class="compare-col">
+          <div class="compare-label label-cross">Cross Exam (Day 2) ▶ <span class="compare-ts">~41:13–43:44</span></div>
+          <div class="compare-text">
+            Defense: "The firearm was under Kelsey's leg. Correct?"
+            <br>Noonan: <span class="hi-amber">"I don't know where it was. I was covering down — I don't recall where it was."</span>
+            <br><br>Defense then raises the physics problem: if the gun was out in front of her, she receives a 9mm impact pushing her backward — <mark>"how does the gun get all the way behind her and under her leg?"</mark>
+            <br>Noonan: "I have no idea. It's the way she fell."
+          </div>
+        </div>
+      </div>
+      <div class="delta-row">
+        <div class="delta-icon">⚠</div>
+        <div class="delta-text"><strong>What changed:</strong> On direct he narrated the gun's location with confidence. On cross, confronted with the physical implausibility of the gun's resting position relative to the described impact and fall, he retreats to "I don't recall." The defense's physics argument remains unresolved: gun extended in front → chest impact pushing backward → gun found under her body. Multiple officers touched the weapon before it was secured.</div>
+      </div>
+      <div class="source-row">
+        <span class="source-row-label">Source:</span>
+        <a class="source-tag" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">Day 1 Transcript 13:33–13:52</a>
+        <a class="source-tag" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">Day 2 Transcript 41:13–44:00</a>
+        <span class="source-tag">Chain of custody: Daly → bed → Noonan → white shelf → Core → hallway</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONSISTENCIES ── -->
+  <div class="consist-section">
+    <div class="tracker-header">
+      <h2 style="color:var(--green)">Consistent Testimony</h2>
+      <div class="legend-strip">
+        <span class="legend-chip chip-confirm">Confirmed Both Days</span>
+      </div>
+    </div>
+    <p style="font-size:0.67rem;color:var(--muted);margin-bottom:14px">Points Noonan maintained consistently across direct and cross-examination — these are not in dispute.</p>
+    <div class="consist-grid">
+      <div class="consist-card">
+        <div class="consist-label">Physical layout confirmed</div>
+        <div class="consist-body">Room dimensions, relative positions of baby's room, hall, stairs, and Kelsey's bedroom were not challenged. Floor plan coordinates are agreed upon by both sides.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Gun misfire — click, no discharge</div>
+        <div class="consist-body">Kelsey pointed the gun at Noonan's face and pulled the trigger. It clicked but did not fire. This was consistent across direct, cross, and the July 3rd state police statement.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Baby handed off before confrontation</div>
+        <div class="consist-body">Noonan gave the baby to another officer before following Kelsey upstairs. The fact and timing of the handoff is undisputed — only the stated reason changed.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Kelsey drew first</div>
+        <div class="consist-body">Noonan consistently maintained he did not draw his weapon until after Kelsey produced hers and the misfire occurred. Order of draw was not seriously contested.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Two shots fired total</div>
+        <div class="consist-body">Both direct and cross confirm Noonan fired twice. The dispute is sequence (simultaneous vs. separated by commands), not the count itself.</div>
+      </div>
+      <div class="consist-card">
+        <div class="consist-label">Lunge direction — away from Noonan</div>
+        <div class="consist-body">Noonan consistently stated Kelsey lunged behind the door frame to her right (away from him). He could not see what she retrieved. This direction is undisputed.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-inconsistencies -->
+
+
+<!-- ══════════════════════════════════════════ -->
+<!--  TAB 2 — FLOOR PLAN                       -->
+<!-- ══════════════════════════════════════════ -->
+<div id="tab-floorplan" class="tab-panel">
+  <div class="fp-layout">
+    <div>
+      <div class="step-toggle" id="stepBtns"></div>
+      <div class="canvas-wrap">
+        <canvas id="floorCanvas" width="820" height="460"></canvas>
+      </div>
+      <div class="step-desc" id="stepDesc">
+        <span class="slabel">Active step</span>
+        Select a step above to trace the testimony sequence on the floor plan.
+      </div>
+    </div>
+    <div class="fp-sidebar">
+      <div class="fp-card">
+        <div class="fp-card-label">Geometry Flags</div>
+        <div class="fp-flag">
+          <span class="fhead">🚩 Gun position — critical</span>
+          Gun extended in front during tap-rack. Chest impact pushes backward. Gun found under her leg. Physics of this are unresolved — Noonan couldn't explain it on cross.
+        </div>
+        <div class="fp-flag amber">
+          <span class="fhead">⚠ Distance revision</span>
+          "3 feet" on direct became "about 15 ft diagonal" on cross. Room is 11'3" × 12'10". Cross-check against room dimensions.
+        </div>
+        <div class="fp-flag amber">
+          <span class="fhead">⚠ Hall depth + door swing</span>
+          Hall is only 6'4" deep. Door confirmed (photo) to open OUTWARD into the hallway. When open, it further reduces Noonan's maneuvering space and places him in direct line with the arc of the door swing.
+        </div>
+        <div class="fp-flag blue">
+          <span class="fhead">ℹ Baby's room confirmed</span>
+          Primary bedroom = baby's room. Same floor, immediate left off staircase. Kelsey's path: baby's room → hall → her room.
+        </div>
+        <div class="fp-flag blue">
+          <span class="fhead">ℹ Lunge direction</span>
+          She lunged AWAY from Noonan — behind the door frame to her right. Gun retrieved from wooden box near door frame (Noonan's belief, cross ~46:58).
+        </div>
+      </div>
+      <div class="fp-card">
+        <div class="fp-card-label">Legend</div>
+        <div class="fp-legend">
+          <div class="fp-leg-row"><div class="fp-leg-dot" style="background:#ebe2cd"></div> Kelsey position</div>
+          <div class="fp-leg-row"><div class="fp-leg-dot" style="background:#D8DADB"></div> Noonan position</div>
+          <div class="fp-leg-row"><div class="fp-leg-dot" style="background:#C04E01"></div> Gun / flag point</div>
+          <div class="fp-leg-row"><div class="fp-leg-line" style="background:#ebe2cd"></div> Movement path</div>
+          <div class="fp-leg-row"><div class="fp-leg-line" style="background:#C04E01"></div> Line of fire</div>
+          <div class="fp-leg-row"><div class="fp-leg-line" style="background:#3d5452;height:1px;border-top:1px dashed #3d5452"></div> Door swing arc</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /tab-floorplan -->
+
+
+<!-- ══════════════════════════════════════════ -->
+<!--  TAB 3 — TRANSCRIPTS                      -->
+<!-- ══════════════════════════════════════════ -->
+<div id="tab-transcripts" class="tab-panel">
+  <div class="trans-header">
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;letter-spacing:.06em;font-weight:700;text-transform:uppercase">Source Transcripts</h2>
+    <div class="trans-links">
+      <a class="trans-link" href="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" target="_blank">↗ Day 1 — raw file</a>
+      <a class="trans-link" href="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" target="_blank">↗ Day 2 — raw file</a>
+    </div>
+  </div>
+  <p class="trans-note">Transcripts are rendered below. Use Ctrl+F / Cmd+F within each pane to search by timestamp (e.g. "21:14"). Click ↗ links above to open raw files.</p>
+  <div class="transcript-grid">
+    <div class="transcript-pane">
+      <div class="trans-pane-label">Day 1 — Direct Examination (Officer Details)</div>
+      <iframe class="trans-iframe" src="transcripts/Officer Details Intense Moments From Cop-on-Cop Shooting Incident" title="Day 1 Direct Examination Transcript"></iframe>
+    </div>
+    <div class="transcript-pane">
+      <div class="trans-pane-label">Day 2 — Cross Examination (Noonan Denies)</div>
+      <iframe class="trans-iframe" src="transcripts/Officer Noonan Denies Calling Kelsey Fitzsimmons a 'Whack Job'" title="Day 2 Cross Examination Transcript"></iframe>
+    </div>
+  </div>
+</div><!-- /tab-transcripts -->
+
+
+<!-- ══════════════════════════════════════════ -->
+<!--  TAB 4 — PHOTOS & FLOOR PLANS             -->
+<!-- ══════════════════════════════════════════ -->
+<div id="tab-images" class="tab-panel">
+
+  <div class="img-section-label">Floor Plans</div>
+  <div class="img-grid">
+    <div class="img-card">
+      <a href="img/floor-plan.jpg" target="_blank">
+        <img src="img/floor-plan.jpg" alt="Floor plan overview">
+      </a>
+      <div class="img-card-cap">Floor Plan — Overview</div>
+    </div>
+  </div>
+
+  <div class="img-section-label">Kelsey's Bedroom</div>
+  <div class="img-grid">
+    <div class="img-card">
+      <a href="img/kelsey-bedroom-1.png" target="_blank">
+        <img src="img/kelsey-bedroom-1.png" alt="Kelsey bedroom view 1">
+      </a>
+      <div class="img-card-cap">Bedroom — View 1</div>
+    </div>
+    <div class="img-card">
+      <a href="img/kelsey-bedroom-2.png" target="_blank">
+        <img src="img/kelsey-bedroom-2.png" alt="Kelsey bedroom view 2">
+      </a>
+      <div class="img-card-cap">Bedroom — View 2</div>
+    </div>
+    <div class="img-card">
+      <a href="img/kelsey-bedroom-3.png" target="_blank">
+        <img src="img/kelsey-bedroom-3.png" alt="Kelsey bedroom view 3">
+      </a>
+      <div class="img-card-cap">Bedroom — View 3</div>
+    </div>
+    <div class="img-card">
+      <a href="img/kelsey-bedroom-4.png" target="_blank">
+        <img src="img/kelsey-bedroom-4.png" alt="Kelsey bedroom view 4">
+      </a>
+      <div class="img-card-cap">Bedroom — View 4</div>
+    </div>
+  </div>
+
+  <div class="img-section-label">Caiden's Nursery</div>
+  <div class="img-grid">
+    <div class="img-card">
+      <a href="img/caiden-nursery-1.png" target="_blank">
+        <img src="img/caiden-nursery-1.png" alt="Caiden nursery view 1">
+      </a>
+      <div class="img-card-cap">Nursery — View 1</div>
+    </div>
+    <div class="img-card">
+      <a href="img/caiden-nursery-2.png" target="_blank">
+        <img src="img/caiden-nursery-2.png" alt="Caiden nursery view 2">
+      </a>
+      <div class="img-card-cap">Nursery — View 2</div>
+    </div>
+    <div class="img-card">
+      <a href="img/view-from-caiden-room-2023.webp" target="_blank">
+        <img src="img/view-from-caiden-room-2023.webp" alt="View from Caiden's room (2023)">
+      </a>
+      <div class="img-card-cap">View from Nursery (2023)</div>
+    </div>
+  </div>
+
+  <div class="img-credit">
+    Images via <a href="https://youtu.be/fgeI4rbqD-A?si=c7ggQlxuGxpmqpFZ" target="_blank" rel="noopener">@DreamFeedMedia — KELSEY FITZSIMMONS | Home Tour | Before &amp; After</a>
+    &nbsp;·&nbsp;
+    Transcripts via <a href="https://youtu.be/OgburgQnFI0?si=UyBbzTDayaD4A8Sv" target="_blank" rel="noopener">@CourtTV Day 1</a>
+    &nbsp;/&nbsp;
+    <a href="https://youtu.be/2_JsRmyikEc?si=ZfFxUO__LRJN5PEs" target="_blank" rel="noopener">Day 2</a>
+  </div>
+
+</div><!-- /tab-images -->
+
+
+<script>
+/* ══ TAB SWITCHING ══ */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  if (id === 'floorplan') renderFloorPlan();
+}
+
+/* ══ ACCORDION ══ */
+function toggleIncon(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.incon-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.incon-header').forEach(h => h.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    header.classList.add('open');
+  }
+}
+
+/* ══ FLOOR PLAN ══ */
+const canvas = document.getElementById('floorCanvas');
+const ctx = canvas.getContext('2d');
+const W = 820, H = 460;
+const SCALE = 22;
+const OX = 32, OY = 32;
+
+// Door positions (feet along the shared wall)
+const BD_Y1 = 1.0, BD_Y2 = 4.0;     // bedroom door: y=1 to y=4 (3ft)
+const BABY_Y1 = 2.5, BABY_Y2 = 5.5;  // baby room door: y=2.5 to y=5.5 (3ft)
+
+const rooms = {
+  primaryBR: { x: 0,     y: 0,    w: 13.25, h: 14.58, label: "BABY'S ROOM\n13'3\" × 14'7\"" },
+  hall:      { x: 13.25, y: 0,    w: 6.92,  h: 6.33,  label: 'HALL\n6\'11" × 6\'4"' },
+  wic:       { x: 13.25, y: 6.33, w: 3.67,  h: 6.42,  label: 'W.I.C.' },
+  stairs:    { x: 16.92, y: 6.33, w: 3.25,  h: 6.42,  label: 'STAIRS' },
+  bedroom:   { x: 20.17, y: 0,    w: 11.25, h: 12.83,  label: "KELSEY'S ROOM\n11'3\" × 12'10\"" },
+};
+
+const POS = {
+  kelseyStart:     { x: 24,   y: 5   },
+  noonan:          { x: 20.5, y: 3.2 },
+  kelseyLunge:     { x: 20.7, y: 4.5 },
+  kelseyBackpedal: { x: 26,   y: 9   },
+  gunFound:        { x: 26.5, y: 9.5 },
+  gunBox:          { x: 20.3, y: 5.8 },
+};
+
+function ft(v) { return OX + v * SCALE; }
+function fy(v) { return OY + v * SCALE; }
+
+/* ── Wall segment helpers ── */
+function segH(x1, x2, y, color, lw) {
+  ctx.beginPath();
+  ctx.strokeStyle = color || '#5a6070';
+  ctx.lineWidth = lw || 2;
+  ctx.moveTo(ft(x1), fy(y));
+  ctx.lineTo(ft(x2), fy(y));
+  ctx.stroke();
+}
+function segV(x, y1, y2, color, lw) {
+  ctx.beginPath();
+  ctx.strokeStyle = color || '#5a6070';
+  ctx.lineWidth = lw || 2;
+  ctx.moveTo(ft(x), fy(y1));
+  ctx.lineTo(ft(x), fy(y2));
+  ctx.stroke();
+}
+
+/* ── Door frame: gap + swing arc + leaf ── */
+// swingLeft=true → door opens into hall (left/west of wall)
+// swingLeft=false → door opens into room (right/east of wall)
+function drawDoor(wallX, gapY1, gapY2, color, swingLeft) {
+  const r = (gapY2 - gapY1) * SCALE;
+  const col = color || '#4a5878';
+
+  // Jamb marks at each end of opening
+  ctx.fillStyle = col;
+  ctx.fillRect(ft(wallX) - 3, fy(gapY1) - 1, 6, 3);
+  ctx.fillRect(ft(wallX) - 3, fy(gapY2) - 1, 6, 3);
+
+  // Door swing arc
+  ctx.beginPath();
+  ctx.strokeStyle = col;
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 3]);
+  if (swingLeft) {
+    // Opens into hallway (west): arc from south (closed) → west (open), clockwise
+    ctx.arc(ft(wallX), fy(gapY1), r, Math.PI / 2, Math.PI);
+  } else {
+    // Opens into room (east): arc from east (open) → south (closed), clockwise
+    ctx.arc(ft(wallX), fy(gapY1), r, 0, Math.PI / 2);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Door leaf (~45° open)
+  const angle = swingLeft ? (3 * Math.PI / 4) : (Math.PI / 4);
+  ctx.beginPath();
+  ctx.strokeStyle = col;
+  ctx.lineWidth = 1.5;
+  ctx.moveTo(ft(wallX), fy(gapY1));
+  ctx.lineTo(ft(wallX) + r * Math.cos(angle), fy(gapY1) + r * Math.sin(angle));
+  ctx.stroke();
+}
+
+/* ── Base floor plan ── */
+function drawBase() {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#060B14';
+  ctx.fillRect(0, 0, W, H);
+
+  // Room fills
+  ctx.fillStyle = 'rgba(6,20,30,0.70)';      // baby's room — dark navy
+  ctx.fillRect(ft(0), fy(0), 13.25*SCALE, 14.58*SCALE);
+
+  ctx.fillStyle = 'rgba(10,26,24,0.60)';      // hall — dark teal
+  ctx.fillRect(ft(13.25), fy(0), 6.92*SCALE, 6.33*SCALE);
+
+  ctx.fillStyle = 'rgba(12,40,36,0.55)';      // WIC — teal
+  ctx.fillRect(ft(13.25), fy(6.33), 3.67*SCALE, 6.42*SCALE);
+
+  ctx.fillStyle = 'rgba(4,8,12,0.95)';        // stairs — very dark
+  ctx.fillRect(ft(16.92), fy(6.33), 3.25*SCALE, 6.42*SCALE);
+
+  ctx.fillStyle = 'rgba(8,36,32,0.65)';       // bedroom — dark teal
+  ctx.fillRect(ft(20.17), fy(0), 11.25*SCALE, 12.83*SCALE);
+
+  // Stairs hatching
+  for (let i = 0; i < 9; i++) {
+    const sy = fy(6.33) + i * (6.42*SCALE/8);
+    ctx.beginPath(); ctx.strokeStyle='#0a1412'; ctx.lineWidth=1;
+    ctx.moveTo(ft(16.92), sy); ctx.lineTo(ft(20.17), sy); ctx.stroke();
+  }
+
+  // ── Walls as segments (with gaps for doors) ──
+  const WC = '#3d5452'; // wall color — muted teal-gray
+  const AC = '#6a8880'; // accent wall — lighter teal
+
+  // Baby's room exterior
+  segH(0, 13.25, 0, WC);
+  segV(0, 0, 14.58, WC);
+  segH(0, 13.25, 14.58, WC);
+
+  // Baby's room right wall = Hall left wall (with baby door gap)
+  segV(13.25, 0, BABY_Y1, WC);
+  segV(13.25, BABY_Y2, 14.58, WC);
+  drawDoor(13.25, BABY_Y1, BABY_Y2, '#3d5c56', true);
+
+  // Hall top and bottom
+  segH(13.25, 20.17, 0, WC);
+  segH(13.25, 20.17, 6.33, WC);
+
+  // Hall right wall / Bedroom left wall — KEY DOOR — accent color
+  segV(20.17, 0, BD_Y1, AC, 2.5);
+  segV(20.17, BD_Y2, 6.33, AC, 2.5);
+  drawDoor(20.17, BD_Y1, BD_Y2, '#5a8878', true);
+
+  // Bedroom exterior
+  segH(20.17, 31.42, 0, WC);
+  segV(31.42, 0, 12.83, WC);
+  segH(20.17, 31.42, 12.83, WC);
+  segV(20.17, 6.33, 12.83, WC);
+
+  // WIC / Stairs
+  segH(13.25, 16.92, 12.75, WC);
+  segV(16.92, 6.33, 12.75, WC);
+  segH(16.92, 20.17, 12.75, WC);
+
+  // Room labels
+  const labelFont = '9px Courier Prime, monospace';
+  function rlbl(r, color) {
+    ctx.fillStyle = color;
+    ctx.font = labelFont;
+    ctx.textAlign = 'center';
+    const lines = r.label.split('\n');
+    const cx = ft(r.x + r.w/2), cy = fy(r.y + r.h/2) - (lines.length-1)*6;
+    lines.forEach((l,i) => ctx.fillText(l, cx, cy + i*13));
+  }
+  rlbl(rooms.primaryBR, 'rgba(216,218,219,0.60)');
+  rlbl(rooms.hall,      'rgba(216,218,219,0.50)');
+  rlbl(rooms.wic,       'rgba(235,226,205,0.45)');
+  rlbl(rooms.bedroom,   'rgba(235,226,205,0.70)');
+
+  // Stairs label
+  ctx.fillStyle = 'rgba(216,218,219,0.40)';
+  ctx.font = '8px Courier Prime, monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('STAIRS', ft(18.54), fy(9.54));
+
+  // Door label
+  ctx.fillStyle = 'rgba(235,226,205,0.30)';
+  ctx.font = '7px Courier Prime, monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText('DOOR', ft(20.2), fy(BD_Y1) - 3);
+}
+
+/* ── Shared drawing helpers ── */
+function dot(px, py, color, r) {
+  r = r || 7;
+  ctx.beginPath();
+  ctx.arc(ft(px), fy(py), r, 0, Math.PI*2);
+  ctx.fillStyle = color; ctx.fill();
+  ctx.strokeStyle = 'rgba(0,0,0,0.5)'; ctx.lineWidth = 1.5; ctx.stroke();
+}
+
+function arrowLine(x1, y1, x2, y2, color, dashed) {
+  ctx.beginPath();
+  ctx.strokeStyle = color; ctx.lineWidth = 2;
+  if (dashed) ctx.setLineDash([5,4]); else ctx.setLineDash([]);
+  ctx.moveTo(ft(x1),fy(y1)); ctx.lineTo(ft(x2),fy(y2)); ctx.stroke();
+  ctx.setLineDash([]);
+  const a = Math.atan2(fy(y2)-fy(y1), ft(x2)-ft(x1));
+  ctx.beginPath(); ctx.fillStyle = color;
+  ctx.moveTo(ft(x2),fy(y2));
+  ctx.lineTo(ft(x2)-10*Math.cos(a-0.4), fy(y2)-10*Math.sin(a-0.4));
+  ctx.lineTo(ft(x2)-10*Math.cos(a+0.4), fy(y2)-10*Math.sin(a+0.4));
+  ctx.closePath(); ctx.fill();
+}
+
+function radiusCircle(px, py, feet, color) {
+  ctx.beginPath();
+  ctx.arc(ft(px),fy(py), feet*SCALE, 0, Math.PI*2);
+  ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.setLineDash([5,4]); ctx.stroke();
+  ctx.setLineDash([]);
+  // dim fill
+  ctx.beginPath();
+  ctx.arc(ft(px),fy(py), feet*SCALE, 0, Math.PI*2);
+  ctx.fillStyle = color.replace('rgb(','rgba(').replace(')',',0.06)');
+  ctx.fill();
+}
+
+function lbl(text, px, py, color, align) {
+  ctx.fillStyle = color || '#e4e8f0';
+  ctx.font = 'bold 9px Courier Prime, monospace';
+  ctx.textAlign = align || 'left';
+  text.split('\n').forEach((l,i) => ctx.fillText(l, ft(px), fy(py)+i*12));
+}
+
+/* ══ STEPS ══ */
+let fpStep = 0;
+
+const steps = [
+  {
+    label:'BASE', flag:false,
+    desc:'Base floor plan — baby\'s room is the left primary BR (confirmed from photos). Kelsey\'s room is right. Hall is 6\'4" deep between stair top and bedroom door. Door frames shown with swing arcs.',
+    draw:()=>{},
+    lbls:()=>{}
+  },
+  {
+    label:'S1 ENTRY', flag:false,
+    desc:'Kelsey enters her room from the baby\'s room, crossing the hall. Short direct path — same level, immediate left-to-right crossing.',
+    draw:()=>{
+      arrowLine(6,7,POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd');
+      dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd');
+    },
+    lbls:()=>{
+      lbl('KELSEY',POS.kelseyStart.x+0.3,POS.kelseyStart.y-0.8,'#ebe2cd');
+    }
+  },
+  {
+    label:'S2 NOONAN', flag:false,
+    desc:'Noonan at top of stairs, before the door frame. Hall is 6\'4" deep — nearly at Kelsey\'s threshold immediately. Houston has gone back downstairs.',
+    draw:()=>{
+      ctx.fillStyle='rgba(18,64,60,0.12)';
+      ctx.fillRect(ft(rooms.hall.x),fy(rooms.hall.y),rooms.hall.w*SCALE,rooms.hall.h*SCALE);
+      dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
+    },
+    lbls:()=>{
+      lbl('NOONAN\n(top of stairs)',POS.noonan.x+0.3,POS.noonan.y-1.1,'#D8DADB');
+      lbl('← 6\'4" hall →',16.7,6.9,'#D8DADB','center');
+    }
+  },
+  {
+    label:'S3 3FT', flag:true,
+    desc:'Direct: "She was 3 feet in front of me." Cross: revised to ~15 ft diagonal when she was shot. Both distances plotted — the discrepancy spans most of the room.',
+    draw:()=>{
+      dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
+      dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd');
+    },
+    lbls:()=>{
+      radiusCircle(POS.noonan.x,POS.noonan.y,3,'rgb(235,226,205)');
+      radiusCircle(POS.noonan.x,POS.noonan.y,15,'rgb(192,78,1)');
+      lbl('3ft (direct)',POS.noonan.x+3.3,POS.noonan.y-0.5,'#ebe2cd');
+      lbl('~15ft diagonal\n(cross revision)',POS.noonan.x+8,POS.noonan.y+4.5,'#C04E01');
+    }
+  },
+  {
+    label:'S4 LUNGE', flag:false,
+    desc:'She lunged AWAY from Noonan — behind the door frame to her right (his left). He couldn\'t see what she grabbed. Gun believed to come from wooden box near left of door frame.',
+    draw:()=>{
+      dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
+      dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd',5);
+      arrowLine(POS.kelseyStart.x,POS.kelseyStart.y,POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
+      dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
+      dot(POS.gunBox.x,POS.gunBox.y,'#C04E01',6);
+    },
+    lbls:()=>{
+      lbl('← lunge\nbehind frame',21.0,5.8,'#ebe2cd');
+      lbl('GUN BOX',POS.gunBox.x-3,POS.gunBox.y+0.5,'#C04E01');
+      lbl('NOONAN\ncan\'t see here →',13.5,4.2,'#D8DADB');
+    }
+  },
+  {
+    label:'S5 REAPPEARS', flag:false,
+    desc:'She reappears at the door frame with the gun and points it at Noonan\'s face. Pulls trigger — gun malfunctions. Click, no discharge. He draws at this point.',
+    draw:()=>{
+      dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
+      dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
+      ctx.beginPath();
+      ctx.strokeStyle='#C04E01'; ctx.lineWidth=2; ctx.setLineDash([4,3]);
+      ctx.moveTo(ft(POS.kelseyLunge.x),fy(POS.kelseyLunge.y));
+      ctx.lineTo(ft(POS.noonan.x),fy(POS.noonan.y)); ctx.stroke(); ctx.setLineDash([]);
+    },
+    lbls:()=>{
+      lbl('CLICK\n(misfire)',19.3,1.6,'#C04E01');
+      lbl('→ Noonan draws',21.3,3.8,'#D8DADB');
+    }
+  },
+  {
+    label:'S6 BACKPEDAL', flag:false,
+    desc:'She backpedals, steps left toward air conditioner (her left, his right). Tap-racks twice over ~4 seconds while moving. Room width: 11\'3".',
+    draw:()=>{
+      dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
+      dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd',4);
+      arrowLine(POS.kelseyLunge.x,POS.kelseyLunge.y,POS.kelseyBackpedal.x,POS.kelseyBackpedal.y,'#ebe2cd');
+      dot(POS.kelseyBackpedal.x,POS.kelseyBackpedal.y,'#ebe2cd');
+      ctx.strokeStyle='rgba(235,226,205,0.20)'; ctx.lineWidth=1; ctx.setLineDash([2,3]);
+      ctx.strokeRect(ft(rooms.bedroom.x),fy(rooms.bedroom.y),rooms.bedroom.w*SCALE,rooms.bedroom.h*SCALE);
+      ctx.setLineDash([]);
+    },
+    lbls:()=>{
+      lbl('BACKPEDAL +\nside step left\ntap-rack ×2',26.6,7.5,'#ebe2cd');
+      lbl('← 11\'3" wide →',25.7,13.5,'rgba(216,218,219,0.45)','center');
+    }
+  },
+  {
+    label:'S7 SHOT', flag:true,
+    desc:'🚩 Noonan fires. "Her right arm started to come up." Two shots — or shot / commands / shot (disputed). Kelsey struck in chest. Falls between bed and wall. Gun found under leg — physics disputed.',
+    draw:()=>{
+      dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
+      dot(POS.kelseyBackpedal.x,POS.kelseyBackpedal.y,'#ebe2cd');
+      ctx.beginPath(); ctx.strokeStyle='#C04E01'; ctx.lineWidth=2.5; ctx.setLineDash([]);
+      ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y));
+      ctx.lineTo(ft(POS.kelseyBackpedal.x),fy(POS.kelseyBackpedal.y)); ctx.stroke();
+      dot(POS.gunFound.x,POS.gunFound.y,'#C04E01',9);
+      ctx.strokeStyle='#F5F5F5'; ctx.lineWidth=1.5;
+      ctx.beginPath();
+      ctx.moveTo(ft(POS.gunFound.x)-5,fy(POS.gunFound.y)-5);
+      ctx.lineTo(ft(POS.gunFound.x)+5,fy(POS.gunFound.y)+5);
+      ctx.moveTo(ft(POS.gunFound.x)+5,fy(POS.gunFound.y)-5);
+      ctx.lineTo(ft(POS.gunFound.x)-5,fy(POS.gunFound.y)+5); ctx.stroke();
+      ctx.beginPath(); ctx.strokeStyle='rgba(192,78,1,0.35)'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+      ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y));
+      ctx.lineTo(ft(POS.kelseyBackpedal.x),fy(POS.kelseyBackpedal.y)); ctx.stroke(); ctx.setLineDash([]);
+    },
+    lbls:()=>{
+      const dx = ft(POS.kelseyBackpedal.x) - ft(POS.noonan.x);
+      const dy = fy(POS.kelseyBackpedal.y) - fy(POS.noonan.y);
+      const distFt = Math.sqrt(dx*dx+dy*dy) / SCALE;
+      ctx.fillStyle = '#C04E01';
+      ctx.font = '8px Courier Prime, monospace';
+      ctx.textAlign = 'center';
+      const mx = (ft(POS.noonan.x)+ft(POS.kelseyBackpedal.x))/2;
+      const my = (fy(POS.noonan.y)+fy(POS.kelseyBackpedal.y))/2;
+      ctx.fillText(distFt.toFixed(1)+'ft diagonal', mx - 14, my - 6);
+      lbl('SHOT\n(chest)',POS.kelseyBackpedal.x+0.4,POS.kelseyBackpedal.y-1.0,'#C04E01');
+      lbl('GUN FOUND\nunder leg',POS.gunFound.x+0.4,POS.gunFound.y+1.0,'#C04E01');
+    }
+  },
+];
+
+function renderFloorPlan() {
+  drawBase();
+  for (let i = 1; i <= fpStep; i++) if (steps[i]) steps[i].draw();
+  if (steps[fpStep] && steps[fpStep].lbls) steps[fpStep].lbls();
+  const s = steps[fpStep];
+  document.getElementById('stepDesc').innerHTML =
+    `<span class="slabel">Step ${fpStep} — ${s.label}</span>${s.desc}`;
+}
+
+const btnWrap = document.getElementById('stepBtns');
+steps.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.className = 'step-btn' + (s.flag ? ' flag' : '') + (i === 0 ? ' active' : '');
+  b.textContent = i === 0 ? 'BASE PLAN' : s.label;
+  b.onclick = () => {
+    fpStep = i;
+    document.querySelectorAll('.step-btn').forEach((x,j) => x.classList.toggle('active', j===i));
+    renderFloorPlan();
+  };
+  btnWrap.appendChild(b);
+});
+
+renderFloorPlan();
+</script>
+</body>
+</html>
