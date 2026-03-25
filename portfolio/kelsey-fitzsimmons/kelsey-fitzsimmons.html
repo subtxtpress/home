@@ -1365,6 +1365,14 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
           <span class="fhead">ℹ Lunge direction</span>
           She lunged AWAY from Noonan — behind the door frame to her right. Gun retrieved from wooden box near door frame (Noonan's belief, cross ~46:58).
         </div>
+        <div class="fp-flag">
+          <span class="fhead">🚩 Gun physics — her account stronger</span>
+          Temple placement + backward fall = gun under leg (geometrically consistent). Forward point + backward fall = gun should be near hand (not under leg). Noonan could not explain the gun's position on cross.
+        </div>
+        <div class="fp-flag blue">
+          <span class="fhead">ℹ "Kelsey, no" — commands cut both ways</span>
+          Noonan's own verbal commands in the moment are consistent with a person holding a gun to their own head, not standard de-escalation language used when a weapon is pointed at you.
+        </div>
       </div>
       <div class="fp-card">
         <div class="fp-card-label">Legend</div>
@@ -1375,6 +1383,7 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:#ebe2cd"></div> Movement path</div>
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:#C04E01"></div> Line of fire</div>
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:#3d5452;height:1px;border-top:1px dashed #3d5452"></div> Door swing arc</div>
+          <div class="fp-leg-row"><div class="fp-leg-dot" style="background:rgba(74,138,124,0.85)"></div> Kelsey's account</div>
         </div>
       </div>
     </div>
@@ -1800,7 +1809,7 @@ const steps = [
   },
   {
     label:'S4 LUNGE', flag:false,
-    desc:'She lunged AWAY from Noonan — behind the door frame to her right (his left). He couldn\'t see what she grabbed. Gun believed to come from wooden box near left of door frame.',
+    desc:'She lunged AWAY from Noonan — behind the door frame to her right (his left). He couldn\'t see what she grabbed. Gun believed to come from wooden box near door frame (Noonan cross ~46:58). KELSEY\'S ACCOUNT: consistent — she retrieved the gun from near the door frame. The lunge direction is not disputed.',
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
       dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd',5);
@@ -1816,7 +1825,7 @@ const steps = [
   },
   {
     label:'S5 REAPPEARS', flag:false,
-    desc:'She reappears at the door frame with the gun and points it at Noonan\'s face. Pulls trigger — gun malfunctions. Click, no discharge. He draws at this point.',
+    desc:'NOONAN: She reappeared with the gun pointed at his face and pulled the trigger. Click — misfire. He drew his weapon. KELSEY: She retrieved the gun and raised it to her own temple. Pulled the trigger — misfire. These are the same moment, irreconcilable accounts. No third eyewitness was present.',
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
       dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
@@ -1832,7 +1841,7 @@ const steps = [
   },
   {
     label:'S6 BACKPEDAL', flag:false,
-    desc:'She backpedals, steps left toward air conditioner (her left, his right). Tap-racks twice over ~4 seconds while moving. Room width: 11\'3".',
+    desc:'NOONAN: She backpedaled, stepped left toward air conditioner, performed two tap-rack attempts while moving. Arm started to come up toward him — he fired. KELSEY: Her account does not address this phase. The tap-rack-while-backpedaling sequence is the most critical unresolved gap — consistent with Noonan\'s version, unexplained by hers. ~4 seconds total.',
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
       dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd',4);
@@ -1849,7 +1858,7 @@ const steps = [
   },
   {
     label:'S7 SHOT', flag:true,
-    desc:'🚩 Noonan fires. "Her right arm started to come up." Two shots — or shot / commands / shot (disputed). Kelsey struck in chest. Falls between bed and wall. Gun found under leg — physics disputed.',
+    desc:'Noonan fires. Kelsey struck in chest, falls between bed and wall. GUN FOUND UNDER HER LEG. NOONAN physics: gun pointed forward → chest impact → backward fall → gun should be near hand, not under leg. KELSEY physics: gun at temple (already lateral) → chest impact → backward fall → gun ends up under leg. Her physics argument is geometrically stronger and was not answered on cross.',
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
       dot(POS.kelseyBackpedal.x,POS.kelseyBackpedal.y,'#ebe2cd');
@@ -1879,6 +1888,83 @@ const steps = [
       ctx.fillText(distFt.toFixed(1)+'ft diagonal', mx - 14, my - 6);
       lbl('SHOT\n(chest)',POS.kelseyBackpedal.x+0.4,POS.kelseyBackpedal.y-1.0,'#C04E01');
       lbl('GUN FOUND\nunder leg',POS.gunFound.x+0.4,POS.gunFound.y+1.0,'#C04E01');
+    }
+  },
+  {
+    label:'S8 PHYSICS', flag:true,
+    desc:'Physics comparison — gun recovery position. If gun was pointed FORWARD at Noonan (his account): a chest impact pushing her backward should send the gun forward or drop it near her hand — NOT under her leg behind her body. If gun was at her TEMPLE (her account): already lateral to her body — a backward fall naturally pins it under her. The defense argument: "If she is pointing the gun at Noonan and falls backwards, how does that gun swing around and get under her leg? It is, however, consistent with somebody holding a gun to their own head." — Attorney Bradl, opening statement.',
+    draw:()=>{
+      // Her position when shot
+      dot(POS.kelseyBackpedal.x, POS.kelseyBackpedal.y, 'rgba(235,226,205,0.7)');
+      // Noonan version: gun pointed rightward (toward door/Noonan) → X marker where gun "should" land
+      const noonanGunX = POS.kelseyBackpedal.x - 3.5;
+      const noonanGunY = POS.kelseyBackpedal.y - 2.2;
+      ctx.beginPath(); ctx.strokeStyle='#C04E01'; ctx.lineWidth=2; ctx.setLineDash([]);
+      ctx.moveTo(ft(POS.kelseyBackpedal.x), fy(POS.kelseyBackpedal.y));
+      ctx.lineTo(ft(noonanGunX), fy(noonanGunY)); ctx.stroke();
+      // X at projected gun-drop for Noonan version
+      ctx.strokeStyle='#C04E01'; ctx.lineWidth=2;
+      ctx.beginPath();
+      ctx.moveTo(ft(noonanGunX)-6, fy(noonanGunY)-6);
+      ctx.lineTo(ft(noonanGunX)+6, fy(noonanGunY)+6); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(ft(noonanGunX)+6, fy(noonanGunY)-6);
+      ctx.lineTo(ft(noonanGunX)-6, fy(noonanGunY)+6); ctx.stroke();
+      // Kelsey version: gun lateral at temple → dashed arc to actual gun-found position
+      ctx.beginPath(); ctx.strokeStyle='rgba(74,138,124,0.85)'; ctx.lineWidth=2; ctx.setLineDash([5,4]);
+      ctx.moveTo(ft(POS.kelseyBackpedal.x), fy(POS.kelseyBackpedal.y));
+      ctx.quadraticCurveTo(
+        ft(POS.kelseyBackpedal.x) - 8, fy(POS.kelseyBackpedal.y) + 20,
+        ft(POS.gunFound.x), fy(POS.gunFound.y)
+      );
+      ctx.stroke(); ctx.setLineDash([]);
+      // Checkmark dot at actual gun-found position
+      dot(POS.gunFound.x, POS.gunFound.y, 'rgba(74,138,124,0.85)', 7);
+      ctx.fillStyle='rgba(74,138,124,1)'; ctx.font='bold 10px Courier Prime,monospace'; ctx.textAlign='center';
+      ctx.fillText('✓', ft(POS.gunFound.x), fy(POS.gunFound.y)+4);
+    },
+    lbls:()=>{
+      lbl('KELSEY\nwhen shot', POS.kelseyBackpedal.x+0.4, POS.kelseyBackpedal.y-1.1, '#ebe2cd');
+      // Noonan label
+      const noonanGunX = POS.kelseyBackpedal.x - 3.5;
+      const noonanGunY = POS.kelseyBackpedal.y - 2.2;
+      lbl('NOONAN: gun\nshould land here', noonanGunX - 3.8, noonanGunY - 1.2, '#C04E01');
+      // Kelsey label
+      lbl('KELSEY: gun\nat temple →\nlateral fall\nlands here ✓', POS.gunFound.x + 0.5, POS.gunFound.y + 1.0, 'rgba(74,138,124,1)');
+    }
+  },
+  {
+    label:'S9 COMMANDS', flag:false,
+    desc:'Noonan\'s verbal commands — "Kelsey, no. Kelsey, no." Defense argument: "You don\'t say that when you\'re staring at the muzzle of a gun pointed at you. You say that to a person who has a gun to their head." Noonan\'s own in-the-moment language, which he testified to, supports her account of gun direction. He did not say "Drop it" or "Put it down" — the standard commands when a weapon is trained on you.',
+    draw:()=>{
+      dot(POS.noonan.x, POS.noonan.y, '#D8DADB');
+      dot(POS.kelseyLunge.x, POS.kelseyLunge.y, 'rgba(235,226,205,0.5)', 5);
+    },
+    lbls:()=>{
+      // Speech bubble text near Noonan (manual rounded rect for compatibility)
+      const bx = ft(POS.noonan.x) - 68, by = fy(POS.noonan.y) - 46, bw = 130, bh = 36, br = 6;
+      ctx.beginPath();
+      ctx.moveTo(bx+br, by);
+      ctx.lineTo(bx+bw-br, by); ctx.arcTo(bx+bw,by,bx+bw,by+br,br);
+      ctx.lineTo(bx+bw, by+bh-br); ctx.arcTo(bx+bw,by+bh,bx+bw-br,by+bh,br);
+      ctx.lineTo(bx+br, by+bh); ctx.arcTo(bx,by+bh,bx,by+bh-br,br);
+      ctx.lineTo(bx, by+br); ctx.arcTo(bx,by,bx+br,by,br);
+      ctx.closePath();
+      ctx.fillStyle='rgba(235,226,205,0.15)'; ctx.fill();
+      ctx.strokeStyle='rgba(235,226,205,0.35)'; ctx.lineWidth=1; ctx.setLineDash([]);
+      ctx.stroke();
+      ctx.fillStyle='#ebe2cd'; ctx.font='bold 9px Courier Prime,monospace'; ctx.textAlign='center';
+      ctx.fillText('"KELSEY, NO"', ft(POS.noonan.x) - 2, fy(POS.noonan.y) - 27);
+      lbl('NOONAN', POS.noonan.x+0.3, POS.noonan.y+0.8, '#D8DADB');
+      // Standard commands — struck through effect via two labels
+      ctx.fillStyle='rgba(216,218,219,0.45)'; ctx.font='8px Courier Prime,monospace'; ctx.textAlign='left';
+      ctx.fillText('Std. threat commands: DROP IT / PUT IT DOWN', ft(13.6), fy(10.5));
+      ctx.strokeStyle='rgba(216,218,219,0.45)'; ctx.lineWidth=0.8;
+      ctx.beginPath();
+      ctx.moveTo(ft(13.6), fy(10.5) - 4);
+      ctx.lineTo(ft(13.6) + 218, fy(10.5) - 4); ctx.stroke();
+      ctx.fillStyle='rgba(74,138,124,1)'; ctx.font='8px Courier Prime,monospace';
+      ctx.fillText('Actual command: consistent with gun-to-head', ft(13.6), fy(11.3));
     }
   },
 ];
