@@ -1889,15 +1889,9 @@ const steps = [
     lbls:()=>{
       const dx = ft(POS.kelseyBackpedal.x) - ft(POS.noonan.x);
       const dy = fy(POS.kelseyBackpedal.y) - fy(POS.noonan.y);
-      const distFt = Math.sqrt(dx*dx+dy*dy) / SCALE;
-      ctx.fillStyle = '#C04E01';
-      ctx.font = '8px Courier Prime, monospace';
-      ctx.textAlign = 'center';
-      const mx = (ft(POS.noonan.x)+ft(POS.kelseyBackpedal.x))/2;
-      const my = (fy(POS.noonan.y)+fy(POS.kelseyBackpedal.y))/2;
-      ctx.fillText(distFt.toFixed(1)+'ft diagonal', mx - 14, my - 6);
-      lbl('SHOT\n(chest)',POS.kelseyBackpedal.x+0.4,POS.kelseyBackpedal.y-1.0,'#C04E01');
-      lbl('GUN FOUND\nunder leg',POS.gunFound.x+0.4,POS.gunFound.y+1.0,'#C04E01');
+      const distFt = (Math.sqrt(dx*dx+dy*dy) / SCALE).toFixed(1);
+      lbl('SHOT (chest)\n'+distFt+'ft diagonal', POS.kelseyBackpedal.x+0.4, POS.kelseyBackpedal.y+0.8, '#C04E01');
+      lbl('GUN FOUND\nunder leg', POS.gunFound.x+0.6, POS.gunFound.y+1.0, '#C04E01');
     }
   },
   {
@@ -1925,9 +1919,8 @@ const steps = [
       const safePos = { x: 30.5, y: 2.5 };
       const templePos = { x: 26, y: 7.5 };
       lbl('GUN SAFE\n(corner)', safePos.x - 0.3, safePos.y - 0.8, 'rgba(74,138,124,0.85)', 'right');
-      lbl('GUN TO\nTEMPLE', templePos.x + 0.3, templePos.y + 1.5, 'rgba(74,138,124,0.85)');
+      lbl('GUN TO\nTEMPLE', templePos.x + 1.8, templePos.y + 0.3, 'rgba(74,138,124,0.85)');
       lbl('NOONAN', POS.noonan.x + 0.3, POS.noonan.y + 0.8, '#D8DADB');
-      lbl('← no forward\nmovement', templePos.x - 3.5, templePos.y + 1.2, 'rgba(74,138,124,0.6)');
     }
   },
   {
@@ -1964,13 +1957,13 @@ const steps = [
       ctx.fillText('✓', ft(POS.gunFound.x), fy(POS.gunFound.y)+4);
     },
     lbls:()=>{
-      lbl('KELSEY\nwhen shot', POS.kelseyBackpedal.x+0.4, POS.kelseyBackpedal.y-1.1, '#ebe2cd');
-      // Noonan label
+      lbl('KELSEY\nwhen shot', POS.kelseyBackpedal.x - 0.4, POS.kelseyBackpedal.y + 0.8, '#ebe2cd', 'right');
+      // Noonan physics label — below X marker, clear of room center
       const noonanGunX = POS.kelseyBackpedal.x - 3.5;
       const noonanGunY = POS.kelseyBackpedal.y - 2.2;
-      lbl('NOONAN: gun\nshould land here', noonanGunX - 3.8, noonanGunY - 1.2, '#C04E01');
+      lbl('NOONAN:\ngun here?', noonanGunX + 0.3, noonanGunY + 1.0, '#C04E01');
       // Kelsey label
-      lbl('KELSEY: gun\nat temple →\nlateral fall\nlands here ✓', POS.gunFound.x + 0.5, POS.gunFound.y + 1.0, 'rgba(74,138,124,1)');
+      lbl('KELSEY: gun\nat temple →\nlateral fall\nlands here ✓', POS.gunFound.x + 0.6, POS.gunFound.y + 1.0, 'rgba(74,138,124,1)');
     }
   },
   {
@@ -1996,6 +1989,10 @@ const steps = [
       ctx.fillStyle='#ebe2cd'; ctx.font='bold 9px Courier Prime,monospace'; ctx.textAlign='center';
       ctx.fillText('"KELSEY, NO"', ft(POS.noonan.x) - 2, fy(POS.noonan.y) - 27);
       lbl('NOONAN', POS.noonan.x+0.3, POS.noonan.y+0.8, '#D8DADB');
+      // Dim ghost label identifying S8 PHYSICS accumulated X marker (orange X upper-left = Noonan gun physics)
+      const noonanGunX = POS.kelseyBackpedal.x - 3.5;
+      const noonanGunY = POS.kelseyBackpedal.y - 2.2;
+      lbl('← S8: gun\nphysics', noonanGunX + 0.3, noonanGunY + 1.0, 'rgba(192,78,1,0.3)');
       // Standard commands — struck through effect via two labels
       ctx.fillStyle='rgba(216,218,219,0.45)'; ctx.font='8px Courier Prime,monospace'; ctx.textAlign='left';
       ctx.fillText('Std. threat commands: DROP IT / PUT IT DOWN', ft(1), fy(10.5));
