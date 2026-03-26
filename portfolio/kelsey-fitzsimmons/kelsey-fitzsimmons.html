@@ -1924,10 +1924,10 @@ const steps = [
     lbls:()=>{
       const safePos = { x: 30.5, y: 2.5 };
       const templePos = { x: 26, y: 7.5 };
-      lbl('GUN SAFE\n(corner)', safePos.x + 0.3, safePos.y - 0.8, 'rgba(74,138,124,0.85)');
-      lbl('GUN TO\nTEMPLE', templePos.x + 0.3, templePos.y - 0.8, 'rgba(74,138,124,0.85)');
-      lbl('NOONAN\nview from\ndoor frame', POS.noonan.x + 0.2, POS.noonan.y - 1.2, '#D8DADB');
-      lbl('← no forward\nmovement', templePos.x - 4, templePos.y + 1.2, 'rgba(74,138,124,0.6)');
+      lbl('GUN SAFE\n(corner)', safePos.x - 0.3, safePos.y - 0.8, 'rgba(74,138,124,0.85)', 'right');
+      lbl('GUN TO\nTEMPLE', templePos.x + 0.3, templePos.y + 1.5, 'rgba(74,138,124,0.85)');
+      lbl('NOONAN', POS.noonan.x + 0.3, POS.noonan.y + 0.8, '#D8DADB');
+      lbl('← no forward\nmovement', templePos.x - 3.5, templePos.y + 1.2, 'rgba(74,138,124,0.6)');
     }
   },
   {
@@ -1998,13 +1998,13 @@ const steps = [
       lbl('NOONAN', POS.noonan.x+0.3, POS.noonan.y+0.8, '#D8DADB');
       // Standard commands — struck through effect via two labels
       ctx.fillStyle='rgba(216,218,219,0.45)'; ctx.font='8px Courier Prime,monospace'; ctx.textAlign='left';
-      ctx.fillText('Std. threat commands: DROP IT / PUT IT DOWN', ft(13.6), fy(10.5));
+      ctx.fillText('Std. threat commands: DROP IT / PUT IT DOWN', ft(1), fy(10.5));
       ctx.strokeStyle='rgba(216,218,219,0.45)'; ctx.lineWidth=0.8;
       ctx.beginPath();
-      ctx.moveTo(ft(13.6), fy(10.5) - 4);
-      ctx.lineTo(ft(13.6) + 218, fy(10.5) - 4); ctx.stroke();
+      ctx.moveTo(ft(1), fy(10.5) - 4);
+      ctx.lineTo(ft(1) + 218, fy(10.5) - 4); ctx.stroke();
       ctx.fillStyle='rgba(74,138,124,1)'; ctx.font='8px Courier Prime,monospace';
-      ctx.fillText('Actual command: consistent with gun-to-head', ft(13.6), fy(11.3));
+      ctx.fillText('Actual command: consistent with gun-to-head', ft(1), fy(11.3));
     }
   },
 ];
