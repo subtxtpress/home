@@ -1890,8 +1890,8 @@ const steps = [
       const dx = ft(POS.kelseyBackpedal.x) - ft(POS.noonan.x);
       const dy = fy(POS.kelseyBackpedal.y) - fy(POS.noonan.y);
       const distFt = (Math.sqrt(dx*dx+dy*dy) / SCALE).toFixed(1);
-      lbl('SHOT (chest)\n'+distFt+'ft diagonal', POS.kelseyBackpedal.x+0.4, POS.kelseyBackpedal.y+0.8, '#C04E01');
-      lbl('GUN FOUND\nunder leg', POS.gunFound.x+0.6, POS.gunFound.y+1.0, '#C04E01');
+      lbl('SHOT (chest)\n'+distFt+'ft diagonal', POS.kelseyBackpedal.x - 0.3, POS.kelseyBackpedal.y + 0.6, '#C04E01', 'right');
+      lbl('GUN FOUND\nunder leg', POS.gunFound.x + 0.6, POS.gunFound.y + 0.6, '#C04E01');
     }
   },
   {
@@ -1961,7 +1961,7 @@ const steps = [
       // Noonan physics label — below X marker, clear of room center
       const noonanGunX = POS.kelseyBackpedal.x - 3.5;
       const noonanGunY = POS.kelseyBackpedal.y - 2.2;
-      lbl('NOONAN:\ngun here?', noonanGunX + 0.3, noonanGunY + 1.0, '#C04E01');
+      lbl('NOONAN:\ngun here?', noonanGunX - 1.0, noonanGunY + 2.5, '#C04E01', 'right');
       // Kelsey label
       lbl('KELSEY: gun\nat temple →\nlateral fall\nlands here ✓', POS.gunFound.x + 0.6, POS.gunFound.y + 1.0, 'rgba(74,138,124,1)');
     }
@@ -1989,10 +1989,6 @@ const steps = [
       ctx.fillStyle='#ebe2cd'; ctx.font='bold 9px Courier Prime,monospace'; ctx.textAlign='center';
       ctx.fillText('"KELSEY, NO"', ft(POS.noonan.x) - 2, fy(POS.noonan.y) - 27);
       lbl('NOONAN', POS.noonan.x+0.3, POS.noonan.y+0.8, '#D8DADB');
-      // Dim ghost label identifying S8 PHYSICS accumulated X marker (orange X upper-left = Noonan gun physics)
-      const noonanGunX = POS.kelseyBackpedal.x - 3.5;
-      const noonanGunY = POS.kelseyBackpedal.y - 2.2;
-      lbl('← S8: gun\nphysics', noonanGunX + 0.3, noonanGunY + 1.0, 'rgba(192,78,1,0.3)');
       // Standard commands — struck through effect via two labels
       ctx.fillStyle='rgba(216,218,219,0.45)'; ctx.font='8px Courier Prime,monospace'; ctx.textAlign='left';
       ctx.fillText('Std. threat commands: DROP IT / PUT IT DOWN', ft(1), fy(10.5));
