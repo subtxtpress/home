@@ -627,7 +627,7 @@
       }
       .panel-body::-webkit-scrollbar { height: 3px; }
       .sec-label { display: none; }
-  
+    }
 
     /* ── DIV ICONS ── */
     .map-icon {
@@ -684,6 +684,7 @@
       }
       .bm-btn { font-size: 9px; }
     }
+    @media (max-width: 767px) {
     .divider { display: none; }
       .layer-row {
         flex-direction: column;
@@ -718,7 +719,9 @@
 
     @media (max-width: 480px) {
       .nav-tag { display: none; }
-      .nav-title { font-size: 13px; }
+      .nav-title { font-size: 12px; }
+      .nav-source-link .link-label { display: none; }
+      .nav-source-link::after { content: '↗'; }
     }
   </style>
 </head>
@@ -728,7 +731,7 @@
   <nav class="nav">
     <span class="nav-title">State v. Zachary Adams</span>
     <span class="nav-tag">CASE MAP</span>
-    <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener">View original Google Earth map ↗</a>
+    <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">View original Google Earth map ↗</span></a>
   </nav>
 
   <div id="map"></div>
