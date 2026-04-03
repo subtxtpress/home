@@ -665,6 +665,11 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
   .tracker-header .legend-strip { margin-left: 0; }
   .nav-title { font-size: 0.9rem; }
   .img-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  /* Floor plan */
+  .step-toggle { gap: 4px; }
+  .step-btn { font-size: 0.6rem; padding: 5px 9px; }
+  canvas { min-width: 340px; }
+  .step-desc { font-size: 0.75rem; }
 }
 
 @media (max-width: 480px) {
@@ -678,6 +683,10 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
   .fp-flag { font-size: 0.75rem; }
   .img-grid { grid-template-columns: 1fr; }
   .trans-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* Floor plan */
+  .step-btn { font-size: 0.575rem; padding: 6px 8px; min-height: 28px; }
+  canvas { min-width: 300px; }
+  .canvas-wrap { padding: 6px; }
 }
 </style>
 </head>
@@ -1372,7 +1381,7 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
         </div>
         <div class="fp-flag blue">
           <span class="fhead">ℹ Lunge direction</span>
-          She lunged AWAY from Noonan — behind the door frame to her right. Gun retrieved from wooden box near door frame (Noonan's belief, cross ~46:58).
+          She lunged AWAY from Noonan — behind the door frame to her right, toward the <strong>north corner</strong> of the opening. Gun box was located in that north corner (corrected from earlier mapping). Door was removed from the frame by her father — open doorway, no door to swing behind.
         </div>
         <div class="fp-flag">
           <span class="fhead">🚩 Gun physics — her account stronger</span>
@@ -1391,7 +1400,7 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
           <div class="fp-leg-row"><div class="fp-leg-dot" style="background:#C04E01"></div> Gun / flag point</div>
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:#ebe2cd"></div> Movement path</div>
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:#C04E01"></div> Line of fire</div>
-          <div class="fp-leg-row"><div class="fp-leg-line" style="background:#3d5452;height:1px;border-top:1px dashed #3d5452"></div> Door swing arc</div>
+          <div class="fp-leg-row"><div class="fp-leg-dot" style="background:rgba(235,226,205,0.55);width:14px;height:2px;border-radius:0"></div> Coat rack / Chair</div>
           <div class="fp-leg-row"><div class="fp-leg-dot" style="background:rgba(74,138,124,0.85)"></div> Kelsey's account</div>
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:rgba(74,138,124,0.7);border-top:1px dashed rgba(74,138,124,0.7)"></div> Her stated path</div>
         </div>
@@ -1474,6 +1483,22 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
     </div>
   </div>
 
+  <div class="img-section-label">Bedroom — Gun Box &amp; Chair (DropMicrodots)</div>
+  <div class="img-grid">
+    <div class="img-card">
+      <a href="img/gunbox-and-chair.png" target="_blank">
+        <img src="img/gunbox-and-chair.png" alt="Bedroom reconstruction — gun box and chair visible">
+      </a>
+      <div class="img-card-cap">Bedroom Reconstruction — Gun Box &amp; Chair</div>
+    </div>
+    <div class="img-card">
+      <a href="img/gunbox.png" target="_blank">
+        <img src="img/gunbox.png" alt="Bedroom reconstruction — gun box position">
+      </a>
+      <div class="img-card-cap">Bedroom Reconstruction — Gun Box Position</div>
+    </div>
+  </div>
+
   <div class="img-section-label">Caiden's Nursery</div>
   <div class="img-grid">
     <div class="img-card">
@@ -1494,6 +1519,10 @@ canvas { display: block; width: 100%; height: auto; min-width: 420px; }
       </a>
       <div class="img-card-cap">View from Nursery (2023)</div>
     </div>
+  </div>
+
+  <div class="img-credit">
+    Bedroom reconstructions via <a href="https://youtu.be/gLkOJ-c6FRs?si=1HwTdOqTdhguWdeo" target="_blank" rel="noopener">@DropMicrodots — The Kelsey Fitzsimmons Story in Depth (March 27, 2026)</a>
   </div>
 
   <div class="img-credit">
@@ -1539,7 +1568,7 @@ const SCALE = 22;
 const OX = 32, OY = 32;
 
 // Door positions (feet along the shared wall)
-const BD_Y1 = 1.0, BD_Y2 = 4.0;     // bedroom door: y=1 to y=4 (3ft)
+const BD_Y1 = 2.0, BD_Y2 = 4.0;     // bedroom door frame: y=2 to y=4 (2ft opening; north wall extended)
 const BABY_Y1 = 2.5, BABY_Y2 = 5.5;  // baby room door: y=2.5 to y=5.5 (3ft)
 
 const rooms = {
@@ -1552,11 +1581,11 @@ const rooms = {
 
 const POS = {
   kelseyStart:     { x: 24,   y: 5   },
-  noonan:          { x: 20.5, y: 3.2 },
-  kelseyLunge:     { x: 20.7, y: 4.5 },
-  kelseyBackpedal: { x: 26,   y: 9   },
-  gunFound:        { x: 26.5, y: 9.5 },
-  gunBox:          { x: 20.3, y: 5.8 },
+  noonan:          { x: 19.7, y: 3.0 },
+  kelseyLunge:     { x: 20.9, y: 1.4 },
+  kelseyBackpedal: { x: 25.0, y: 3.0 },
+  gunFound:        { x: 25.8, y: 3.5 },
+  gunBox:          { x: 20.4, y: 0.4 },
 };
 
 function ft(v) { return OX + v * SCALE; }
@@ -1683,10 +1712,13 @@ function drawBase() {
   segH(13.25, 20.17, 0, WC);
   segH(13.25, 20.17, 6.33, WC);
 
-  // Hall right wall / Bedroom left wall — KEY DOOR — accent color
+  // Hall right wall / Bedroom left wall — KEY DOOR FRAME (door removed by dad) — accent color
   segV(20.17, 0, BD_Y1, AC, 2.5);
   segV(20.17, BD_Y2, 6.33, AC, 2.5);
-  drawDoor(20.17, BD_Y1, BD_Y2, '#5a8878', true);
+  // Door frame jamb marks only — no door leaf or swing arc (door was removed)
+  ctx.fillStyle = '#5a8878';
+  ctx.fillRect(ft(20.17) - 3, fy(BD_Y1) - 1, 6, 3);
+  ctx.fillRect(ft(20.17) - 3, fy(BD_Y2) - 1, 6, 3);
 
   // Bedroom exterior
   segH(20.17, 31.42, 0, WC);
@@ -1701,18 +1733,18 @@ function drawBase() {
 
   // Room labels
   const labelFont = '9px Courier Prime, monospace';
-  function rlbl(r, color) {
+  function rlbl(r, color, yOff) {
     ctx.fillStyle = color;
     ctx.font = labelFont;
     ctx.textAlign = 'center';
     const lines = r.label.split('\n');
-    const cx = ft(r.x + r.w/2), cy = fy(r.y + r.h/2) - (lines.length-1)*6;
+    const cx = ft(r.x + r.w/2), cy = fy(r.y + r.h/2) - (lines.length-1)*6 + (yOff || 0);
     lines.forEach((l,i) => ctx.fillText(l, cx, cy + i*13));
   }
-  rlbl(rooms.primaryBR, 'rgba(216,218,219,0.60)');
-  rlbl(rooms.hall,      'rgba(216,218,219,0.50)');
+  rlbl(rooms.primaryBR, 'rgba(216,218,219,0.60)', 55);
+  rlbl(rooms.hall,      'rgba(216,218,219,0.50)', 35);
   rlbl(rooms.wic,       'rgba(235,226,205,0.45)');
-  rlbl(rooms.bedroom,   'rgba(235,226,205,0.70)');
+  rlbl(rooms.bedroom,   'rgba(235,226,205,0.70)', 55);
 
   // Stairs label
   ctx.fillStyle = 'rgba(216,218,219,0.40)';
@@ -1720,11 +1752,37 @@ function drawBase() {
   ctx.textAlign = 'center';
   ctx.fillText('STAIRS', ft(18.54), fy(9.54));
 
-  // Door label
-  ctx.fillStyle = 'rgba(235,226,205,0.30)';
+  // Coat rack — along top (north) wall of hallway
+  const crBarX1 = ft(14.5), crBarX2 = ft(18.5), crBarY = fy(0.35);
+  ctx.strokeStyle = 'rgba(235,226,205,0.55)';
+  ctx.lineWidth = 1.5;
+  // horizontal bar along wall
+  ctx.beginPath(); ctx.moveTo(crBarX1, crBarY); ctx.lineTo(crBarX2, crBarY); ctx.stroke();
+  // hooks (small downward ticks from bar)
+  [14.9, 15.9, 16.9, 17.9].forEach(x => {
+    ctx.beginPath(); ctx.moveTo(ft(x), crBarY); ctx.lineTo(ft(x), crBarY + 6); ctx.stroke();
+  });
+  ctx.fillStyle = 'rgba(235,226,205,0.45)';
   ctx.font = '7px Courier Prime, monospace';
-  ctx.textAlign = 'left';
-  ctx.fillText('DOOR', ft(20.2), fy(BD_Y1) - 3);
+  ctx.textAlign = 'center';
+  ctx.fillText('COAT RACK', ft(16.5), crBarY + 16);
+
+  // Chair — in north area of Kelsey's room, beside gun box
+  const chX = ft(23.0), chY = fy(1.5);
+  const chW = 0.9 * SCALE, chD = 0.9 * SCALE;
+  ctx.strokeStyle = 'rgba(235,226,205,0.55)';
+  ctx.lineWidth = 1.2;
+  // seat square
+  ctx.strokeRect(chX - chW/2, chY - chD/2, chW, chD);
+  // chair back — thick line along east (right) wall edge
+  ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(chX + chW/2, chY - chD/2); ctx.lineTo(chX + chW/2, chY + chD/2); ctx.stroke();
+  ctx.lineWidth = 1.2;
+  ctx.fillStyle = 'rgba(235,226,205,0.35)';
+  ctx.font = '7px Courier Prime, monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('CHAIR', chX, chY + chD/2 + 10);
+
 }
 
 /* ── Shared drawing helpers ── */
@@ -1782,11 +1840,29 @@ const steps = [
   {
     label:'S1 ENTRY', flag:false,
     desc:'Kelsey enters her room from the baby\'s room, crossing the hall. Short direct path — same level, immediate left-to-right crossing.',
-    draw:()=>{
-      arrowLine(6,7,POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd');
-      dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd');
-    },
+    draw:()=>{},
     lbls:()=>{
+      // Everything in lbls so the entry path doesn't carry forward into later steps
+      const waypoints = [
+        [6, 7],
+        [13.25, (BABY_Y1 + BABY_Y2) / 2],
+        [20.17, (BD_Y1 + BD_Y2) / 2],
+        [POS.kelseyStart.x, POS.kelseyStart.y]
+      ];
+      ctx.beginPath();
+      ctx.strokeStyle = '#ebe2cd'; ctx.lineWidth = 2; ctx.setLineDash([]);
+      ctx.moveTo(ft(waypoints[0][0]), fy(waypoints[0][1]));
+      for (let i = 1; i < waypoints.length; i++) ctx.lineTo(ft(waypoints[i][0]), fy(waypoints[i][1]));
+      ctx.stroke();
+      const [x1, y1] = waypoints[waypoints.length - 2];
+      const [x2, y2] = waypoints[waypoints.length - 1];
+      const a = Math.atan2(fy(y2) - fy(y1), ft(x2) - ft(x1));
+      ctx.beginPath(); ctx.fillStyle = '#ebe2cd';
+      ctx.moveTo(ft(x2), fy(y2));
+      ctx.lineTo(ft(x2) - 10*Math.cos(a-0.4), fy(y2) - 10*Math.sin(a-0.4));
+      ctx.lineTo(ft(x2) - 10*Math.cos(a+0.4), fy(y2) - 10*Math.sin(a+0.4));
+      ctx.closePath(); ctx.fill();
+      dot(POS.kelseyStart.x, POS.kelseyStart.y, '#ebe2cd');
       lbl('KELSEY',POS.kelseyStart.x+0.3,POS.kelseyStart.y-0.8,'#ebe2cd');
     }
   },
@@ -1799,38 +1875,42 @@ const steps = [
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
     },
     lbls:()=>{
-      lbl('NOONAN\n(top of stairs)',POS.noonan.x+0.3,POS.noonan.y-1.1,'#D8DADB');
-      lbl('← 6\'4" hall →',16.7,6.9,'#D8DADB','center');
+      lbl('NOONAN',POS.noonan.x-0.3,POS.noonan.y-0.6,'#D8DADB','right');
     }
   },
   {
     label:'S3 3FT', flag:true,
     desc:'Direct: "She was 3 feet in front of me." Cross: revised to ~15 ft diagonal when she was shot. Both distances plotted — the discrepancy spans most of the room.',
     draw:()=>{
-      dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
-      dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd');
+      dot(POS.noonan.x, POS.noonan.y, '#D8DADB');
     },
     lbls:()=>{
-      radiusCircle(POS.noonan.x,POS.noonan.y,3,'rgb(235,226,205)');
-      radiusCircle(POS.noonan.x,POS.noonan.y,15,'rgb(192,78,1)');
-      lbl('3ft (direct)',POS.noonan.x+3.3,POS.noonan.y-0.5,'#ebe2cd');
-      lbl('~15ft diagonal\n(cross revision)',POS.noonan.x+8,POS.noonan.y+4.5,'#C04E01');
+      // Lines + dots in lbls() so they only render on this step, not carried forward
+      const pt3  = { x: POS.noonan.x + 3,          y: POS.noonan.y };
+      const pt15 = { x: POS.noonan.x + 15*0.766,   y: POS.noonan.y + 15*0.643 };
+      ctx.beginPath(); ctx.strokeStyle='#ebe2cd'; ctx.lineWidth=1.5; ctx.setLineDash([3,3]);
+      ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y)); ctx.lineTo(ft(pt3.x),fy(pt3.y)); ctx.stroke(); ctx.setLineDash([]);
+      dot(pt3.x, pt3.y, '#ebe2cd', 5);
+      ctx.beginPath(); ctx.strokeStyle='#C04E01'; ctx.lineWidth=1.5; ctx.setLineDash([3,3]);
+      ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y)); ctx.lineTo(ft(pt15.x),fy(pt15.y)); ctx.stroke(); ctx.setLineDash([]);
+      dot(pt15.x, pt15.y, '#C04E01', 5);
+      lbl('3ft',   pt3.x  + 0.3, pt3.y  - 0.6, '#ebe2cd');
+      lbl('~15ft', pt15.x + 0.3, pt15.y - 0.6, '#C04E01');
     }
   },
   {
     label:'S4 LUNGE', flag:false,
-    desc:'She lunged AWAY from Noonan — behind the door frame to her right (his left). He couldn\'t see what she grabbed. Gun believed to come from wooden box near door frame (Noonan cross ~46:58). KELSEY\'S ACCOUNT: consistent — she retrieved the gun from near the door frame. The lunge direction is not disputed.',
+    desc:'She lunged AWAY from Noonan — behind the door frame to her right (his left), toward the NORTH corner of the opening. He couldn\'t see what she grabbed. Gun box located in the north corner of the door frame (opposite side from where it was previously mapped). KELSEY\'S ACCOUNT: consistent — she retrieved the gun from near the door frame. The lunge direction is not disputed.',
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
-      dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd',5);
-      arrowLine(POS.kelseyStart.x,POS.kelseyStart.y,POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
       dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
       dot(POS.gunBox.x,POS.gunBox.y,'#C04E01',6);
     },
     lbls:()=>{
-      lbl('← lunge\nbehind frame',21.0,5.8,'#ebe2cd');
-      lbl('GUN BOX',POS.gunBox.x-3,POS.gunBox.y+0.5,'#C04E01');
-      lbl('NOONAN\ncan\'t see here →',13.5,4.2,'#D8DADB');
+      // arrowLine + kelseyStart in lbls so neither persists into S5+
+      dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd',5);
+      arrowLine(POS.kelseyStart.x,POS.kelseyStart.y,POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
+      lbl('← GUN BOX',21.0,0.5,'#C04E01');
     }
   },
   {
@@ -1839,14 +1919,10 @@ const steps = [
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
       dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
-      ctx.beginPath();
-      ctx.strokeStyle='#C04E01'; ctx.lineWidth=2; ctx.setLineDash([4,3]);
-      ctx.moveTo(ft(POS.kelseyLunge.x),fy(POS.kelseyLunge.y));
-      ctx.lineTo(ft(POS.noonan.x),fy(POS.noonan.y)); ctx.stroke(); ctx.setLineDash([]);
     },
     lbls:()=>{
-      lbl('CLICK\n(misfire)',19.3,1.6,'#C04E01');
-      lbl('→ Noonan draws',21.3,3.8,'#D8DADB');
+      lbl('CLICK\n(misfire)',POS.kelseyLunge.x+0.6,POS.kelseyLunge.y-0.9,'#C04E01');
+      lbl('Noonan draws',POS.noonan.x-0.3,POS.noonan.y+0.7,'#D8DADB','right');
     }
   },
   {
@@ -1862,8 +1938,7 @@ const steps = [
       ctx.setLineDash([]);
     },
     lbls:()=>{
-      lbl('BACKPEDAL +\nside step left\ntap-rack ×2',26.6,7.5,'#ebe2cd');
-      lbl('← 11\'3" wide →',25.7,13.5,'rgba(216,218,219,0.45)','center');
+      lbl('BACKPEDAL +\nside step left\ntap-rack ×2',POS.kelseyBackpedal.x+0.4,POS.kelseyBackpedal.y-1.0,'#ebe2cd');
     }
   },
   {
@@ -1887,40 +1962,8 @@ const steps = [
       ctx.lineTo(ft(POS.kelseyBackpedal.x),fy(POS.kelseyBackpedal.y)); ctx.stroke(); ctx.setLineDash([]);
     },
     lbls:()=>{
-      const dx = ft(POS.kelseyBackpedal.x) - ft(POS.noonan.x);
-      const dy = fy(POS.kelseyBackpedal.y) - fy(POS.noonan.y);
-      const distFt = (Math.sqrt(dx*dx+dy*dy) / SCALE).toFixed(1);
-      lbl('SHOT (chest)\n'+distFt+'ft diagonal', POS.kelseyBackpedal.x - 0.3, POS.kelseyBackpedal.y + 0.6, '#C04E01', 'right');
-      lbl('GUN FOUND\nunder leg', POS.gunFound.x + 0.6, POS.gunFound.y + 0.6, '#C04E01');
-    }
-  },
-  {
-    label:'S8 HER PATH', flag:false,
-    desc:"Kelsey's account of her own movement — distinct from Noonan's version. She testified: grabbed gun from safe in corner of room, held it near her stomach, took a few steps BACKWARD into an open area of the room, then raised it to her temple. Noonan entered her view while the gun was already at her head. She pulled the trigger (click), said a curse word, and was shot. No forward movement toward Noonan. No tap-rack.",
-    draw:()=>{
-      const safePos = { x: 30.5, y: 2.5 };
-      const openArea = { x: 27, y: 6 };
-      const templePos = { x: 26, y: 7.5 };
-      dot(POS.noonan.x, POS.noonan.y, '#D8DADB');
-      dot(safePos.x, safePos.y, 'rgba(74,138,124,0.85)', 6);
-      arrowLine(safePos.x, safePos.y, openArea.x, openArea.y, 'rgba(74,138,124,0.7)', true);
-      arrowLine(openArea.x, openArea.y, templePos.x, templePos.y, 'rgba(74,138,124,0.85)');
-      dot(templePos.x, templePos.y, 'rgba(74,138,124,0.85)');
-      ctx.beginPath();
-      ctx.strokeStyle = 'rgba(216,218,219,0.25)';
-      ctx.lineWidth = 1;
-      ctx.setLineDash([3,4]);
-      ctx.moveTo(ft(POS.noonan.x), fy(POS.noonan.y));
-      ctx.lineTo(ft(templePos.x), fy(templePos.y));
-      ctx.stroke();
-      ctx.setLineDash([]);
-    },
-    lbls:()=>{
-      const safePos = { x: 30.5, y: 2.5 };
-      const templePos = { x: 26, y: 7.5 };
-      lbl('GUN SAFE\n(corner)', safePos.x - 0.3, safePos.y - 0.8, 'rgba(74,138,124,0.85)', 'right');
-      lbl('GUN TO\nTEMPLE', templePos.x + 1.8, templePos.y + 0.3, 'rgba(74,138,124,0.85)');
-      lbl('NOONAN', POS.noonan.x + 0.3, POS.noonan.y + 0.8, '#D8DADB');
+      lbl('SHOT (chest)', POS.kelseyBackpedal.x + 0.4, POS.kelseyBackpedal.y - 0.5, '#C04E01');
+      lbl('GUN FOUND\nunder leg', POS.gunFound.x + 0.4, POS.gunFound.y + 0.3, '#C04E01');
     }
   },
   {
@@ -1929,20 +1972,18 @@ const steps = [
     draw:()=>{
       // Her position when shot
       dot(POS.kelseyBackpedal.x, POS.kelseyBackpedal.y, 'rgba(235,226,205,0.7)');
-      // Noonan version: gun pointed rightward (toward door/Noonan) → X marker where gun "should" land
-      const noonanGunX = POS.kelseyBackpedal.x - 3.5;
-      const noonanGunY = POS.kelseyBackpedal.y - 2.2;
+      // Noonan version: gun pointed TOWARD NOONAN at his hallway position → X marker there
       ctx.beginPath(); ctx.strokeStyle='#C04E01'; ctx.lineWidth=2; ctx.setLineDash([]);
       ctx.moveTo(ft(POS.kelseyBackpedal.x), fy(POS.kelseyBackpedal.y));
-      ctx.lineTo(ft(noonanGunX), fy(noonanGunY)); ctx.stroke();
-      // X at projected gun-drop for Noonan version
+      ctx.lineTo(ft(POS.noonan.x), fy(POS.noonan.y)); ctx.stroke();
+      // X at Noonan's position (where gun would land/be if pointed at him)
       ctx.strokeStyle='#C04E01'; ctx.lineWidth=2;
       ctx.beginPath();
-      ctx.moveTo(ft(noonanGunX)-6, fy(noonanGunY)-6);
-      ctx.lineTo(ft(noonanGunX)+6, fy(noonanGunY)+6); ctx.stroke();
+      ctx.moveTo(ft(POS.noonan.x)-6, fy(POS.noonan.y)-6);
+      ctx.lineTo(ft(POS.noonan.x)+6, fy(POS.noonan.y)+6); ctx.stroke();
       ctx.beginPath();
-      ctx.moveTo(ft(noonanGunX)+6, fy(noonanGunY)-6);
-      ctx.lineTo(ft(noonanGunX)-6, fy(noonanGunY)+6); ctx.stroke();
+      ctx.moveTo(ft(POS.noonan.x)+6, fy(POS.noonan.y)-6);
+      ctx.lineTo(ft(POS.noonan.x)-6, fy(POS.noonan.y)+6); ctx.stroke();
       // Kelsey version: gun lateral at temple → dashed arc to actual gun-found position
       ctx.beginPath(); ctx.strokeStyle='rgba(74,138,124,0.85)'; ctx.lineWidth=2; ctx.setLineDash([5,4]);
       ctx.moveTo(ft(POS.kelseyBackpedal.x), fy(POS.kelseyBackpedal.y));
@@ -1958,12 +1999,10 @@ const steps = [
     },
     lbls:()=>{
       lbl('KELSEY\nwhen shot', POS.kelseyBackpedal.x - 0.4, POS.kelseyBackpedal.y + 0.8, '#ebe2cd', 'right');
-      // Noonan physics label — below X marker, clear of room center
-      const noonanGunX = POS.kelseyBackpedal.x - 3.5;
-      const noonanGunY = POS.kelseyBackpedal.y - 2.2;
-      lbl('NOONAN:\ngun here?', noonanGunX - 1.0, noonanGunY + 2.5, '#C04E01', 'right');
+      // Noonan physics label — at Noonan's hallway position
+      lbl('NOONAN:\ngun here?', POS.noonan.x - 0.8, POS.noonan.y - 0.25, '#C04E01', 'right');
       // Kelsey label
-      lbl('KELSEY: gun\nat temple →\nlateral fall\nlands here ✓', POS.gunFound.x + 0.6, POS.gunFound.y + 1.0, 'rgba(74,138,124,1)');
+      lbl('↙ KELSEY: lateral\nfall lands here', POS.gunFound.x + 0.4, POS.gunFound.y - 1.4, 'rgba(74,138,124,1)');
     }
   },
   {
@@ -1975,7 +2014,7 @@ const steps = [
     },
     lbls:()=>{
       // Speech bubble text near Noonan (manual rounded rect for compatibility)
-      const bx = ft(POS.noonan.x) - 68, by = fy(POS.noonan.y) - 46, bw = 130, bh = 36, br = 6;
+      const bx = ft(14.0), by = fy(1.7), bw = 130, bh = 36, br = 6;
       ctx.beginPath();
       ctx.moveTo(bx+br, by);
       ctx.lineTo(bx+bw-br, by); ctx.arcTo(bx+bw,by,bx+bw,by+br,br);
@@ -1987,17 +2026,16 @@ const steps = [
       ctx.strokeStyle='rgba(235,226,205,0.35)'; ctx.lineWidth=1; ctx.setLineDash([]);
       ctx.stroke();
       ctx.fillStyle='#ebe2cd'; ctx.font='bold 9px Courier Prime,monospace'; ctx.textAlign='center';
-      ctx.fillText('"KELSEY, NO"', ft(POS.noonan.x) - 2, fy(POS.noonan.y) - 27);
-      lbl('NOONAN', POS.noonan.x+0.3, POS.noonan.y+0.8, '#D8DADB');
+      ctx.fillText('"KELSEY, NO"', bx + bw/2, by + bh/2 + 4);
       // Standard commands — struck through effect via two labels
       ctx.fillStyle='rgba(216,218,219,0.45)'; ctx.font='8px Courier Prime,monospace'; ctx.textAlign='left';
-      ctx.fillText('Std. threat commands: DROP IT / PUT IT DOWN', ft(1), fy(10.5));
+      ctx.fillText('Std. threat commands: DROP IT / PUT IT DOWN', ft(21), fy(5.5));
       ctx.strokeStyle='rgba(216,218,219,0.45)'; ctx.lineWidth=0.8;
       ctx.beginPath();
-      ctx.moveTo(ft(1), fy(10.5) - 4);
-      ctx.lineTo(ft(1) + 218, fy(10.5) - 4); ctx.stroke();
+      ctx.moveTo(ft(21), fy(5.5) - 4);
+      ctx.lineTo(ft(21) + 218, fy(5.5) - 4); ctx.stroke();
       ctx.fillStyle='rgba(74,138,124,1)'; ctx.font='8px Courier Prime,monospace';
-      ctx.fillText('Actual command: consistent with gun-to-head', ft(1), fy(11.3));
+      ctx.fillText('Actual command: consistent with gun-to-head', ft(21), fy(6.3));
     }
   },
 ];
