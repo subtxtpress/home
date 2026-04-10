@@ -7,7 +7,6 @@
   <title>Zach Adams Case Map</title>
   <meta name="description" content="Explore geographic data introduced at the Zach Adams trial — including evidence sites, cell tower records, GPS trail data, and a chronological phone timeline.">
   <link rel="canonical" href="https://subtxtpress.github.io/home/portfolio/zach-adams/case-map">
-  <!-- Open Graph -->
   <meta property="og:title" content="Zach Adams Case Map">
   <meta property="og:description" content="Explore geographic data introduced at the Zach Adams trial — including evidence sites, cell tower records, GPS trail data, and a chronological phone timeline.">
   <meta property="og:type" content="website">
@@ -16,20 +15,16 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
   <meta property="og:site_name" content="Subtxt Press">
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zach Adams Case Map">
   <meta name="twitter:description" content="Explore geographic data introduced at the Zach Adams trial — including evidence sites, cell tower records, GPS trail data, and a chronological phone timeline.">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/portfolio/zach-adams/img/zach-adams-case-map.jpg">
   <meta name="twitter:creator" content="@TrueCrimeAudit">
-
-  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
   <link rel="manifest" href="icons/site.webmanifest">
-  <!-- Styles -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,127 +42,42 @@
       --text2:    #D8DADB;
       --muted:    rgba(216,218,219,0.50);
 
-      --c-red:    #E63946;
-      --c-amber:  #F4A261;
-      --c-blue:   #57B0DC;
-      --c-purple: #9D4EDD;
-      --c-gray:   #8E9AAF;
-      --c-teal:   #4A8A7C;
-      --c-cream:  #EBE2CD;
-      --c-orange: #E8891C;
+      /* Person colors */
+      --c-holly:  #F4A261;   /* warm amber/gold — Holly Bobo */
+      --c-zach:   #E63946;   /* red — Zach Adams */
+      --c-autry:  #57B0DC;   /* blue — Jason Autry */
+      --c-evid:   #EBE2CD;   /* cream/white — evidence & recovery */
+      --c-tower:  #9D4EDD;   /* purple — cell towers */
+      --c-route:  #4A8A7C;   /* teal — GPS trail */
+      --c-other:  #8E9AAF;   /* gray — other */
+      --c-orange: #E8891C;   /* phone timeline */
 
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --head: 'Barlow Condensed', sans-serif;
 
-      --nav-h:    48px;
-      --panel-w:  290px;
+      --nav-h:      48px;
+      --story-h:    148px;  /* narrative bar height desktop */
+      --panel-w:    280px;
     }
 
-    html {
-      width: 100%; height: auto;
-      overflow-y: auto;
-    }
+    html { width: 100%; height: 100%; overflow: hidden; }
     body {
-      width: 100%; min-height: 100vh;
-      overflow-x: hidden;
+      width: 100%; height: 100%;
+      overflow: hidden;
       background: var(--bg);
       color: var(--text2);
       font-family: var(--body);
       font-size: 13px;
       -webkit-font-smoothing: antialiased;
     }
-    .map-spacer {
-      height: 100vh;
-    }
 
-    /* ── INFO CARDS ── */
-    .info-section {
-      position: relative;
-      z-index: 5;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 40px calc(var(--panel-w) + 24px) 60px 24px;
-    }
-    .info-section h2 {
-      font-family: var(--head);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text3);
-      margin: 0 0 24px;
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .card-title {
-      font-family: var(--head);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text1);
-    }
-    .card-count {
-      margin-left: auto;
-      font-size: 11px;
-      color: var(--text3);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1px 7px;
-    }
-    .card-desc {
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--text3);
-    }
-    .card-toggle {
-      margin-top: 4px;
-      align-self: flex-start;
-      font-size: 11px;
-      font-family: var(--head);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text3);
-      border-radius: 4px;
-      padding: 4px 10px;
-      cursor: pointer;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .card-toggle:hover { color: var(--text1); border-color: rgba(255,255,255,0.25); }
-    .card-toggle.active { color: var(--text1); border-color: rgba(255,255,255,0.35); }
-
-    /* ── NAV ── */
+    /* ═══════════════════════════════ NAV ═══════════════════════════════ */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       height: var(--nav-h);
-      background: rgba(6,11,20,0.96);
+      background: rgba(6,11,20,0.97);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -177,124 +87,285 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
-
     .nav-back {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: var(--muted);
-      text-decoration: none;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      transition: color 0.2s;
+      display: flex; align-items: center; gap: 5px;
+      color: var(--muted); text-decoration: none;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em;
+      white-space: nowrap; transition: color 0.2s;
     }
     .nav-back:hover { color: var(--text); }
-    .nav-back svg { flex-shrink: 0; }
-
     .nav-sep { color: var(--border2); }
-
     .nav-title {
-      font-family: var(--head);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--text);
-      flex: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-family: var(--head); font-size: 16px; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase; color: var(--text);
+      flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
-
     .nav-tag {
-      background: rgba(230,57,70,0.14);
-      border: 1px solid rgba(230,57,70,0.35);
-      color: #e07070;
-      font-family: var(--mono);
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 3px;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-      flex-shrink: 0;
+      background: rgba(230,57,70,0.14); border: 1px solid rgba(230,57,70,0.35);
+      color: #e07070; font-family: var(--mono); font-size: 10px;
+      padding: 2px 8px; border-radius: 3px; letter-spacing: 0.06em;
+      white-space: nowrap; flex-shrink: 0;
     }
     .nav-source-link {
-      margin-left: auto;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--text3);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      opacity: 0.65;
-      white-space: nowrap;
-      transition: opacity 0.15s, color 0.15s;
+      margin-left: auto; font-family: var(--mono); font-size: 10px;
+      color: var(--text3); text-decoration: none; letter-spacing: 0.04em;
+      opacity: 0.65; white-space: nowrap; transition: opacity 0.15s, color 0.15s;
     }
     .nav-source-link:hover { opacity: 1; color: var(--text2); }
 
-    /* ── MAP ── */
+    /* ═══════════════════════════════ MAP ═══════════════════════════════ */
     #map {
       position: fixed;
       top: var(--nav-h);
       left: 0;
-      right: var(--panel-w);
-      bottom: 0;
+      right: 0;
+      bottom: var(--story-h);
       z-index: 1;
+      transition: bottom 0.3s ease, right 0.3s ease;
+    }
+    #map.explore-open { right: var(--panel-w); }
+
+    /* ═════════════════════════ STORY BAR ═══════════════════════════════ */
+    .story-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: var(--story-h);
+      background: rgba(6,11,20,0.97);
+      border-top: 1px solid var(--border);
+      z-index: 1100;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
-    /* ── PANEL ── */
-    .panel {
+    /* Chapter track (the scrubber row) */
+    .story-track {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 10px 14px 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    /* Progress line behind chapter dots */
+    .story-progress-rail {
+      position: absolute;
+      left: 26px; right: 26px;
+      top: 50%; transform: translateY(-50%);
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 1px;
+      pointer-events: none;
+    }
+    .story-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--c-holly), var(--c-zach));
+      border-radius: 1px;
+      transition: width 0.4s ease;
+    }
+
+    .story-chapters {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .chapter-dot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: transform 0.15s;
+      flex: 1;
+      position: relative;
+    }
+    .chapter-dot:hover { transform: translateY(-1px); }
+
+    .chapter-pip {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .chapter-dot.active .chapter-pip,
+    .chapter-dot.visited .chapter-pip {
+      border-color: currentColor;
+      background: currentColor;
+      box-shadow: 0 0 6px currentColor;
+    }
+    .chapter-dot.active .chapter-pip {
+      width: 14px; height: 14px;
+      box-shadow: 0 0 10px currentColor;
+    }
+    .chapter-dot.visited .chapter-pip { opacity: 0.55; }
+
+    .chapter-time {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: color 0.2s;
+      text-align: center;
+    }
+    .chapter-dot.active .chapter-time { color: var(--text); }
+
+    /* Story content row */
+    .story-content {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding: 8px 14px 12px;
+      min-height: 0;
+    }
+
+    .story-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .story-chapter-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .story-title {
+      font-family: var(--head);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .story-desc {
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: var(--text2);
+      max-width: 680px;
+      margin-top: 2px;
+    }
+
+    /* Story nav buttons */
+    .story-nav {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+      padding-left: 14px;
+    }
+    .story-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .story-btn:hover { background: rgba(255,255,255,0.10); color: var(--text); border-color: var(--border2); }
+    .story-btn:disabled { opacity: 0.3; cursor: default; }
+
+    /* Legend pills in story bar */
+    .story-legend {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+      align-items: center;
+      padding-left: 10px;
+    }
+    .legend-pill {
+      display: flex; align-items: center; gap: 4px;
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    .legend-swatch {
+      width: 8px; height: 8px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Explore mode button */
+    .explore-btn {
+      position: fixed;
+      bottom: calc(var(--story-h) + 10px);
+      right: 12px;
+      background: rgba(6,11,20,0.92);
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1050;
+      transition: all 0.2s;
+      backdrop-filter: blur(6px);
+      white-space: nowrap;
+    }
+    .explore-btn:hover { background: rgba(255,255,255,0.09); color: var(--text); }
+    .explore-btn.active { 
+      background: rgba(244,229,196,0.10); 
+      border-color: rgba(244,229,196,0.30); 
+      color: var(--text);
+    }
+
+    /* ═════════════════════════ EXPLORE PANEL ════════════════════════════ */
+    .explore-panel {
       position: fixed;
       top: var(--nav-h);
-      right: 0;
+      right: calc(-1 * var(--panel-w) - 2px);
       width: var(--panel-w);
-      bottom: 0;
+      bottom: var(--story-h);
       background: rgba(6,11,20,0.97);
       border-left: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      z-index: 1100;
+      z-index: 1090;
       overflow: hidden;
+      transition: right 0.3s ease;
+    }
+    .explore-panel.open {
+      right: 0;
     }
 
     .panel-hdr {
       padding: 12px 14px 10px;
       border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
       flex-shrink: 0;
     }
-
     .panel-hdr h2 {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--muted);
-      flex: 1;
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--muted); flex: 1;
     }
-
-    .panel-toggle-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      padding: 4px;
-      line-height: 1;
-      border-radius: 4px;
-      transition: color 0.2s, background 0.2s;
+    .panel-close-btn {
+      background: none; border: none; color: var(--muted);
+      cursor: pointer; padding: 4px; line-height: 1; border-radius: 4px;
+      transition: color 0.2s, background 0.2s; font-size: 16px;
     }
-    .panel-toggle-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+    .panel-close-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
 
     .panel-body {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 8px 0 16px;
+      flex: 1; overflow-y: auto; overflow-x: hidden; padding: 8px 0 16px;
     }
     .panel-body::-webkit-scrollbar { width: 3px; }
     .panel-body::-webkit-scrollbar-track { background: transparent; }
@@ -302,40 +373,28 @@
 
     /* ── SECTION LABEL ── */
     .sec-label {
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 10px 14px 4px;
-      opacity: 0.7;
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      padding: 10px 14px 4px; opacity: 0.7;
     }
 
     /* ── LAYER TOGGLE ROW ── */
     .layer-row {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 6px 14px;
-      cursor: pointer;
-      user-select: none;
+      display: flex; align-items: center; gap: 9px;
+      padding: 6px 14px; cursor: pointer; user-select: none;
       transition: background 0.12s;
     }
     .layer-row:hover { background: rgba(255,255,255,0.04); }
 
     .lchk {
-      position: relative;
-      width: 15px; height: 15px;
-      flex-shrink: 0;
+      position: relative; width: 15px; height: 15px; flex-shrink: 0;
     }
     .lchk input {
       position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
     }
     .lchk-box {
-      width: 15px; height: 15px;
-      border: 1.5px solid var(--cc);
-      border-radius: 3px;
-      display: flex; align-items: center; justify-content: center;
+      width: 15px; height: 15px; border: 1.5px solid var(--cc);
+      border-radius: 3px; display: flex; align-items: center; justify-content: center;
       transition: background 0.12s;
     }
     .lchk input:checked ~ .lchk-box { background: var(--cc); }
@@ -343,189 +402,146 @@
     .lchk input:checked ~ .lchk-box svg { opacity: 1; }
 
     .layer-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
     }
-
     .layer-name {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text2);
-      flex: 1;
-      line-height: 1.3;
+      font-size: 12px; font-weight: 500; color: var(--text2); flex: 1; line-height: 1.3;
     }
-
     .layer-ct {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--muted);
+      font-family: var(--mono); font-size: 10px; color: var(--muted);
     }
 
-
-
-    /* ── DIV ICONS ── */
-    .map-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7));
-    }
-    .map-icon svg { display: block; }
-
-    .trail-panel { border-color: rgba(74,138,124,0.25); background: rgba(74,138,124,0.07); }
-    .trail-panel .tl-header-label { color: #4A8A7C; }
-    .trail-panel .tl-btn.on { background: rgba(74,138,124,0.20); border-color: rgba(74,138,124,0.50); color: #4A8A7C; }
-    .trail-panel .tl-slider::-webkit-slider-thumb { background: #4A8A7C; }
-    .trail-panel .tl-slider::-moz-range-thumb { background: #4A8A7C; }
-    .trail-panel .tl-slider { background: rgba(74,138,124,0.15); }
-    /* ── BASEMAP TOGGLE ── */
+    /* Basemap row */
     .basemap-row {
-      display: flex;
-      gap: 5px;
-      padding: 8px 14px 4px;
+      display: flex; gap: 5px; padding: 8px 14px 4px;
     }
     .bm-btn {
-      flex: 1;
-      padding: 5px 0;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.05em;
-      border-radius: 4px;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.12s;
+      flex: 1; padding: 5px 0;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--muted); font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.05em; border-radius: 4px; cursor: pointer;
+      text-align: center; transition: all 0.12s;
     }
     .bm-btn:hover { background: rgba(255,255,255,0.09); color: var(--text2); }
     .bm-btn.active {
-      background: rgba(244,229,196,0.10);
-      border-color: rgba(244,229,196,0.30);
+      background: rgba(244,229,196,0.10); border-color: rgba(244,229,196,0.30);
       color: var(--text);
     }
-    @media (max-width: 767px) {
-      .basemap-row {
-        flex-direction: column;
-        align-items: stretch;
-        min-width: 90px; max-width: 90px;
-        flex-shrink: 0;
-        padding: 8px 6px 9px;
-        border-radius: 6px;
-        border: 1px solid var(--border);
-        gap: 4px;
-        scroll-snap-align: start;
-      }
-      .bm-btn { font-size: 9px; }
-    }
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 8px 14px;
-    }
 
-    /* ── TIMELINE PANEL ── */
+    .divider { height: 1px; background: var(--border); margin: 8px 14px; }
+
+    /* ══════════════════════ PHONE TIMELINE PANEL ════════════════════════ */
     .tl-panel {
-      margin: 4px 12px 4px;
-      padding: 11px 12px;
-      background: rgba(232,137,28,0.07);
-      border: 1px solid rgba(232,137,28,0.18);
+      margin: 4px 12px 4px; padding: 11px 12px;
+      background: rgba(232,137,28,0.07); border: 1px solid rgba(232,137,28,0.18);
       border-radius: 6px;
     }
     .tl-panel.hidden { display: none; }
 
     .tl-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
+      display: flex; align-items: baseline; justify-content: space-between;
       margin-bottom: 7px;
     }
     .tl-header-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--c-orange);
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--c-orange);
     }
-    .tl-step-counter {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--muted);
-    }
-
+    .tl-step-counter { font-family: var(--mono); font-size: 10px; color: var(--muted); }
     .tl-step-name {
-      font-size: 11px;
-      color: var(--text2);
-      line-height: 1.45;
-      min-height: 28px;
-      margin-bottom: 9px;
-      opacity: 0.9;
+      font-size: 11px; color: var(--text2); line-height: 1.45;
+      min-height: 28px; margin-bottom: 9px; opacity: 0.9;
     }
 
-    .tl-btns {
-      display: flex;
-      gap: 5px;
-      margin-bottom: 9px;
-    }
+    .tl-btns { display: flex; gap: 5px; margin-bottom: 9px; }
     .tl-btn {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: var(--text2);
-      padding: 5px 0;
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 11px;
-      cursor: pointer;
-      flex: 1;
-      text-align: center;
-      transition: all 0.12s;
-      white-space: nowrap;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--text2); padding: 5px 0; border-radius: 4px;
+      font-family: var(--mono); font-size: 11px; cursor: pointer;
+      flex: 1; text-align: center; transition: all 0.12s; white-space: nowrap;
     }
     .tl-btn:hover { background: rgba(255,255,255,0.10); border-color: var(--border2); }
     .tl-btn.play { flex: 1.4; }
     .tl-btn.on { background: rgba(232,137,28,0.18); border-color: rgba(232,137,28,0.45); color: var(--c-orange); }
 
-    .tl-slider-wrap {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin-bottom: 8px;
-    }
-    .tl-slider-end {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
+    .tl-slider-wrap { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+    .tl-slider-end { font-family: var(--mono); font-size: 9px; color: var(--muted); flex-shrink: 0; }
     .tl-slider {
-      flex: 1;
-      -webkit-appearance: none;
-      height: 3px;
-      background: rgba(255,255,255,0.10);
-      border-radius: 2px;
-      outline: none;
-      cursor: pointer;
+      flex: 1; -webkit-appearance: none; height: 3px;
+      background: rgba(255,255,255,0.10); border-radius: 2px; outline: none; cursor: pointer;
     }
     .tl-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      background: var(--c-orange);
-      cursor: pointer;
+      -webkit-appearance: none; width: 13px; height: 13px; border-radius: 50%;
+      background: var(--c-orange); cursor: pointer;
     }
     .tl-slider::-moz-range-thumb {
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      background: var(--c-orange);
-      cursor: pointer;
-      border: none;
+      width: 13px; height: 13px; border-radius: 50%; background: var(--c-orange);
+      cursor: pointer; border: none;
     }
-
     .tl-util-btns { display: flex; gap: 5px; }
     .tl-util-btns .tl-btn { font-size: 10px; }
 
-    /* ── LEAFLET OVERRIDES ── */
+    /* GPS Trail panel variant */
+    .trail-panel {
+      border-color: rgba(74,138,124,0.25) !important;
+      background: rgba(74,138,124,0.07) !important;
+    }
+    .trail-panel .tl-header-label { color: #4A8A7C !important; }
+    .trail-panel .tl-btn.on { background: rgba(74,138,124,0.20); border-color: rgba(74,138,124,0.50); color: #4A8A7C; }
+    .trail-panel .tl-slider::-webkit-slider-thumb { background: #4A8A7C; }
+    .trail-panel .tl-slider::-moz-range-thumb { background: #4A8A7C; }
+    .trail-panel .tl-slider { background: rgba(74,138,124,0.15); }
+
+    /* ══════════════════════ MAP ICON STYLES ════════════════════════════ */
+    .map-icon {
+      display: flex; align-items: center; justify-content: center;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7));
+    }
+    .map-icon svg { display: block; }
+
+    /* Named badge markers */
+    .named-marker {
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      font-family: var(--head);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,0,0,0.4);
+      line-height: 1;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .named-marker:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.4);
+    }
+
+    /* Visible label beneath marker */
+    .marker-label-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      pointer-events: none;
+    }
+    .marker-label {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.8);
+      white-space: nowrap;
+      text-transform: uppercase;
+      background: rgba(6,11,20,0.65);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    /* ══════════════════════ LEAFLET OVERRIDES ══════════════════════════ */
     .leaflet-popup-content-wrapper {
       background: rgba(8,14,24,0.97) !important;
       border: 1px solid rgba(244,229,196,0.16) !important;
@@ -540,181 +556,376 @@
       color: var(--text2) !important;
       font-family: var(--body) !important;
       font-size: 12px !important;
-      max-width: 280px;
-      min-width: 180px;
+      max-width: 280px; min-width: 180px;
     }
     .leaflet-popup-close-button {
-      color: var(--muted) !important;
-      top: 5px !important; right: 8px !important;
+      color: var(--muted) !important; top: 5px !important; right: 8px !important;
       font-size: 16px !important;
     }
     .leaflet-popup-close-button:hover { color: var(--text) !important; }
 
+    .pu-eyebrow {
+      font-family: var(--mono); font-size: 8px; letter-spacing: 0.10em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
+    }
     .pu-title {
-      font-family: var(--head);
-      font-size: 15px; font-weight: 700;
-      letter-spacing: 0.03em;
-      color: var(--text);
-      margin-bottom: 6px;
-      padding-right: 14px;
-      line-height: 1.3;
+      font-family: var(--head); font-size: 16px; font-weight: 700;
+      letter-spacing: 0.03em; color: var(--text);
+      margin-bottom: 7px; padding-right: 14px; line-height: 1.25;
     }
-    .pu-desc {
-      color: var(--text2);
-      line-height: 1.5;
+    .pu-narrative {
+      font-size: 12px; line-height: 1.6; color: var(--text2);
       margin-bottom: 8px;
-      font-size: 11.5px;
     }
-    .pu-desc b { color: var(--text); }
+    .pu-narrative b { color: var(--text); }
     .pu-meta {
-      border-top: 1px solid var(--border);
-      padding-top: 7px;
-      margin-top: 4px;
+      border-top: 1px solid var(--border); padding-top: 7px; margin-top: 4px;
     }
-    .pu-row {
-      display: flex;
-      gap: 7px;
-      margin-bottom: 4px;
-      align-items: baseline;
-    }
+    .pu-row { display: flex; gap: 7px; margin-bottom: 4px; align-items: baseline; }
     .pu-key {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: var(--muted);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      flex-shrink: 0;
-      width: 44px;
+      font-family: var(--mono); font-size: 9px; color: var(--muted);
+      letter-spacing: 0.07em; text-transform: uppercase; flex-shrink: 0; width: 44px;
     }
     .pu-val { font-size: 11px; color: var(--text2); line-height: 1.4; }
 
     .leaflet-control-attribution {
       background: rgba(6,11,20,0.80) !important;
-      color: rgba(216,218,219,0.4) !important;
-      font-size: 10px !important;
+      color: rgba(216,218,219,0.4) !important; font-size: 10px !important;
     }
     .leaflet-control-attribution a { color: rgba(216,218,219,0.5) !important; }
     .leaflet-control-zoom a {
-      background: rgba(6,11,20,0.90) !important;
-      color: var(--text2) !important;
+      background: rgba(6,11,20,0.90) !important; color: var(--text2) !important;
       border-color: var(--border) !important;
     }
     .leaflet-control-zoom a:hover { background: rgba(255,255,255,0.08) !important; }
 
-    /* ── MOBILE ── */
+    /* Connection line pulse */
+    @keyframes dashMove {
+      to { stroke-dashoffset: -20; }
+    }
+    .leaflet-zoom-animated path.connection-line {
+      stroke-dasharray: 6, 5;
+      animation: dashMove 0.8s linear infinite;
+    }
+
+    /* ════════════════ MAP LEGEND (persistent, top-left) ═══════════════════ */
+    .map-legend {
+      position: fixed;
+      top: calc(var(--nav-h) + 10px);
+      left: 10px;
+      z-index: 1050;
+      display: none;
+      background: rgba(6,11,20,0.88);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 6px;
+      padding: 8px 11px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+    .map-legend-title {
+      font-family: var(--mono); font-size: 8px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .map-legend-row {
+      display: flex; align-items: center; gap: 6px;
+      margin-bottom: 4px;
+    }
+    .map-legend-row:last-child { margin-bottom: 0; }
+    .map-legend-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .map-legend-label {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.04em;
+      color: var(--text2); white-space: nowrap;
+    }
+
+    /* ═══════════════ CHAPTER INTRO CARD (centered overlay) ════════════════ */
+    .chapter-intro-overlay {
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      bottom: var(--story-h);
+      z-index: 1080;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chapter-intro-card {
+      background: rgba(6,11,20,0.92);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 20px 26px;
+      max-width: 380px;
+      width: calc(100% - 40px);
+      pointer-events: all;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      cursor: pointer;
+    }
+    .chapter-intro-card.visible {
+      opacity: 1; transform: translateY(0) scale(1);
+    }
+    .chapter-intro-card.hiding {
+      opacity: 0; transform: translateY(6px) scale(0.97);
+    }
+    .ci-eyebrow {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 5px;
+    }
+    .ci-title {
+      font-family: var(--head); font-size: 20px; font-weight: 800;
+      letter-spacing: 0.05em; text-transform: uppercase; color: var(--text);
+      line-height: 1.1; margin-bottom: 8px;
+    }
+    .ci-body {
+      font-size: 12px; line-height: 1.65; color: var(--text2);
+      margin-bottom: 10px;
+    }
+    .ci-dismiss {
+      font-family: var(--mono); font-size: 8px; letter-spacing: 0.08em;
+      color: var(--muted); text-align: right;
+    }
+
+    /* ═══════════════ PHONE EVENT NARRATION CARD ══════════════════════════ */
+    .phone-event-card {
+      position: fixed;
+      left: 12px;
+      bottom: calc(var(--story-h) + 12px);
+      z-index: 1060;
+      background: rgba(6,11,20,0.90);
+      border: 1px solid rgba(232,137,28,0.30);
+      border-radius: 6px;
+      padding: 8px 12px;
+      max-width: 300px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .phone-event-card.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .pec-time {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+      color: var(--c-orange); margin-bottom: 3px;
+    }
+    .pec-body {
+      font-size: 11px; line-height: 1.5; color: var(--text2);
+    }
+
+    /* ══════════════ CHAPTER EVENT NARRATION CARD ═══════════════════════ */
+    .chapter-event-card {
+      position: fixed;
+      left: 12px;
+      bottom: calc(var(--story-h) + 12px);
+      z-index: 1060;
+      background: rgba(6,11,20,0.90);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 6px;
+      padding: 8px 12px;
+      max-width: 300px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .chapter-event-card.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .cec-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+      color: var(--muted); margin-bottom: 3px;
+    }
+    .cec-body {
+      font-size: 11px; line-height: 1.5; color: var(--text2);
+    }
+
+    /* ══════════════ PERMANENT TOOLTIP LABELS ════════════════════════════ */
+    .leaflet-tooltip.map-label {
+      background: rgba(6,11,20,0.85);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #F5F5F5;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 3px;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .leaflet-tooltip.map-label::before {
+      border-right-color: rgba(6,11,20,0.85);
+    }
+    .leaflet-tooltip.map-label-top::before {
+      border-top-color: rgba(6,11,20,0.85);
+    }
+
     @media (max-width: 767px) {
-      #map { right: 0; bottom: 210px; }
-      .panel {
-        top: auto; right: 0; left: 0;
-        width: 100%; height: 210px;
+      .map-legend { padding: 6px 9px; }
+      .map-legend-label { font-size: 8px; }
+      .map-legend-dot { width: 7px; height: 7px; }
+      .chapter-intro-card { padding: 15px 18px; }
+      .ci-title { font-size: 17px; }
+      .ci-body { font-size: 11px; }
+      .phone-event-card { max-width: 220px; left: 8px; }
+      .chapter-event-card { max-width: 220px; left: 8px; }
+      .leaflet-tooltip.map-label { font-size: 8px; padding: 1px 4px; }
+    }
+
+    /* Intro overlay */
+    .intro-overlay {
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      bottom: var(--story-h);
+      z-index: 900;
+      pointer-events: none;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+    .intro-card {
+      background: rgba(6,11,20,0.88);
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 18px 22px;
+      max-width: 340px;
+      pointer-events: all;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .intro-card.hidden {
+      opacity: 0; transform: translateY(8px); pointer-events: none;
+    }
+    .intro-eyebrow {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+    }
+    .intro-title {
+      font-family: var(--head); font-size: 22px; font-weight: 800;
+      letter-spacing: 0.04em; text-transform: uppercase; color: var(--text);
+      line-height: 1.1; margin-bottom: 8px;
+    }
+    .intro-body {
+      font-size: 12px; line-height: 1.65; color: var(--text2); margin-bottom: 14px;
+    }
+    .intro-start-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--c-holly); color: #000;
+      font-family: var(--head); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border: none; border-radius: 5px; padding: 8px 16px; cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .intro-start-btn:hover { opacity: 0.85; }
+
+    /* Chapter transition fade */
+    .chapter-fade {
+      animation: fadeUp 0.35s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Dimmed previous-chapter layers */
+    .leaflet-pane.leaflet-dimmed-pane {
+      opacity: 0.28;
+      pointer-events: none;
+    }
+    /* Fade-in animation for newly added markers */
+    .layer-fadein {
+      animation: markerFadeIn 0.5s ease both;
+    }
+    @keyframes markerFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ═══════════════════════════ INFO SECTION ═══════════════════════════ */
+    /* (Hidden in full-screen mode, but kept for reference / print) */
+
+    /* ═══════════════════════════ MOBILE ═════════════════════════════════ */
+    @media (max-width: 767px) {
+      :root { --story-h: 170px; }
+
+      #map { right: 0; }
+      #map.explore-open { right: 0; bottom: calc(var(--story-h) + 210px); }
+
+      .explore-panel {
+        top: auto;
+        right: 0; left: 0;
+        width: 100%;
+        height: 210px;
+        bottom: calc(var(--story-h) - 1px);
         border-left: none;
         border-top: 1px solid var(--border);
-        transition: height 0.28s ease;
+        transition: transform 0.3s ease;
+        transform: translateY(100%);
+        right: 0;
       }
-      .panel.collapsed { height: 44px; }
-      .panel.collapsed .panel-body { display: none; }
-      .panel-toggle-btn { display: flex; align-items: center; }
+      .explore-panel.open {
+        transform: translateY(0);
+        right: 0;
+      }
       .panel-body {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 8px 8px 10px;
-        gap: 6px;
-        align-items: flex-start;
+        display: flex; flex-direction: row; flex-wrap: nowrap;
+        overflow-x: auto; overflow-y: hidden;
+        padding: 8px 8px 10px; gap: 6px; align-items: flex-start;
         scroll-snap-type: x mandatory;
       }
       .panel-body::-webkit-scrollbar { height: 3px; }
       .sec-label { display: none; }
-    }
-
-    /* ── DIV ICONS ── */
-    .map-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7));
-    }
-    .map-icon svg { display: block; }
-
-    .trail-panel { border-color: rgba(74,138,124,0.25); background: rgba(74,138,124,0.07); }
-    .trail-panel .tl-header-label { color: #4A8A7C; }
-    .trail-panel .tl-btn.on { background: rgba(74,138,124,0.20); border-color: rgba(74,138,124,0.50); color: #4A8A7C; }
-    .trail-panel .tl-slider::-webkit-slider-thumb { background: #4A8A7C; }
-    .trail-panel .tl-slider::-moz-range-thumb { background: #4A8A7C; }
-    .trail-panel .tl-slider { background: rgba(74,138,124,0.15); }
-    /* ── BASEMAP TOGGLE ── */
-    .basemap-row {
-      display: flex;
-      gap: 5px;
-      padding: 8px 14px 4px;
-    }
-    .bm-btn {
-      flex: 1;
-      padding: 5px 0;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.05em;
-      border-radius: 4px;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.12s;
-    }
-    .bm-btn:hover { background: rgba(255,255,255,0.09); color: var(--text2); }
-    .bm-btn.active {
-      background: rgba(244,229,196,0.10);
-      border-color: rgba(244,229,196,0.30);
-      color: var(--text);
-    }
-    @media (max-width: 767px) {
       .basemap-row {
-        flex-direction: column;
-        align-items: stretch;
-        min-width: 90px; max-width: 90px;
-        flex-shrink: 0;
-        padding: 8px 6px 9px;
-        border-radius: 6px;
-        border: 1px solid var(--border);
-        gap: 4px;
+        flex-direction: column; align-items: stretch;
+        min-width: 90px; max-width: 90px; flex-shrink: 0;
+        padding: 8px 6px 9px; border-radius: 6px;
+        border: 1px solid var(--border); gap: 4px;
         scroll-snap-align: start;
       }
       .bm-btn { font-size: 9px; }
-    }
-    @media (max-width: 767px) {
-    .divider { display: none; }
+      .divider { display: none; }
       .layer-row {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 8px 8px 9px;
-        border-radius: 6px;
-        border: 1px solid var(--border);
-        min-width: 74px; max-width: 74px;
-        gap: 5px;
-        flex-shrink: 0;
+        flex-direction: column; align-items: center; justify-content: center;
+        padding: 8px 8px 9px; border-radius: 6px; border: 1px solid var(--border);
+        min-width: 74px; max-width: 74px; gap: 5px; flex-shrink: 0;
         scroll-snap-align: start;
       }
-      .layer-name {
-        font-size: 10px;
-        text-align: center;
-        line-height: 1.25;
-        white-space: normal;
-      }
+      .layer-name { font-size: 10px; text-align: center; line-height: 1.25; white-space: normal; }
       .layer-ct { display: none; }
       .tl-panel {
-        flex-shrink: 0;
-        min-width: 220px; max-width: 240px;
-        margin: 0;
-        scroll-snap-align: start;
-        height: fit-content;
+        flex-shrink: 0; min-width: 220px; max-width: 240px; margin: 0;
+        scroll-snap-align: start; height: fit-content;
       }
       .tl-step-name { min-height: 20px; font-size: 10px; }
       .tl-header { margin-bottom: 4px; }
       .tl-btns { margin-bottom: 6px; }
+
+      .story-track { padding: 8px 10px 0; }
+      .story-content { padding: 6px 10px 10px; }
+      .story-title { font-size: 15px; }
+      .story-desc { font-size: 10.5px; }
+      .chapter-time { font-size: 7px; }
+      .story-legend { display: none; }
+      .explore-btn {
+        bottom: calc(var(--story-h) + 8px);
+        right: 8px;
+        font-size: 9px;
+        padding: 5px 9px;
+      }
+
+      .intro-card { max-width: calc(100vw - 32px); }
     }
 
     @media (max-width: 480px) {
@@ -734,25 +945,84 @@
     <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">View original Google Earth map ↗</span></a>
   </nav>
 
+  <!-- Main map canvas -->
   <div id="map"></div>
 
-  <aside class="panel" id="panel">
-    <div class="panel-hdr">
-      <h2>Map Layers</h2>
-      <button class="panel-toggle-btn" id="panel-toggle-btn" aria-label="Toggle panel">
-        <svg id="panel-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="18,15 12,9 6,15"/>
-        </svg>
+  <!-- Persistent map legend (top-left) -->
+  <div class="map-legend" id="map-legend">
+    <div class="map-legend-title">Legend</div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#E63946"></div>
+      <span class="map-legend-label">Zach Adams</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#F4A261"></div>
+      <span class="map-legend-label">Holly Bobo</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#57B0DC"></div>
+      <span class="map-legend-label">Jason Autry</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#9D4EDD"></div>
+      <span class="map-legend-label">Cell Tower</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#EBE2CD"></div>
+      <span class="map-legend-label">Evidence Site</span>
+    </div>
+  </div>
+
+  <!-- Chapter intro card (centered, auto-dismissing) -->
+  <div class="chapter-intro-overlay" id="chapter-intro-overlay">
+    <div class="chapter-intro-card" id="chapter-intro-card">
+      <div class="ci-eyebrow" id="ci-eyebrow"></div>
+      <div class="ci-title" id="ci-title"></div>
+      <div class="ci-body" id="ci-body"></div>
+      <div class="ci-dismiss">Click to dismiss</div>
+    </div>
+  </div>
+
+  <!-- Phone event narration card (bottom-left, shows during phone timeline) -->
+  <div class="phone-event-card" id="phone-event-card">
+    <div class="pec-time" id="pec-time"></div>
+    <div class="pec-body" id="pec-body"></div>
+  </div>
+
+  <!-- Chapter event narration card (bottom-left, shows during progressive reveal chapters) -->
+  <div class="chapter-event-card" id="chapter-event-card">
+    <div class="cec-label" id="cec-label"></div>
+    <div class="cec-body" id="cec-body"></div>
+  </div>
+
+  <!-- Intro overlay card -->
+  <div class="intro-overlay" id="intro-overlay">
+    <div class="intro-card" id="intro-card">
+      <div class="intro-eyebrow">April 13, 2011 — Parsons, Tennessee</div>
+      <div class="intro-title">The Disappearance of Holly Bobo</div>
+      <div class="intro-body">
+        This map traces the geographic evidence introduced at the trial of Zachary Adams — from Holly's home on the morning of her abduction through the recovery of her remains three years later. Use the timeline below to walk through each chapter of the day.
+      </div>
+      <button class="intro-start-btn" id="intro-start-btn">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><polygon points="2,1 11,6 2,11"/></svg>
+        Begin Story
       </button>
+    </div>
+  </div>
+
+  <!-- Explore mode panel (secondary) -->
+  <aside class="explore-panel" id="explore-panel">
+    <div class="panel-hdr">
+      <h2>Explore All Layers</h2>
+      <button class="panel-close-btn" id="panel-close-btn" aria-label="Close explore panel">&#x2715;</button>
     </div>
     <div class="panel-body" id="panel-body">
       <div class="sec-label" id="bm-label">Basemap</div>
       <div class="basemap-row">
-        <button class="bm-btn active" id="bm-dark">Dark</button>
-        <button class="bm-btn" id="bm-satellite">Satellite</button>
+        <button class="bm-btn" id="bm-dark">Dark</button>
+        <button class="bm-btn active" id="bm-satellite">Satellite</button>
       </div>
-      <div class="divider" id="bm-divider"></div>
+      <div class="divider"></div>
       <div id="layer-list"></div>
       <div class="tl-panel hidden" id="tl-panel">
         <div class="tl-header">
@@ -774,51 +1044,302 @@
           <button class="tl-btn" id="tl-all">Show All</button>
           <button class="tl-btn" id="tl-reset">Reset</button>
         </div>
-
-      <div class="tl-panel trail-panel hidden" id="trail-panel">
-        <div class="tl-header">
-          <span class="tl-header-label">GPS Trail</span>
-          <span class="tl-step-counter" id="trail-counter">—</span>
+        <div class="tl-panel trail-panel hidden" id="trail-panel">
+          <div class="tl-header">
+            <span class="tl-header-label">GPS Trail</span>
+            <span class="tl-step-counter" id="trail-counter">—</span>
+          </div>
+          <div class="tl-step-name" id="trail-name">Toggle Phone GPS Trail to activate</div>
+          <div class="tl-btns">
+            <button class="tl-btn" id="trail-prev">&#9664;</button>
+            <button class="tl-btn play" id="trail-play">&#9654; Play</button>
+            <button class="tl-btn" id="trail-next">&#9654;</button>
+          </div>
+          <div class="tl-slider-wrap">
+            <span class="tl-slider-end">1</span>
+            <input type="range" class="tl-slider" id="trail-slider" min="0" max="0" value="0">
+            <span class="tl-slider-end" id="trail-slider-max">—</span>
+          </div>
+          <div class="tl-util-btns">
+            <button class="tl-btn" id="trail-all">Show All</button>
+            <button class="tl-btn" id="trail-reset">Reset</button>
+          </div>
         </div>
-        <div class="tl-step-name" id="trail-name">Toggle Phone GPS Trail to activate</div>
-        <div class="tl-btns">
-          <button class="tl-btn" id="trail-prev">&#9664;</button>
-          <button class="tl-btn play" id="trail-play">&#9654; Play</button>
-          <button class="tl-btn" id="trail-next">&#9654;</button>
-        </div>
-        <div class="tl-slider-wrap">
-          <span class="tl-slider-end">1</span>
-          <input type="range" class="tl-slider" id="trail-slider" min="0" max="0" value="0">
-          <span class="tl-slider-end" id="trail-slider-max">—</span>
-        </div>
-        <div class="tl-util-btns">
-          <button class="tl-btn" id="trail-all">Show All</button>
-          <button class="tl-btn" id="trail-reset">Reset</button>
-        </div>
-      </div>
       </div>
     </div>
   </aside>
 
-  <div class="map-spacer"></div>
+  <!-- Explore toggle button -->
+  <button class="explore-btn" id="explore-btn">&#9776; Explore All Layers</button>
 
-  <section class="info-section">
-    <h2>Map Layers</h2>
-    <div class="cards-grid" id="cards-grid"></div>
-  </section>
+  <!-- Narrative story bar -->
+  <div class="story-bar" id="story-bar">
+    <div class="story-track">
+      <div class="story-progress-rail">
+        <div class="story-progress-fill" id="story-progress-fill"></div>
+      </div>
+      <div class="story-chapters" id="story-chapters">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+    <div class="story-content">
+      <div class="story-card">
+        <div class="story-chapter-label" id="story-chapter-label">Chapter 1</div>
+        <div class="story-title" id="story-title">Holly's Home</div>
+        <div class="story-desc" id="story-desc">Loading...</div>
+      </div>
+      <div class="story-legend" id="story-legend">
+        <!-- Populated by JS per chapter -->
+      </div>
+      <div class="story-nav">
+        <button class="story-btn" id="story-prev" title="Previous chapter">&#9664;</button>
+        <button class="story-btn" id="story-next" title="Next chapter">&#9654;</button>
+      </div>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
   /* ── EMBEDDED MAP DATA ── */
   const KML_DATA = {"major":[{"name":"ABDUCTION SITE","features":[{"type":"point","coords":[35.6785776,-88.1747727]},{"type":"polygon","coords":[[35.6815776,-88.1747727],[35.6813178,-88.1762394],[35.6806178,-88.1775394],[35.6795178,-88.1785394],[35.6782511,-88.1790727],[35.6769178,-88.1791394],[35.6756178,-88.1787394],[35.6745178,-88.1779394],[35.6737178,-88.1768061],[35.6733178,-88.1754394],[35.6733178,-88.1740061],[35.6737178,-88.1726394],[35.6745178,-88.1715061],[35.6756178,-88.1707061],[35.6769178,-88.1703061],[35.6782511,-88.1703727],[35.6795178,-88.1709061],[35.6806178,-88.1719061],[35.6813178,-88.1732061],[35.6815776,-88.1747727]]}],"desc":"<b>Major Event:</b> Abduction location<br/>\n<b>Date:</b> April 13, 2011 (approx. 7:45 AM)<br/>\n<b>Area:</b> General vicinity of reported abduction"},{"name":"ALLEGED HOMICIDE LOCATION","features":[{"type":"point","coords":[35.8680952,-87.9434109]},{"type":"polygon","coords":[[35.8720952,-87.9434109],[35.8718354,-87.9448776],[35.8711354,-87.9461776],[35.8700354,-87.9471776],[35.8687687,-87.9477109],[35.8674354,-87.9477776],[35.8661354,-87.9473776],[35.8650354,-87.9465776],[35.8642354,-87.9454442],[35.8638354,-87.9440776],[35.8638354,-87.9426442],[35.8642354,-87.9412776],[35.8650354,-87.9401442],[35.8661354,-87.9393442],[35.8674354,-87.9389442],[35.8687687,-87.9390109],[35.8700354,-87.9395442],[35.8711354,-87.9405442],[35.8718354,-87.9418442],[35.8720952,-87.9434109]]}],"desc":"<b>Major Event:</b> Tennessee River - Interstate 40 Bridge<br/>\n<b>Testimony:</b> Jason Autry testified location where body was taken<br/>\n<b>Evidence:</b> Nursing papers found at bridge location"},{"name":"BODY DISCOVERY SITE","features":[{"type":"point","coords":[35.8215758,-88.169261]},{"type":"polygon","coords":[[35.8245758,-88.169261],[35.824316,-88.1707277],[35.823616,-88.1720277],[35.822516,-88.1730277],[35.8212493,-88.173561],[35.819916,-88.1736277],[35.818616,-88.1732277],[35.817516,-88.1724277],[35.816716,-88.1712943],[35.816316,-88.1699277],[35.816316,-88.1684943],[35.816716,-88.1671277],[35.817516,-88.1659943],[35.818616,-88.1651943],[35.819916,-88.1647943],[35.8212493,-88.164861],[35.822516,-88.1653943],[35.823616,-88.1663943],[35.824316,-88.1676943],[35.8245758,-88.169261]]}],"desc":"<b>Major Event:</b> Remains recovery location<br/>\n<b>Date:</b> September 7, 2014<br/>\n<b>Discovered by:</b> Ernest \"Larry\" Stone (ginseng hunter)<br/>\n<b>Details:</b> Skull found under upside-down bucket near cell tower"},{"name":"ATM LOCATION","features":[{"type":"point","coords":[35.6492403,-88.1279471]},{"type":"polygon","coords":[[35.6522403,-88.1279471],[35.6519805,-88.1294138],[35.6512805,-88.1307138],[35.6501805,-88.1317138],[35.6489138,-88.1322471],[35.6475805,-88.1323138],[35.6462805,-88.1319138],[35.6451805,-88.1311138],[35.6443805,-88.1299804],[35.6439805,-88.1286138],[35.6439805,-88.1271804],[35.6443805,-88.1258138],[35.6451805,-88.1246804],[35.6462805,-88.1238804],[35.6475805,-88.1234804],[35.6489138,-88.1235471],[35.6501805,-88.1240804],[35.6512805,-88.1250804],[35.6519805,-88.1263804],[35.6522403,-88.1279471]]}]},{"name":"BABBS","features":[{"type":"point","coords":[35.677438,-88.1746714]}]}],"evidence":[{"name":"HOLLY BOBO'S","features":[{"type":"point","coords":[35.6792874,-88.1758007]}],"desc":"<b>Event:</b> Kidnapping scene; neighbor James Barnes heard screaming here at ~7:45\u20137:50 a.m. <b>[cite: 53-54]</b><br/>\n      <b>Evidence:</b> Blood containing the victim's DNA found on the garage floor. <b>[cite: 45]</b><br/>\n      <b>Witness:</b> The victim's brother reported seeing the victim walking into the woods from here. <b>[cite: 107]</b><br/>\n      <b>Notes:</b> Residence address listed in this file as 681 Swan Johnson Road.<br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above","category":"Residence / kidnapping scene","date":"2011-04-13","cite":"45;53-54;107","source":"2022 appellate opinion (State v. Zachary Rye Adams)"},{"name":"LUNCHBOX RECOVERY SITE (GRAVES PROPERTY)","features":[{"type":"point","coords":[35.731971,-88.1343227]}],"desc":"<b>Recovered by:</b> Jon Graves.<br/>\n      <b>Description:</b> Graves found the victim's lunchbox (containing a sandwich) in a creek on his property while searching barns. <b>[cite: 268]</b><br/>\n      <b>Date:</b> 2011-04-14 (reported found). <b>[cite: 265]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above","category":"Evidence recovery","date":"2011-04-14","cite":"265;268","source":"2022 appellate opinion (State v. Zachary Rye Adams)"},{"name":"YELLOW SPRINGS COMMUNITY (PAPER FOUND)","features":[{"type":"point","coords":[35.8103424,-88.1233707]}],"desc":"<b>Recovered by:</b> Gerald Stephens.<br/>\n      <b>Description:</b> Found a \"wadded up\" paper with the victim's name, address, and handwriting. <b>[cite: 273]</b><br/>\n      <b>Location detail:</b> About 300\u2013400 feet from where underwear (not belonging to the victim) was found. <b>[cite: 273]</b><br/>\n      <b>Location detail:</b> About 75 feet from Austin's driveway. <b>[cite: 487]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"RECEIPT RECOVERY LOCATION","features":[{"type":"point","coords":[35.8070377,-88.1213405]}],"desc":"<b>Description:</b> Trooper Rainey described driving routes where evidence was recovered, including a credit-card receipt with the victim's name. <b>[cite: 158]</b><br/>\n      <b>Location detail:</b> In the Yellow Springs and Holladay communities area. <b>[cite: 158]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"CELL PHONE RECOVERY SITE","features":[{"type":"point","coords":[35.6849778,-88.1146431]}],"desc":"<b>Recovered by:</b> Emily Pratt and search team.<br/>\n      <b>Date:</b> 2011-04-24 (reported found). <b>[cite: 276]</b><br/>\n      <b>Location detail:</b> About five miles from the victim's home. <b>[cite: 277]</b><br/>\n      <b>Notes:</b> Point placement is approximate.<br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above","category":"Evidence recovery","date":"2011-04-24","cite":"276;277","source":"2022 appellate opinion (State v. Zachary Rye Adams)"},{"name":"SIM CARD RECOVERY SITE","features":[{"type":"point","coords":[35.6584578,-88.1194067]}],"desc":"<b>Recovered by:</b> Ednesha Brasher's brother.<br/>\n      <b>Date:</b> 2011-05-02 (reported found). <b>[cite: 278]</b><br/>\n      <b>Context:</b> Found while riding bicycles near the victim's home. <b>[cite: 278]</b><br/>\n      <b>Notes:</b> Some other accounts list 2011-05-03; retain the appellate-opinion date above as the cited reference.<br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above","category":"Evidence recovery","date":"2011-05-02","cite":"278","source":"2022 appellate opinion (State v. Zachary Rye Adams)"},{"name":"REMAINS RECOVERY SITE","features":[{"type":"point","coords":[35.8215758,-88.169261]}],"desc":"<b>Recovered by:</b> Ernest \"Larry\" Stone (ginseng hunter).<br/>\n      <b>Date:</b> 2014-09-07 (reported located). <b>[cite: 282]</b><br/>\n      <b>Description:</b> A skull was found under an upside-down bucket in the woods near a cell phone tower. <b>[cite: 282-284]</b><br/>\n      <b>Location detail:</b> About three miles from Austin's home; about five miles from the Defendant's home. <b>[cite: 507]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above","category":"Evidence recovery","date":"2014-09-07","cite":"282-284;507","source":"2022 appellate opinion (State v. Zachary Rye Adams)"},{"name":"PISTOL RECOVERY (JOE HOLLADAY ROAD)","features":[{"type":"point","coords":[35.8410278,-88.154404]}],"desc":"<b>Recovered by:</b> Steve Deaton (lead diver).<br/>\n      <b>Date:</b> 2017-05-25 (reported recovered). <b>[cite: 516]</b><br/>\n      <b>Location detail:</b> In a creek-like \"drainage feature\" along Joe Holladay Road. <b>[cite: 516]</b><br/>\n      <b>Context:</b> Victor Dinsmore testified his wife disposed of the pistol in a creek 3\u20134 miles from Yellow Springs Road. <b>[cite: 1093]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above","category":"Evidence recovery","date":"2017-05-25","cite":"516;1093","source":"2022 appellate opinion (State v. Zachary Rye Adams)"},{"name":"BIRDSONG BRIDGE / I-40 CROSSING","features":[{"type":"point","coords":[35.8680952,-87.9434109]}],"desc":"<b>Testimony:</b> Jason Autry testified they took the body to the Tennessee River under the Interstate 40 bridge. <b>[cite: 321]</b><br/>\n      <b>Evidence:</b> Nursing papers found where the bridge crosses over I-40. <b>[cite: 489]</b><br/>\n      <b>Statements:</b> Defendant reportedly said to \"put up under the Birdsong bridge.\" <b>[cite: 251]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"THE \"OLD BARN\" (HICKERSON PROPERTY)","features":[{"type":"point","coords":[35.8159405,-88.1277967]}],"desc":"<b>Testimony:</b> Jason Autry searched his late grandmother's barn on Yellow Springs Road for evidence. <b>[cite: 376]</b><br/>\n      <b>Witness:</b> Brian Vitt lived across from the barn. <b>[cite: 415]</b><br/>\n      <b>Status:</b> Reported destroyed in late 2012 or early 2013. <b>[cite: 752]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"}],"people":[{"name":"ZACHARY ADAMS's","features":[{"type":"point","coords":[35.8214583,-88.0837789]}],"desc":"<b>Location detail:</b> Located north of Parsons, near Holladay, not far from Yellow Springs Road. <b>[cite: 159]</b><br/>\n      <b>Testimony:</b> Autry arrived here at ~2:30 p.m. and reported seeing the men fighting. <b>[cite: 341]</b><br/>\n      <b>Testimony:</b> Stephen Young reported seeing the Defendant vacuuming a truck here. <b>[cite: 176]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"SHAYNE AUSTIN","features":[{"type":"point","coords":[35.8064745,-88.1204944]}],"desc":"<b>Testimony:</b> Autry arrived here around 9:00 a.m. on 2011-04-13. <b>[cite: 308]</b><br/>\n      <b>Observation:</b> Autry reported seeing a large fire in a burn barrel; the victim's father later reported seeing a burn barrel here. <b>[cite: 308, 952]</b><br/>\n      <b>Location:</b> Yellow Springs community. <b>[cite: 308]</b><br/>\n      <b>Notes:</b> Address commonly listed as 30 Yellow Spring Rd (not a court label).<br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"BRENDA O'BRYANT / KELLY RIDGE","features":[{"type":"point","coords":[35.8229219,-88.1408102]}],"desc":"<b>Testimony:</b> Brenda O'Bryant's parents lived across from \"Kelly Ridge\". <b>[cite: 423]</b><br/>\n      <b>Testimony:</b> A man (identified as Autry) asked to fish in their ponds. <b>[cite: 425]</b><br/>\n      <b>Statement:</b> Defendant told Autry \"we throwed her out near Kelly Ridge.\" <b>[cite: 356]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"ANGELA SCOTT","features":[{"type":"point","coords":[36.022526,-88.069439]}],"desc":"<b>Identity:</b> Angela Scott was Jason Autry's girlfriend. <b>[cite: 431]</b><br/>\n      <b>Location:</b> Camden area (tied to cell-tower data described near her home). <b>[cite: 551]</b><br/>\n      <b>Notes:</b> Coordinate represents a mapped residence point used in this file.<br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"DOTTIE COOLEY'S","features":[{"type":"point","coords":[35.8186527,-88.0984935]}],"desc":"<b>Testimony:</b> The men drove to Dottie Cooley's home to meet Victor Dinsmore. <b>[cite: 345]</b><br/>\n      <b>Location detail:</b> About two miles from the Defendant's home. <b>[cite: 345]</b><br/>\n      <b>Witness:</b> Cleaner Debbie Dorris reported seeing three men there between ~2:30 and 3:30 p.m. <b>[cite: 521]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"VICTOR DINSMORE'S","features":[{"type":"point","coords":[35.8184545,-88.1394212]}],"desc":"<b>Location:</b> Yellow Springs Road in the Holladay community. <b>[cite: 436]</b><br/>\n      <b>Proximity:</b> The victim's remains were found less than two miles from this location. <b>[cite: 470]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"VICTOR DINSMORE'S SHOP","features":[{"type":"point","coords":[35.8186962,-88.1393744]}],"desc":"<b>Testimony:</b> Defendant hid his white truck in Dinsmore's shop. <b>[cite: 452]</b><br/>\n      <b>Notes:</b> Coordinate represents a mapped shop location near Dinsmore's residence.<br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"JUANITA HICKERSON","features":[{"type":"point","coords":[35.8166,-88.127187]}],"desc":"<b>Identity:</b> Late grandmother of Shayne Austin and Jason Autry. <b>[cite: 415]</b><br/>\n      <b>Evidence:</b> Money and a receipt with the victim's name were found on her property. <b>[cite: 488]</b><br/>\n      <b>Location detail:</b> Located about one mile from Austin's home. <b>[cite: 725]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"TERRY BRITT'S","features":[{"type":"point","coords":[35.7683869,-88.1304145]}],"desc":"<b>Location detail:</b> Four miles south of Yellow Springs Church. <b>[cite: 491]</b><br/>\n      <b>Investigation:</b> Described as the \"geographic center\" of where evidence was recovered. <b>[cite: 791]</b><br/>\n      <b>Action:</b> Wiretaps and search warrants executed here. <b>[cite: 492-493]</b><br/>\n      <b>Notes:</b> Coordinate may reflect later mapping/property-record work; court text provides relative location.<br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"DICK ADAMS's","features":[{"type":"point","coords":[35.8206623,-88.0840042]}],"desc":"<b>Identity:</b> Defendant's grandfather. <b>[cite: 91]</b><br/>\n      <b>Location detail:</b> Located on the same property as the Defendant's home. <b>[cite: 91]</b><br/>\n      <b>Testimony:</b> The victim's mother visited here in July 2011. <b>[cite: 90-91]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"SHAYNE AUSTIN PARENTS' HOUSE","features":[{"type":"point","coords":[35.817543,-88.101237]}],"desc":"<b>Notes:</b> Labeled in this file as \u201cShayne\u2019s Parent\u2019s House.\u201d<br/>\n      <b>Source:</b> Reporting / testimony references (as compiled in this file)"},{"name":"BRIAN VITT'S","features":[{"type":"point","coords":[35.8176783,-88.1283117]}],"desc":"<b>Location detail:</b> In the Yellow Springs community across from Hickerson property. <b>[cite: 415]</b><br/>\n      <b>Testimony:</b> Vitt reported mowing his yard here on the morning of 2011-04-13. <b>[cite: 417]</b><br/>\n      <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"\"Rip Rap\" Location","features":[{"type":"point","coords":[35.8690252,-87.944915]}]},{"name":"Untitled placemark","features":[{"type":"point","coords":[35.7685438,-88.1304504]}]}],"towers":[{"name":"ADAMS HOME TOWER - TOWER NEAR HOLLADAY","features":[{"type":"point","coords":[35.8449259,-88.0894732]}],"desc":"<b>Relevance:</b> Defendant's phone communicated here at 8:19 a.m. <b>[cite: 903]</b><br/>\n        <b>Relevance:</b> Victim's phone communicated here at 9:06 a.m. <b>[cite: 531]</b><br/>\n        <b>Location detail:</b> Located near the Defendant's home. <b>[cite: 546]</b><br/>\n        <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"ADAMS HOME - SECTOR A - Wedge","features":[{"type":"polygon","coords":[[35.8449259,-88.0894732],[35.8269459,-88.0894732],[35.8272196,-88.0856283],[35.8280363,-88.0818974],[35.8293693,-88.0783982],[35.8311654,-88.0752391],[35.833371,-88.0725245],[35.8359409,-88.0702966],[35.8387821,-88.0686613],[35.8418064,-88.0676624],[35.8449259,-88.0673232],[35.8480454,-88.0676624],[35.8510697,-88.0686613],[35.8539109,-88.0702966],[35.8449259,-88.0894732]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 180\u00b0\u2013300\u00b0"},{"name":"ADAMS HOME - SECTOR A - Arm 1","features":[{"type":"line","coords":[[35.8449259,-88.0894732],[35.8089859,-88.0894732]]}]},{"name":"ADAMS HOME - SECTOR A - Arm 2","features":[{"type":"line","coords":[[35.8449259,-88.0894732],[35.8628959,-88.0510932]]}]},{"name":"ADAMS HOME - SECTOR B - Wedge","features":[{"type":"polygon","coords":[[35.8449259,-88.0894732],[35.8539109,-88.0702966],[35.8564808,-88.0725245],[35.8586864,-88.0752391],[35.8604825,-88.0783982],[35.8618155,-88.0818974],[35.8626322,-88.0856283],[35.8629059,-88.0894732],[35.8626322,-88.0933181],[35.8618155,-88.097049],[35.8604825,-88.1005482],[35.8586864,-88.1037073],[35.8564808,-88.1064219],[35.8539109,-88.1086498],[35.8449259,-88.0894732]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 300\u00b0\u201360\u00b0"},{"name":"ADAMS HOME - SECTOR B - Arm 1","features":[{"type":"line","coords":[[35.8449259,-88.0894732],[35.8628959,-88.0510932]]}]},{"name":"ADAMS HOME - SECTOR B - Arm 2","features":[{"type":"line","coords":[[35.8449259,-88.0894732],[35.8628959,-88.1278532]]}]},{"name":"ADAMS HOME - SECTOR C - Wedge","features":[{"type":"polygon","coords":[[35.8449259,-88.0894732],[35.8539109,-88.1086498],[35.8510697,-88.1102851],[35.8480454,-88.111284],[35.8449259,-88.1116232],[35.8418064,-88.111284],[35.8387821,-88.1102851],[35.8359409,-88.1086498],[35.833371,-88.1064219],[35.8311654,-88.1037073],[35.8293693,-88.1005482],[35.8280363,-88.097049],[35.8272196,-88.0933181],[35.8269459,-88.0894732],[35.8449259,-88.0894732]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 60\u00b0\u2013180\u00b0"},{"name":"ADAMS HOME - SECTOR C - Arm 1","features":[{"type":"line","coords":[[35.8449259,-88.0894732],[35.8628959,-88.1278532]]}]},{"name":"ADAMS HOME - SECTOR C - Arm 2","features":[{"type":"line","coords":[[35.8449259,-88.0894732],[35.8089859,-88.0894732]]}]},{"name":"CHESTERFIELD CELL TOWER","features":[{"type":"point","coords":[35.6383075,-88.2741621]}],"desc":"<b>Notes:</b> Cell tower location included for mapping tower geography referenced in case materials.<br/>\n        <b>Source:</b> Tower location data (as compiled in this file)"},{"name":"CHESTERFIELD - SECTOR A - Wedge","features":[{"type":"polygon","coords":[[35.6293225,-88.2550477],[35.6321637,-88.2534063],[35.635188,-88.2523955],[35.6383075,-88.2520421],[35.641427,-88.2523955],[35.6444513,-88.2534063],[35.6472925,-88.2550477],[35.6498624,-88.2572273],[35.652068,-88.2599508],[35.6538641,-88.2631121],[35.6551971,-88.2666062],[35.6560138,-88.2703244],[35.6562875,-88.2741621],[35.6383075,-88.2741621],[35.6293225,-88.2550477]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 0\u00b0\u2013120\u00b0"},{"name":"CHESTERFIELD - SECTOR A - Arm 1","features":[{"type":"line","coords":[[35.6383075,-88.2741621],[35.6742475,-88.2741621]]}]},{"name":"CHESTERFIELD - SECTOR A - Arm 2","features":[{"type":"line","coords":[[35.6383075,-88.2741621],[35.6203375,-88.2358821]]}]},{"name":"CHESTERFIELD - SECTOR B - Wedge","features":[{"type":"polygon","coords":[[35.6293225,-88.2932765],[35.6267526,-88.2910969],[35.624547,-88.2883734],[35.6227509,-88.2852121],[35.6214179,-88.281718],[35.6206012,-88.2779998],[35.6203275,-88.2741621],[35.6206012,-88.2703244],[35.6214179,-88.2666062],[35.6227509,-88.2631121],[35.624547,-88.2599508],[35.6267526,-88.2572273],[35.6293225,-88.2550477],[35.6383075,-88.2741621],[35.6293225,-88.2932765]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 120\u00b0\u2013240\u00b0"},{"name":"CHESTERFIELD - SECTOR B - Arm 1","features":[{"type":"line","coords":[[35.6383075,-88.2741621],[35.6203375,-88.2358821]]}]},{"name":"CHESTERFIELD - SECTOR B - Arm 2","features":[{"type":"line","coords":[[35.6383075,-88.2741621],[35.6203375,-88.3124421]]}]},{"name":"CHESTERFIELD - SECTOR C - Wedge","features":[{"type":"polygon","coords":[[35.6562875,-88.2741621],[35.6560138,-88.2779998],[35.6551971,-88.281718],[35.6538641,-88.2852121],[35.652068,-88.2883734],[35.6498624,-88.2910969],[35.6472925,-88.2932765],[35.6444513,-88.2949179],[35.641427,-88.2959287],[35.6383075,-88.2962821],[35.635188,-88.2959287],[35.6321637,-88.2949179],[35.6293225,-88.2932765],[35.6383075,-88.2741621],[35.6562875,-88.2741621]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 240\u00b0\u2013360\u00b0"},{"name":"CHESTERFIELD - SECTOR C - Arm 1","features":[{"type":"line","coords":[[35.6383075,-88.2741621],[35.6203375,-88.3124421]]}]},{"name":"CHESTERFIELD - SECTOR C - Arm 2","features":[{"type":"line","coords":[[35.6383075,-88.2741621],[35.6742475,-88.2741621]]}]},{"name":"PARSONS - ATT 083012 - CR1257","features":[{"type":"point","coords":[35.6675014,-88.121126]}],"desc":"<b>Relevance:</b> Victim's phone communicated here at 9:25 a.m. <b>[cite: 916]</b><br/>\n        <b>Relevance:</b> Defendant's phone communicated here between 11:16 a.m. and 12:18 p.m. <b>[cite: 550]</b><br/>\n        <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"ATT 083012 - 12571 - SECTOR A - Wedge","features":[{"type":"polygon","coords":[[35.6585164,-88.1019806],[35.6613576,-88.1003343],[35.6643819,-88.0993173],[35.6675014,-88.0989549],[35.6706209,-88.0993173],[35.6736452,-88.1003343],[35.6764864,-88.1019806],[35.6790563,-88.1041713],[35.6812619,-88.1069043],[35.683058,-88.1100705],[35.684391,-88.1135625],[35.6852077,-88.1172847],[35.6854814,-88.121126],[35.6675014,-88.121126],[35.6585164,-88.1019806]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 0\u00b0\u2013120\u00b0"},{"name":"ATT 083012 - 12571 - SECTOR A - Arm 1","features":[{"type":"line","coords":[[35.6675014,-88.121126],[35.7034414,-88.121126]]}]},{"name":"ATT 083012 - 12571 - SECTOR A - Arm 2","features":[{"type":"line","coords":[[35.6675014,-88.121126],[35.6495314,-88.082806]]}]},{"name":"ATT 083012 - 12572 - SECTOR B - Wedge","features":[{"type":"polygon","coords":[[35.6585164,-88.1402714],[35.6559465,-88.1380807],[35.6537409,-88.1353477],[35.6519448,-88.1321815],[35.6506118,-88.1286895],[35.6497951,-88.1249673],[35.6495214,-88.121126],[35.6497951,-88.1172847],[35.6506118,-88.1135625],[35.6519448,-88.1100705],[35.6537409,-88.1069043],[35.6559465,-88.1041713],[35.6585164,-88.1019806],[35.6675014,-88.121126],[35.6585164,-88.1402714]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 120\u00b0\u2013240\u00b0"},{"name":"ATT 083012 - 12572 - SECTOR B - Arm 1","features":[{"type":"line","coords":[[35.6675014,-88.121126],[35.6495314,-88.082806]]}]},{"name":"ATT 083012 - 12572 - SECTOR B - Arm 2","features":[{"type":"line","coords":[[35.6675014,-88.121126],[35.6495314,-88.159446]]}]},{"name":"ATT 083012 - 12573 - SECTOR C - Wedge","features":[{"type":"polygon","coords":[[35.6854814,-88.121126],[35.6852077,-88.1249673],[35.684391,-88.1286895],[35.683058,-88.1321815],[35.6812619,-88.1353477],[35.6790563,-88.1380807],[35.6764864,-88.1402714],[35.6736452,-88.1419177],[35.6706209,-88.1429347],[35.6675014,-88.1432971],[35.6643819,-88.1429347],[35.6613576,-88.1419177],[35.6585164,-88.1402714],[35.6675014,-88.121126],[35.6854814,-88.121126]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 240\u00b0\u2013360\u00b0"},{"name":"ATT 083012 - 12573 - SECTOR C - Arm 1","features":[{"type":"line","coords":[[35.6675014,-88.121126],[35.6495314,-88.159446]]}]},{"name":"ATT 083012 - 12573 - SECTOR C - Arm 2","features":[{"type":"line","coords":[[35.6675014,-88.121126],[35.7034414,-88.121126]]}]},{"name":"SHILOH ROAD - CR 1096 - TOWER NEAR NATCHEZ TRACE STATE PARK","features":[{"type":"point","coords":[35.8160145,-88.2058356]}],"desc":"<b>Relevance:</b> Victim's phone communicated here at 8:17 a.m. and 8:26 a.m. <b>[cite: 531]</b><br/>\n        <b>Analysis:</b> Indicated the phone moved away from the victim's home. <b>[cite: 902]</b><br/>\n        <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"CR 1096 - SHILOH ROAD - SECTOR A - Wedge","features":[{"type":"polygon","coords":[[35.8070295,-88.1866884],[35.8098707,-88.1850506],[35.812895,-88.1840378],[35.8160145,-88.1836842],[35.819134,-88.1840378],[35.8221583,-88.1850506],[35.8249995,-88.1866884],[35.8275694,-88.188871],[35.829775,-88.1916025],[35.8315711,-88.1947686],[35.8329041,-88.1982682],[35.8337208,-88.2019917],[35.8339945,-88.2058356],[35.8160145,-88.2058356],[35.8070295,-88.1866884]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 0\u00b0\u2013120\u00b0"},{"name":"CR 1096 - SHILOH ROAD - SECTOR A - Arm 1","features":[{"type":"line","coords":[[35.8160145,-88.2058356],[35.8519545,-88.2058356]]}]},{"name":"CR 1096 - SHILOH ROAD - SECTOR A - Arm 2","features":[{"type":"line","coords":[[35.8160145,-88.2058356],[35.7980445,-88.1674556]]}]},{"name":"CR 1096 - SHILOH ROAD - SECTOR B - Wedge","features":[{"type":"polygon","coords":[[35.8070295,-88.2249828],[35.8044596,-88.2228002],[35.802254,-88.2200687],[35.8004579,-88.2169026],[35.7991249,-88.213403],[35.7983082,-88.2096795],[35.7980345,-88.2058356],[35.7983082,-88.2019917],[35.7991249,-88.1982682],[35.8004579,-88.1947686],[35.802254,-88.1916025],[35.8044596,-88.188871],[35.8070295,-88.1866884],[35.8160145,-88.2058356],[35.8070295,-88.2249828]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 120\u00b0\u2013240\u00b0"},{"name":"CR 1096 - SHILOH ROAD - SECTOR B - Arm 1","features":[{"type":"line","coords":[[35.8160145,-88.2058356],[35.7980445,-88.1674556]]}]},{"name":"CR 1096 - SHILOH ROAD - SECTOR B - Arm 2","features":[{"type":"line","coords":[[35.8160145,-88.2058356],[35.7980445,-88.2442156]]}]},{"name":"CR 1096 - SHILOH ROAD - SECTOR C - Wedge","features":[{"type":"polygon","coords":[[35.8339945,-88.2058356],[35.8337208,-88.2096795],[35.8329041,-88.213403],[35.8315711,-88.2169026],[35.829775,-88.2200687],[35.8275694,-88.2228002],[35.8249995,-88.2249828],[35.8221583,-88.2266206],[35.819134,-88.2276334],[35.8160145,-88.227987],[35.812895,-88.2276334],[35.8098707,-88.2266206],[35.8070295,-88.2249828],[35.8160145,-88.2058356],[35.8339945,-88.2058356]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 240\u00b0\u2013360\u00b0"},{"name":"CR 1096 - SHILOH ROAD - SECTOR C - Arm 1","features":[{"type":"line","coords":[[35.8160145,-88.2058356],[35.7980445,-88.2442156]]}]},{"name":"CR 1096 - SHILOH ROAD - SECTOR C - Arm 2","features":[{"type":"line","coords":[[35.8160145,-88.2058356],[35.8519545,-88.2058356]]}]},{"name":"CAMDEN AREA CELL TOWER","features":[{"type":"point","coords":[36.0160773,-88.0379963]}],"desc":"<b>Relevance:</b> Autry's phone communicated here at 6:50 a.m. <b>[cite: 551]</b><br/>\n        <b>Location detail:</b> Located near Autry's girlfriend's home. <b>[cite: 551]</b><br/>\n        <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"CAMDEN AREA - SECTOR A - Wedge","features":[{"type":"polygon","coords":[[36.0070923,-88.0186736],[36.0099335,-88.0170079],[36.0129578,-88.0159771],[36.0160773,-88.0156163],[36.0191968,-88.0159771],[36.0222211,-88.0170079],[36.0250623,-88.0186736],[36.0276322,-88.0208949],[36.0298378,-88.0236699],[36.0316339,-88.0268863],[36.0329669,-88.0304047],[36.0337836,-88.0341403],[36.0340573,-88.0379963],[36.0160773,-88.0379963],[36.0070923,-88.0186736]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 0\u00b0\u2013120\u00b0"},{"name":"CAMDEN AREA - SECTOR A - Arm 1","features":[{"type":"line","coords":[[36.0160773,-88.0379963],[36.0520173,-88.0379963]]}]},{"name":"CAMDEN AREA - SECTOR A - Arm 2","features":[{"type":"line","coords":[[36.0160773,-88.0379963],[35.9981073,-87.9995263]]}]},{"name":"CAMDEN AREA - SECTOR B - Wedge","features":[{"type":"polygon","coords":[[36.0070923,-88.057319],[36.0045224,-88.0550977],[36.0023168,-88.0523227],[36.0005207,-88.0491063],[35.9991877,-88.0455879],[35.998371,-88.0418523],[35.9980973,-88.0379963],[35.998371,-88.0341403],[35.9991877,-88.0304047],[36.0005207,-88.0268863],[36.0023168,-88.0236699],[36.0045224,-88.0208949],[36.0070923,-88.0186736],[36.0160773,-88.0379963],[36.0070923,-88.057319]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 120\u00b0\u2013240\u00b0"},{"name":"CAMDEN AREA - SECTOR B - Arm 1","features":[{"type":"line","coords":[[36.0160773,-88.0379963],[35.9981073,-87.9995263]]}]},{"name":"CAMDEN AREA - SECTOR B - Arm 2","features":[{"type":"line","coords":[[36.0160773,-88.0379963],[35.9981073,-88.0764663]]}]},{"name":"CAMDEN AREA - SECTOR C - Wedge","features":[{"type":"polygon","coords":[[36.0340573,-88.0379963],[36.0337836,-88.0418523],[36.0329669,-88.0455879],[36.0316339,-88.0491063],[36.0298378,-88.0523227],[36.0276322,-88.0550977],[36.0250623,-88.057319],[36.0222211,-88.0589847],[36.0191968,-88.0600155],[36.0160773,-88.0603763],[36.0129578,-88.0600155],[36.0099335,-88.0589847],[36.0070923,-88.057319],[36.0160773,-88.0379963],[36.0340573,-88.0379963]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 240\u00b0\u2013360\u00b0"},{"name":"CAMDEN AREA - SECTOR C - Arm 1","features":[{"type":"line","coords":[[36.0160773,-88.0379963],[35.9981073,-88.0764663]]}]},{"name":"CAMDEN AREA - SECTOR C - Arm 2","features":[{"type":"line","coords":[[36.0160773,-88.0379963],[36.0520173,-88.0379963]]}]},{"name":"ROCKY POINT CELL TOWER","features":[{"type":"point","coords":[35.9287191,-88.1039625]}],"desc":"<b>Notes:</b> Cell tower location included for mapping tower geography referenced in case materials.<br/>\n        <b>Source:</b> Tower location data (as compiled in this file)"},{"name":"ROCKY POINT - SECTOR A - Wedge","features":[{"type":"polygon","coords":[[35.9197341,-88.0847414],[35.9225753,-88.0830841],[35.9255996,-88.0820566],[35.9287191,-88.0817407],[35.9318386,-88.0820566],[35.9348629,-88.0830841],[35.9377041,-88.0847414],[35.940274,-88.0869243],[35.9424796,-88.0896861],[35.9442757,-88.0928715],[35.9456087,-88.0963826],[35.9464254,-88.100112],[35.9466991,-88.1039625],[35.9287191,-88.1039625],[35.9197341,-88.0847414]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 0\u00b0\u2013120\u00b0"},{"name":"ROCKY POINT - SECTOR A - Arm 1","features":[{"type":"line","coords":[[35.9287191,-88.1039625],[35.9646591,-88.1039625]]}]},{"name":"ROCKY POINT - SECTOR A - Arm 2","features":[{"type":"line","coords":[[35.9287191,-88.1039625],[35.9107491,-88.0655325]]}]},{"name":"ROCKY POINT - SECTOR B - Wedge","features":[{"type":"polygon","coords":[[35.9197341,-88.1231836],[35.9171642,-88.1210007],[35.9149586,-88.1182389],[35.9131625,-88.1150535],[35.9118295,-88.1115424],[35.9110128,-88.107813],[35.9107391,-88.1039625],[35.9110128,-88.100112],[35.9118295,-88.0963826],[35.9131625,-88.0928715],[35.9149586,-88.0896861],[35.9171642,-88.0869243],[35.9197341,-88.0847414],[35.9287191,-88.1039625],[35.9197341,-88.1231836]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 120\u00b0\u2013240\u00b0"},{"name":"ROCKY POINT - SECTOR B - Arm 1","features":[{"type":"line","coords":[[35.9287191,-88.1039625],[35.9107491,-88.0655325]]}]},{"name":"ROCKY POINT - SECTOR B - Arm 2","features":[{"type":"line","coords":[[35.9287191,-88.1039625],[35.9107491,-88.1423925]]}]},{"name":"ROCKY POINT - SECTOR C - Wedge","features":[{"type":"polygon","coords":[[35.9466991,-88.1039625],[35.9464254,-88.107813],[35.9456087,-88.1115424],[35.9442757,-88.1150535],[35.9424796,-88.1182389],[35.940274,-88.1210007],[35.9377041,-88.1231836],[35.9348629,-88.1248409],[35.9318386,-88.1258684],[35.9287191,-88.1261843],[35.9255996,-88.1258684],[35.9225753,-88.1248409],[35.9197341,-88.1231836],[35.9287191,-88.1039625],[35.9466991,-88.1039625]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 240\u00b0\u2013360\u00b0"},{"name":"ROCKY POINT - SECTOR C - Arm 1","features":[{"type":"line","coords":[[35.9287191,-88.1039625],[35.9107491,-88.1423925]]}]},{"name":"ROCKY POINT - SECTOR C - Arm 2","features":[{"type":"line","coords":[[35.9287191,-88.1039625],[35.9646591,-88.1039625]]}]},{"name":"BIRDSONG - ATT 084458 - TOWER NEAR TENNESSEE RIVER","features":[{"type":"point","coords":[35.8670476,-87.9716572]}],"desc":"<b>Relevance:</b> Defendant's and Autry's phones communicated here at 9:25 a.m. <b>[cite: 537]</b><br/>\n        <b>Relevance:</b> Defendant's phone communicated here between 9:50 a.m. and 10:37 a.m. <b>[cite: 549]</b><br/>\n        <b>Source:</b> 2022 appellate opinion (State v. Zachary Rye Adams), line refs above"},{"name":"ATT 084458 - 39077 - SECTOR A (EAST) - Wedge","features":[{"type":"polygon","coords":[[35.8580626,-87.9524369],[35.8609038,-87.9507917],[35.8639281,-87.9497743],[35.8670476,-87.9494356],[35.8701671,-87.9497743],[35.8731914,-87.9507917],[35.8760326,-87.9524369],[35.8786025,-87.9546166],[35.8808081,-87.9573909],[35.8826042,-87.9605772],[35.8839372,-87.9640834],[35.8847539,-87.9678104],[35.8850276,-87.9716572],[35.8670476,-87.9716572],[35.8580626,-87.9524369]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 0\u00b0\u2013120\u00b0"},{"name":"ATT 084458 - 39077 - SECTOR A (EAST) - Arm 1","features":[{"type":"line","coords":[[35.8670476,-87.9716572],[35.9029876,-87.9716572]]}]},{"name":"ATT 084458 - 39077 - SECTOR A (EAST) - Arm 2","features":[{"type":"line","coords":[[35.8670476,-87.9716572],[35.8490776,-87.9332472]]}]},{"name":"ATT 084458 - 39078 - SECTOR B (SOUTH) - Wedge","features":[{"type":"polygon","coords":[[35.8580626,-87.9908775],[35.8554927,-87.9886978],[35.8532871,-87.9859235],[35.851491,-87.9827372],[35.850158,-87.979231],[35.8493413,-87.975504],[35.8490676,-87.9716572],[35.8493413,-87.9678104],[35.850158,-87.9640834],[35.851491,-87.9605772],[35.8532871,-87.9573909],[35.8554927,-87.9546166],[35.8580626,-87.9524369],[35.8670476,-87.9716572],[35.8580626,-87.9908775]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 120\u00b0\u2013240\u00b0"},{"name":"ATT 084458 - 39078 - SECTOR B (SOUTH) - Arm 1","features":[{"type":"line","coords":[[35.8670476,-87.9716572],[35.8490776,-87.9332472]]}]},{"name":"ATT 084458 - 39078 - SECTOR B (SOUTH) - Arm 2","features":[{"type":"line","coords":[[35.8670476,-87.9716572],[35.8490776,-88.0100672]]}]},{"name":"ATT 084458 - 39079 - SECTOR C (WEST) - Wedge","features":[{"type":"polygon","coords":[[35.8850276,-87.9716572],[35.8847539,-87.975504],[35.8839372,-87.979231],[35.8826042,-87.9827372],[35.8808081,-87.9859235],[35.8786025,-87.9886978],[35.8760326,-87.9908775],[35.8731914,-87.9925227],[35.8701671,-87.9935401],[35.8670476,-87.9938788],[35.8639281,-87.9935401],[35.8609038,-87.9925227],[35.8580626,-87.9908775],[35.8670476,-87.9716572],[35.8850276,-87.9716572]]}],"desc":"<b>Type:</b> Approx sector wedge<br/><b>Radius:</b> 2.0 km<br/><b>Bearing range:</b> 240\u00b0\u2013360\u00b0"},{"name":"ATT 084458 - 39079 - SECTOR C (WEST) - Arm 1","features":[{"type":"line","coords":[[35.8670476,-87.9716572],[35.8490776,-88.0100672]]}]},{"name":"ATT 084458 - 39079 - SECTOR C (WEST) - Arm 2","features":[{"type":"line","coords":[[35.8670476,-87.9716572],[35.9029876,-87.9716572]]}]},{"name":"CELL TOWER PINGS 1","features":[{"type":"point","coords":[35.8285377,-88.0218543]}],"desc":"<b>TowerType:</b> ATT<br/>\n<b>Time:</b> 9:10am<br/>\n<b>Date:</b> 1302652800000"},{"name":"CELL TOWER PINGS 2","features":[{"type":"point","coords":[35.8423456,-88.127613]}],"desc":"<b>FID:</b> 1<br/>\n<b>TowerType:</b> ATT<br/>\n<b>Time:</b> 9:02am<br/>\n<b>Date:</b> 1302652800000"},{"name":"CELL TOWER PINGS 3","features":[{"type":"point","coords":[35.8557507,-88.1594313]}],"desc":"<b>FID:</b> 2<br/>\n<b>TowerType:</b> ATT<br/>\n<b>Time:</b> 8:57am<br/>\n<b>Date:</b> 1302652800000"}],"other":[{"name":"THW","features":[{"type":"point","coords":[35.838487,-88.1758007]}],"desc":"<b>Category:</b> Private business/person<br/>\n      <b>Date:</b> -88.1758007!<br/>\n      <b>Source:</b> Designated context points (as compiled in this file)","category":"Private Businessseite","source":"Tod"}],"trail":[{"name":"PHONE GPS TRAIL - SEGMENT 1","features":[{"type":"line","coords":[[35.6791227,-88.1748049],[35.6810686,-88.1762233],[35.6822372,-88.1764611],[35.6835351,-88.1765417],[35.6844709,-88.1762676],[35.6852439,-88.175433],[35.6859245,-88.1746161],[35.6866384,-88.174246],[35.6877307,-88.1731652],[35.6880658,-88.1742371],[35.6884248,-88.1752048],[35.6887966,-88.1756535],[35.6892116,-88.1757545],[35.6899244,-88.1753255],[35.6916469,-88.1755221],[35.6923911,-88.1757594],[35.6929652,-88.1764401],[35.6936257,-88.1771358],[35.6942752,-88.1772553],[35.6952786,-88.1767457],[35.6956589,-88.1767952],[35.6962736,-88.1776716],[35.6963267,-88.1782027],[35.6960899,-88.1788691],[35.6962307,-88.179785],[35.6960294,-88.1805236],[35.6956869,-88.1810884],[35.6966467,-88.1817955],[35.6973654,-88.1821054],[35.6986978,-88.1822823],[35.699389,-88.1828082],[35.7003035,-88.1835343],[35.7012911,-88.1838498],[35.7020736,-88.1842761],[35.7035273,-88.1866092],[35.7057999,-88.1883312],[35.7065322,-88.1883408],[35.7071804,-88.1882425],[35.7076429,-88.1882915],[35.708295,-88.1895431],[35.7088929,-88.1907532],[35.7092408,-88.1912037],[35.7096363,-88.1921666],[35.7102022,-88.1929931],[35.7106675,-88.1936889],[35.7107366,-88.1944366],[35.7106978,-88.1954125],[35.7106308,-88.1963332],[35.71027,-88.1979723],[35.7100036,-88.1989982],[35.7101026,-88.1997864],[35.7106036,-88.200259],[35.7115591,-88.2005813],[35.7122456,-88.2010268],[35.7125203,-88.2009239],[35.7126664,-88.2000316],[35.7130018,-88.1994415],[35.7138698,-88.1989807],[35.7145761,-88.1981035],[35.7161957,-88.1980195],[35.7171797,-88.1979145],[35.717523,-88.1975986],[35.7178147,-88.1969492],[35.7183014,-88.1963072],[35.7192506,-88.1955536],[35.7198833,-88.1951488],[35.7208178,-88.195095],[35.7218489,-88.195101],[35.7228738,-88.1951064],[35.7239647,-88.1950687],[35.726565,-88.1950346],[35.7264218,-88.1944973],[35.7265153,-88.1922058],[35.7264087,-88.1898944],[35.7263901,-88.1858328],[35.7267972,-88.1842663],[35.7277196,-88.1804197],[35.7283803,-88.1809033],[35.7295423,-88.1811427],[35.7303739,-88.1814299],[35.7312245,-88.1815004],[35.732577,-88.1808634],[35.7330808,-88.1800633],[35.7332485,-88.1795535],[35.7334859,-88.1791971],[35.7339622,-88.1791648],[35.7352177,-88.1795264],[35.7364469,-88.1794569],[35.7382489,-88.1794066],[35.7388548,-88.1791241],[35.7392801,-88.1783104],[35.7395195,-88.1778559],[35.7400806,-88.177282],[35.7402728,-88.1772168],[35.740426,-88.1772358],[35.7405061,-88.1778704],[35.7404434,-88.1786658],[35.7407302,-88.1796064],[35.7411152,-88.1799568],[35.7416523,-88.1799904],[35.7418927,-88.1799704],[35.7425691,-88.1802075],[35.7431427,-88.180598],[35.7437599,-88.1818571],[35.743962,-88.1823339],[35.7443209,-88.1827386],[35.7456757,-88.1832786],[35.7474303,-88.1838438],[35.7487128,-88.1836831],[35.74947,-88.1834256],[35.7499186,-88.1835852],[35.7508268,-88.1823074],[35.7517349,-88.1810295],[35.7526431,-88.1797485],[35.7543196,-88.1776704],[35.7559961,-88.1755922],[35.7575726,-88.1735142],[35.7583076,-88.1743667],[35.7590427,-88.1752192],[35.7597777,-88.1760717],[35.7610216,-88.1784163],[35.7622654,-88.180761],[35.7634093,-88.1831055],[35.7636688,-88.1842778],[35.7639284,-88.1854501],[35.7641878,-88.1866224],[35.7636255,-88.1878477],[35.7630633,-88.189073],[35.7625011,-88.1902983],[35.7612473,-88.191165],[35.7599935,-88.1920316],[35.7587397,-88.1928567],[35.7569235,-88.1922704],[35.7551073,-88.1916841],[35.7532912,-88.1910978],[35.7522102,-88.1917371],[35.7511293,-88.1923764],[35.7500484,-88.1930157],[35.7482753,-88.1929627],[35.7465022,-88.1929097],[35.7447291,-88.1928567],[35.7429129,-88.1918443],[35.7410966,-88.1908319],[35.7392804,-88.1898195],[35.7375503,-88.1886472],[35.7358202,-88.1874749],[35.7340901,-88.1863026],[35.7333519,-88.1863026],[35.7326137,-88.1863026],[35.7318755,-88.1863026],[35.7304944,-88.18561],[35.7291132,-88.1849174],[35.7268064,-88.1842891]]}],"desc":"<b>Label:</b> Phone GPS Trail<br/>\n<b>Notes:</b> Data from social media/independent investigation<br/>\n<b>Type:</b> GPS<br/>\n<b>Comment:</b> Not from court proceedings"},{"name":"PHONE GPS TRAIL - SEGMENT 2","features":[{"type":"line","coords":[[35.7569552,-88.1745725],[35.7803317,-88.1767625],[35.7898657,-88.1775108],[35.8017933,-88.1762316],[35.8065901,-88.1775108],[35.8085345,-88.1760717],[35.8179974,-88.1757528],[35.8207194,-88.1763915],[35.8202008,-88.1533731],[35.8187753,-88.1496972],[35.8211421,-88.1351878],[35.8210044,-88.1340055],[35.8203005,-88.1328401],[35.8195897,-88.1321002],[35.8189315,-88.1316657],[35.8182679,-88.1309748],[35.8177406,-88.1297387],[35.8173947,-88.1286219],[35.8171011,-88.1281072],[35.8160592,-88.1272086],[35.8155167,-88.1266264],[35.814095,-88.1257273],[35.8132945,-88.1254853],[35.8124487,-88.1248869],[35.8120252,-88.1244413],[35.8114372,-88.1235865],[35.8111776,-88.123113],[35.8107611,-88.1231817],[35.8086828,-88.1227051],[35.8065832,-88.1210519],[35.8060004,-88.1207654],[35.8057913,-88.121314],[35.805714,-88.1220257],[35.8056071,-88.123055],[35.8047123,-88.1239103],[35.8038343,-88.1248658],[35.8011178,-88.1265469],[35.8007921,-88.1272938],[35.7999663,-88.1277323],[35.7986159,-88.1275744],[35.7972263,-88.1287304],[35.7965234,-88.1275988],[35.7962514,-88.1261788],[35.7947438,-88.125115],[35.7931745,-88.1224545],[35.7921808,-88.121327],[35.791242,-88.1209406],[35.7898512,-88.1198972],[35.7889933,-88.118119],[35.7881946,-88.1162947],[35.7885298,-88.1137651],[35.78898,-88.1114229],[35.7889202,-88.1100472],[35.7881766,-88.1099022],[35.7870244,-88.1095672],[35.7864123,-88.1090643],[35.7862082,-88.1074296],[35.7850869,-88.1062153],[35.7844758,-88.1047081],[35.7836945,-88.1030333],[35.7811268,-88.1030029],[35.7796148,-88.1015524],[35.7783959,-88.0999481],[35.77818,-88.0996218],[35.7778401,-88.0993113],[35.7761929,-88.0987031],[35.7752326,-88.0978117],[35.774854,-88.0973785],[35.774371,-88.0970267],[35.7697414,-88.0986815],[35.7694662,-88.0996676],[35.7676448,-88.101962],[35.7664661,-88.1030756],[35.7663533,-88.1038351],[35.7663901,-88.1045451],[35.7663663,-88.10689],[35.7657689,-88.1069254],[35.7646415,-88.1073469],[35.7630807,-88.1073978],[35.76012,-88.1053701],[35.7557277,-88.1056363],[35.7553363,-88.1089513],[35.7569535,-88.1107746],[35.7563437,-88.1118177],[35.755139,-88.1135554],[35.7550264,-88.1151639],[35.7550484,-88.116006],[35.7542704,-88.1176945],[35.754068,-88.1185611],[35.7540088,-88.119336],[35.7537472,-88.1209776],[35.7535853,-88.1221256],[35.7534141,-88.1228588],[35.7532119,-88.1231171],[35.752888,-88.1230956],[35.7522309,-88.122951],[35.7512133,-88.1227847],[35.7502266,-88.1225786],[35.7492651,-88.1224432],[35.7489035,-88.1224484],[35.7485601,-88.1224858],[35.7478136,-88.1226808],[35.7463265,-88.1231638],[35.7433625,-88.1241822],[35.7416674,-88.124585],[35.7407459,-88.1247141],[35.7398398,-88.1249312],[35.7395743,-88.1248756],[35.7392976,-88.1247511],[35.7390476,-88.124692],[35.738818,-88.1246488],[35.7386099,-88.1246529],[35.7384043,-88.12468],[35.738107,-88.124795],[35.7377733,-88.12501],[35.7347367,-88.1279311],[35.7344155,-88.1280075],[35.7340298,-88.1280573],[35.7337119,-88.1281971],[35.7334971,-88.1284757],[35.733425,-88.1287738],[35.7330119,-88.1314887],[35.7325348,-88.1329776],[35.7306957,-88.1376157],[35.7291281,-88.1370439],[35.7269507,-88.1355889],[35.7253314,-88.135417],[35.7238839,-88.1356604],[35.7125562,-88.1372272],[35.7118959,-88.1375269],[35.7102872,-88.1387552],[35.7097924,-88.1392781],[35.7090891,-88.1406456],[35.7087187,-88.1414346],[35.7082758,-88.1418672],[35.70673,-88.1429958],[35.7061647,-88.14367],[35.7064146,-88.1439021]]}],"desc":"<b>Label:</b> Phone GPS Trail<br/>\n<b>Notes:</b> Data from social media/independent investigation<br/>\n<b>Type:</b> GPS<br/>\n<b>Comment:</b> Not from court proceedings"}],"usermarks":[{"name":"Marker: 1","features":[{"type":"point","coords":[35.679571,-88.1746826]}],"desc":"<b>BOBO RESIDENCE</b><br/>Cell phone departs near 8:00 AM"},{"name":"Marker: 2","features":[{"type":"point","coords":[35.6877461,-88.1731974]}],"desc":"Near Hickory Forks (along route from Bobo Residence)"},{"name":"Marker: 3","features":[{"type":"point","coords":[35.7049742,-88.1876262]}],"desc":"Near Bible Hill (along route)"},{"name":"Marker: 4","features":[{"type":"point","coords":[35.7131086,-88.199412]}],"desc":"Along route heading north"},{"name":"Marker: 5","features":[{"type":"point","coords":[35.726769,-88.1842687]}],"desc":"Along route in Henderson County area"},{"name":"Marker: 6","features":[{"type":"point","coords":[35.7634604,-88.1903442]}],"desc":"<b>Cell phone 8:11 AM</b><br/>Approximate location of telephone at 8:11 AM reading CR 1253 Section 1"},{"name":"Marker: 7","features":[{"type":"point","coords":[35.7614203,-88.1820879]}],"desc":"Near marker 6 (along route)"},{"name":"Marker: 8","features":[{"type":"point","coords":[35.7583762,-88.1745921]}],"desc":"<b>Creek Gooch Road</b><br/>Location of cell phone at 9:25 AM Reading CR 1257 Section 3.<br/>Creek location of Lunch Box and Notebook"},{"name":"Marker: 9","features":[{"type":"point","coords":[35.8128441,-88.1762272]}],"desc":"<b>Natchez Trace State area</b><br/>In Area for 30 minutes. Reading CR 1096 Section 1.<br/>Direction of travel, in area of CR 1096 Section 1"},{"name":"Marker: 12","features":[{"type":"point","coords":[35.8181924,-88.1516264]}],"desc":"Near location marked \"09/05/2014 Location of Holly Bobo's Remains\""},{"name":"Marker: 13","features":[{"type":"point","coords":[35.8209427,-88.1362972]}],"desc":"<b>Cell phone at 9:06 AM</b><br/>Approximate location of cell phone at 9:06 AM reading CR 3152 Section 3"},{"name":"Marker: 14","features":[{"type":"point","coords":[35.8072897,-88.1216289]}],"desc":"<b>Shiloh Road Cell Tower</b><br/>Cell Tower CR 1096. Holly Bobo's Cell phone was in Section 1 of this tower between 8:26 AM and 8:56 AM on 04/13/2011"},{"name":"Marker: 15","features":[{"type":"point","coords":[35.7745786,-88.0971018]}],"desc":"In Benton County/Tennessee area (along route)"},{"name":"Marker: 16","features":[{"type":"point","coords":[35.7681079,-88.1012578]}],"desc":"<b>Cell phone at 9:02 AM</b><br/>Approximate location of cell telephone at 9:02 AM reading CR 3152 Section 3"},{"name":"Marker: 17","features":[{"type":"point","coords":[35.7637527,-88.1074882]}],"desc":"<b>Cell phone at 9:10 AM</b><br/>Approximate location of cell phone at 9:10 AM reading CR 3152 Section 2"},{"name":"Marker: 18","features":[{"type":"point","coords":[35.7556663,-88.112852]}],"desc":"Along route near marker 17"},{"name":"Marker: 19","features":[{"type":"point","coords":[35.7439235,-88.1239115]}],"desc":"Near Jeannette (along route)"}],"timeline":[{"name":"01. HB - 8:00 AM — Bobo Residence (Departure)","features":[{"type":"point","coords":[35.679571,-88.1746826]}],"desc":"<b>Time:</b> ~8:00 AM<br/><b>Event:</b> Cell phone departs Bobo Residence<br/><b>Source:</b> Cell phone tracking exhibit"},{"name":"02. HB - 8:11 AM — CR 1253 Sector 1","features":[{"type":"point","coords":[35.7634604,-88.1903442]}],"desc":"<b>Time:</b> 8:11 AM<br/><b>Tower:</b> CR 1253<br/><b>Sector:</b> 1<br/><b>Location:</b> Henderson County area"},{"name":"03. HB - 8:16 AM — CR 1096 Sector 2","features":[{"type":"point","coords":[35.7814203,-88.1820879]}],"desc":"<b>Time:</b> 8:16 AM<br/><b>Tower:</b> CR 1096<br/><b>Sector:</b> 2<br/><b>Location:</b> Moving northward"},{"name":"04. HB - 8:26 AM — CR 1096 Sector 1 (Shiloh Road)","features":[{"type":"point","coords":[35.8128441,-88.1762272]}],"desc":"<b>Time:</b> 8:26 AM - 8:56 AM<br/><b>Tower:</b> CR 1096 (Shiloh Road Cell Tower)<br/><b>Sector:</b> 1<br/><b>Duration:</b> ~30 minutes in this sector<br/><b>Location:</b> Natchez Trace State area<br/><b>CRITICAL:</b> Phone pings near site where remains later found (undermines State's timeline)"},{"name":"05. HB - 9:00 AM — Transition CR 1096\u2192CR 3152","features":[{"type":"point","coords":[35.8181924,-88.1516264]}],"desc":"<b>Time:</b> 9:00 AM<br/><b>Event:</b> Exit route - leaving CR 1096 Sector 1, entering CR 3152 Sector 3"},{"name":"06. HB - 9:02 AM — CR 3152 Sector 3","features":[{"type":"point","coords":[35.7939235,-88.1239115]}],"desc":"<b>Time:</b> 9:02 AM<br/><b>Tower:</b> CR 3152<br/><b>Sector:</b> 3<br/><b>Location:</b> Benton County"},{"name":"07. HB - 9:06 AM — CR 3152 Sector 3","features":[{"type":"point","coords":[35.8209427,-88.1362972]}],"desc":"<b>Time:</b> 9:06 AM<br/><b>Tower:</b> CR 3152<br/><b>Sector:</b> 3<br/><b>Location:</b> Continuing in area"},{"name":"08. HB - 9:10 AM — CR 3152 Sector 2","features":[{"type":"point","coords":[35.7745786,-88.0971018]}],"desc":"<b>Time:</b> 9:10 AM<br/><b>Tower:</b> CR 3152<br/><b>Sector:</b> 2<br/><b>Location:</b> Near marker 17"},{"name":"09. HB - 9:25 AM — CR 1257 Sector 3 (FINAL PING)","features":[{"type":"point","coords":[35.7583762,-88.1745921]}],"desc":"<b>Time:</b> 9:25 AM<br/><b>Tower:</b> CR 1257<br/><b>Sector:</b> 3<br/><b>Location:</b> Creek Gooch Road<br/><b>EVIDENCE:</b> Location where lunch box and notebook were found<br/><b>NOTE:</b> This is Holly Bobo's last recorded cell phone ping"},{"name":"10. JA - 9:42 AM — Birdsong East (39077)","features":[{"type":"point","coords":[35.8630952,-87.9484109]}],"desc":"<b>Time:</b> 9:42 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39077<br/><b>Sector:</b> East<br/><b>Event:</b> First recorded use of east sector; calls and text messages"},{"name":"11. ZA - 9:42 AM — Birdsong East (39077)","features":[{"type":"point","coords":[35.8680952,-87.9534109]}],"desc":"<b>Time:</b> 9:42 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39077<br/><b>Sector:</b> East<br/><b>Event:</b> First recorded use of east sector; calls and text messages begin"},{"name":"12. ZA - 9:50 AM — Birdsong East (39077)","features":[{"type":"point","coords":[35.8730952,-87.9484109]}],"desc":"<b>Time:</b> 9:50 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39077<br/><b>Sector:</b> East<br/><b>Analysis:</b> Beginning of Reeves's analysis window; device located northeast of \"dividing line\""},{"name":"13. JA - 10:32 AM — Birdsong East (39077) LAST","features":[{"type":"point","coords":[35.8730952,-87.9384109]}],"desc":"<b>Time:</b> 10:32 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39077<br/><b>Sector:</b> East<br/><b>Event:</b> Last use of east sector"},{"name":"14. ZA - 10:32 AM — Birdsong East (39077) LAST","features":[{"type":"point","coords":[35.8780952,-87.9434109]}],"desc":"<b>Time:</b> 10:32 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39077<br/><b>Sector:</b> East (Northeast)<br/><b>Event:</b> Last text message using east sector; device still northeast of \"dividing line\""},{"name":"15. JA - 10:35 AM — Birdsong West (39079)","features":[{"type":"point","coords":[35.8730952,-87.9584109]}],"desc":"<b>Time:</b> 10:35 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39079<br/><b>Sector:</b> West<br/><b>Event:</b> First use of west sector<br/><b>CRITICAL:</b> Never used south sector 39078 - supports interstate travel, not backroads"},{"name":"16. ZA - 10:35 AM — Birdsong West (39079)","features":[{"type":"point","coords":[35.8780952,-87.9634109]}],"desc":"<b>Time:</b> 10:35 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39079<br/><b>Sector:</b> West (Northwest)<br/><b>Event:</b> First use of west sector<br/><b>CRITICAL:</b> Bypassed south sector 39078 entirely - over 3.5 miles of alleged backroad route would be covered under tower 39078"},{"name":"17. JA - 10:37 AM — Birdsong West (39079) LAST","features":[{"type":"point","coords":[35.8680952,-87.9684109]}],"desc":"<b>Time:</b> 10:37 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39079<br/><b>Sector:</b> West<br/><b>Event:</b> Last recorded use of west sector<br/><b>KEY FINDING:</b> South sector (39078) never used despite alleged backroad route passing through its coverage area"},{"name":"18. ZA - 10:37 AM — Birdsong West (39079) LAST","features":[{"type":"point","coords":[35.8730952,-87.9734109]}],"desc":"<b>Time:</b> 10:37 AM<br/><b>Tower:</b> Birdsong (AT&T 084458)<br/><b>Cell ID:</b> 39079<br/><b>Sector:</b> West<br/><b>Event:</b> Last recorded use of west sector; confirms westward movement along I-40"},{"name":"19. ZA - 10:38 AM — Home Tower","features":[{"type":"point","coords":[35.8449259,-88.0894732]}],"desc":"<b>Time:</b> 10:38 AM<br/><b>Tower:</b> Adams's home tower<br/><b>CRITICAL:</b> Only 3 minutes after 10:35 ping - only possible by interstate travel south to Parsons on I-40<br/><b>IMPOSSIBILITY:</b> Backroad route (per Autry testimony) would take ~32 minutes"},{"name":"20. ZA - 11:12 AM — CB&S Bank ATM (VIDEO)","features":[{"type":"point","coords":[35.6675014,-88.121126]}],"desc":"<b>Time:</b> 11:12 AM<br/><b>Location:</b> Community South Bank (CB&S), Parsons, TN<br/><b>EVIDENCE:</b> ATM video shows Zach Adams, Dylan Adams, and Shayne Austin at bank in 2006 Chevrolet Silverado<br/><b>SIGNIFICANCE:</b> Only 40 minutes from last east sector ping - impossible with Autry's claimed route"},{"name":"21. ZA - 12:35 PM — Parsons Area","features":[{"type":"point","coords":[35.6575014,-88.121126]}],"desc":"<b>Time:</b> 12:35 PM<br/><b>Location:</b> Parsons area<br/><b>Event:</b> Cell phone activity continues in Parsons; confirms he remained in area until at least mid-afternoon"}]};
+
   </script>
 
   <script>
   'use strict';
 
+  /* ════════════════════════════════════════════════════════════════════════
+     NARRATIVE CHAPTERS
+     Each chapter controls: which map layers to show, where to pan/zoom,
+     a story description, and an optional legend.
+  ════════════════════════════════════════════════════════════════════════ */
+  const CHAPTERS = [
+    {
+      id: 'intro',
+      time: 'Apr 13, 2011',
+      title: "Holly's Home",
+      desc: "Holly Bobo, a nursing student at Tennessee Tech, lived with her family on Parsons Branch Road in Decatur County. On the morning of April 13, 2011, her brother Drew witnessed a man dressed in camouflage leading Holly into the woods behind their home.",
+      center: [35.6785776, -88.1747727],
+      zoom: 14,
+      layers: [],          // only holly's home marker (drawn separately)
+      showHome: true,
+      connections: [],
+      legend: [{ label: 'Holly Bobo', color: '#F4A261' }],
+      color: '#F4A261',
+    },
+    {
+      id: 'abduction',
+      time: '~7:45 AM',
+      title: 'The Abduction',
+      desc: "Drew Bobo called 911 after watching a man — later identified as Zachary Adams — lead Holly from the property near the tree line. The abduction site on Parsons Branch Road became the first point in a geographic trail that investigators would spend years reconstructing.",
+      center: [35.6785776, -88.1747727],
+      zoom: 14,
+      layers: ['major'],
+      showHome: true,
+      connections: [],
+      legend: [
+        { label: 'Holly Bobo', color: '#F4A261' },
+        { label: 'Zach Adams', color: '#E63946' },
+      ],
+      color: '#F4A261',
+    },
+    {
+      id: 'phones',
+      time: '8:17–8:56 AM',
+      title: 'Phone Activity',
+      desc: "Cell records show calls and texts routed through towers near the Natchez Trace Parkway in the hour following the abduction. The prosecution's phone timeline mapped each event to the nearest tower — placing Adams in the area around Holly's abduction site during this window.",
+      center: [35.72, -88.08],
+      zoom: 11,
+      layers: ['major', 'towers', 'timeline'],
+      showHome: true,
+      connections: ['tower-phone'],
+      legend: [
+        { label: 'Cell Towers', color: '#9D4EDD' },
+        { label: 'Phone Events', color: '#E8891C' },
+      ],
+      color: '#E8891C',
+    },
+    {
+      id: 'birdsong',
+      time: '~9:25 AM',
+      title: 'Birdsong Bridge Area',
+      desc: "Testimony from co-defendant Jason Autry placed the group at a location near Birdsong Bridge on the Tennessee River. Autry described events he claimed to have witnessed, providing the prosecution's geographic anchor for a key stretch of the investigation.",
+      center: [35.82, -88.03],
+      zoom: 12,
+      layers: ['major', 'people'],
+      showHome: false,
+      connections: [],
+      legend: [
+        { label: 'Jason Autry', color: '#57B0DC' },
+        { label: 'Zach Adams', color: '#E63946' },
+      ],
+      color: '#57B0DC',
+    },
+    {
+      id: 'gps',
+      time: 'GPS Trail',
+      title: 'GPS Route Data',
+      desc: "GPS coordinates logged from a device recovered during the investigation trace a path through the region. Route markers are revealed first, then the full GPS trail is drawn connecting them.",
+      center: [35.755, -88.10],
+      zoom: 11,
+      layers: ['major', 'usermarks', 'trail'],
+      showHome: false,
+      connections: [],
+      legend: [
+        { label: 'Route Markers', color: '#EBE2CD' },
+        { label: 'GPS Trail', color: '#4A8A7C' },
+      ],
+      color: '#4A8A7C',
+    },
+    {
+      id: 'residences',
+      time: 'Key Locations',
+      title: 'People & Residences',
+      desc: "Investigators mapped residences and addresses associated with defendants, witnesses, and others connected to the case. The geographic proximity of these locations to the abduction site and to cell tower coverage areas was central to the prosecution's argument.",
+      center: [35.755, -88.10],
+      zoom: 11,
+      layers: ['major', 'people', 'other'],
+      showHome: true,
+      connections: [],
+      legend: [
+        { label: 'Holly Bobo', color: '#F4A261' },
+        { label: 'Zach Adams', color: '#E63946' },
+        { label: 'Jason Autry', color: '#57B0DC' },
+      ],
+      color: '#57B0DC',
+    },
+    {
+      id: 'evidence',
+      time: '2014 — Recovery',
+      title: 'Evidence & Recovery',
+      desc: "Three years after her disappearance, Holly Bobo's remains were recovered in September 2014. Evidence collection sites, searched areas, and forensically significant locations introduced at trial are mapped here — including the recovery site on Highway 114.",
+      center: [35.80, -88.10],
+      zoom: 11,
+      layers: ['major', 'evidence'],
+      showHome: false,
+      connections: [],
+      legend: [
+        { label: 'Evidence Sites', color: '#EBE2CD' },
+        { label: 'Recovery', color: '#EBE2CD' },
+      ],
+      color: '#EBE2CD',
+    },
+    {
+      id: 'full',
+      time: 'All Evidence',
+      title: 'Full Case Map',
+      desc: "All geographic evidence from the trial — major events, evidence sites, residences, cell towers, GPS trail, route markers, and phone timeline — shown together. Use the Explore panel to toggle individual layers.",
+      center: [35.755, -88.10],
+      zoom: 10,
+      layers: ['major', 'evidence', 'people', 'towers', 'other', 'trail', 'usermarks', 'timeline'],
+      showHome: true,
+      connections: [],
+      legend: [
+        { label: 'Holly', color: '#F4A261' },
+        { label: 'Zach', color: '#E63946' },
+        { label: 'Autry', color: '#57B0DC' },
+        { label: 'Evidence', color: '#EBE2CD' },
+        { label: 'Towers', color: '#9D4EDD' },
+      ],
+      color: '#8E9AAF',
+    },
+  ];
 
-  /* ── BASEMAP LAYERS ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     LAYER CONFIG
+  ════════════════════════════════════════════════════════════════════════ */
+  const LAYERS = [
+    { key: 'major',     label: 'Major Events',            color: '#E63946', on: false },
+    { key: 'evidence',  label: 'Evidence & Key Locations', color: '#EBE2CD', on: false },
+    { key: 'people',    label: 'People & Residences',      color: '#57B0DC', on: false },
+    { key: 'towers',    label: 'Cell Towers',              color: '#9D4EDD', on: false },
+    { key: 'other',     label: 'Other Locations',          color: '#8E9AAF', on: false },
+    { key: 'trail',     label: 'Phone GPS Trail',          color: '#4A8A7C', on: false },
+    { key: 'usermarks', label: 'Route Markers',            color: '#EBE2CD', on: false },
+    { key: 'timeline',  label: 'Phone Timeline',           color: '#E8891C', on: false },
+  ];
+
+  /* ════════════════════════════════════════════════════════════════════════
+     GLOBALS
+  ════════════════════════════════════════════════════════════════════════ */
+  let map;
+  const groups       = {};
+  let currentChapter = 0;
+  let exploreOpen    = false;
+
+  // Holly home marker (always shown in relevant chapters)
+  let hollyHomeMarker = null;
+
+  // Connection lines layer group
+  let connectionLayer = null;
+
+  // Breadcrumb trail polyline
+  let breadcrumbLine = null;
+
+  // Track which layer keys are currently shown at full opacity
+  let activeLayerKeys = new Set();
+
+  // Trail animation
+  let trailCoords  = [];
+  let trailStep    = -1;
+  let trailPlaying = false;
+  let trailTimer   = null;
+  const TRAIL_SKIP = 6;
+
+  // Phone timeline
+  let tlMarkers = [];
+  let tlNames   = [];
+  let tlStep    = -1;
+  let tlPlaying = false;
+  let tlTimer   = null;
+
+  // Chapter progressive reveal
+  let chapterMarkers  = [];   // [{marker, name, layerKey}]
+  let chapterStep     = -1;
+  let chapterPlaying  = false;
+  let chapterTimer    = null;
+  const layerMarkerData = {}; // { layerKey: [{marker, name}] }
+
+  const MARKER_NARRATIONS = {
+    // Major events
+    'ABDUCTION SITE': 'The site on Parsons Branch Road where Holly Bobo was last seen being led into the woods by a man in camouflage on the morning of April 13, 2011.',
+    'ALLEGED HOMICIDE LOCATION': 'The location where prosecutors alleged Holly was killed, based on testimony from cooperating witnesses.',
+    'BODY DISCOVERY SITE': 'The site where Holly Bobo\'s remains were recovered in September 2014, more than three years after her disappearance.',
+    'ATM LOCATION': 'The CB&S Bank ATM where surveillance footage captured Zachary Adams on the morning of the abduction — a key piece of the prosecution\'s timeline.',
+    'BABBS': 'A location connected to the case investigation, referenced in trial testimony.',
+    // Evidence
+    'HOLLY BOBO\'S': 'Personal items belonging to Holly Bobo recovered during the investigation.',
+    'LUNCHBOX RECOVERY SITE (GRAVES PROPERTY)': 'Holly\'s lunchbox was found on the Graves property — one of the first physical evidence discoveries in the case.',
+    'YELLOW SPRINGS COMMUNITY (PAPER FOUND)': 'A piece of paper connected to the case was recovered in the Yellow Springs community.',
+    'RECEIPT RECOVERY LOCATION': 'A receipt linked to the investigation was recovered at this location.',
+    'CELL PHONE RECOVERY SITE': 'The site where Holly Bobo\'s cell phone was recovered — a critical piece of evidence for reconstructing the phone timeline.',
+    'SIM CARD RECOVERY SITE': 'The SIM card from Holly\'s phone was recovered at a separate location from the phone itself.',
+    'REMAINS RECOVERY SITE': 'The site where Holly\'s skeletal remains were found in September 2014 in a wooded area off Highway 114.',
+    'PISTOL RECOVERY (JOE HOLLADAY ROAD)': 'A pistol connected to the case was recovered along Joe Holladay Road.',
+    'BIRDSONG BRIDGE / I-40 CROSSING': 'The Birdsong Bridge area near the I-40 crossing over the Tennessee River — a location central to Jason Autry\'s testimony.',
+    'THE "OLD BARN" (HICKERSON PROPERTY)': 'An old barn on the Hickerson property that was investigated as a location of interest in the case.',
+    // People
+    'ZACHARY ADAMS\'s': 'The residence of Zachary Adams in Holladay, Tennessee — the primary defendant convicted of Holly\'s kidnapping and murder.',
+    'SHAYNE AUSTIN': 'Shayne Austin, connected to the defendants. Austin died before trial under circumstances that became part of the case narrative.',
+    'BRENDA O\'BRYANT / KELLY RIDGE': 'Residence of Brenda O\'Bryant on Kelly Ridge, a witness in the investigation.',
+    'ANGELA SCOTT': 'Angela Scott — a witness who provided testimony about events at the Adams property.',
+    'DOTTIE COOLEY\'S': 'Residence of Dottie Cooley, connected to the investigation.',
+    'VICTOR DINSMORE\'S': 'Residence of Victor Dinsmore, who was investigated in connection with the case.',
+    'VICTOR DINSMORE\'S SHOP': 'Victor Dinsmore\'s shop — a secondary location tied to the investigation.',
+    'JUANITA HICKERSON': 'Residence of Juanita Hickerson, whose property was searched during the investigation.',
+    'TERRY BRITT\'S': 'Residence of Terry Britt, a person of interest or witness in the case.',
+    'DICK ADAMS\'s': 'Residence of Dick Adams — a relative of Zachary Adams.',
+    'SHAYNE AUSTIN PARENTS\' HOUSE': 'The home of Shayne Austin\'s parents in the area.',
+    'BRIAN VITT\'S': 'Residence of Brian Vitt, connected to the investigation.',
+    '"Rip Rap" Location': 'A location known as "Rip Rap" that was referenced during the investigation.',
+    // Other
+    'THW': 'Tennessee Highway — a reference point in the case geography.',
+  };
+
+  /* ════════════════════════════════════════════════════════════════════════
+     BASEMAPS
+  ════════════════════════════════════════════════════════════════════════ */
   const BASEMAPS = {
     dark: L.tileLayer(
       'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
@@ -848,56 +1369,104 @@
     document.getElementById('bm-satellite').classList.toggle('active', name === 'satellite');
   }
 
-  const LAYERS = [
-    { key: 'major',     label: 'Major Events',           color: '#E63946', on: true  },
-    { key: 'evidence',  label: 'Evidence & Key Locations',color: '#F4A261', on: false },
-    { key: 'people',    label: 'People & Residences',     color: '#57B0DC', on: false },
-    { key: 'towers',    label: 'Cell Towers',             color: '#9D4EDD', on: false },
-    { key: 'other',     label: 'Other Locations',         color: '#8E9AAF', on: false },
-    { key: 'trail',     label: 'Phone GPS Trail',         color: '#4A8A7C', on: false },
-    { key: 'usermarks', label: 'Route Markers',           color: '#EBE2CD', on: false },
-    { key: 'timeline',  label: 'Phone Timeline',          color: '#E8891C', on: false },
-  ];
-
-  let map;
-  const groups  = {};
-
-  // Trail animation
-  let trailCoords  = [];
-  let trailStep    = -1;
-  let trailPlaying = false;
-  let trailTimer   = null;
-  const TRAIL_SKIP = 6; // sample every 6th coord for ~50 steps
-
-
-  let tlMarkers = [];
-  let tlNames   = [];
-  let tlStep    = -1;
-  let tlPlaying = false;
-  let tlTimer   = null;
-  let panelOpen = true;
-
-  /* ── MAP ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     MAP INIT
+  ════════════════════════════════════════════════════════════════════════ */
   function initMap() {
     map = L.map('map', {
-      center: [35.755, -88.10],
-      zoom: 11,
+      center: [35.6785776, -88.1747727],
+      zoom: 13,
       zoomControl: false,
     });
     BASEMAPS.satellite.addTo(map);
     L.control.zoom({ position: 'bottomright' }).addTo(map);
+    connectionLayer = L.layerGroup().addTo(map);
+
+    // Custom pane for dimmed (previous-chapter) layers — sits below overlayPane
+    map.createPane('dimmedPane');
+    map.getPane('dimmedPane').style.zIndex = 350;
+    map.getPane('dimmedPane').classList.add('leaflet-dimmed-pane');
+
+    // Breadcrumb polyline (grows as user advances chapters)
+    breadcrumbLine = L.polyline([], {
+      color: '#d0d0d0',
+      weight: 1.5,
+      opacity: 0.4,
+      dashArray: '4,7',
+      interactive: false,
+    }).addTo(map);
   }
 
-  /* ── POPUP ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     POPUP BUILDER
+  ════════════════════════════════════════════════════════════════════════ */
   function escH(s) {
     return String(s)
       .replace(/&/g,'&amp;').replace(/</g,'&lt;')
       .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  function makePopup(pm) {
-    let h = '<div class="pu-title">' + escH(pm.name) + '</div>';
-    if (pm.desc)  h += '<div class="pu-desc">' + pm.desc + '</div>';
+  // Narrative popup: short, human-readable, no wall of citations
+  const NARRATIVE_OVERRIDES = {
+    'ABDUCTION SITE': {
+      eyebrow: 'Holly Bobo — April 13, 2011',
+      narrative: 'Holly Bobo was last seen being led into the woods near her family home on Parsons Branch Road at approximately <b>7:45 AM</b>. Her brother Drew called 911 after witnessing the abduction.',
+    },
+    'ALLEGED HOMICIDE LOCATION': {
+      eyebrow: 'Tennessee River — I-40 Bridge',
+      narrative: 'Co-defendant Jason Autry testified this was where Holly\'s body was taken. Nursing school papers belonging to Holly were found at or near this location.',
+    },
+    'BODY DISCOVERY SITE': {
+      eyebrow: 'Recovery — September 2014',
+      narrative: 'Holly Bobo\'s skeletal remains were discovered in September 2014, more than three years after her disappearance. The discovery was made in a rural area in Decatur County.',
+    },
+  };
+
+  // Strip HTML tags from raw description strings
+  function stripTags(s) {
+    return String(s || '').replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  }
+
+  // Determine person initial and color from placemark name/description
+  // Also handles phone timeline prefix codes: "HB" = Holly, "ZA" = Zach, "JA" = Jason Autry
+  function personFromPlacemark(pm) {
+    const n = pm.name || '';
+    const t = (n + ' ' + (pm.desc || '')).toLowerCase();
+    // Timeline entries have prefix like "01. HB -" or "10. JA -" or "11. ZA -"
+    const prefixMatch = n.match(/^\d+\.\s*(HB|ZA|JA)\s*-/i);
+    if (prefixMatch) {
+      const code = prefixMatch[1].toUpperCase();
+      if (code === 'HB') return { initial: 'H', color: '#F4A261' };
+      if (code === 'ZA') return { initial: 'Z', color: '#E63946' };
+      if (code === 'JA') return { initial: 'A', color: '#57B0DC' };
+    }
+    if (/defendant|zach|adams/i.test(t)) return { initial: 'Z', color: '#E63946' };
+    if (/victim|holly|bobo/i.test(t))   return { initial: 'H', color: '#F4A261' };
+    if (/autry|jason/i.test(t))         return { initial: 'A', color: '#57B0DC' };
+    // Fallback: use orange phone icon color, label as unknown location
+    return { initial: '·', color: '#E8891C', unknown: true };
+  }
+
+  function makePopup(pm, layerKey) {
+    const override = NARRATIVE_OVERRIDES[pm.name];
+    let h = '';
+    if (override) {
+      h += `<div class="pu-eyebrow">${override.eyebrow}</div>`;
+      h += `<div class="pu-title">${escH(pm.name)}</div>`;
+      h += `<div class="pu-narrative">${override.narrative}</div>`;
+    } else {
+      h += `<div class="pu-title">${escH(pm.name)}</div>`;
+      if (pm.desc) {
+        // Strip raw HTML tags for clean display; show in collapsible details
+        const clean = stripTags(pm.desc);
+        if (clean) {
+          h += `<details style="margin-top:6px">`;
+          h += `<summary style="font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);cursor:pointer;outline:none">Details</summary>`;
+          h += `<div class="pu-narrative" style="margin-top:5px;font-size:11px">${escH(clean)}</div>`;
+          h += `</details>`;
+        }
+      }
+    }
     const rows = [];
     if (pm.category) rows.push(['CAT',    escH(pm.category)]);
     if (pm.date)     rows.push(['DATE',   escH(pm.date)]);
@@ -906,39 +1475,97 @@
     if (rows.length) {
       h += '<div class="pu-meta">';
       for (const [k,v] of rows)
-        h += '<div class="pu-row"><span class="pu-key">'+k+'</span><span class="pu-val">'+v+'</span></div>';
+        h += `<div class="pu-row"><span class="pu-key">${k}</span><span class="pu-val">${v}</span></div>`;
       h += '</div>';
     }
     return h;
   }
 
+  /* ════════════════════════════════════════════════════════════════════════
+     ICON / MARKER HELPERS
+  ════════════════════════════════════════════════════════════════════════ */
+  // Person-color lookup by layer key
+  const LAYER_PERSON = {
+    major:     { initials: null,  color: '#E63946' },
+    evidence:  { initials: null,  color: '#EBE2CD' },
+    people:    { initials: null,  color: '#57B0DC' },
+    towers:    { initials: 'T',   color: '#9D4EDD' },
+    other:     { initials: null,  color: '#8E9AAF' },
+    trail:     { initials: null,  color: '#4A8A7C' },
+    usermarks: { initials: null,  color: '#EBE2CD' },
+    timeline:  { initials: null,  color: '#E8891C' },
+  };
 
-  /* ── ICON MARKERS ── */
+  // Named badge (circle with initials)
+  function namedBadge(initials, color, size = 26) {
+    return L.divIcon({
+      className: '',
+      html: `<div class="named-marker" style="width:${size}px;height:${size}px;background:${color};font-size:${Math.round(size*0.38)}px">${initials}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size/2, size/2],
+      popupAnchor: [0, -size/2 - 4],
+    });
+  }
+
+  // Labeled circle marker (dot + label below)
+  function labeledDot(color, label, size = 10) {
+    const dot = `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid rgba(255,255,255,0.25);box-shadow:0 0 5px ${color}55;flex-shrink:0"></div>`;
+    const lbl = label ? `<div class="marker-label">${label}</div>` : '';
+    return L.divIcon({
+      className: '',
+      html: `<div class="marker-label-wrap">${dot}${lbl}</div>`,
+      iconSize: [size, size + (label ? 14 : 0)],
+      iconAnchor: [size/2, size/2],
+      popupAnchor: [0, -size/2 - 6],
+    });
+  }
+
   const ICON_SVGs = {
-    home: (color) => `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="${color}">
-      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-    </svg>`,
-    pin: (color) => `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="${color}">
-      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-    </svg>`,
-    phone: (color, size) => `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 20 20" fill="${color}">
-      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-    </svg>`,
+    home: (color) => `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="${color}"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>`,
+    pin:  (color) => `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="${color}"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>`,
+    phone:(color, size) => `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 20 20" fill="${color}"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>`,
+    tower:(color) => `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 6c0 3-2 4-5 4S7 9 7 6a5 5 0 0 1 10 0z"/><line x1="7" y1="6" x2="4" y2="20"/><line x1="17" y1="6" x2="20" y2="20"/></svg>`,
   };
 
   function makeIconMarker(latlng, svgKey, color, pop) {
-    const icon = L.divIcon({
-      className: 'map-icon',
-      html: ICON_SVGs[svgKey](color),
-      iconSize: svgKey === 'home' ? [18, 18] : [16, 16],
-      iconAnchor: svgKey === 'home' ? [9, 9] : [8, 8],
-      popupAnchor: [0, -10],
-    });
+    const html = svgKey === 'tower'
+      ? `<div class="map-icon">${ICON_SVGs.tower(color)}</div>`
+      : `<div class="map-icon">${ICON_SVGs[svgKey](color)}</div>`;
+    const sz = svgKey === 'home' ? [20,20] : [16,16];
+    const an = svgKey === 'home' ? [10,10] : [8,8];
+    const icon = L.divIcon({ className: '', html, iconSize: sz, iconAnchor: an, popupAnchor: [0,-12] });
     const m = L.marker(latlng, { icon });
     if (pop) m.bindPopup(pop, { maxWidth: 310, minWidth: 180 });
     return m;
   }
 
+  // Small subtle tower dot (replaces large SVG tower icon)
+  function towerDotIcon(color) {
+    return L.divIcon({
+      className: '',
+      html: `<div style="width:10px;height:10px;border-radius:50%;background:${color};border:1.5px solid rgba(255,255,255,0.25);box-shadow:0 0 4px ${color}88;opacity:0.75"></div>`,
+      iconSize:   [10, 10],
+      iconAnchor: [5, 5],
+      popupAnchor:[0, -8],
+    });
+  }
+
+  // Person-labeled badge for phone timeline events
+  function phonePersonIcon(initial, color, state) {
+    const cfg = {
+      all:     { size: 20, opacity: 1,    glow: '' },
+      current: { size: 26, opacity: 1,    glow: `0 0 8px ${color}` },
+      past:    { size: 14, opacity: 0.35, glow: '' },
+    }[state] || { size: 20, opacity: 1, glow: '' };
+    const boxShadow = cfg.glow ? `,${cfg.glow}` : '';
+    return L.divIcon({
+      className: '',
+      html: `<div class="named-marker" style="width:${cfg.size}px;height:${cfg.size}px;background:${color};font-size:${Math.round(cfg.size*0.42)}px;opacity:${cfg.opacity};box-shadow:0 2px 6px rgba(0,0,0,0.7)${boxShadow}">${initial}</div>`,
+      iconSize:   [cfg.size, cfg.size],
+      iconAnchor: [cfg.size/2, cfg.size/2],
+      popupAnchor:[0, -cfg.size/2 - 3],
+    });
+  }
 
   function phoneIcon(state) {
     const COLOR = '#E8891C';
@@ -948,15 +1575,17 @@
       past:    { size: 10, opacity: 0.35, zIdx: 0,    glow: '' },
     }[state] || { size: 16, opacity: 1, zIdx: 0, glow: '' };
     return L.divIcon({
-      className: 'map-icon',
+      className: '',
       html: `<span style="opacity:${cfg.opacity};filter:${cfg.glow};display:block">${ICON_SVGs.phone(COLOR, cfg.size)}</span>`,
       iconSize:   [cfg.size, cfg.size],
-      iconAnchor: [cfg.size / 2, cfg.size / 2],
-      popupAnchor: [0, -cfg.size / 2 - 2],
+      iconAnchor: [cfg.size/2, cfg.size/2],
+      popupAnchor:[0, -cfg.size/2 - 2],
     });
   }
 
-  /* ── FEATURE CREATION ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     FEATURE BUILDERS
+  ════════════════════════════════════════════════════════════════════════ */
   function circleMarker(latlng, color, r, pop) {
     const m = L.circleMarker(latlng, {
       radius: r, color, fillColor: color, fillOpacity: 0.82, weight: 1.5,
@@ -965,25 +1594,86 @@
     return m;
   }
 
+  // Determine a short display label for a point given its layer and name
+  function shortLabel(pm, layerKey) {
+    const n = pm.name;
+    // Tower layer — use tower ID if present
+    if (layerKey === 'towers') return n.replace(/^TOWER[\s-]*/i,'').slice(0,6);
+    // People — shorten to first name
+    if (layerKey === 'people') {
+      const parts = n.split(/\s+/);
+      return parts[0].slice(0,6).toUpperCase();
+    }
+    // Major events — very short
+    if (layerKey === 'major') return null; // rely on circle size
+    return null;
+  }
+
   function buildFeatures(pm, color, isTimeline, layerKey) {
-    const pop = makePopup(pm);
+    const pop = makePopup(pm, layerKey);
     const out = [];
 
     for (const f of pm.features) {
       if (f.type === 'point') {
         let marker;
         if (layerKey === 'people') {
+          // Home icon with label — only render key residences (skip ones flagged minor)
+          const nameL = pm.name.toLowerCase();
+          const isMinor = /other|misc|unknown|neighbor|untitled/i.test(nameL);
+          if (isMinor) continue;
           marker = makeIconMarker(f.coords, 'home', color, pop);
+          // Permanent label tooltip
+          const lbl = makePermanentLabel(pm, layerKey);
+          if (lbl) attachLabel(marker, lbl, 'right');
+        } else if (layerKey === 'towers') {
+          // Small subtle tower dot only — no sector polygons
+          // Skip sector/arm entries (only show the main tower point)
+          if (/sector|arm|wedge/i.test(pm.name)) continue;
+          marker = L.marker(f.coords, { icon: towerDotIcon('#9D4EDD') });
+          if (pop) marker.bindPopup(pop, { maxWidth: 310, minWidth: 180 });
+          // Permanent label tooltip for towers
+          const lbl = makePermanentLabel(pm, layerKey);
+          if (lbl) attachLabel(marker, lbl, 'right');
         } else if (layerKey === 'usermarks') {
           marker = makeIconMarker(f.coords, 'pin', color, pop);
         } else if (isTimeline) {
-          const m2 = L.marker(f.coords, { icon: phoneIcon('all') });
+          // Person-labeled badge
+          const person = personFromPlacemark(pm);
+          const initial = person ? person.initial : '·';
+          const pColor  = person ? person.color  : '#E8891C';
+          const m2 = L.marker(f.coords, { icon: phonePersonIcon(initial, pColor, 'all') });
           if (pop) m2.bindPopup(pop, { maxWidth: 310, minWidth: 180 });
+          // Store person metadata on marker for connection lines
+          m2._personColor  = pColor;
+          m2._personInitial = initial;
+          // Attach a permanent time label to timeline events
+          const timeMatch = pm.name.match(/(\d{1,2}:\d{2}\s*(?:AM|PM))/i);
+          const personPrefix = person && !person.unknown
+            ? { H: 'H', Z: 'Z', A: 'A' }[initial] || initial
+            : '?';
+          if (timeMatch) {
+            attachLabel(m2, timeMatch[1].toUpperCase() + ' · ' + personPrefix, 'right');
+          }
           marker = m2;
         } else {
-          marker = circleMarker(f.coords, color, isTimeline ? 7 : 6, pop);
+          // Labeled dot for major events / evidence / other
+          const label = shortLabel(pm, layerKey);
+          if (label) {
+            marker = L.marker(f.coords, {
+              icon: labeledDot(color, label, 10),
+            });
+            marker.bindPopup(pop, { maxWidth: 310, minWidth: 180 });
+          } else {
+            const sz = layerKey === 'major' ? 8 : 6;
+            marker = circleMarker(f.coords, color, sz, pop);
+          }
+          // Permanent label for evidence and major events
+          if (layerKey === 'evidence' || layerKey === 'major' || layerKey === 'other') {
+            const lbl = makePermanentLabel(pm, layerKey);
+            if (lbl) attachLabel(marker, lbl, 'right');
+          }
         }
-        out.push({ type: 'point', latlng: f.coords, feature: marker });
+        out.push({ type: 'point', latlng: f.coords, feature: marker, name: pm.name });
 
       } else if (f.type === 'line') {
         const isTrail = pm.name.toLowerCase().includes('trail') ||
@@ -997,8 +1687,10 @@
         out.push({ type: 'line', feature: line });
 
       } else if (f.type === 'polygon') {
+        // Never show sector polygons for towers — skip entirely
+        if (layerKey === 'towers') continue;
         const poly = L.polygon(f.coords, {
-          color, fillColor: color, fillOpacity: 0.11, weight: 1.2, opacity: 0.55,
+          color, fillColor: color, fillOpacity: 0.09, weight: 1.2, opacity: 0.50,
         });
         poly.bindPopup(pop, { maxWidth: 300 });
         out.push({ type: 'polygon', feature: poly });
@@ -1007,7 +1699,12 @@
     return out;
   }
 
-  /* ── BUILD LAYERS ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     BUILD ALL LAYERS
+  ════════════════════════════════════════════════════════════════════════ */
+  // Store tower latlngs for connection line drawing
+  const towerPoints = [];
+
   function buildLayers() {
     for (const cfg of LAYERS) {
       const group = L.layerGroup();
@@ -1029,16 +1726,26 @@
         document.getElementById('tl-slider-max').textContent = tlMarkers.length;
         slider.max = Math.max(0, tlMarkers.length - 1);
       } else {
+        if (!layerMarkerData[cfg.key]) layerMarkerData[cfg.key] = [];
         for (const pm of pms) {
-          for (const f of buildFeatures(pm, cfg.color, false, cfg.key)) {
+          const feats = buildFeatures(pm, cfg.color, false, cfg.key);
+          for (const f of feats) {
             f.feature.addTo(group);
+            // Collect tower points for connection lines
+            if (cfg.key === 'towers' && f.type === 'point') {
+              towerPoints.push({ latlng: f.latlng, name: pm.name, marker: f.feature });
+            }
+            // Store point markers for progressive reveal
+            if (f.type === 'point') {
+              layerMarkerData[cfg.key].push({ marker: f.feature, name: f.name });
+            }
           }
         }
       }
 
       if (cfg.key === 'trail') buildTrailSteps();
       groups[cfg.key] = group;
-      if (cfg.on) group.addTo(map);
+      // Don't add to map yet — chapter system controls visibility
 
       // Update count badge
       const ct = document.getElementById('ct-' + cfg.key);
@@ -1046,10 +1753,396 @@
     }
   }
 
-  /* ── LAYER TOGGLE UI ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     HOLLY HOME MARKER (special, always-shown in relevant chapters)
+  ════════════════════════════════════════════════════════════════════════ */
+  function buildHollyHome() {
+    const coords = [35.6785776, -88.1747727];
+    const icon = L.divIcon({
+      className: '',
+      html: `<div class="marker-label-wrap">
+        <div class="map-icon" style="filter:drop-shadow(0 0 6px #F4A261)">${ICON_SVGs.home('#F4A261')}</div>
+        <div class="marker-label" style="color:#F4A261">HOLLY'S HOME</div>
+      </div>`,
+      iconSize: [20, 34],
+      iconAnchor: [10, 10],
+      popupAnchor: [0, -14],
+    });
+    hollyHomeMarker = L.marker(coords, { icon, zIndexOffset: 500 });
+    hollyHomeMarker.bindPopup(
+      `<div class="pu-eyebrow">Holly Bobo — Residence</div>
+       <div class="pu-title">Bobo Family Home</div>
+       <div class="pu-narrative">The home of Holly Bobo and her family on <b>Parsons Branch Road</b> in Decatur County, Tennessee. Holly was last seen here on the morning of April 13, 2011.</div>`,
+      { maxWidth: 280 }
+    );
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     CONNECTION LINES (tower-to-phone chapter)
+  ════════════════════════════════════════════════════════════════════════ */
+  function drawConnectionLines() {
+    connectionLayer.clearLayers();
+    const ch = CHAPTERS[currentChapter];
+    if (!ch.connections.includes('tower-phone')) return;
+
+    // Determine which phone markers are currently visible
+    const visibleMarkers = tlStep === -1
+      ? tlMarkers
+      : tlMarkers.slice(0, tlStep + 1);
+
+    if (!visibleMarkers.length || !towerPoints.length) return;
+
+    // For each visible phone event, draw a subtle dashed line to nearest tower
+    for (const m of visibleMarkers) {
+      if (!m.getLatLng) continue;
+      const mll = m.getLatLng();
+      let nearestTower = null, nearestDist = Infinity;
+      for (const tw of towerPoints) {
+        const d = map.distance(mll, tw.latlng);
+        if (d < nearestDist) { nearestDist = d; nearestTower = tw; }
+      }
+      if (nearestTower && nearestDist < 50000) {
+        const lineColor = m._personColor || '#9D4EDD';
+        const line = L.polyline([mll, nearestTower.latlng], {
+          color: lineColor,
+          weight: 1,
+          opacity: 0.28,
+          dashArray: '5,6',
+          className: 'connection-line',
+        });
+        connectionLayer.addLayer(line);
+      }
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     LAYER OPACITY HELPERS
+  ════════════════════════════════════════════════════════════════════════ */
+  // Move all layers in a group into the given pane by re-adding each marker/path
+  // with pane option. We do this by manipulating the DOM elements directly since
+  // Leaflet doesn't expose a pane-move API.
+  function setGroupDimmed(group, dimmed) {
+    if (!group) return;
+    group.eachLayer(layer => {
+      const el = layer.getElement ? layer.getElement() : null;
+      if (el) {
+        // div-icon markers — set opacity directly on the element
+        if (dimmed) {
+          el.style.transition = 'opacity 0.4s ease';
+          el.style.opacity = '0.28';
+          el.style.pointerEvents = 'none';
+        } else {
+          el.style.transition = 'opacity 0.5s ease';
+          el.style.opacity = '';
+          el.style.pointerEvents = '';
+        }
+      } else if (layer.setStyle) {
+        // SVG paths (circleMarker, polyline, polygon)
+        if (dimmed) {
+          layer._savedStyle = {
+            opacity: layer.options.opacity ?? 1,
+            fillOpacity: layer.options.fillOpacity ?? 0.5,
+          };
+          layer.setStyle({ opacity: 0.18, fillOpacity: 0.12 });
+        } else if (layer._savedStyle) {
+          layer.setStyle(layer._savedStyle);
+          delete layer._savedStyle;
+        }
+      }
+    });
+  }
+
+  // Apply fade-in CSS animation to all marker elements in a group
+  function animateGroupIn(group) {
+    if (!group) return;
+    group.eachLayer(layer => {
+      const el = layer.getElement ? layer.getElement() : null;
+      if (el) {
+        el.classList.remove('layer-fadein');
+        void el.offsetWidth; // reflow to restart animation
+        el.classList.add('layer-fadein');
+      }
+    });
+  }
+
+  // Update the breadcrumb polyline up to (and including) chapter index `idx`
+  function updateBreadcrumb(idx) {
+    const coords = CHAPTERS.slice(0, idx + 1).map(ch => ch.center);
+    breadcrumbLine.setLatLngs(coords);
+    // Bring to front so it's visible above dimmed layers
+    breadcrumbLine.bringToFront();
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     CHAPTER SYSTEM
+  ════════════════════════════════════════════════════════════════════════ */
+  function applyChapter(idx, animate = true) {
+    currentChapter = idx;
+    const ch = CHAPTERS[idx];
+    const newLayerKeys = new Set(ch.layers);
+
+    // Show chapter intro card (skip on first load / chapter 0)
+    if (animate && idx > 0) {
+      showChapterIntro(ch.id);
+    }
+
+    // Hide phone event card when leaving phones chapter
+    if (ch.id !== 'phones') hidePhoneEventCard();
+
+    // Stop any previous chapter progressive reveal
+    stopChapterReveal();
+    hideChapterEventCard();
+
+    // Determine which layer keys are newly entering, staying, or becoming dimmed
+    const entering = [...newLayerKeys].filter(k => !activeLayerKeys.has(k));
+    const staying  = [...newLayerKeys].filter(k =>  activeLayerKeys.has(k));
+    const dimming  = [...activeLayerKeys].filter(k => !newLayerKeys.has(k));
+
+    // Which chapters use progressive reveal
+    const progressiveChapters = ['abduction', 'birdsong', 'residences', 'evidence', 'gps'];
+    const doProgressive = progressiveChapters.includes(ch.id) && animate;
+
+    // For progressive chapters: HIDE previous layers entirely for a clean canvas
+    // For non-progressive chapters (intro, phones, full): dim as before
+    for (const key of dimming) {
+      const group = groups[key];
+      if (group) {
+        if (doProgressive) {
+          group.remove();  // completely remove from map
+        } else {
+          setGroupDimmed(group, true);
+        }
+      }
+    }
+
+    // Layers that are still active — for progressive chapters, hide them too
+    // (we want a clean slate); for others, ensure full opacity
+    for (const key of staying) {
+      const group = groups[key];
+      if (group) {
+        if (doProgressive) {
+          group.remove();
+        } else {
+          setGroupDimmed(group, false);
+        }
+      }
+    }
+
+    // For progressive chapters, also hide Holly home marker and breadcrumb
+    if (doProgressive) {
+      hollyHomeMarker?.remove();
+      if (breadcrumbLine) breadcrumbLine.remove();
+      connectionLayer?.clearLayers();
+    }
+
+    // Collect markers for progressive reveal BEFORE adding layers
+    let progressiveLayerKeys = [];
+    if (doProgressive) {
+      chapterMarkers = [];
+      for (const key of entering) {
+        // For GPS chapter, only progressively reveal usermarks, not the trail itself
+        if (ch.id === 'gps' && key === 'trail') continue;
+        const markers = layerMarkerData[key] || [];
+        for (const m of markers) {
+          if (m.name && !/untitled/i.test(m.name)) {
+            chapterMarkers.push({ marker: m.marker, name: m.name, layerKey: key });
+          }
+        }
+        if (markers.length > 0) progressiveLayerKeys.push(key);
+      }
+    }
+
+    // New layers entering — add to map and fade in
+    for (const key of entering) {
+      const group = groups[key];
+      if (group) {
+        // For GPS chapter, hold back the trail layer — reveal it after markers finish
+        if (doProgressive && ch.id === 'gps' && key === 'trail') {
+          // Don't add trail yet — stopChapterReveal will add it
+          continue;
+        }
+        if (doProgressive && progressiveLayerKeys.includes(key)) {
+          // Add group to map but remove its markers — we'll add them one by one
+          group.addTo(map);
+          setGroupDimmed(group, false);
+          // Remove the markers that will be progressively revealed
+          const markerSet = new Set(chapterMarkers.filter(m => m.layerKey === key).map(m => m.marker));
+          const toRemove = [];
+          group.eachLayer(layer => {
+            if (markerSet.has(layer)) toRemove.push(layer);
+          });
+          for (const layer of toRemove) group.removeLayer(layer);
+        } else {
+          group.addTo(map);
+          setGroupDimmed(group, false);
+          if (animate) {
+            setTimeout(() => animateGroupIn(group), 50);
+          }
+        }
+      }
+    }
+
+    // Update active layer keys tracking
+    activeLayerKeys = new Set([...activeLayerKeys, ...newLayerKeys]);
+
+    // Sync explore-panel checkboxes and sub-widgets
+    for (const cfg of LAYERS) {
+      const chk = document.getElementById('chk-' + cfg.key);
+      if (chk) chk.checked = newLayerKeys.has(cfg.key);
+      if (cfg.key === 'timeline') {
+        document.getElementById('tl-panel').classList.toggle('hidden', !newLayerKeys.has('timeline'));
+      }
+      if (cfg.key === 'trail') {
+        document.getElementById('trail-panel').classList.toggle('hidden', !newLayerKeys.has('trail'));
+      }
+    }
+
+    // Holly home marker
+    if (ch.showHome) {
+      hollyHomeMarker?.addTo(map);
+      if (animate) setTimeout(() => {
+        const el = hollyHomeMarker?.getElement?.();
+        if (el) { el.classList.remove('layer-fadein'); void el.offsetWidth; el.classList.add('layer-fadein'); }
+      }, 50);
+    } else {
+      hollyHomeMarker?.remove();
+    }
+
+    // Connection lines
+    drawConnectionLines();
+
+    // Breadcrumb trail — grow or shrink with chapter index
+    updateBreadcrumb(idx);
+
+    // Pan/zoom — smooth fly with slightly longer duration for narrative feel
+    if (animate) {
+      map.flyTo(ch.center, ch.zoom, { duration: 1.8, easeLinearity: 0.35 });
+    } else {
+      map.setView(ch.center, ch.zoom);
+    }
+
+    // Progressive reveal for Phone Activity chapter (ch.id === 'phones')
+    if (ch.id === 'phones' && animate) {
+      stopPlay();
+      // Reset to step 0 then auto-play after map fly-to settles
+      setStep(0);
+      setTimeout(() => {
+        drawConnectionLines();
+        startPlay();
+      }, 1900);
+    }
+
+    // Progressive reveal for other chapters
+    if (doProgressive && chapterMarkers.length > 0) {
+      chapterStep = -1;
+      setTimeout(() => {
+        setChapterStep(0);
+        startChapterReveal();
+      }, 1900);
+    }
+
+    // Update story bar UI
+    updateStoryUI(idx);
+  }
+
+  function updateStoryUI(idx) {
+    const ch = CHAPTERS[idx];
+
+    // Animate chapter content
+    const title = document.getElementById('story-title');
+    const desc  = document.getElementById('story-desc');
+    const label = document.getElementById('story-chapter-label');
+
+    title.classList.remove('chapter-fade');
+    void title.offsetWidth;
+    title.classList.add('chapter-fade');
+    title.textContent = ch.title;
+    desc.textContent  = ch.desc;
+    label.textContent = `Chapter ${idx + 1} of ${CHAPTERS.length}  ·  ${ch.time}`;
+
+    // Progress fill
+    const pct = idx / Math.max(CHAPTERS.length - 1, 1) * 100;
+    document.getElementById('story-progress-fill').style.width = pct + '%';
+
+    // Chapter dots
+    document.querySelectorAll('.chapter-dot').forEach((dot, i) => {
+      dot.classList.toggle('active',  i === idx);
+      dot.classList.toggle('visited', i < idx);
+      dot.style.color = i <= idx ? CHAPTERS[i].color : '';
+    });
+
+    // Legend
+    const legendEl = document.getElementById('story-legend');
+    legendEl.innerHTML = '';
+    for (const pill of (ch.legend || [])) {
+      legendEl.insertAdjacentHTML('beforeend',
+        `<div class="legend-pill">
+          <div class="legend-swatch" style="background:${pill.color}"></div>
+          ${pill.label}
+        </div>`
+      );
+    }
+
+    // Prev/next buttons
+    document.getElementById('story-prev').disabled = idx === 0;
+    document.getElementById('story-next').disabled = idx === CHAPTERS.length - 1;
+  }
+
+  function buildChapterDots() {
+    const container = document.getElementById('story-chapters');
+    container.innerHTML = '';
+    for (let i = 0; i < CHAPTERS.length; i++) {
+      const ch = CHAPTERS[i];
+      const dot = document.createElement('div');
+      dot.className = 'chapter-dot';
+      dot.dataset.idx = i;
+      dot.innerHTML = `
+        <div class="chapter-pip"></div>
+        <div class="chapter-time">${ch.time}</div>
+      `;
+      dot.addEventListener('click', () => {
+        document.getElementById('intro-card').classList.add('hidden');
+        applyChapter(i);
+      });
+      container.appendChild(dot);
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     EXPLORE PANEL TOGGLE
+  ════════════════════════════════════════════════════════════════════════ */
+  function initExploreToggle() {
+    const btn    = document.getElementById('explore-btn');
+    const panel  = document.getElementById('explore-panel');
+    const mapEl  = document.getElementById('map');
+    const closeBtn = document.getElementById('panel-close-btn');
+
+    function open() {
+      exploreOpen = true;
+      panel.classList.add('open');
+      mapEl.classList.add('explore-open');
+      btn.classList.add('active');
+      btn.textContent = '✕ Close Explore';
+      setTimeout(() => map.invalidateSize(), 320);
+    }
+    function close() {
+      exploreOpen = false;
+      panel.classList.remove('open');
+      mapEl.classList.remove('explore-open');
+      btn.classList.remove('active');
+      btn.innerHTML = '&#9776; Explore All Layers';
+      setTimeout(() => map.invalidateSize(), 320);
+    }
+
+    btn.addEventListener('click', () => exploreOpen ? close() : open());
+    closeBtn.addEventListener('click', close);
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     LAYER TOGGLE UI (inside Explore panel)
+  ════════════════════════════════════════════════════════════════════════ */
   function buildLayerUI() {
     const container = document.getElementById('layer-list');
-
     container.innerHTML = '<div class="sec-label">Case Locations</div>';
 
     for (const cfg of LAYERS) {
@@ -1057,7 +2150,6 @@
         container.insertAdjacentHTML('beforeend',
           '<div class="divider"></div><div class="sec-label">Cell &amp; Route Data</div>');
       }
-
       const label = document.createElement('label');
       label.className = 'layer-row';
       label.setAttribute('for', 'chk-' + cfg.key);
@@ -1092,7 +2184,30 @@
     }
   }
 
-  /* ── TIMELINE ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     PHONE TIMELINE PLAYER
+  ════════════════════════════════════════════════════════════════════════ */
+  function applyStyle(m, state) {
+    if (m.setStyle) {
+      if (state === 'current')
+        m.setStyle({ radius:11, fillColor:'#E8891C', color:'#ffbb55', fillOpacity:1, weight:2.5, opacity:1 });
+      else if (state === 'past')
+        m.setStyle({ radius:4,  fillColor:'#E8891C', color:'#E8891C', fillOpacity:0.35, weight:1, opacity:0.4 });
+      else
+        m.setStyle({ radius:7,  fillColor:'#E8891C', color:'#E8891C', fillOpacity:0.82, weight:1.5, opacity:1 });
+    } else if (m.setIcon) {
+      // Use person-labeled badge if available, else fall back to phone SVG icon
+      const initial = m._personInitial;
+      const pColor  = m._personColor;
+      if (initial && pColor) {
+        m.setIcon(phonePersonIcon(initial, pColor, state));
+      } else {
+        m.setIcon(phoneIcon(state));
+      }
+      m.setZIndexOffset(state === 'current' ? 1000 : 0);
+    }
+  }
+
   function setStep(step) {
     tlStep = step;
     const group = groups['timeline'];
@@ -1115,23 +2230,16 @@
     document.getElementById('tl-name').textContent =
       step === -1 ? 'All ' + tlMarkers.length + ' events shown' : (tlNames[step] || '');
     document.getElementById('tl-slider').value = step === -1 ? 0 : step;
-  }
 
-  function applyStyle(m, state) {
-    if (m.setStyle) {
-      // circleMarker path (fallback)
-      if (state === 'current')
-        m.setStyle({ radius:11, fillColor:'#E8891C', color:'#ffbb55', fillOpacity:1, weight:2.5, opacity:1 });
-      else if (state === 'past')
-        m.setStyle({ radius:4,  fillColor:'#E8891C', color:'#E8891C', fillOpacity:0.35, weight:1, opacity:0.4 });
-      else
-        m.setStyle({ radius:7,  fillColor:'#E8891C', color:'#E8891C', fillOpacity:0.82, weight:1.5, opacity:1 });
-    } else if (m.setIcon) {
-      // divIcon marker (phone icon)
-      m.setIcon(phoneIcon(state));
-      if (state === 'current') m.setZIndexOffset(1000);
-      else m.setZIndexOffset(0);
+    // Show/hide phone event narration card
+    if (step >= 0) {
+      showPhoneEventCard(step);
+    } else {
+      hidePhoneEventCard();
     }
+
+    // Redraw connection lines to reflect currently visible markers
+    drawConnectionLines();
   }
 
   function startPlay() {
@@ -1142,7 +2250,7 @@
     if (tlStep === -1 || tlStep >= tlMarkers.length - 1) setStep(0);
     tlTimer = setInterval(() => {
       const next = tlStep + 1;
-      if (next >= tlMarkers.length) { stopPlay(); return; }
+      if (next >= tlMarkers.length) { stopPlay(); drawConnectionLines(); return; }
       setStep(next);
       document.getElementById('tl-slider').value = next;
     }, 2200);
@@ -1172,12 +2280,11 @@
     document.getElementById('tl-slider').addEventListener('input', function () {
       stopPlay(); setStep(parseInt(this.value, 10));
     });
-
-    const cfg = LAYERS.find(l => l.key === 'timeline');
-    if (cfg?.on) document.getElementById('tl-panel').classList.remove('hidden');
   }
 
-  /* ── GPS TRAIL ANIMATION ── */
+  /* ════════════════════════════════════════════════════════════════════════
+     GPS TRAIL ANIMATION
+  ════════════════════════════════════════════════════════════════════════ */
   function buildTrailSteps() {
     trailCoords = [];
     const pms = KML_DATA['trail'] || [];
@@ -1188,7 +2295,6 @@
           for (let i = 0; i < coords.length; i += TRAIL_SKIP) {
             trailCoords.push(coords[i]);
           }
-          // always include last point
           const last = coords[coords.length - 1];
           if (trailCoords.length && trailCoords[trailCoords.length - 1] !== last) {
             trailCoords.push(last);
@@ -1207,28 +2313,21 @@
     if (!group) return;
     group.clearLayers();
 
-    const counter  = document.getElementById('trail-counter');
-    const nameEl   = document.getElementById('trail-name');
-    const slider   = document.getElementById('trail-slider');
-    const playBtn  = document.getElementById('trail-play');
+    const counter = document.getElementById('trail-counter');
+    const nameEl  = document.getElementById('trail-name');
+    const slider  = document.getElementById('trail-slider');
+    const playBtn = document.getElementById('trail-play');
 
     if (!trailCoords.length) {
-      counter.textContent = '—';
-      nameEl.textContent  = 'No trail data';
-      return;
+      counter.textContent = '—'; nameEl.textContent = 'No trail data'; return;
     }
 
     if (step === -1) {
-      // Show all coords as one full polyline
-      const fullLine = L.polyline(trailCoords, {
-        color: '#4A8A7C', weight: 2.5, opacity: 0.85,
-      });
-      fullLine.addTo(group);
+      L.polyline(trailCoords, { color: '#4A8A7C', weight: 2.5, opacity: 0.85 }).addTo(group);
       counter.textContent = `All (${trailCoords.length})`;
       nameEl.textContent  = 'Full GPS trail';
       slider.value        = slider.max;
-      playBtn.classList.remove('on');
-      playBtn.textContent = '&#9654; Play';
+      playBtn.classList.remove('on'); playBtn.textContent = '&#9654; Play';
       return;
     }
 
@@ -1236,38 +2335,16 @@
     slider.value = idx;
     counter.textContent = `${idx + 1} / ${trailCoords.length}`;
 
-    // Revealed path (bright)
-    if (idx > 0) {
-      L.polyline(trailCoords.slice(0, idx + 1), {
-        color: '#4A8A7C', weight: 2.5, opacity: 0.90,
-      }).addTo(group);
-    }
+    if (idx > 0) L.polyline(trailCoords.slice(0, idx + 1), { color: '#4A8A7C', weight: 2.5, opacity: 0.90 }).addTo(group);
+    if (idx < trailCoords.length - 1) L.polyline(trailCoords.slice(idx), { color: '#4A8A7C', weight: 1.5, opacity: 0.25, dashArray: '4,6' }).addTo(group);
 
-    // Future path (dim dashed)
-    if (idx < trailCoords.length - 1) {
-      L.polyline(trailCoords.slice(idx), {
-        color: '#4A8A7C', weight: 1.5, opacity: 0.25, dashArray: '4,6',
-      }).addTo(group);
-    }
-
-    // Pin marker at current position
-    const pinSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 512" fill="#4A8A7C">
-      <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0z"/>
-    </svg>`;
-    const pinIcon = L.divIcon({
-      html: `<div style="filter:drop-shadow(0 0 4px #4A8A7C)">${pinSvg}</div>`,
-      className: '', iconSize: [18, 18], iconAnchor: [9, 18],
-    });
+    const pinSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 512" fill="#4A8A7C"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0z"/></svg>`;
+    const pinIcon = L.divIcon({ html: `<div style="filter:drop-shadow(0 0 4px #4A8A7C)">${pinSvg}</div>`, className: '', iconSize:[18,18], iconAnchor:[9,18] });
     const coord = trailCoords[idx];
     const ll    = L.latLng(coord[0], coord[1]);
-    const latlngStr = `${coord[0].toFixed(5)}, ${coord[1].toFixed(5)}`;
-    nameEl.textContent = latlngStr;
-
+    nameEl.textContent = `${coord[0].toFixed(5)}, ${coord[1].toFixed(5)}`;
     const marker = L.marker(ll, { icon: pinIcon, zIndexOffset: 1000 });
-    marker.bindPopup(
-      `<b>GPS Trail – Step ${idx + 1}</b><br>${latlngStr}`,
-      { maxWidth: 260, autoPan: false }
-    );
+    marker.bindPopup(`<b>GPS Trail – Step ${idx + 1}</b><br>${coord[0].toFixed(5)}, ${coord[1].toFixed(5)}`, { maxWidth: 260, autoPan: false });
     marker.addTo(group);
     marker.openPopup();
   }
@@ -1276,23 +2353,17 @@
     if (!trailCoords.length) return;
     trailPlaying = true;
     const btn = document.getElementById('trail-play');
-    btn.classList.add('on');
-    btn.innerHTML = '&#9646;&#9646; Pause';
+    btn.classList.add('on'); btn.innerHTML = '&#9646;&#9646; Pause';
     if (trailStep >= trailCoords.length - 1 || trailStep === -1) setTrailStep(0);
     trailTimer = setInterval(() => {
       const next = trailStep + 1;
-      if (next >= trailCoords.length) {
-        stopTrailPlay();
-        return;
-      }
+      if (next >= trailCoords.length) { stopTrailPlay(); return; }
       setTrailStep(next);
     }, 120);
   }
 
   function stopTrailPlay() {
-    trailPlaying = false;
-    clearInterval(trailTimer);
-    trailTimer = null;
+    trailPlaying = false; clearInterval(trailTimer); trailTimer = null;
     const btn = document.getElementById('trail-play');
     if (btn) { btn.classList.remove('on'); btn.innerHTML = '&#9654; Play'; }
   }
@@ -1301,8 +2372,7 @@
     document.getElementById('trail-prev').addEventListener('click', () => {
       stopTrailPlay();
       if (!trailCoords.length) return;
-      const prev = trailStep <= 0 ? 0 : trailStep - 1;
-      setTrailStep(prev);
+      setTrailStep(trailStep <= 0 ? 0 : trailStep - 1);
     });
     document.getElementById('trail-play').addEventListener('click', () => {
       if (trailPlaying) stopTrailPlay(); else startTrailPlay();
@@ -1319,81 +2389,350 @@
     });
   }
 
-  /* ── MOBILE PANEL TOGGLE ── */
-  function initPanelToggle() {
-    const btn   = document.getElementById('panel-toggle-btn');
-    const panel = document.getElementById('panel');
-    const icon  = document.getElementById('panel-icon');
-    const mapEl = document.getElementById('map');
-
-    btn.addEventListener('click', () => {
-      panelOpen = !panelOpen;
-      panel.classList.toggle('collapsed', !panelOpen);
-      icon.setAttribute('points', panelOpen ? '18,15 12,9 6,15' : '6,15 12,9 18,15');
-      mapEl.style.bottom = panelOpen ? '210px' : '44px';
-      setTimeout(() => map.invalidateSize(), 300);
-    });
-  }
-
-  /* ── INFO CARDS ── */
-  const CARD_INFO = {
-    major:    { desc: 'Key events central to the prosecution\'s timeline — including the abduction site on Parsons Branch Road and the recovery location where Holly Bobo\'s remains were found.' },
-    evidence: { desc: 'Physical evidence collection sites and forensically significant locations referenced during trial testimony, including areas searched by investigators and witnesses.' },
-    people:   { desc: 'Residences and addresses associated with individuals named in the case — defendants, witnesses, and others placed in the region during the relevant timeframe.' },
-    towers:   { desc: 'Cell tower locations used to reconstruct the movement and communication patterns of individuals through call record and ping data introduced at trial.' },
-    other:    { desc: 'Additional locations referenced in testimony or investigative reports — roads, landmarks, and areas that provide geographic context to the case narrative.' },
-    trail:    { desc: 'GPS coordinates logged from a device recovered during the investigation. The animated trail reconstructs a path step-by-step from raw location data.' },
-    usermarks:{ desc: 'Annotated route markers highlighting roads and paths relevant to the case, including routes prosecutors argued were used to transport Holly Bobo.' },
-    timeline: { desc: 'Chronological sequence of phone activity — calls, texts, and tower pings — mapped to geographic locations to reconstruct communication leading up to and following the abduction.' },
+  /* ════════════════════════════════════════════════════════════════════════
+     CHAPTER INTRO CARDS
+  ════════════════════════════════════════════════════════════════════════ */
+  const CHAPTER_INTROS = {
+    intro: null, // no intro card for first load — the main intro card handles it
+    abduction: {
+      eyebrow: '~7:45 AM — April 13, 2011',
+      title: 'The Abduction',
+      body: "Holly Bobo was last seen at her family home on Parsons Branch Road. Her brother Drew witnessed a man in camouflage leading Holly into the woods and called 911. That man was later identified as Zachary Adams.",
+    },
+    phones: {
+      eyebrow: '8:00 AM – 12:35 PM — Phone Records',
+      title: 'Phone Activity',
+      body: "Cell records show calls and texts from Holly's, Adams', and Autry's phones pinging towers near the Natchez Trace Parkway. Watch as each ping is mapped chronologically — placing the group in the same area during this window.",
+    },
+    birdsong: {
+      eyebrow: '~9:25 AM — Tennessee River',
+      title: 'Birdsong Bridge Area',
+      body: "Co-defendant Jason Autry testified that the group traveled to a location near Birdsong Bridge on the Tennessee River. Autry's account placed both himself and Adams here after leaving the abduction site.",
+    },
+    residences: {
+      eyebrow: 'Key Locations',
+      title: 'People & Residences',
+      body: "Investigators mapped homes and addresses linked to defendants, witnesses, and others connected to the case. The proximity of these residences to the abduction site and cell tower coverage areas was central to the prosecution's argument.",
+    },
+    evidence: {
+      eyebrow: 'September 2014 — Recovery',
+      title: 'Evidence & Recovery',
+      body: "Three years after her disappearance, Holly Bobo's remains were recovered in September 2014. This chapter maps the evidence collection sites, searched areas, and forensically significant locations introduced at trial.",
+    },
+    gps: {
+      eyebrow: 'GPS Route Data',
+      title: 'GPS Trail',
+      body: "GPS coordinates from a device recovered during the investigation trace a path through the region. The animated trail reconstructs movement step-by-step — use the player in Explore mode for full playback control.",
+    },
+    full: {
+      eyebrow: 'All Evidence',
+      title: 'Full Case Map',
+      body: "All geographic evidence from the trial shown together — major events, evidence sites, residences, cell towers, GPS trail, and phone timeline. Use the Explore panel to toggle individual layers.",
+    },
   };
 
-  function buildInfoCards() {
-    const grid = document.getElementById('cards-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    for (const cfg of LAYERS) {
-      const info  = CARD_INFO[cfg.key] || {};
-      const count = (KML_DATA[cfg.key] || []).length;
-      const card  = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <div class="card-header">
-          <span class="card-dot" style="background:${cfg.color}"></span>
-          <span class="card-title">${cfg.label}</span>
-          ${count ? `<span class="card-count">${count}</span>` : ''}
-        </div>
-        <p class="card-desc">${info.desc || ''}</p>
-        <button class="card-toggle${cfg.on ? ' active' : ''}" data-key="${cfg.key}">
-          ${cfg.on ? 'Visible on map' : 'Add to map'}
-        </button>
-      `;
-      card.querySelector('.card-toggle').addEventListener('click', function () {
-        const key = this.dataset.key;
-        const chk = document.getElementById('chk-' + key);
-        if (!chk) return;
-        chk.checked = !chk.checked;
-        chk.dispatchEvent(new Event('change'));
-        this.classList.toggle('active', chk.checked);
-        this.textContent = chk.checked ? 'Visible on map' : 'Add to map';
-      });
-      grid.appendChild(card);
+  let chapterIntroTimer = null;
+
+  function showChapterIntro(chapterId) {
+    const intro = CHAPTER_INTROS[chapterId];
+    if (!intro) return;
+
+    const card    = document.getElementById('chapter-intro-card');
+    const eyebrow = document.getElementById('ci-eyebrow');
+    const title   = document.getElementById('ci-title');
+    const body    = document.getElementById('ci-body');
+
+    // Clear any pending auto-dismiss
+    if (chapterIntroTimer) { clearTimeout(chapterIntroTimer); chapterIntroTimer = null; }
+
+    eyebrow.textContent = intro.eyebrow;
+    title.textContent   = intro.title;
+    body.textContent    = intro.body;
+
+    // Reset state and show
+    card.classList.remove('hiding', 'visible');
+    void card.offsetWidth;
+    card.classList.add('visible');
+
+    // Auto-dismiss after 3.5 seconds
+    chapterIntroTimer = setTimeout(() => dismissChapterIntro(), 3500);
+  }
+
+  function dismissChapterIntro() {
+    if (chapterIntroTimer) { clearTimeout(chapterIntroTimer); chapterIntroTimer = null; }
+    const card = document.getElementById('chapter-intro-card');
+    card.classList.remove('visible');
+    card.classList.add('hiding');
+    setTimeout(() => card.classList.remove('hiding'), 400);
+  }
+
+  function initChapterIntro() {
+    document.getElementById('chapter-intro-card').addEventListener('click', dismissChapterIntro);
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     CHAPTER PROGRESSIVE REVEAL
+  ════════════════════════════════════════════════════════════════════════ */
+
+  function setChapterStep(step) {
+    chapterStep = step;
+    if (step < 0 || step >= chapterMarkers.length) return;
+
+    const item = chapterMarkers[step];
+    // Add marker to its correct layer group so dimming/hiding works properly
+    const group = groups[item.layerKey];
+    if (group) {
+      item.marker.addTo(group);
+    }
+
+    // Animate the marker in
+    const el = item.marker.getElement ? item.marker.getElement() : (item.marker._path || null);
+    if (el) {
+      el.classList.remove('layer-fadein');
+      void el.offsetWidth;
+      el.classList.add('layer-fadein');
+    }
+
+    // Pan to the marker — slow, smooth glide
+    if (item.marker.getLatLng) {
+      map.panTo(item.marker.getLatLng(), { animate: true, duration: 1.4, easeLinearity: 0.25 });
+    }
+
+    // Show narration card after a short beat so pan starts first
+    setTimeout(() => showChapterEventCard(step), 600);
+  }
+
+  function startChapterReveal() {
+    chapterPlaying = true;
+    chapterTimer = setInterval(() => {
+      const next = chapterStep + 1;
+      if (next >= chapterMarkers.length) {
+        stopChapterReveal();
+        return;
+      }
+      setChapterStep(next);
+    }, 4000);
+  }
+
+  function stopChapterReveal() {
+    chapterPlaying = false;
+    clearInterval(chapterTimer);
+    chapterTimer = null;
+
+    // For GPS chapter: now that all route markers are placed, draw the full trail
+    const ch = CHAPTERS[currentChapter];
+    if (ch && ch.id === 'gps') {
+      const trailGroup = groups['trail'];
+      if (trailGroup && !map.hasLayer(trailGroup)) {
+        trailGroup.addTo(map);
+        setGroupDimmed(trailGroup, false);
+        setTimeout(() => animateGroupIn(trailGroup), 50);
+      }
     }
   }
 
-  /* ── INIT ── */
+  function showChapterEventCard(step) {
+    const card = document.getElementById('chapter-event-card');
+    if (step < 0 || step >= chapterMarkers.length) {
+      card.classList.remove('visible');
+      return;
+    }
+    const item = chapterMarkers[step];
+    const ch = CHAPTERS[currentChapter];
+    const narration = MARKER_NARRATIONS[item.name] || 'Location: ' + item.name;
+
+    document.getElementById('cec-label').textContent =
+      (step + 1) + ' of ' + chapterMarkers.length;
+    document.getElementById('cec-body').textContent = narration;
+    // Use chapter color for border accent
+    const borderColor = ch.color
+      ? ch.color.replace(')', ',0.30)').replace('rgb', 'rgba').replace('#', '')
+      : 'rgba(255,255,255,0.2)';
+    // Convert hex color to rgba for border
+    if (ch.color && ch.color.startsWith('#')) {
+      const hex = ch.color.replace('#', '');
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+      card.style.borderColor = 'rgba(' + r + ',' + g + ',' + b + ',0.30)';
+    } else {
+      card.style.borderColor = borderColor;
+    }
+    card.classList.add('visible');
+  }
+
+  function hideChapterEventCard() {
+    document.getElementById('chapter-event-card').classList.remove('visible');
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     PHONE EVENT NARRATION CARD
+  ════════════════════════════════════════════════════════════════════════ */
+
+  // Parse a short time string and plain-language description from a timeline placemark name
+  // Format: "01. HB - 8:00 AM — Bobo Residence (Departure)"
+  function parseTimelineEvent(name) {
+    // Extract time portion
+    const timeMatch = name.match(/(\d{1,2}:\d{2}\s*(?:AM|PM))/i);
+    const time = timeMatch ? timeMatch[1].toUpperCase() : null;
+
+    // Determine person
+    const personMatch = name.match(/^\d+\.\s*(HB|ZA|JA)\s*-/i);
+    const personCode  = personMatch ? personMatch[1].toUpperCase() : null;
+    const personNames = { HB: "Holly's phone", ZA: "Adams' phone", JA: "Autry's phone" };
+    const personLabel = personNames[personCode] || 'Phone';
+
+    // Extract location portion after " — "
+    const locMatch = name.match(/—\s*(.+)$/);
+    const location = locMatch ? locMatch[1].trim() : name;
+
+    // Build a human-readable sentence
+    let desc = '';
+    if (time) {
+      if (/departure/i.test(location)) {
+        desc = `${personLabel} pings near the Bobo residence — last known location before abduction.`;
+      } else if (/CR 1253/i.test(location)) {
+        desc = `${personLabel} pings a tower on CR 1253, moving away from the Bobo residence.`;
+      } else if (/CR 1096.*Sector 2/i.test(location)) {
+        desc = `${personLabel} pings the Shiloh Road tower (CR 1096), continuing northeast.`;
+      } else if (/CR 1096.*Sector 1.*Shiloh/i.test(location)) {
+        desc = `${personLabel} pings the Shiloh Road tower again — same area, 10 minutes later.`;
+      } else if (/Transition.*CR 3152/i.test(location)) {
+        desc = `${personLabel} transitions to a new tower sector near the Natchez Trace Parkway.`;
+      } else if (/CR 3152.*Sector 3/i.test(location) && /06\.|07\./i.test(name)) {
+        desc = `${personLabel} continues pinging the CR 3152 tower, moving further from the abduction site.`;
+      } else if (/CR 3152.*Sector 2/i.test(location)) {
+        desc = `${personLabel} pings a new sector of the CR 3152 tower.`;
+      } else if (/CR 1257.*FINAL/i.test(location)) {
+        desc = `${personLabel} pings the CR 1257 tower near the Tennessee River — this is the final recorded ping for Holly's phone.`;
+      } else if (/Birdsong East/i.test(location) && /LAST/i.test(location)) {
+        desc = `${personLabel} pings the Birdsong East tower for the last time before switching towers.`;
+      } else if (/Birdsong East/i.test(location)) {
+        desc = `${personLabel} pings the Birdsong East tower near the Tennessee River — consistent with the Birdsong Bridge area.`;
+      } else if (/Birdsong West/i.test(location) && /LAST/i.test(location)) {
+        desc = `${personLabel} pings the Birdsong West tower for the last time.`;
+      } else if (/Birdsong West/i.test(location)) {
+        desc = `${personLabel} pings the Birdsong West tower — suggests movement westward along the river.`;
+      } else if (/Home Tower/i.test(location)) {
+        desc = `${personLabel} returns to pinging the tower near Adams' home in Holladay.`;
+      } else if (/ATM.*VIDEO/i.test(location)) {
+        desc = `${personLabel} is placed near the CB&S Bank ATM — surveillance video from this location was introduced at trial.`;
+      } else if (/Parsons Area/i.test(location)) {
+        desc = `${personLabel} pings a tower in the Parsons area — over four hours after the abduction.`;
+      } else {
+        desc = `${personLabel} pings a tower near ${location}.`;
+      }
+    } else {
+      desc = name;
+    }
+
+    return { time, desc };
+  }
+
+  function showPhoneEventCard(step) {
+    const card = document.getElementById('phone-event-card');
+    if (step < 0 || step >= tlNames.length) {
+      card.classList.remove('visible');
+      return;
+    }
+    const { time, desc } = parseTimelineEvent(tlNames[step] || '');
+    document.getElementById('pec-time').textContent = time ? time + ' — Event ' + (step + 1) + ' of ' + tlNames.length : 'Event ' + (step + 1);
+    document.getElementById('pec-body').textContent = desc;
+    card.classList.add('visible');
+  }
+
+  function hidePhoneEventCard() {
+    document.getElementById('phone-event-card').classList.remove('visible');
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     PERMANENT TOOLTIP HELPERS
+  ════════════════════════════════════════════════════════════════════════ */
+
+  // Attach a permanent visible label tooltip to a Leaflet marker/layer
+  function attachLabel(layer, text, direction) {
+    if (!text) return;
+    layer.bindTooltip(text, {
+      permanent: true,
+      direction: direction || 'right',
+      offset: [6, 0],
+      className: 'map-label',
+    });
+  }
+
+  // Build a short, human-readable label for a marker given its layer and name
+  function makePermanentLabel(pm, layerKey) {
+    const name = pm.name || '';
+
+    if (layerKey === 'towers') {
+      // Strip sector/arm suffixes — just use tower identifier
+      return name
+        .replace(/\s*-\s*(SECTOR|ARM|WEDGE)\s*[A-Z0-9]*/gi, '')
+        .replace(/^TOWER[\s-]*/i, '')
+        .replace(/\s*[-–]\s*(Wedge|Arm\s*\d+)/gi, '')
+        .trim()
+        .slice(0, 22);
+    }
+
+    if (layerKey === 'people') {
+      // Use the name as-is but trimmed to reasonable length, stripping possessives
+      return name.replace(/'s\s*(residence|home|address)?/gi, '').trim().slice(0, 28);
+    }
+
+    if (layerKey === 'evidence') {
+      return name.slice(0, 30);
+    }
+
+    if (layerKey === 'major') {
+      return name.slice(0, 30);
+    }
+
+    if (layerKey === 'other') {
+      // Skip generic unknowns
+      if (/untitled|unknown/i.test(name)) return null;
+      return name.slice(0, 25);
+    }
+
+    return null;
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     STORY NAV BUTTONS
+  ════════════════════════════════════════════════════════════════════════ */
+  function initStoryNav() {
+    document.getElementById('story-prev').addEventListener('click', () => {
+      if (currentChapter > 0) applyChapter(currentChapter - 1);
+    });
+    document.getElementById('story-next').addEventListener('click', () => {
+      document.getElementById('intro-card').classList.add('hidden');
+      if (currentChapter < CHAPTERS.length - 1) applyChapter(currentChapter + 1);
+    });
+    document.getElementById('intro-start-btn').addEventListener('click', () => {
+      document.getElementById('intro-card').classList.add('hidden');
+      document.getElementById('map-legend').style.display = 'block';
+      applyChapter(1); // advance to abduction chapter
+    });
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     INIT
+  ════════════════════════════════════════════════════════════════════════ */
+  buildChapterDots();
   buildLayerUI();
   initTimelineUI();
   initTrailUI();
-  initPanelToggle();
   initMap();
   initBasemapToggle();
+  initExploreToggle();
+  initStoryNav();
+  initChapterIntro();
+  buildHollyHome();
   buildLayers();
-  buildInfoCards();
-  // Show all timeline events on initial load
-  const tlCfg = LAYERS.find(l => l.key === 'timeline');
-  if (tlCfg && tlCfg.on && tlMarkers.length) setStep(-1);
-  const trailCfg = LAYERS.find(l => l.key === 'trail');
-  if (trailCfg?.on) document.getElementById('trail-panel').classList.remove('hidden');
+
+  // Apply initial chapter (no animation on first load)
+  applyChapter(0, false);
+  updateStoryUI(0);
+
   </script>
 </body>
 </html>
