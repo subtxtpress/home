@@ -1915,13 +1915,14 @@
       }
     }
 
-    // Layers that are still active — for progressive chapters, hide them too
-    // (we want a clean slate); for others, ensure full opacity
+    // Layers that are still active
     for (const key of staying) {
       const group = groups[key];
       if (group) {
         if (doProgressive) {
-          group.remove();
+          // Clear contents but keep group on map — progressive reveal will re-add markers
+          group.clearLayers();
+          if (!map.hasLayer(group)) group.addTo(map);
         } else {
           setGroupDimmed(group, false);
         }
@@ -1935,11 +1936,12 @@
       connectionLayer?.clearLayers();
     }
 
-    // Collect markers for progressive reveal BEFORE adding layers
+    // Collect markers for progressive reveal — from BOTH entering AND staying layers
     let progressiveLayerKeys = [];
     if (doProgressive) {
       chapterMarkers = [];
-      for (const key of entering) {
+      const revealKeys = [...new Set([...entering, ...staying])];
+      for (const key of revealKeys) {
         // For GPS chapter, only progressively reveal usermarks, not the trail itself
         if (ch.id === 'gps' && key === 'trail') continue;
         const markers = layerMarkerData[key] || [];
