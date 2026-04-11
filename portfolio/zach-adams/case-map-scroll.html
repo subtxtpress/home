@@ -478,21 +478,20 @@
     <p>Adams' phone pings a tower near the CB&amp;S Bank ATM. Surveillance video from this location was later introduced at trial.</p>
   </div>
 
-  <!-- STEP 19 -->
-  <div class="step" data-step="19" data-border="var(--c-zach)">
-    <div class="step-time">12:35 PM</div>
-    <div class="step-title">Parsons area</div>
-    <p>Adams' phone pings a tower in the Parsons area — more than four hours after the abduction. This is the last event in the phone timeline.</p>
-    <p style="opacity:0.55;font-size:12px;margin-top:10px;">Terry Britt's phone has been silent all morning. At <strong>12:17 PM</strong> — eighteen minutes before this ping — he makes his first call of the day.</p>
-  </div>
-
-  <!-- STEP 20: Britt breaks silence -->
-  <div class="step" data-step="20" data-border="var(--c-britt)">
+  <!-- STEP 19: Britt breaks silence -->
+  <div class="step" data-step="19" data-border="var(--c-britt)">
     <div class="step-time">12:17 PM &ndash; 12:21 PM</div>
     <div class="step-title">Britt breaks silence</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
     <p>The faint gold marker that's been sitting silently on your map since 8:00 AM finally moves. At <strong>12:17 PM</strong> — more than four hours after the abduction — Terry Britt, a confidential informant living in Parsons, makes his first call of the day to his ex-wife. He says he is just now learning about Holly's disappearance.</p>
     <p>At <strong>12:20 PM</strong>, he calls his wife Janet. The call lasts 2 minutes 56 seconds. Janet later told investigators they were "together all day." You don't call someone standing next to you.</p>
+  </div>
+
+  <!-- STEP 20 -->
+  <div class="step" data-step="20" data-border="var(--c-zach)">
+    <div class="step-time">12:35 PM</div>
+    <div class="step-title">Parsons area</div>
+    <p>Adams' phone pings a tower in the Parsons area — more than four hours after the abduction. This is the last event in the phone timeline.</p>
   </div>
 
   <!-- STEP 21: Deputies arrive -->
@@ -1219,18 +1218,8 @@ const STEPS = {
       showBrittGhost();
     }
   },
+  // ═══════ STEP 19: BRITT BREAKS SILENCE ═══════
   19: {
-    center: [35.73, -88.14], zoom: 11,
-    action() {
-      setClock('12:35 PM');
-      const m = makeDot(TIMELINE.za_1235, COLORS.zach, 8, true);
-      activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.za_1235, 'ZA 12:35 PM — LAST', COLORS.zach, 'right');
-      activeMarkers.push(lb);
-    }
-  },
-  // ═══════ STEP 20: BRITT BREAKS SILENCE ═══════
-  20: {
     center: BRITT_HOME, zoom: 13,
     action() {
       setClock('12:17 PM', 'APRIL 13, 2011');
@@ -1251,6 +1240,18 @@ const STEPS = {
         activeMarkers.push(call2);
       }, 1600);
       pendingTimeouts.push(t2);
+    }
+  },
+  // ═══════ STEP 20: ZACH LAST PING ═══════
+  20: {
+    center: [35.73, -88.14], zoom: 11,
+    action() {
+      setClock('12:35 PM');
+      const m = makeDot(TIMELINE.za_1235, COLORS.zach, 8, true);
+      activeMarkers.push(m);
+      const lb = makeLabel(TIMELINE.za_1235, 'ZA 12:35 PM — LAST', COLORS.zach, 'right');
+      activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
 
@@ -1579,7 +1580,7 @@ function handleStepEnter(response) {
 
   // Show reference anchors (Holly last ping + remains) from Final Ping onward
   // Hide on steps that explicitly show those same locations to avoid duplication
-  const refExclude = [13, 20, 21, 23, 24, 25, 26, 27, 28, 29];
+  const refExclude = [13, 19, 21, 23, 24, 25, 26, 27, 28, 29];
   if (stepIndex >= 14 && !refExclude.includes(stepIndex)) {
     showRefAnchors();
   } else {
