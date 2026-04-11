@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Zach Adams Case Map — Scrollytelling</title>
+  <title>Zach Adams Case Map</title>
   <meta name="description" content="A scrollytelling visualization of the Holly Bobo disappearance — phone pings, tower data, and evidence mapped chronologically.">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -18,8 +18,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #060B14;
-      --surface:  #0D1B2A;
+      --bg:       #111111;/*#060B14;*/
+      --surface:  #1a1a1a;/*#0D1B2A;*/
       --border:   rgba(244,229,196,0.10);
       --border2:  rgba(244,229,196,0.22);
       --text:     #F5F5F5;
@@ -31,6 +31,7 @@
       --c-evid:   #EBE2CD;
       --c-tower:  #9D4EDD;
       --c-route:  #4A8A7C;
+      --c-britt:  #D4A017;
       --c-other:  #8E9AAF;
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -395,6 +396,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <p>Holly's phone pings the tower nearest the Bobo residence — the last time it will register here.</p>
     <p>From this point forward, the phone data tells a story of movement — away from the Bobo home, toward the northeast.</p>
+    <p style="opacity:0.55;font-size:12px;margin-top:10px;"><span style="color:var(--c-britt);">&bull;</span> The faint gold marker: Terry Britt, a confidential informant in Parsons. His phone is silent.</p>
   </div>
 
   <!-- STEP 9 -->
@@ -481,12 +483,31 @@
     <div class="step-time">12:35 PM</div>
     <div class="step-title">Parsons area</div>
     <p>Adams' phone pings a tower in the Parsons area — more than four hours after the abduction. This is the last event in the phone timeline.</p>
+    <p style="opacity:0.55;font-size:12px;margin-top:10px;">Terry Britt's phone has been silent all morning. At <strong>12:17 PM</strong> — eighteen minutes before this ping — he makes his first call of the day.</p>
+  </div>
+
+  <!-- STEP 20: Britt breaks silence -->
+  <div class="step" data-step="20" data-border="var(--c-britt)">
+    <div class="step-time">12:17 PM &ndash; 12:21 PM</div>
+    <div class="step-title">Britt breaks silence</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
+    <p>The faint gold marker that's been sitting silently on your map since 8:00 AM finally moves. At <strong>12:17 PM</strong> — more than four hours after the abduction — Terry Britt, a confidential informant living in Parsons, makes his first call of the day to his ex-wife. He says he is just now learning about Holly's disappearance.</p>
+    <p>At <strong>12:20 PM</strong>, he calls his wife Janet. The call lasts 2 minutes 56 seconds. Janet later told investigators they were "together all day." You don't call someone standing next to you.</p>
+  </div>
+
+  <!-- STEP 21: Deputies arrive -->
+  <div class="step" data-step="21" data-border="var(--c-britt)">
+    <div class="step-time">1:45 PM &ndash; 3:30 PM</div>
+    <div class="step-title">Nobody home</div>
+    <p>When Decatur County deputies arrive at the Britt residence around <strong>1:45 PM</strong>, no one is home. Three vehicles are missing.</p>
+    <p>The Britts return between <strong>3:00 and 3:30 PM</strong>, unloading a bathtub they say they purchased from Allgood's.</p>
+    <p>The receipt is handwritten. Allgood's has no matching store copy. No employee remembers the transaction.</p>
   </div>
 
   <!-- ACT 5: THE SILENCE -->
 
-  <!-- STEP 20 -->
-  <div class="step" data-step="20" data-border="var(--c-other)">
+  <!-- STEP 22 -->
+  <div class="step" data-step="22" data-border="var(--c-other)">
     <div class="act-label">Act V &mdash; The Silence</div>
     <div class="step-time">APRIL 13, 2011 &rarr; SEPTEMBER 7, 2014</div>
     <div class="step-title">The gap</div>
@@ -496,16 +517,16 @@
 
   <!-- ACT 6: EVIDENCE -->
 
-  <!-- STEP 21 -->
-  <div class="step" data-step="21" data-border="var(--c-evid)">
+  <!-- STEP 23 -->
+  <div class="step" data-step="23" data-border="var(--c-evid)">
     <div class="act-label">Act VI &mdash; Evidence Recovery</div>
     <div class="step-time">2011 &ndash; 2014</div>
     <div class="step-title">Evidence sites</div>
     <p>Over the following years, pieces of evidence were recovered across the region — Holly's lunchbox, her cell phone, a SIM card, nursing papers, and eventually her remains.</p>
   </div>
 
-  <!-- STEP 22 -->
-  <div class="step" data-step="22" data-border="var(--c-evid)">
+  <!-- STEP 24 -->
+  <div class="step" data-step="24" data-border="var(--c-evid)">
     <div class="step-time">September 7, 2014</div>
     <div class="step-title">Remains found</div>
     <p>A ginseng hunter named Larry Stone found Holly's skull under an upside-down bucket in the woods near a cell tower — about three miles from Shayne Austin's home and five miles from Zachary Adams' home.</p>
@@ -513,19 +534,51 @@
 
   <!-- ACT 7: PEOPLE & PLACES -->
 
-  <!-- STEP 23 -->
-  <div class="step" data-step="23" data-border="var(--c-other)">
+  <!-- STEP 25 -->
+  <div class="step" data-step="25" data-border="var(--c-other)">
     <div class="act-label">Act VII &mdash; People &amp; Places</div>
     <div class="step-time">Key locations</div>
     <div class="step-title">Residences</div>
     <p>The geographic proximity of the defendants' homes to the evidence sites and tower coverage areas was central to the case.</p>
   </div>
 
-  <!-- STEP 24 -->
-  <div class="step" data-step="24" data-border="var(--c-other)">
+  <!-- STEP 26 -->
+  <div class="step" data-step="26" data-border="var(--c-other)">
     <div class="step-time">Complete picture</div>
     <div class="step-title">All geographic evidence</div>
     <p>All geographic evidence — phone pings, tower data, evidence recovery sites, and key locations — mapped together.</p>
+  </div>
+
+  <!-- ACT 8: THE INFORMANT -->
+
+  <!-- STEP 27 -->
+  <div class="step" data-step="27" data-border="var(--c-britt)">
+    <div class="act-label">Act VIII &mdash; The Informant</div>
+    <div class="step-time">March &ndash; April 2011</div>
+    <div class="step-title">Purchases</div>
+    <p>In the weeks surrounding Holly's disappearance, Britt makes a series of purchases:</p>
+    <p><strong>March 11&ndash;12:</strong> Buys new phones.<br/>
+    <strong>April 11</strong> (two days before): Buys 2,000 prepaid minutes.<br/>
+    <strong>April 29</strong> (sixteen days after): Buys a chainsaw.</p>
+    <p>When decomposition-trained cadaver dogs are brought to Britt's property, they alert on his tools — an axe, a shovel, and a hammer.</p>
+  </div>
+
+  <!-- STEP 28 -->
+  <div class="step" data-step="28" data-border="var(--c-britt)">
+    <div class="step-time">Investigation</div>
+    <div class="step-title">&ldquo;I didn&rsquo;t rape nobody&rdquo;</div>
+    <p>When law enforcement first contacts Britt, his unprompted opening statement is: <em>"I didn't rape nobody."</em> No one had mentioned rape.</p>
+    <p>Clint Bobo — who heard the voice of his sister's abductor that morning — later said he was <strong>80% sure</strong> it was Britt's voice.</p>
+    <p>Britt's vehicle matched surveillance footage from the Am Farm near the abduction site. He had a history of stalking blonde, blue-eyed women in the area. His computer contained searches for <em>"rape," "abduction,"</em> and <em>"kidnapping"</em> before the devices were seized.</p>
+    <p>At one point, Britt offered to plead guilty in exchange for a 20-year sentence. He later denied this at trial.</p>
+  </div>
+
+  <!-- STEP 29 -->
+  <div class="step" data-step="29" data-border="var(--c-britt)">
+    <div class="step-time">The question</div>
+    <div class="step-title">Geographic center</div>
+    <p>Terry Britt's home sits at the geographic center of where evidence was recovered. His phone was silent during the abduction. His alibi fell apart under scrutiny. Dogs hit on his tools. His voice was tentatively identified by Clint Bobo. He offered to plead guilty.</p>
+    <p>He was never charged. Zachary Adams was convicted instead — largely on the testimony of Jason Autry, who received a deal for his cooperation.</p>
     <p style="margin-top:24px;">
       <a href="case-map.html" style="color:var(--c-holly); font-family:var(--mono); font-size:12px; letter-spacing:0.06em;">Explore the interactive map &rarr;</a>
     </p>
@@ -544,7 +597,8 @@ const KML_DATA = {"major":[{"name":"ABDUCTION SITE","features":[{"type":"point",
 // ═══════════════════════════════ CONFIG ═══════════════════════════════
 const COLORS = {
   holly: '#F4A261', zach: '#E63946', autry: '#57B0DC',
-  evid: '#EBE2CD', tower: '#9D4EDD', route: '#4A8A7C', other: '#8E9AAF'
+  evid: '#EBE2CD', tower: '#9D4EDD', route: '#4A8A7C', other: '#8E9AAF',
+  britt: '#D4A017'
 };
 
 const BOBO_HOME = [35.6785776, -88.1747727];
@@ -553,6 +607,7 @@ const REMAINS_SITE = [35.8215758, -88.169261];
 const ADAMS_HOME = [35.8214583, -88.0837789];
 const AUSTIN_HOME = [35.8064745, -88.1204944];
 const ATM_LOC = [35.6492403, -88.1279471];
+const BRITT_HOME = [35.7683869, -88.1304145];
 
 // Timeline coordinates extracted from KML_DATA
 const TIMELINE = {
@@ -817,6 +872,23 @@ function makeOffsetLabel(latlng, text, color, offsetDeg) {
   return [line, marker];
 }
 
+// Ghost marker for Britt's silent phone — used on steps 8-18
+function showBrittGhost() {
+  const bg = makeDot(BRITT_HOME, COLORS.britt, 4, false);
+  bg.setStyle({ opacity: 0.25, fillOpacity: 0.12 });
+  activeMarkers.push(bg);
+  const icon = L.divIcon({
+    className: '',
+    html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:${COLORS.britt};
+      letter-spacing:0.05em;white-space:nowrap;opacity:0.3;
+      text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);
+      padding:2px 4px;transform:translate(0,-50%);margin-left:12px;pointer-events:none;">BRITT — SILENT</div>`,
+    iconSize: [0, 0], iconAnchor: [0, 0]
+  });
+  const lbl = L.marker(BRITT_HOME, { icon, interactive: false }).addTo(map);
+  activeMarkers.push(lbl);
+}
+
 function showTrail(coords, color) {
   const line = L.polyline(coords, {
     color: color,
@@ -957,6 +1029,7 @@ const STEPS = {
         opacity: 0.2, fillOpacity: 0.04, fillColor: COLORS.tower
       }).addTo(map);
       activeMarkers.push(circ);
+      showBrittGhost();
     }
   },
   9: {
@@ -972,6 +1045,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0811, 'HB 8:11 AM', COLORS.holly);
       activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
   10: {
@@ -989,6 +1063,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0816, 'HB 8:16 AM', COLORS.holly);
       activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
   11: {
@@ -1006,6 +1081,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0826, 'HB 8:26 AM', COLORS.holly);
       activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
   12: {
@@ -1028,6 +1104,7 @@ const STEPS = {
       });
       const lb = makeLabel(TIMELINE.hb_0910, 'HB 9:10 AM', COLORS.holly);
       activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
   13: {
@@ -1048,6 +1125,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0925, 'FINAL PING 9:25 AM', COLORS.holly);
       activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
   14: {
@@ -1064,6 +1142,7 @@ const STEPS = {
       activeMarkers.push(ja);
       const jl = makeLabel(TIMELINE.ja_0942, 'JA 9:42 AM', COLORS.autry, 'below');
       activeMarkers.push(jl);
+      showBrittGhost();
     }
   },
   15: {
@@ -1085,6 +1164,7 @@ const STEPS = {
       activeMarkers.push(ja);
       const jl = makeLabel(TIMELINE.ja_0942, 'JASON AUTRY', COLORS.autry, 'below');
       activeMarkers.push(jl);
+      showBrittGhost();
     }
   },
   16: {
@@ -1108,6 +1188,7 @@ const STEPS = {
       activeMarkers.push(ja);
       const jl = makeLabel(TIMELINE.ja_1037, 'AUTRY · LAST PING', COLORS.autry, 'below');
       activeMarkers.push(jl);
+      showBrittGhost();
     }
   },
   17: {
@@ -1124,6 +1205,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.za_1038, 'ZA HOME TOWER', COLORS.zach, 'right');
       activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
   18: {
@@ -1134,6 +1216,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.za_1112, 'CB&S BANK ATM', COLORS.zach, 'right');
       activeMarkers.push(lb);
+      showBrittGhost();
     }
   },
   19: {
@@ -1146,11 +1229,66 @@ const STEPS = {
       activeMarkers.push(lb);
     }
   },
+  // ═══════ STEP 20: BRITT BREAKS SILENCE ═══════
   20: {
+    center: BRITT_HOME, zoom: 13,
+    action() {
+      setClock('12:17 PM', 'APRIL 13, 2011');
+      const m = makeDot(BRITT_HOME, COLORS.britt, 9, true);
+      activeMarkers.push(m);
+      const lb = makeLabel(BRITT_HOME, 'BRITT RESIDENCE', COLORS.britt, 'above');
+      activeMarkers.push(lb);
+      // Call annotations
+      const t1 = setTimeout(() => {
+        const call1 = makeLabel([BRITT_HOME[0] - 0.008, BRITT_HOME[1] + 0.005],
+          '12:17 PM — CALLS EX-WIFE', COLORS.britt, 'below');
+        activeMarkers.push(call1);
+      }, 800);
+      pendingTimeouts.push(t1);
+      const t2 = setTimeout(() => {
+        const call2 = makeLabel([BRITT_HOME[0] - 0.014, BRITT_HOME[1] + 0.005],
+          '12:20 PM — CALLS JANET (2:56)', COLORS.britt, 'below');
+        activeMarkers.push(call2);
+      }, 1600);
+      pendingTimeouts.push(t2);
+    }
+  },
+
+  // ═══════ STEP 21: DEPUTIES / NOBODY HOME ═══════
+  21: {
+    center: BRITT_HOME, zoom: 14,
+    action() {
+      setClock('1:45 PM');
+      const m = makeDot(BRITT_HOME, COLORS.britt, 9, false);
+      activeMarkers.push(m);
+      const lb = makeLabel(BRITT_HOME, 'BRITT — NO ONE HOME', COLORS.britt, 'right');
+      activeMarkers.push(lb);
+      const ring = L.circleMarker(BRITT_HOME, {
+        radius: 18, fillColor: 'transparent', color: '#ff4444',
+        weight: 1.5, opacity: 0.5, fillOpacity: 0
+      }).addTo(map);
+      activeMarkers.push(ring);
+      const t1 = setTimeout(() => {
+        const note = makeLabel([BRITT_HOME[0] - 0.004, BRITT_HOME[1]],
+          '3 VEHICLES MISSING', '#ff4444', 'below');
+        activeMarkers.push(note);
+      }, 800);
+      pendingTimeouts.push(t1);
+      const t2 = setTimeout(() => {
+        setClock('3:00 PM');
+        const note2 = makeLabel([BRITT_HOME[0] - 0.007, BRITT_HOME[1]],
+          'RETURNS WITH BATHTUB — UNVERIFIABLE RECEIPT', COLORS.britt, 'below');
+        activeMarkers.push(note2);
+      }, 2400);
+      pendingTimeouts.push(t2);
+    }
+  },
+
+  // ═══════ ACT V — THE SILENCE ═══════
+  22: {
     center: [35.78, -88.08], zoom: 10,
     action() {
       setClock('', 'APRIL 13, 2011 \u2192 SEPTEMBER 7, 2014');
-      // Show all HB trail dimmed
       const hbTrail = [TIMELINE.hb_0800, TIMELINE.hb_0811, TIMELINE.hb_0816, TIMELINE.hb_0826,
         TIMELINE.hb_0900, TIMELINE.hb_0902, TIMELINE.hb_0906, TIMELINE.hb_0910, TIMELINE.hb_0925];
       showTrail(hbTrail, COLORS.holly);
@@ -1161,24 +1299,24 @@ const STEPS = {
       });
     }
   },
-  21: {
+
+  // ═══════ ACT VI — EVIDENCE RECOVERY ═══════
+  23: {
     center: [35.76, -88.14], zoom: 11,
     action() {
       setClock('', '2011 \u2013 2014');
-      // Progressively show evidence markers
       const evidItems = KML_DATA.evidence.filter(e => e.name && e.name !== 'Untitled placemark');
-      // Isolated items: normal labels. Clustered items: offset with leader lines
       const evidConfig = {
         0: { pos: 'right' },
         1: { pos: 'right' },
-        2: { offset: [-0.025, 0.04] },  // YELLOW SPRINGS — push southeast
-        3: { offset: [-0.04, 0.04] },   // RECEIPT — push further southeast
+        2: { offset: [-0.025, 0.04] },
+        3: { offset: [-0.04, 0.04] },
         4: { pos: 'right' },
         5: { pos: 'right' },
-        6: { offset: [-0.02, -0.04] },  // REMAINS RECOVERY — push southwest
-        7: { pos: 'above' },            // PISTOL — above (isolated enough)
+        6: { offset: [-0.02, -0.04] },
+        7: { pos: 'above' },
         8: { pos: 'right' },
-        9: { offset: [0.03, 0.04] }     // OLD BARN — push northeast (away from pistol)
+        9: { offset: [0.03, 0.04] }
       };
       evidItems.forEach((item, i) => {
         const tid = setTimeout(() => {
@@ -1201,7 +1339,8 @@ const STEPS = {
       });
     }
   },
-  22: {
+
+  24: {
     center: REMAINS_SITE, zoom: 13,
     action() {
       setClock('', 'SEPTEMBER 7, 2014');
@@ -1209,7 +1348,6 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(REMAINS_SITE, 'REMAINS FOUND', COLORS.evid, 'above');
       activeMarkers.push(lb);
-      // Show distances
       const austinD = makeDot(AUSTIN_HOME, COLORS.other, 5, false);
       activeMarkers.push(austinD);
       const al = makeLabel(AUSTIN_HOME, 'AUSTIN (~3 mi)', COLORS.other, 'right');
@@ -1218,7 +1356,6 @@ const STEPS = {
       activeMarkers.push(adamsD);
       const adl = makeLabel(ADAMS_HOME, 'ADAMS (~5 mi)', COLORS.zach, 'right');
       activeMarkers.push(adl);
-      // Lines
       const line1 = L.polyline([REMAINS_SITE, AUSTIN_HOME], {
         color: COLORS.other, weight: 1, opacity: 0.3, dashArray: '4,6'
       }).addTo(map);
@@ -1229,40 +1366,37 @@ const STEPS = {
       activeMarkers.push(line2);
     }
   },
-  23: {
+
+  // ═══════ ACT VII — PEOPLE & PLACES ═══════
+  25: {
     center: [35.82, -88.11], zoom: 12,
     action() {
       setClock('', 'KEY LOCATIONS');
       const people = KML_DATA.people.filter(p =>
         p.name && p.name !== 'Untitled placemark' && p.name !== '"Rip Rap" Location'
       );
-      // Isolated: normal labels. Clustered middle: offset with leader lines
-      // 0:Zachary Adams [35.821,-88.084], 1:Shayne Austin [35.806,-88.120]
-      // 2:O'Bryant [35.823,-88.141], 4:Cooley [35.819,-88.098]
-      // 5:Dinsmore [35.818,-88.139], 7:Hickerson [35.817,-88.127]
-      // 8:Terry Britt [35.768,-88.130], 9:Dick Adams [35.821,-88.084]
-      // 10:Austin Parents [35.818,-88.101], 11:Brian Vitt [35.818,-88.128]
       const pplConfig = {
-        0: { pos: 'above' },             // ZACHARY ADAMS — east, isolated
-        1: { pos: 'below' },             // SHAYNE AUSTIN
-        2: { offset: [0.02, -0.03] },    // O'BRYANT — push northwest
-        3: { pos: 'right' },             // ANGELA SCOTT — far north, alone
-        4: { offset: [-0.02, 0.02] },    // COOLEY — push southeast
-        5: { offset: [-0.015, -0.03] },  // DINSMORE — push southwest
-        7: { offset: [0.015, 0.02] },    // HICKERSON — push northeast
-        8: { pos: 'right' },             // TERRY BRITT — south, isolated
-        9: { offset: [-0.015, 0.02] },   // DICK ADAMS — push southeast (near Zachary)
-        10: { offset: [0.02, 0.02] },    // AUSTIN PARENTS — push northeast
-        11: { offset: [0.02, -0.01] }    // BRIAN VITT — push north-northwest
+        0: { pos: 'above' },
+        1: { pos: 'below' },
+        2: { offset: [0.02, -0.03] },
+        3: { pos: 'right' },
+        4: { offset: [-0.02, 0.02] },
+        5: { offset: [-0.015, -0.03] },
+        7: { offset: [0.015, 0.02] },
+        8: { pos: 'right' },
+        9: { offset: [-0.015, 0.02] },
+        10: { offset: [0.02, 0.02] },
+        11: { offset: [0.02, -0.01] }
       };
       people.forEach((item, i) => {
-        if (i === 6) return; // Skip Victor's Shop (same location as home)
+        if (i === 6) return;
         const tid = setTimeout(() => {
           if (item.features && item.features[0]) {
             const c = item.features[0].coords;
             let color = COLORS.other;
             if (item.name.toLowerCase().includes('adams')) color = COLORS.zach;
             if (item.name.toLowerCase().includes('austin')) color = COLORS.holly;
+            if (item.name.toLowerCase().includes('britt')) color = COLORS.britt;
             const m = makeDot(c, color, 5, false);
             activeMarkers.push(m);
             const shortName = item.name.length > 22 ? item.name.substring(0, 22) + '...' : item.name;
@@ -1280,11 +1414,11 @@ const STEPS = {
       });
     }
   },
-  24: {
+
+  26: {
     center: [35.78, -88.08], zoom: 10,
     action() {
       setClock('', 'ALL EVIDENCE');
-      // HB trail
       const hbTrail = [TIMELINE.hb_0800, TIMELINE.hb_0811, TIMELINE.hb_0816, TIMELINE.hb_0826,
         TIMELINE.hb_0900, TIMELINE.hb_0902, TIMELINE.hb_0906, TIMELINE.hb_0910, TIMELINE.hb_0925];
       showTrail(hbTrail, COLORS.holly);
@@ -1292,7 +1426,6 @@ const STEPS = {
         const d = makeDot(c, COLORS.holly, 4, false);
         activeMarkers.push(d);
       });
-      // ZA/JA pings
       [TIMELINE.za_0942, TIMELINE.za_0950, TIMELINE.za_1032, TIMELINE.za_1035, TIMELINE.za_1037,
        TIMELINE.za_1038, TIMELINE.za_1112, TIMELINE.za_1235].forEach(c => {
         const m = makeDot(c, COLORS.zach, 4, false);
@@ -1302,7 +1435,6 @@ const STEPS = {
         const m = makeDot(c, COLORS.autry, 4, false);
         activeMarkers.push(m);
       });
-      // Evidence
       KML_DATA.evidence.forEach(item => {
         if (item.features && item.features[0]) {
           const c = item.features[0].coords;
@@ -1310,7 +1442,6 @@ const STEPS = {
           activeMarkers.push(m);
         }
       });
-      // People
       KML_DATA.people.filter(p => p.name && p.name !== 'Untitled placemark').forEach(item => {
         if (item.features && item.features[0]) {
           const c = item.features[0].coords;
@@ -1319,7 +1450,6 @@ const STEPS = {
           activeMarkers.push(m);
         }
       });
-      // Major
       KML_DATA.major.forEach(item => {
         if (item.features && item.features[0] && item.features[0].type === 'point') {
           const c = item.features[0].coords;
@@ -1327,6 +1457,102 @@ const STEPS = {
           activeMarkers.push(m);
         }
       });
+    }
+  },
+
+  // ═══════ ACT VIII — THE INFORMANT ═══════
+
+  27: {
+    center: BRITT_HOME, zoom: 13,
+    action() {
+      setClock('', 'MARCH — APRIL 2011');
+      const m = makeDot(BRITT_HOME, COLORS.britt, 9, false);
+      activeMarkers.push(m);
+      const lb = makeLabel(BRITT_HOME, 'BRITT RESIDENCE', COLORS.britt, 'above');
+      activeMarkers.push(lb);
+      const purchases = [
+        { text: 'MAR 11–12: NEW PHONES', delay: 600 },
+        { text: 'APR 11: 2,000 PREPAID MINUTES', delay: 1400 },
+        { text: 'APR 29: CHAINSAW', delay: 2200 },
+        { text: 'DECOMP DOGS ALERT: AXE, SHOVEL, HAMMER', delay: 3000 }
+      ];
+      purchases.forEach((p, i) => {
+        const t = setTimeout(() => {
+          const color = i === 3 ? '#ff4444' : COLORS.britt;
+          const note = makeLabel(
+            [BRITT_HOME[0] - 0.006 - (i * 0.005), BRITT_HOME[1]],
+            p.text, color, 'below'
+          );
+          activeMarkers.push(note);
+        }, p.delay);
+        pendingTimeouts.push(t);
+      });
+    }
+  },
+
+  28: {
+    center: [35.72, -88.15], zoom: 11,
+    action() {
+      setClock('', 'INVESTIGATION');
+      const m = makeDot(BRITT_HOME, COLORS.britt, 8, false);
+      activeMarkers.push(m);
+      const lb = makeLabel(BRITT_HOME, 'BRITT', COLORS.britt, 'right');
+      activeMarkers.push(lb);
+      const bm = makeDot(BOBO_HOME, COLORS.holly, 7, false);
+      activeMarkers.push(bm);
+      const bml = makeLabel(BOBO_HOME, 'CLINT: 80% SURE — BRITT\'S VOICE', COLORS.holly, 'below');
+      activeMarkers.push(bml);
+      const line = L.polyline([BRITT_HOME, BOBO_HOME], {
+        color: COLORS.britt, weight: 1.5, opacity: 0.4, dashArray: '6,4'
+      }).addTo(map);
+      activeMarkers.push(line);
+      const midLat = (BRITT_HOME[0] + BOBO_HOME[0]) / 2;
+      const midLng = (BRITT_HOME[1] + BOBO_HOME[1]) / 2;
+      const distLabel = makeLabel([midLat, midLng], '~6 MILES', COLORS.britt, 'right');
+      activeMarkers.push(distLabel);
+    }
+  },
+
+  29: {
+    center: [35.78, -88.12], zoom: 11,
+    action() {
+      setClock('', 'GEOGRAPHIC CENTER');
+      const m = makeDot(BRITT_HOME, COLORS.britt, 10, true);
+      activeMarkers.push(m);
+      const lb = makeLabel(BRITT_HOME, 'TERRY BRITT', COLORS.britt, 'right');
+      activeMarkers.push(lb);
+      KML_DATA.evidence.forEach(item => {
+        if (item.features && item.features[0]) {
+          const c = item.features[0].coords;
+          const d = makeDot(c, COLORS.evid, 4, false);
+          activeMarkers.push(d);
+          const line = L.polyline([BRITT_HOME, c], {
+            color: COLORS.britt, weight: 1, opacity: 0.2, dashArray: '3,5'
+          }).addTo(map);
+          activeMarkers.push(line);
+        }
+      });
+      const ab = makeDot(BOBO_HOME, COLORS.holly, 6, false);
+      activeMarkers.push(ab);
+      const abl = makeLabel(BOBO_HOME, 'ABDUCTION', COLORS.holly, 'below');
+      activeMarkers.push(abl);
+      const abLine = L.polyline([BRITT_HOME, BOBO_HOME], {
+        color: COLORS.britt, weight: 1, opacity: 0.2, dashArray: '3,5'
+      }).addTo(map);
+      activeMarkers.push(abLine);
+      const rm = makeDot(REMAINS_SITE, COLORS.evid, 6, false);
+      activeMarkers.push(rm);
+      const rml = makeLabel(REMAINS_SITE, 'REMAINS', COLORS.evid, 'above');
+      activeMarkers.push(rml);
+      const rmLine = L.polyline([BRITT_HOME, REMAINS_SITE], {
+        color: COLORS.britt, weight: 1, opacity: 0.2, dashArray: '3,5'
+      }).addTo(map);
+      activeMarkers.push(rmLine);
+      const za = makeDot(ADAMS_HOME, COLORS.zach, 5, false);
+      za.setStyle({ opacity: 0.5, fillOpacity: 0.3 });
+      activeMarkers.push(za);
+      const zal = makeLabel(ADAMS_HOME, 'ZACH ADAMS', COLORS.zach, 'right');
+      activeMarkers.push(zal);
     }
   }
 };
@@ -1353,7 +1579,7 @@ function handleStepEnter(response) {
 
   // Show reference anchors (Holly last ping + remains) from Final Ping onward
   // Hide on steps that explicitly show those same locations to avoid duplication
-  const refExclude = [13, 21, 22, 23, 24, 25];
+  const refExclude = [13, 20, 21, 23, 24, 25, 26, 27, 28, 29];
   if (stepIndex >= 14 && !refExclude.includes(stepIndex)) {
     showRefAnchors();
   } else {
