@@ -304,6 +304,11 @@
 
 <!-- Basemap toggle -->
 <button id="basemap-toggle" onclick="toggleBasemap()">SATELLITE / DARK</button>
+<button id="coverage-toggle" onclick="toggleCoverage()" style="position:fixed;bottom:20px;right:180px;z-index:800;
+  font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9D4EDD;
+  background:rgba(6,11,20,0.85);border:1px solid rgba(157,78,221,0.3);
+  padding:6px 14px;border-radius:3px;cursor:pointer;letter-spacing:0.06em;
+  transition:background 0.2s;">TOWER COVERAGE</button>
 
 <!-- Narrative -->
 <div id="narrative">
@@ -599,6 +604,86 @@ function toggleBasemap() {
     map.addLayer(satTiles);
   }
   usingSatellite = !usingSatellite;
+}
+
+// ═══════════════════════════════ TOWER COVERAGE ═══════════════════════════════
+const coverageLayers = [];
+let coverageVisible = false;
+
+// Color palette per tower group
+const TOWER_COLORS = {
+  'ADAMS HOME':         { A: '#00ffff', B: '#0088ff', C: '#ff00ff' },
+  'ATT 083012 - 12571': { A: '#00cc44', B: '#00cc44', C: '#00cc44' },
+  'ATT 083012 - 12572': { A: '#006622', B: '#006622', C: '#006622' },
+  'ATT 083012 - 12573': { A: '#44ff88', B: '#44ff88', C: '#44ff88' },
+  'CR 1096 - SHILOH ROAD': { A: '#00dddd', B: '#ff00ff', C: '#00bbff' },
+  'CAMDEN AREA':        { A: '#0000cc', B: '#000088', C: '#4400aa' },
+  'ROCKY POINT':        { A: '#00aaff', B: '#0066cc', C: '#00ccee' },
+  'CHESTERFIELD':       { A: '#ff4444', B: '#cc0000', C: '#ff8800' },
+  'ATT 084458 - 39077': { A: '#4444ff', B: '#4444ff', C: '#4444ff' },
+  'ATT 084458 - 39078': { A: '#8800cc', B: '#8800cc', C: '#8800cc' },
+  'ATT 084458 - 39079': { A: '#cc44ff', B: '#cc44ff', C: '#cc44ff' }
+};
+
+function buildCoverage() {
+  KML_DATA.towers.forEach(item => {
+    if (!item.name || !item.features || !item.features[0]) return;
+    const f = item.features[0];
+    if (f.type === 'polygon' && f.coords) {
+      // Determine tower base and sector
+      const base = item.name.replace(/ - SECTOR.*/, '').replace(/ - Wedge/, '').trim();
+      const sectorMatch = item.name.match(/SECTOR\s+([ABC])/);
+      const sector = sectorMatch ? sectorMatch[1] : 'A';
+      const colors = TOWER_COLORS[base] || { A: '#888', B: '#888', C: '#888' };
+      const color = colors[sector] || '#888';
+      const poly = L.polygon(f.coords, {
+        color: color,
+        weight: 1,
+        opacity: 0.5,
+        fillColor: color,
+        fillOpacity: 0.18,
+        interactive: false
+      });
+      coverageLayers.push(poly);
+    } else if (f.type === 'point') {
+      // Tower location marker
+      const m = L.circleMarker(f.coords, {
+        radius: 5, fillColor: '#fff', color: '#fff',
+        weight: 2, opacity: 0.8, fillOpacity: 0.6,
+        interactive: false
+      });
+      coverageLayers.push(m);
+      // Short label
+      const shortName = item.name.replace(/ - TOWER NEAR.*| CELL TOWER| - ATT.*| - CR.*/,'').trim();
+      const icon = L.divIcon({
+        className: '',
+        html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#fff;
+          letter-spacing:0.05em;white-space:nowrap;
+          text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 4px rgba(0,0,0,0.9);
+          transform:translate(0,-50%);margin-left:12px;pointer-events:none;">${shortName}</div>`,
+        iconSize: [0, 0], iconAnchor: [0, 0]
+      });
+      const lbl = L.marker(f.coords, { icon, interactive: false });
+      coverageLayers.push(lbl);
+    }
+  });
+}
+
+function toggleCoverage() {
+  if (coverageLayers.length === 0) buildCoverage();
+  coverageVisible = !coverageVisible;
+  const btn = document.getElementById('coverage-toggle');
+  if (coverageVisible) {
+    coverageLayers.forEach(l => l.addTo(map));
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'rgba(157,78,221,0.7)';
+    btn.style.background = 'rgba(157,78,221,0.3)';
+  } else {
+    coverageLayers.forEach(l => map.removeLayer(l));
+    btn.style.color = '#9D4EDD';
+    btn.style.borderColor = 'rgba(157,78,221,0.3)';
+    btn.style.background = 'rgba(6,11,20,0.85)';
+  }
 }
 
 // ═══════════════════════════════ MARKER HELPERS ═══════════════════════════════
