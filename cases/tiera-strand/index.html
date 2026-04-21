@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tiera Strand — Investigative Timeline</title>
+  <meta name="description" content="An investigative timeline of the disappearance and death of Tiera Strand, 25, last seen April 16, 2023 on Austin's 6th Street. Body recovered in Bell County, TX. Case active.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/cases/tiera-strand/">
+  <meta property="og:site_name" content="Subtxt Press">
+  <meta property="og:title" content="Tiera Strand — Investigative Timeline">
+  <meta property="og:description" content="Last seen April 16, 2023 on Austin's 6th Street. Body found in a Bell County ditch, 75 miles away. This case is unsolved.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/cases/tiera-strand/">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/cases/tiera-strand/tiera-strand.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@subtxtpress">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <meta name="twitter:title" content="Tiera Strand — Investigative Timeline">
+  <meta name="twitter:description" content="Last seen April 16, 2023 on Austin's 6th Street. Body found in a Bell County ditch, 75 miles away. This case is unsolved.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/cases/tiera-strand/tiera-strand.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="public/icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="public/icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="public/icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="public/icons/favicon.ico">
+  <link rel="manifest" href="public/icons/site.webmanifest">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #060B14;
+      --surface:  #0D1B2A;
+      --border:   rgba(244,229,196,0.10);
+      --border2:  rgba(244,229,196,0.22);
+      --text:     #F5F5F5;
+      --text2:    #D8DADB;
+      --muted:    rgba(216,218,219,0.50);
+      --c-tiera:  #C04E01;
+      --c-poi:    #9D4EDD;
+      --c-cream:  #EBE2CD;
+      --c-teal:   #4A8A7C;
+      --c-red:    #E63946;
+      --mono:     'IBM Plex Mono', monospace;
+      --body:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --head:     'Barlow Condensed', sans-serif;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --nav-h:    48px;
+    }
+
+    html, body { width: 100%; height: 100%; overflow: hidden; }
+    body {
+      background: var(--bg);
+      color: var(--text2);
+      font-family: var(--body);
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PROGRESS BAR ── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--c-tiera); z-index: 1300;
+      width: 0; transition: width 0.15s ease-out;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(6,11,20,0.97);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 20px; z-index: 1200; gap: 12px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-title {
+      font-family: var(--head); font-size: 16px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--text);
+      white-space: nowrap;
+    }
+    .nav-tag {
+      background: rgba(192,78,1,0.14); border: 1px solid rgba(192,78,1,0.45);
+      color: #d97b4a; font-family: var(--mono); font-size: 9px; font-weight: 500;
+      padding: 3px 9px; border-radius: 2px; letter-spacing: 0.14em;
+      text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-tip {
+      margin-left: auto; font-family: var(--mono); font-size: 9px;
+      color: rgba(235,226,205,0.45); letter-spacing: 0.06em; white-space: nowrap;
+    }
+
+    /* ── MAP ── */
+    #map {
+      position: fixed;
+      top: var(--nav-h); right: 0;
+      width: 60%; height: calc(100vh - var(--nav-h));
+      z-index: 1;
+    }
+
+    /* ── CLOCK ── */
+    #clock {
+      position: fixed;
+      top: calc(var(--nav-h) + 16px); right: 16px;
+      z-index: 800;
+      background: rgba(6,11,20,0.85);
+      border: 1px solid var(--border2);
+      padding: 10px 18px; border-radius: 4px;
+      text-align: right;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: opacity 0.4s;
+    }
+    .clock-date {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.14em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 3px;
+    }
+    .clock-time {
+      font-family: var(--mono); font-size: 26px;
+      font-weight: 500; color: var(--text); letter-spacing: 0.04em;
+    }
+
+    /* ── NARRATIVE ── */
+    #narrative {
+      position: fixed;
+      top: var(--nav-h); left: 0;
+      width: 40%; height: calc(100vh - var(--nav-h));
+      overflow-y: auto; overflow-x: hidden;
+      z-index: 100;
+      background: var(--bg);
+      border-right: 1px solid var(--border);
+    }
+    #narrative::-webkit-scrollbar { width: 4px; }
+    #narrative::-webkit-scrollbar-track { background: transparent; }
+    #narrative::-webkit-scrollbar-thumb { background: rgba(216,218,219,0.18); border-radius: 2px; }
+
+    /* ── STEPS ── */
+    .step {
+      min-height: 70vh;
+      padding: 48px 36px 48px 40px;
+      border-left: 3px solid transparent;
+      opacity: 0.3;
+      transition: opacity 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+    }
+    .step.is-active { opacity: 1; background: rgba(13,27,42,0.35); }
+    .step:first-child { padding-top: 60px; }
+    .step:last-child { min-height: 90vh; }
+
+    .act-label {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.16em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .step-time {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.10em; color: var(--muted);
+      margin-bottom: 10px; text-transform: uppercase;
+    }
+    .step-title {
+      font-family: var(--head); font-size: 22px;
+      font-weight: 700; color: var(--text);
+      letter-spacing: 0.03em; margin-bottom: 14px; line-height: 1.3;
+    }
+    .step p { font-size: 14px; line-height: 1.75; color: var(--text2); margin-bottom: 12px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .person-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.06em; padding: 3px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text2);
+    }
+    .person-pill .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+
+    .details {
+      list-style: none; margin: 12px 0;
+      border-left: 2px solid rgba(244,229,196,0.12);
+      padding-left: 14px;
+    }
+    .details li {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--muted); letter-spacing: 0.03em;
+      line-height: 1.6; margin-bottom: 5px;
+    }
+    .details li::before { content: '· '; color: var(--border2); }
+
+    /* ── VIDEO BUTTONS ── */
+    .video-btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+    .video-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text); background: rgba(192,78,1,0.18);
+      border: 1px solid rgba(192,78,1,0.4);
+      padding: 8px 14px; border-radius: 3px; cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .video-btn:hover { background: rgba(192,78,1,0.32); border-color: rgba(192,78,1,0.6); }
+    .video-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+    /* ── VENUE PHOTO ── */
+    .venue-thumb {
+      display: block; width: 100%; margin: 14px 0 0;
+      border: 1px solid var(--border2); border-radius: 4px;
+      overflow: hidden; cursor: pointer; background: var(--surface);
+      transition: border-color 0.2s, transform 0.15s; padding: 0;
+    }
+    .venue-thumb:hover { border-color: rgba(192,78,1,0.5); transform: translateY(-1px); }
+    .venue-thumb img {
+      width: 100%; height: 130px;
+      object-fit: cover; object-position: center 40%;
+      display: block; transition: opacity 0.2s;
+    }
+    .venue-thumb:hover img { opacity: 0.85; }
+    .venue-thumb-caption {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 10px 7px;
+      font-family: var(--mono); font-size: 10px;
+      color: rgba(235,226,205,0.55); letter-spacing: 0.04em;
+    }
+
+    /* ── POI CARD ── */
+    .poi-card {
+      margin: 16px 0 0;
+      border: 1px solid rgba(157,78,221,0.3);
+      border-radius: 4px;
+      background: rgba(157,78,221,0.06);
+      overflow: hidden;
+    }
+    .poi-card-header {
+      padding: 8px 14px;
+      background: rgba(157,78,221,0.12);
+      border-bottom: 1px solid rgba(157,78,221,0.2);
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #b47ee8;
+    }
+    .poi-card-body { padding: 12px 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .poi-section-label {
+      font-family: var(--mono); font-size: 8px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 7px;
+    }
+    .poi-list { list-style: none; }
+    .poi-list li {
+      font-family: var(--body); font-size: 12px;
+      color: var(--text2); line-height: 1.55;
+      margin-bottom: 5px; padding-left: 10px;
+      position: relative;
+    }
+    .poi-list li::before {
+      content: '—'; position: absolute; left: 0;
+      color: rgba(157,78,221,0.5); font-size: 10px;
+    }
+
+    /* ── TITLE CARD ── */
+    .step.title-card {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      min-height: 92vh; gap: 0;
+    }
+    .title-card .eyebrow {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--c-tiera); margin-bottom: 14px;
+    }
+    .title-card h1 {
+      font-family: var(--serif); font-size: 52px;
+      font-weight: 700; line-height: 1.05;
+      color: var(--text); letter-spacing: -0.01em;
+      margin-bottom: 18px;
+    }
+    .title-card .subtitle {
+      font-size: 14px; line-height: 1.7;
+      color: rgba(216,218,219,0.55); margin-bottom: 24px;
+    }
+    .title-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; width: 100%; margin-bottom: 24px;
+    }
+    .stat-box {
+      background: rgba(18,64,60,0.20);
+      border: 1px solid var(--border);
+      border-radius: 4px; padding: 12px 14px;
+    }
+    .stat-label {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.14em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .stat-value {
+      font-family: var(--head); font-size: 18px;
+      font-weight: 700; color: var(--text); letter-spacing: 0.02em;
+    }
+    .stat-value.unsolved { color: var(--c-teal); }
+    .scroll-hint {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--text2); letter-spacing: 0.08em;
+      animation: pulse 2.2s infinite;
+    }
+
+    /* ── LEAFLET OVERRIDES ── */
+    .leaflet-control-attribution { font-size: 9px !important; opacity: 0.4; }
+    .leaflet-control-zoom { border: 1px solid var(--border2) !important; }
+    .leaflet-control-zoom a {
+      background: rgba(6,11,20,0.9) !important;
+      color: var(--text) !important; border-color: var(--border) !important;
+    }
+    .leaflet-marker-icon { background: transparent !important; border: none !important; box-shadow: none !important; }
+    .leaflet-marker-shadow { display: none !important; }
+    @keyframes markerPulse {
+      0% { box-shadow: 0 0 0 0 currentColor; }
+      70% { box-shadow: 0 0 0 14px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+    .pulse-marker { animation: markerPulse 2s infinite; }
+
+    /* ── MODALS ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.88);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-inner {
+      position: relative; width: 100%;
+      background: var(--bg); border: 1px solid var(--border2);
+      border-radius: 6px; overflow: hidden;
+    }
+    #video-modal .modal-inner { max-width: 900px; }
+    #photo-modal .modal-inner { max-width: 1000px; }
+    .modal-close {
+      position: absolute; top: 10px; right: 10px; z-index: 10;
+      width: 32px; height: 32px;
+      background: rgba(0,0,0,0.6); border: 1px solid var(--border);
+      border-radius: 4px; color: var(--text2); cursor: pointer;
+      font-size: 16px; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s; line-height: 1;
+    }
+    .modal-close:hover { background: rgba(192,78,1,0.3); }
+    #video-modal video { width: 100%; display: block; }
+    #video-modal .modal-caption {
+      padding: 8px 14px; font-family: var(--mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.04em;
+      border-top: 1px solid var(--border);
+    }
+    #photo-modal img { width: 100%; display: block; }
+    #photo-modal .modal-caption {
+      padding: 8px 14px; font-family: var(--mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.04em;
+      border-top: 1px solid var(--border);
+    }
+
+    @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      #map { width: 100%; height: 40vh; top: var(--nav-h); left: 0; right: 0; }
+      #narrative { width: 100%; top: calc(var(--nav-h) + 40vh); height: calc(60vh - var(--nav-h)); }
+      #clock { right: 10px; top: calc(var(--nav-h) + 8px); padding: 6px 12px; }
+      .clock-time { font-size: 20px; }
+      .step { padding: 24px 20px; min-height: calc(60vh - var(--nav-h) - 20px); }
+      .step:first-child { padding-top: 28px; }
+      .step.title-card { min-height: calc(60vh - var(--nav-h) - 20px); padding-top: 28px; }
+      .title-card h1 { font-size: 32px; }
+      .poi-card-body { grid-template-columns: 1fr; }
+      .nav-tip { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-title">Tiera Strand</div>
+  <span class="nav-tag">Active Case</span>
+  <span class="nav-tip">BCSD CID 254-933-5442 &nbsp;·&nbsp; APD 512-472-8477</span>
+</nav>
+
+<div id="clock">
+  <div class="clock-date" id="clock-date">APRIL 2023</div>
+  <div class="clock-time" id="clock-time"></div>
+</div>
+
+<div id="map"></div>
+
+<div id="narrative">
+
+  <!-- STEP 0: Title -->
+  <div class="step title-card is-active" data-step="0" style="border-color: transparent;">
+    <div class="eyebrow">April 2023 — Austin, Texas</div>
+    <h1>The Disappearance &amp; Death of Tiera Strand</h1>
+    <p class="subtitle">On the night of April 15–16, 2023, Tiera Strand, 25, went out with friends to Austin's 6th Street. She was beaten at a bar, left without her phone or wallet, and encountered an unknown man. She was never seen alive again. Five days later her body was found in a ditch 75 miles away.</p>
+    <div class="title-stats">
+      <div class="stat-box"><div class="stat-label">Last Seen</div><div class="stat-value">Apr 16 · 2:40 AM</div></div>
+      <div class="stat-box"><div class="stat-label">Found</div><div class="stat-value">Apr 21 · Bell Co.</div></div>
+      <div class="stat-box"><div class="stat-label">Distance</div><div class="stat-value">75 miles</div></div>
+      <div class="stat-box"><div class="stat-label">Case Status</div><div class="stat-value unsolved">UNSOLVED</div></div>
+    </div>
+    <div class="scroll-hint">&darr; Scroll to begin</div>
+  </div>
+
+  <!-- STEP 1: Tiera Photographed -->
+  <div class="step" data-step="1" style="border-color: #C04E01;">
+    <div class="act-label">Act I — The Night Out</div>
+    <div class="step-time">April 15, 2023 — Evening</div>
+    <h2 class="step-title">Tiera Photographed</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
+    </div>
+    <p>Tiera Strand, 25, goes out with a group of friends to Austin's 6th Street entertainment district. A photograph taken this night is the last known image of Tiera alive.</p>
+    <p>She is described by her family as full of life — bubbly, sassy, expressive. She had plans to finish school and join the Navy. She was a mother to a 6-year-old daughter.</p>
+  </div>
+
+  <!-- STEP 2: POI Body Cam -->
+  <div class="step" data-step="2" style="border-color: #9D4EDD;">
+    <div class="act-label">Act I — The Night Out</div>
+    <div class="step-time">April 16, 2023 — 1:44 AM</div>
+    <h2 class="step-title">POI Captured on Body Cam</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
+    </div>
+    <p>Footage screened at APD's press conference shows an officer's Axon body camera capturing a man on the 300 block of E 6th Street performing what's described as a military-style facing movement.</p>
+    <p>This is the first documented appearance of the Person of Interest (POI) on 6th Street — approximately 45 minutes before he will approach Tiera. The exact venue doorway is unconfirmed; APD has not released the source footage.</p>
+    <ul class="details">
+      <li>Footage source: APD press conference screen capture — original file not publicly released</li>
+    </ul>
+    <div class="poi-card">
+      <div class="poi-card-header">Person of Interest — Physical Profile</div>
+      <div class="poi-card-body">
+        <div>
+          <div class="poi-section-label">Appearance</div>
+          <ul class="poi-list">
+            <li>Broad shoulders, muscular build</li>
+            <li>Light gray sweatshirt — small chest emblem</li>
+            <li>Light wash jeans, dark sneakers</li>
+            <li>Military-style 5A frames glasses</li>
+            <li>Both ears pierced</li>
+            <li>Approx. 6'0", athletic frame</li>
+          </ul>
+        </div>
+        <div>
+          <div class="poi-section-label">Behavioral Observations</div>
+          <ul class="poi-list">
+            <li>Military-style facing movement at 1:44 AM — suggests training</li>
+            <li>On 6th Street ~45 min before approaching Tiera — not believed to be a random encounter</li>
+            <li>Conspicuously absent during the Mooseknuckle altercation</li>
+            <li>Made contact only after Tiera was isolated and stripped of her belongings</li>
+            <li>Chain-smoking began immediately upon contact — not observed before</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/poi-shakespeares-144am.mp4','POI — Shakespeare\'s · 1:44 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play Footage
+      </button>
+    </div>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/shakespeares-pub.jpg','Shakespeare\'s Pub · 314 E 6th St')">
+      <img src="public/venues/shakespeares-pub.jpg" alt="Shakespeare's Pub" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">Shakespeare's Pub · 314 E 6th St</div>
+    </button>
+  </div>
+
+  <!-- STEP 3: Blind Pig -->
+  <div class="step" data-step="3" style="border-color: #9D4EDD;">
+    <div class="act-label">Act I — The Night Out</div>
+    <div class="step-time">April 16, 2023 — 1:45 AM</div>
+    <h2 class="step-title">Blind Pig Footage</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
+    </div>
+    <p>Approximately 40 seconds after the Shakespeare's footage, a second Axon clip captures the POI walking past The Blind Pig bar on 6th Street.</p>
+    <p>The POI continues moving through the 6th Street corridor. He has not yet made contact with Tiera at this point.</p>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/poi-blind-pig-145am.mp4','POI — Blind Pig · 1:45 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play Footage
+      </button>
+    </div>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/blind-pig.webp','The Blind Pig · 317 E 6th St')">
+      <img src="public/venues/blind-pig.webp" alt="The Blind Pig" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">The Blind Pig · 317 E 6th St</div>
+    </button>
+  </div>
+
+  <!-- STEP 4: Trinity Street -->
+  <div class="step" data-step="4" style="border-color: #EBE2CD;">
+    <div class="act-label">Act I — The Night Out</div>
+    <div class="step-time">April 16, 2023 — ~2:00 AM</div>
+    <h2 class="step-title">Trinity Street Confrontation</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
+    </div>
+    <p>Surveillance footage from POD146 (6th and Trinity — Old School Bar) shows the POI walking with a group. A woman in the group lunges at him; she is pulled back by friends.</p>
+    <p>Two unidentified women near a rickshaw also speak with the POI around this time. Law enforcement has sought these individuals for interviews.</p>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/pod146-old-school-bar-200am.mp4','POD146 — Old School Bar · ~2:00 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play Footage
+      </button>
+    </div>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/old-school-bar.jpg','Old School Bar · 6th &amp; Trinity St')">
+      <img src="public/venues/old-school-bar.jpg" alt="Old School Bar" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">Old School Bar · 6th &amp; Trinity St</div>
+    </button>
+  </div>
+
+  <!-- STEP 45: IH-35 Departure -->
+  <div class="step" data-step="45" style="border-color: #EBE2CD;">
+    <div class="act-label">Act I — The Night Out</div>
+    <div class="step-time">April 16, 2023 — 2:09 AM</div>
+    <h2 class="step-title">POI Departs Under IH-35</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
+    </div>
+    <p>POD102, a camera mounted on the 600 block of IH-35 and facing west, captures the POI walking east under the Interstate 35 overpass at 2:09 AM — moving away from the 6th Street corridor.</p>
+    <p>This is 9 minutes after his last sighting at the Trinity Street encounter. He will reappear at Mooseknuckle Pub approximately 20 minutes later. What he did in that interval, and how he returned, is not explained by any recovered footage.</p>
+    <ul class="details">
+      <li>Camera: POD102, 600 block IH-35, west-facing</li>
+      <li>Direction of travel: east — away from 6th Street entertainment district</li>
+      <li>9 minutes after Trinity Street encounter</li>
+      <li>Reappears at Mooseknuckle ~20 minutes later — gap unaccounted for</li>
+    </ul>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/pod102-ih35-209am-a.mp4','POD102 — IH-35 · 2:09:39 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Clip 1 — 2:09:39 AM
+      </button>
+      <button class="video-btn" onclick="openVideo('public/videos/pod102-ih35-209am-b.mp4','POD102 — IH-35 · 2:09:50 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Clip 2 — 2:09:50 AM
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 5: Mooseknuckle Altercation -->
+  <div class="step" data-step="5" style="border-color: #C04E01;">
+    <div class="act-label">Act II — The Altercation</div>
+    <div class="step-time">April 16, 2023 — ~2:30 AM</div>
+    <h2 class="step-title">Altercation at Mooseknuckle Pub</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
+    </div>
+    <p>Inside Mooseknuckle Pub at 406 E. 6th Street, a group of girls begin beating Tiera. She is kicked out of the bar. The fight continues outside.</p>
+    <p>The friends who came with her are present but do not intervene. A witness records the tail end of the fight on a cell phone.</p>
+    <p>After the incident, Tiera angrily storms off — leaving behind her cell phone, purse, and car keys. She has no way to call for help and no way to pay for transportation.</p>
+    <ul class="details">
+      <li>Assault begins inside the club, continues outside after she is kicked out</li>
+      <li>Friends present but did not assist — confirmed by witness video</li>
+      <li>Left without phone, purse, wallet, bank card, car keys</li>
+      <li>Friends depart in Tiera's van without reporting her missing</li>
+      <li>Family not notified until the following day (April 17)</li>
+    </ul>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/mooseknuckle.webp','Mooseknuckle Pub · 406 E 6th St')">
+      <img src="public/venues/mooseknuckle.webp" alt="Mooseknuckle Pub" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">Mooseknuckle Pub · 406 E 6th St</div>
+    </button>
+  </div>
+
+  <!-- STEP 6: POI Approaches Tiera -->
+  <div class="step" data-step="6" style="border-color: #9D4EDD;">
+    <div class="act-label">Act III — The Last Hours</div>
+    <div class="step-time">April 16, 2023 — Post-2:30 AM</div>
+    <h2 class="step-title">POI Approaches Tiera</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
+      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
+    </div>
+    <p>Now alone and without her belongings, Tiera is approached by the POI near San Jacinto. This is the first documented contact between them. They begin walking together, moving away from I-35 and toward San Jacinto.</p>
+    <p>The POI had been on 6th Street for approximately 45 minutes before this approach. He was not present during the Mooseknuckle altercation. He made contact only after Tiera was isolated and vulnerable.</p>
+    <ul class="details">
+      <li>POI had been observed on 6th Street for ~45 min before this contact</li>
+      <li>POI was not near Tiera during the earlier altercation</li>
+      <li>POI approaches only after Tiera is alone and without possessions</li>
+      <li>Tiera appears comfortable in initial video footage</li>
+    </ul>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/poi-tiera-san-jacinto.mp4','POI + Tiera — San Jacinto')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play Footage
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 7: Direction Change -->
+  <div class="step" data-step="7" style="border-color: #9D4EDD;">
+    <div class="act-label">Act III — The Last Hours</div>
+    <div class="step-time">April 16, 2023 — ~2:35 AM</div>
+    <h2 class="step-title">Direction Change</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
+      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
+    </div>
+    <p>The pair reverses direction, now walking back toward I-35. Horse camera footage (Bijou Lounge to their left) records them moving northeast.</p>
+    <p>At this point, investigators note the POI begins chain-smoking — a behavior that was not observed during his 45 minutes on 6th Street before meeting Tiera.</p>
+    <ul class="details">
+      <li>Prior to meeting Tiera, POI was not observed smoking at any point</li>
+      <li>Chain-smoking begins immediately after contact with Tiera</li>
+      <li>Behavioral change noted as potentially significant by investigators</li>
+    </ul>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/horse-cam-bijou-lounge.mp4','Horse Cam — Bijou Lounge · ~2:35 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play Footage
+      </button>
+    </div>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/bijou-lounge.jpg','Bijou Lounge · ~500 E 6th St')">
+      <img src="public/venues/bijou-lounge.jpg" alt="Bijou Lounge" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">Bijou Lounge · ~500 E 6th St</div>
+    </button>
+  </div>
+
+  <!-- STEP 8: Last Sighting -->
+  <div class="step" data-step="8" style="border-color: #C04E01;">
+    <div class="act-label">Act III — The Last Hours</div>
+    <div class="step-time">April 16, 2023 — 2:40 AM</div>
+    <h2 class="step-title">Last Confirmed Sighting</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND — LAST SIGNAL</span>
+    </div>
+    <p>POD145 footage (6th and Brushy) captures the pair crossing under I-35 and walking into a Wendy's parking lot north of downtown Austin at 2:40 AM. This is the last recovered footage of Tiera alive.</p>
+    <p>The Wendy's drive-through camera did not capture activity in the parking lot. No witnesses from Wendy's staff or customers came forward. No video or physical evidence of what occurred next has been recovered.</p>
+    <ul class="details">
+      <li>Last verified location: Wendy's parking lot, north of I-35</li>
+      <li>Drive-through camera did not cover parking lot area</li>
+      <li>No witnesses came forward from Wendy's</li>
+      <li>No evidence recovered of what occurred after this point</li>
+    </ul>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/pod145-wendys-240am.mp4','POD145 — Wendy\'s · 2:40 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play Footage
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 9: Missing Person Report -->
+  <div class="step" data-step="9" style="border-color: #EBE2CD;">
+    <div class="act-label">Act IV — Gone</div>
+    <div class="step-time">April 17, 2023 — Daytime</div>
+    <h2 class="step-title">Missing Person Report Filed</h2>
+    <p>The friends who left Tiera on 6th Street finally contact her family the following day. When the family tried to reach Tiera, the friends answered her phone and said they had her belongings — which the family says is completely out of character for Tiera.</p>
+    <p>Tiera's family immediately reports her missing to the Austin Police Department. But by this point, Tiera has been missing for approximately 14 hours.</p>
+    <p>"She would not have gone to that area without someone that knows and loves her," said Tiera's aunt, Jordaya Dorris.</p>
+    <ul class="details">
+      <li>Family tried to call — friends answered Tiera's phone</li>
+      <li>Friends said they had her belongings — family said this was out of character</li>
+      <li>APD missing persons report filed April 17</li>
+      <li>Approximately 14 hours had passed since her last sighting</li>
+    </ul>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/tiera-strand-flyer.webp','Missing Person — Tiera Strand · Filed April 17, 2023')">
+      <img src="public/venues/tiera-strand-flyer.webp" alt="Tiera Strand Missing Person Flyer" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">Missing Person Flyer — Filed April 17, 2023</div>
+    </button>
+  </div>
+
+  <!-- STEP 10: Body Found -->
+  <div class="step" data-step="10" style="border-color: #E63946;">
+    <div class="act-label">Act V — Found</div>
+    <div class="step-time">April 21, 2023 — Morning</div>
+    <h2 class="step-title">Body Discovered — Bell County</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#E63946;"></span>BELL COUNTY, TX</span>
+    </div>
+    <p>Heavy rain on Thursday night (April 20) washes roadside grass flat. A citizen driving to work the next morning discovers Tiera's body in a ditch at the 1300 block of Berger Road, just north of Temple — approximately 75 miles from where she was last seen in Austin.</p>
+    <p>Tiera's family has confirmed she had no known connection to Bell County. There is no reason she would have traveled there voluntarily — without her belongings, without someone she knew.</p>
+    <p>"She would not have gone to that area without someone that knows and loves her." — Jordaya Dorris, aunt</p>
+    <ul class="details">
+      <li>75 miles north of Austin on the I-35 corridor</li>
+      <li>No known connection to Bell County — family confirms</li>
+      <li>Body in advanced decomposition (~5 days exposure)</li>
+      <li>Rain runoff exposed body by washing down roadside grass</li>
+      <li>Partial DNA profile recovered but not CODIS-eligible</li>
+      <li>Investigation opened as homicide by Bell County Sheriff's Department</li>
+    </ul>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/body-found-kdhnews.jpg','Scene — 1300 block Berger Rd, Bell County · Photo: KDH News')">
+      <img src="public/venues/body-found-kdhnews.jpg" alt="Scene — Berger Road, Bell County" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">1300 block Berger Rd, Bell County · Photo: KDH News</div>
+    </button>
+  </div>
+
+  <!-- STEP 11: Autopsy -->
+  <div class="step" data-step="11" style="border-color: #EBE2CD;">
+    <div class="act-label">Act V — Found</div>
+    <div class="step-time">July 27, 2023</div>
+    <h2 class="step-title">Autopsy: Cause of Death Undetermined</h2>
+    <p>An autopsy performed by the Dallas County Medical Examiner rules the cause of death as "undetermined." The report notes no visible trauma to the body, but acknowledges that the level of decomposition may have obscured fatal injuries.</p>
+    <p>"The events that occurred between the time the decedent was last known alive and the time her remains were discovered are currently unknown. Furthermore, the level of decomposition may have obscured an injury or injuries that caused or contributed to her death." — Autopsy report</p>
+    <p>The investigation continues to be treated as a homicide by the Bell County Sheriff's Department and the Austin Police Department Homicide Unit.</p>
+    <ul class="details">
+      <li>Cause of death classified as "undetermined"</li>
+      <li>No visible trauma noted on remains</li>
+      <li>Decomposition likely obscured cause of fatal injury</li>
+      <li>Investigation treated as homicide — case remains active</li>
+      <li>Numerous individuals questioned; no definitive suspects named</li>
+    </ul>
+  </div>
+
+  <!-- STEP 12: The Investigation -->
+  <div class="step" data-step="12" style="border-color: #4A8A7C;">
+    <div class="act-label">Act V — Found</div>
+    <div class="step-time">2023 — Present</div>
+    <h2 class="step-title">The Investigation</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#4A8A7C;"></span>CASE ACTIVE</span>
+    </div>
+    <p>The Bell County Sheriff's Office Criminal Investigations Division and the Austin Police Department Homicide Unit are jointly investigating Tiera's death. The case is classified as a homicide.</p>
+    <p>A partial DNA profile was recovered from evidence but does not meet the threshold for CODIS database matching. Investigators are exploring whether the profile qualifies for Investigative Genetic Genealogy (IGG) — the same technique used to identify the Golden State Killer.</p>
+    <p>The Person of Interest captured on multiple surveillance cameras on the night of April 15–16 has never been publicly identified. Investigators believe someone in the public knows who he is.</p>
+    <ul class="details">
+      <li>Partial DNA profile recovered — not CODIS-eligible at current threshold</li>
+      <li>IGG (investigative genetic genealogy) being evaluated as next step</li>
+      <li>POI appears on APD body cam, Axon footage, and multiple private cameras</li>
+      <li>POI: broad shoulders, muscular, light gray sweatshirt w/ chest emblem, light wash jeans, dark sneakers, military 5A frames, both ears pierced</li>
+      <li>BCSD CID: 254-933-5442</li>
+      <li>APD Homicide: 512-472-8477</li>
+    </ul>
+  </div>
+
+  <!-- STEP 13: Were You There -->
+  <div class="step" data-step="13" style="border-color: #EBE2CD;">
+    <div class="act-label">If You Were There</div>
+    <h2 class="step-title">Were You on 6th Street That Night?</h2>
+    <p>If you were on Austin's 6th Street in the early hours of April 16, 2023 — near Shakespeare's Pub, The Blind Pig, the Old School Bar, or Mooseknuckle Pub — you may have seen something that could break this case open.</p>
+    <p>Investigators are specifically looking for anyone who saw the altercation at Mooseknuckle Pub around 2:30 AM, witnessed Tiera after she was separated from her group, or recognized the Person of Interest.</p>
+    <p>Tiera's daughter is growing up without her mother. Her family deserves answers. No detail is too small.</p>
+    <ul class="details">
+      <li>Bell County Sheriff's Office CID: 254-933-5442</li>
+      <li>Austin Police Department Homicide: 512-472-8477</li>
+      <li>Tips can be submitted anonymously</li>
+      <li>Any information — even if you're unsure it matters — could help</li>
+    </ul>
+  </div>
+
+</div><!-- #narrative -->
+
+<!-- Video modal -->
+<div class="modal-overlay" id="video-modal" onclick="closeModals(event)">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeVideo()">&times;</button>
+    <video id="modal-video" controls playsinline></video>
+    <div class="modal-caption" id="video-caption"></div>
+  </div>
+</div>
+
+<!-- Photo modal -->
+<div class="modal-overlay" id="photo-modal" onclick="closeModals(event)">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closePhoto()">&times;</button>
+    <img id="modal-photo" src="" alt="">
+    <div class="modal-caption" id="photo-caption"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+<script>
+/* ── Coordinates ── */
+const SHAKESPEARES = [30.2671, -97.7394];
+const BLIND_PIG    = [30.2671, -97.7387];
+const TRINITY_6TH  = [30.2671, -97.7379];
+const MOOSEKNUCKLE = [30.2671, -97.7372];
+const BIJOU_LOUNGE = [30.2673, -97.7348];
+const SAN_JAC      = [30.2678, -97.7368];
+const I35_CROSS    = [30.2700, -97.7320];
+const WENDYS       = [30.2738, -97.7295];
+const AUSTIN_CITY  = [30.2672, -97.7431];
+const BERGER_RD    = [31.1260, -97.3405];
+const SIXTH_ST     = [30.2671, -97.7385];
+const OVERVIEW     = [30.69,   -97.54];
+
+/* ── Step map states ── */
+const STEP_STATES = {
+  0: {
+    center: OVERVIEW, zoom: 8, date: 'APRIL 2023', time: '',
+    markers: [
+      { lat: AUSTIN_CITY[0], lng: AUSTIN_CITY[1], color: '#C04E01', label: 'Last seen: Downtown Austin, April 16', shortLabel: 'Austin — Last seen Apr 16', size: 13 },
+      { lat: BERGER_RD[0],   lng: BERGER_RD[1],   color: '#E63946', label: 'Body found: Berger Rd, Bell County, April 21', shortLabel: 'Bell County — Found Apr 21', size: 13 },
+    ],
+    routes: [{ coords: [AUSTIN_CITY, BERGER_RD], color: '#E63946' }],
+  },
+  1: {
+    center: AUSTIN_CITY, zoom: 13, date: 'APRIL 15, 2023', time: 'EVENING',
+    markers: [
+      { lat: AUSTIN_CITY[0], lng: AUSTIN_CITY[1], color: '#C04E01', label: 'Downtown Austin — 6th Street' },
+    ],
+  },
+  2: {
+    center: SHAKESPEARES, zoom: 19, date: 'APRIL 16, 2023', time: '1:44 AM',
+    markers: [
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', label: "Shakespeare's Pub – 1:44 AM POI sighting", shortLabel: "Shakespeare's", pulse: true, size: 16 },
+    ],
+  },
+  3: {
+    center: BLIND_PIG, zoom: 19, date: 'APRIL 16, 2023', time: '1:45 AM',
+    markers: [
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', label: 'The Blind Pig – 1:45 AM', shortLabel: 'The Blind Pig', pulse: true, size: 16 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+    ],
+    routes: [{ coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' }],
+  },
+  4: {
+    center: TRINITY_6TH, zoom: 19, date: 'APRIL 16, 2023', time: '~2:00 AM',
+    markers: [
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', label: '6th & Trinity – ~2:00 AM', shortLabel: 'Old School Bar', pulse: true, size: 16 },
+    ],
+    routes: [{ coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' }],
+  },
+  45: {
+    center: [30.2685, -97.7350], zoom: 17, date: 'APRIL 16, 2023', time: '2:09 AM',
+    markers: [
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', label: 'POI captured heading east under IH-35 — 2:09 AM', shortLabel: '2:09 AM — IH-35', pulse: true, size: 16 },
+    ],
+    routes: [
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
+      { coords: [TRINITY_6TH, I35_CROSS], color: '#EBE2CD' },
+    ],
+  },
+  5: {
+    center: [30.2676, -97.7360], zoom: 17, date: 'APRIL 16, 2023', time: '~2:30 AM',
+    markers: [
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
+      { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#C04E01', label: 'Mooseknuckle Pub – ~2:30 AM altercation', shortLabel: 'Mooseknuckle', pulse: true, size: 16 },
+    ],
+    routes: [
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
+      { coords: [TRINITY_6TH, I35_CROSS], color: '#EBE2CD' },
+      { coords: [I35_CROSS, MOOSEKNUCKLE], color: '#C04E01' },
+    ],
+  },
+  6: {
+    center: SAN_JAC, zoom: 18, date: 'APRIL 16, 2023', time: 'POST-2:30 AM',
+    markers: [
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#C04E01', shortLabel: 'Mooseknuckle', size: 11 },
+      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#C04E01', label: 'First contact: POI approaches Tiera', shortLabel: 'First contact', pulse: true, size: 16 },
+    ],
+    routes: [
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH, MOOSEKNUCKLE], color: '#9D4EDD' },
+      { coords: [MOOSEKNUCKLE, SAN_JAC], color: '#4A8A7C' },
+    ],
+  },
+  7: {
+    center: I35_CROSS, zoom: 17, date: 'APRIL 16, 2023', time: '~2:35 AM',
+    markers: [
+      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', label: 'First contact', shortLabel: 'First contact', size: 10 },
+      { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#9D4EDD', label: 'Bijou Lounge — horse cam records pair heading NE', shortLabel: 'Bijou Lounge', size: 13 },
+      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#9D4EDD', label: 'Direction reversal — heading toward I-35', shortLabel: 'Direction reversal', pulse: true, size: 16 },
+    ],
+    routes: [
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH, MOOSEKNUCKLE, SAN_JAC], color: '#9D4EDD' },
+      { coords: [SAN_JAC, BIJOU_LOUNGE, I35_CROSS], color: '#4A8A7C' },
+    ],
+  },
+  8: {
+    center: WENDYS, zoom: 17, date: 'APRIL 16, 2023', time: '2:40 AM',
+    markers: [
+      { lat: SAN_JAC[0],   lng: SAN_JAC[1],   color: '#EBE2CD', shortLabel: 'First contact', size: 10 },
+      { lat: I35_CROSS[0], lng: I35_CROSS[1], color: '#EBE2CD', shortLabel: 'Direction reversal', size: 10 },
+      { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', label: "Wendy's parking lot — LAST SIGHTING", shortLabel: "Wendy's — Last seen", pulse: true, size: 16 },
+    ],
+    routes: [{ coords: [SAN_JAC, I35_CROSS, WENDYS], color: '#4A8A7C' }],
+  },
+  9: {
+    center: AUSTIN_CITY, zoom: 12, date: 'APRIL 17, 2023', time: 'DAYTIME',
+    markers: [
+      { lat: WENDYS[0],      lng: WENDYS[1],      color: '#C04E01', shortLabel: "Last seen — Wendy's", size: 13 },
+      { lat: AUSTIN_CITY[0], lng: AUSTIN_CITY[1], color: '#EBE2CD', shortLabel: 'APD report — Apr 17', labelPos: 'above', size: 13 },
+    ],
+  },
+  10: {
+    center: [30.68, -97.54], zoom: 8, date: 'APRIL 21, 2023', time: 'MORNING',
+    markers: [
+      { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', shortLabel: "Last seen — Austin", size: 13 },
+      { lat: BERGER_RD[0], lng: BERGER_RD[1], color: '#E63946', label: 'Body found: 1300 block of Berger Rd, north of Temple', shortLabel: 'Bell County — Found', pulse: true, size: 16 },
+    ],
+    routes: [{ coords: [WENDYS, BERGER_RD], color: '#E63946' }],
+  },
+  11: {
+    center: BERGER_RD, zoom: 13, date: 'JULY 27, 2023', time: '',
+    markers: [
+      { lat: BERGER_RD[0], lng: BERGER_RD[1], color: '#E63946', label: '1300 block Berger Rd — Bell County', shortLabel: 'Berger Rd', pulse: true, size: 16 },
+    ],
+  },
+  12: {
+    center: [30.68, -97.54], zoom: 8, date: '2023 — PRESENT', time: '',
+    markers: [
+      { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', shortLabel: 'Last seen — Austin', size: 13 },
+      { lat: BERGER_RD[0], lng: BERGER_RD[1], color: '#E63946', shortLabel: 'Found — Bell County', size: 13 },
+    ],
+    routes: [{ coords: [WENDYS, BERGER_RD], color: '#4A8A7C' }],
+  },
+  13: {
+    center: SIXTH_ST, zoom: 16, date: 'APRIL 15–16, 2023', time: '',
+    markers: [
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#C04E01', shortLabel: 'Mooseknuckle', size: 11 },
+    ],
+    routes: [{ coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH, MOOSEKNUCKLE], color: '#9D4EDD' }],
+  },
+};
+
+/* ── Map init ── */
+const map = L.map('map', { center: OVERVIEW, zoom: 8, zoomControl: true, attributionControl: true });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd', maxZoom: 20,
+}).addTo(map);
+
+let activeMarkers = [];
+let activeRoutes  = [];
+
+function makeMarkerIcon(m) {
+  const size = m.size || 12;
+  const half = size / 2;
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:3px;';
+
+  const dot = document.createElement('div');
+  dot.style.cssText = `width:${size}px;height:${size}px;border-radius:50%;background:${m.color};border:2px solid rgba(255,255,255,0.6);box-shadow:0 0 8px ${m.color}aa;cursor:pointer;flex-shrink:0;`;
+  if (m.pulse) dot.classList.add('pulse-marker');
+  dot.style.color = m.color;
+
+  const labelAbove = m.shortLabel && m.labelPos === 'above';
+
+  if (m.shortLabel) {
+    const tag = document.createElement('div');
+    tag.style.cssText = "font-family:'IBM Plex Mono',monospace;font-size:9px;color:#EBE2CD;letter-spacing:0.04em;white-space:nowrap;background:rgba(6,11,20,0.82);padding:2px 5px;border-radius:2px;border:1px solid rgba(244,229,196,0.15);pointer-events:none;";
+    tag.textContent = m.shortLabel;
+    if (labelAbove) { wrap.appendChild(tag); wrap.appendChild(dot); }
+    else            { wrap.appendChild(dot); wrap.appendChild(tag); }
+  } else {
+    wrap.appendChild(dot);
+  }
+
+  const iconH = size + (m.shortLabel ? 22 : 0);
+  const iconAnchorY = labelAbove ? iconH - half : half;
+
+  return L.divIcon({ html: wrap, className: '', iconSize: [100, iconH], iconAnchor: [50, iconAnchorY] });
+}
+
+function renderState(state) {
+  activeMarkers.forEach(m => map.removeLayer(m));
+  activeRoutes.forEach(r => map.removeLayer(r));
+  activeMarkers = [];
+  activeRoutes  = [];
+
+  const style = { weight: 2.5, opacity: 0.75, dashArray: '7 5' };
+
+  (state.routes || []).forEach(r => {
+    activeRoutes.push(L.polyline(r.coords, { ...style, color: r.color }).addTo(map));
+  });
+
+  (state.markers || []).forEach(m => {
+    if (m.size === 0) return;
+    const marker = L.marker([m.lat, m.lng], { icon: makeMarkerIcon(m) });
+    if (m.label) marker.bindPopup(m.label, { closeButton: false, maxWidth: 280 });
+    marker.addTo(map);
+    activeMarkers.push(marker);
+  });
+
+  map.flyTo(state.center, state.zoom, { duration: 0.9, easeLinearity: 0.35 });
+}
+
+function updateClock(state) {
+  document.getElementById('clock-date').textContent = state.date || '';
+  document.getElementById('clock-time').textContent = state.time || '';
+  document.getElementById('clock').style.opacity = state.time ? '1' : '0.6';
+}
+
+/* ── Scrollama ── */
+const steps = document.querySelectorAll('.step');
+const stepIds = Array.from(steps).map(el => parseInt(el.dataset.step));
+const narrative = document.getElementById('narrative');
+const progressBar = document.getElementById('progress-bar');
+
+const scroller = scrollama();
+scroller.setup({ step: '.step', container: '#narrative', offset: 0.45 })
+  .onStepEnter(({ element, index }) => {
+    steps.forEach(s => s.classList.remove('is-active'));
+    element.classList.add('is-active');
+    const stepId = parseInt(element.dataset.step);
+    const state  = STEP_STATES[stepId];
+    if (state) { renderState(state); updateClock(state); }
+  });
+
+narrative.addEventListener('scroll', () => {
+  const pct = narrative.scrollTop / (narrative.scrollHeight - narrative.clientHeight);
+  progressBar.style.width = (pct * 100) + '%';
+});
+
+/* ── Initial state ── */
+renderState(STEP_STATES[0]);
+updateClock(STEP_STATES[0]);
+
+/* ── Video modal ── */
+function openVideo(src, caption) {
+  const vid = document.getElementById('modal-video');
+  vid.src = src;
+  vid.play();
+  document.getElementById('video-caption').textContent = caption || '';
+  document.getElementById('video-modal').classList.add('open');
+}
+function closeVideo() {
+  const vid = document.getElementById('modal-video');
+  vid.pause(); vid.src = '';
+  document.getElementById('video-modal').classList.remove('open');
+}
+
+/* ── Photo modal ── */
+function openPhoto(src, caption) {
+  document.getElementById('modal-photo').src = src;
+  document.getElementById('photo-caption').textContent = caption || '';
+  document.getElementById('photo-modal').classList.add('open');
+}
+function closePhoto() {
+  document.getElementById('photo-modal').classList.remove('open');
+}
+
+function closeModals(e) {
+  if (e.target.classList.contains('modal-overlay')) {
+    closeVideo(); closePhoto();
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeVideo(); closePhoto(); }
+});
+</script>
+</body>
+</html>
