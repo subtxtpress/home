@@ -362,7 +362,12 @@
     /* ── MOBILE ── */
     @media (max-width: 768px) {
       #map { width: 100%; height: 40vh; top: var(--nav-h); left: 0; right: 0; }
-      #narrative { width: 100%; top: calc(var(--nav-h) + 40vh); height: calc(60vh - var(--nav-h)); }
+      #narrative {
+        width: 100%;
+        top: calc(var(--nav-h) + 40vh);
+        height: calc(60vh - var(--nav-h));
+        -webkit-overflow-scrolling: touch;
+      }
       #clock { right: 10px; top: calc(var(--nav-h) + 8px); padding: 6px 12px; }
       .clock-time { font-size: 20px; }
       .step { padding: 24px 20px; min-height: calc(60vh - var(--nav-h) - 20px); }
@@ -990,30 +995,58 @@ function updateClock(state) {
   document.getElementById('clock').style.opacity = state.time ? '1' : '0.6';
 }
 
-/* ── Scrollama ── */
+/* ── Scroll watcher ── */
 const steps = document.querySelectorAll('.step');
-const stepIds = Array.from(steps).map(el => parseInt(el.dataset.step));
 const narrative = document.getElementById('narrative');
 const progressBar = document.getElementById('progress-bar');
+let currentStepId = null;
 
-const scroller = scrollama();
-scroller.setup({ step: '.step', container: '#narrative', offset: 0.45 })
-  .onStepEnter(({ element, index }) => {
-    steps.forEach(s => s.classList.remove('is-active'));
-    element.classList.add('is-active');
-    const stepId = parseInt(element.dataset.step);
-    const state  = STEP_STATES[stepId];
+function handleStepEnter(element) {
+  steps.forEach(s => s.classList.remove('is-active'));
+  element.classList.add('is-active');
+  const id = parseInt(element.dataset.step);
+  if (id !== currentStepId) {
+    currentStepId = id;
+    const state = STEP_STATES[id];
     if (state) { renderState(state); updateClock(state); }
+  }
+}
+
+/* Scrollama (primary) */
+const scroller = scrollama();
+scroller.setup({ step: '.step', offset: 0.45, container: '#narrative' })
+  .onStepEnter(({ element }) => handleStepEnter(element));
+
+/* Fallback scroll listener — catches what Scrollama misses on iOS */
+function fallbackStepCheck() {
+  const containerRect = narrative.getBoundingClientRect();
+  const triggerY = containerRect.top + containerRect.height * 0.45;
+  let closest = null;
+  let closestDist = Infinity;
+  steps.forEach(step => {
+    const rect = step.getBoundingClientRect();
+    const mid = rect.top + rect.height / 2;
+    const dist = Math.abs(mid - triggerY);
+    if (dist < closestDist) { closestDist = dist; closest = step; }
   });
+  if (closest) handleStepEnter(closest);
+}
 
 narrative.addEventListener('scroll', () => {
   const pct = narrative.scrollTop / (narrative.scrollHeight - narrative.clientHeight);
   progressBar.style.width = (pct * 100) + '%';
-});
+  fallbackStepCheck();
+}, { passive: true });
+
+window.addEventListener('resize', () => { scroller.resize(); map.invalidateSize(); });
 
 /* ── Initial state ── */
 renderState(STEP_STATES[0]);
 updateClock(STEP_STATES[0]);
+setTimeout(() => {
+  const first = document.querySelector('.step[data-step="0"]');
+  if (first) handleStepEnter(first);
+}, 300);
 
 /* ── Video modal ── */
 function openVideo(src, caption) {
