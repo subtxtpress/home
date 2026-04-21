@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tiera Strand — Investigative Timeline
 
-## Getting Started
+An interactive scroll-driven investigative map tracing the disappearance and death of **Tiera Strand**, 25, last seen April 16, 2023, on Austin's 6th Street. Her remains were recovered in Bell County, Texas. The case remains active.
 
-First, run the development server:
+Published by [Subtxt Press](https://subtxtpress.github.io/home/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Overview
+
+This is a single-page investigative timeline that pairs a scrolling narrative with a synchronized Leaflet map. As the reader scrolls through each event in the case, the map flies to the relevant location, renders markers and routes, and updates a clock overlay with corresponding dates and times. The experience is designed for both desktop and mobile.
+
+## Features
+
+- **Scroll-driven map narrative** — 14 timeline steps synchronized with map state via Scrollama + a fallback scroll listener for iOS compatibility
+- **Leaflet map** — dark CARTO basemap with custom `divIcon` markers, pulsing animations, labeled locations, and dashed polyline routes
+- **Progress bar** — fixed top bar tracking scroll position through the narrative
+- **Video and photo modals** — embedded media with keyboard (Escape) and overlay-click dismissal
+- **Clock overlay** — date/time display updating per step to anchor the reader in the timeline
+- **Full OG/Twitter meta** — social preview cards with custom image, canonical URL, and Subtxt Press branding
+- **Responsive layout** — narrative panel adapts between desktop sidebar and mobile overlay
+
+## Tech Stack
+
+- **Leaflet 1.9.4** — map rendering and marker management
+- **Scrollama** — Intersection Observer–based scroll triggers
+- **CARTO Dark** — basemap tiles via OpenStreetMap/CARTO
+- **Google Fonts** — Cormorant Garamond, Barlow Condensed, IBM Plex Mono, Inter
+- **Vanilla JS/CSS** — no build step, no framework dependencies
+
+## File Structure
+
+```
+tiera-strand/
+├── case-map.html          # Full application (single-file)
+├── tiera-strand.png       # OG/social preview image
+├── README.md              # This file
+└── public/
+    └── icons/
+        ├── favicon.ico
+        ├── icon-16.png
+        ├── icon-32.png
+        ├── icon-180.png
+        └── site.webmanifest
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+No build step required. Serve the directory with any static server:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx serve .
+# or
+python3 -m http.server 8000
+```
 
-## Learn More
+Open `http://localhost:8000/case-map.html`.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The timeline is published via GitHub Pages at:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+https://subtxtpress.github.io/home/cases/tiera-strand/case-map
+```
