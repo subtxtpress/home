@@ -532,13 +532,29 @@
   <!-- STEP 4: Trinity Street -->
   <div class="step" data-step="4" style="border-color: #EBE2CD;">
     <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 16, 2023 — ~2:00 AM</div>
-    <h2 class="step-title">Trinity Street Confrontation</h2>
+    <div class="step-time">April 16, 2023 — ~1:50 AM</div>
+    <h2 class="step-title">Trinity Street — Between 6th &amp; 7th</h2>
+    <div class="pills">
+      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
+    </div>
+    <p>The POI is observed on Trinity Street between 6th and 7th Streets. Investigators, including Sgt. Powell, place him in this mid-block location heading north — toward 7th Street — before returning south to the 6th Street corridor.</p>
+    <ul class="details">
+      <li>Location per Sgt. Powell: Trinity Street between E 6th and E 7th</li>
+      <li>Direction: heading north away from 6th Street</li>
+      <li>Near Tellers nightclub on Trinity</li>
+    </ul>
+  </div>
+
+  <!-- STEP 46: 6th & Trinity St. — POD146 -->
+  <div class="step" data-step="46" style="border-color: #EBE2CD;">
+    <div class="act-label">Act I — The Night Out</div>
+    <div class="step-time">April 16, 2023 — 2:00 AM</div>
+    <h2 class="step-title">6th & Trinity — Old School Bar</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
     <p>Surveillance footage from POD146 (6th and Trinity — Old School Bar) shows the POI walking with a group of people. A woman in the group lunges at him; she is pulled back by friends.</p>
-    <p>Two unidentified women near a rickshaw also speak with the POI around this time. It appears that the POI hands his phone to one of the women, perhaps so she can give him her phone number. Law enforcement has sought these individuals for interviews.</p>
+    <p>Two unidentified women near a rickshaw also speak with the POI around this time. It appears that the POI hands his phone to one of the women, perhaps so she can give him her phone number.</p>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/pod146-old-school-bar-200am.mp4','POD146 — Old School Bar · ~2:00 AM')">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -560,11 +576,11 @@
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
     <p>POD102, a camera mounted on the 600 block of IH-35 captures the POI walking east under the Interstate 35 overpass at 2:09 AM — moving away from the 6th Street corridor.</p>
-    <p>This is 9 minutes after his last sighting at the Trinity Street encounter. He will reappear at Mooseknuckle Pub approximately 20 minutes later. What he did in that interval, and how he returned, is not explained by any currently available footage.</p>
+    <p>He will reappear at Mooseknuckle Pub approximately 20 minutes later. What he did in that interval, and how he returned, is not explained by any currently available footage.</p>
     <ul class="details">
       <li>Camera: POD102, 600 block IH-35, west-facing</li>
       <li>Direction of travel: east — away from 6th Street entertainment district</li>
-      <li>9 minutes after Trinity Street encounter</li>
+      <li>9 minutes after 6th &amp; Trinity sighting</li>
       <li>Reappears at Mooseknuckle ~20 minutes later — gap unaccounted for</li>
     </ul>
     <div class="video-btn-row">
@@ -577,22 +593,6 @@
         Clip 2 — 2:09:50 AM
       </button>
     </div>
-  </div>
-
-  <!-- STEP 46: POI Returns West — 6th & Trinity -->
-  <div class="step" data-step="46" style="border-color: #EBE2CD;">
-    <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 16, 2023 — ~2:20 AM</div>
-    <h2 class="step-title">POI Returns to 6th & Trinity</h2>
-    <div class="pills">
-      <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
-    </div>
-    <p>After crossing under IH-35 heading east at 2:09 AM, the POI reappears at the intersection of 6th Street and Trinity Street approximately 20 minutes later. What he did in that interval — and how he returned — is not explained by any available footage.</p>
-    <ul class="details">
-      <li>~20-minute gap in surveillance coverage after IH-35 crossing</li>
-      <li>Returns west to the 6th Street entertainment district</li>
-      <li>No footage of his return journey recovered</li>
-    </ul>
   </div>
 
   <!-- STEP 5: Mooseknuckle Altercation -->
@@ -841,17 +841,17 @@
 <script>
 /* ── Coordinates ── */
 /* All bar/street coords snapped to E 6th centerline (interpolated from OSM geometry below) */
-const BLIND_PIG     = [30.26723, -97.73981]; /* 317 E 6th — street-front, centerline interp */
-const SHAKESPEARES  = [30.26722, -97.73976]; /* 314 E 6th — street-front, centerline interp */
-const TRINITY_POI   = [30.26778, -97.73905]; /* Trinity St mid-block bet. E6–E7 — adjusted to street centerline */
-const CHUPACABRA    = [30.26704, -97.73914]; /* 400 E 6th at Trinity — street-front, centerline interp */
+const BLIND_PIG     = [30.26713, -97.73984]; /* 317 E 6th — Google Earth exact */
+const SHAKESPEARES  = [30.26728, -97.73983]; /* 314 E 6th — Google Earth exact */
+const TRINITY_POI   = [30.26758, -97.73906]; /* Trinity St mid-block bet. E6–E7 — Google Earth exact */
+const CHUPACABRA    = [30.26712, -97.73924]; /* 6th & Trinity intersection — Google Earth exact */
 const MOOSEKNUCKLE  = [30.26706, -97.73895]; /* 406 E 6th — KMZ exact (TIERA_1_MOOSEKNUCKLE) */
 const THIRSTYS      = [30.26708, -97.73925]; /* ~390 E 6th W of Trinity — street-front, centerline interp */
 const AQUARIUM_6TH  = [30.26695, -97.73880]; /* ~408 E 6th E of Trinity — street-front, centerline interp */
 const BIJOU_LOUNGE  = [30.26677, -97.73816]; /* ~460 E 6th — street-front, centerline interp */
 const SAN_JAC       = [30.26780, -97.74000]; /* San Jacinto & E 6th — user DMS: 30°16′04″N 97°44′24″W */
 const TOWARD_SJ     = [30.26723, -97.73990]; /* E 6th heading west toward San Jacinto, ~330 E 6th */
-const I35_CROSS     = [30.26573, -97.73495]; /* E 6th at IH-35 — Google Earth exact: 30°15'56.61"N 97°44'5.81"W */
+const I35_CROSS     = [30.26573, -97.73497]; /* E 6th at IH-35 — Google Earth exact: 30°15'56.62"N 97°44'5.90"W */
 const IH35_601      = [30.26561, -97.73380]; /* 601 N IH-35 at E 6th intersection — est. */
 const IH35_619      = [30.26615, -97.73370]; /* 619 N IH-35 bet. 6th & 7th — est. */
 const WENDYS        = [30.26570, -97.73355]; /* Wendy's near IH-35 & E 6th — est. */
@@ -930,11 +930,20 @@ const STEP_STATES = {
     ],
   },
   4: {
-    center: TRINITY_POI, zoom: 18, date: 'APRIL 16, 2023', time: '~2:00 AM',
+    center: TRINITY_POI, zoom: 18, date: 'APRIL 16, 2023', time: '~1:50 AM',
     markers: [
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
-      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', label: 'Trinity Street – ~2:00 AM, POI seen heading north near Tellers', shortLabel: 'Trinity Street', pulse: true, size: 16 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', label: 'Trinity Street – ~1:50 AM', shortLabel: 'Trinity Street', pulse: true, size: 16 },
+    ],
+  },
+  46: {
+    center: CHUPACABRA, zoom: 18, date: 'APRIL 16, 2023', time: '2:00 AM',
+    markers: [
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity Street', size: 10 },
+      { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', label: '6th & Trinity St. — 2:00 AM', shortLabel: '6th & Trinity St.', pulse: true, size: 16 },
     ],
   },
   45: {
@@ -943,17 +952,8 @@ const STEP_STATES = {
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity Street', size: 10 },
+      { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: '6th & Trinity St.', size: 10 },
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', label: 'IH35 Crossing — 2:09 AM', shortLabel: 'IH35 Crossing', pulse: true, size: 16 },
-    ],
-  },
-  46: {
-    center: CHUPACABRA, zoom: 18, date: 'APRIL 16, 2023', time: '~2:20 AM',
-    markers: [
-      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
-      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity Street', size: 10 },
-      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH35 Crossing', size: 10 },
-      { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', label: '6th & Trinity St. — POI returns west', shortLabel: '6th & Trinity St.', pulse: true, size: 16 },
     ],
   },
   5: {
