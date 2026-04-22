@@ -878,16 +878,8 @@ const E6TH = [
   [30.26565, -97.73418],  // 12 — IH-35 underpass area
 ];
 
-/* Pre-built road-following route segments */
+/* E6TH shorthand (kept for reference) */
 const _e = E6TH;
-// Blind Pig east along E 6th to Trinity junction, then north on Trinity
-const RT_TO_TRINITY = [BLIND_PIG, _e[4], _e[5], CHUPACABRA, TRINITY_POI];
-// Trinity south back to E 6th then east to IH-35 (skip _e[5] — it's west of CHUPACABRA)
-const RT_TO_IH35 = [TRINITY_POI, CHUPACABRA, AQUARIUM_6TH, _e[6],_e[7],_e[8],_e[9],_e[10],_e[11],_e[12], I35_CROSS];
-// IH-35 west along E 6th back to Trinity/Chupacabra (skip _e[5] — it's east of AQUARIUM going west)
-const RT_RETURN_W = [I35_CROSS, _e[12],_e[11],_e[10],_e[9],_e[8],_e[7],_e[6], AQUARIUM_6TH, CHUPACABRA];
-// Chupacabra west to Thirsty's, then east through Aquarium → Bijou → IH-35 frontage
-const RT_LATE = [CHUPACABRA, THIRSTYS, AQUARIUM_6TH, _e[6],_e[7], BIJOU_LOUNGE, _e[8],_e[9],_e[10],_e[11],_e[12], IH35_601, IH35_619];
 
 /* ── Known camera locations (persistent dim layer, not tied to steps) ── */
 const CAMERAS = [
