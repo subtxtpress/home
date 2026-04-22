@@ -803,7 +803,7 @@
 const SHAKESPEARES = [30.2679, -97.7405]; /* 314 E 6th St — user-verified */
 const BLIND_PIG    = [30.2679, -97.7397]; /* 317 E 6th St — user-verified */
 const TRINITY_6TH  = [30.2677, -97.7393]; /* 401 E 6th St, Old School Bar — interpolated */
-const MOOSEKNUCKLE = [30.2676, -97.7389]; /* 406 E 6th St — user-verified */
+const MOOSEKNUCKLE = [30.26706, -97.73895]; /* 406 E 6th St — exact from KMZ (TIERA_1_MOOSEKNUCKLE) */
 const BIJOU_LOUNGE = [30.2676, -97.7387]; /* 415 E 6th St — derived from address scale */
 const SAN_JAC      = [30.2678, -97.7400]; /* San Jacinto & E 6th — user DMS: 30°16′04″N 97°44′24″W */
 const REVERSAL_PT  = [30.2677, -97.7394]; /* direction reversal — between San Jac & Bijou */
@@ -813,6 +813,35 @@ const AUSTIN_CITY  = [30.2672, -97.7431];
 const BERGER_RD    = [31.1260, -97.3405];
 const SIXTH_ST     = [30.2678, -97.7394]; /* center of bar corridor */
 const OVERVIEW     = [30.69,   -97.54];
+
+/* ── E 6th Street road geometry (from OpenStreetMap, west→east) ──
+   Stitched from OSM ways 204981554, 422088229, 315904408, 37749556,
+   31165968, 436612056–7, 27394254, 1203422636 etc.
+   Use these as route waypoints so lines follow the actual street. */
+const E6TH = [
+  [30.26767, -97.74137],  // 0  — near SAN_JAC / Shakespeare's latitude
+  [30.26743, -97.74052],  // 1
+  [30.26740, -97.74040],  // 2  — Blind Pig longitude band
+  [30.26736, -97.74026],  // 3  — between Blind Pig & Old School Bar
+  [30.26713, -97.73944],  // 4  — Old School Bar / Mooseknuckle
+  [30.26707, -97.73923],  // 5  — east of Bijou Lounge
+  [30.26683, -97.73837],  // 6
+  [30.26680, -97.73827],  // 7  — heading toward Red River St
+  [30.26649, -97.73719],  // 8  — past Red River
+  [30.26620, -97.73616],  // 9
+  [30.26589, -97.73504],  // 10
+  [30.26572, -97.73444],  // 11
+  [30.26565, -97.73418],  // 12 — IH-35 underpass area
+];
+
+/* Pre-built road-following route segments */
+const _e = E6TH;
+// Old School Bar east along E 6th to IH-35
+const RT_EAST = [TRINITY_6TH, _e[4],_e[5],_e[6],_e[7],_e[8],_e[9],_e[10],_e[11],_e[12], I35_CROSS];
+// IH-35 west along E 6th back to SAN_JAC
+const RT_WEST = [I35_CROSS, _e[12],_e[11],_e[10],_e[9],_e[8],_e[7],_e[6],_e[5],_e[4], SAN_JAC];
+// SAN_JAC east through Bijou Lounge to Wendy's
+const RT_BIJOU_WENDYS = [SAN_JAC, _e[4],_e[5], BIJOU_LOUNGE, _e[6],_e[7],_e[8],_e[9],_e[10],_e[11],_e[12], WENDYS];
 
 /* ── Known camera locations (persistent dim layer, not tied to steps) ── */
 const CAMERAS = [
@@ -872,7 +901,7 @@ const STEP_STATES = {
     ],
     routes: [
       { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: [TRINITY_6TH, I35_CROSS], color: '#EBE2CD' },
+      { coords: RT_EAST, color: '#EBE2CD' },
     ],
   },
   5: {
@@ -885,7 +914,7 @@ const STEP_STATES = {
     ],
     routes: [
       { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: [TRINITY_6TH, I35_CROSS],               color: '#EBE2CD' },
+      { coords: RT_EAST,                                color: '#EBE2CD' },
     ],
   },
   6: {
@@ -899,7 +928,7 @@ const STEP_STATES = {
     ],
     routes: [
       { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: [TRINITY_6TH, I35_CROSS, SAN_JAC],      color: '#EBE2CD' },
+      { coords: [...RT_EAST, ...RT_WEST.slice(1)],       color: '#EBE2CD' },
     ],
   },
   7: {
@@ -914,8 +943,8 @@ const STEP_STATES = {
       { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', label: 'Bijou Lounge — ~2:35 AM, horse cam records POI heading NE', shortLabel: 'Bijou Lounge', pulse: true, size: 14 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH],          color: '#9D4EDD' },
-      { coords: [TRINITY_6TH, I35_CROSS, SAN_JAC, REVERSAL_PT, BIJOU_LOUNGE], color: '#EBE2CD' },
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH],                color: '#9D4EDD' },
+      { coords: [...RT_EAST, ...RT_WEST.slice(1), ..._e.slice(4,6), BIJOU_LOUNGE], color: '#EBE2CD' },
     ],
   },
   8: {
@@ -931,8 +960,8 @@ const STEP_STATES = {
       { lat: WENDYS[0],       lng: WENDYS[1],       color: '#EBE2CD', label: "Wendy's parking lot — POI LAST SIGHTING — 2:40 AM", shortLabel: "Wendy's — Last seen", pulse: true, size: 16 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH],                              color: '#9D4EDD' },
-      { coords: [TRINITY_6TH, I35_CROSS, SAN_JAC, REVERSAL_PT, BIJOU_LOUNGE, WENDYS], color: '#EBE2CD' },
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
+      { coords: [...RT_EAST, ...RT_WEST.slice(1), ...RT_BIJOU_WENDYS.slice(1)], color: '#EBE2CD' },
     ],
   },
   9: {
