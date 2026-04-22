@@ -622,7 +622,7 @@
   <!-- STEP 6: POI Approaches Tiera -->
   <div class="step" data-step="6" style="border-color: #9D4EDD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — Post-2:30 AM</div>
+    <div class="step-time">April 16, 2023 — ~2:30 AM</div>
     <h2 class="step-title">POI Approaches Tiera</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
@@ -647,7 +647,7 @@
   <!-- STEP 67: Turning Around -->
   <div class="step" data-step="67" style="border-color: #9D4EDD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — Post-2:30 AM</div>
+    <div class="step-time">April 16, 2023 — ~2:35 AM</div>
     <h2 class="step-title">Turning Around</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
@@ -659,7 +659,7 @@
   <!-- STEP 7: Direction Change / Bijou Lounge -->
   <div class="step" data-step="7" style="border-color: #9D4EDD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — ~2:35 AM</div>
+    <div class="step-time">April 16, 2023 — 2:38 AM</div>
     <h2 class="step-title">Direction Change</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
@@ -685,7 +685,7 @@
   <!-- STEP 75: Chevron -->
   <div class="step" data-step="75" style="border-color: #EBE2CD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — ~2:38 AM</div>
+    <div class="step-time">April 16, 2023 — ~2:40 AM</div>
     <h2 class="step-title">Passing the Chevron</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
@@ -845,16 +845,14 @@ const BLIND_PIG     = [30.26713, -97.73984]; /* 317 E 6th — Google Earth exact
 const SHAKESPEARES  = [30.26728, -97.73983]; /* 314 E 6th — Google Earth exact */
 const TRINITY_POI   = [30.26758, -97.73906]; /* Trinity St mid-block bet. E6–E7 — Google Earth exact */
 const CHUPACABRA    = [30.26712, -97.73924]; /* 6th & Trinity intersection — Google Earth exact */
-const MOOSEKNUCKLE  = [30.26706, -97.73895]; /* 406 E 6th — KMZ exact (TIERA_1_MOOSEKNUCKLE) */
-const THIRSTYS      = [30.26708, -97.73925]; /* ~390 E 6th W of Trinity — street-front, centerline interp */
-const AQUARIUM_6TH  = [30.26695, -97.73880]; /* ~408 E 6th E of Trinity — street-front, centerline interp */
-const BIJOU_LOUNGE  = [30.26677, -97.73816]; /* ~460 E 6th — street-front, centerline interp */
-const SAN_JAC       = [30.26780, -97.74000]; /* San Jacinto & E 6th — user DMS: 30°16′04″N 97°44′24″W */
-const TOWARD_SJ     = [30.26723, -97.73990]; /* E 6th heading west toward San Jacinto, ~330 E 6th */
+const MOOSEKNUCKLE  = [30.26705, -97.73896]; /* 406 E 6th — Google Earth exact */
+const BIJOU_LOUNGE  = [30.26689, -97.73894]; /* Bijou Lounge — Google Earth exact */
+const SAN_JAC       = [30.26780, -97.74000]; /* San Jacinto & E 6th — landmark reference */
+const TOWARD_SJ     = [30.26703, -97.73946]; /* Toward San Jacinto — Google Earth exact */
+const TURN_AROUND   = [30.26697, -97.73922]; /* Turning Around — Google Earth exact */
 const I35_CROSS     = [30.26573, -97.73497]; /* E 6th at IH-35 — Google Earth exact: 30°15'56.62"N 97°44'5.90"W */
-const IH35_601      = [30.26561, -97.73380]; /* 601 N IH-35 at E 6th intersection — est. */
-const IH35_619      = [30.26615, -97.73370]; /* 619 N IH-35 bet. 6th & 7th — est. */
-const WENDYS        = [30.26570, -97.73355]; /* Wendy's near IH-35 & E 6th — est. */
+const IH35_601      = [30.26579, -97.73401]; /* Chevron — Google Earth exact */
+const WENDYS        = [30.26618, -97.73389]; /* Wendy's — Google Earth exact: 30°15'58.24"N 97°44'2.00"W */
 const AUSTIN_CITY   = [30.2672, -97.7431];
 const BERGER_RD     = [31.1260, -97.3405];
 const SIXTH_ST      = [30.2671, -97.7390]; /* center of corrected bar corridor */
@@ -895,7 +893,7 @@ const RT_LATE = [CHUPACABRA, THIRSTYS, AQUARIUM_6TH, _e[6],_e[7], BIJOU_LOUNGE, 
 const CAMERAS = [
   { lat: 30.26724, lng: -97.73979, label: "Shakespeare's / Blind Pig area cam — captured POI 1:44–1:45 AM" },
   { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], label: "Mooseknuckle cam — captured Tiera altercation ~2:30 AM" },
-  { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], label: 'Bijou Lounge "horse cam" — recorded POI + Tiera heading NE ~2:35 AM' },
+  { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], label: 'Bijou Lounge "horse cam" — recorded POI + Tiera heading NE 2:38 AM' },
   { lat: I35_CROSS[0],    lng: I35_CROSS[1],    label: "POD102 (APD public safety) — IH-35 & 6th, POI heading east 2:09 AM" },
   { lat: WENDYS[0],       lng: WENDYS[1],       label: "Wendy's cam — last known sighting 2:40 AM" },
 ];
@@ -968,7 +966,7 @@ const STEP_STATES = {
     ],
   },
   6: {
-    center: TOWARD_SJ, zoom: 18, date: 'APRIL 16, 2023', time: 'Post-2:30 AM',
+    center: TOWARD_SJ, zoom: 18, date: 'APRIL 16, 2023', time: '~2:30 AM',
     markers: [
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
@@ -976,11 +974,11 @@ const STEP_STATES = {
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH35 Crossing', size: 10 },
       { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: '6th & Trinity St.', size: 10 },
       { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#EBE2CD', shortLabel: 'Mooseknuckle', size: 10 },
-      { lat: TOWARD_SJ[0],    lng: TOWARD_SJ[1],    color: '#EBE2CD', label: 'Toward San Jacinto — POI + Tiera walking west', shortLabel: 'Toward San Jacinto', pulse: true, size: 16 },
+      { lat: TOWARD_SJ[0],    lng: TOWARD_SJ[1],    color: '#EBE2CD', label: 'Toward San Jacinto — ~2:30 AM', shortLabel: 'Toward San Jacinto', pulse: true, size: 16 },
     ],
   },
   67: {
-    center: SAN_JAC, zoom: 18, date: 'APRIL 16, 2023', time: 'Post-2:30 AM',
+    center: TURN_AROUND, zoom: 18, date: 'APRIL 16, 2023', time: '~2:35 AM',
     markers: [
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
@@ -989,11 +987,11 @@ const STEP_STATES = {
       { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: '6th & Trinity St.', size: 10 },
       { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#EBE2CD', shortLabel: 'Mooseknuckle', size: 10 },
       { lat: TOWARD_SJ[0],    lng: TOWARD_SJ[1],    color: '#EBE2CD', shortLabel: 'Toward San Jacinto', size: 10 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', label: 'Turning Around — near San Jacinto', shortLabel: 'Turning Around', pulse: true, size: 16 },
+      { lat: TURN_AROUND[0],  lng: TURN_AROUND[1],  color: '#EBE2CD', label: 'Turning Around — ~2:35 AM', shortLabel: 'Turning Around', pulse: true, size: 16 },
     ],
   },
   7: {
-    center: BIJOU_LOUNGE, zoom: 18, date: 'APRIL 16, 2023', time: '~2:35 AM',
+    center: BIJOU_LOUNGE, zoom: 18, date: 'APRIL 16, 2023', time: '2:38 AM',
     markers: [
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
@@ -1002,12 +1000,12 @@ const STEP_STATES = {
       { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: '6th & Trinity St.', size: 10 },
       { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#EBE2CD', shortLabel: 'Mooseknuckle', size: 10 },
       { lat: TOWARD_SJ[0],    lng: TOWARD_SJ[1],    color: '#EBE2CD', shortLabel: 'Toward San Jacinto', size: 10 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', shortLabel: 'Turning Around', size: 10 },
-      { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', label: 'Bijou Lounge — ~2:35 AM', shortLabel: 'Bijou Lounge', pulse: true, size: 16 },
+      { lat: TURN_AROUND[0],  lng: TURN_AROUND[1],  color: '#EBE2CD', shortLabel: 'Turning Around', size: 10 },
+      { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', label: 'Bijou Lounge — 2:38 AM', shortLabel: 'Bijou Lounge', pulse: true, size: 16 },
     ],
   },
   75: {
-    center: IH35_601, zoom: 17, date: 'APRIL 16, 2023', time: '~2:38 AM',
+    center: IH35_601, zoom: 17, date: 'APRIL 16, 2023', time: '~2:40 AM',
     markers: [
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
@@ -1016,9 +1014,9 @@ const STEP_STATES = {
       { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: '6th & Trinity St.', size: 10 },
       { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#EBE2CD', shortLabel: 'Mooseknuckle', size: 10 },
       { lat: TOWARD_SJ[0],    lng: TOWARD_SJ[1],    color: '#EBE2CD', shortLabel: 'Toward San Jacinto', size: 10 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', shortLabel: 'Turning Around', size: 10 },
+      { lat: TURN_AROUND[0],  lng: TURN_AROUND[1],  color: '#EBE2CD', shortLabel: 'Turning Around', size: 10 },
       { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', shortLabel: 'Bijou Lounge', size: 10 },
-      { lat: IH35_601[0],     lng: IH35_601[1],     color: '#EBE2CD', label: 'Chevron — heading toward IH-35', shortLabel: 'Chevron', pulse: true, size: 16 },
+      { lat: IH35_601[0],     lng: IH35_601[1],     color: '#EBE2CD', label: 'Chevron — ~2:40 AM', shortLabel: 'Chevron', pulse: true, size: 16 },
     ],
   },
   8: {
@@ -1031,7 +1029,7 @@ const STEP_STATES = {
       { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: '6th & Trinity St.', size: 10 },
       { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#EBE2CD', shortLabel: 'Mooseknuckle', size: 10 },
       { lat: TOWARD_SJ[0],    lng: TOWARD_SJ[1],    color: '#EBE2CD', shortLabel: 'Toward San Jacinto', size: 10 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', shortLabel: 'Turning Around', size: 10 },
+      { lat: TURN_AROUND[0],  lng: TURN_AROUND[1],  color: '#EBE2CD', shortLabel: 'Turning Around', size: 10 },
       { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', shortLabel: 'Bijou Lounge', size: 10 },
       { lat: IH35_601[0],     lng: IH35_601[1],     color: '#EBE2CD', shortLabel: 'Chevron', size: 10 },
       { lat: WENDYS[0],       lng: WENDYS[1],        color: '#C04E01', label: "Wendy's — 2:40 AM LAST SIGHTING", shortLabel: "Wendy's", pulse: true, size: 16 },
