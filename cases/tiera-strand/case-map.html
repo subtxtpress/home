@@ -800,19 +800,24 @@
 <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
 <script>
 /* ── Coordinates ── */
-const SHAKESPEARES = [30.2679, -97.7405]; /* 314 E 6th St — user-verified */
-const BLIND_PIG    = [30.2679, -97.7397]; /* 317 E 6th St — user-verified */
-const TRINITY_6TH  = [30.2677, -97.7393]; /* 401 E 6th St, Old School Bar — interpolated */
-const MOOSEKNUCKLE = [30.26706, -97.73895]; /* 406 E 6th St — exact from KMZ (TIERA_1_MOOSEKNUCKLE) */
-const BIJOU_LOUNGE = [30.2676, -97.7387]; /* 415 E 6th St — derived from address scale */
-const SAN_JAC      = [30.2678, -97.7400]; /* San Jacinto & E 6th — user DMS: 30°16′04″N 97°44′24″W */
-const REVERSAL_PT  = [30.2677, -97.7394]; /* direction reversal — between San Jac & Bijou */
-const I35_CROSS    = [30.2660, -97.7340]; /* IH-35 & E 6th — matches 601 N IH-35 (Chevron) lat */
-const WENDYS       = [30.2672, -97.7340]; /* E 7th & IH-35 per news — one block north of I35_CROSS */
-const AUSTIN_CITY  = [30.2672, -97.7431];
-const BERGER_RD    = [31.1260, -97.3405];
-const SIXTH_ST     = [30.2678, -97.7394]; /* center of bar corridor */
-const OVERVIEW     = [30.69,   -97.54];
+/* All bar/street coords snapped to E 6th centerline (interpolated from OSM geometry below) */
+const BLIND_PIG     = [30.26723, -97.73981]; /* 317 E 6th — street-front, centerline interp */
+const SHAKESPEARES  = [30.26722, -97.73976]; /* 314 E 6th — street-front, centerline interp */
+const TRINITY_POI   = [30.26780, -97.73920]; /* Trinity St mid-block bet. E6–E7, near Tellers */
+const CHUPACABRA    = [30.26704, -97.73914]; /* 400 E 6th at Trinity — street-front, centerline interp */
+const MOOSEKNUCKLE  = [30.26706, -97.73895]; /* 406 E 6th — KMZ exact (TIERA_1_MOOSEKNUCKLE) */
+const THIRSTYS      = [30.26708, -97.73925]; /* ~390 E 6th W of Trinity — street-front, centerline interp */
+const AQUARIUM_6TH  = [30.26695, -97.73880]; /* ~408 E 6th E of Trinity — street-front, centerline interp */
+const BIJOU_LOUNGE  = [30.26677, -97.73816]; /* ~460 E 6th — street-front, centerline interp */
+const SAN_JAC       = [30.26780, -97.74000]; /* San Jacinto & E 6th — user DMS: 30°16′04″N 97°44′24″W */
+const I35_CROSS     = [30.26565, -97.73418]; /* E 6th bridge at IH-35 — OSM road geometry endpoint */
+const IH35_601      = [30.26561, -97.73380]; /* 601 N IH-35 at E 6th intersection — est. */
+const IH35_619      = [30.26615, -97.73370]; /* 619 N IH-35 bet. 6th & 7th — est. */
+const WENDYS        = [30.26570, -97.73355]; /* Wendy's near IH-35 & E 6th — est. */
+const AUSTIN_CITY   = [30.2672, -97.7431];
+const BERGER_RD     = [31.1260, -97.3405];
+const SIXTH_ST      = [30.2671, -97.7390]; /* center of corrected bar corridor */
+const OVERVIEW      = [30.69,   -97.54];
 
 /* ── E 6th Street road geometry (from OpenStreetMap, west→east) ──
    Stitched from OSM ways 204981554, 422088229, 315904408, 37749556,
@@ -836,16 +841,18 @@ const E6TH = [
 
 /* Pre-built road-following route segments */
 const _e = E6TH;
-// Old School Bar east along E 6th to IH-35
-const RT_EAST = [TRINITY_6TH, _e[4],_e[5],_e[6],_e[7],_e[8],_e[9],_e[10],_e[11],_e[12], I35_CROSS];
-// IH-35 west along E 6th back to SAN_JAC
-const RT_WEST = [I35_CROSS, _e[12],_e[11],_e[10],_e[9],_e[8],_e[7],_e[6],_e[5],_e[4], SAN_JAC];
-// SAN_JAC east through Bijou Lounge to Wendy's
-const RT_BIJOU_WENDYS = [SAN_JAC, _e[4],_e[5], BIJOU_LOUNGE, _e[6],_e[7],_e[8],_e[9],_e[10],_e[11],_e[12], WENDYS];
+// Blind Pig east along E 6th to Trinity junction, then north on Trinity
+const RT_TO_TRINITY = [BLIND_PIG, _e[4], _e[5], CHUPACABRA, TRINITY_POI];
+// Trinity south back to E 6th then east to IH-35 (skip _e[5] — it's west of CHUPACABRA)
+const RT_TO_IH35 = [TRINITY_POI, CHUPACABRA, AQUARIUM_6TH, _e[6],_e[7],_e[8],_e[9],_e[10],_e[11],_e[12], I35_CROSS];
+// IH-35 west along E 6th back to Trinity/Chupacabra (skip _e[5] — it's east of AQUARIUM going west)
+const RT_RETURN_W = [I35_CROSS, _e[12],_e[11],_e[10],_e[9],_e[8],_e[7],_e[6], AQUARIUM_6TH, CHUPACABRA];
+// Chupacabra west to Thirsty's, then east through Aquarium → Bijou → IH-35 frontage
+const RT_LATE = [CHUPACABRA, THIRSTYS, AQUARIUM_6TH, _e[6],_e[7], BIJOU_LOUNGE, _e[8],_e[9],_e[10],_e[11],_e[12], IH35_601, IH35_619];
 
 /* ── Known camera locations (persistent dim layer, not tied to steps) ── */
 const CAMERAS = [
-  { lat: 30.2679, lng: -97.7401, label: "Shakespeare's / Blind Pig area cam — exact position TBD (captured POI 1:44–1:45 AM)" },
+  { lat: 30.26724, lng: -97.73979, label: "Shakespeare's / Blind Pig area cam — captured POI 1:44–1:45 AM" },
   { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], label: "Mooseknuckle cam — captured Tiera altercation ~2:30 AM" },
   { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], label: 'Bijou Lounge "horse cam" — recorded POI + Tiera heading NE ~2:35 AM' },
   { lat: I35_CROSS[0],    lng: I35_CROSS[1],    label: "POD102 (APD public safety) — IH-35 & 6th, POI heading east 2:09 AM" },
@@ -869,115 +876,122 @@ const STEP_STATES = {
     ],
   },
   2: {
-    center: SHAKESPEARES, zoom: 19, date: 'APRIL 16, 2023', time: '1:44 AM',
+    center: BLIND_PIG, zoom: 19, date: 'APRIL 16, 2023', time: '1:44 AM',
     markers: [
-      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', label: "Shakespeare's Pub – 1:44 AM POI sighting", shortLabel: "Shakespeare's", pulse: true, size: 16 },
+      { lat: BLIND_PIG[0], lng: BLIND_PIG[1], color: '#9D4EDD', label: 'The Blind Pig – 1:44 AM POI sighting', shortLabel: 'The Blind Pig', pulse: true, size: 16 },
     ],
   },
   3: {
-    center: BLIND_PIG, zoom: 19, date: 'APRIL 16, 2023', time: '1:45 AM',
+    center: SHAKESPEARES, zoom: 19, date: 'APRIL 16, 2023', time: '1:45 AM',
     markers: [
-      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
-      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', label: 'The Blind Pig – 1:45 AM', shortLabel: 'The Blind Pig', pulse: true, size: 16 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', label: "Shakespeare's Pub – 1:45 AM, POI crosses street", shortLabel: "Shakespeare's", pulse: true, size: 16 },
     ],
-    routes: [{ coords: [SHAKESPEARES, BLIND_PIG], color: '#9D4EDD' }],
+    routes: [{ coords: [BLIND_PIG, SHAKESPEARES], color: '#9D4EDD' }],
   },
   4: {
-    center: TRINITY_6TH, zoom: 19, date: 'APRIL 16, 2023', time: '~2:00 AM',
+    center: TRINITY_POI, zoom: 18, date: 'APRIL 16, 2023', time: '~2:00 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', label: '6th & Trinity – ~2:00 AM', shortLabel: 'Old School Bar', pulse: true, size: 16 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', label: 'Trinity St (600 block) – ~2:00 AM, POI seen heading north near Tellers', shortLabel: 'Trinity St', pulse: true, size: 16 },
     ],
-    routes: [{ coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' }],
+    routes: [
+      { coords: [BLIND_PIG, SHAKESPEARES], color: '#9D4EDD' },
+      { coords: RT_TO_TRINITY, color: '#EBE2CD' },
+    ],
   },
   45: {
-    center: [30.2670, -97.7373], zoom: 17, date: 'APRIL 16, 2023', time: '2:09 AM',
+    center: [30.2660, -97.7368], zoom: 16, date: 'APRIL 16, 2023', time: '2:09 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity St', size: 10 },
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', label: 'POI captured heading east under IH-35 — 2:09 AM', shortLabel: '2:09 AM — IH-35', pulse: true, size: 16 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: RT_EAST, color: '#EBE2CD' },
+      { coords: [BLIND_PIG, SHAKESPEARES], color: '#9D4EDD' },
+      { coords: [...RT_TO_TRINITY, ...RT_TO_IH35.slice(1)], color: '#EBE2CD' },
     ],
   },
   5: {
-    center: [30.2670, -97.7373], zoom: 17, date: 'APRIL 16, 2023', time: '~2:30 AM',
+    center: CHUPACABRA, zoom: 18, date: 'APRIL 16, 2023', time: '~2:20 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity St', size: 10 },
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
+      { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', label: 'Chupacabra Cantina — POI returns west to Trinity & 6th', shortLabel: 'Chupacabra Cantina', pulse: true, size: 16 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: RT_EAST,                                color: '#EBE2CD' },
+      { coords: [BLIND_PIG, SHAKESPEARES], color: '#9D4EDD' },
+      { coords: [...RT_TO_TRINITY, ...RT_TO_IH35.slice(1), ...RT_RETURN_W.slice(1)], color: '#EBE2CD' },
     ],
   },
   6: {
-    center: [30.2669, -97.7370], zoom: 16, date: 'APRIL 16, 2023', time: 'POST-2:30 AM',
+    center: THIRSTYS, zoom: 18, date: 'APRIL 16, 2023', time: '~2:25 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity St', size: 10 },
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', label: 'POI returns west on 6th — approaches contact point near San Jacinto', shortLabel: 'POI — San Jacinto', pulse: true, size: 14 },
+      { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: 'Chupacabra', size: 10 },
+      { lat: THIRSTYS[0],     lng: THIRSTYS[1],     color: '#EBE2CD', label: 'POI & Tiera seen near Thirsty\'s — W of Trinity on 6th', shortLabel: 'Thirsty\'s area', pulse: true, size: 14 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: [...RT_EAST, ...RT_WEST.slice(1)],       color: '#EBE2CD' },
+      { coords: [BLIND_PIG, SHAKESPEARES], color: '#9D4EDD' },
+      { coords: [...RT_TO_TRINITY, ...RT_TO_IH35.slice(1), ...RT_RETURN_W.slice(1), THIRSTYS], color: '#EBE2CD' },
     ],
   },
   7: {
-    center: [30.2679, -97.7390], zoom: 17, date: 'APRIL 16, 2023', time: '~2:35 AM',
+    center: [30.2669, -97.7385], zoom: 17, date: 'APRIL 16, 2023', time: '~2:35 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity St', size: 10 },
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', shortLabel: 'San Jacinto', size: 10 },
-      { lat: REVERSAL_PT[0],  lng: REVERSAL_PT[1],  color: '#EBE2CD', shortLabel: 'Direction reversal', size: 10 },
+      { lat: CHUPACABRA[0],   lng: CHUPACABRA[1],   color: '#EBE2CD', shortLabel: 'Chupacabra', size: 10 },
+      { lat: THIRSTYS[0],     lng: THIRSTYS[1],     color: '#EBE2CD', shortLabel: 'Thirsty\'s area', size: 10 },
+      { lat: AQUARIUM_6TH[0], lng: AQUARIUM_6TH[1], color: '#EBE2CD', shortLabel: 'Aquarium on 6th', size: 10 },
       { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', label: 'Bijou Lounge — ~2:35 AM, horse cam records POI heading NE', shortLabel: 'Bijou Lounge', pulse: true, size: 14 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH],                color: '#9D4EDD' },
-      { coords: [...RT_EAST, ...RT_WEST.slice(1), ..._e.slice(4,6), BIJOU_LOUNGE], color: '#EBE2CD' },
+      { coords: [BLIND_PIG, SHAKESPEARES], color: '#9D4EDD' },
+      { coords: [...RT_TO_TRINITY, ...RT_TO_IH35.slice(1), ...RT_RETURN_W.slice(1), THIRSTYS, _e[5], AQUARIUM_6TH, _e[6], _e[7], BIJOU_LOUNGE], color: '#EBE2CD' },
     ],
   },
   8: {
-    center: [30.2672, -97.7345], zoom: 16, date: 'APRIL 16, 2023', time: '2:40 AM',
+    center: [30.2659, -97.7354], zoom: 16, date: 'APRIL 16, 2023', time: '2:40 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: TRINITY_POI[0],  lng: TRINITY_POI[1],  color: '#EBE2CD', shortLabel: 'Trinity St', size: 10 },
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', shortLabel: 'San Jacinto', size: 10 },
-      { lat: REVERSAL_PT[0],  lng: REVERSAL_PT[1],  color: '#EBE2CD', shortLabel: 'Direction reversal', size: 10 },
+      { lat: THIRSTYS[0],     lng: THIRSTYS[1],     color: '#EBE2CD', shortLabel: 'Thirsty\'s area', size: 10 },
+      { lat: AQUARIUM_6TH[0], lng: AQUARIUM_6TH[1], color: '#EBE2CD', shortLabel: 'Aquarium on 6th', size: 10 },
       { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', shortLabel: 'Bijou Lounge', size: 10 },
-      { lat: WENDYS[0],       lng: WENDYS[1],       color: '#EBE2CD', label: "Wendy's parking lot — POI LAST SIGHTING — 2:40 AM", shortLabel: "Wendy's — Last seen", pulse: true, size: 16 },
+      { lat: IH35_601[0],     lng: IH35_601[1],     color: '#EBE2CD', shortLabel: '601 N IH-35', size: 10 },
+      { lat: IH35_619[0],     lng: IH35_619[1],     color: '#EBE2CD', label: "619 N IH-35 — POI & Tiera LAST SIGHTING — 2:40 AM", shortLabel: "619 N IH-35 — Last seen", pulse: true, size: 16 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: [...RT_EAST, ...RT_WEST.slice(1), ...RT_BIJOU_WENDYS.slice(1)], color: '#EBE2CD' },
+      { coords: [BLIND_PIG, SHAKESPEARES], color: '#9D4EDD' },
+      { coords: [...RT_TO_TRINITY, ...RT_TO_IH35.slice(1), ...RT_RETURN_W.slice(1), ...RT_LATE.slice(1)], color: '#EBE2CD' },
     ],
   },
   9: {
     center: AUSTIN_CITY, zoom: 12, date: 'APRIL 17, 2023', time: 'DAYTIME',
     markers: [
-      { lat: WENDYS[0],      lng: WENDYS[1],      color: '#C04E01', shortLabel: "Last seen — Wendy's", size: 13 },
+      { lat: IH35_619[0],    lng: IH35_619[1],    color: '#C04E01', shortLabel: 'Last seen — 619 N IH-35', size: 13 },
       { lat: AUSTIN_CITY[0], lng: AUSTIN_CITY[1], color: '#EBE2CD', shortLabel: 'APD report — Apr 17', labelPos: 'above', size: 13 },
     ],
   },
   10: {
     center: [30.68, -97.54], zoom: 8, date: 'APRIL 21, 2023', time: 'MORNING',
     markers: [
-      { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', shortLabel: "Last seen — Austin", size: 13 },
+      { lat: IH35_619[0],  lng: IH35_619[1],  color: '#C04E01', shortLabel: 'Last seen — Austin', size: 13 },
       { lat: BERGER_RD[0], lng: BERGER_RD[1], color: '#E63946', label: 'Body found: 1300 block of Berger Rd, north of Temple', shortLabel: 'Bell County — Found', pulse: true, size: 16 },
     ],
-    routes: [{ coords: [WENDYS, BERGER_RD], color: '#E63946' }],
+    routes: [{ coords: [IH35_619, BERGER_RD], color: '#E63946' }],
   },
   11: {
     center: BERGER_RD, zoom: 13, date: 'JULY 27, 2023', time: '',
@@ -988,20 +1002,20 @@ const STEP_STATES = {
   12: {
     center: [30.68, -97.54], zoom: 8, date: '2023 — PRESENT', time: '',
     markers: [
-      { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', shortLabel: 'Last seen — Austin', size: 13 },
+      { lat: IH35_619[0],  lng: IH35_619[1],  color: '#C04E01', shortLabel: 'Last seen — Austin', size: 13 },
       { lat: BERGER_RD[0], lng: BERGER_RD[1], color: '#E63946', shortLabel: 'Found — Bell County', size: 13 },
     ],
-    routes: [{ coords: [WENDYS, BERGER_RD], color: '#4A8A7C' }],
+    routes: [{ coords: [IH35_619, BERGER_RD], color: '#4A8A7C' }],
   },
   13: {
     center: SIXTH_ST, zoom: 16, date: 'APRIL 15–16, 2023', time: '',
     markers: [
-      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
-      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
-      { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#C04E01', shortLabel: 'Mooseknuckle', size: 11 },
+      { lat: SHAKESPEARES[0],  lng: SHAKESPEARES[1],  color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],     lng: BLIND_PIG[1],     color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: CHUPACABRA[0],    lng: CHUPACABRA[1],    color: '#EBE2CD', shortLabel: 'Chupacabra Cantina', size: 11 },
+      { lat: MOOSEKNUCKLE[0],  lng: MOOSEKNUCKLE[1],  color: '#C04E01', shortLabel: 'Mooseknuckle', size: 11 },
     ],
-    routes: [{ coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH, MOOSEKNUCKLE], color: '#9D4EDD' }],
+    routes: [{ coords: [BLIND_PIG, SHAKESPEARES, _e[4], _e[5], CHUPACABRA, MOOSEKNUCKLE], color: '#9D4EDD' }],
   },
 };
 
