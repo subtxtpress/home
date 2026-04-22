@@ -56,7 +56,12 @@
       --nav-h:    48px;
     }
 
-    html, body { width: 100%; height: 100%; overflow: hidden; }
+    html, body { 
+      width: 100%;
+      height: 100%;
+      overflow: hidden; 
+    }
+
     body {
       background: var(--bg);
       color: var(--text2);
@@ -188,9 +193,12 @@
       padding-left: 14px;
     }
     .details li {
-      font-family: var(--mono); font-size: 11px;
-      color: var(--muted); letter-spacing: 0.03em;
-      line-height: 1.6; margin-bottom: 5px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text);/*var(--muted);*/ 
+      letter-spacing: 0.03em;
+      line-height: 1.6;
+      margin-bottom: 5px;
     }
     .details li::before { content: '· '; color: var(--border2); }
 
@@ -487,7 +495,7 @@
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>Approximately 40 seconds after the Shakespeare's footage, a second Axon clip captures the POI walking past The Blind Pig bar on 6th Street.</p>
+    <p>Approximately 40 seconds after the Shakespeare's footage, a second Axon clip captures the POI walking alone past The Blind Pig bar on 6th Street.</p>
     <p>The POI continues moving through the 6th Street corridor. He has not yet made contact with Tiera at this point.</p>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/poi-blind-pig-145am.mp4','POI — Blind Pig · 1:45 AM')">
@@ -509,8 +517,8 @@
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>Surveillance footage from POD146 (6th and Trinity — Old School Bar) shows the POI walking with a group. A woman in the group lunges at him; she is pulled back by friends.</p>
-    <p>Two unidentified women near a rickshaw also speak with the POI around this time. Law enforcement has sought these individuals for interviews.</p>
+    <p>Surveillance footage from POD146 (6th and Trinity — Old School Bar) shows the POI walking with a group of people. A woman in the group lunges at him; she is pulled back by friends.</p>
+    <p>Two unidentified women near a rickshaw also speak with the POI around this time. It appears that the POI hands his phone to one of the women, perhaps so she can give him her phone number. Law enforcement has sought these individuals for interviews.</p>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/pod146-old-school-bar-200am.mp4','POD146 — Old School Bar · ~2:00 AM')">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -531,8 +539,8 @@
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>POD102, a camera mounted on the 600 block of IH-35 and facing west, captures the POI walking east under the Interstate 35 overpass at 2:09 AM — moving away from the 6th Street corridor.</p>
-    <p>This is 9 minutes after his last sighting at the Trinity Street encounter. He will reappear at Mooseknuckle Pub approximately 20 minutes later. What he did in that interval, and how he returned, is not explained by any recovered footage.</p>
+    <p>POD102, a camera mounted on the 600 block of IH-35 captures the POI walking east under the Interstate 35 overpass at 2:09 AM — moving away from the 6th Street corridor.</p>
+    <p>This is 9 minutes after his last sighting at the Trinity Street encounter. He will reappear at Mooseknuckle Pub approximately 20 minutes later. What he did in that interval, and how he returned, is not explained by any currently available footage.</p>
     <ul class="details">
       <li>Camera: POD102, 600 block IH-35, west-facing</li>
       <li>Direction of travel: east — away from 6th Street entertainment district</li>
@@ -566,7 +574,7 @@
       <li>Assault begins inside the club, continues outside after she is kicked out</li>
       <li>Friends present but did not assist — confirmed by witness video</li>
       <li>Left without phone, purse, wallet, bank card, car keys</li>
-      <li>Friends depart in Tiera's van without reporting her missing</li>
+      <li>Later that night, Tiera's friends depart in her van without reporting her missing</li>
       <li>Family not notified until the following day (April 17)</li>
     </ul>
     <button class="venue-thumb" onclick="openPhoto('public/venues/mooseknuckle.webp','Mooseknuckle Pub · 406 E 6th St')">
@@ -584,13 +592,13 @@
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>Now alone and without her belongings, Tiera is approached by the POI near San Jacinto. This is the first documented contact between them. They begin walking together, moving away from I-35 and toward San Jacinto.</p>
-    <p>The POI had been on 6th Street for approximately 45 minutes before this approach. He was not present during the Mooseknuckle altercation. He made contact only after Tiera was isolated and vulnerable.</p>
+    <p>Now alone and without her belongings, Tiera is approached by the POI on 6th Street near San Jacinto. This is the first documented contact between them. They appear crossing the intersections with Tiera walking behind the POI away from I-35 and toward San Jacinto.</p>
+    <p>At this point, investigators note the POI begins chain-smoking — a behavior that was not observed during his 45 minutes on 6th Street before meeting Tiera.</p>
+    <p>The POI had been on 6th Street for approximately 45 minutes before this approach. It remains unknown if he was present during the Mooseknuckle altercation or if he only made contact after Tiera was isolated and vulnerable.</p>
     <ul class="details">
       <li>POI had been observed on 6th Street for ~45 min before this contact</li>
-      <li>POI was not near Tiera during the earlier altercation</li>
-      <li>POI approaches only after Tiera is alone and without possessions</li>
-      <li>Tiera appears comfortable in initial video footage</li>
+      <li>Tiera appears comfortable in the initial video footage</li>
+      <li>Prior to meeting Tiera, POI was not observed smoking at any point</li>
     </ul>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/poi-tiera-san-jacinto.mp4','POI + Tiera — San Jacinto')">
@@ -610,10 +618,8 @@
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
     <p>The pair reverses direction, now walking back toward I-35. Horse camera footage (Bijou Lounge to their left) records them moving northeast.</p>
-    <p>At this point, investigators note the POI begins chain-smoking — a behavior that was not observed during his 45 minutes on 6th Street before meeting Tiera.</p>
     <ul class="details">
-      <li>Prior to meeting Tiera, POI was not observed smoking at any point</li>
-      <li>Chain-smoking begins immediately after contact with Tiera</li>
+      <li>Chain-smoking began immediately after contact with Tiera</li>
       <li>Behavioral change noted as potentially significant by investigators</li>
     </ul>
     <div class="video-btn-row">
@@ -774,17 +780,18 @@
 <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
 <script>
 /* ── Coordinates ── */
-const SHAKESPEARES = [30.2671, -97.7394];
-const BLIND_PIG    = [30.2671, -97.7387];
-const TRINITY_6TH  = [30.2671, -97.7379];
-const MOOSEKNUCKLE = [30.2671, -97.7372];
-const BIJOU_LOUNGE = [30.2673, -97.7348];
-const SAN_JAC      = [30.2678, -97.7368];
-const I35_CROSS    = [30.2700, -97.7320];
-const WENDYS       = [30.2738, -97.7295];
+const SHAKESPEARES = [30.2679, -97.7405]; /* 314 E 6th St — user-verified */
+const BLIND_PIG    = [30.2679, -97.7397]; /* 317 E 6th St — user-verified */
+const TRINITY_6TH  = [30.2677, -97.7393]; /* 401 E 6th St, Old School Bar — interpolated */
+const MOOSEKNUCKLE = [30.2676, -97.7389]; /* 406 E 6th St — user-verified */
+const BIJOU_LOUNGE = [30.2676, -97.7387]; /* 415 E 6th St — derived from address scale */
+const SAN_JAC      = [30.2678, -97.7400]; /* San Jacinto & E 6th — user DMS: 30°16′04″N 97°44′24″W */
+const REVERSAL_PT  = [30.2677, -97.7394]; /* direction reversal — between San Jac & Bijou */
+const I35_CROSS    = [30.2660, -97.7340]; /* IH-35 & E 6th — matches 601 N IH-35 (Chevron) lat */
+const WENDYS       = [30.2672, -97.7340]; /* E 7th & IH-35 per news — one block north of I35_CROSS */
 const AUSTIN_CITY  = [30.2672, -97.7431];
 const BERGER_RD    = [31.1260, -97.3405];
-const SIXTH_ST     = [30.2671, -97.7385];
+const SIXTH_ST     = [30.2678, -97.7394]; /* center of bar corridor */
 const OVERVIEW     = [30.69,   -97.54];
 
 /* ── Step map states ── */
@@ -814,9 +821,8 @@ const STEP_STATES = {
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', label: 'The Blind Pig – 1:45 AM', shortLabel: 'The Blind Pig', pulse: true, size: 16 },
-      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
     ],
-    routes: [{ coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' }],
+    routes: [{ coords: [SHAKESPEARES, BLIND_PIG], color: '#9D4EDD' }],
   },
   4: {
     center: TRINITY_6TH, zoom: 19, date: 'APRIL 16, 2023', time: '~2:00 AM',
@@ -828,7 +834,7 @@ const STEP_STATES = {
     routes: [{ coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' }],
   },
   45: {
-    center: [30.2685, -97.7350], zoom: 17, date: 'APRIL 16, 2023', time: '2:09 AM',
+    center: [30.2670, -97.7373], zoom: 17, date: 'APRIL 16, 2023', time: '2:09 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
@@ -841,54 +847,64 @@ const STEP_STATES = {
     ],
   },
   5: {
-    center: [30.2676, -97.7360], zoom: 17, date: 'APRIL 16, 2023', time: '~2:30 AM',
+    center: [30.2670, -97.7373], zoom: 17, date: 'APRIL 16, 2023', time: '~2:30 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
       { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
-      { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#C04E01', label: 'Mooseknuckle Pub – ~2:30 AM altercation', shortLabel: 'Mooseknuckle', pulse: true, size: 16 },
     ],
     routes: [
       { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
-      { coords: [TRINITY_6TH, I35_CROSS], color: '#EBE2CD' },
-      { coords: [I35_CROSS, MOOSEKNUCKLE], color: '#C04E01' },
+      { coords: [TRINITY_6TH, I35_CROSS],               color: '#EBE2CD' },
     ],
   },
   6: {
-    center: SAN_JAC, zoom: 18, date: 'APRIL 16, 2023', time: 'POST-2:30 AM',
+    center: [30.2669, -97.7370], zoom: 16, date: 'APRIL 16, 2023', time: 'POST-2:30 AM',
     markers: [
       { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
       { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
       { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
-      { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], color: '#C04E01', shortLabel: 'Mooseknuckle', size: 11 },
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#C04E01', label: 'First contact: POI approaches Tiera', shortLabel: 'First contact', pulse: true, size: 16 },
+      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
+      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', label: 'POI returns west on 6th — approaches contact point near San Jacinto', shortLabel: 'POI — San Jacinto', pulse: true, size: 14 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH, MOOSEKNUCKLE], color: '#9D4EDD' },
-      { coords: [MOOSEKNUCKLE, SAN_JAC], color: '#4A8A7C' },
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH], color: '#9D4EDD' },
+      { coords: [TRINITY_6TH, I35_CROSS, SAN_JAC],      color: '#EBE2CD' },
     ],
   },
   7: {
-    center: I35_CROSS, zoom: 17, date: 'APRIL 16, 2023', time: '~2:35 AM',
+    center: [30.2679, -97.7390], zoom: 17, date: 'APRIL 16, 2023', time: '~2:35 AM',
     markers: [
-      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', label: 'First contact', shortLabel: 'First contact', size: 10 },
-      { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#9D4EDD', label: 'Bijou Lounge — horse cam records pair heading NE', shortLabel: 'Bijou Lounge', size: 13 },
-      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#9D4EDD', label: 'Direction reversal — heading toward I-35', shortLabel: 'Direction reversal', pulse: true, size: 16 },
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
+      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', shortLabel: 'San Jacinto', size: 10 },
+      { lat: REVERSAL_PT[0],  lng: REVERSAL_PT[1],  color: '#EBE2CD', shortLabel: 'Direction reversal', size: 10 },
+      { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', label: 'Bijou Lounge — ~2:35 AM, horse cam records POI heading NE', shortLabel: 'Bijou Lounge', pulse: true, size: 14 },
     ],
     routes: [
-      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH, MOOSEKNUCKLE, SAN_JAC], color: '#9D4EDD' },
-      { coords: [SAN_JAC, BIJOU_LOUNGE, I35_CROSS], color: '#4A8A7C' },
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH],          color: '#9D4EDD' },
+      { coords: [TRINITY_6TH, I35_CROSS, SAN_JAC, REVERSAL_PT, BIJOU_LOUNGE], color: '#EBE2CD' },
     ],
   },
   8: {
-    center: WENDYS, zoom: 17, date: 'APRIL 16, 2023', time: '2:40 AM',
+    center: [30.2672, -97.7345], zoom: 16, date: 'APRIL 16, 2023', time: '2:40 AM',
     markers: [
-      { lat: SAN_JAC[0],   lng: SAN_JAC[1],   color: '#EBE2CD', shortLabel: 'First contact', size: 10 },
-      { lat: I35_CROSS[0], lng: I35_CROSS[1], color: '#EBE2CD', shortLabel: 'Direction reversal', size: 10 },
-      { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', label: "Wendy's parking lot — LAST SIGHTING", shortLabel: "Wendy's — Last seen", pulse: true, size: 16 },
+      { lat: SHAKESPEARES[0], lng: SHAKESPEARES[1], color: '#9D4EDD', shortLabel: "Shakespeare's", size: 11 },
+      { lat: BLIND_PIG[0],    lng: BLIND_PIG[1],    color: '#9D4EDD', shortLabel: 'The Blind Pig', size: 11 },
+      { lat: TRINITY_6TH[0],  lng: TRINITY_6TH[1],  color: '#EBE2CD', shortLabel: 'Old School Bar', size: 11 },
+      { lat: I35_CROSS[0],    lng: I35_CROSS[1],    color: '#EBE2CD', shortLabel: 'IH-35 — 2:09 AM', size: 10 },
+      { lat: SAN_JAC[0],      lng: SAN_JAC[1],      color: '#EBE2CD', shortLabel: 'San Jacinto', size: 10 },
+      { lat: REVERSAL_PT[0],  lng: REVERSAL_PT[1],  color: '#EBE2CD', shortLabel: 'Direction reversal', size: 10 },
+      { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], color: '#EBE2CD', shortLabel: 'Bijou Lounge', size: 10 },
+      { lat: WENDYS[0],       lng: WENDYS[1],       color: '#EBE2CD', label: "Wendy's parking lot — POI LAST SIGHTING — 2:40 AM", shortLabel: "Wendy's — Last seen", pulse: true, size: 16 },
     ],
-    routes: [{ coords: [SAN_JAC, I35_CROSS, WENDYS], color: '#4A8A7C' }],
+    routes: [
+      { coords: [SHAKESPEARES, BLIND_PIG, TRINITY_6TH],                              color: '#9D4EDD' },
+      { coords: [TRINITY_6TH, I35_CROSS, SAN_JAC, REVERSAL_PT, BIJOU_LOUNGE, WENDYS], color: '#EBE2CD' },
+    ],
   },
   9: {
     center: AUSTIN_CITY, zoom: 12, date: 'APRIL 17, 2023', time: 'DAYTIME',
@@ -970,7 +986,30 @@ function makeMarkerIcon(m) {
   return L.divIcon({ html: wrap, className: '', iconSize: [100, iconH], iconAnchor: [50, iconAnchorY] });
 }
 
-function renderState(state) {
+/* ── OSRM road-following routes ── */
+const _osrmCache = {};
+async function fetchRoadRoute(coords) {
+  const key = coords.map(c => c.join(',')).join('|');
+  if (_osrmCache[key]) return _osrmCache[key];
+  const wpts = coords.map(c => `${c[1]},${c[0]}`).join(';');
+  try {
+    const res = await fetch(
+      `https://router.project-osrm.org/route/v1/foot/${wpts}?overview=full&geometries=geojson`,
+      { signal: AbortSignal.timeout(6000) }
+    );
+    const d = await res.json();
+    if (d.code === 'Ok') {
+      const road = d.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+      return (_osrmCache[key] = road);
+    }
+  } catch(e) {}
+  return (_osrmCache[key] = coords); // straight-line fallback
+}
+
+let _renderToken = 0;
+async function renderState(state) {
+  const token = ++_renderToken;
+
   activeMarkers.forEach(m => map.removeLayer(m));
   activeRoutes.forEach(r => map.removeLayer(r));
   activeMarkers = [];
@@ -978,8 +1017,14 @@ function renderState(state) {
 
   const style = { weight: 2.5, opacity: 0.75, dashArray: '7 5' };
 
-  (state.routes || []).forEach(r => {
-    activeRoutes.push(L.polyline(r.coords, { ...style, color: r.color }).addTo(map));
+  // Fetch all routes in parallel (cached after first load)
+  const resolved = await Promise.all(
+    (state.routes || []).map(r => fetchRoadRoute(r.coords).then(road => ({ road, color: r.color })))
+  );
+  if (token !== _renderToken) return; // user scrolled to a new step while fetching
+
+  resolved.forEach(({ road, color }) => {
+    activeRoutes.push(L.polyline(road, { ...style, color }).addTo(map));
   });
 
   (state.markers || []).forEach(m => {
