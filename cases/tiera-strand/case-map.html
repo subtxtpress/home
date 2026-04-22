@@ -333,6 +333,26 @@
     }
     .pulse-marker { animation: markerPulse 2s infinite; }
 
+    /* ── CAMERA MARKERS (persistent dim layer) ── */
+    .cam-icon {
+      width: 10px; height: 10px;
+      background: #555; border: 1px solid #777;
+      opacity: 0.5;
+      transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+      cursor: help;
+    }
+    .cam-icon:hover { opacity: 1; background: #8a8a8a; border-color: #bbb; }
+    .leaflet-tooltip.cam-tooltip {
+      background: rgba(6,11,20,0.92);
+      border: 1px solid var(--border2);
+      color: var(--text);
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.04em;
+      padding: 4px 8px; border-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+    .leaflet-tooltip.cam-tooltip::before { display: none; }
+
     /* ── MODALS ── */
     .modal-overlay {
       display: none; position: fixed; inset: 0; z-index: 2000;
@@ -794,6 +814,15 @@ const BERGER_RD    = [31.1260, -97.3405];
 const SIXTH_ST     = [30.2678, -97.7394]; /* center of bar corridor */
 const OVERVIEW     = [30.69,   -97.54];
 
+/* ── Known camera locations (persistent dim layer, not tied to steps) ── */
+const CAMERAS = [
+  { lat: 30.2679, lng: -97.7401, label: "Shakespeare's / Blind Pig area cam — exact position TBD (captured POI 1:44–1:45 AM)" },
+  { lat: MOOSEKNUCKLE[0], lng: MOOSEKNUCKLE[1], label: "Mooseknuckle cam — captured Tiera altercation ~2:30 AM" },
+  { lat: BIJOU_LOUNGE[0], lng: BIJOU_LOUNGE[1], label: 'Bijou Lounge "horse cam" — recorded POI + Tiera heading NE ~2:35 AM' },
+  { lat: I35_CROSS[0],    lng: I35_CROSS[1],    label: "POD102 (APD public safety) — IH-35 & 6th, POI heading east 2:09 AM" },
+  { lat: WENDYS[0],       lng: WENDYS[1],       label: "Wendy's cam — last known sighting 2:40 AM" },
+];
+
 /* ── Step map states ── */
 const STEP_STATES = {
   0: {
@@ -954,6 +983,20 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   subdomains: 'abcd', maxZoom: 20,
 }).addTo(map);
 
+/* ── Persistent camera layer (not cleared between steps) ── */
+function makeCameraIcon() {
+  const el = document.createElement('div');
+  el.className = 'cam-icon';
+  return L.divIcon({ html: el, className: '', iconSize: [10, 10], iconAnchor: [5, 5] });
+}
+const cameraLayer = L.layerGroup();
+CAMERAS.forEach(c => {
+  L.marker([c.lat, c.lng], { icon: makeCameraIcon(), zIndexOffset: -500, interactive: true })
+    .bindTooltip(c.label, { direction: 'top', offset: [0, -6], className: 'cam-tooltip', sticky: true })
+    .addTo(cameraLayer);
+});
+cameraLayer.addTo(map);
+
 let activeMarkers = [];
 let activeRoutes  = [];
 
@@ -986,30 +1029,11 @@ function makeMarkerIcon(m) {
   return L.divIcon({ html: wrap, className: '', iconSize: [100, iconH], iconAnchor: [50, iconAnchorY] });
 }
 
-/* ── OSRM road-following routes ── */
-const _osrmCache = {};
-async function fetchRoadRoute(coords) {
-  const key = coords.map(c => c.join(',')).join('|');
-  if (_osrmCache[key]) return _osrmCache[key];
-  const wpts = coords.map(c => `${c[1]},${c[0]}`).join(';');
-  try {
-    const res = await fetch(
-      `https://router.project-osrm.org/route/v1/foot/${wpts}?overview=full&geometries=geojson`,
-      { signal: AbortSignal.timeout(6000) }
-    );
-    const d = await res.json();
-    if (d.code === 'Ok') {
-      const road = d.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
-      return (_osrmCache[key] = road);
-    }
-  } catch(e) {}
-  return (_osrmCache[key] = coords); // straight-line fallback
-}
-
-let _renderToken = 0;
-async function renderState(state) {
-  const token = ++_renderToken;
-
+/* ── Route rendering ── */
+/* POI stayed on 6th Street all night; straight polylines between verified
+   coords trace the corridor accurately. OSRM foot routing was detouring
+   because 6th is flagged as pedestrian-closed in OSM. */
+function renderState(state) {
   activeMarkers.forEach(m => map.removeLayer(m));
   activeRoutes.forEach(r => map.removeLayer(r));
   activeMarkers = [];
@@ -1017,14 +1041,8 @@ async function renderState(state) {
 
   const style = { weight: 2.5, opacity: 0.75, dashArray: '7 5' };
 
-  // Fetch all routes in parallel (cached after first load)
-  const resolved = await Promise.all(
-    (state.routes || []).map(r => fetchRoadRoute(r.coords).then(road => ({ road, color: r.color })))
-  );
-  if (token !== _renderToken) return; // user scrolled to a new step while fetching
-
-  resolved.forEach(({ road, color }) => {
-    activeRoutes.push(L.polyline(road, { ...style, color }).addTo(map));
+  (state.routes || []).forEach(r => {
+    activeRoutes.push(L.polyline(r.coords, { ...style, color: r.color }).addTo(map));
   });
 
   (state.markers || []).forEach(m => {
