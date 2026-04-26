@@ -33,7 +33,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
@@ -60,10 +60,16 @@
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --head: 'Barlow Condensed', sans-serif;
+      --serif: 'Cormorant Garamond', Georgia, serif;
       --nav-h: 48px;
     }
 
-    html, body { width: 100%; height: 100%; overflow: hidden; }
+    html, body { 
+      width: 100%; 
+      height: 100%; 
+      overflow: hidden; 
+    }
+
     body {
       background: var(--bg);
       color: var(--text2);
@@ -78,14 +84,24 @@
       height: var(--nav-h);
       background: rgba(6,11,20,0.97);
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: center;
-      padding: 0 14px; z-index: 1200; gap: 10px;
+      display: flex; 
+      align-items: center;
+      padding: 0 14px; 
+      z-index: 1200; 
+      gap: 10px;
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     }
     .nav-title {
-      font-family: var(--head); font-size: 16px; font-weight: 700;
-      letter-spacing: 0.05em; text-transform: uppercase; color: var(--text);
-      flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-family: var(--serif); 
+      font-size: 16px; 
+      font-weight: 800;
+      letter-spacing: 0.05em; 
+      /*text-transform: uppercase;*/ 
+      color: var(--text);
+      flex: 1; 
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis;
     }
     .nav-tag {
       background: rgba(230,57,70,0.14); border: 1px solid rgba(230,57,70,0.35);
@@ -225,17 +241,25 @@
 
     /* Title card special */
     .step.title-card {
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: flex-start;
+      display: flex; 
+      flex-direction: column;
+      justify-content: center; 
+      align-items: flex-start;
       min-height: 90vh;
     }
+
     .title-card .step-title {
-      font-size: 28px; line-height: 1.2;
+      font-size: 28px; 
+      line-height: 1.2;
     }
+
     .title-card .dateline {
-      font-family: var(--mono); font-size: 12px;
-      letter-spacing: 0.14em; color: var(--c-holly);
-      margin-bottom: 8px; text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em; 
+      color: var(--c-holly);
+      margin-bottom: 8px; 
+      text-transform: uppercase;
     }
 
     /* Act headers */
@@ -313,7 +337,7 @@
 
 <!-- Nav -->
 <nav class="nav">
-  <div class="nav-title">State v. Zachary Adams</div>
+  <div class="nav-title"><em>State v. Zachary Adams</em></div>
   <span class="nav-tag">CASE MAP</span>
   <a class="nav-source-link" href="case-map.html">View interactive map &rarr;</a>
 </nav>
@@ -379,7 +403,8 @@
     <div class="step-time">7:40 AM</div>
     <div class="step-title">Screaming</div>
     <p>James Barnes, a neighbor on Swan Johnson Road, is outside with his friend Keith Clark working on a truck when he hears screaming. A younger female voice: <em>"Stop it, stop it, goddamn it."</em> He estimates it lasts about 45 seconds — and says it sounded like the person knew whoever was doing it.</p>
-    <p>He drives by the Bobo property 45 seconds later — no one is there. He calls his mother, Cathy Wise, who lives on the same property. She goes to the Bobo house and finds Clint heading into the woods, nervous and upset. Wise calls Karen at school.</p>
+    <p>He drives by the Bobo property 45 seconds later — no one is there. He calls his mother, Cathy Wise, who lives on the same property.</p>
+    <p>Cathy calls the school to let Karen Bobo know they heard screaming but she has to leave the message with the school secretary.</p>
   </div>
 
   <!-- STEP 5 -->
@@ -391,6 +416,13 @@
     <p>This is the last known voluntary action by Holly Bobo.</p>
   </div>
 
+  <!-- NEW STEP  -->
+  <div class="step" data-step="4" data-border="var(--c-holly)">
+    <div class="step-time">7:45 AM</div>
+    <div class="step-title">Screaming</div>
+    <p>Cathy Wise calls the school to let Karen Bobo know they heard screaming that sounded like it came from their house but she has to leave the message with the school secretary.</p>
+  </div>
+
   <!-- ACT 2: THE ALARM -->
 
   <!-- STEP 6 -->
@@ -398,8 +430,17 @@
     <div class="act-label">Act II &mdash; The Alarm</div>
     <div class="step-time">7:46 AM &ndash; 7:53 AM</div>
     <div class="step-title">Karen is notified</div>
-    <p>At school, Karen is told that neighbor Cathy Wise heard screaming from their house. Karen calls Clint. He tells her Holly was outside with Drew.</p>
-    <p>Karen tells him it was not Drew and to try to get his sister.</p>
+    <p>At school, Karen is told that neighbor heard screaming from their house so she calls Clint. He tells her Holly was outside arguing with Drew.</p>
+    <p>Karen tells him it was not Drew, and to get a gun and go after him.</p>
+  </div>
+
+  <!-- NEW STEP -->
+  <div class="step" data-step="6" data-border="var(--c-holly)">
+    <div class="act-label">Act II &mdash; The Alarm</div>
+    <div class="step-time">8:00 AM</div>
+    <div class="step-title">Clint Finds Blood</div>
+    <p>Clint grabs a loaded pistol and finds a puddle of blood in the garage on his way outside.</p>
+    <p>Cathy pulls into the Bobo driveway and finds Clint nervous and upset.</p>
   </div>
 
   <!-- STEP 7 -->
