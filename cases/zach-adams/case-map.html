@@ -12,7 +12,7 @@
   <meta property="og:description" content="Explore geographic data introduced at the Zach Adams trial — including evidence sites, cell tower records, GPS trail data, and a chronological phone timeline.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/cases/zach-adams/case-map">
-  <meta property="og:image" content="https://subtxtpress.github.io/home/cases/zach-adams/img/zach-adams-case-map.jpg">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/cases/zach-adams/img/timeline.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
   <meta property="og:site_name" content="TN vs. ZA">
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zach Adams Case Map">
   <meta name="twitter:description" content="Explore geographic data introduced at the Zach Adams trial — including evidence sites, cell tower records, GPS trail data, and a chronological phone timeline.">
-  <meta name="twitter:image" content="https://subtxtpress.github.io/home/cases/zach-adams/img/zach-adams-case-map.jpg">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/cases/zach-adams/img/timeline.jpg">
   <meta name="twitter:creator" content="@TrueCrimeAudit">
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
@@ -33,7 +33,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -59,6 +59,7 @@
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --head: 'Barlow Condensed', sans-serif;
+      --serif: 'Cormorant Garamond', Georgia, serif;
 
       --nav-h:      48px;
       --story-h:    0px;    /* narrative bar removed — case map is toggle-only */
@@ -97,12 +98,24 @@
       font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em;
       white-space: nowrap; transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--text); }
-    .nav-sep { color: var(--border2); }
+    .nav-back:hover { 
+      color: var(--text); 
+    }
+    .nav-sep { 
+      color: var(--border2); 
+    }
+
     .nav-title {
-      font-family: var(--head); font-size: 16px; font-weight: 700;
-      letter-spacing: 0.05em; text-transform: uppercase; color: var(--text);
-      flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      /*text-transform: uppercase;*/
+      color: var(--text);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .nav-tag {
       background: rgba(230,57,70,0.14); border: 1px solid rgba(230,57,70,0.35);
@@ -775,15 +788,28 @@
     }
 
     @media (max-width: 767px) {
-      .map-legend { padding: 6px 9px; }
+      .map-legend {
+        padding: 6px 8px;
+        max-width: calc(100vw - 80px);
+      }
+      .map-legend-title { font-size: 7px; margin-bottom: 4px; }
       .map-legend-label { font-size: 8px; }
-      .map-legend-dot { width: 7px; height: 7px; }
+      .map-legend-dot { width: 6px; height: 6px; }
+      .map-legend-row { margin-bottom: 3px; gap: 5px; }
       .chapter-intro-card { padding: 15px 18px; }
       .ci-title { font-size: 17px; }
       .ci-body { font-size: 11px; }
       .phone-event-card { max-width: 220px; left: 8px; }
       .chapter-event-card { max-width: 220px; left: 8px; }
       .leaflet-tooltip.map-label { font-size: 8px; padding: 1px 4px; }
+    }
+    @media (max-width: 480px) {
+      .map-legend {
+        display: flex; flex-wrap: wrap; gap: 4px 8px;
+        padding: 5px 8px;
+      }
+      .map-legend-title { display: none; }
+      .map-legend-row { margin: 0; }
     }
 
     /* Intro overlay */
@@ -956,7 +982,7 @@
 <body>
 
   <nav class="nav">
-    <span class="nav-title">State v. Zachary Adams</span>
+    <span class="nav-title"><em>State v. Zachary Adams</em></span>
     <span class="nav-tag">CASE MAP</span>
     <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">View original Google Earth map ↗</span></a>
   </nav>
@@ -977,15 +1003,23 @@
     </div>
     <div class="map-legend-row">
       <div class="map-legend-dot" style="background:#57B0DC"></div>
-      <span class="map-legend-label">Jason Autry</span>
+      <span class="map-legend-label">People &amp; Residences</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#EBE2CD"></div>
+      <span class="map-legend-label">Evidence Site</span>
     </div>
     <div class="map-legend-row">
       <div class="map-legend-dot" style="background:#9D4EDD"></div>
       <span class="map-legend-label">Cell Tower</span>
     </div>
     <div class="map-legend-row">
-      <div class="map-legend-dot" style="background:#EBE2CD"></div>
-      <span class="map-legend-label">Evidence Site</span>
+      <div class="map-legend-dot" style="background:#4A8A7C"></div>
+      <span class="map-legend-label">GPS Trail</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#E8891C"></div>
+      <span class="map-legend-label">Phone Timeline</span>
     </div>
   </div>
 
