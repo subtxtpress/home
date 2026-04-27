@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHS Procurement Search Dashboard</title>
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DHS Procurement Dashboard">
+    <meta property="og:description" content="Search 310 DHS vendor profiles from the EFF dataset. Live contract lookups via USASpending.gov. Export data.">
+    <meta property="og:image" content="https://subtxtpress.github.io/home/tools/tech-contracts/img/tech-contracts-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta property="og:url" content="https://subtxtpress.github.io/home/tools/tech-contracts/tech-contracts.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/tech-contracts/img/tech-contracts-preview.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <link rel="manifest" href="icons/site.webmanifest">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        .search-box {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #404040;
+            border-radius: 6px;
+            font-size: 16px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: #e0e0e0;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #4a90e2;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #357abd;
+        }
+
+        .btn-secondary {
+            background: #505050;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #606060;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .quick-searches {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .quick-searches h2 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .results {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #b0b0b0;
+        }
+
+        .vendor-card {
+            border: 1px solid #404040;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.2s;
+            background: #252525;
+        }
+
+        .vendor-card:hover {
+            border-color: #4a90e2;
+            box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+        }
+
+        .vendor-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .vendor-ref {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .vendor-category {
+            color: #d0d0d0;
+            margin-bottom: 8px;
+        }
+
+        .vendor-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tag-prime {
+            background: #1e3a5f;
+            color: #64b5f6;
+        }
+
+        .tag-ai {
+            background: #3d1f4d;
+            color: #ba68c8;
+        }
+
+        .tag-consortium {
+            background: #4d3319;
+            color: #ff9800;
+        }
+
+        .vendor-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .link-btn {
+            padding: 6px 12px;
+            background: #404040;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #4a90e2;
+            font-size: 13px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .link-btn:hover {
+            background: #505050;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: #252525;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #404040;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        .export-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #404040;
+        }
+
+        .live-contracts {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 6px;
+            border: 1px solid #333;
+        }
+
+        .live-contracts h4 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .contract-item {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+            font-size: 14px;
+        }
+
+        .contract-item:last-child {
+            border-bottom: none;
+        }
+
+        .contract-amount {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .live-note {
+            color: #b0b0b0;
+            font-size: 12px;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .back-btn {
+            margin-bottom: 15px;
+        }
+
+        /* ===== Responsive ===== */
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+
+            header, .search-box, .quick-searches, .results {
+                padding: 18px;
+                border-radius: 8px;
+                margin-bottom: 14px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+                line-height: 1.3;
+            }
+
+            h2 {
+                font-size: 1.15rem;
+            }
+
+            .subtitle {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+            label {
+                font-size: 14px;
+            }
+
+            input[type="text"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .checkbox-label span {
+                font-size: 14px;
+            }
+
+            button {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            .button-group {
+                gap: 8px;
+            }
+
+            .vendor-card {
+                padding: 14px;
+                margin-bottom: 12px;
+            }
+
+            .vendor-name {
+                font-size: 16px;
+            }
+
+            .vendor-ref {
+                font-size: 12px;
+            }
+
+            .vendor-category {
+                font-size: 13px;
+            }
+
+            .vendor-links {
+                gap: 6px;
+            }
+
+            .link-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 14px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .stat-label {
+                font-size: 12px;
+            }
+
+            .contract-item {
+                padding: 8px 0;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 8px;
+            }
+
+            header, .search-box, .quick-searches, .results {
+                padding: 14px;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-number {
+                font-size: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button-group button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DHS Procurement Search Dashboard</h1>
+            <p class="subtitle">Search 310 vendors from EFF dataset &bull; Live contract lookups via USASpending.gov &bull; Export data</p>
+        </header>
+
+        <div class="search-box">
+            <div class="input-group">
+                <label for="searchInput">Search for vendors, technologies, or programs:</label>
+                <input type="text" id="searchInput" placeholder="e.g., surveillance, facial recognition, Palantir" onkeydown="if(event.key==='Enter') searchVendors()">
+            </div>
+
+            <div class="filter-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="aiOnly">
+                    <span>AI/ML vendors only</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="primeOnly">
+                    <span>Prime contractors only</span>
+                </label>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="searchVendors()">Search</button>
+                <button class="btn-secondary" onclick="clearSearch()">Clear</button>
+            </div>
+        </div>
+
+        <div class="quick-searches">
+            <h2>Quick Searches</h2>
+            <div class="button-group">
+                <button class="btn-secondary" onclick="quickSearch('surveillance')">Surveillance Tech</button>
+                <button class="btn-secondary" onclick="quickSearch('facial recognition')">Facial Recognition</button>
+                <button class="btn-secondary" onclick="quickSearch('drone')">Drones</button>
+                <button class="btn-secondary" onclick="quickSearch('biometric')">Biometric Systems</button>
+                <button class="btn-secondary" onclick="quickSearch('AI', true)">AI Vendors</button>
+                <button class="btn-secondary" onclick="quickSearch('', false, true)">Prime Contractors</button>
+                <button class="btn-success" onclick="showStats()">Show Statistics</button>
+            </div>
+        </div>
+
+        <div id="results" class="results">
+            <h2 id="resultsTitle">Search Results</h2>
+            <div id="resultsContent"></div>
+            <div class="export-section">
+                <button class="btn-success" onclick="exportResults()">Export to CSV</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== Static data store (loaded from vendors.json) =====
+        let DB = null;
+        let currentResults = [];
+
+        async function loadData() {
+            try {
+                const response = await fetch('vendors.json');
+                DB = await response.json();
+                console.log(`Loaded ${DB.vendors.length} vendors`);
+            } catch (err) {
+                showError('Could not load vendor data. Make sure vendors.json is in the same directory.');
+            }
+        }
+
+        // ===== Search (client-side, no API needed) =====
+
+        function searchVendors() {
+            if (!DB) return;
+
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const aiOnly = document.getElementById('aiOnly').checked;
+            const primeOnly = document.getElementById('primeOnly').checked;
+
+            let results = DB.vendors;
+
+            if (query) {
+                results = results.filter(v => {
+                    const fields = [v.name, v.categories, v.summary, v.dhs_programs, v.notes, v.parent_company, v.related_companies];
+                    return fields.some(f => f && f.toLowerCase().includes(query));
+                });
+            }
+
+            if (aiOnly) {
+                results = results.filter(v => v.ai_ml);
+            }
+
+            if (primeOnly) {
+                results = results.filter(v => v.prime_contractor);
+            }
+
+            results = results.slice(0, 100);
+            currentResults = results;
+            displayResults(results, query);
+        }
+
+        function quickSearch(keyword, aiOnly = false, primeOnly = false) {
+            document.getElementById('searchInput').value = keyword;
+            document.getElementById('aiOnly').checked = aiOnly;
+            document.getElementById('primeOnly').checked = primeOnly;
+            searchVendors();
+        }
+
+        // ===== Display =====
+
+        function displayResults(vendors, query) {
+            const resultsDiv = document.getElementById('results');
+            const contentDiv = document.getElementById('resultsContent');
+            const titleDiv = document.getElementById('resultsTitle');
+
+            if (vendors.length === 0) {
+                titleDiv.textContent = 'No results found';
+                contentDiv.innerHTML = '<p>Try a different search term or remove filters.</p>';
+                resultsDiv.classList.add('show');
+                return;
+            }
+
+            titleDiv.textContent = `Found ${vendors.length} vendor${vendors.length > 1 ? 's' : ''}`;
+
+            let html = '';
+            vendors.forEach(vendor => {
+                const escapedRef = escapeAttr(vendor.ref);
+                const escapedName = escapeHtml(vendor.name);
+                html += `
+                    <div class="vendor-card">
+                        <div class="vendor-name">${escapedName}</div>
+                        <div class="vendor-ref">${escapeHtml(vendor.ref)}</div>
+                        ${vendor.categories ? `<div class="vendor-category">${escapeHtml(vendor.categories)}</div>` : ''}
+                        ${vendor.summary_preview ? `<div style="color: #999; font-size: 14px; margin-top: 8px;">${escapeHtml(vendor.summary_preview)}</div>` : ''}
+                        <div class="vendor-tags">
+                            ${vendor.prime_contractor ? '<span class="tag tag-prime">Prime Contractor</span>' : ''}
+                            ${vendor.ai_ml ? '<span class="tag tag-ai">AI/ML</span>' : ''}
+                        </div>
+                        <div class="vendor-links">
+                            <button class="link-btn" onclick="getVendorDetail('${escapedRef}')">Full Profile</button>
+                            ${vendor.usaspending_link ? `<a href="${escapeAttr(vendor.usaspending_link)}" target="_blank" rel="noopener" class="link-btn">USASpending.gov</a>` : ''}
+                            <button class="link-btn" onclick="queryLiveContracts('${escapeAttr(vendor.name)}')">Live Contract Lookup</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            contentDiv.innerHTML = html;
+            resultsDiv.classList.add('show');
+        }
+
+        // ===== Vendor Detail (from static JSON) =====
+
+        function getVendorDetail(refId) {
+            if (!DB) return;
+
+            const vendor = DB.vendors.find(v => v.ref === refId);
+            if (!vendor) {
+                showError(`Vendor ${refId} not found`);
+                return;
+            }
+
+            const sourceLinks = (vendor.source_links || []).filter(Boolean);
+
+            let html = `
+                <button class="link-btn back-btn" onclick="searchVendors()">Back to results</button>
+                <div class="vendor-card" style="background: #1a1a1a; border: 2px solid #404040;">
+                    <div class="vendor-name">${escapeHtml(vendor.name)}</div>
+                    <div class="vendor-ref">${escapeHtml(vendor.ref)}</div>
+                    ${vendor.categories ? `<div class="vendor-category">${escapeHtml(vendor.categories)}</div>` : ''}
+                    ${vendor.parent_company ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Parent Company:</strong> ${escapeHtml(vendor.parent_company)}</div>` : ''}
+                    ${vendor.related_companies ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Related Companies:</strong> ${escapeHtml(vendor.related_companies)}</div>` : ''}
+                    ${vendor.dhs_programs ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>DHS Programs:</strong> ${escapeHtml(vendor.dhs_programs)}</div>` : ''}
+                    ${vendor.agency_contracts ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Agency Contracts:</strong> ${escapeHtml(vendor.agency_contracts)}</div>` : ''}
+                    ${vendor.notes ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Notes:</strong> ${escapeHtml(vendor.notes)}</div>` : ''}
+                    ${vendor.summary ? `<div style="margin-top: 15px; padding: 15px; background: #2d2d2d; border-radius: 6px; color: #d0d0d0;"><strong>About:</strong><br>${escapeHtml(vendor.summary)}</div>` : ''}
+                    <div class="vendor-tags" style="margin-top: 15px;">
+                        ${vendor.prime_contractor ? '<span class="tag tag-prime">Prime Contractor</span>' : ''}
+                        ${vendor.ai_ml ? '<span class="tag tag-ai">AI/ML</span>' : ''}
+                        ${vendor.consortium_member ? '<span class="tag tag-consortium">Consortium Member</span>' : ''}
+                    </div>
+                    <div class="vendor-links" style="margin-top: 15px;">
+                        ${vendor.usaspending_link ? `<a href="${escapeAttr(vendor.usaspending_link)}" target="_blank" rel="noopener" class="link-btn">USASpending.gov</a>` : ''}
+                        ${vendor.fpds_link ? `<a href="${escapeAttr(vendor.fpds_link)}" target="_blank" rel="noopener" class="link-btn">FPDS.gov</a>` : ''}
+                        ${vendor.website ? `<a href="${escapeAttr(vendor.website)}" target="_blank" rel="noopener" class="link-btn">Website</a>` : ''}
+                        ${sourceLinks.map((link, i) => `<a href="${escapeAttr(link)}" target="_blank" rel="noopener" class="link-btn">Source ${i + 1}</a>`).join('')}
+                        <button class="link-btn" onclick="queryLiveContracts('${escapeAttr(vendor.name)}')">Live Contract Lookup</button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('resultsTitle').textContent = `Vendor Profile: ${vendor.name}`;
+            document.getElementById('resultsContent').innerHTML = html;
+            document.getElementById('results').classList.add('show');
+        }
+
+        // ===== Stats (from static JSON) =====
+
+        function showStats() {
+            if (!DB) return;
+
+            const stats = DB.stats;
+            const html = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.total_vendors}</div>
+                        <div class="stat-label">Total Vendors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.prime_contractors}</div>
+                        <div class="stat-label">Prime Contractors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.ai_ml_vendors}</div>
+                        <div class="stat-label">AI/ML Vendors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.border_expo_exhibitors}</div>
+                        <div class="stat-label">Border Expo Exhibitors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.consortium_members}</div>
+                        <div class="stat-label">Consortium Members</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.vendors_with_contracts}</div>
+                        <div class="stat-label">With Federal Contracts</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #b0b0b0;">Data source: Electronic Frontier Foundation Dataset &bull; Updated: ${stats.data_updated}</p>
+            `;
+
+            document.getElementById('resultsTitle').textContent = 'Dataset Statistics';
+            document.getElementById('resultsContent').innerHTML = html;
+            document.getElementById('results').classList.add('show');
+        }
+
+        // ===== Live USASpending.gov Queries (client-side) =====
+
+        async function queryLiveContracts(vendorName) {
+            showLoading();
+            document.getElementById('resultsTitle').textContent = `Live Contracts: ${vendorName}`;
+
+            try {
+                const response = await fetch('https://api.usaspending.gov/api/v2/search/spending_by_award/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        filters: {
+                            recipient_search_text: [vendorName],
+                            award_type_codes: ["A", "B", "C", "D"],
+                            agencies: [{
+                                type: "awarding",
+                                tier: "toptier",
+                                name: "Department of Homeland Security"
+                            }]
+                        },
+                        fields: [
+                            "Award ID",
+                            "Recipient Name",
+                            "Award Amount",
+                            "Start Date",
+                            "Description"
+                        ],
+                        limit: 10,
+                        page: 1,
+                        sort: "Award Amount",
+                        order: "desc"
+                    })
+                });
+
+                const data = await response.json();
+                const results = data.results || [];
+                const total = data.page_metadata?.total || 0;
+
+                let html = `<p style="margin-bottom: 15px; color: #b0b0b0;">Found ${total} DHS contract award${total !== 1 ? 's' : ''} (showing top ${results.length})</p>`;
+
+                if (results.length === 0) {
+                    html += '<p>No DHS contracts found for this vendor name. Try searching with a different name variation.</p>';
+                } else {
+                    results.forEach(contract => {
+                        const amount = contract['Award Amount'];
+                        const formatted = amount ? '$' + Number(amount).toLocaleString('en-US', { minimumFractionDigits: 2 }) : 'N/A';
+                        html += `
+                            <div class="contract-item">
+                                <div><strong>${escapeHtml(contract['Award ID'] || 'N/A')}</strong></div>
+                                <div class="contract-amount">${formatted}</div>
+                                <div style="color: #b0b0b0; font-size: 13px;">${escapeHtml(contract['Recipient Name'] || '')} &bull; ${escapeHtml(contract['Start Date'] || '')}</div>
+                                ${contract['Description'] ? `<div style="color: #999; font-size: 13px; margin-top: 4px;">${escapeHtml(contract['Description'].substring(0, 200))}${contract['Description'].length > 200 ? '...' : ''}</div>` : ''}
+                            </div>
+                        `;
+                    });
+                }
+
+                // Add FPDS link
+                const fpdsQuery = encodeURIComponent(`${vendorName} DEPARTMENT_FULL_NAME:"HOMELAND SECURITY, DEPARTMENT OF"`);
+                html += `
+                    <div style="margin-top: 15px;">
+                        <a href="https://www.fpds.gov/ezsearch/fpdsportal?q=${fpdsQuery}&s=FPDS.GOV&templateName=1.5.3&indexName=awardfull" target="_blank" rel="noopener" class="link-btn">Search FPDS.gov</a>
+                        <a href="https://sam.gov/search/?index=opp&page=1&q=${encodeURIComponent(vendorName)}&sort=-relevance" target="_blank" rel="noopener" class="link-btn">Search SAM.gov</a>
+                    </div>
+                    <p class="live-note">Data queried live from USASpending.gov API &bull; DHS contracts only</p>
+                `;
+
+                document.getElementById('resultsContent').innerHTML = html;
+
+            } catch (err) {
+                document.getElementById('resultsContent').innerHTML = `
+                    <p style="color: #ef5350;">Could not query USASpending.gov. The API may be temporarily unavailable.</p>
+                    <p style="margin-top: 10px;">
+                        <a href="https://www.usaspending.gov/search/?hash=recipient_search_text%3D${encodeURIComponent(vendorName)}" target="_blank" rel="noopener" class="link-btn">Search on USASpending.gov directly</a>
+                    </p>
+                `;
+            }
+        }
+
+        // ===== CSV Export =====
+
+        function exportResults() {
+            if (currentResults.length === 0) {
+                alert('No results to export. Search for something first!');
+                return;
+            }
+
+            const headers = ['Ref', 'Name', 'Category', 'Prime Contractor', 'AI/ML', 'Parent Company', 'USASpending Link'];
+            const rows = currentResults.map(v => [
+                v.ref,
+                v.name,
+                v.categories || '',
+                v.prime_contractor ? 'Yes' : 'No',
+                v.ai_ml ? 'Yes' : 'No',
+                v.parent_company || '',
+                v.usaspending_link || ''
+            ]);
+
+            let csv = headers.join(',') + '\n';
+            rows.forEach(row => {
+                csv += row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',') + '\n';
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `dhs_vendors_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // ===== Utilities =====
+
+        function showLoading() {
+            const resultsDiv = document.getElementById('results');
+            document.getElementById('resultsContent').innerHTML = '<div class="loading">Loading...</div>';
+            resultsDiv.classList.add('show');
+        }
+
+        function showError(message) {
+            document.getElementById('resultsTitle').textContent = 'Error';
+            document.getElementById('resultsContent').innerHTML = `<p style="color: #ef5350;">${escapeHtml(message)}</p>`;
+            document.getElementById('results').classList.add('show');
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('aiOnly').checked = false;
+            document.getElementById('primeOnly').checked = false;
+            document.getElementById('results').classList.remove('show');
+            currentResults = [];
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = String(str);
+            return div.innerHTML;
+        }
+
+        function escapeAttr(str) {
+            if (!str) return '';
+            return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        // ===== Init =====
+        window.addEventListener('load', loadData);
+    </script>
+</body>
+</html>

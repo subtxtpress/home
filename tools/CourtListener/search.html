@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CourtListener Search</title>
+  <meta name="description" content="Search federal court cases, dockets, judges, and opinions with an interactive interface for the CourtListener API. Access the RECAP archive without PACER fees.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/tools/CourtListener/search">
+
+  <!-- Facebook -->
+  <meta property="og:title" content="CourtListener Search">
+  <meta property="og:description" content="Search federal court cases, dockets, judges, and opinions with an interactive interface for the CourtListener API. Access the RECAP archive without PACER fees.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/tools/CourtListener/search">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/courtlistener.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CourtListener Search">
+  <meta name="twitter:description" content="Search federal court cases, dockets, judges, and opinions with an interactive interface for the CourtListener API. Access the RECAP archive without PACER fees.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/courtlistener.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/icon-16.png">
+  <link rel="manifest" href="../icons/site.webmanifest">
+
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Core palette — Subtxt peach on dark blue-gray ── */
+      --palette-darkest:  #0D0F14;
+      --palette-dark:     #1A1F2E;
+      --palette-mid:      #2E3650;
+      --palette-accent:   #E8956A;
+      --palette-lightest: #E8ECF4;
+
+      /* ── Surface scale ── */
+      --surface-page:     #0D0F14;
+      --surface-card:     #1A1F2E;
+      --surface-card-alt: rgba(46, 54, 80, 0.40);
+      --surface-elevated: #232940;
+
+      /* ── Text scale ── */
+      --text-heading: #E8ECF4;
+      --text-body:    #B0BAD0;
+      --text-label:   #6B7799;
+      --text-muted:   rgba(176, 186, 208, 0.35);
+
+      /* ── Accent (peach) ── */
+      --accent:        #E8956A;
+      --accent-subtle: rgba(232, 149, 106, 0.10);
+      --accent-border: rgba(232, 149, 106, 0.40);
+      --accent-hover:  #f5b085;
+
+      /* ── Borders ── */
+      --border-light:  rgba(176, 186, 208, 0.08);
+      --border-mid:    rgba(176, 186, 208, 0.14);
+      --border-strong: rgba(176, 186, 208, 0.30);
+
+      /* ── Gradients ── */
+      --grad-header:  linear-gradient(160deg, #1A1F2E 0%, #0D0F14 100%);
+      --grad-accent:  linear-gradient(180deg, #6B7799 0%, #E8956A 100%);
+      --grad-neutral: linear-gradient(to right, #6B7799, #E8956A);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface-page);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: var(--accent); transition: color 0.15s ease; }
+    a:hover { color: var(--accent-hover); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.35; }
+    }
+    .animate { animation: fadeUp 0.5s ease forwards; opacity: 0; }
+    .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.12s; }
+    .d3 { animation-delay: 0.19s; } .d4 { animation-delay: 0.26s; }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 5vw;
+      background: rgba(13, 15, 20, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover  { color: var(--text-heading); }
+    .nav-links a.active { color: var(--accent); }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 120px 5vw 80px;
+      text-align: center;
+      background: var(--grad-header);
+      border-bottom: 1px solid var(--border-mid);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad-neutral);
+      pointer-events: none;
+    }
+
+    .hero .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .live-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 2s ease infinite;
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      color: var(--text-body);
+      letter-spacing: 0.04em;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ─── Search Container ───────────────────────────────────── */
+    .search-container {
+      max-width: 1200px;
+      margin: -40px auto 80px;
+      padding: 0 5vw;
+      position: relative;
+      z-index: 10;
+    }
+
+    .search-box {
+      position: relative;
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-top: 3px solid transparent;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40);
+      overflow: visible;
+    }
+
+    .search-box::before {
+      content: '';
+      position: absolute;
+      top: -3px; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad-neutral);
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
+    }
+
+    .search-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-mid);
+      overflow-x: auto;
+    }
+
+    .search-tabs button {
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      color: var(--text-label);
+      cursor: pointer;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .search-tabs button:hover { color: var(--text-heading); }
+    .search-tabs button.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .search-form { display: none; }
+    .search-form.active { display: block; }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: var(--text-label);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      background: var(--surface-card-alt);
+      border: 1px solid var(--border-mid);
+      border-radius: 6px;
+      color: var(--text-heading);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-group input::placeholder { color: var(--text-muted); }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--surface-elevated);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex: 1;
+    }
+
+    .btn-search {
+      background: var(--accent);
+      color: var(--palette-darkest);
+    }
+
+    .btn-search:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--accent-subtle);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-subtle);
+      border-color: var(--accent);
+    }
+
+    /* ─── Results ────────────────────────────────────────────── */
+    .results-section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 5vw;
+      min-height: 400px;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-mid);
+    }
+
+    .results-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--text-label);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .results-count {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .results-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-export {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-mid);
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .btn-export:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232, 149, 106, 0.08);
+    }
+    .btn-export:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+
+    .result-card {
+      position: relative;
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-top: 3px solid transparent;
+      border-radius: 10px;
+      padding: 20px;
+      transition: background 0.22s ease, border-top-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+    }
+
+    .result-card:hover {
+      background:
+        var(--grad-neutral) top left / 100% 3px no-repeat border-box,
+        var(--surface-elevated);
+      border-top-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.50), 0 0 0 1px var(--accent-border);
+    }
+
+    .result-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    .result-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-label);
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+      letter-spacing: 0.04em;
+    }
+
+    .result-meta span { display: inline; }
+    .result-meta strong {
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .result-desc {
+      font-size: 0.8125rem;
+      color: var(--text-body);
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+
+    .result-desc strong {
+      color: var(--text-label);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-right: 4px;
+    }
+
+    .result-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+      width: 100%;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .result-link:hover { color: var(--text-heading); }
+
+    /* ─── Judge Profile ──────────────────────────────────────── */
+    .judge-profile {
+      grid-column: 1 / -1;
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-top: 3px solid transparent;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30);
+      position: relative;
+    }
+
+    .judge-profile::before {
+      content: '';
+      position: absolute;
+      top: -3px; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad-neutral);
+      border-radius: 12px 12px 0 0;
+      pointer-events: none;
+    }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-mid);
+    }
+
+    .profile-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .profile-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .profile-link:hover { color: var(--text-heading); }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      background: var(--surface-card-alt);
+    }
+
+    .profile-stat {
+      padding: 20px 22px;
+      border-right: 1px solid var(--border-mid);
+    }
+    .profile-stat:last-child { border-right: none; }
+
+    .profile-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .profile-stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    .profile-bio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px 28px;
+      margin-bottom: 28px;
+      padding: 18px 20px;
+      background: var(--surface-card-alt);
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+
+    .profile-bio-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .profile-bio-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    .profile-bio-value {
+      font-size: 0.875rem;
+      color: var(--text-heading);
+    }
+
+    .profile-section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin: 8px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .profile-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-mid);
+    }
+
+    .profile-section-count {
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .profile-section { margin-bottom: 28px; }
+
+    .profile-row {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .profile-row:last-child { border-bottom: none; }
+
+    .profile-row-main {
+      font-size: 0.9rem;
+      color: var(--text-heading);
+      font-weight: 500;
+    }
+
+    .profile-row-sub {
+      font-size: 0.8125rem;
+      color: var(--text-body);
+      margin-top: 2px;
+    }
+
+    .profile-row-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-label);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .profile-cases {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .case-row {
+      display: block;
+      padding: 14px 16px;
+      background: var(--surface-card-alt);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .case-row:hover {
+      background: var(--surface-elevated);
+      border-color: var(--accent-border);
+      transform: translateX(2px);
+    }
+
+    .case-row-title {
+      font-size: 0.875rem;
+      color: var(--text-heading);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .case-row-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-label);
+      letter-spacing: 0.04em;
+      align-items: center;
+    }
+
+    .case-status {
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .case-status.status-open {
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+    .case-status.status-terminated {
+      background: rgba(176, 186, 208, 0.06);
+      color: var(--text-label);
+      border: 1px solid var(--border-mid);
+    }
+
+    /* ─── Loading & States ───────────────────────────────────── */
+    .loading {
+      text-align: center;
+      padding: 60px 40px;
+      color: var(--text-label);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--border-mid);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error-message {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.30);
+      border-left: 3px solid #f87171;
+      color: #fca5a5;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin-top: 12px;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-mid);
+    }
+
+    .pagination button {
+      padding: 9px 14px;
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .pagination button:hover:not(.disabled):not(:disabled) {
+      background: var(--accent);
+      color: var(--palette-darkest);
+    }
+
+    .pagination button.disabled,
+    .pagination button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      margin-top: 80px;
+      padding: 24px 5vw;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      color: var(--text-label);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-social a:hover { color: var(--accent); }
+
+    /* ─── Mobile ────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .site-nav, .site-nav.scrolled { padding: 12px 16px; }
+      .nav-links { gap: 16px; }
+      .hero { padding: 100px 20px 60px; }
+      .search-container { margin: -30px 16px 60px; }
+      .search-box { padding: 20px; }
+      .results-section { margin: 40px 16px; padding: 0; }
+      .site-footer { padding: 20px 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" id="siteNav">
+    <a href="../../index" class="nav-brand">Subtxt Press</a>
+    <ul class="nav-links">
+      <li><a href="../../index">Home</a></li>
+      <li><a href="../tools">Tools</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <span class="eyebrow"><span class="live-dot"></span>Federal Court Data · Live API</span>
+    <h1>CourtListener Search</h1>
+    <p>Search federal court cases, dockets, judges, opinions, and the RECAP archive without PACER fees</p>
+  </section>
+
+  <div class="search-container">
+    <div class="search-box">
+      <div class="search-tabs">
+        <button class="tab-btn active" data-tab="cases">Case Search</button>
+        <button class="tab-btn" data-tab="opinions">Case Law</button>
+        <button class="tab-btn" data-tab="judges">Judge Lookup</button>
+        <button class="tab-btn" data-tab="judge-profile">Judge Profile</button>
+        <button class="tab-btn" data-tab="recap">RECAP Archive</button>
+        <button class="tab-btn" data-tab="courts">Courts</button>
+      </div>
+
+      <!-- Cases Tab -->
+      <form class="search-form active" id="casesForm" data-tab="cases">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Party Name</label>
+            <input type="text" name="party" placeholder="e.g., Smith, Google">
+          </div>
+          <div class="form-group">
+            <label>Judge Name</label>
+            <input type="text" name="judge" placeholder="e.g., Chutkan">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Court</label>
+          <select class="court-select" name="court"><option value="">All courts</option></select>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-search">Search Cases</button>
+        </div>
+      </form>
+
+      <!-- Opinions Tab -->
+      <form class="search-form" id="opinionsForm" data-tab="opinions">
+        <div class="form-group">
+          <label>Keywords / Case Law</label>
+          <input type="text" name="query" placeholder="e.g., ineffective assistance of counsel">
+        </div>
+        <div class="form-group">
+          <label>Court (Optional)</label>
+          <select class="court-select" name="court"><option value="">All courts</option></select>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-search">Search Opinions</button>
+        </div>
+      </form>
+
+      <!-- Judges Tab -->
+      <form class="search-form" id="judgesForm" data-tab="judges">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Judge Name</label>
+            <input type="text" name="name" placeholder="e.g., Gorsuch, Sotomayor">
+          </div>
+          <div class="form-group">
+            <label>Court (Optional)</label>
+            <select class="court-select" name="court"><option value="">All courts</option></select>
+          </div>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-search">Search Judges</button>
+        </div>
+      </form>
+
+      <!-- Judge Profile Tab -->
+      <form class="search-form" id="judge-profileForm" data-tab="judge-profile">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Judge Name</label>
+            <input type="text" name="name" placeholder="e.g., Chutkan, Sotomayor" required>
+          </div>
+          <div class="form-group">
+            <label>Court (Optional, narrows match)</label>
+            <select class="court-select" name="court"><option value="">All courts</option></select>
+          </div>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-search">Build Profile</button>
+        </div>
+      </form>
+
+      <!-- RECAP Tab -->
+      <form class="search-form" id="recapForm" data-tab="recap">
+        <div class="form-group">
+          <label>Search RECAP Archive</label>
+          <input type="text" name="query" placeholder="e.g., case documents, briefs">
+        </div>
+        <div class="form-group">
+          <label>Court (Optional)</label>
+          <select class="court-select" name="court"><option value="">All courts</option></select>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-search">Search Archive</button>
+        </div>
+      </form>
+
+      <!-- Courts Tab -->
+      <form class="search-form" id="courtsForm" data-tab="courts">
+        <div class="form-group">
+          <label>Jurisdiction Type</label>
+          <select name="jurisdiction">
+            <option value="F">Federal (F)</option>
+            <option value="FB">Bankruptcy (FB)</option>
+            <option value="FS">Special (FS)</option>
+            <option value="S">State (S)</option>
+          </select>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-search">List Courts</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <div id="resultsContainer" style="display: none;">
+      <div class="results-header">
+        <span class="results-title">Search Results</span>
+        <div class="results-meta">
+          <span class="results-count"><span id="resultCount">0</span> found</span>
+          <button id="exportCsvBtn" class="btn-export" disabled onclick="exportToCsv()">Export CSV</button>
+        </div>
+      </div>
+      <div class="results-grid" id="resultsGrid"></div>
+      <div id="errorContainer"></div>
+      <div id="paginationContainer"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span class="footer-brand">CourtListener Search by Subtxt Press</span>
+    <div class="footer-social">
+      <a href="https://substack.com/@subtxtpress" target="_blank" rel="noopener" title="Substack">Substack</a>
+      <a href="https://www.courtlistener.com" target="_blank" rel="noopener" title="CourtListener">CourtListener</a>
+    </div>
+  </footer>
+
+  <script>
+    // Configuration
+    const API_BASE = window.location.hostname === 'localhost'
+      ? 'http://localhost:8000/api'
+      : 'https://your-api-domain.com/api'; // Update this for production
+
+    let currentTab = 'cases';
+    let allResults = [];
+    let currentPage = 1;
+    let lastExport = null; // { type, rows, filenameHint }
+    const RESULTS_PER_PAGE = 12;
+    const COURTS_CACHE_KEY = 'cl_courts_v1';
+
+    // ─── Populate court dropdowns ────────────────────────────
+    async function loadCourts() {
+      const selects = document.querySelectorAll('.court-select');
+      if (!selects.length) return;
+
+      let courts = null;
+      try {
+        const cached = sessionStorage.getItem(COURTS_CACHE_KEY);
+        if (cached) courts = JSON.parse(cached);
+      } catch {}
+
+      if (!courts) {
+        try {
+          const res = await fetch(`${API_BASE}/courts?jurisdiction=F`);
+          if (!res.ok) throw new Error(res.status);
+          const data = await res.json();
+          courts = data.results || [];
+          try { sessionStorage.setItem(COURTS_CACHE_KEY, JSON.stringify(courts)); } catch {}
+        } catch (e) {
+          console.warn('Could not load courts list:', e);
+          return; // selects keep their "All courts" default
+        }
+      }
+
+      // Sort: in-use first, then alphabetical by short_name
+      const sorted = [...courts].sort((a, b) => {
+        if (a.in_use !== b.in_use) return b.in_use - a.in_use;
+        return (a.short_name || '').localeCompare(b.short_name || '');
+      });
+
+      const optionsHtml = ['<option value="">All courts</option>']
+        .concat(sorted.map(c => {
+          const label = `${c.short_name || c.full_name || c.id}${c.citation_string ? ' (' + c.citation_string + ')' : ''}`;
+          return `<option value="${c.id}">${label.replace(/</g, '&lt;')}</option>`;
+        }))
+        .join('');
+
+      selects.forEach(sel => {
+        const current = sel.value;
+        sel.innerHTML = optionsHtml;
+        if (current) sel.value = current;
+      });
+    }
+
+    loadCourts();
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.search-form').forEach(f => f.classList.remove('active'));
+        btn.classList.add('active');
+        currentTab = btn.dataset.tab;
+        document.querySelector(`#${currentTab}Form`).classList.add('active');
+      });
+    });
+
+    // Form submissions
+    document.querySelectorAll('.search-form').forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        await performSearch();
+      });
+    });
+
+    async function performSearch() {
+      const formData = new FormData(document.querySelector('.search-form.active'));
+      const errorContainer = document.getElementById('errorContainer');
+      errorContainer.innerHTML = '';
+
+      try {
+        showLoading();
+
+        // Judge Profile uses its own endpoint + render path
+        if (currentTab === 'judge-profile') {
+          const params = new URLSearchParams();
+          for (let [k, v] of formData) if (v) params.append(k, v);
+
+          const res = await fetch(`${API_BASE}/judge-profile?${params}`);
+          if (!res.ok) {
+            const detail = await res.json().catch(() => ({}));
+            throw new Error(detail.detail || `API error: ${res.status}`);
+          }
+          const data = await res.json();
+          displayJudgeProfile(data);
+          const judgeName = (data.judge && data.judge.name) || 'judge';
+          const slug = judgeName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+          setExport({ type: 'judge-profile', rows: data.cases || [], filenameHint: `judge-${slug}-cases` });
+          return;
+        }
+
+        let endpoint = `${API_BASE}/search/${currentTab}`;
+        let params = new URLSearchParams();
+
+        for (let [key, value] of formData) {
+          if (value) params.append(key, value);
+        }
+
+        const response = await fetch(`${endpoint}?${params}`);
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        allResults = data.results || [];
+        currentPage = 1;
+
+        if (allResults.length === 0) {
+          errorContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 40px;">No results found. Try adjusting your search.</p>';
+          setExport(null);
+        } else {
+          setExport({ type: currentTab, rows: allResults, filenameHint: currentTab });
+        }
+
+        displayResults();
+      } catch (error) {
+        errorContainer.innerHTML = `<div class="error-message">Error: ${error.message}</div>`;
+        document.getElementById('resultsGrid').innerHTML = '';
+        setExport(null);
+      }
+    }
+
+    function setExport(payload) {
+      lastExport = payload;
+      const btn = document.getElementById('exportCsvBtn');
+      if (btn) btn.disabled = !payload || !payload.rows || !payload.rows.length;
+    }
+
+    function csvEscape(v) {
+      if (v === null || v === undefined) return '';
+      if (Array.isArray(v)) v = v.join('; ');
+      else if (typeof v === 'object') v = JSON.stringify(v);
+      const s = String(v);
+      return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    }
+
+    function rowsToCsv(headers, rows) {
+      const head = headers.map(h => csvEscape(h.label)).join(',');
+      const body = rows.map(r => headers.map(h => csvEscape(typeof h.get === 'function' ? h.get(r) : r[h.key])).join(',')).join('\n');
+      return head + '\n' + body;
+    }
+
+    const EXPORT_SCHEMAS = {
+      cases: [
+        { label: 'Case Name', get: r => r.caseName || r.case_name_full || '' },
+        { label: 'Docket Number', key: 'docketNumber' },
+        { label: 'Court', get: r => r.court_citation_string || r.court || '' },
+        { label: 'Date Filed', key: 'dateFiled' },
+        { label: 'Date Terminated', key: 'dateTerminated' },
+        { label: 'Assigned Judge', key: 'assignedTo' },
+        { label: 'Parties', get: r => Array.isArray(r.party) ? r.party.join('; ') : '' },
+        { label: 'Attorneys', get: r => Array.isArray(r.attorney) ? r.attorney.join('; ') : '' },
+        { label: 'Nature of Suit', key: 'suitNature' },
+        { label: 'CourtListener URL', get: r => r.docket_absolute_url ? 'https://www.courtlistener.com' + r.docket_absolute_url : (r.absolute_url ? 'https://www.courtlistener.com' + r.absolute_url : '') },
+      ],
+      opinions: [
+        { label: 'Case Name', get: r => r.caseName || r.caseNameFull || '' },
+        { label: 'Court', get: r => r.court || r.court_citation_string || '' },
+        { label: 'Date Filed', key: 'dateFiled' },
+        { label: 'Docket Number', key: 'docketNumber' },
+        { label: 'Citation', get: r => Array.isArray(r.citation) ? r.citation.join('; ') : (r.citation || '') },
+        { label: 'Judges', key: 'judge' },
+        { label: 'CourtListener URL', get: r => r.absolute_url ? 'https://www.courtlistener.com' + r.absolute_url : '' },
+      ],
+      judges: [
+        { label: 'Name', key: 'name' },
+        { label: 'Date of Birth', key: 'dob' },
+        { label: 'Birthplace', get: r => [r.dob_city, r.dob_state].filter(Boolean).join(', ') },
+        { label: 'Political Affiliation', get: r => Array.isArray(r.political_affiliation) ? [...new Set(r.political_affiliation)].join('; ') : (r.political_affiliation || '') },
+        { label: 'ABA Ratings', get: r => Array.isArray(r.aba_rating) ? r.aba_rating.join('; ') : '' },
+        { label: 'Positions', get: r => Array.isArray(r.positions) ? r.positions.map(p => `${p.position_type || ''} @ ${p.court || ''}`.trim()).join('; ') : '' },
+        { label: 'CourtListener URL', get: r => r.absolute_url ? 'https://www.courtlistener.com' + r.absolute_url : '' },
+      ],
+      recap: [
+        { label: 'Case Name', get: r => r.caseName || r.case_name_full || '' },
+        { label: 'Docket Number', key: 'docketNumber' },
+        { label: 'Court', get: r => r.court_citation_string || r.court || '' },
+        { label: 'Date Filed', key: 'dateFiled' },
+        { label: 'Date Terminated', key: 'dateTerminated' },
+        { label: 'Assigned Judge', key: 'assignedTo' },
+        { label: 'Document Description', key: 'description' },
+        { label: 'CourtListener URL', get: r => r.docket_absolute_url ? 'https://www.courtlistener.com' + r.docket_absolute_url : (r.absolute_url ? 'https://www.courtlistener.com' + r.absolute_url : '') },
+      ],
+      courts: [
+        { label: 'Court ID', key: 'id' },
+        { label: 'Full Name', key: 'full_name' },
+        { label: 'Short Name', key: 'short_name' },
+        { label: 'Citation', key: 'citation_string' },
+        { label: 'Jurisdiction', key: 'jurisdiction' },
+        { label: 'In Use', key: 'in_use' },
+        { label: 'Start Date', key: 'start_date' },
+        { label: 'End Date', key: 'end_date' },
+        { label: 'Website', key: 'url' },
+      ],
+    };
+    EXPORT_SCHEMAS['judge-profile'] = EXPORT_SCHEMAS.cases;
+
+    function exportToCsv() {
+      if (!lastExport || !lastExport.rows || !lastExport.rows.length) return;
+      const schema = EXPORT_SCHEMAS[lastExport.type] || EXPORT_SCHEMAS.cases;
+      const csv = rowsToCsv(schema, lastExport.rows);
+      const date = new Date().toISOString().slice(0, 10);
+      const filename = `courtlistener-${lastExport.filenameHint || lastExport.type}-${date}.csv`;
+      const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function displayJudgeProfile(data) {
+      const container = document.getElementById('resultsContainer');
+      const grid = document.getElementById('resultsGrid');
+      const count = document.getElementById('resultCount');
+      const paginationContainer = document.getElementById('paginationContainer');
+      const CL = 'https://www.courtlistener.com';
+      const fmtDate = d => d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+
+      container.style.display = 'block';
+      paginationContainer.innerHTML = '';
+
+      const j = data.judge || {};
+      const cases = data.cases || [];
+      const total = data.total_cases || 0;
+      count.textContent = `${total.toLocaleString()} cases on file`;
+
+      const dob = j.dob ? fmtDate(j.dob) : '';
+      const dobPlace = [j.dob_city, j.dob_state].filter(Boolean).join(', ');
+      const affil = Array.isArray(j.political_affiliation)
+        ? [...new Set(j.political_affiliation)].join(' → ')
+        : (j.political_affiliation || '—');
+      const aba = Array.isArray(j.aba_rating) ? j.aba_rating.join(', ') : '—';
+      const judgeUrl = j.absolute_url ? CL + j.absolute_url : '#';
+
+      const positions = Array.isArray(j.positions) ? j.positions : [];
+      const positionRows = positions.slice(0, 6).map(p => {
+        const start = p.date_start ? fmtDate(p.date_start) : '';
+        const end = p.date_termination ? fmtDate(p.date_termination) : 'Present';
+        const dates = start ? `${start} → ${end}` : '';
+        const appointer = p.appointer ? ` · Appointed by ${escapeHtml(p.appointer)}` : '';
+        return `
+          <div class="profile-row">
+            <div class="profile-row-main">${escapeHtml(p.position_type || p.court || 'Position')}</div>
+            <div class="profile-row-sub">${escapeHtml(p.court || '')}${appointer}</div>
+            ${dates ? `<div class="profile-row-meta">${dates}</div>` : ''}
+          </div>
+        `;
+      }).join('') || '<div class="profile-row-sub">No position data available.</div>';
+
+      const caseRows = cases.length ? cases.map(c => {
+        const status = c.dateTerminated ? 'Terminated' : 'Open';
+        const statusClass = c.dateTerminated ? 'status-terminated' : 'status-open';
+        const filed = fmtDate(c.dateFiled);
+        const term = fmtDate(c.dateTerminated);
+        const url = c.docket_absolute_url ? CL + c.docket_absolute_url : '#';
+        return `
+          <a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="case-row">
+            <div class="case-row-title">${escapeHtml(c.caseName || 'Unknown case')}</div>
+            <div class="case-row-meta">
+              <span><strong>${escapeHtml(c.court_citation_string || c.court || '')}</strong></span>
+              <span>${escapeHtml(c.docketNumber || '')}</span>
+              ${filed ? `<span>Filed ${filed}</span>` : ''}
+              ${term ? `<span>Terminated ${term}</span>` : ''}
+              <span class="case-status ${statusClass}">${status}</span>
+            </div>
+          </a>
+        `;
+      }).join('') : '<div class="profile-row-sub">No assigned dockets returned for this judge.</div>';
+
+      grid.innerHTML = `
+        <div class="judge-profile">
+          <div class="profile-header">
+            <div class="profile-name">${escapeHtml(j.name || 'Unknown judge')}</div>
+            <a href="${escapeHtml(judgeUrl)}" target="_blank" rel="noopener" class="profile-link">View on CourtListener →</a>
+          </div>
+
+          <div class="profile-stats">
+            <div class="profile-stat">
+              <div class="profile-stat-num">${total.toLocaleString()}</div>
+              <div class="profile-stat-label">Total Cases on File</div>
+            </div>
+            <div class="profile-stat">
+              <div class="profile-stat-num">${data.sample_open ?? '—'}</div>
+              <div class="profile-stat-label">Open (in sample of ${cases.length})</div>
+            </div>
+            <div class="profile-stat">
+              <div class="profile-stat-num">${data.sample_terminated ?? '—'}</div>
+              <div class="profile-stat-label">Terminated (in sample)</div>
+            </div>
+          </div>
+
+          <div class="profile-bio">
+            <div class="profile-bio-item">
+              <span class="profile-bio-label">Born</span>
+              <span class="profile-bio-value">${dob}${dobPlace ? ' · ' + escapeHtml(dobPlace) : ''}</span>
+            </div>
+            <div class="profile-bio-item">
+              <span class="profile-bio-label">Affiliation</span>
+              <span class="profile-bio-value">${escapeHtml(affil)}</span>
+            </div>
+            <div class="profile-bio-item">
+              <span class="profile-bio-label">ABA Ratings</span>
+              <span class="profile-bio-value">${escapeHtml(aba)}</span>
+            </div>
+          </div>
+
+          <div class="profile-section-label">Positions</div>
+          <div class="profile-section">${positionRows}</div>
+
+          <div class="profile-section-label">Recent Assigned Dockets <span class="profile-section-count">(showing ${cases.length})</span></div>
+          <div class="profile-cases">${caseRows}</div>
+        </div>
+      `;
+    }
+
+    function showLoading() {
+      document.getElementById('resultsContainer').style.display = 'block';
+      document.getElementById('resultsGrid').innerHTML = '<div class="loading"><span class="spinner"></span> Searching...</div>';
+    }
+
+    function displayResults() {
+      const container = document.getElementById('resultsContainer');
+      const grid = document.getElementById('resultsGrid');
+      const count = document.getElementById('resultCount');
+
+      container.style.display = 'block';
+      count.textContent = allResults.length;
+
+      const start = (currentPage - 1) * RESULTS_PER_PAGE;
+      const end = start + RESULTS_PER_PAGE;
+      const pageResults = allResults.slice(start, end);
+
+      grid.innerHTML = pageResults.map(result => createResultCard(result)).join('');
+
+      // Pagination
+      const totalPages = Math.ceil(allResults.length / RESULTS_PER_PAGE);
+      if (totalPages > 1) {
+        document.getElementById('paginationContainer').innerHTML = `
+          <div class="pagination">
+            <button ${currentPage === 1 ? 'disabled class="disabled"' : ''} onclick="goToPage(${currentPage - 1})">← Previous</button>
+            <span style="color: var(--text-muted); padding: 8px 12px;">Page ${currentPage} of ${totalPages}</span>
+            <button ${currentPage === totalPages ? 'disabled class="disabled"' : ''} onclick="goToPage(${currentPage + 1})">Next →</button>
+          </div>
+        `;
+      } else {
+        document.getElementById('paginationContainer').innerHTML = '';
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      displayResults();
+      document.querySelector('.results-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function createResultCard(result) {
+      const CL = 'https://www.courtlistener.com';
+      const fmtDate = d => d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+      const path = result.absolute_url || result.docket_absolute_url || '';
+      const url = path.startsWith('http') ? path : (path ? CL + path : (result.resource_uri || '#'));
+
+      // Courts (from /api/courts) — different shape
+      if (currentTab === 'courts' || result.full_name) {
+        const fullName = result.full_name || result.short_name || 'Unknown court';
+        const cite = result.citation_string || result.id || '';
+        const inUse = result.in_use ? 'Active' : 'Inactive';
+        return `
+          <div class="result-card">
+            <div class="result-title">${escapeHtml(fullName)}</div>
+            <div class="result-meta">
+              ${cite ? `<span><strong>Citation:</strong> ${escapeHtml(cite)}</span>` : ''}
+              <span><strong>Status:</strong> ${inUse}</span>
+              ${result.start_date ? `<span><strong>Founded:</strong> ${fmtDate(result.start_date)}</span>` : ''}
+            </div>
+            ${result.url ? `<a href="${escapeHtml(result.url)}" target="_blank" rel="noopener" class="result-link">Court website →</a>` : ''}
+          </div>
+        `;
+      }
+
+      // Judges (from /api/search/judges)
+      if (currentTab === 'judges' || (result.name && result.positions)) {
+        const name = result.name || 'Unknown';
+        const dob = result.dob ? fmtDate(result.dob) : '';
+        const dobPlace = [result.dob_city, result.dob_state].filter(Boolean).join(', ');
+        const affil = Array.isArray(result.political_affiliation)
+          ? [...new Set(result.political_affiliation)].join(', ')
+          : (result.political_affiliation || '');
+        const positions = Array.isArray(result.positions) && result.positions.length
+          ? result.positions.slice(0, 3).map(p => p.court || p.position_type).filter(Boolean).join(' · ')
+          : '';
+        return `
+          <div class="result-card">
+            <div class="result-title">${escapeHtml(name)}</div>
+            <div class="result-meta">
+              ${dob ? `<span><strong>Born:</strong> ${dob}${dobPlace ? ' in ' + escapeHtml(dobPlace) : ''}</span>` : ''}
+              ${affil ? `<span><strong>Affiliation:</strong> ${escapeHtml(affil)}</span>` : ''}
+            </div>
+            ${positions ? `<div class="result-desc">${escapeHtml(positions)}</div>` : ''}
+            <a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="result-link">View on CourtListener →</a>
+          </div>
+        `;
+      }
+
+      // Opinions (case law)
+      if (currentTab === 'opinions') {
+        const title = result.caseName || result.caseNameFull || 'Unknown case';
+        const courtName = result.court || result.court_citation_string || '';
+        const filed = fmtDate(result.dateFiled);
+        const docket = result.docketNumber || '';
+        const judges = result.judge || '';
+        const cite = Array.isArray(result.citation) && result.citation.length ? result.citation[0] : '';
+        return `
+          <div class="result-card">
+            <div class="result-title">${escapeHtml(title)}</div>
+            <div class="result-meta">
+              ${courtName ? `<span><strong>Court:</strong> ${escapeHtml(courtName)}</span>` : ''}
+              ${filed ? `<span><strong>Filed:</strong> ${filed}</span>` : ''}
+              ${docket ? `<span><strong>Docket:</strong> ${escapeHtml(docket)}</span>` : ''}
+              ${cite ? `<span><strong>Citation:</strong> ${escapeHtml(cite)}</span>` : ''}
+            </div>
+            ${judges ? `<div class="result-desc"><strong>Judges:</strong> ${escapeHtml(judges)}</div>` : ''}
+            <a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="result-link">View on CourtListener →</a>
+          </div>
+        `;
+      }
+
+      // Dockets / RECAP — same shape
+      const title = result.caseName || result.case_name_full || 'Unknown case';
+      const courtName = result.court || result.court_citation_string || '';
+      const filed = fmtDate(result.dateFiled);
+      const terminated = fmtDate(result.dateTerminated);
+      const docket = result.docketNumber || '';
+      const judge = result.assignedTo || '';
+      const parties = Array.isArray(result.party) ? result.party.slice(0, 3).join(', ') : '';
+      const attorneys = Array.isArray(result.attorney) && result.attorney.length
+        ? result.attorney.slice(0, 3).join(', ') : '';
+
+      return `
+        <div class="result-card">
+          <div class="result-title">${escapeHtml(title)}</div>
+          <div class="result-meta">
+            ${courtName ? `<span><strong>Court:</strong> ${escapeHtml(courtName)}</span>` : ''}
+            ${docket ? `<span><strong>Docket:</strong> ${escapeHtml(docket)}</span>` : ''}
+            ${filed ? `<span><strong>Filed:</strong> ${filed}</span>` : ''}
+            ${terminated ? `<span><strong>Terminated:</strong> ${terminated}</span>` : ''}
+            ${judge ? `<span><strong>Judge:</strong> ${escapeHtml(judge)}</span>` : ''}
+          </div>
+          ${parties ? `<div class="result-desc"><strong>Parties:</strong> ${escapeHtml(parties)}</div>` : ''}
+          ${attorneys ? `<div class="result-desc"><strong>Attorneys:</strong> ${escapeHtml(attorneys)}</div>` : ''}
+          <a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="result-link">View on CourtListener →</a>
+        </div>
+      `;
+    }
+
+    function escapeHtml(text) {
+      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+      return String(text).replace(/[&<>"']/g, m => map[m]);
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Boolean Search Generator // Subtxt Press</title>
+  <meta name="description" content="Build powerful boolean search queries visually for Google, Bing, LinkedIn, PubMed, LexisNexis, and more. No syntax to memorize.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/tools/boolean/search.html">
+
+  <meta property="og:title" content="Boolean Search Generator // Subtxt Press">
+  <meta property="og:description" content="Build powerful boolean search queries visually for Google, Bing, LinkedIn, PubMed, LexisNexis, and more. No syntax to memorize.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/tools/boolean/search.html">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/tools/boolean/img/boolean-search.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Subtxt Press">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Boolean Search Generator // Subtxt Press">
+  <meta name="twitter:description" content="Build powerful boolean search queries visually for Google, Bing, LinkedIn, PubMed, LexisNexis, and more. No syntax to memorize.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/boolean/img/boolean-search.png">
+  <meta name="twitter:creator" content="@subtxtpress">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+  <link rel="manifest" href="./icons/site.webmanifest">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --peach:   #E8956A;
+      --cream:   #F4EDE3;
+      --sand:    #DDD0BC;
+      --plum:    #3E2436;
+      --carmine: #7A5063;
+      --ink:     #241620;
+
+      --surface-page:     #F4EDE3;
+      --surface-card:     #FFFFFF;
+      --surface-elevated: #EDE5D8;
+      --text-heading:     #241620;
+      --text-body:        #44373C;
+      --text-label:       #7A5063;
+      --text-muted:       rgba(68, 55, 60, 0.45);
+      --accent:           #E8956A;
+      --accent-border:    rgba(232, 149, 106, 0.40);
+      --border-light:     rgba(221, 208, 188, 0.55);
+      --border-mid:       rgba(180, 140, 100, 0.22);
+    }
+
+    html { font-size: 14px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface-page);
+      color: var(--text-body);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 5vw;
+      background: rgba(244, 237, 227, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      transition: padding 0.25s;
+    }
+    .navbar.compact { padding: 12px 5vw; }
+    .nav-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px; font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 36px; }
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      color: var(--text-label);
+      text-decoration: none;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 80px 5vw 24px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hero-kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      text-transform: uppercase;
+      color: var(--text-heading);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      max-width: 600px;
+      color: var(--text-body);
+      font-size: 13px;
+    }
+
+    /* ── Main layout ── */
+    .app {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: calc(100vh - 260px);
+    }
+
+    /* ── Panels ── */
+    .panel {
+      padding: 32px 3.5vw;
+    }
+    .panel-build {
+      border-right: 1px solid var(--border-light);
+    }
+    .panel-output {
+      background: var(--surface-page);
+    }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: var(--border-light);
+    }
+
+    /* ── Form controls ── */
+    label.field-label {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 9px 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-heading);
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input[type="text"]:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232, 149, 106, 0.15);
+    }
+    input[type="date"] {
+      width: 100%;
+      padding: 9px 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-heading);
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      outline: none;
+    }
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A5063' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 32px;
+    }
+
+    .field-row {
+      margin-bottom: 16px;
+    }
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .field-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* ── Term groups ── */
+    .term-group {
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .term-group:hover {
+      border-color: var(--accent-border);
+    }
+    .term-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .term-group-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-label);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .term-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-height: 32px;
+      padding: 6px;
+      background: var(--surface-elevated);
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      color: var(--text-heading);
+    }
+    .pill.exact { border-color: var(--accent-border); color: var(--accent); }
+    .pill .remove {
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1;
+      margin-left: 2px;
+      transition: color 0.15s;
+    }
+    .pill .remove:hover { color: var(--accent); }
+
+    .term-input-row {
+      display: flex;
+      gap: 6px;
+    }
+    .term-input-row input {
+      flex: 1;
+    }
+    .term-input-row .btn-add {
+      flex-shrink: 0;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      background: var(--surface-card);
+      color: var(--text-label);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-sm {
+      padding: 5px 10px;
+      font-size: 10px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: #d6804f;
+      border-color: #d6804f;
+      color: #fff;
+    }
+    .btn-danger {
+      color: #c0392b;
+      border-color: rgba(192, 57, 43, 0.25);
+    }
+    .btn-danger:hover {
+      background: rgba(192, 57, 43, 0.06);
+      border-color: #c0392b;
+      color: #c0392b;
+    }
+
+    /* ── Checkbox / toggle row ── */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .toggle-row input[type="checkbox"] {
+      accent-color: var(--accent);
+      width: 15px; height: 15px;
+      cursor: pointer;
+    }
+    .toggle-row label {
+      font-size: 12px;
+      color: var(--text-body);
+      cursor: pointer;
+    }
+
+    /* ── Operator reference ── */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .ref-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 12px;
+      padding: 8px 12px;
+      background: var(--surface-elevated);
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+      align-items: center;
+    }
+    .ref-item:hover { background: var(--sand); }
+    .ref-op {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 11px;
+    }
+    .ref-desc {
+      color: var(--text-body);
+    }
+
+    /* ── Output ── */
+    .output-box {
+      position: sticky;
+      top: 90px;
+    }
+    .query-display {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      word-break: break-word;
+      min-height: 80px;
+      margin-bottom: 12px;
+    }
+    .query-display .placeholder-text {
+      color: rgba(244, 237, 227, 0.3);
+      font-style: italic;
+    }
+    .query-display .op { color: var(--accent); font-weight: 500; }
+    .query-display .quoted { color: #8FBC8F; }
+    .query-display .filter { color: #87CEEB; }
+    .query-display .paren { color: var(--sand); font-weight: 700; }
+
+    .output-actions {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: var(--cream);
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s;
+      z-index: 200;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── Platform guide ── */
+    .platform-note {
+      background: var(--surface-elevated);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 12px;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+    .platform-note strong {
+      color: var(--text-heading);
+    }
+
+    /* ── Tabs ── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 10px 18px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .tab:hover { color: var(--text-label); }
+    .tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── History ── */
+    .history-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--surface-elevated);
+      border-radius: 6px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .history-item:hover { background: var(--sand); }
+    .history-query {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--text-heading);
+      word-break: break-word;
+      flex: 1;
+    }
+    .history-meta {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
+      flex-shrink: 0;
+    }
+    .history-platform {
+      font-size: 9px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .history-time {
+      font-size: 10px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .history-delete {
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+    .history-delete:hover {
+      color: #c0392b;
+      background: rgba(192, 57, 43, 0.08);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+      .panel-build { border-right: none; border-bottom: 1px solid var(--border-light); }
+      .output-box { position: static; }
+      .nav-links { gap: 20px; }
+      .field-grid, .field-grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .panel { padding: 24px 4vw; }
+      .nav-links a { font-size: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../../index.html" class="nav-brand">Subtxt Press</a>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="../tools.html">Portfolio</a>
+      <a href="../../policies.html">Policies</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-kicker">Tool</div>
+    <h1>Boolean Search Generator</h1>
+    <p>Build powerful search queries without memorizing any syntax. Just fill in the boxes, pick from dropdowns, and copy or search.</p>
+  </section>
+
+  <div class="app">
+
+    <!-- ── BUILD PANEL ── -->
+    <div class="panel panel-build">
+
+      <div class="section-label">Where are you searching?</div>
+      <div class="field-row">
+        <label class="field-label">Pick a platform</label>
+        <select id="platform" onchange="updateQuery()">
+          <option value="google">Google</option>
+          <option value="bing">Bing</option>
+          <option value="duckduckgo">DuckDuckGo</option>
+          <option value="linkedin">LinkedIn / Recruiter</option>
+          <option value="twitter">Twitter / X</option>
+          <option value="reddit">Reddit (via Google)</option>
+          <option value="pubmed">PubMed</option>
+          <option value="lexisnexis">LexisNexis / Legal</option>
+          <option value="scholar">Google Scholar</option>
+          <option value="courtlistener">CourtListener</option>
+          <option value="wayback">Wayback Machine</option>
+          <option value="generic">Generic Boolean</option>
+        </select>
+      </div>
+
+      <div class="section-label" style="margin-top:24px">What are you looking for?</div>
+
+      <!-- Must include ALL -->
+      <div class="term-group" id="group-and">
+        <div class="term-group-header">
+          <span class="term-group-title">Results must contain all of these</span>
+          <span class="btn btn-sm btn-danger" onclick="clearGroup('and')">Clear</span>
+        </div>
+        <div class="term-pills" id="pills-and"></div>
+        <div class="term-input-row">
+          <input type="text" id="input-and" placeholder="Type a word or phrase, then press Enter" onkeydown="if(event.key==='Enter'){event.preventDefault();addTerm('and')}">
+          <button class="btn btn-sm btn-add" onclick="addTerm('and')"><i class="bi bi-plus-lg"></i></button>
+        </div>
+        <div class="toggle-row" style="margin-top:8px">
+          <input type="checkbox" id="exact-and" onchange="updateQuery()">
+          <label for="exact-and">Match exact wording only</label>
+        </div>
+      </div>
+
+      <!-- Must include ANY -->
+      <div class="term-group" id="group-or">
+        <div class="term-group-header">
+          <span class="term-group-title">Results must contain at least one of these</span>
+          <span class="btn btn-sm btn-danger" onclick="clearGroup('or')">Clear</span>
+        </div>
+        <div class="term-pills" id="pills-or"></div>
+        <div class="term-input-row">
+          <input type="text" id="input-or" placeholder="Add alternatives or synonyms" onkeydown="if(event.key==='Enter'){event.preventDefault();addTerm('or')}">
+          <button class="btn btn-sm btn-add" onclick="addTerm('or')"><i class="bi bi-plus-lg"></i></button>
+        </div>
+        <div class="toggle-row" style="margin-top:8px">
+          <input type="checkbox" id="exact-or" onchange="updateQuery()">
+          <label for="exact-or">Match exact wording only</label>
+        </div>
+      </div>
+
+      <!-- Must EXCLUDE -->
+      <div class="term-group" id="group-not">
+        <div class="term-group-header">
+          <span class="term-group-title">Hide results containing these</span>
+          <span class="btn btn-sm btn-danger" onclick="clearGroup('not')">Clear</span>
+        </div>
+        <div class="term-pills" id="pills-not"></div>
+        <div class="term-input-row">
+          <input type="text" id="input-not" placeholder="Words you don't want in results" onkeydown="if(event.key==='Enter'){event.preventDefault();addTerm('not')}">
+          <button class="btn btn-sm btn-add" onclick="addTerm('not')"><i class="bi bi-plus-lg"></i></button>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top:24px">Narrow it down</div>
+
+      <div class="field-row" id="wrap-site">
+        <label class="field-label">Only search this website</label>
+        <input type="text" id="filter-site" placeholder="e.g. nytimes.com, gov, reddit.com" oninput="updateQuery()">
+      </div>
+
+      <div class="field-grid">
+        <div class="field-row" id="wrap-filetype">
+          <label class="field-label">Only show this file type</label>
+          <select id="filter-filetype" onchange="updateQuery()">
+            <option value="">Any</option>
+            <option value="pdf">PDF</option>
+            <option value="doc">DOC</option>
+            <option value="docx">DOCX</option>
+            <option value="xls">XLS</option>
+            <option value="xlsx">XLSX</option>
+            <option value="csv">CSV</option>
+            <option value="ppt">PPT</option>
+            <option value="pptx">PPTX</option>
+            <option value="txt">TXT</option>
+            <option value="xml">XML</option>
+            <option value="json">JSON</option>
+          </select>
+        </div>
+        <div class="field-row" id="wrap-searchin">
+          <label class="field-label">Where on the page to look</label>
+          <select id="filter-searchin" onchange="updateQuery()">
+            <option value="">Anywhere on page</option>
+            <option value="intitle">In the page title</option>
+            <option value="inurl">In the web address</option>
+            <option value="intext">In the page content</option>
+            <option value="inanchor">In links pointing to it</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <label class="field-label">How recent?</label>
+        <div class="field-grid-3">
+          <select id="filter-daterange" onchange="toggleCustomDate(); updateQuery()">
+            <option value="">Any time</option>
+            <option value="d">Past 24 hours</option>
+            <option value="w">Past week</option>
+            <option value="m">Past month</option>
+            <option value="y">Past year</option>
+            <option value="custom">Custom range</option>
+          </select>
+          <input type="date" id="filter-date-from" style="display:none" onchange="updateQuery()">
+          <input type="date" id="filter-date-to" style="display:none" onchange="updateQuery()">
+        </div>
+      </div>
+
+      <div class="field-row" id="wrap-related">
+        <label class="field-label">Find pages similar to this site</label>
+        <input type="text" id="filter-related" placeholder="e.g. example.com" oninput="updateQuery()">
+      </div>
+
+      <div class="field-row" id="wrap-meta">
+        <label class="field-label">View saved or cached version</label>
+        <div class="field-grid">
+          <select id="filter-meta-type" onchange="updateQuery()">
+            <option value="">None</option>
+            <option value="cache">Google's saved copy</option>
+            <option value="info">What Google knows about it</option>
+          </select>
+          <input type="text" id="filter-meta-url" placeholder="URL" oninput="updateQuery()">
+        </div>
+      </div>
+
+      <div class="field-row" id="proximity-row">
+        <label class="field-label">Find two words near each other</label>
+        <div class="field-grid-3">
+          <input type="text" id="prox-term1" placeholder="First word" oninput="updateQuery()">
+          <select id="prox-distance" onchange="updateQuery()">
+            <option value="">Off</option>
+            <option value="1">Within 1 word</option>
+            <option value="2">Within 2 words</option>
+            <option value="3">Within 3 words</option>
+            <option value="5">Within 5 words</option>
+            <option value="10">Within 10 words</option>
+            <option value="15">Within 15 words</option>
+          </select>
+          <input type="text" id="prox-term2" placeholder="Second word" oninput="updateQuery()">
+        </div>
+      </div>
+
+      <div class="field-row" style="margin-top: 8px">
+        <label class="field-label">Add anything else to the query</label>
+        <input type="text" id="raw-append" placeholder='Type any extra operators or text here' oninput="updateQuery()">
+      </div>
+
+    </div>
+
+    <!-- ── OUTPUT PANEL ── -->
+    <div class="panel panel-output">
+      <div class="output-box">
+
+        <div class="section-label">Your search query</div>
+        <div class="query-display" id="query-display">
+          <span class="placeholder-text">Start adding words on the left...</span>
+        </div>
+
+        <div class="output-actions">
+          <button class="btn btn-primary" onclick="copyQuery()"><i class="bi bi-clipboard"></i> Copy</button>
+          <button class="btn" id="btn-search" onclick="runSearch()"><i class="bi bi-box-arrow-up-right"></i> <span id="btn-search-label">Search Google</span></button>
+          <button class="btn" onclick="saveToHistory()"><i class="bi bi-bookmark"></i> Save</button>
+          <button class="btn btn-danger" onclick="resetAll()"><i class="bi bi-arrow-counterclockwise"></i> Reset All</button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tab-bar">
+          <button class="tab active" onclick="switchTab('guide', this)">Cheat Sheet</button>
+          <button class="tab" onclick="switchTab('history', this)">Saved Searches</button>
+        </div>
+
+        <div class="tab-content active" id="tab-guide">
+          <div class="platform-note" id="platform-note"></div>
+          <div class="ref-grid" id="ref-grid"></div>
+        </div>
+
+        <div class="tab-content" id="tab-history">
+          <div id="history-list">
+            <p style="font-size:12px;color:var(--text-muted)">No saved queries yet.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="copy-toast" id="copy-toast">Copied to clipboard</div>
+
+  <script>
+    /* ── State ── */
+    const terms = { and: [], or: [], not: [] };
+
+    /* ── Platform configs ── */
+    const platforms = {
+      google: {
+        name: 'Google',
+        not: '-',
+        site: 'site:',
+        filetype: 'filetype:',
+        intitle: 'intitle:',
+        inurl: 'inurl:',
+        intext: 'intext:',
+        inanchor: 'inanchor:',
+        related: 'related:',
+        cache: 'cache:',
+        info: 'info:',
+        dateParam: true,
+        proximity: 'AROUND',
+        searchUrl: q => 'https://www.google.com/search?q=' + encodeURIComponent(q),
+        searchLabel: 'Search Google',
+        note: 'Google supports all major operators. Date filtering works via URL parameters (added when you click Search). Use AROUND(n) for proximity. Combine with site: to search within specific domains.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'term1 AND term2', desc: 'Both terms required (default)' },
+          { op: 'term1 OR term2', desc: 'Either term matches' },
+          { op: '-term', desc: 'Exclude a term' },
+          { op: 'site:domain.com', desc: 'Search within a site' },
+          { op: 'filetype:pdf', desc: 'Filter by file type' },
+          { op: 'intitle:term', desc: 'Term must appear in title' },
+          { op: 'inurl:term', desc: 'Term must appear in URL' },
+          { op: 'intext:term', desc: 'Term must appear in body' },
+          { op: 'AROUND(n)', desc: 'Terms within n words of each other' },
+          { op: 'related:url', desc: 'Pages similar to URL' },
+          { op: 'cache:url', desc: 'Google\'s cached copy' },
+          { op: 'before:YYYY-MM-DD', desc: 'Results before date' },
+          { op: 'after:YYYY-MM-DD', desc: 'Results after date' },
+          { op: '* (wildcard)', desc: 'Match any word in a phrase' },
+        ]
+      },
+      bing: {
+        name: 'Bing',
+        not: '-',
+        site: 'site:',
+        filetype: 'filetype:',
+        intitle: 'intitle:',
+        inurl: 'inurl:',
+        intext: 'inbody:',
+        inanchor: 'inanchor:',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: false,
+        proximity: 'NEAR',
+        searchUrl: q => 'https://www.bing.com/search?q=' + encodeURIComponent(q),
+        searchLabel: 'Search Bing',
+        note: 'Bing supports NEAR/n for proximity. Uses inbody: instead of intext:. No related: or cache: operators. Date filter via the Bing UI.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'AND / OR / NOT', desc: 'Standard boolean operators' },
+          { op: '-term', desc: 'Exclude term (same as NOT)' },
+          { op: 'site:domain.com', desc: 'Search within a site' },
+          { op: 'filetype:pdf', desc: 'Filter by file type' },
+          { op: 'intitle:term', desc: 'Term in page title' },
+          { op: 'inurl:term', desc: 'Term in URL' },
+          { op: 'inbody:term', desc: 'Term in body text' },
+          { op: 'NEAR:n', desc: 'Terms within n words' },
+          { op: 'language:en', desc: 'Filter by language' },
+          { op: 'loc:US', desc: 'Filter by location' },
+        ]
+      },
+      duckduckgo: {
+        name: 'DuckDuckGo',
+        not: '-',
+        site: 'site:',
+        filetype: 'filetype:',
+        intitle: 'intitle:',
+        inurl: 'inurl:',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: false,
+        proximity: '',
+        searchUrl: q => 'https://duckduckgo.com/?q=' + encodeURIComponent(q),
+        searchLabel: 'Search DuckDuckGo',
+        note: 'DuckDuckGo supports basic boolean with AND, OR, NOT and quotes. Also supports site:, filetype:, intitle:. No proximity operator. Date filtering via the UI only.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'AND / OR / NOT', desc: 'Standard boolean' },
+          { op: '-term', desc: 'Exclude term' },
+          { op: 'site:domain.com', desc: 'Search within a site' },
+          { op: 'filetype:pdf', desc: 'Filter by file type' },
+          { op: 'intitle:term', desc: 'Term in page title' },
+          { op: 'inurl:term', desc: 'Term in URL' },
+        ]
+      },
+      linkedin: {
+        name: 'LinkedIn',
+        not: 'NOT',
+        site: '',
+        filetype: '',
+        intitle: '',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: false,
+        proximity: '',
+        searchUrl: q => 'https://www.linkedin.com/search/results/all/?keywords=' + encodeURIComponent(q),
+        searchLabel: 'Search LinkedIn',
+        note: 'LinkedIn uses AND, OR, NOT and quotes. Parentheses for grouping are essential. No site:, filetype: or advanced operators. Keep queries under ~500 characters for best results.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact job title, skill, etc.' },
+          { op: 'term1 AND term2', desc: 'Both terms required' },
+          { op: 'term1 OR term2', desc: 'Either term matches' },
+          { op: 'NOT term', desc: 'Exclude a term' },
+          { op: '(group)', desc: 'Group terms with parentheses' },
+        ]
+      },
+      twitter: {
+        name: 'Twitter / X',
+        not: '-',
+        site: '',
+        filetype: '',
+        intitle: '',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: true,
+        proximity: '',
+        searchUrl: q => 'https://x.com/search?q=' + encodeURIComponent(q) + '&f=live',
+        searchLabel: 'Search X / Twitter',
+        note: 'Twitter/X search supports from:, to:, since:, until:, filter: operators. Use Google with site:twitter.com for deeper archival search.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'term1 OR term2', desc: 'Either term (AND is default)' },
+          { op: '-term', desc: 'Exclude a term' },
+          { op: 'from:username', desc: 'Tweets from user' },
+          { op: 'to:username', desc: 'Replies to user' },
+          { op: '@username', desc: 'Mentioning user' },
+          { op: 'since:YYYY-MM-DD', desc: 'Tweets after date' },
+          { op: 'until:YYYY-MM-DD', desc: 'Tweets before date' },
+          { op: 'filter:links', desc: 'Only tweets with links' },
+          { op: 'filter:media', desc: 'Only tweets with media' },
+          { op: 'min_retweets:N', desc: 'Minimum retweets' },
+          { op: 'min_faves:N', desc: 'Minimum likes' },
+          { op: 'lang:en', desc: 'Filter by language' },
+        ]
+      },
+      reddit: {
+        name: 'Reddit (via Google)',
+        not: '-',
+        site: 'site:',
+        filetype: '',
+        intitle: 'intitle:',
+        inurl: 'inurl:',
+        intext: 'intext:',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: true,
+        proximity: 'AROUND',
+        defaultSite: 'reddit.com',
+        searchUrl: q => 'https://www.google.com/search?q=' + encodeURIComponent(q),
+        searchLabel: 'Search Reddit via Google',
+        note: 'Reddit\'s own search is weak. Use Google with site:reddit.com for best results. Add specific subreddits to inurl: e.g. inurl:r/politics.',
+        operators: [
+          { op: 'site:reddit.com', desc: 'Limit to Reddit (auto-added)' },
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'AND / OR', desc: 'Combine terms' },
+          { op: '-term', desc: 'Exclude a term' },
+          { op: 'inurl:r/subreddit', desc: 'Specific subreddit' },
+          { op: 'intitle:term', desc: 'Term in post title' },
+        ]
+      },
+      pubmed: {
+        name: 'PubMed',
+        not: 'NOT',
+        site: '',
+        filetype: '',
+        intitle: '',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: true,
+        proximity: '',
+        searchUrl: q => 'https://pubmed.ncbi.nlm.nih.gov/?term=' + encodeURIComponent(q),
+        searchLabel: 'Search PubMed',
+        note: 'PubMed uses uppercase AND, OR, NOT. Supports [Title], [Author], [MeSH Terms] field tags. Date filtering via [dp] field.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'term1 AND term2', desc: 'Both terms required' },
+          { op: 'term1 OR term2', desc: 'Either term matches' },
+          { op: 'NOT term', desc: 'Exclude term' },
+          { op: 'term[Title]', desc: 'Search in title field' },
+          { op: 'name[Author]', desc: 'Search by author' },
+          { op: 'term[MeSH Terms]', desc: 'MeSH subject heading' },
+          { op: 'YYYY/MM/DD[dp]', desc: 'Publication date' },
+          { op: 'term[tiab]', desc: 'Title and abstract' },
+        ]
+      },
+      lexisnexis: {
+        name: 'LexisNexis / Legal',
+        not: 'AND NOT',
+        site: '',
+        filetype: '',
+        intitle: '',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: false,
+        proximity: 'W/',
+        searchUrl: q => 'https://plus.lexis.com/search/?pdqttype=and&pdsearchterms=' + encodeURIComponent(q),
+        searchLabel: 'Search Lexis+',
+        note: 'LexisNexis uses W/n (within n words), PRE/n (preceding within n words), AND NOT. Uses ! for wildcard truncation and * for single character.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'AND / OR / AND NOT', desc: 'Standard boolean' },
+          { op: 'W/n', desc: 'Within n words of each other' },
+          { op: 'PRE/n', desc: 'First term precedes within n' },
+          { op: '!', desc: 'Wildcard truncation (litigat!)' },
+          { op: '*', desc: 'Single character wildcard' },
+          { op: 'ATLEAST(n)', desc: 'Term appears at least n times' },
+        ]
+      },
+      scholar: {
+        name: 'Google Scholar',
+        not: '-',
+        site: 'site:',
+        filetype: 'filetype:',
+        intitle: 'intitle:',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: 'related:',
+        cache: '',
+        info: '',
+        dateParam: true,
+        proximity: 'AROUND',
+        searchUrl: q => 'https://scholar.google.com/scholar?q=' + encodeURIComponent(q),
+        searchLabel: 'Search Google Scholar',
+        note: 'Google Scholar indexes case law, academic papers, patents, and legal journals. Free. Supports most Google operators. Use "author:" to search by author name.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'AND / OR', desc: 'Combine terms' },
+          { op: '-term', desc: 'Exclude a term' },
+          { op: 'author:name', desc: 'Search by author' },
+          { op: 'intitle:term', desc: 'Term in article title' },
+          { op: 'site:domain.com', desc: 'Limit to a source' },
+          { op: 'AROUND(n)', desc: 'Terms within n words' },
+          { op: 'related:url', desc: 'Similar articles' },
+          { op: 'before:YYYY', desc: 'Published before year' },
+          { op: 'after:YYYY', desc: 'Published after year' },
+        ]
+      },
+      courtlistener: {
+        name: 'CourtListener',
+        not: 'NOT',
+        site: '',
+        filetype: '',
+        intitle: '',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: true,
+        proximity: '~',
+        searchUrl: q => 'https://www.courtlistener.com/?q=' + encodeURIComponent(q) + '&type=o',
+        searchLabel: 'Search CourtListener',
+        note: 'CourtListener (RECAP) indexes federal and state court opinions and filings. Free and open. Uses Lucene-style syntax with ~ for proximity and field tags like caseName:, judge:, court:.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'AND / OR / NOT', desc: 'Standard boolean' },
+          { op: '-term', desc: 'Exclude a term' },
+          { op: 'caseName:"term"', desc: 'Search case names' },
+          { op: 'judge:"name"', desc: 'Search by judge' },
+          { op: 'court:scotus', desc: 'Filter by court' },
+          { op: '"term1 term2"~N', desc: 'Proximity: within N words' },
+          { op: 'filed_after:YYYY-MM-DD', desc: 'Filed after date' },
+          { op: 'filed_before:YYYY-MM-DD', desc: 'Filed before date' },
+          { op: 'citation:term', desc: 'Search citations' },
+        ]
+      },
+      wayback: {
+        name: 'Wayback Machine',
+        not: '-',
+        site: 'site:',
+        filetype: '',
+        intitle: '',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: false,
+        proximity: '',
+        searchUrl: q => 'https://web.archive.org/web/*/' + q,
+        searchLabel: 'Search Wayback Machine',
+        note: 'The Wayback Machine archives snapshots of websites over time. Enter a URL to see all saved versions, or use site: to browse an entire domain. For full-text search of archived pages, use Google with site:web.archive.org.',
+        operators: [
+          { op: 'example.com', desc: 'See all snapshots of a URL' },
+          { op: 'example.com/path/*', desc: 'All pages under a path' },
+          { op: '*.example.com', desc: 'All subdomains of a site' },
+          { op: 'site:web.archive.org', desc: 'Search archives via Google' },
+        ]
+      },
+      generic: {
+        name: 'Generic Boolean',
+        not: 'NOT',
+        site: '',
+        filetype: '',
+        intitle: '',
+        inurl: '',
+        intext: '',
+        inanchor: '',
+        related: '',
+        cache: '',
+        info: '',
+        dateParam: false,
+        proximity: '',
+        searchUrl: q => 'https://www.google.com/search?q=' + encodeURIComponent(q),
+        searchLabel: 'Search Google',
+        note: 'Standard boolean logic with AND, OR, NOT and parentheses for grouping. Works with most databases, search engines, and recruitment tools.',
+        operators: [
+          { op: '"exact phrase"', desc: 'Match exact phrase' },
+          { op: 'AND', desc: 'Both terms required' },
+          { op: 'OR', desc: 'Either term matches' },
+          { op: 'NOT', desc: 'Exclude term' },
+          { op: '(group)', desc: 'Parentheses for grouping' },
+        ]
+      },
+    };
+
+    /* ── Init ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      updatePlatformGuide();
+      updateQuery();
+      loadHistory();
+    });
+
+    /* ── Nav scroll ── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('compact', window.scrollY > 40);
+    });
+
+    /* ── Term management ── */
+    function addTerm(group) {
+      const input = document.getElementById('input-' + group);
+      const val = input.value.trim();
+      if (!val) return;
+      val.split(',').map(s => s.trim()).filter(Boolean).forEach(item => {
+        if (!terms[group].includes(item)) terms[group].push(item);
+      });
+      input.value = '';
+      renderPills(group);
+      updateQuery();
+      input.focus();
+    }
+
+    function removeTerm(group, index) {
+      terms[group].splice(index, 1);
+      renderPills(group);
+      updateQuery();
+    }
+
+    function clearGroup(group) {
+      terms[group] = [];
+      renderPills(group);
+      updateQuery();
+    }
+
+    function renderPills(group) {
+      const container = document.getElementById('pills-' + group);
+      const exactCheck = document.getElementById('exact-' + group);
+      const isExact = exactCheck ? exactCheck.checked : false;
+      container.innerHTML = terms[group].map((t, i) => {
+        const cls = (isExact || t.includes(' ')) ? 'pill exact' : 'pill';
+        const display = (isExact && !t.startsWith('"')) ? `"${t}"` : t;
+        return `<span class="${cls}">${escHtml(display)}<span class="remove" onclick="removeTerm('${group}',${i})">&times;</span></span>`;
+      }).join('');
+    }
+
+    /* ── Query builder ── */
+    function updateQuery() {
+      const p = platforms[document.getElementById('platform').value];
+      updatePlatformGuide();
+
+      // SearchIn operator
+      const searchIn = document.getElementById('filter-searchin').value;
+      const searchInOp = (searchIn && p[searchIn]) ? p[searchIn] : '';
+
+      let parts = [];
+
+      // AND terms
+      if (terms.and.length) {
+        const exact = document.getElementById('exact-and').checked;
+        const wrapped = terms.and.map(t => searchInOp + wrapTerm(t, exact));
+        parts.push(wrapped.join(' AND '));
+      }
+
+      // OR terms
+      if (terms.or.length) {
+        const exact = document.getElementById('exact-or').checked;
+        const wrapped = terms.or.map(t => wrapTerm(t, exact));
+        const orStr = wrapped.join(' OR ');
+        parts.push(terms.or.length > 1 ? `(${orStr})` : orStr);
+      }
+
+      let query = parts.join(' AND ');
+
+      // NOT terms
+      if (terms.not.length) {
+        const notTerms = terms.not.map(t => {
+          const wrapped = t.includes(' ') ? `"${t}"` : t;
+          return p.not === '-' ? `-${wrapped}` : `${p.not} ${wrapped}`;
+        });
+        query += (query ? ' ' : '') + notTerms.join(' ');
+      }
+
+      // Site filter
+      const site = document.getElementById('filter-site').value.trim();
+      const defaultSite = p.defaultSite || '';
+      if (site && p.site) {
+        query += (query ? ' ' : '') + p.site + site;
+      } else if (defaultSite && p.site) {
+        query += (query ? ' ' : '') + p.site + defaultSite;
+      }
+
+      // File type
+      const filetype = document.getElementById('filter-filetype').value;
+      if (filetype && p.filetype) {
+        query += (query ? ' ' : '') + p.filetype + filetype;
+      }
+
+      // Date range
+      const dateRange = document.getElementById('filter-daterange').value;
+      if (dateRange === 'custom') {
+        const from = document.getElementById('filter-date-from').value;
+        const to = document.getElementById('filter-date-to').value;
+        if (p.name === 'Google' || p.name === 'Reddit (via Google)') {
+          if (from) query += (query ? ' ' : '') + 'after:' + from;
+          if (to) query += (query ? ' ' : '') + 'before:' + to;
+        } else if (p.name === 'Twitter / X') {
+          if (from) query += (query ? ' ' : '') + 'since:' + from;
+          if (to) query += (query ? ' ' : '') + 'until:' + to;
+        } else if (p.name === 'PubMed') {
+          if (from && to) query += (query ? ' ' : '') + `"${from}"[dp] : "${to}"[dp]`;
+          else if (from) query += (query ? ' ' : '') + `"${from}"[dp]`;
+        }
+      }
+
+      // Related
+      const related = document.getElementById('filter-related').value.trim();
+      if (related && p.related) {
+        query += (query ? ' ' : '') + p.related + related;
+      }
+
+      // Cache/Info
+      const metaType = document.getElementById('filter-meta-type').value;
+      const metaUrl = document.getElementById('filter-meta-url').value.trim();
+      if (metaType && metaUrl && p[metaType]) {
+        query += (query ? ' ' : '') + p[metaType] + metaUrl;
+      }
+
+      // Proximity
+      const pt1 = document.getElementById('prox-term1').value.trim();
+      const pt2 = document.getElementById('prox-term2').value.trim();
+      const pd = document.getElementById('prox-distance').value;
+      if (pt1 && pt2 && pd && p.proximity) {
+        let proxStr = '';
+        if (p.proximity === 'AROUND') proxStr = `"${pt1}" AROUND(${pd}) "${pt2}"`;
+        else if (p.proximity === 'NEAR') proxStr = `"${pt1}" NEAR:${pd} "${pt2}"`;
+        else if (p.proximity === 'W/') proxStr = `${pt1} W/${pd} ${pt2}`;
+        else if (p.proximity === '~') proxStr = `"${pt1} ${pt2}"~${pd}`;
+        query += (query ? ' ' : '') + proxStr;
+      }
+
+      // Raw append
+      const raw = document.getElementById('raw-append').value.trim();
+      if (raw) query += (query ? ' ' : '') + raw;
+
+      // Render
+      const display = document.getElementById('query-display');
+      if (!query) {
+        display.innerHTML = '<span class="placeholder-text">Start adding words on the left...</span>';
+      } else {
+        display.innerHTML = highlightQuery(query);
+      }
+
+      // Update search button
+      document.getElementById('btn-search-label').textContent = p.searchLabel;
+
+      // Re-render pills
+      ['and', 'or', 'not'].forEach(renderPills);
+
+      return query;
+    }
+
+    function wrapTerm(t, forceExact) {
+      if (t.startsWith('"') && t.endsWith('"')) return t;
+      if (forceExact || t.includes(' ')) return `"${t}"`;
+      return t;
+    }
+
+    function highlightQuery(q) {
+      return q
+        .replace(/\b(AND NOT|AND|OR|NOT|NEAR:\d+|AROUND\(\d+\)|W\/\d+|PRE\/\d+)\b/g, '<span class="op">$1</span>')
+        .replace(/"~(\d+)/g, '"<span class="op">~$1</span>')
+        .replace(/"([^"]+)"/g, '<span class="quoted">"$1"</span>')
+        .replace(/\b(site:|filetype:|intitle:|inurl:|intext:|inbody:|inanchor:|related:|cache:|info:|after:|before:|since:|until:|from:|to:|filter:|min_retweets:|min_faves:|lang:|language:|loc:|author:|caseName:|judge:|court:|citation:|filed_after:|filed_before:)(\S+)/g, '<span class="filter">$1$2</span>')
+        .replace(/(\[(?:Title|Author|MeSH Terms|dp|tiab)\])/g, '<span class="filter">$1</span>')
+        .replace(/([()])/g, '<span class="paren">$1</span>');
+    }
+
+    /* ── Date toggle ── */
+    function toggleCustomDate() {
+      const isCustom = document.getElementById('filter-daterange').value === 'custom';
+      document.getElementById('filter-date-from').style.display = isCustom ? '' : 'none';
+      document.getElementById('filter-date-to').style.display = isCustom ? '' : 'none';
+    }
+
+    /* ── Platform guide ── */
+    function updatePlatformGuide() {
+      const p = platforms[document.getElementById('platform').value];
+      document.getElementById('platform-note').innerHTML = `<strong>${p.name}:</strong> ${p.note}`;
+
+      const grid = document.getElementById('ref-grid');
+      grid.innerHTML = p.operators.map(op =>
+        `<div class="ref-item" onclick="insertOperator('${escAttr(op.op)}')">
+          <span class="ref-op">${escHtml(op.op)}</span>
+          <span class="ref-desc">${escHtml(op.desc)}</span>
+        </div>`
+      ).join('');
+
+      // Show/hide fields based on platform support
+      const show = (id, cond) => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = cond ? '' : 'none';
+      };
+      show('wrap-site', !!p.site);
+      show('wrap-filetype', !!p.filetype);
+      show('wrap-searchin', !!p.intitle || !!p.inurl || !!p.intext);
+      show('wrap-related', !!p.related);
+      show('wrap-meta', !!p.cache || !!p.info);
+      show('proximity-row', !!p.proximity);
+    }
+
+    function insertOperator(op) {
+      const raw = document.getElementById('raw-append');
+      raw.value = (raw.value ? raw.value + ' ' : '') + op;
+      updateQuery();
+      raw.focus();
+    }
+
+    /* ── Actions ── */
+    function copyQuery() {
+      const q = getPlainQuery();
+      if (!q) return;
+      navigator.clipboard.writeText(q).then(() => showToast('Copied to clipboard'));
+    }
+
+    function runSearch() {
+      const q = getPlainQuery();
+      if (!q) return;
+      const p = platforms[document.getElementById('platform').value];
+      if (!p.searchUrl) {
+        copyQuery();
+        showToast('Copied — paste into ' + p.name);
+        return;
+      }
+
+      let url = p.searchUrl(q);
+
+      // Add date params for Google-based searches
+      const dateRange = document.getElementById('filter-daterange').value;
+      if (dateRange && dateRange !== 'custom' && (p.name === 'Google' || p.name === 'Reddit (via Google)' || p.name === 'Generic Boolean')) {
+        const tbs = { d: 'qdr:d', w: 'qdr:w', m: 'qdr:m', y: 'qdr:y' };
+        if (tbs[dateRange]) url += '&tbs=' + tbs[dateRange];
+      }
+
+      window.open(url, '_blank');
+    }
+
+    function getPlainQuery() {
+      const el = document.getElementById('query-display');
+      return el.textContent.replace('Start adding words on the left...', '').trim();
+    }
+
+    function resetAll() {
+      terms.and = []; terms.or = []; terms.not = [];
+      ['and', 'or', 'not'].forEach(renderPills);
+      document.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+      document.querySelectorAll('select').forEach(s => { if (s.id !== 'platform') s.selectedIndex = 0; });
+      document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+      document.querySelectorAll('input[type="date"]').forEach(d => { d.value = ''; d.style.display = 'none'; });
+      updateQuery();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('copy-toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    /* ── History ── */
+    function saveToHistory() {
+      const q = getPlainQuery();
+      if (!q) return;
+      const history = JSON.parse(localStorage.getItem('boolHistory') || '[]');
+      history.unshift({
+        query: q,
+        platform: document.getElementById('platform').value,
+        time: new Date().toISOString()
+      });
+      if (history.length > 50) history.pop();
+      localStorage.setItem('boolHistory', JSON.stringify(history));
+      loadHistory();
+      showToast('Query saved');
+    }
+
+    function loadHistory() {
+      const history = JSON.parse(localStorage.getItem('boolHistory') || '[]');
+      const container = document.getElementById('history-list');
+      if (!history.length) {
+        container.innerHTML = '<p style="font-size:12px;color:var(--text-muted)">No saved queries yet.</p>';
+        return;
+      }
+      container.innerHTML = history.map((h, i) => {
+        const date = new Date(h.time);
+        const timeStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const pName = platforms[h.platform]?.name || h.platform;
+        return `<div class="history-item">
+          <span class="history-query" onclick="loadFromHistory(${i})">${escHtml(h.query)}</span>
+          <div class="history-meta">
+            <span class="history-platform">${escHtml(pName)}</span>
+            <span class="history-time">${timeStr}</span>
+          </div>
+          <span class="history-delete" onclick="deleteHistory(${i})" title="Delete">&times;</span>
+        </div>`;
+      }).join('');
+    }
+
+    function loadFromHistory(index) {
+      const history = JSON.parse(localStorage.getItem('boolHistory') || '[]');
+      const h = history[index];
+      if (!h) return;
+      resetAll();
+      document.getElementById('platform').value = h.platform;
+      document.getElementById('raw-append').value = h.query;
+      updateQuery();
+    }
+
+    function deleteHistory(index) {
+      const history = JSON.parse(localStorage.getItem('boolHistory') || '[]');
+      history.splice(index, 1);
+      localStorage.setItem('boolHistory', JSON.stringify(history));
+      loadHistory();
+    }
+
+    /* ── Tabs ── */
+    function switchTab(name, btn) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + name).classList.add('active');
+    }
+
+    /* ── Helpers ── */
+    function escHtml(s) {
+      const d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+    function escAttr(s) {
+      return s.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+  </script>
+
+</body>
+</html>

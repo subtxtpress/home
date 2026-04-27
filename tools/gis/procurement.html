@@ -1,0 +1,2374 @@
+<!-- ═══ REPLACE EXISTING <head> CONTENT WITH THIS ═══ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIS Procurement Intelligence Dashboard — Subtxt Press</title>
+<meta name="description" content="Federal GIS contract search, state procurement portal directory, active solicitation discovery, and public records request generator. Live data from USASpending.gov, SAM.gov, and 50-state open data APIs.">
+<meta name="author" content="Subtxt Press">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://subtxtpress.github.io/home/tools/gis/procurement.html">
+ 
+<!-- Open Graph -->
+<meta property="og:title" content="GIS Procurement Intelligence Dashboard">
+<meta property="og:description" content="Federal GIS contract search, state procurement portal directory, active solicitation discovery, and public records request generator. Live data from USASpending.gov, SAM.gov, and 50-state open data APIs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://subtxtpress.github.io/home/tools/gis/procurement.html">
+<meta property="og:image" content="https://subtxtpress.github.io/home/tools/gis/img/gis-procurement.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="620">
+<meta property="og:site_name" content="Subtxt Press">
+ 
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@subtxtpress">
+<meta name="twitter:creator" content="@subtxtpress">
+<meta name="twitter:title" content="GIS Procurement Intelligence Dashboard">
+<meta name="twitter:description" content="Federal GIS contract search, state procurement portal directory, active solicitation discovery, and public records request generator. Live data from USASpending.gov, SAM.gov, and 50-state open data APIs.">
+<meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/gis/img/gis-procurement.png">
+ 
+<!-- Favicons & Manifest -->
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+<link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<link rel="manifest" href="icons/site.webmanifest">
+ 
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "GIS Procurement Intelligence Dashboard",
+  "description": "Federal GIS contract search, state procurement portal directory, active solicitation discovery, and public records request generator.",
+  "applicationCategory": "GovernmentApplication",
+  "operatingSystem": "Any",
+  "author": {
+    "@type": "Organization",
+    "name": "Subtxt Press",
+    "url": "https://subtxtpress.github.io/home/index.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Subtxt Press",
+    "url": "https://subtxtpress.github.io/home/index.html"
+  },
+  "url": "https://subtxtpress.github.io/home/tools/gis-procurement/gis-procurement.html"
+}
+</script>
+<!-- Style Sheer -->
+<meta name="description" content="Federal GIS contract search, state procurement portal directory, and records request generator.">
+<style>
+  :root {
+    --bg-primary: #1a1714;
+    --bg-secondary: #231f1b;
+    --bg-tertiary: #2c2722;
+    --bg-input: #1a1714;
+    --border: #3d3630;
+    --border-focus: #b8926a;
+    --text-primary: #e8ddd0;
+    --text-secondary: #a89880;
+    --text-muted: #7a6e60;
+    --accent: #b8926a;
+    --accent-hover: #d4a97a;
+    --accent-dim: rgba(184,146,106,0.15);
+    --error: #c45c4a;
+    --success: #6a9a5b;
+    --tag-bg: rgba(184,146,106,0.12);
+    --tag-border: rgba(184,146,106,0.25);
+    --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-secondary);
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header-brand .logo {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    border: 1px solid var(--accent);
+    padding: 0.2rem 0.5rem;
+    white-space: nowrap;
+  }
+  .header-brand h1 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .header-brand h1 span {
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+  .header-meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  /* TABS */
+  .tab-bar {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-secondary);
+    padding: 0 2rem;
+    gap: 0;
+  }
+  .tab-btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.85rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: var(--text-secondary); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* MAIN CONTENT */
+  .main { padding: 0; }
+  .tab-content { display: none; padding: 2rem; }
+  .tab-content.active { display: block; }
+
+  /* FORMS */
+  .search-panel {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .search-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+  }
+  .search-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: end;
+    margin-top: 1rem;
+  }
+  .form-group label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+  input, select {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.55rem 0.75rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    transition: border-color 0.2s;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--border-focus);
+  }
+  input::placeholder { color: var(--text-muted); }
+  select { cursor: pointer; }
+  select option { background: var(--bg-secondary); }
+
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.55rem 1.25rem;
+    border: 1px solid var(--accent);
+    background: var(--accent-dim);
+    color: var(--accent);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+  }
+  .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .btn-sm {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.75rem;
+  }
+  .btn-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* RESULTS TABLE */
+  .results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .results-count {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+  thead {
+    background: var(--bg-tertiary);
+    position: sticky;
+    top: 0;
+  }
+  th {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: 0.7rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+  th:hover { color: var(--text-secondary); }
+  td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  tr:hover td { color: var(--text-primary); background: rgba(184,146,106,0.03); }
+  td a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  td a:hover { text-decoration: underline; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    padding: 0.15rem 0.45rem;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .tag-state {
+    background: rgba(106,154,91,0.12);
+    border-color: rgba(106,154,91,0.25);
+    color: var(--success);
+  }
+
+  /* STATUS */
+  .status-bar {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .spinner {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+  }
+  .empty-state h3 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+  }
+  .empty-state p {
+    font-size: 0.8rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* PAGINATION */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  /* PORTAL DIRECTORY */
+  .directory-search {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .portal-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: border-color 0.2s;
+  }
+  .portal-card:hover { border-color: var(--border-focus); }
+  .portal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.4rem;
+  }
+  .portal-card h4 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+  }
+  .portal-card .portal-links {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .portal-card .portal-links a {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .portal-card .portal-links a:hover { text-decoration: underline; }
+  .portal-card .portal-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+  }
+
+  /* REQUEST GENERATOR */
+  .generator-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .generator-form { }
+  .generator-output {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    position: sticky;
+    top: 1rem;
+  }
+  .generator-output h3 {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .request-text {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-break: break-word;
+    min-height: 300px;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.55rem 0.75rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+  }
+  textarea:focus {
+    outline: none;
+    border-color: var(--border-focus);
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+  .stat-item {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  .stat-item strong {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+  .section-header h2 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+  }
+  .section-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* NAICS CHIPS */
+  .naics-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+  .naics-chip {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .naics-chip.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+  .naics-chip:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+  }
+
+  /* TAB LABEL TOGGLE */
+  .tab-short { display: none; }
+
+  /* TRACKER IMPORT LAYOUT */
+  .tracker-import-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: end;
+  }
+  .tracker-import-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .tracker-detail-row {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .search-row { grid-template-columns: 1fr 1fr; }
+    .search-row-2 { grid-template-columns: 1fr 1fr; }
+    .generator-layout { grid-template-columns: 1fr; }
+    .header { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+    .tab-bar { overflow-x: auto; padding: 0 1rem; }
+    .tab-content { padding: 1.5rem 1rem; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 0.82rem; }
+    .header { padding: 0.75rem 1rem; }
+    .header-brand .logo { font-size: 0.65rem; padding: 0.15rem 0.4rem; }
+    .header-brand h1 { font-size: 0.85rem; }
+    .header-meta { font-size: 0.58rem; }
+    .tab-btn { font-size: 0.6rem; padding: 0.65rem 0.75rem; }
+    .tab-content { padding: 1rem 0.75rem; }
+    .section-header h2 { font-size: 0.85rem; }
+    .section-header p { font-size: 0.7rem; }
+    .form-group label { font-size: 0.55rem; }
+    input, select, textarea { font-size: 0.75rem; padding: 0.45rem 0.6rem; }
+    .btn { font-size: 0.6rem; padding: 0.45rem 0.9rem; }
+    .btn-sm { font-size: 0.55rem; padding: 0.3rem 0.6rem; }
+    .search-panel { padding: 1rem; }
+    .search-row { grid-template-columns: 1fr; }
+    .search-row-2 { grid-template-columns: 1fr 1fr; }
+    .naics-chip { font-size: 0.5rem; padding: 0.15rem 0.4rem; }
+    .stats-bar { flex-wrap: wrap; gap: 1rem; padding: 0.75rem 0; }
+    .stat-item { font-size: 0.6rem; }
+    .stat-item strong { font-size: 0.9rem; }
+    .status-bar { font-size: 0.6rem; }
+    table { font-size: 0.68rem; }
+    th { font-size: 0.55rem; padding: 0.5rem; }
+    td { font-size: 0.68rem; padding: 0.45rem 0.5rem; }
+    .tag { font-size: 0.5rem; }
+    .results-count { font-size: 0.6rem; }
+    .pagination { font-size: 0.6rem; }
+    .empty-state { padding: 2.5rem 1rem; }
+    .empty-state h3 { font-size: 0.75rem; }
+    .empty-state p { font-size: 0.7rem; }
+    .portal-card h4 { font-size: 0.78rem; }
+    .portal-card .portal-links a { font-size: 0.55rem; }
+    .portal-card .portal-meta { font-size: 0.65rem; }
+    .generator-output h3 { font-size: 0.65rem; }
+    .request-text { font-size: 0.7rem; min-height: 200px; }
+    /* Batch tracker mobile fixes */
+    .tracker-import-row {
+      grid-template-columns: 1fr;
+    }
+    .tracker-import-actions {
+      flex-direction: row;
+    }
+    .tracker-detail-row {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .btn-row { gap: 0.5rem; }
+    .btn-row .btn { font-size: 0.55rem; padding: 0.35rem 0.6rem; }
+    /* Tab bar mobile fix */
+    .tab-bar {
+      padding: 0 0.5rem;
+      gap: 0;
+      justify-content: stretch;
+    }
+    .tab-btn {
+      font-size: 0.55rem;
+      padding: 0.55rem 0.4rem;
+      white-space: nowrap;
+      flex: 1;
+      text-align: center;
+    }
+    .tab-full { display: none; }
+    .tab-short { display: inline; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-brand">
+    <div class="logo">[SP]</div>
+    <h1>GIS Procurement Intelligence <span>// Dashboard</span></h1>
+  </div>
+  <div class="header-meta">
+    USASpending.gov · SAM.gov · State Open Data APIs<br>
+    NAICS 541370 · 541360 · 541511 · 541512 · 541330
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tab-bar">
+  <button class="tab-btn active" data-tab="contracts"><span class="tab-full">Federal Contracts</span><span class="tab-short">Federal</span></button>
+  <button class="tab-btn" data-tab="sam"><span class="tab-full">SAM.gov Opportunities</span><span class="tab-short">SAM.gov</span></button>
+  <button class="tab-btn" data-tab="statesearch"><span class="tab-full">State Procurement</span><span class="tab-short">States</span></button>
+  <button class="tab-btn" data-tab="request"><span class="tab-full">Request Generator</span><span class="tab-short">Requests</span></button>
+  <button class="tab-btn" data-tab="tracker"><span class="tab-full">Batch Tracker</span><span class="tab-short">Tracker</span></button>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- TAB 1: FEDERAL CONTRACTS -->
+<section id="tab-contracts" class="tab-content active">
+  <div class="section-header">
+    <h2>Federal GIS Contract Awards</h2>
+    <p>Live queries to USASpending.gov — filter by NAICS, keyword, agency, state, vendor, and fiscal year. Data from FY2008–present.</p>
+  </div>
+
+  <div class="search-panel">
+    <div class="search-row">
+      <div class="form-group">
+        <label>Keyword Search</label>
+        <input type="text" id="keyword" placeholder="GIS, geospatial, mapping, LiDAR...">
+      </div>
+      <div class="form-group">
+        <label>Vendor / Recipient</label>
+        <input type="text" id="recipient" placeholder="Esri, Maxar, Leidos...">
+      </div>
+      <div class="form-group">
+        <label>Awarding Agency</label>
+        <input type="text" id="agency" placeholder="Department of Interior...">
+      </div>
+      <div class="form-group">
+        <label>&nbsp;</label>
+        <button class="btn" id="searchBtn" onclick="searchContracts()">Search</button>
+      </div>
+    </div>
+
+    <div class="search-row-2">
+      <div class="form-group">
+        <label>Place of Performance (State)</label>
+        <select id="stateFilter">
+          <option value="">All States</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Fiscal Year Range</label>
+        <select id="fyStart">
+          <option value="2024">FY2024</option>
+          <option value="2023">FY2023</option>
+          <option value="2022">FY2022</option>
+          <option value="2021">FY2021</option>
+          <option value="2020">FY2020</option>
+          <option value="2019">FY2019</option>
+          <option value="2018">FY2018</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Award Amount Min</label>
+        <input type="number" id="amountMin" placeholder="e.g. 100000">
+      </div>
+      <div class="form-group">
+        <label>Award Amount Max</label>
+        <input type="number" id="amountMax" placeholder="e.g. 10000000">
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-top:1rem;">
+      <label>NAICS Codes (click to toggle)</label>
+      <div class="naics-chips">
+        <span class="naics-chip active" data-naics="541370">541370 — Surveying & Mapping</span>
+        <span class="naics-chip active" data-naics="541360">541360 — Geophysical Surveying</span>
+        <span class="naics-chip" data-naics="541511">541511 — Custom Programming</span>
+        <span class="naics-chip" data-naics="541512">541512 — Systems Design</span>
+        <span class="naics-chip" data-naics="541330">541330 — Engineering Services</span>
+        <span class="naics-chip" data-naics="541990">541990 — Other Prof/Tech Services</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar" id="statsBar" style="display:none;">
+    <div class="stat-item"><strong id="statCount">0</strong>Contracts Found</div>
+    <div class="stat-item"><strong id="statTotal">$0</strong>Total Obligated</div>
+    <div class="stat-item"><strong id="statAgencies">0</strong>Awarding Agencies</div>
+    <div class="stat-item"><strong id="statVendors">0</strong>Unique Vendors</div>
+  </div>
+
+  <!-- STATUS -->
+  <div class="status-bar" id="statusBar" style="display:none;">
+    <span class="spinner"></span>
+    <span id="statusText">Querying USASpending.gov...</span>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="resultsArea">
+    <div class="empty-state">
+      <h3>No search executed</h3>
+      <p>Configure your filters above and click Search to query federal GIS contract awards from USASpending.gov. At minimum, select NAICS codes or enter a keyword.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TAB 2: SAM.GOV OPPORTUNITIES -->
+<section id="tab-sam" class="tab-content">
+  <div class="section-header">
+    <h2>SAM.gov Contract Opportunities</h2>
+    <p>Search active federal solicitations on SAM.gov. Results open in a new tab (SAM.gov API is CORS-restricted for direct browser queries).</p>
+  </div>
+
+  <div class="search-panel">
+    <div class="search-row">
+      <div class="form-group">
+        <label>Keyword</label>
+        <input type="text" id="samKeyword" placeholder="GIS, geospatial, LiDAR, mapping...">
+      </div>
+      <div class="form-group">
+        <label>NAICS Code</label>
+        <select id="samNaics">
+          <option value="">Any NAICS</option>
+          <option value="541370">541370 — Surveying & Mapping</option>
+          <option value="541360">541360 — Geophysical Surveying</option>
+          <option value="541511">541511 — Custom Programming</option>
+          <option value="541512">541512 — Systems Design</option>
+          <option value="541330">541330 — Engineering Services</option>
+          <option value="541990">541990 — Other Prof/Tech</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <select id="samState">
+          <option value="">All States</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>&nbsp;</label>
+        <button class="btn" onclick="searchSAM()">Search SAM.gov &rarr;</button>
+      </div>
+    </div>
+
+    <div class="search-row-2">
+      <div class="form-group">
+        <label>Notice Type</label>
+        <select id="samNoticeType">
+          <option value="">All Types</option>
+          <option value="o">Solicitation</option>
+          <option value="p">Presolicitation</option>
+          <option value="k">Combined Synopsis/Solicitation</option>
+          <option value="r">Sources Sought</option>
+          <option value="s">Special Notice</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Set-Aside</label>
+        <select id="samSetAside">
+          <option value="">Any</option>
+          <option value="SBA">Small Business</option>
+          <option value="8A">8(a)</option>
+          <option value="HZC">HUBZone</option>
+          <option value="SDVOSBC">Service-Disabled Veteran</option>
+          <option value="WOSB">Women-Owned</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Posted Within</label>
+        <select id="samDateRange">
+          <option value="30">Last 30 Days</option>
+          <option value="90">Last 90 Days</option>
+          <option value="180">Last 6 Months</option>
+          <option value="365">Last Year</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Active Only</label>
+        <select id="samActiveOnly">
+          <option value="true">Yes — Active Opportunities</option>
+          <option value="false">Include Inactive/Closed</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:1.5rem;">
+    <h2>GIS Quick Searches</h2>
+    <p>Pre-built searches for common GIS procurement categories. Each opens SAM.gov in a new tab.</p>
+  </div>
+  <div class="btn-row" id="samQuickLinks"></div>
+
+  <div class="search-panel" style="margin-top:1.5rem;">
+    <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.7;">
+      SAM.gov is the official U.S. government system for posting federal contract opportunities (formerly FBO.gov).
+      All federal solicitations above $25,000 are posted here. For programmatic access, register for a free API key at
+      <a href="https://sam.gov" target="_blank" rel="noopener" style="color:var(--accent);">sam.gov</a>.
+    </p>
+  </div>
+</section>
+
+<!-- TAB 3: STATE PROCUREMENT -->
+<section id="tab-statesearch" class="tab-content">
+  <div class="section-header">
+    <h2>State Procurement Search</h2>
+    <p>Search state procurement records for states with open data APIs (CT, NY, TX, VA), or jump to portal search pages for all other states.</p>
+  </div>
+
+  <div class="search-panel">
+    <div class="search-row">
+      <div class="form-group">
+        <label>State</label>
+        <select id="stateSearchState" onchange="onStateSearchStateChange()">
+          <option value="">Select a state...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Keyword</label>
+        <input type="text" id="stateSearchKeyword" placeholder="GIS, mapping, survey, geospatial...">
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <select id="stateSearchYear">
+          <option value="">Any Year</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>&nbsp;</label>
+        <button class="btn" id="stateSearchBtn" onclick="searchStateProcurement()">Search</button>
+      </div>
+    </div>
+    <div id="stateSearchInfo" style="margin-top:0.75rem;font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);display:none;"></div>
+  </div>
+
+  <div class="status-bar" id="stateStatusBar" style="display:none;">
+    <span class="spinner"></span>
+    <span id="stateStatusText">Searching...</span>
+  </div>
+
+  <div id="stateResultsArea">
+    <div class="empty-state">
+      <h3>Select a state to begin</h3>
+      <p>Choose a state and enter keywords to search. States with live API access (NY, VA) return results directly. All other states open their procurement portal.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:2.5rem;border-top:1px solid var(--border);padding-top:2rem;">
+    <div class="section-header">
+      <h2>State Procurement Portal Directory</h2>
+      <p>Full reference of 50 state procurement portals, NASPO profiles, and open records statutes.</p>
+    </div>
+    <div class="directory-search">
+      <input type="text" id="portalSearch" placeholder="Filter by state name..." oninput="filterPortals()">
+      <button class="btn btn-sm" onclick="exportPortals()">Export CSV</button>
+    </div>
+    <div id="portalList"></div>
+  </div>
+</section>
+
+<!-- TAB 4: REQUEST GENERATOR -->
+<section id="tab-request" class="tab-content">
+  <div class="section-header">
+    <h2>Records Request Generator</h2>
+    <p>Generate a pre-filled public records request for bid tabulations, evaluation criteria, scoring sheets, and award documents. Adapts language for federal FOIA vs. state open records statutes.</p>
+  </div>
+
+  <div class="generator-layout">
+    <div class="generator-form">
+      <div class="form-group">
+        <label>Government Level</label>
+        <select id="reqLevel" onchange="updateRequestText()">
+          <option value="federal">Federal (FOIA — 5 U.S.C. § 552)</option>
+          <option value="state">State (select state below)</option>
+          <option value="local">Local / City / County</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="stateSelectGroup" style="display:none;">
+        <label>State</label>
+        <select id="reqState" onchange="updateRequestText()">
+          <option value="">Select state...</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Agency / Department Name</label>
+        <input type="text" id="reqAgency" placeholder="e.g. Texas Department of Information Resources" oninput="updateRequestText()">
+      </div>
+
+      <div class="form-group">
+        <label>Project Title</label>
+        <input type="text" id="reqProject" placeholder="e.g. GIS & Digital Land Surveying Products and Services" oninput="updateRequestText()">
+      </div>
+
+      <div class="form-group">
+        <label>RFP/Contract Identifier (if known)</label>
+        <input type="text" id="reqIdentifier" placeholder="e.g. DIR-CPO-TMP-596" oninput="updateRequestText()">
+      </div>
+
+      <div class="form-group">
+        <label>Year</label>
+        <input type="text" id="reqYear" placeholder="e.g. 2025" oninput="updateRequestText()">
+      </div>
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="reqName" placeholder="Your name" oninput="updateRequestText()">
+      </div>
+
+      <div class="form-group">
+        <label>Your Email</label>
+        <input type="text" id="reqEmail" placeholder="your@email.com" oninput="updateRequestText()">
+      </div>
+
+      <div class="form-group">
+        <label>Fee Threshold</label>
+        <input type="text" id="reqFee" value="25" oninput="updateRequestText()">
+      </div>
+    </div>
+
+    <div class="generator-output">
+      <h3>Generated Request</h3>
+      <div class="request-text" id="requestOutput">Fill in the form fields to generate a records request letter.</div>
+      <div class="btn-row">
+        <button class="btn btn-sm" onclick="copyRequest()">Copy to Clipboard</button>
+        <button class="btn btn-sm" onclick="downloadRequest()">Download .txt</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAB 5: BATCH TRACKER -->
+<section id="tab-tracker" class="tab-content">
+  <div class="section-header">
+    <h2>Batch Request Tracker</h2>
+    <p>Manage public records requests across multiple jurisdictions. Import a list, auto-match submission channels, batch-generate letters, and track status.</p>
+  </div>
+
+  <!-- IMPORT SECTION -->
+  <div class="search-panel">
+    <div class="section-header" style="margin-bottom:1rem;">
+      <h2 style="font-size:0.9rem;">Import Jurisdictions</h2>
+      <p>Paste CSV rows (Location, State, Title, Year, Identifier) or add manually. One jurisdiction per line.</p>
+    </div>
+    <div class="tracker-import-row">
+      <div class="form-group" style="margin-bottom:0;">
+        <label>CSV Import (Location, State, Title, Year, Identifier)</label>
+        <textarea id="trackerImportText" rows="4" placeholder="City of Austin, TX, GIS & Mapping Services, 2024, RFP-2024-031
+Virginia DOT, VA, Geospatial Data Services, 2025, IFB-2025-112
+New York OGS, NY, Enterprise GIS Platform, 2024,"></textarea>
+      </div>
+      <div class="tracker-import-actions">
+        <button class="btn" onclick="importTrackerCSV()">Import CSV</button>
+        <button class="btn btn-sm" onclick="loadSampleJurisdictions()">Load Sample</button>
+      </div>
+    </div>
+
+    <div style="margin-top:1.25rem;border-top:1px solid var(--border);padding-top:1.25rem;">
+      <div class="section-header" style="margin-bottom:0.75rem;">
+        <h2 style="font-size:0.9rem;">Add Single Jurisdiction</h2>
+      </div>
+      <div class="search-row">
+        <div class="form-group">
+          <label>Location / Agency</label>
+          <input type="text" id="trackerAddLocation" placeholder="e.g. City of Austin">
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <select id="trackerAddState">
+            <option value="">Select...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Project Title</label>
+          <input type="text" id="trackerAddTitle" placeholder="e.g. GIS & Mapping Services">
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button class="btn" onclick="addTrackerJurisdiction()">+ Add</button>
+        </div>
+      </div>
+      <div class="search-row-2 tracker-detail-row">
+        <div class="form-group">
+          <label>Year</label>
+          <input type="text" id="trackerAddYear" placeholder="e.g. 2024">
+        </div>
+        <div class="form-group">
+          <label>Identifier</label>
+          <input type="text" id="trackerAddId" placeholder="e.g. RFP-2024-031">
+        </div>
+        <div class="form-group">
+          <label>Your Name (for letters)</label>
+          <input type="text" id="trackerSenderName" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label>Your Email (for letters)</label>
+          <input type="text" id="trackerSenderEmail" placeholder="your@email.com">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BATCH ACTIONS -->
+  <div class="stats-bar" id="trackerStatsBar" style="display:none;">
+    <div class="stat-item"><strong id="trackerStatTotal">0</strong>Jurisdictions</div>
+    <div class="stat-item"><strong id="trackerStatPending">0</strong>Not Started</div>
+    <div class="stat-item"><strong id="trackerStatSubmitted">0</strong>Submitted</div>
+    <div class="stat-item"><strong id="trackerStatFulfilled">0</strong>Fulfilled</div>
+  </div>
+
+  <div class="btn-row" id="trackerActions" style="display:none;">
+    <button class="btn btn-sm" onclick="batchGenerateLetters()">Generate All Letters</button>
+    <button class="btn btn-sm" onclick="exportTrackerCSV()">Export Tracker CSV</button>
+    <button class="btn btn-sm" onclick="exportAllLetters()">Download All Letters (.txt)</button>
+    <button class="btn btn-sm" onclick="clearTracker()" style="border-color:var(--error);color:var(--error);">Clear All</button>
+  </div>
+
+  <!-- TRACKER TABLE -->
+  <div id="trackerTableArea">
+    <div class="empty-state">
+      <h3>No jurisdictions loaded</h3>
+      <p>Import a CSV list or add jurisdictions manually above. The tracker auto-matches each to its state procurement portal and open records statute for letter generation.</p>
+    </div>
+  </div>
+
+  <!-- LETTER PREVIEW MODAL (inline) -->
+  <div id="trackerLetterPreview" style="display:none;margin-top:1.5rem;">
+    <div class="search-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h3 style="font-family:var(--font-mono);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">
+          Letter Preview — <span id="trackerLetterTarget"></span>
+        </h3>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="btn btn-sm" onclick="copyTrackerLetter()">Copy</button>
+          <button class="btn btn-sm" onclick="downloadTrackerLetter()">Download</button>
+          <button class="btn btn-sm" onclick="closeTrackerLetter()">Close</button>
+        </div>
+      </div>
+      <div class="request-text" id="trackerLetterText" style="min-height:200px;"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// ============================================================
+// DATA: STATE PORTAL DIRECTORY
+// ============================================================
+const STATE_PORTALS = [
+  { state: "Alabama", abbr: "AL", portal: "https://procurement.staars.alabama.gov/", naspo: "https://www.naspo.org/states/alabama/" },
+  { state: "Alaska", abbr: "AK", portal: "https://iris-vss.alaska.gov/", naspo: "https://www.naspo.org/states/alaska/" },
+  { state: "Arizona", abbr: "AZ", portal: "https://procure.az.gov/bso/", naspo: "https://www.naspo.org/states/arizona/" },
+  { state: "Arkansas", abbr: "AR", portal: "https://www.ark.org/vendor/index.html", naspo: "https://www.naspo.org/states/arkansas/" },
+  { state: "California", abbr: "CA", portal: "https://caleprocure.ca.gov/pages/index.aspx", naspo: "https://www.naspo.org/states/california/" },
+  { state: "Colorado", abbr: "CO", portal: "http://www.colorado.gov/vss", naspo: "https://www.naspo.org/states/colorado/" },
+  { state: "Connecticut", abbr: "CT", portal: "http://das.ct.gov/cr1.aspx?page=161", naspo: "https://www.naspo.org/states/connecticut/" },
+  { state: "Delaware", abbr: "DE", portal: "https://denotificationservices.bbcportal.com/", naspo: "https://www.naspo.org/states/delaware/" },
+  { state: "District of Columbia", abbr: "DC", portal: "http://ocp.dc.gov/page/vendor-registration-electronic-solicitations-ocp", naspo: "https://www.naspo.org/states/district-of-columbia/" },
+  { state: "Florida", abbr: "FL", portal: "https://vendor.myfloridamarketplace.com/", naspo: "https://www.naspo.org/states/florida/" },
+  { state: "Georgia", abbr: "GA", portal: "https://doas.ga.gov/state-purchasing/getting-started-supplier", naspo: "https://www.naspo.org/states/georgia/" },
+  { state: "Hawaii", abbr: "HI", portal: "http://spo.hawaii.gov/", naspo: "https://www.naspo.org/states/hawaii/" },
+  { state: "Idaho", abbr: "ID", portal: null, naspo: "https://www.naspo.org/states/idaho/" },
+  { state: "Illinois", abbr: "IL", portal: "https://www.bidbuy.illinois.gov/bso/", naspo: "https://www.naspo.org/states/illinois/" },
+  { state: "Indiana", abbr: "IN", portal: "https://www.in.gov/idoa/procurement/supplier-resource-center/", naspo: "https://www.naspo.org/states/indiana/" },
+  { state: "Iowa", abbr: "IA", portal: "https://vss.iowa.gov/", naspo: "https://www.naspo.org/states/iowa/" },
+  { state: "Kansas", abbr: "KS", portal: "https://admin.ks.gov/offices/procurement-and-contracts", naspo: "https://www.naspo.org/states/kansas/" },
+  { state: "Kentucky", abbr: "KY", portal: "https://vss.ky.gov/vssprod-ext/Advantage4", naspo: "https://www.naspo.org/states/kentucky/" },
+  { state: "Louisiana", abbr: "LA", portal: "https://www.doa.la.gov/doa/osp/vendor-resources/", naspo: "https://www.naspo.org/states/louisiana/" },
+  { state: "Maine", abbr: "ME", portal: "http://www.maine.gov/purchases/venbid/newven.shtml", naspo: "https://www.naspo.org/states/maine/" },
+  { state: "Maryland", abbr: "MD", portal: "https://emma.maryland.gov/", naspo: "https://www.naspo.org/states/maryland/" },
+  { state: "Massachusetts", abbr: "MA", portal: "http://www.commbuys.com/", naspo: "https://www.naspo.org/states/massachusetts/" },
+  { state: "Michigan", abbr: "MI", portal: "http://www.michigan.gov/micontractconnect/", naspo: "https://www.naspo.org/states/michigan/" },
+  { state: "Minnesota", abbr: "MN", portal: "https://supplier.swift.state.mn.us/psp/fmssupap/SUPPLIER/ERP/h/?tab=SUP_GUEST", naspo: "https://www.naspo.org/states/minnesota/" },
+  { state: "Mississippi", abbr: "MS", portal: null, naspo: "https://www.naspo.org/states/mississippi/" },
+  { state: "Missouri", abbr: "MO", portal: "https://missouribuys.mo.gov/", naspo: "https://www.naspo.org/states/missouri/" },
+  { state: "Montana", abbr: "MT", portal: "https://spb.mt.gov/Vendor-Resources/index", naspo: "https://www.naspo.org/states/montana/" },
+  { state: "Nebraska", abbr: "NE", portal: null, naspo: "https://www.naspo.org/states/nebraska/" },
+  { state: "Nevada", abbr: "NV", portal: null, naspo: "https://www.naspo.org/states/nevada/" },
+  { state: "New Hampshire", abbr: "NH", portal: null, naspo: "https://www.naspo.org/states/new-hampshire/" },
+  { state: "New Jersey", abbr: "NJ", portal: "http://www.state.nj.us/treasury/purchase", naspo: "https://www.naspo.org/states/new-jersey/" },
+  { state: "New Mexico", abbr: "NM", portal: "https://www.generalservices.state.nm.us/state-purchasing/online-procurement/", naspo: "https://www.naspo.org/states/new-mexico/" },
+  { state: "New York", abbr: "NY", portal: "http://www.osc.state.ny.us/vendrep/", naspo: "https://www.naspo.org/states/new-york/" },
+  { state: "North Carolina", abbr: "NC", portal: "https://evp.nc.gov/", naspo: "https://www.naspo.org/states/north-carolina/" },
+  { state: "North Dakota", abbr: "ND", portal: "https://www.omb.nd.gov/doing-business-state/bidders", naspo: "https://www.naspo.org/states/north-dakota/" },
+  { state: "Ohio", abbr: "OH", portal: null, naspo: "https://www.naspo.org/states/ohio/" },
+  { state: "Oklahoma", abbr: "OK", portal: "http://www.ok.gov/DCS/Central_Purchasing/Vendor_Registration/index.html", naspo: "https://www.naspo.org/states/oklahoma/" },
+  { state: "Oregon", abbr: "OR", portal: "https://oregonbuys.gov/bso/view/login/login.xhtml", naspo: "https://www.naspo.org/states/oregon/" },
+  { state: "Pennsylvania", abbr: "PA", portal: "https://www.pasupplierportal.state.pa.us/", naspo: "https://www.naspo.org/states/pennsylvania/" },
+  { state: "Rhode Island", abbr: "RI", portal: "http://www.purchasing.ri.gov/", naspo: "https://www.naspo.org/states/rhode-island/" },
+  { state: "South Carolina", abbr: "SC", portal: "http://procurement.sc.gov/PS/vendor/PS-vendor-registration.phtm", naspo: "https://www.naspo.org/states/south-carolina/" },
+  { state: "South Dakota", abbr: "SD", portal: "https://www.mercurycommerce.com/app/jumppage/esmsvendorlogin.aspx", naspo: "https://www.naspo.org/states/south-dakota/" },
+  { state: "Tennessee", abbr: "TN", portal: "http://www.tn.gov/generalservices/topic/vendor-information", naspo: "https://www.naspo.org/states/tennessee/" },
+  { state: "Texas", abbr: "TX", portal: "https://www.comptroller.texas.gov/purchasing/vendor/cmbl/", naspo: "https://www.naspo.org/states/texas/" },
+  { state: "Utah", abbr: "UT", portal: "http://purchasing.utah.gov/for-vendors/", naspo: "https://www.naspo.org/states/utah/" },
+  { state: "Vermont", abbr: "VT", portal: "http://bgs.vermont.gov/purchasing", naspo: "https://www.naspo.org/states/vermont/" },
+  { state: "Virginia", abbr: "VA", portal: "http://www.eva.virginia.gov/", naspo: "https://www.naspo.org/states/virginia/" },
+  { state: "Washington", abbr: "WA", portal: "https://www.des.wa.gov/sell/how-work-state/register-bid-opportunities", naspo: "https://www.naspo.org/states/washington/" },
+  { state: "West Virginia", abbr: "WV", portal: "http://www.wvoasis.gov/", naspo: "https://www.naspo.org/states/west-virginia/" },
+  { state: "Wisconsin", abbr: "WI", portal: "https://vendornet.wi.gov/Registration.aspx", naspo: "https://www.naspo.org/states/wisconsin/" },
+  { state: "Wyoming", abbr: "WY", portal: null, naspo: "https://www.naspo.org/states/wyoming/" }
+];
+
+// State open records statute references
+const STATE_STATUTES = {
+  "AL": "Alabama Open Records Act (Ala. Code § 36-12-40)",
+  "AK": "Alaska Public Records Act (AS 40.25.100–220)",
+  "AZ": "Arizona Public Records Law (A.R.S. § 39-121 et seq.)",
+  "AR": "Arkansas Freedom of Information Act (Ark. Code § 25-19-101 et seq.)",
+  "CA": "California Public Records Act (Gov. Code § 7920.000 et seq.)",
+  "CO": "Colorado Open Records Act (C.R.S. § 24-72-201 et seq.)",
+  "CT": "Connecticut Freedom of Information Act (Conn. Gen. Stat. § 1-200 et seq.)",
+  "DE": "Delaware Freedom of Information Act (29 Del. C. § 10001 et seq.)",
+  "DC": "D.C. Freedom of Information Act (D.C. Code § 2-531 et seq.)",
+  "FL": "Florida Public Records Act (Fla. Stat. § 119.01 et seq.)",
+  "GA": "Georgia Open Records Act (O.C.G.A. § 50-18-70 et seq.)",
+  "HI": "Hawaii Uniform Information Practices Act (HRS § 92F)",
+  "ID": "Idaho Public Records Act (Idaho Code § 74-101 et seq.)",
+  "IL": "Illinois Freedom of Information Act (5 ILCS 140/)",
+  "IN": "Indiana Access to Public Records Act (IC 5-14-3)",
+  "IA": "Iowa Open Records Act (Iowa Code Ch. 22)",
+  "KS": "Kansas Open Records Act (K.S.A. § 45-215 et seq.)",
+  "KY": "Kentucky Open Records Act (KRS 61.870 et seq.)",
+  "LA": "Louisiana Public Records Act (La. R.S. 44:1 et seq.)",
+  "ME": "Maine Freedom of Access Act (1 M.R.S. § 400 et seq.)",
+  "MD": "Maryland Public Information Act (Md. Code, Gen. Prov. § 4-101 et seq.)",
+  "MA": "Massachusetts Public Records Law (M.G.L. c. 66 § 10)",
+  "MI": "Michigan Freedom of Information Act (MCL 15.231 et seq.)",
+  "MN": "Minnesota Government Data Practices Act (Minn. Stat. Ch. 13)",
+  "MS": "Mississippi Public Records Act (Miss. Code § 25-61-1 et seq.)",
+  "MO": "Missouri Sunshine Law (RSMo § 610.010 et seq.)",
+  "MT": "Montana Constitution Art. II § 9; Right to Know (MCA § 2-6-1001 et seq.)",
+  "NE": "Nebraska Public Records Act (Neb. Rev. Stat. § 84-712 et seq.)",
+  "NV": "Nevada Public Records Act (NRS 239.005 et seq.)",
+  "NH": "New Hampshire Right-to-Know Law (RSA 91-A)",
+  "NJ": "New Jersey Open Public Records Act (N.J.S.A. 47:1A-1 et seq.)",
+  "NM": "New Mexico Inspection of Public Records Act (NMSA § 14-2-1 et seq.)",
+  "NY": "New York Freedom of Information Law (Pub. Off. Law Art. 6 § 84 et seq.)",
+  "NC": "North Carolina Public Records Act (N.C.G.S. § 132-1 et seq.)",
+  "ND": "North Dakota Open Records Act (NDCC § 44-04-18 et seq.)",
+  "OH": "Ohio Public Records Act (ORC § 149.43)",
+  "OK": "Oklahoma Open Records Act (51 O.S. § 24A.1 et seq.)",
+  "OR": "Oregon Public Records Law (ORS 192.311 et seq.)",
+  "PA": "Pennsylvania Right-to-Know Law (65 P.S. § 67.101 et seq.)",
+  "RI": "Rhode Island Access to Public Records Act (R.I. Gen. Laws § 38-2-1 et seq.)",
+  "SC": "South Carolina Freedom of Information Act (S.C. Code § 30-4-10 et seq.)",
+  "SD": "South Dakota Open Records Act (SDCL § 1-27-1 et seq.)",
+  "TN": "Tennessee Public Records Act (Tenn. Code § 10-7-503 et seq.)",
+  "TX": "Texas Public Information Act (Tex. Gov't Code Ch. 552)",
+  "UT": "Utah Government Records Access and Management Act (Utah Code § 63G-2)",
+  "VT": "Vermont Public Records Act (1 V.S.A. § 315 et seq.)",
+  "VA": "Virginia Freedom of Information Act (Va. Code § 2.2-3700 et seq.)",
+  "WA": "Washington Public Records Act (RCW 42.56)",
+  "WV": "West Virginia Freedom of Information Act (W. Va. Code § 29B-1-1 et seq.)",
+  "WI": "Wisconsin Open Records Law (Wis. Stat. § 19.31 et seq.)",
+  "WY": "Wyoming Public Records Act (Wyo. Stat. § 16-4-201 et seq.)"
+};
+
+const US_STATES = [
+  "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN",
+  "IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH",
+  "NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT",
+  "VT","VA","WA","WV","WI","WY"
+];
+
+const STATE_NAMES = {
+  "AL":"Alabama","AK":"Alaska","AZ":"Arizona","AR":"Arkansas","CA":"California",
+  "CO":"Colorado","CT":"Connecticut","DE":"Delaware","DC":"District of Columbia",
+  "FL":"Florida","GA":"Georgia","HI":"Hawaii","ID":"Idaho","IL":"Illinois",
+  "IN":"Indiana","IA":"Iowa","KS":"Kansas","KY":"Kentucky","LA":"Louisiana",
+  "ME":"Maine","MD":"Maryland","MA":"Massachusetts","MI":"Michigan","MN":"Minnesota",
+  "MS":"Mississippi","MO":"Missouri","MT":"Montana","NE":"Nebraska","NV":"Nevada",
+  "NH":"New Hampshire","NJ":"New Jersey","NM":"New Mexico","NY":"New York",
+  "NC":"North Carolina","ND":"North Dakota","OH":"Ohio","OK":"Oklahoma",
+  "OR":"Oregon","PA":"Pennsylvania","RI":"Rhode Island","SC":"South Carolina",
+  "SD":"South Dakota","TN":"Tennessee","TX":"Texas","UT":"Utah","VT":"Vermont",
+  "VA":"Virginia","WA":"Washington","WV":"West Virginia","WI":"Wisconsin","WY":"Wyoming"
+};
+
+// ============================================================
+// GLOBALS
+// ============================================================
+let currentResults = [];
+let currentPage = 1;
+const PAGE_SIZE = 25;
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Populate state dropdowns
+  const stateFilter = document.getElementById('stateFilter');
+  const reqState = document.getElementById('reqState');
+  US_STATES.forEach(s => {
+    stateFilter.add(new Option(STATE_NAMES[s], s));
+    reqState.add(new Option(STATE_NAMES[s], s));
+  });
+
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // NAICS chip toggles
+  document.querySelectorAll('.naics-chip').forEach(chip => {
+    chip.addEventListener('click', () => chip.classList.toggle('active'));
+  });
+
+  // Gov level toggle for state select
+  document.getElementById('reqLevel').addEventListener('change', (e) => {
+    document.getElementById('stateSelectGroup').style.display =
+      (e.target.value === 'state' || e.target.value === 'local') ? 'block' : 'none';
+    updateRequestText();
+  });
+
+  // Enter key triggers search
+  document.querySelectorAll('#tab-contracts input').forEach(input => {
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') searchContracts(); });
+  });
+  document.querySelectorAll('#tab-sam input').forEach(input => {
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') searchSAM(); });
+  });
+  document.querySelectorAll('#tab-statesearch input').forEach(input => {
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') searchStateProcurement(); });
+  });
+
+  // Populate SAM.gov state dropdown
+  const samState = document.getElementById('samState');
+  US_STATES.forEach(s => samState.add(new Option(STATE_NAMES[s], s)));
+
+  // Populate state search dropdown with API indicators
+  const stateSearchState = document.getElementById('stateSearchState');
+  US_STATES.forEach(s => {
+    const hasApi = STATE_API_CONNECTORS && STATE_API_CONNECTORS[s];
+    stateSearchState.add(new Option(STATE_NAMES[s] + (hasApi ? ' \u2022 Live API' : ''), s));
+  });
+
+  // Populate tracker state dropdown
+  const trackerAddState = document.getElementById('trackerAddState');
+  US_STATES.forEach(s => trackerAddState.add(new Option(STATE_NAMES[s], s)));
+
+  // Load saved tracker data
+  loadTracker();
+  renderTracker();
+
+  // Enter key for tracker inputs
+  document.querySelectorAll('#tab-tracker input:not([type=date]):not([type=checkbox])').forEach(input => {
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') addTrackerJurisdiction(); });
+  });
+
+  // Render SAM quick links and portals
+  renderSAMQuickLinks();
+  renderPortals();
+  updateRequestText();
+});
+
+// ============================================================
+// TAB 1: FEDERAL CONTRACT SEARCH
+// ============================================================
+async function searchContracts() {
+  const keyword = document.getElementById('keyword').value.trim();
+  const recipient = document.getElementById('recipient').value.trim();
+  const agency = document.getElementById('agency').value.trim();
+  const state = document.getElementById('stateFilter').value;
+  const fyStart = document.getElementById('fyStart').value;
+  const amountMin = document.getElementById('amountMin').value;
+  const amountMax = document.getElementById('amountMax').value;
+
+  // Get active NAICS codes
+  const activeNaics = [];
+  document.querySelectorAll('.naics-chip.active').forEach(c => activeNaics.push(c.dataset.naics));
+
+  if (!keyword && !agency && activeNaics.length === 0 && !recipient) {
+    alert('Please enter a keyword, select NAICS codes, or specify a vendor/agency.');
+    return;
+  }
+
+  // Build filters
+  const filters = {
+    award_type_codes: ["A", "B", "C", "D"],
+    time_period: [{
+      start_date: (parseInt(fyStart) - 1) + "-10-01",
+      end_date: new Date().toISOString().split('T')[0]
+    }]
+  };
+
+  const keywords = [];
+  if (keyword) keywords.push(keyword);
+  if (agency) keywords.push(agency);
+  if (keywords.length > 0) filters.keywords = keywords;
+  if (activeNaics.length > 0) filters.naics_codes = activeNaics;
+  if (state) {
+    filters.place_of_performance_locations = [{ country: "USA", state: state }];
+  }
+  if (amountMin || amountMax) {
+    const amt = {};
+    if (amountMin) amt.lower_bound = parseFloat(amountMin);
+    if (amountMax) amt.upper_bound = parseFloat(amountMax);
+    filters.award_amounts = [amt];
+  }
+  if (recipient) {
+    filters.recipient_search_text = [recipient];
+  }
+
+  const body = {
+    filters: filters,
+    fields: [
+      "Award ID", "Recipient Name", "Award Amount",
+      "Description", "Start Date", "End Date", "Awarding Agency",
+      "Awarding Sub Agency", "Contract Award Type",
+      "Place of Performance State Code",
+      "generated_internal_id"
+    ],
+    page: currentPage,
+    limit: PAGE_SIZE,
+    sort: "Award Amount",
+    order: "desc",
+    subawards: false
+  };
+
+  // Log request for debugging
+  console.log('USASpending request:', JSON.stringify(body, null, 2));
+
+  showStatus(true, 'Querying USASpending.gov...');
+  document.getElementById('searchBtn').disabled = true;
+
+  try {
+    let data;
+    const MAX_RETRIES = 2;
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+      if (attempt > 0) {
+        showStatus(true, `Server error — retrying (${attempt}/${MAX_RETRIES})...`);
+        await new Promise(r => setTimeout(r, 1000 * attempt));
+      }
+
+      const resp = await fetch('https://api.usaspending.gov/api/v2/search/spending_by_award/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+
+      if (resp.ok) {
+        data = await resp.json();
+        break;
+      }
+
+      // On last attempt, throw with detail
+      if (attempt === MAX_RETRIES) {
+        let errMsg = `API returned ${resp.status} after ${MAX_RETRIES + 1} attempts`;
+        try {
+          const errText = await resp.text();
+          try {
+            const errParsed = JSON.parse(errText);
+            errMsg += ': ' + (errParsed.detail || errParsed.message || errText.substring(0, 300));
+          } catch(e) {
+            if (errText) errMsg += ': ' + errText.substring(0, 300);
+          }
+        } catch(e2) {}
+        throw new Error(errMsg);
+      }
+    }
+
+    currentResults = data.results || [];
+    const hasNext = data.page_metadata?.hasNext || false;
+
+    // Compute stats (page-level — API does not provide a total count)
+    const totalObligation = currentResults.reduce((s, r) => s + (r['Award Amount'] || 0), 0);
+    const agencies = new Set(currentResults.map(r => r['Awarding Agency']).filter(Boolean));
+    const vendors = new Set(currentResults.map(r => r['Recipient Name']).filter(Boolean));
+
+    const countLabel = currentResults.length + (hasNext ? '+' : '');
+    document.getElementById('statCount').textContent = countLabel;
+    document.getElementById('statTotal').textContent = '$' + totalObligation.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById('statAgencies').textContent = agencies.size;
+    document.getElementById('statVendors').textContent = vendors.size;
+    document.getElementById('statsBar').style.display = 'flex';
+
+    renderResults(currentResults, hasNext);
+    showStatus(false);
+
+  } catch (err) {
+    showStatus(true, 'Error: ' + err.message);
+    console.error(err);
+  } finally {
+    document.getElementById('searchBtn').disabled = false;
+  }
+}
+
+function renderResults(results, hasNext) {
+  const area = document.getElementById('resultsArea');
+
+  if (!results || results.length === 0) {
+    area.innerHTML = `<div class="empty-state">
+      <h3>No results found</h3>
+      <p>Try broadening your search — remove NAICS filters, expand the fiscal year range, or use different keywords. Remember that many GIS contracts are coded under NAICS 541511 (programming) or 541330 (engineering).</p>
+    </div>`;
+    return;
+  }
+
+  let html = `
+    <div class="results-header">
+      <span class="results-count">Page ${currentPage} · ${results.length} results${hasNext ? ' · more available' : ''}</span>
+      <div>
+        <button class="btn btn-sm" onclick="exportCSV()">Export CSV</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Vendor</th>
+          <th>Award Amount</th>
+          <th>Agency</th>
+          <th>Description</th>
+          <th>State</th>
+          <th>Start</th>
+          <th>Award ID</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody>`;
+
+  results.forEach(r => {
+    const amt = r['Award Amount'];
+    const amtStr = amt ? '$' + Math.abs(amt).toLocaleString(undefined, {maximumFractionDigits: 0}) : '—';
+    const desc = r['Description'] || '';
+    const shortDesc = desc.length > 80 ? desc.substring(0, 80) + '...' : desc;
+    const awardId = r['Award ID'] || '';
+    const state = r['Place of Performance State Code'] || '';
+    const internalId = r['generated_internal_id'] || r['internal_id'] || '';
+    const usaSpendingLink = internalId ?
+      `https://www.usaspending.gov/award/${internalId}` : '#';
+    const fpdsLink = awardId ?
+      `https://www.fpds.gov/ezsearch/search.do?q=PIID%3A%22${encodeURIComponent(awardId)}%22&s=FPDS` : '';
+
+    html += `<tr>
+      <td title="${(r['Recipient Name']||'').replace(/"/g,'&quot;')}">${r['Recipient Name'] || '—'}</td>
+      <td>${amtStr}</td>
+      <td title="${(r['Awarding Agency']||'').replace(/"/g,'&quot;')}">${r['Awarding Sub Agency'] || r['Awarding Agency'] || '—'}</td>
+      <td title="${desc.replace(/"/g,'&quot;')}">${shortDesc || '—'}</td>
+      <td>${state ? '<span class="tag tag-state">' + state + '</span>' : '—'}</td>
+      <td>${r['Start Date'] || '—'}</td>
+      <td style="font-family:var(--font-mono);font-size:0.7rem;">${awardId || '—'}</td>
+      <td>
+        ${usaSpendingLink !== '#' ? `<a href="${usaSpendingLink}" target="_blank" rel="noopener">USA</a>` : ''}
+        ${fpdsLink ? ` · <a href="${fpdsLink}" target="_blank" rel="noopener">FPDS</a>` : ''}
+      </td>
+    </tr>`;
+  });
+
+  html += `</tbody></table></div>`;
+
+  // Pagination
+  html += `<div class="pagination">`;
+  if (currentPage > 1) {
+    html += `<button class="btn btn-sm" onclick="changePage(${currentPage - 1})">← Previous</button>`;
+  }
+  html += `<span>Page ${currentPage}</span>`;
+  if (hasNext) {
+    html += `<button class="btn btn-sm" onclick="changePage(${currentPage + 1})">Next →</button>`;
+  }
+  html += `</div>`;
+
+  area.innerHTML = html;
+}
+
+function changePage(page) {
+  currentPage = page;
+  searchContracts();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showStatus(show, text) {
+  const bar = document.getElementById('statusBar');
+  if (show) {
+    bar.style.display = 'flex';
+    document.getElementById('statusText').textContent = text || '';
+  } else {
+    bar.style.display = 'none';
+  }
+}
+
+function exportCSV() {
+  if (!currentResults.length) return;
+  const headers = ['Recipient Name','Award Amount','Awarding Agency','Awarding Sub Agency','Description','Place of Performance State Code','Start Date','End Date','Award ID','NAICS','Contract Award Type'];
+  let csv = headers.join(',') + '\n';
+  currentResults.forEach(r => {
+    csv += headers.map(h => {
+      let v = r[h] || '';
+      if (typeof v === 'string') v = '"' + v.replace(/"/g, '""') + '"';
+      return v;
+    }).join(',') + '\n';
+  });
+  downloadFile(csv, 'gis_contracts_export.csv', 'text/csv');
+}
+
+// ============================================================
+// TAB 2: PORTAL DIRECTORY
+// ============================================================
+function renderPortals(filter = '') {
+  const container = document.getElementById('portalList');
+  const filtered = STATE_PORTALS.filter(p =>
+    p.state.toLowerCase().includes(filter.toLowerCase()) ||
+    p.abbr.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  container.innerHTML = filtered.map(p => {
+    const statute = STATE_STATUTES[p.abbr] || '';
+    return `<div class="portal-card">
+      <div class="portal-card-header">
+        <h4><span class="tag">${p.abbr}</span>&ensp;${p.state}</h4>
+        <div class="portal-links">
+          ${p.portal ? `<a href="${p.portal}" target="_blank" rel="noopener">Procurement Portal</a>` : '<span style="color:var(--text-muted);font-family:var(--font-mono);font-size:0.65rem;">No portal listed</span>'}
+          <a href="${p.naspo}" target="_blank" rel="noopener">NASPO Profile</a>
+        </div>
+      </div>
+      ${statute ? `<div class="portal-meta">${statute}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function filterPortals() {
+  renderPortals(document.getElementById('portalSearch').value);
+}
+
+function exportPortals() {
+  let csv = 'State,Abbreviation,Procurement Portal,NASPO Profile,Open Records Statute\n';
+  STATE_PORTALS.forEach(p => {
+    const statute = STATE_STATUTES[p.abbr] || '';
+    csv += `"${p.state}","${p.abbr}","${p.portal || ''}","${p.naspo}","${statute}"\n`;
+  });
+  downloadFile(csv, 'state_procurement_portals.csv', 'text/csv');
+}
+
+// ============================================================
+// TAB 2: SAM.GOV OPPORTUNITY LINK BUILDER
+// ============================================================
+const SAM_QUICK_SEARCHES = [
+  { label: 'GIS Services', keyword: 'GIS', naics: '541370' },
+  { label: 'Geospatial', keyword: 'geospatial', naics: '' },
+  { label: 'LiDAR', keyword: 'LiDAR', naics: '' },
+  { label: 'Remote Sensing', keyword: 'remote sensing', naics: '' },
+  { label: 'Surveying & Mapping', keyword: 'surveying mapping', naics: '541370' },
+  { label: 'Photogrammetry', keyword: 'photogrammetry', naics: '' },
+  { label: 'Geophysical Surveys', keyword: 'geophysical', naics: '541360' },
+  { label: 'Spatial Data', keyword: 'spatial data', naics: '541511' },
+];
+
+function buildSAMUrl(keyword, naics, state, noticeType, setAside, daysBack, activeOnly) {
+  const params = new URLSearchParams();
+  params.set('index', 'opp');
+  params.set('page', '1');
+  params.set('sort', '-modifiedDate');
+  if (activeOnly !== 'false') params.set('sfm[status][is_active]', 'true');
+
+  if (keyword) {
+    params.set('sfm[simpleSearch][keywordRadio]', 'ALL');
+    params.set('sfm[simpleSearch][keywordTags][0][key]', keyword);
+    params.set('sfm[simpleSearch][keywordTags][0][value]', keyword);
+  }
+  if (naics) {
+    params.set('sfm[serviceClassificationCode][naicsCode][0][code]', naics);
+  }
+  if (state) {
+    params.set('sfm[popAddress][stateCode]', state);
+  }
+  if (noticeType) {
+    params.set('sfm[opportunityTypeName]', noticeType);
+  }
+  if (setAside) {
+    params.set('sfm[setAside]', setAside);
+  }
+  if (daysBack) {
+    const to = new Date();
+    const from = new Date();
+    from.setDate(from.getDate() - parseInt(daysBack));
+    const fmt = d => `${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}/${d.getFullYear()}`;
+    params.set('sfm[dateRange][publishDateFrom]', fmt(from));
+    params.set('sfm[dateRange][publishDateTo]', fmt(to));
+  }
+  return 'https://sam.gov/search/?' + params.toString();
+}
+
+function searchSAM() {
+  const keyword = document.getElementById('samKeyword').value.trim();
+  const naics = document.getElementById('samNaics').value;
+  const state = document.getElementById('samState').value;
+  const noticeType = document.getElementById('samNoticeType').value;
+  const setAside = document.getElementById('samSetAside').value;
+  const daysBack = document.getElementById('samDateRange').value;
+  const activeOnly = document.getElementById('samActiveOnly').value;
+
+  if (!keyword && !naics && !state) {
+    alert('Please enter a keyword, select a NAICS code, or choose a state.');
+    return;
+  }
+
+  const url = buildSAMUrl(keyword, naics, state, noticeType, setAside, daysBack, activeOnly);
+  window.open(url, '_blank', 'noopener');
+}
+
+function renderSAMQuickLinks() {
+  const container = document.getElementById('samQuickLinks');
+  container.innerHTML = SAM_QUICK_SEARCHES.map(q => {
+    const url = buildSAMUrl(q.keyword, q.naics, '', '', '', '90', 'true');
+    return `<a href="${url}" target="_blank" rel="noopener" class="btn btn-sm">${q.label}</a>`;
+  }).join('');
+}
+
+// ============================================================
+// TAB 3: STATE PROCUREMENT SEARCH
+// ============================================================
+const STATE_API_CONNECTORS = {
+  'NY': {
+    name: 'New York',
+    type: 'socrata',
+    endpoint: 'https://data.ny.gov/resource/ehig-g5x3.json',
+    source: 'Procurement Report for State Authorities (data.ny.gov)',
+    searchFn: searchNY
+  },
+  'VA': {
+    name: 'Virginia',
+    type: 'ckan',
+    endpoint: 'https://data.virginia.gov/api/3/action/datastore_search',
+    resourceId: '25a59527-f14a-475d-b8da-af0155015887',
+    source: 'eVA Procurement Data (data.virginia.gov)',
+    searchFn: searchVA
+  },
+  'CT': {
+    name: 'Connecticut',
+    type: 'socrata',
+    endpoint: 'https://data.ct.gov/resource/ajdm-rvz7.json',
+    source: 'Open Expenditures — Current Ledger (data.ct.gov)',
+    searchFn: searchCT
+  },
+  'TX': {
+    name: 'Texas',
+    type: 'socrata',
+    endpoint: 'https://data.texas.gov/resource/de7b-7dna.json',
+    source: 'TxDOT Bid Tabulations (data.texas.gov)',
+    searchFn: searchTX
+  }
+};
+
+let stateResults = [];
+
+function onStateSearchStateChange() {
+  const state = document.getElementById('stateSearchState').value;
+  const infoDiv = document.getElementById('stateSearchInfo');
+  if (!state) { infoDiv.style.display = 'none'; return; }
+
+  const connector = STATE_API_CONNECTORS[state];
+  if (connector) {
+    infoDiv.style.display = 'block';
+    infoDiv.innerHTML = `<span style="color:var(--success);">&#9679;</span> Live API — ${connector.source}`;
+    document.getElementById('stateSearchBtn').textContent = 'Search';
+  } else {
+    const portal = STATE_PORTALS.find(p => p.abbr === state);
+    infoDiv.style.display = 'block';
+    if (portal && portal.portal) {
+      infoDiv.innerHTML = `<span style="color:var(--accent);">&#9679;</span> No API — opens ${STATE_NAMES[state]} procurement portal`;
+      document.getElementById('stateSearchBtn').textContent = 'Open Portal \u2192';
+    } else {
+      infoDiv.innerHTML = `<span style="color:var(--text-muted);">&#9679;</span> No portal listed — opens NASPO profile`;
+      document.getElementById('stateSearchBtn').textContent = 'Open NASPO \u2192';
+    }
+  }
+}
+
+async function searchStateProcurement() {
+  const state = document.getElementById('stateSearchState').value;
+  const keyword = document.getElementById('stateSearchKeyword').value.trim();
+  if (!state) { alert('Please select a state.'); return; }
+
+  const connector = STATE_API_CONNECTORS[state];
+  if (connector) {
+    showStateStatus(true, `Querying ${connector.source}...`);
+    document.getElementById('stateSearchBtn').disabled = true;
+    try {
+      const results = await connector.searchFn(keyword);
+      stateResults = results;
+      renderStateResults(results, connector);
+      showStateStatus(false);
+    } catch (err) {
+      showStateStatus(true, 'Error: ' + err.message);
+      console.error(err);
+    } finally {
+      document.getElementById('stateSearchBtn').disabled = false;
+    }
+  } else {
+    const portal = STATE_PORTALS.find(p => p.abbr === state);
+    if (portal && portal.portal) {
+      window.open(portal.portal, '_blank', 'noopener');
+    } else if (portal) {
+      window.open(portal.naspo, '_blank', 'noopener');
+    }
+  }
+}
+
+async function searchNY(keyword) {
+  let url = 'https://data.ny.gov/resource/ehig-g5x3.json?$limit=50&$order=award_date DESC';
+  if (keyword) url += '&$q=' + encodeURIComponent(keyword);
+  const year = document.getElementById('stateSearchYear').value;
+  if (year) url += `&$where=fiscal_year_end_date >= '${year}-01-01' AND fiscal_year_end_date <= '${year}-12-31'`;
+
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`NY API returned ${resp.status}`);
+  const data = await resp.json();
+
+  return data.map(r => ({
+    vendor: r.vendor_name || '',
+    description: r.procurement_description || '',
+    amount: parseFloat(r.contract_amount) || 0,
+    agency: r.authority_name || '',
+    date: r.award_date ? r.award_date.split('T')[0] : '',
+    type: r.type_of_procurement || '',
+    status: r.status || '',
+    _source: 'NY'
+  }));
+}
+
+async function searchVA(keyword) {
+  const resourceId = STATE_API_CONNECTORS['VA'].resourceId;
+  let url = `https://data.virginia.gov/api/3/action/datastore_search?resource_id=${resourceId}&limit=50`;
+  if (keyword) url += '&q=' + encodeURIComponent(keyword);
+
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`VA API returned ${resp.status}`);
+  const data = await resp.json();
+  if (!data.success) throw new Error('VA API query failed');
+
+  return (data.result.records || []).map(r => ({
+    vendor: r['Vendor Name'] || '',
+    description: r['Item Description'] || '',
+    amount: parseFloat(r['Line Total']) || 0,
+    agency: r['Entity Description'] || '',
+    date: r['Ordered Date'] ? r['Ordered Date'].split('T')[0] : '',
+    type: r['NIGP Description'] || '',
+    status: r['Order Status'] || '',
+    _source: 'VA'
+  }));
+}
+
+async function searchCT(keyword) {
+  let url = 'https://data.ct.gov/resource/ajdm-rvz7.json?$limit=50&$order=payment_date DESC';
+  if (keyword) {
+    // CT's $q is slow on large datasets — use $where with LIKE for reliability
+    // %25 = URL-encoded % for SoQL LIKE wildcard
+    const kw = keyword.replace(/'/g, "''").toUpperCase();
+    url += `&$where=upper(vendor) like '%25${kw}%25' OR upper(department) like '%25${kw}%25' OR upper(expense_category) like '%25${kw}%25'`;
+  }
+  const year = document.getElementById('stateSearchYear').value;
+  if (year) url += `${keyword ? ' AND' : '&$where='} fiscal_year='${year}'`;
+
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`CT API returned ${resp.status}`);
+  const data = await resp.json();
+
+  return data.map(r => ({
+    vendor: r.vendor || '',
+    description: (r.expense_category || '') + (r.contract_number ? ' — Contract: ' + r.contract_number : ''),
+    amount: parseFloat(r.amount) || 0,
+    agency: r.department || '',
+    date: r.payment_date ? r.payment_date.split('T')[0] : '',
+    type: r.service || '',
+    status: r.payment_status || r.payment_description || '',
+    _source: 'CT'
+  }));
+}
+
+async function searchTX(keyword) {
+  let url = 'https://data.texas.gov/resource/de7b-7dna.json?$limit=50&$order=project_actual_let_date DESC';
+  if (keyword) {
+    const kw = keyword.replace(/'/g, "''").toUpperCase();
+    url += `&$where=upper(vendor_name) like '%25${kw}%25' OR upper(short_description) like '%25${kw}%25' OR upper(project_name) like '%25${kw}%25'`;
+  }
+
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`TX API returned ${resp.status}`);
+  const data = await resp.json();
+
+  // Dedupe by project+vendor (bid tabulations have multiple line items)
+  const seen = new Set();
+  return data.filter(r => {
+    const key = (r.vendor_name || '') + '|' + (r.project_name || '');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).map(r => ({
+    vendor: r.vendor_name || '',
+    description: r.short_description || r.project_name || '',
+    amount: parseFloat(r.bid_total_amount) || 0,
+    agency: (r.district_division || '') + (r.county ? ', ' + r.county + ' Co.' : ''),
+    date: r.project_actual_let_date ? r.project_actual_let_date.split('T')[0] : '',
+    type: r.project_type || r.project_classification || '',
+    status: r.low_bidder_flag === 'True' || r.low_bidder_flag === true ? 'Low Bidder' : '',
+    _source: 'TX'
+  }));
+}
+
+function showStateStatus(show, text) {
+  const bar = document.getElementById('stateStatusBar');
+  bar.style.display = show ? 'flex' : 'none';
+  if (text) document.getElementById('stateStatusText').textContent = text;
+}
+
+function renderStateResults(results, connector) {
+  const area = document.getElementById('stateResultsArea');
+  if (!results || results.length === 0) {
+    area.innerHTML = `<div class="empty-state"><h3>No results found</h3><p>Try broader keywords. The ${connector.name} dataset searches across descriptions, vendor names, and agency names.</p></div>`;
+    return;
+  }
+
+  let html = `
+    <div class="results-header">
+      <span class="results-count">${results.length} results from ${connector.source}</span>
+      <button class="btn btn-sm" onclick="exportStateCSV()">Export CSV</button>
+    </div>
+    <div class="table-wrap"><table><thead><tr>
+      <th>Vendor</th><th>Amount</th><th>Agency</th><th>Description</th><th>Type</th><th>Date</th><th>Status</th>
+    </tr></thead><tbody>`;
+
+  results.forEach(r => {
+    const amtStr = r.amount ? '$' + Math.abs(r.amount).toLocaleString(undefined, {maximumFractionDigits: 0}) : '\u2014';
+    const desc = r.description.length > 80 ? r.description.substring(0, 80) + '...' : r.description;
+    html += `<tr>
+      <td title="${r.vendor.replace(/"/g,'&quot;')}">${r.vendor || '\u2014'}</td>
+      <td>${amtStr}</td>
+      <td title="${r.agency.replace(/"/g,'&quot;')}">${r.agency || '\u2014'}</td>
+      <td title="${r.description.replace(/"/g,'&quot;')}">${desc || '\u2014'}</td>
+      <td>${r.type ? '<span class="tag">' + r.type.substring(0, 30) + '</span>' : '\u2014'}</td>
+      <td>${r.date || '\u2014'}</td>
+      <td>${r.status || '\u2014'}</td>
+    </tr>`;
+  });
+
+  html += '</tbody></table></div>';
+  area.innerHTML = html;
+}
+
+function exportStateCSV() {
+  if (!stateResults.length) return;
+  const headers = ['Vendor','Amount','Agency','Description','Type','Date','Status','Source'];
+  let csv = headers.join(',') + '\n';
+  stateResults.forEach(r => {
+    csv += [r.vendor, r.amount, r.agency, r.description, r.type, r.date, r.status, r._source]
+      .map(v => '"' + String(v).replace(/"/g, '""') + '"').join(',') + '\n';
+  });
+  downloadFile(csv, 'state_procurement_export.csv', 'text/csv');
+}
+
+// ============================================================
+// TAB 4: REQUEST GENERATOR
+// ============================================================
+function updateRequestText() {
+  const level = document.getElementById('reqLevel').value;
+  const state = document.getElementById('reqState').value;
+  const agency = document.getElementById('reqAgency').value || '[AGENCY NAME]';
+  const project = document.getElementById('reqProject').value || '[PROJECT TITLE]';
+  const identifier = document.getElementById('reqIdentifier').value;
+  const year = document.getElementById('reqYear').value || '[YEAR]';
+  const name = document.getElementById('reqName').value || '[YOUR NAME]';
+  const email = document.getElementById('reqEmail').value || '[YOUR EMAIL]';
+  const fee = document.getElementById('reqFee').value || '25';
+
+  let statuteRef = '';
+  if (level === 'federal') {
+    statuteRef = 'the Freedom of Information Act, 5 U.S.C. § 552';
+  } else if (state && STATE_STATUTES[state]) {
+    statuteRef = 'the ' + STATE_STATUTES[state];
+  } else {
+    statuteRef = 'applicable open records law';
+  }
+
+  const identifierLine = identifier ?
+    `The RFP/solicitation identifier is ${identifier}.` : '';
+
+  const text = `Dear Records Officer,
+
+Pursuant to ${statuteRef}, I am requesting copies of existing records related to the contract award for the project titled "${project}" from the year ${year}. ${identifierLine}
+
+Specifically, I request the following documents:
+
+  1. Bid tabulation sheet showing all firms that submitted proposals, including total bid amounts and any cost breakdowns recorded
+  2. Contract award notice identifying the selected contractor and contract value
+  3. Evaluation criteria and point weighting system from the original RFP
+  4. Final evaluation scores for all bidders by category
+  5. Evaluation score sheets or committee scoring documents prepared during the selection process
+  6. Any debriefing letters or notices sent to unsuccessful bidders
+
+In addition, please provide:
+
+  7. Copies of the submitted proposals from all bidders, including technical proposals and cost proposals
+  8. Any pricing schedules, cost proposals, fee schedules, rate sheets, or pricing tables submitted as part of the proposals
+  9. Any Best and Final Offer (BAFO) submissions or revised pricing submitted during negotiations
+  10. Any procurement summary, selection memorandum, negotiation memorandum, or award justification explaining the basis for the award decision
+
+If the full proposals are voluminous, the documents most relevant to my request are bid tabulations, pricing sheets, cost proposals, and evaluation summaries.
+
+I understand proprietary information may be redacted where applicable. I am requesting existing records only and am not asking staff to create new summaries or explanations.
+
+Please notify me if the cost to fulfill this request will exceed $${fee} before proceeding.
+
+Preferred format: Electronic copies via email (PDF), if available.
+
+Thank you for your assistance.
+
+${name}
+${email}`;
+
+  document.getElementById('requestOutput').textContent = text;
+}
+
+function copyRequest() {
+  const text = document.getElementById('requestOutput').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy to Clipboard', 2000);
+  });
+}
+
+function downloadRequest() {
+  const text = document.getElementById('requestOutput').textContent;
+  const agency = document.getElementById('reqAgency').value || 'records_request';
+  const filename = agency.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() + '_request.txt';
+  downloadFile(text, filename, 'text/plain');
+}
+
+// ============================================================
+// TAB 5: BATCH REQUEST TRACKER
+// ============================================================
+let trackerData = [];
+const TRACKER_STORAGE_KEY = 'gis_procurement_tracker';
+const TRACKER_STATUSES = ['Not Started', 'Letter Generated', 'Submitted', 'Acknowledged', 'Fulfilled', 'No Response'];
+
+function loadTracker() {
+  try {
+    const saved = localStorage.getItem(TRACKER_STORAGE_KEY);
+    if (saved) trackerData = JSON.parse(saved);
+  } catch(e) { trackerData = []; }
+}
+
+function saveTracker() {
+  try {
+    localStorage.setItem(TRACKER_STORAGE_KEY, JSON.stringify(trackerData));
+  } catch(e) { console.warn('Could not save tracker:', e); }
+}
+
+function importTrackerCSV() {
+  const text = document.getElementById('trackerImportText').value.trim();
+  if (!text) { alert('Paste CSV rows to import.'); return; }
+
+  const lines = text.split('\n').filter(l => l.trim());
+  let imported = 0;
+
+  lines.forEach(line => {
+    // Parse CSV — handle quoted fields
+    const fields = parseCSVLine(line);
+    if (fields.length < 2) return;
+
+    const location = fields[0]?.trim();
+    const state = fields[1]?.trim().toUpperCase();
+    const title = fields[2]?.trim() || '';
+    const year = fields[3]?.trim() || '';
+    const identifier = fields[4]?.trim() || '';
+
+    if (!location || !state) return;
+
+    // Dedupe by location + state
+    if (trackerData.some(t => t.location === location && t.state === state)) return;
+
+    const portal = STATE_PORTALS.find(p => p.abbr === state);
+    const hasApi = STATE_API_CONNECTORS && STATE_API_CONNECTORS[state];
+
+    trackerData.push({
+      id: Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+      location,
+      state,
+      title,
+      year,
+      identifier,
+      status: 'Not Started',
+      submitDate: '',
+      inFolder: false,
+      channel: hasApi ? 'Live API' : (portal?.portal ? 'Portal' : (portal?.naspo ? 'NASPO' : 'Unknown')),
+      portalUrl: portal?.portal || portal?.naspo || '',
+      notes: ''
+    });
+    imported++;
+  });
+
+  if (imported > 0) {
+    saveTracker();
+    renderTracker();
+    document.getElementById('trackerImportText').value = '';
+  }
+  alert(`Imported ${imported} jurisdiction${imported !== 1 ? 's' : ''}.${lines.length - imported > 0 ? ` ${lines.length - imported} skipped (duplicate or invalid).` : ''}`);
+}
+
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') {
+      if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
+      else inQuotes = !inQuotes;
+    } else if (ch === ',' && !inQuotes) {
+      result.push(current);
+      current = '';
+    } else {
+      current += ch;
+    }
+  }
+  result.push(current);
+  return result;
+}
+
+function addTrackerJurisdiction() {
+  const location = document.getElementById('trackerAddLocation').value.trim();
+  const state = document.getElementById('trackerAddState').value;
+  const title = document.getElementById('trackerAddTitle').value.trim();
+  const year = document.getElementById('trackerAddYear').value.trim();
+  const identifier = document.getElementById('trackerAddId').value.trim();
+
+  if (!location || !state) { alert('Location and State are required.'); return; }
+  if (trackerData.some(t => t.location === location && t.state === state)) {
+    alert('This jurisdiction is already in the tracker.'); return;
+  }
+
+  const portal = STATE_PORTALS.find(p => p.abbr === state);
+  const hasApi = STATE_API_CONNECTORS && STATE_API_CONNECTORS[state];
+
+  trackerData.push({
+    id: Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+    location,
+    state,
+    title,
+    year,
+    identifier,
+    status: 'Not Started',
+    submitDate: '',
+    inFolder: false,
+    channel: hasApi ? 'Live API' : (portal?.portal ? 'Portal' : (portal?.naspo ? 'NASPO' : 'Unknown')),
+    portalUrl: portal?.portal || portal?.naspo || '',
+    notes: ''
+  });
+
+  saveTracker();
+  renderTracker();
+
+  // Clear inputs
+  document.getElementById('trackerAddLocation').value = '';
+  document.getElementById('trackerAddTitle').value = '';
+  document.getElementById('trackerAddYear').value = '';
+  document.getElementById('trackerAddId').value = '';
+}
+
+function loadSampleJurisdictions() {
+  const sample = `City of Austin, TX, GIS & Mapping Services, 2024, RFP-2024-031
+Virginia DOT, VA, Geospatial Data Services, 2025, IFB-2025-112
+New York OGS, NY, Enterprise GIS Platform, 2024,
+California DGS, CA, Statewide GIS Services, 2025, RFP-2025-004
+Florida DEP, FL, LiDAR Data Acquisition, 2024, ITN-24-005
+Connecticut DAS, CT, GIS Mapping Contract, 2024,
+Maryland DoIT, MD, Geospatial Services, 2025, RFP-2025-018
+Massachusetts OSD, MA, GIS Professional Services, 2024,
+Washington DES, WA, Enterprise Mapping Platform, 2025,
+Illinois CMS, IL, Surveying & Mapping Services, 2024, RFP-24-1234`;
+
+  document.getElementById('trackerImportText').value = sample;
+}
+
+function renderTracker() {
+  const area = document.getElementById('trackerTableArea');
+  const statsBar = document.getElementById('trackerStatsBar');
+  const actionsBar = document.getElementById('trackerActions');
+
+  if (!trackerData.length) {
+    area.innerHTML = `<div class="empty-state"><h3>No jurisdictions loaded</h3><p>Import a CSV list or add jurisdictions manually above.</p></div>`;
+    statsBar.style.display = 'none';
+    actionsBar.style.display = 'none';
+    return;
+  }
+
+  // Stats
+  statsBar.style.display = 'flex';
+  actionsBar.style.display = 'flex';
+  document.getElementById('trackerStatTotal').textContent = trackerData.length;
+  document.getElementById('trackerStatPending').textContent = trackerData.filter(t => t.status === 'Not Started' || t.status === 'Letter Generated').length;
+  document.getElementById('trackerStatSubmitted').textContent = trackerData.filter(t => t.status === 'Submitted' || t.status === 'Acknowledged').length;
+  document.getElementById('trackerStatFulfilled').textContent = trackerData.filter(t => t.status === 'Fulfilled').length;
+
+  // Table
+  let html = `<div class="table-wrap" style="margin-top:1rem;"><table>
+    <thead><tr>
+      <th>Location</th><th>State</th><th>Title</th><th>Channel</th>
+      <th>Status</th><th>Submit Date</th><th>Year</th><th>Identifier</th>
+      <th>Filed</th><th>Actions</th>
+    </tr></thead><tbody>`;
+
+  trackerData.forEach((t, i) => {
+    const statusColor = t.status === 'Fulfilled' ? 'var(--success)' :
+                        t.status === 'Submitted' || t.status === 'Acknowledged' ? 'var(--accent)' :
+                        t.status === 'No Response' ? 'var(--error)' : 'var(--text-muted)';
+
+    const channelTag = t.channel === 'Live API' ?
+      '<span class="tag tag-state">API</span>' :
+      t.channel === 'Portal' ? '<span class="tag">Portal</span>' :
+      '<span class="tag" style="opacity:0.5;">NASPO</span>';
+
+    html += `<tr>
+      <td title="${t.location.replace(/"/g,'&quot;')}">${t.location}</td>
+      <td><span class="tag tag-state">${t.state}</span></td>
+      <td title="${t.title.replace(/"/g,'&quot;')}">${t.title ? (t.title.length > 35 ? t.title.substring(0, 35) + '...' : t.title) : '\u2014'}</td>
+      <td>${channelTag}</td>
+      <td>
+        <select style="font-size:0.7rem;padding:0.2rem 0.3rem;color:${statusColor};" onchange="updateTrackerStatus(${i}, this.value)">
+          ${TRACKER_STATUSES.map(s => `<option value="${s}" ${s === t.status ? 'selected' : ''}>${s}</option>`).join('')}
+        </select>
+      </td>
+      <td>
+        <input type="date" value="${t.submitDate}" style="font-size:0.65rem;padding:0.15rem 0.3rem;width:120px;" onchange="updateTrackerDate(${i}, this.value)">
+      </td>
+      <td style="font-family:var(--font-mono);font-size:0.7rem;">${t.year || '\u2014'}</td>
+      <td style="font-family:var(--font-mono);font-size:0.65rem;" title="${(t.identifier||'').replace(/"/g,'&quot;')}">${t.identifier ? (t.identifier.length > 18 ? t.identifier.substring(0, 18) + '...' : t.identifier) : '\u2014'}</td>
+      <td style="text-align:center;">
+        <input type="checkbox" ${t.inFolder ? 'checked' : ''} onchange="updateTrackerFolder(${i}, this.checked)" title="In folder?">
+      </td>
+      <td style="white-space:nowrap;">
+        <button class="btn btn-sm" style="font-size:0.55rem;padding:0.15rem 0.4rem;" onclick="previewTrackerLetter(${i})">Letter</button>
+        ${t.portalUrl ? `<a href="${t.portalUrl}" target="_blank" rel="noopener" class="btn btn-sm" style="font-size:0.55rem;padding:0.15rem 0.4rem;text-decoration:none;">Portal</a>` : ''}
+        <button class="btn btn-sm" style="font-size:0.55rem;padding:0.15rem 0.4rem;border-color:var(--error);color:var(--error);" onclick="removeTrackerItem(${i})">&times;</button>
+      </td>
+    </tr>`;
+  });
+
+  html += '</tbody></table></div>';
+  area.innerHTML = html;
+}
+
+function updateTrackerStatus(index, value) {
+  trackerData[index].status = value;
+  if (value === 'Submitted' && !trackerData[index].submitDate) {
+    trackerData[index].submitDate = new Date().toISOString().split('T')[0];
+  }
+  saveTracker();
+  renderTracker();
+}
+
+function updateTrackerDate(index, value) {
+  trackerData[index].submitDate = value;
+  saveTracker();
+}
+
+function updateTrackerFolder(index, checked) {
+  trackerData[index].inFolder = checked;
+  saveTracker();
+}
+
+function removeTrackerItem(index) {
+  if (!confirm(`Remove "${trackerData[index].location}" from tracker?`)) return;
+  trackerData.splice(index, 1);
+  saveTracker();
+  renderTracker();
+}
+
+function generateLetterForJurisdiction(item) {
+  const senderName = document.getElementById('trackerSenderName')?.value || '[YOUR NAME]';
+  const senderEmail = document.getElementById('trackerSenderEmail')?.value || '[YOUR EMAIL]';
+  const state = item.state;
+  const statute = STATE_STATUTES[state];
+
+  let statuteRef = '';
+  if (statute) {
+    statuteRef = 'the ' + statute;
+  } else {
+    statuteRef = 'applicable open records law';
+  }
+
+  const project = item.title || '[PROJECT TITLE]';
+  const year = item.year || '[YEAR]';
+  const identifierLine = item.identifier ? `The RFP/solicitation identifier is ${item.identifier}.` : '';
+
+  return `Dear Records Officer,
+
+Pursuant to ${statuteRef}, I am requesting copies of existing records related to the contract award for the project titled "${project}" from the year ${year}. ${identifierLine}
+
+Specifically, I request the following documents:
+
+  1. Bid tabulation sheet showing all firms that submitted proposals, including total bid amounts and any cost breakdowns recorded
+  2. Contract award notice identifying the selected contractor and contract value
+  3. Evaluation criteria and point weighting system from the original RFP
+  4. Final evaluation scores for all bidders by category
+  5. Evaluation score sheets or committee scoring documents prepared during the selection process
+  6. Any debriefing letters or notices sent to unsuccessful bidders
+
+In addition, please provide:
+
+  7. Copies of the submitted proposals from all bidders, including technical proposals and cost proposals
+  8. Any pricing schedules, cost proposals, fee schedules, rate sheets, or pricing tables submitted as part of the proposals
+  9. Any Best and Final Offer (BAFO) submissions or revised pricing submitted during negotiations
+  10. Any procurement summary, selection memorandum, negotiation memorandum, or award justification explaining the basis for the award decision
+
+If the full proposals are voluminous, the documents most relevant to my request are bid tabulations, pricing sheets, cost proposals, and evaluation summaries.
+
+I understand proprietary information may be redacted where applicable. I am requesting existing records only and am not asking staff to create new summaries or explanations.
+
+Please notify me if the cost to fulfill this request will exceed $25 before proceeding.
+
+Preferred format: Electronic copies via email (PDF), if available.
+
+Thank you for your assistance.
+
+${senderName}
+${senderEmail}`;
+}
+
+function previewTrackerLetter(index) {
+  const item = trackerData[index];
+  const letter = generateLetterForJurisdiction(item);
+  document.getElementById('trackerLetterTarget').textContent = `${item.location}, ${item.state}`;
+  document.getElementById('trackerLetterText').textContent = letter;
+  document.getElementById('trackerLetterPreview').style.display = 'block';
+  document.getElementById('trackerLetterPreview').dataset.index = index;
+  document.getElementById('trackerLetterPreview').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyTrackerLetter() {
+  const text = document.getElementById('trackerLetterText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const index = parseInt(document.getElementById('trackerLetterPreview').dataset.index);
+    if (trackerData[index] && trackerData[index].status === 'Not Started') {
+      trackerData[index].status = 'Letter Generated';
+      saveTracker();
+      renderTracker();
+    }
+  });
+}
+
+function downloadTrackerLetter() {
+  const text = document.getElementById('trackerLetterText').textContent;
+  const index = parseInt(document.getElementById('trackerLetterPreview').dataset.index);
+  const item = trackerData[index];
+  const filename = `${item.location.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}_${item.state}_request.txt`;
+  downloadFile(text, filename, 'text/plain');
+  if (item.status === 'Not Started') {
+    item.status = 'Letter Generated';
+    saveTracker();
+    renderTracker();
+  }
+}
+
+function closeTrackerLetter() {
+  document.getElementById('trackerLetterPreview').style.display = 'none';
+}
+
+function batchGenerateLetters() {
+  if (!trackerData.length) return;
+  let allLetters = '';
+  trackerData.forEach((item, i) => {
+    allLetters += `${'='.repeat(70)}\n`;
+    allLetters += `JURISDICTION: ${item.location}, ${item.state}\n`;
+    allLetters += `TITLE: ${item.title || 'N/A'}\n`;
+    allLetters += `IDENTIFIER: ${item.identifier || 'N/A'}\n`;
+    allLetters += `${'='.repeat(70)}\n\n`;
+    allLetters += generateLetterForJurisdiction(item);
+    allLetters += '\n\n\n';
+    if (item.status === 'Not Started') item.status = 'Letter Generated';
+  });
+  saveTracker();
+  renderTracker();
+  downloadFile(allLetters, 'batch_records_requests.txt', 'text/plain');
+}
+
+function exportAllLetters() {
+  batchGenerateLetters();
+}
+
+function exportTrackerCSV() {
+  if (!trackerData.length) return;
+  const headers = ['Location','State','Title','Submit Date','Year','Identifier','Status','Channel','Portal URL','In Folder','Notes'];
+  let csv = headers.join(',') + '\n';
+  trackerData.forEach(t => {
+    csv += [t.location, t.state, t.title, t.submitDate, t.year, t.identifier, t.status, t.channel, t.portalUrl, t.inFolder ? 'Yes' : 'No', t.notes]
+      .map(v => '"' + String(v || '').replace(/"/g, '""') + '"').join(',') + '\n';
+  });
+  downloadFile(csv, 'jurisdiction_tracker_export.csv', 'text/csv');
+}
+
+function clearTracker() {
+  if (!confirm(`Clear all ${trackerData.length} jurisdictions from the tracker? This cannot be undone.`)) return;
+  trackerData = [];
+  saveTracker();
+  renderTracker();
+  closeTrackerLetter();
+}
+
+// ============================================================
+// UTILS
+// ============================================================
+function downloadFile(content, filename, mime) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+<!-- Load fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</body>
+</html>

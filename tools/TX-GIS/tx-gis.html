@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Required Info -->
+  <title>GIS Solutions – Services for Local Government</title>
+  <meta name="description" content="Enterprise-grade GIS solutions tailored to Texas municipalities, counties, and special districts. Parcel mapping, utility GIS, emergency management, and more." />
+  <meta property="og:title" content="TX GIS Solutions — GIS Services for Local Government" />
+  <meta property="og:description" content="Precision geographic information systems for Texas local governments for 8+ years." />
+  <link rel="canonical" href="https://subtxtpress.github.io/home/tools/TX-GIS/tx-gis">
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="GIS Solutions – Services for Local Government">
+  <meta property="og:description" content="Enterprise-grade GIS solutions tailored to Texas municipalities, counties, and special districts. Parcel mapping, utility GIS, emergency management, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/tools/TX-GIS/tx-gis">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/tools/TX-GIS/img/tx-gis.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="TX GIS Solutions">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GIS Solutions – Services for Local Government">
+  <meta name="twitter:description" content="Enterprise-grade GIS solutions tailored to Texas municipalities, counties, and special districts. Parcel mapping, utility GIS, emergency management, and more.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/TX-GIS/img/tx-gis.png">
+  <meta name="twitter:creator" content="@txgis">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest">
+
+  <!-- Fonts -->
+  <meta name="theme-color" content="#0d0f0c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+
+  <style>
+    /* ───────────────────────────────────────── 
+       TOKENS & RESET 
+    ───────────────────────────────────────── */
+    :root {
+      --ink:        #0d0f0c;
+      --ink-80:     #1a1d18;
+      --ink-60:     #272b24;
+      --parchment:  #f2ede4;
+      --parchment-d:#e8e0d2;
+      --ochre:      #c8883a;
+      --ochre-l:    #dfa55a;
+      --sage:       #3d5249;
+      --sage-l:     #4e6a5e;
+      --slate:      #7d8c82;
+      --slate-l:    #a3b4aa;
+      --cream:      #faf7f2;
+      --rule:       rgba(200, 136, 58, 0.22);
+      --rule-light: rgba(200, 136, 58, 0.10);
+
+      --ff-serif: 'Cormorant Garamond', Georgia, serif;
+      --ff-sans:  'DM Sans', system-ui, sans-serif;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─────────────────────────────────────────
+       TOPO BACKGROUND TEXTURE (SVG)
+    ───────────────────────────────────────── */
+    .topo-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cdefs%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008 0.006' numOctaves='6' seed='4'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='120'/%3E%3C/filter%3E%3C/defs%3E%3Ccircle cx='400' cy='400' r='380' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='330' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='280' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='230' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='180' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='130' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='80' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 800px 800px;
+    }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 4rem;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(13, 15, 12, 0.88);
+      border-color: var(--rule);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .nav-logo-primary {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--parchment);
+      line-height: 1;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ochre);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ochre-l); }
+
+    .nav-cta {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border: 1px solid var(--ochre);
+      color: var(--ochre);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--ochre);
+      color: var(--ink);
+    }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "text visual"
+        "stats stats";
+      align-items: center;
+      padding: 8rem 4rem 0;
+      column-gap: 4rem;
+      overflow: hidden;
+    }
+
+    /* Radial glow behind text */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -5%;
+      width: 55%;
+      height: 80%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(61,82,73,0.35) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-text {
+      position: relative;
+      grid-area: text;
+      padding-bottom: 2rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out-expo) 0.2s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--ochre);
+    }
+
+    .hero-headline {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--parchment);
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out-expo) 0.4s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--ochre-l);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--slate-l);
+      max-width: 38ch;
+      margin-bottom: 2.75rem;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out-expo) 0.55s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out-expo) 0.7s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--ochre);
+      color: var(--ink);
+      font-family: var(--ff-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--ochre-l);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary svg { transition: transform 0.2s; }
+    .btn-primary:hover svg { transform: translateX(3px); }
+
+    .btn-ghost {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--parchment); }
+
+    /* ── Map visual ── */
+    .hero-visual {
+      grid-area: visual;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1.4s var(--ease-out-expo) 0.8s forwards;
+    }
+
+    /* ── Map frame: outer wrapper allows card to bleed outside ── */
+    .map-frame {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      /* extra padding-bottom so the floating card doesn't overlap stats */
+      padding-bottom: 3rem;
+    }
+
+    /* Inner box: clips the SVG + rings neatly */
+    .map-inner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(200,136,58,0.35);
+      overflow: hidden;
+      background: #0d0f0c;
+    }
+
+    /* Corner tick accents */
+    .map-inner::before,
+    .map-inner::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .map-inner::before {
+      top: -1px; left: -1px;
+      border-top: 2px solid var(--ochre);
+      border-left: 2px solid var(--ochre);
+    }
+    .map-inner::after {
+      bottom: -1px; right: -1px;
+      border-bottom: 2px solid var(--ochre);
+      border-right: 2px solid var(--ochre);
+    }
+
+    /* The SVG fills the inner box */
+    .map-inner > svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Rotating outer ring — lives inside .map-inner so it's clipped */
+    .ring-spin {
+      position: absolute;
+      inset: 6%;
+      border-radius: 50%;
+      border: 1px dashed rgba(200,136,58,0.4);
+      animation: slowSpin 60s linear infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .ring-spin-2 {
+      position: absolute;
+      inset: 16%;
+      border-radius: 50%;
+      border: 1px dashed rgba(200,136,58,0.22);
+      animation: slowSpin 90s linear infinite reverse;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    @keyframes slowSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Pulsing dot — inside .map-inner */
+    .map-pulse {
+      position: absolute;
+      top: 46%;
+      left: 53%;
+      width: 12px;
+      height: 12px;
+      transform: translate(-50%,-50%);
+      z-index: 4;
+    }
+
+    .map-pulse-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--ochre);
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 8px rgba(200,136,58,0.7);
+    }
+
+    .map-pulse-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px solid var(--ochre);
+      opacity: 0;
+      animation: pulse 2.5s ease-out infinite;
+    }
+
+    .map-pulse-ring:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes pulse {
+      0%   { opacity: 0.65; transform: scale(0.5); }
+      100% { opacity: 0;    transform: scale(3.5); }
+    }
+
+    /* Data card — floats outside the inner box at the bottom-left */
+    .map-card {
+      position: absolute;
+      bottom: 0;
+      left: -1.5rem;
+      background: var(--ink-60);
+      border: 1px solid rgba(200,136,58,0.3);
+      padding: 0.9rem 1.25rem;
+      min-width: 185px;
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    .map-card-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: 0.3rem;
+    }
+
+    .map-card-value {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1;
+    }
+
+    .map-card-sub {
+      font-size: 0.62rem;
+      color: var(--slate);
+      margin-top: 0.2rem;
+    }
+
+    /* Hero stats strip */
+    .hero-stats {
+      grid-area: stats;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-top: 1px solid var(--rule-light);
+      padding: 2rem 0 3rem;
+      margin-top: 2rem;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out-expo) 1.1s forwards;
+    }
+
+    .stat-item {
+      flex: 1;
+      padding: 0 2rem;
+      border-right: 1px solid var(--rule-light);
+    }
+
+    .stat-item:first-child { padding-left: 0; }
+    .stat-item:last-child  { border-right: none; padding-right: 0; }
+
+    .stat-number {
+      font-family: var(--ff-serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--ochre-l);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-top: 0.35rem;
+    }
+
+    /* ─────────────────────────────────────────
+       DIVIDER
+    ───────────────────────────────────────── */
+    .section-divider {
+      position: relative;
+      z-index: 1;
+      height: 1px;
+      background: var(--rule-light);
+      margin: 0 4rem;
+    }
+
+    /* ─────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────── */
+    .services {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 4rem;
+    }
+
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4.5rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--ochre);
+    }
+
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--parchment);
+    }
+
+    .section-title em { font-style: italic; color: var(--ochre-l); }
+
+    .section-desc {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--slate-l);
+      align-self: end;
+    }
+
+    /* Service cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule-light);
+      border: 1px solid var(--rule-light);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--ink);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.35s;
+      cursor: default;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--ochre);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .service-card:hover { background: var(--ink-60); }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--ochre);
+      opacity: 0.85;
+    }
+
+    .service-num {
+      font-family: var(--ff-serif);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--slate);
+      margin-bottom: 1rem;
+    }
+
+    .service-name {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 0.85rem;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--slate-l);
+    }
+
+    /* ─────────────────────────────────────────
+       WHY US (DIFFERENTIATORS)
+    ───────────────────────────────────────── */
+    .why {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 4rem;
+      background: var(--ink-80);
+      border-top: 1px solid var(--rule-light);
+      border-bottom: 1px solid var(--rule-light);
+      overflow: hidden;
+    }
+
+    /* Decorative corner coords */
+    .coord-mark {
+      position: absolute;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: rgba(200,136,58,0.25);
+      font-family: var(--ff-sans);
+    }
+
+    .coord-mark.tl { top: 2rem; left: 4rem; }
+    .coord-mark.tr { top: 2rem; right: 4rem; }
+    .coord-mark.bl { bottom: 2rem; left: 4rem; }
+    .coord-mark.br { bottom: 2rem; right: 4rem; }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .why-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule-light);
+      transition: padding-left 0.3s;
+    }
+
+    .why-item:first-child { border-top: 1px solid var(--rule-light); }
+
+    .why-item:hover { padding-left: 0.5rem; }
+
+    .why-item-num {
+      font-family: var(--ff-serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: rgba(200,136,58,0.3);
+      line-height: 1;
+      padding-top: 0.1rem;
+      transition: color 0.3s;
+    }
+
+    .why-item:hover .why-item-num { color: var(--ochre); }
+
+    .why-item-content {}
+
+    .why-item-title {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 0.5rem;
+    }
+
+    .why-item-desc {
+      font-size: 0.83rem;
+      line-height: 1.7;
+      color: var(--slate-l);
+    }
+
+    .why-aside {
+      position: relative;
+    }
+
+    .why-quote-block {
+      border-left: 2px solid var(--ochre);
+      padding: 2rem 2rem 2rem 2.5rem;
+      background: rgba(200,136,58,0.04);
+      margin-bottom: 2.5rem;
+    }
+
+    .why-quote {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--parchment);
+      margin-bottom: 1rem;
+    }
+
+    .why-quote-source {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ochre);
+    }
+
+    .why-cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .why-cert {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.78rem;
+      color: var(--slate-l);
+      letter-spacing: 0.04em;
+    }
+
+    .why-cert-badge {
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid var(--ochre);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--ochre);
+    }
+
+    /* ─────────────────────────────────────────
+       SECTORS (WHO WE SERVE)
+    ───────────────────────────────────────── */
+    .sectors {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 4rem;
+    }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sector-card {
+      border: 1px solid var(--rule-light);
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .sector-card:hover { border-color: var(--ochre); }
+
+    .sector-icon {
+      color: var(--ochre);
+      opacity: 0.7;
+      margin-bottom: 1.25rem;
+      transition: opacity 0.3s;
+    }
+
+    .sector-card:hover .sector-icon { opacity: 1; }
+
+    .sector-name {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 0.5rem;
+    }
+
+    .sector-desc {
+      font-size: 0.78rem;
+      line-height: 1.65;
+      color: var(--slate);
+    }
+
+    /* ─────────────────────────────────────────
+       PROCESS
+    ───────────────────────────────────────── */
+    .process {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 4rem;
+      background: var(--ink-80);
+      border-top: 1px solid var(--rule-light);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      position: relative;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* connector line */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 1.75rem;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: var(--rule);
+      z-index: 0;
+    }
+
+    .process-step {
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num-wrap {
+      width: 3.5rem;
+      height: 3.5rem;
+      border: 1px solid var(--rule);
+      background: var(--ink-80);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .process-step:hover .step-num-wrap {
+      border-color: var(--ochre);
+      background: rgba(200,136,58,0.08);
+    }
+
+    .step-num {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      color: var(--ochre);
+    }
+
+    .step-title {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 0.6rem;
+    }
+
+    .step-desc {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: var(--slate);
+    }
+
+    /* ─────────────────────────────────────────
+       LIVE DEMOS
+    ───────────────────────────────────────── */
+    .demos {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 4rem;
+      border-top: 1px solid var(--rule-light);
+    }
+
+    .demos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule-light);
+      border: 1px solid var(--rule-light);
+      margin-top: 3.5rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .demo-card {
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s;
+    }
+
+    .demo-card:hover { background: var(--ink-60); }
+
+    .demo-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--ochre);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .demo-card:hover::after { transform: scaleX(1); }
+
+    .demo-card--coming .demo-card-preview {
+      opacity: 0.45;
+    }
+
+    .demo-card-preview {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      background: var(--ink-80);
+    }
+
+    .demo-card-preview iframe {
+      width: 200%;
+      height: 200%;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .demo-preview-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .demo-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      font-family: var(--ff-sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+    }
+
+    .demo-badge--live {
+      background: rgba(78,106,94,0.9);
+      color: #a8d4bf;
+      border: 1px solid rgba(78,106,94,0.6);
+    }
+
+    .demo-badge--soon {
+      background: rgba(13,15,12,0.85);
+      color: var(--ochre);
+      border: 1px solid var(--rule);
+    }
+
+    .demo-card-body {
+      padding: 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .demo-card-type {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: 0.6rem;
+    }
+
+    .demo-card-title {
+      font-family: var(--ff-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .demo-card-county {
+      font-size: 0.72rem;
+      color: var(--slate);
+      margin-bottom: 0.9rem;
+    }
+
+    .demo-card-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--slate-l);
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .demo-card-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .demo-tech-tag {
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border: 1px solid var(--rule-light);
+      padding: 0.18rem 0.55rem;
+    }
+
+    .demo-card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      border: 1px solid var(--ochre);
+      padding: 0.45rem 1rem;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+
+    .demo-card-action:hover {
+      background: var(--ochre);
+      color: var(--ink);
+    }
+
+    .demo-card-action--disabled {
+      color: var(--slate);
+      border-color: var(--rule-light);
+      cursor: default;
+    }
+
+    .demo-card-action--disabled:hover {
+      background: none;
+      color: var(--slate);
+    }
+
+    @media (max-width: 1024px) {
+      .demos { padding: 5rem 2rem; }
+      .demos-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─────────────────────────────────────────
+       CTA
+    ───────────────────────────────────────── */
+    .cta-section {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(61,82,73,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cta-eyebrow::before, .cta-eyebrow::after {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--ochre);
+    }
+
+    .cta-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--parchment);
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-title em { font-style: italic; color: var(--ochre-l); }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: var(--slate-l);
+      max-width: 50ch;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .btn-large {
+      padding: 1.15rem 2.75rem;
+      font-size: 0.78rem;
+    }
+
+    .cta-meta {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule-light);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--slate);
+      line-height: 1.8;
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 1;
+      background: var(--ink-80);
+      border-top: 1px solid var(--rule-light);
+      padding: 3.5rem 4rem 2.5rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule-light);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand-name {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: var(--slate);
+      margin-bottom: 1.25rem;
+      max-width: 42ch;
+    }
+
+    .footer-col-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--slate-l);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--parchment); }
+
+    .footer-blurb {
+      font-size: 0.78rem;
+      line-height: 1.9;
+      color: var(--slate-l);
+    }
+
+    .footer-blurb a {
+      color: var(--slate-l);
+      transition: color 0.2s;
+    }
+
+    .footer-blurb a:hover { color: var(--parchment); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      color: var(--slate);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-bottom-links a {
+      color: var(--slate);
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover { color: var(--slate-l); }
+
+    /* ─────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ─────────────────────────────────────────
+       LARGE VIEWPORT CAP
+    ───────────────────────────────────────── */
+    @media (min-width: 1300px) {
+      .hero    { padding-left: calc((100vw - 1200px) / 2); padding-right: calc((100vw - 1200px) / 2); }
+      .services, .sectors, .process, .demos, .why, .cta-section { padding-left: calc((100vw - 1200px) / 2); padding-right: calc((100vw - 1200px) / 2); }
+      nav      { padding-left: calc((100vw - 1200px) / 2); padding-right: calc((100vw - 1200px) / 2); }
+      footer   { padding-left: calc((100vw - 1200px) / 2); padding-right: calc((100vw - 1200px) / 2); }
+    }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav                { padding: 1.25rem 2rem; }
+      .nav-links         { display: none; }
+      .nav-cta           { display: none; }
+      .nav-logo-sub      { white-space: nowrap; }
+      .hero              { grid-template-columns: 1fr; grid-template-rows: auto auto; grid-template-areas: "text" "stats"; padding: 8rem 2rem 0; }
+      .hero-visual       { display: none; }
+      .hero-stats        { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; margin-top: 1.5rem; padding-bottom: 2rem; }
+      .stat-item         { flex: unset; border: none; padding: 0; }
+      .section-header    { grid-template-columns: 1fr; gap: 1.5rem; }
+      .services          { padding: 5rem 2rem; }
+      .services-grid     { grid-template-columns: 1fr; }
+      .why               { padding: 5rem 2rem; }
+      .why-inner         { grid-template-columns: 1fr; gap: 3rem; }
+      .sectors           { padding: 5rem 2rem; }
+      .sectors-grid      { grid-template-columns: repeat(2, 1fr); }
+      .process           { padding: 5rem 2rem; }
+      .process-steps     { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .process-steps::before { display: none; }
+      .cta-section       { padding: 4rem 1.5rem; }
+      .cta-title         { font-size: 2.2rem; }
+      .cta-sub           { font-size: 0.88rem; margin-bottom: 1.75rem; }
+      footer             { padding: 3rem 2rem 2rem; }
+      .footer-top        { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .section-divider   { margin: 0 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .sectors-grid    { grid-template-columns: 1fr; }
+      .process-steps   { grid-template-columns: 1fr; }
+      .footer-top      { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .footer-tagline  { margin: 0 auto 1.25rem; max-width: 36ch; }
+      .footer-col-title { margin-bottom: 0.75rem; }
+      .footer-links    { align-items: center; gap: 0.5rem; }
+      .footer-links a  { text-align: center; }
+      .footer-bottom   { flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
+      .footer-bottom-links { flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+      .hero-headline   { font-size: 2.4rem; }
+      .hero-actions    { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .btn-primary     { justify-content: center; }
+      .btn-ghost       { justify-content: center; }
+      .cta-actions     { flex-direction: column; align-items: center; gap: 1.25rem; }
+      .cta-actions .btn-primary { width: auto; padding-left: 2rem; padding-right: 2rem; }
+      .cta-actions .btn-ghost   { justify-content: center; }
+      .demo-card-action         { align-self: stretch; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Topo texture overlay -->
+  <div class="topo-bg" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════ -->
+  <nav id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <span class="nav-logo-primary">TX GIS Solutions</span>
+      <span class="nav-logo-sub">GIS Consulting · Texas</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">About</a></li>
+      <li><a href="#sectors">Sectors</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#demos">Demos</a></li>
+      <li><a href="../tools.html">Portfolio</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Schedule a Consultation</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" aria-label="Hero">
+
+    <div class="hero-text">
+      <div class="hero-eyebrow">GIS Services for Local Government · Texas</div>
+
+      <h1 class="hero-headline">
+        Precision mapping<br />
+        for the<br />
+        <em>communities</em><br />
+        you serve.
+      </h1>
+
+      <p class="hero-sub">
+        We deliver enterprise-grade Geographic Information System solutions tailored to the unique operational, regulatory, and infrastructure needs of Texas municipalities and counties.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Begin a Project
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn-ghost">
+          Explore Services
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero map visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="map-frame">
+
+        <!-- Inner clipped area: SVG + rings + pulse dot -->
+        <div class="map-inner">
+          <div class="ring-spin"></div>
+          <div class="ring-spin-2"></div>
+
+        <!-- SVG: Stylized Texas outline with grid overlay -->
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="map-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a1d18" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#0d0f0c" stop-opacity="1"/>
+            </linearGradient>
+            <pattern id="map-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(200,136,58,0.08)" stroke-width="0.5"/>
+            </pattern>
+            <filter id="map-glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Background -->
+          <rect width="400" height="400" fill="url(#map-grad)" rx="0"/>
+          <rect width="400" height="400" fill="url(#map-grid)"/>
+
+          <!-- Stylized Texas shape -->
+          <path d="
+            M 100 60
+            L 270 60
+            L 280 80
+            L 280 140
+            L 310 140
+            L 310 165
+            L 340 165
+            L 340 225
+            L 300 260
+            L 295 310
+            L 280 340
+            L 250 345
+            L 230 330
+            L 210 320
+            L 180 330
+            L 150 335
+            L 135 350
+            L 115 340
+            L 105 310
+            L 90 280
+            L 80 245
+            L 85 210
+            L 90 170
+            L 100 60
+            Z
+          "
+            fill="none"
+            stroke="rgba(200,136,58,0.5)"
+            stroke-width="1.5"
+            filter="url(#map-glow)"
+          />
+
+          <!-- Internal county-like grid lines -->
+          <line x1="100" y1="120" x2="310" y2="130" stroke="rgba(200,136,58,0.12)" stroke-width="0.5"/>
+          <line x1="95"  y1="185" x2="340" y2="175" stroke="rgba(200,136,58,0.12)" stroke-width="0.5"/>
+          <line x1="88"  y1="248" x2="310" y2="235" stroke="rgba(200,136,58,0.12)" stroke-width="0.5"/>
+          <line x1="150" y1="65"  x2="145" y2="335" stroke="rgba(200,136,58,0.10)" stroke-width="0.5"/>
+          <line x1="210" y1="62"  x2="205" y2="322" stroke="rgba(200,136,58,0.10)" stroke-width="0.5"/>
+          <line x1="265" y1="63"  x2="275" y2="275" stroke="rgba(200,136,58,0.10)" stroke-width="0.5"/>
+
+          <!-- Data points / cities -->
+          <circle cx="212" cy="185" r="3" fill="rgba(200,136,58,0.7)" filter="url(#map-glow)"/>
+          <text x="218" y="183" fill="rgba(200,136,58,0.6)" font-size="7" font-family="monospace">DALLAS</text>
+          <circle cx="155" cy="255" r="2.5" fill="rgba(200,136,58,0.5)"/>
+          <text x="161" y="253" fill="rgba(200,136,58,0.5)" font-size="7" font-family="monospace">SAN ANTONIO</text>
+          <circle cx="248" cy="165" r="2.5" fill="rgba(200,136,58,0.5)"/>
+          <text x="254" y="163" fill="rgba(200,136,58,0.5)" font-size="7" font-family="monospace">WACO</text>
+
+          <!-- Coordinate labels -->
+          <text x="10" y="15"  fill="rgba(200,136,58,0.2)" font-size="7" font-family="monospace">32.7767° N</text>
+          <text x="10" y="395" fill="rgba(200,136,58,0.2)" font-size="7" font-family="monospace">96.7970° W</text>
+
+          <!-- Scan line animation -->
+          <rect x="0" y="0" width="400" height="2" fill="rgba(200,136,58,0.15)" opacity="0.6">
+            <animateTransform attributeName="transform" type="translate" from="0,0" to="0,400" dur="4s" repeatCount="indefinite"/>
+          </rect>
+        </svg>
+
+          <!-- Pulse marker -->
+          <div class="map-pulse">
+            <div class="map-pulse-dot"></div>
+            <div class="map-pulse-ring"></div>
+            <div class="map-pulse-ring"></div>
+          </div>
+
+        </div><!-- /.map-inner -->
+
+        <!-- Data card floats outside the clipped area -->
+        <div class="map-card">
+          <div class="map-card-label">Active Projects</div>
+          <div class="map-card-value">47</div>
+          <div class="map-card-sub">Texas municipalities · 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">Years in Texas GIS</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">254</div>
+        <div class="stat-label">TX Counties Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$2.4B</div>
+        <div class="stat-label">Infrastucture Mapped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Texas-Based Team</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════ -->
+  <section id="services" class="services">
+
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">GIS capabilities built for<br /><em>local government</em> realities.</h2>
+      </div>
+      <p class="section-desc">
+        From parcel data management to emergency dispatch routing, our services are shaped by years of working directly with Texas city managers, county engineers, and public works directors.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l9-4 9 4v13l-9 4-9-4V7z"/><path d="M12 3v18M3 7l9 4 9-4"/></svg>
+        <div class="service-num">01</div>
+        <h3 class="service-name">Parcel &amp; Land Records Mapping</h3>
+        <p class="service-desc">Authoritative parcel fabric creation, maintenance, and integration with your county appraisal district data. ESRI and open-standard compatible.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        <div class="service-num">02</div>
+        <h3 class="service-name">Utility &amp; Infrastructure GIS</h3>
+        <p class="service-desc">Digital inventory and spatial analysis of water, wastewater, stormwater, and transportation networks. Supports capital planning and federal reporting.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card reveal reveal-delay-2">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        <div class="service-num">03</div>
+        <h3 class="service-name">Emergency Management Mapping</h3>
+        <p class="service-desc">Pre-disaster planning layers, evacuation route modeling, and real-time situational awareness mapping for EOC operations.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card reveal reveal-delay-3">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="service-num">04</div>
+        <h3 class="service-name">Zoning &amp; Planning Support</h3>
+        <p class="service-desc">Comprehensive zoning atlas creation, future land use mapping, subdivision plat processing, and public-facing web map portals for permitting.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <div class="service-num">05</div>
+        <h3 class="service-name">Web GIS &amp; Public Portals</h3>
+        <p class="service-desc">ArcGIS Online and open-source web mapping solutions. Interactive public dashboards for citizen transparency, code enforcement, and grant reporting.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="service-card reveal reveal-delay-2">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <div class="service-num">06</div>
+        <h3 class="service-name">Environmental &amp; Regulatory Compliance</h3>
+        <p class="service-desc">Proximity and buffer analysis identifying relationships between infrastructure, flood hazard zones, and sensitive land uses. Supports regulatory review, liability assessment, and municipal planning near industrial corridors.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WHY US
+  ═══════════════════════════════════════ -->
+<!--
+  <section id="why-us" class="why">
+    <span class="coord-mark tl">30°16'N 097°44'W · Dallas · Fort Worth · TX</span>
+    <span class="coord-mark tr">Datum: NAD83 / Texas State Plane</span>
+    <span class="coord-mark bl">Projection: Lambert Conformal Conic</span>
+    <span class="coord-mark br">Scale: Variable · 1:1,200 to 1:500,000</span>
+-->
+
+    <div class="why-inner">
+
+      <div>
+        <div class="section-label reveal">Why Choose Us</div>
+        <h2 class="section-title reveal" style="margin-bottom:2.5rem;">We know Texas<br />government work<br /><em>from the inside.</em></h2>
+
+        <div class="why-list">
+          <div class="why-item reveal">
+            <div class="why-item-num">01</div>
+            <div class="why-item-content">
+              <h3 class="why-item-title">Deep Texas Municipal Experience</h3>
+              <p class="why-item-desc">Our team is available to serve as contracted GIS coordinators for Texas cities of 2,000 to 200,000 residents. We understand the constraints of small budgets, limited staff, and TCEQ compliance requirements.</p>
+            </div>
+          </div>
+          <div class="why-item reveal reveal-delay-1">
+            <div class="why-item-num">02</div>
+            <div class="why-item-content">
+              <h3 class="why-item-title">No Project Too Small</h3>
+              <p class="why-item-desc">National firms ignore rural counties and small cities. We specialize in them. Every client&mdash;from a 3,000-person town to a regional authority&mdash;receives principal-level attention.</p>
+            </div>
+          </div>
+          <div class="why-item reveal reveal-delay-2">
+            <div class="why-item-num">03</div>
+            <div class="why-item-content">
+              <h3 class="why-item-title">Deliverables That Survive Handoffs</h3>
+              <p class="why-item-desc">We build data structures, metadata standards, and documentation so your GIS assets remain usable when staff turns over or you change platforms. No proprietary lock-in.</p>
+            </div>
+          </div>
+          <div class="why-item reveal reveal-delay-3">
+            <div class="why-item-num">04</div>
+            <div class="why-item-content"> 
+              <h3 class="why-item-title">Grant &amp; FEMA Compliance Ready</h3>
+              <p class="why-item-desc">We're dedicated to producing GIS deliverables that satisfy FEMA BRIC, TxDOT, and GLO grant requirements, and ensuring the data meets varying criteria standards for funding&mdash;not just operations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-aside reveal reveal-delay-2">
+        <div class="why-quote-block">
+          <p class="why-quote">"Working with small governments means understanding their real constraints &mdash; not just spatial data problems, but staff capacity, council timelines, and budget cycles."</p>
+          <div class="why-quote-source">— Owner, TX GIS Solutions</div>
+        </div>
+
+        <div class="why-cert-list">
+          <div class="why-cert">
+            <div class="why-cert-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Esri ArcGIS Professionals
+          </div>
+          <div class="why-cert">
+            <div class="why-cert-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Texas HUB Certified Vendor
+          </div>
+          <div class="why-cert">
+            <div class="why-cert-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            TXMAS State Contract Holder (DIR-TSO-XXXX)
+          </div>
+          <div class="why-cert">
+            <div class="why-cert-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            Member, National Geographic Society
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTORS
+  ═══════════════════════════════════════ -->
+  <section id="sectors" class="sectors">
+
+    <div class="reveal">
+      <div class="section-label">Who We Serve</div>
+      <h2 class="section-title">Government sectors<br />we know <em>deeply.</em></h2>
+    </div>
+
+    <div class="sectors-grid">
+
+      <div class="sector-card reveal">
+        <svg class="sector-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <h3 class="sector-name">Cities &amp; Municipalities</h3>
+        <p class="sector-desc">From Type-A general law cities to large home-rule municipalities. Planning departments, public works, code enforcement, and utility billing GIS.</p>
+      </div>
+
+      <div class="sector-card reveal reveal-delay-1">
+        <svg class="sector-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        <h3 class="sector-name">County Governments</h3>
+        <p class="sector-desc">County appraisal districts, road &amp; bridge departments, sheriff's dispatch, and elections offices. Texas-specific CAD integration expertise.</p>
+      </div>
+
+      <div class="sector-card reveal reveal-delay-2">
+        <svg class="sector-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <h3 class="sector-name">Emergency Services Districts</h3>
+        <p class="sector-desc">ESD mapping, apparatus deployment planning, mutual aid boundary delineation, and NFIRS-compliant incident mapping for rural fire districts.</p>
+      </div>
+
+      <div class="sector-card reveal reveal-delay-3">
+        <svg class="sector-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3 class="sector-name">Special Purpose Districts</h3>
+        <p class="sector-desc">MUDs, PUDs, water supply corporations, drainage districts, and conservation districts. Boundary mapping, infrastructure inventory, and regulatory compliance layers.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROCESS
+  ═══════════════════════════════════════ -->
+  <section id="process" class="process">
+
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">How We Work</div>
+        <h2 class="section-title">A straightforward<br /><em>engagement process.</em></h2>
+      </div>
+      <p class="section-desc">
+        Government procurement has enough friction. We keep our process clear, documented, and adapted to public sector timelines — including sole-source justification support and cooperative contract availability.
+      </p>
+    </div>
+
+    <div class="process-steps">
+
+      <div class="process-step reveal">
+        <div class="step-num-wrap">
+          <span class="step-num">I</span>
+        </div>
+        <h3 class="step-title">Discovery &amp; Needs Assessment</h3>
+        <p class="step-desc">We conference with your team to understand current data holdings, staff capacity, software environment, and project goals. No charge for initial assessment.</p>
+      </div>
+
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num-wrap">
+          <span class="step-num">II</span>
+        </div>
+        <h3 class="step-title">Scope &amp; Proposal</h3>
+        <p class="step-desc">A clear written scope of work with deliverables, schedule, and fixed or not-to-exceed fee. Formatted for council or commissioners court agenda packets.</p>
+      </div>
+
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num-wrap">
+          <span class="step-num">III</span>
+        </div>
+        <h3 class="step-title">Execution &amp; Milestones</h3>
+        <p class="step-desc">Phased delivery with milestone check-ins and progress reporting. Your staff is kept informed — no black-box development cycles.</p>
+      </div>
+
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num-wrap">
+          <span class="step-num">IV</span>
+        </div>
+        <h3 class="step-title">Delivery &amp; Knowledge Transfer</h3>
+        <p class="step-desc">Full data handoff, documentation, and staff training so your team owns and understands the GIS assets we build. Ongoing support available.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       LIVE DEMOS
+  ═══════════════════════════════════════ -->
+  <section id="demos" class="demos">
+
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Interactive Demos</div>
+        <h2 class="section-title">See the work<br /><em>in the field.</em></h2>
+      </div>
+      <p class="section-desc">
+        Live web GIS applications built on real Texas county data. Click into each viewer to explore parcel records, FEMA flood zones, and Permian Basin pipeline infrastructure risk.
+      </p>
+    </div>
+
+    <div class="demos-grid">
+
+      <!-- Demo 1: Midland County Parcel Viewer -->
+      <div class="demo-card reveal">
+        <div class="demo-card-preview">
+          <div class="demo-preview-placeholder">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#1a1d18"/>
+              <pattern id="pg1" width="18" height="18" patternUnits="userSpaceOnUse">
+                <path d="M 18 0 L 0 0 0 18" fill="none" stroke="rgba(200,136,58,0.09)" stroke-width="0.5"/>
+              </pattern>
+              <rect width="400" height="200" fill="url(#pg1)"/>
+              <!-- Parcel grid blocks -->
+              <rect x="40"  y="30"  width="60" height="40" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="105" y="30"  width="75" height="40" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="185" y="30"  width="50" height="40" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="240" y="30"  width="80" height="40" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="40"  y="75"  width="60" height="55" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="105" y="75"  width="35" height="55" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="145" y="75"  width="40" height="55" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="185" y="75"  width="50" height="55" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="240" y="75"  width="45" height="55" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="290" y="75"  width="30" height="55" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="40"  y="135" width="60" height="40" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="105" y="135" width="75" height="40" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <rect x="185" y="135" width="85" height="40" fill="none" stroke="rgba(200,136,58,0.35)" stroke-width="0.8"/>
+              <!-- Highlighted parcel -->
+              <rect x="145" y="75" width="40" height="55" fill="rgba(200,136,58,0.18)" stroke="var(--ochre)" stroke-width="1.5"/>
+              <circle cx="165" cy="102" r="3.5" fill="#c8883a"/>
+              <!-- Road lines -->
+              <line x1="40" y1="72"  x2="325" y2="72"  stroke="rgba(200,136,58,0.2)" stroke-width="1.5"/>
+              <line x1="40" y1="132" x2="325" y2="132" stroke="rgba(200,136,58,0.2)" stroke-width="1.5"/>
+              <line x1="100" y1="28" x2="100" y2="178" stroke="rgba(200,136,58,0.15)" stroke-width="1.5"/>
+              <line x1="183" y1="28" x2="183" y2="178" stroke="rgba(200,136,58,0.15)" stroke-width="1.5"/>
+              <line x1="238" y1="28" x2="238" y2="178" stroke="rgba(200,136,58,0.15)" stroke-width="1.5"/>
+              <text x="10" y="12" fill="rgba(200,136,58,0.25)" font-size="6" font-family="monospace">MIDLAND CO · PARCEL FABRIC</text>
+            </svg>
+          </div>
+          <span class="demo-badge demo-badge--live">Live</span>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-card-type">Parcel &amp; Land Records</div>
+          <h3 class="demo-card-title">Midland County Parcel Viewer</h3>
+          <p class="demo-card-county">Midland County, TX · Permian Basin</p>
+          <p class="demo-card-desc">Interactive parcel fabric viewer with owner lookup, acreage, and legal description. Built on CAD export data with Leaflet and PostGIS backend. Click any parcel for full attribute detail.</p>
+          <div class="demo-card-tech">
+            <span class="demo-tech-tag">Leaflet.js</span>
+            <span class="demo-tech-tag">PostGIS</span>
+            <span class="demo-tech-tag">CAD Integration</span>
+          </div>
+          <a href="parcel_demo/parcel_map" target="_blank" rel="noopener noreferrer" class="demo-card-action">
+            Open Viewer ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo 2: Ector County Flood Viewer -->
+      <div class="demo-card reveal reveal-delay-1">
+        <div class="demo-card-preview">
+          <div class="demo-preview-placeholder">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#1a1d18"/>
+              <pattern id="pg2" width="18" height="18" patternUnits="userSpaceOnUse">
+                <path d="M 18 0 L 0 0 0 18" fill="none" stroke="rgba(200,136,58,0.07)" stroke-width="0.5"/>
+              </pattern>
+              <rect width="400" height="200" fill="url(#pg2)"/>
+              <!-- Flood zone polygons -->
+              <path d="M 60 80 Q 90 60 130 75 Q 170 90 200 70 Q 230 55 260 80 L 270 140 Q 240 155 200 145 Q 160 135 120 150 Q 80 165 60 140 Z" fill="rgba(78,106,94,0.3)" stroke="rgba(78,106,94,0.7)" stroke-width="1"/>
+              <path d="M 150 90 Q 175 82 205 88 Q 225 94 230 115 Q 220 135 195 132 Q 165 128 148 115 Z" fill="rgba(78,106,94,0.5)" stroke="rgba(78,106,94,0.9)" stroke-width="1.5"/>
+              <path d="M 270 85 Q 300 70 340 90 L 345 130 Q 315 145 280 135 Q 260 120 265 100 Z" fill="rgba(78,106,94,0.25)" stroke="rgba(78,106,94,0.55)" stroke-width="1"/>
+              <!-- Floodway center line -->
+              <path d="M 30 120 Q 100 105 180 112 Q 260 118 370 100" fill="none" stroke="rgba(100,160,130,0.6)" stroke-width="2" stroke-dasharray="6 3"/>
+              <!-- Zone labels -->
+              <text x="165" y="115" fill="rgba(100,200,150,0.8)" font-size="8" font-family="monospace" text-anchor="middle">AE</text>
+              <text x="90"  y="118" fill="rgba(100,200,150,0.6)" font-size="7" font-family="monospace" text-anchor="middle">A</text>
+              <text x="305" y="112" fill="rgba(100,200,150,0.5)" font-size="7" font-family="monospace" text-anchor="middle">X</text>
+              <text x="10"  y="12"  fill="rgba(200,136,58,0.25)" font-size="6" font-family="monospace">ECTOR CO · FEMA FLOOD ZONES</text>
+            </svg>
+          </div>
+          <span class="demo-badge demo-badge--live">Live</span>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-card-type">Emergency Management · FEMA</div>
+          <h3 class="demo-card-title">Ector County Flood Viewer</h3>
+          <p class="demo-card-county">Ector County, TX · Odessa Area</p>
+          <p class="demo-card-desc">FEMA FIRM flood zone visualization for Ector County with zone classification (AE, A, X), SFHA boundaries, and floodway delineations. Supports FEMA BRIC grant documentation and NFIP compliance review.</p>
+          <div class="demo-card-tech">
+            <span class="demo-tech-tag">Leaflet.js</span>
+            <span class="demo-tech-tag">FEMA FIRM</span>
+            <span class="demo-tech-tag">NFIP Data</span>
+          </div>
+          <a href="flood_demo/flood_map" target="_blank" rel="noopener noreferrer" class="demo-card-action">
+            Open Viewer ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo 3: Pipeline Risk Viewer -->
+      <div class="demo-card reveal reveal-delay-2">
+        <div class="demo-card-preview">
+          <div class="demo-preview-placeholder">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#1a1d18"/>
+              <pattern id="pg3" width="18" height="18" patternUnits="userSpaceOnUse">
+                <path d="M 18 0 L 0 0 0 18" fill="none" stroke="rgba(200,136,58,0.07)" stroke-width="0.5"/>
+              </pattern>
+              <rect width="400" height="200" fill="url(#pg3)"/>
+              <!-- Flood zones (faint background) -->
+              <path d="M 50 90 Q 100 70 160 85 Q 210 100 250 80 L 260 140 Q 200 158 140 148 Q 80 138 50 125 Z" fill="rgba(78,106,94,0.15)" stroke="rgba(78,106,94,0.3)" stroke-width="1"/>
+              <!-- Pipeline routes -->
+              <path d="M 20 155 Q 80 140 140 120 Q 200 100 280 95 Q 330 92 390 88" fill="none" stroke="rgba(200,136,58,0.65)" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M 20 130 Q 60 125 110 115 Q 170 105 230 130 Q 290 155 390 145" fill="none" stroke="rgba(200,136,58,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M 20 60 Q 90 65 160 80 Q 200 88 220 100" fill="none" stroke="rgba(200,136,58,0.4)" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 3"/>
+              <!-- Intersection risk markers -->
+              <circle cx="155" cy="118" r="7" fill="rgba(200,80,60,0.7)" stroke="rgba(220,100,80,0.9)" stroke-width="1.5"/>
+              <circle cx="155" cy="118" r="12" fill="none" stroke="rgba(200,80,60,0.35)" stroke-width="1">
+                <animate attributeName="r" from="7" to="18" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="225" cy="100" r="5" fill="rgba(200,80,60,0.55)" stroke="rgba(220,100,80,0.8)" stroke-width="1.5"/>
+              <!-- Label -->
+              <text x="10" y="12" fill="rgba(200,136,58,0.25)" font-size="6" font-family="monospace">PERMIAN BASIN · PIPELINE × FLOOD RISK</text>
+            </svg>
+          </div>
+          <span class="demo-badge demo-badge--live">Live</span>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-card-type">Infrastructure Risk · O&amp;G</div>
+          <h3 class="demo-card-title">Permian Basin Pipeline Risk Viewer</h3>
+          <p class="demo-card-county">Ector County, TX · Midstream &amp; O&amp;G</p>
+          <p class="demo-card-desc">Oil and gas pipeline network overlaid on FEMA flood zones, with PostGIS <code style="font-family:monospace;font-size:0.78em;color:var(--ochre);">ST_Intersects</code> queries surfacing pipeline segments that cross FEMA-designated flood zones. Click a pipeline to see operator, type, and flood zone crossing count — the regulatory liability picture in one view.</p>
+          <div class="demo-card-tech">
+            <span class="demo-tech-tag">PostGIS</span>
+            <span class="demo-tech-tag">ST_Intersects</span>
+            <span class="demo-tech-tag">FEMA FIRM</span>
+            <span class="demo-tech-tag">Midstream Data</span>
+          </div>
+          <a href="pipeline_demo/pipeline_map" target="_blank" rel="noopener noreferrer" class="demo-card-action">
+            Open Viewer ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo 4: Odessa Zoning Atlas -->
+      <div class="demo-card reveal reveal-delay-3">
+        <div class="demo-card-preview">
+          <div class="demo-preview-placeholder">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#1a1d18"/>
+              <pattern id="pg4" width="18" height="18" patternUnits="userSpaceOnUse">
+                <path d="M 18 0 L 0 0 0 18" fill="none" stroke="rgba(200,136,58,0.07)" stroke-width="0.5"/>
+              </pattern>
+              <rect width="400" height="200" fill="url(#pg4)"/>
+              <!-- Residential blocks (blue) -->
+              <rect x="30"  y="30"  width="55" height="38" fill="rgba(67,147,195,0.35)" stroke="rgba(67,147,195,0.7)" stroke-width="0.8"/>
+              <rect x="30"  y="72"  width="55" height="38" fill="rgba(67,147,195,0.35)" stroke="rgba(67,147,195,0.7)" stroke-width="0.8"/>
+              <rect x="30"  y="114" width="55" height="38" fill="rgba(67,147,195,0.28)" stroke="rgba(67,147,195,0.6)" stroke-width="0.8"/>
+              <!-- Multi-family (light blue) -->
+              <rect x="90"  y="30"  width="45" height="80" fill="rgba(116,173,209,0.35)" stroke="rgba(116,173,209,0.7)" stroke-width="0.8"/>
+              <rect x="90"  y="114" width="45" height="38" fill="rgba(116,173,209,0.28)" stroke="rgba(116,173,209,0.6)" stroke-width="0.8"/>
+              <!-- Commercial (orange) -->
+              <rect x="140" y="30"  width="70" height="35" fill="rgba(244,109,67,0.35)" stroke="rgba(244,109,67,0.75)" stroke-width="0.8"/>
+              <rect x="140" y="114" width="70" height="38" fill="rgba(244,109,67,0.28)" stroke="rgba(244,109,67,0.6)" stroke-width="0.8"/>
+              <!-- Industrial (grey) -->
+              <rect x="215" y="30"  width="55" height="80" fill="rgba(135,135,135,0.3)" stroke="rgba(135,135,135,0.6)" stroke-width="0.8"/>
+              <rect x="215" y="114" width="55" height="38" fill="rgba(135,135,135,0.22)" stroke="rgba(135,135,135,0.5)" stroke-width="0.8"/>
+              <!-- Office (green) -->
+              <rect x="275" y="30"  width="40" height="50" fill="rgba(166,217,106,0.3)" stroke="rgba(166,217,106,0.65)" stroke-width="0.8"/>
+              <!-- Drill site overlay (ochre hatched) — overlaps residential + commercial -->
+              <rect x="60"  y="68"  width="110" height="50" fill="rgba(200,136,58,0.13)" stroke="rgba(200,136,58,0.55)" stroke-width="1.2" stroke-dasharray="5 3"/>
+              <!-- Road lines -->
+              <line x1="28" y1="112" x2="372" y2="112" stroke="rgba(200,136,58,0.18)" stroke-width="1.5"/>
+              <line x1="136" y1="28" x2="136" y2="157" stroke="rgba(200,136,58,0.15)" stroke-width="1.5"/>
+              <line x1="212" y1="28" x2="212" y2="157" stroke="rgba(200,136,58,0.15)" stroke-width="1.5"/>
+              <line x1="272" y1="28" x2="272" y2="157" stroke="rgba(200,136,58,0.15)" stroke-width="1.5"/>
+              <!-- Highlighted district -->
+              <rect x="140" y="30" width="70" height="35" fill="rgba(244,109,67,0.2)" stroke="rgba(244,109,67,1)" stroke-width="1.8"/>
+              <circle cx="175" cy="47" r="3" fill="#f46d43"/>
+              <!-- Zone code labels -->
+              <text x="57"  y="55"  fill="rgba(67,147,195,0.9)"  font-size="7" font-family="monospace" text-anchor="middle">SF-2</text>
+              <text x="112" y="74"  fill="rgba(116,173,209,0.9)" font-size="7" font-family="monospace" text-anchor="middle">MF-1</text>
+              <text x="175" y="52"  fill="rgba(244,109,67,1)"    font-size="7.5" font-family="monospace" text-anchor="middle" font-weight="bold">LC</text>
+              <text x="242" y="74"  fill="rgba(135,135,135,0.9)" font-size="7" font-family="monospace" text-anchor="middle">LI</text>
+              <text x="295" y="60"  fill="rgba(166,217,106,0.9)" font-size="7" font-family="monospace" text-anchor="middle">O</text>
+              <text x="114" y="97"  fill="rgba(200,136,58,0.85)" font-size="6.5" font-family="monospace" text-anchor="middle">DR-OVERLAY</text>
+              <!-- Legend strip -->
+              <rect x="28"  y="162" width="8" height="8" fill="rgba(67,147,195,0.6)"  stroke="none"/>
+              <text x="39"  y="170" fill="rgba(200,136,58,0.5)" font-size="6" font-family="monospace">RES</text>
+              <rect x="68"  y="162" width="8" height="8" fill="rgba(244,109,67,0.6)"  stroke="none"/>
+              <text x="79"  y="170" fill="rgba(200,136,58,0.5)" font-size="6" font-family="monospace">COMM</text>
+              <rect x="118" y="162" width="8" height="8" fill="rgba(135,135,135,0.6)" stroke="none"/>
+              <text x="129" y="170" fill="rgba(200,136,58,0.5)" font-size="6" font-family="monospace">IND</text>
+              <rect x="163" y="162" width="8" height="8" fill="rgba(200,136,58,0.25)" stroke="rgba(200,136,58,0.7)" stroke-width="0.8" stroke-dasharray="3 2"/>
+              <text x="174" y="170" fill="rgba(200,136,58,0.5)" font-size="6" font-family="monospace">DRILL SITE</text>
+              <!-- Title -->
+              <text x="10" y="12" fill="rgba(200,136,58,0.25)" font-size="6" font-family="monospace">CITY OF ODESSA · ZONING ATLAS · 1,000 DISTRICTS</text>
+            </svg>
+          </div>
+          <span class="demo-badge demo-badge--live">Live</span>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-card-type">Zoning &amp; Planning Support</div>
+          <h3 class="demo-card-title">Odessa Zoning Atlas</h3>
+          <p class="demo-card-county">City of Odessa, TX · 1,000 Zoning Districts</p>
+          <p class="demo-card-desc">All 1,000 zoning district polygons for the City of Odessa — filterable by category, searchable by zone code or description, with click-to-inspect detail panels. Includes the Permian Basin–specific Drill Site overlay category, where O&amp;G drill reservations coexist with residential and commercial zones.</p>
+          <div class="demo-card-tech">
+            <span class="demo-tech-tag">MapLibre GL</span>
+            <span class="demo-tech-tag">Supabase</span>
+            <span class="demo-tech-tag">PostGIS</span>
+            <span class="demo-tech-tag">ArcGIS REST</span>
+          </div>
+          <a href="zoning_demo/zoning_map" target="_blank" rel="noopener noreferrer" class="demo-card-action">
+            Open Viewer ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo 5: Midland Future Land Use Map -->
+      <div class="demo-card reveal reveal-delay-4">
+        <div class="demo-card-preview">
+          <div class="demo-preview-placeholder">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#111418"/>
+              <pattern id="pg5" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(88,166,255,0.05)" stroke-width="0.5"/>
+              </pattern>
+              <rect width="400" height="200" fill="url(#pg5)"/>
+
+              <!-- Large residential zones (blue spectrum) -->
+              <rect x="20"  y="20"  width="90" height="55" fill="rgba(74,144,217,0.38)" stroke="rgba(74,144,217,0.75)" stroke-width="0.8"/>
+              <rect x="20"  y="79"  width="90" height="50" fill="rgba(45,111,168,0.35)" stroke="rgba(45,111,168,0.7)"  stroke-width="0.8"/>
+              <rect x="115" y="20"  width="65" height="85" fill="rgba(107,174,214,0.32)" stroke="rgba(107,174,214,0.65)" stroke-width="0.8"/>
+              <rect x="20"  y="133" width="90" height="42" fill="rgba(74,144,217,0.28)" stroke="rgba(74,144,217,0.55)" stroke-width="0.8"/>
+              <rect x="115" y="109" width="65" height="66" fill="rgba(45,111,168,0.28)" stroke="rgba(45,111,168,0.55)" stroke-width="0.8"/>
+
+              <!-- Commercial zones (orange) -->
+              <rect x="185" y="20"  width="55" height="40" fill="rgba(244,162,97,0.38)" stroke="rgba(244,162,97,0.78)" stroke-width="0.8"/>
+              <rect x="185" y="109" width="55" height="42" fill="rgba(231,111,81,0.35)" stroke="rgba(231,111,81,0.7)"  stroke-width="0.8"/>
+
+              <!-- Business Park / Employment (purple) -->
+              <rect x="245" y="20"  width="70" height="55" fill="rgba(155,89,182,0.32)" stroke="rgba(155,89,182,0.65)" stroke-width="0.8"/>
+              <rect x="245" y="109" width="70" height="42" fill="rgba(195,155,211,0.3)"  stroke="rgba(195,155,211,0.6)"  stroke-width="0.8"/>
+
+              <!-- Industrial (grey) -->
+              <rect x="320" y="20"  width="65" height="85" fill="rgba(149,165,166,0.3)" stroke="rgba(149,165,166,0.6)"  stroke-width="0.8"/>
+              <rect x="320" y="109" width="65" height="66" fill="rgba(127,140,141,0.25)" stroke="rgba(127,140,141,0.5)"  stroke-width="0.8"/>
+
+              <!-- Park / Open Space (green) -->
+              <rect x="185" y="64"  width="55" height="41" fill="rgba(82,183,136,0.35)" stroke="rgba(82,183,136,0.72)" stroke-width="0.8"/>
+
+              <!-- Roads -->
+              <line x1="18"  y1="107" x2="387" y2="107" stroke="rgba(88,166,255,0.18)" stroke-width="1.8"/>
+              <line x1="183" y1="18"  x2="183" y2="177" stroke="rgba(88,166,255,0.14)" stroke-width="1.5"/>
+              <line x1="243" y1="18"  x2="243" y2="177" stroke="rgba(88,166,255,0.14)" stroke-width="1.5"/>
+              <line x1="318" y1="18"  x2="318" y2="177" stroke="rgba(88,166,255,0.14)" stroke-width="1.5"/>
+
+              <!-- Highlighted click district -->
+              <rect x="185" y="20" width="55" height="40" fill="rgba(244,162,97,0.18)" stroke="rgba(244,162,97,1)" stroke-width="2"/>
+              <circle cx="212" cy="40" r="3.5" fill="#f4a261"/>
+
+              <!-- Land use labels -->
+              <text x="65"  y="51"  fill="rgba(74,144,217,0.95)"  font-size="6.5" font-family="monospace" text-anchor="middle">UR-L</text>
+              <text x="65"  y="108" fill="rgba(45,111,168,0.95)"  font-size="6.5" font-family="monospace" text-anchor="middle">UR-M</text>
+              <text x="147" y="66"  fill="rgba(107,174,214,0.9)"  font-size="6.5" font-family="monospace" text-anchor="middle">UR-LL</text>
+              <text x="212" y="44"  fill="rgba(244,162,97,1)"     font-size="7"   font-family="monospace" text-anchor="middle" font-weight="bold">CC</text>
+              <text x="212" y="88"  fill="rgba(82,183,136,0.95)"  font-size="6.5" font-family="monospace" text-anchor="middle">PARK</text>
+              <text x="280" y="51"  fill="rgba(155,89,182,0.9)"   font-size="6.5" font-family="monospace" text-anchor="middle">BP</text>
+              <text x="352" y="62"  fill="rgba(149,165,166,0.9)"  font-size="6.5" font-family="monospace" text-anchor="middle">GI</text>
+
+              <!-- Legend strip -->
+              <rect x="20"  y="162" width="8" height="7" fill="rgba(74,144,217,0.65)"  stroke="none"/>
+              <text x="31"  y="170" fill="rgba(88,166,255,0.45)" font-size="5.5" font-family="monospace">RESIDENTIAL</text>
+              <rect x="102" y="162" width="8" height="7" fill="rgba(244,162,97,0.65)"  stroke="none"/>
+              <text x="113" y="170" fill="rgba(88,166,255,0.45)" font-size="5.5" font-family="monospace">COMMERCIAL</text>
+              <rect x="188" y="162" width="8" height="7" fill="rgba(155,89,182,0.65)"  stroke="none"/>
+              <text x="199" y="170" fill="rgba(88,166,255,0.45)" font-size="5.5" font-family="monospace">EMPLOYMENT</text>
+              <rect x="274" y="162" width="8" height="7" fill="rgba(149,165,166,0.6)"  stroke="none"/>
+              <text x="285" y="170" fill="rgba(88,166,255,0.45)" font-size="5.5" font-family="monospace">INDUSTRIAL</text>
+
+              <!-- Title -->
+              <text x="10" y="12" fill="rgba(88,166,255,0.22)" font-size="6" font-family="monospace">CITY OF MIDLAND · FUTURE LAND USE · 6,219 DISTRICTS</text>
+            </svg>
+          </div>
+          <span class="demo-badge demo-badge--live">Live</span>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-card-type">Long-Range Planning Support</div>
+          <h3 class="demo-card-title">Midland Future Land Use Map</h3>
+          <p class="demo-card-county">City of Midland, TX · 6,219 Districts</p>
+          <p class="demo-card-desc">Midland's adopted Future Land Use Map — all 6,219 polygons across 19 land use categories including Urban Residential Low/Medium/High, Community Commercial, Business Park, Employment Reserve, General Industrial, and Park/Open Space. Filter by class, search by name, and click any district for full classification detail.</p>
+          <div class="demo-card-tech">
+            <span class="demo-tech-tag">MapLibre GL</span>
+            <span class="demo-tech-tag">Supabase</span>
+            <span class="demo-tech-tag">PostGIS</span>
+            <span class="demo-tech-tag">ArcGIS REST</span>
+          </div>
+          <a href="flum_demo/flum_map" target="_blank" rel="noopener noreferrer" class="demo-card-action">
+            Open Viewer ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo 6: Environmental Compliance Viewer -->
+      <div class="demo-card reveal reveal-delay-1">
+        <div class="demo-card-preview">
+          <div class="demo-preview-placeholder">
+            <svg viewBox="0 0 400 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#0d1117"/>
+              <pattern id="pg6" width="22" height="22" patternUnits="userSpaceOnUse">
+                <path d="M 22 0 L 0 0 0 22" fill="none" stroke="rgba(248,81,73,0.05)" stroke-width="0.5"/>
+              </pattern>
+              <rect width="400" height="200" fill="url(#pg6)"/>
+
+              <!-- Pipeline lines -->
+              <path d="M 20 80 Q 100 70 180 90 Q 260 110 380 85" fill="none" stroke="rgba(249,115,22,0.8)" stroke-width="2.5"/>
+              <path d="M 20 130 Q 90 125 160 135 Q 240 148 380 130" fill="none" stroke="rgba(96,165,250,0.7)" stroke-width="2"/>
+              <path d="M 60 20 L 65 180" fill="none" stroke="rgba(249,115,22,0.5)" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M 200 20 L 205 180" fill="none" stroke="rgba(96,165,250,0.45)" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M 310 20 L 312 180" fill="none" stroke="rgba(249,115,22,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+              <!-- 500ft buffer rings (red, dashed) around pipeline segments -->
+              <ellipse cx="180" cy="90" rx="38" ry="18" fill="rgba(248,81,73,0.08)" stroke="rgba(248,81,73,0.5)" stroke-width="1" stroke-dasharray="4 3"/>
+              <ellipse cx="180" cy="90" rx="60" ry="28" fill="none" stroke="rgba(227,179,65,0.35)" stroke-width="1" stroke-dasharray="4 3"/>
+
+              <!-- School marker — inside warning zone -->
+              <circle cx="195" cy="84" r="6" fill="rgba(250,204,21,0.2)" stroke="rgba(250,204,21,0.9)" stroke-width="1.5"/>
+              <circle cx="195" cy="84" r="2.5" fill="#facc15"/>
+              <!-- warning badge -->
+              <rect x="204" y="75" width="38" height="13" rx="3" fill="rgba(248,81,73,0.85)"/>
+              <text x="223" y="84.5" fill="white" font-size="7" font-family="monospace" text-anchor="middle" font-weight="bold">WARNING</text>
+
+              <!-- Hospital marker — in caution zone -->
+              <circle cx="155" cy="100" r="6" fill="rgba(248,135,113,0.2)" stroke="rgba(248,135,113,0.9)" stroke-width="1.5"/>
+              <circle cx="155" cy="100" r="2.5" fill="#f87171"/>
+              <!-- caution badge -->
+              <rect x="164" y="93" width="36" height="13" rx="3" fill="rgba(227,179,65,0.85)"/>
+              <text x="182" y="102.5" fill="#0d1117" font-size="7" font-family="monospace" text-anchor="middle" font-weight="bold">CAUTION</text>
+
+              <!-- Park marker — clear -->
+              <circle cx="310" cy="75" r="6" fill="rgba(74,222,128,0.2)" stroke="rgba(74,222,128,0.9)" stroke-width="1.5"/>
+              <circle cx="310" cy="75" r="2.5" fill="#4ade80"/>
+              <!-- clear badge -->
+              <rect x="319" y="68" width="28" height="13" rx="3" fill="rgba(63,185,80,0.8)"/>
+              <text x="333" y="77.5" fill="white" font-size="7" font-family="monospace" text-anchor="middle" font-weight="bold">CLEAR</text>
+
+              <!-- Second school — clear -->
+              <circle cx="60" cy="55" r="5" fill="rgba(250,204,21,0.15)" stroke="rgba(250,204,21,0.7)" stroke-width="1.2"/>
+              <circle cx="60" cy="55" r="2" fill="#facc15"/>
+
+              <!-- Legend strip -->
+              <line x1="20" y1="170" x2="40" y2="170" stroke="rgba(249,115,22,0.8)" stroke-width="2.5"/>
+              <text x="44" y="174" fill="rgba(249,115,22,0.7)" font-size="6" font-family="monospace">NAT GAS</text>
+              <line x1="95" y1="170" x2="115" y2="170" stroke="rgba(96,165,250,0.8)" stroke-width="2"/>
+              <text x="119" y="174" fill="rgba(96,165,250,0.7)" font-size="6" font-family="monospace">CRUDE OIL</text>
+              <circle cx="182" cy="170" r="4" fill="rgba(250,204,21,0.7)"/>
+              <text x="190" y="174" fill="rgba(250,204,21,0.6)" font-size="6" font-family="monospace">SCHOOL</text>
+              <circle cx="242" cy="170" r="4" fill="rgba(248,135,113,0.7)"/>
+              <text x="250" y="174" fill="rgba(248,135,113,0.6)" font-size="6" font-family="monospace">HOSPITAL</text>
+              <circle cx="310" cy="170" r="4" fill="rgba(74,222,128,0.7)"/>
+              <text x="318" y="174" fill="rgba(74,222,128,0.6)" font-size="6" font-family="monospace">PARK</text>
+
+              <!-- Title -->
+              <text x="10" y="12" fill="rgba(248,81,73,0.22)" font-size="6" font-family="monospace">ECTOR COUNTY · ENVIRONMENTAL COMPLIANCE · BUFFER ANALYSIS</text>
+            </svg>
+          </div>
+          <span class="demo-badge demo-badge--live">Live</span>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-card-type">Environmental &amp; Regulatory Compliance</div>
+          <h3 class="demo-card-title">Pipeline Compliance Viewer</h3>
+          <p class="demo-card-county">Ector County, TX · Buffer Analysis</p>
+          <p class="demo-card-desc">Buffer analysis showing proximity relationships between pipeline infrastructure and sensitive land uses — schools, hospitals, and parks. Click any site to query the nearest pipeline in real time via PostGIS and get an instant compliance flag: Warning (&lt;500 ft), Caution (500–1,000 ft), or Clear (&gt;1,000 ft).</p>
+          <div class="demo-card-tech">
+            <span class="demo-tech-tag">MapLibre GL</span>
+            <span class="demo-tech-tag">Supabase RPC</span>
+            <span class="demo-tech-tag">PostGIS</span>
+            <span class="demo-tech-tag">Overpass API</span>
+          </div>
+          <a href="compliance_demo/compliance_map" target="_blank" rel="noopener noreferrer" class="demo-card-action">
+            Open Viewer ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CTA
+  ═══════════════════════════════════════ -->
+  <section id="contact" class="cta-section">
+
+    <div class="cta-inner">
+      <div class="cta-eyebrow">Start a Conversation</div>
+      <h2 class="cta-title reveal">Ready to bring<br />precision GIS to your<br /><em>community?</em></h2>
+      <p class="cta-sub reveal reveal-delay-1">
+        Whether you have a defined project or just questions about what GIS could do for your department, we're glad to talk. Consultations are free and there's no obligation.
+      </p>
+
+      <div class="cta-actions reveal reveal-delay-2">
+        <a href="mailto:ownwer@txgis.org" class="btn-primary btn-large">
+          Schedule a Free Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+15555555555" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (555) 555-5555
+        </a>
+      </div>
+
+      <p class="cta-meta reveal reveal-delay-3">
+        Dallas · Fort Worth · TX &nbsp;·&nbsp; Mon – Fri · 8 AM – 5 PM CST
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-top">
+
+      <div>
+        <div class="footer-brand-name">TX GIS Solutions</div>
+        <div class="footer-brand-sub">GIS Consulting · Texas</div>
+        <p class="footer-tagline">Delivering authoritative geographic information systems to local governments across the State of Texas since 2018.</p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Services</div>
+        <p class="footer-blurb"><a href="#services">Parcel &amp; Land Records</a> · <a href="#services">Utility &amp; Infrastructure GIS</a> · <a href="#services">Emergency Management</a> · <a href="#services">Zoning &amp; Planning</a> · <a href="#services">Web GIS Portals</a></p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Sectors</div>
+        <p class="footer-blurb"><a href="#sectors">Cities &amp; Municipalities</a> · <a href="#sectors">County Governments</a> · <a href="#sectors">Emergency Services</a> · <a href="#sectors">Special Districts</a> · <a href="#demos">Live Demos</a> · <a href="../tools.html">Full Portfolio</a></p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:owner@txgis.org">owner@txgis.org</a></li>
+          <li style="color:var(--slate);cursor:default;">Dallas · Fort Worth · TX</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 TX GIS Solutions LLC. All rights reserved.</span>
+      <ul class="footer-bottom-links">
+        <li><a href="privacy">Privacy Policy</a></li>
+        <li><a href="tos">Terms of Service</a></li>
+        <li><a href="accessibility">Accessibility</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════ -->
+  <script>
+    // ── Nav scroll state ──
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Scroll reveal ──
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

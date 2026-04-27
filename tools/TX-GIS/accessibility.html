@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Accessibility Statement — TX GIS Solutions LLC</title>
+  <meta name="description" content="Accessibility Statement for TX GIS Solutions LLC, a GIS consulting firm serving Texas local governments." />
+  <link rel="canonical" href="https://subtxtpress.github.io/home/tools/TX-GIS/accessibility">
+  <meta name="theme-color" content="#0d0f0c" />
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Accessibility Statement — TX GIS Solutions LLC">
+  <meta property="og:description" content="Accessibility Statement for TX GIS Solutions LLC, a GIS consulting firm serving Texas local governments.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/tools/TX-GIS/accessibility">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/tools/TX-GIS/img/tx-gis.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="TX GIS Solutions">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accessibility Statement — TX GIS Solutions LLCC">
+  <meta name="twitter:description" content="Accessibility Statement for TX GIS Solutions LLC, a GIS consulting firm serving Texas local governments.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/TX-GIS/img/tx-gis.png">
+  <meta name="twitter:creator" content="@txgis">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest"> 
+  <!-- Google Fonts & Style Sheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink:        #0d0f0c;
+      --ink-80:     #1a1d18;
+      --ink-60:     #272b24;
+      --parchment:  #f2ede4;
+      --parchment-d:#e8e0d2;
+      --ochre:      #c8883a;
+      --ochre-l:    #dfa55a;
+      --sage:       #3d5249;
+      --slate:      #7d8c82;
+      --slate-l:    #a3b4aa;
+      --rule:       rgba(200, 136, 58, 0.22);
+      --rule-light: rgba(200, 136, 58, 0.10);
+      --ff-serif: 'Cormorant Garamond', Georgia, serif;
+      --ff-sans:  'DM Sans', system-ui, sans-serif;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { background: var(--ink); color: var(--parchment); font-family: var(--ff-sans); font-weight: 300; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .topo-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cdefs%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008 0.006' numOctaves='6' seed='4'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='120'/%3E%3C/filter%3E%3C/defs%3E%3Ccircle cx='400' cy='400' r='380' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='330' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='280' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='230' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='180' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='130' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3Ccircle cx='400' cy='400' r='80' fill='none' stroke='%23c8883a' stroke-width='1' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 800px 800px;
+    }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; border-bottom: 1px solid transparent; transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s; }
+    nav.scrolled { background: rgba(13, 15, 12, 0.88); border-color: var(--rule); backdrop-filter: blur(12px); }
+    .nav-logo { display: flex; flex-direction: column; gap: 0.1rem; }
+    .nav-logo-primary { font-family: var(--ff-serif); font-size: 1.15rem; font-weight: 500; letter-spacing: 0.04em; color: var(--parchment); line-height: 1; }
+    .nav-logo-sub { font-family: var(--ff-sans); font-size: 0.6rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ochre); white-space: nowrap; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); }
+    .nav-links a { transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ochre-l); }
+
+    .page-header { position: relative; z-index: 1; padding: 10rem 4rem 5rem; border-bottom: 1px solid var(--rule-light); }
+    .page-header-inner { max-width: 800px; }
+    .page-eyebrow { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ochre); margin-bottom: 1.25rem; display: inline-flex; align-items: center; gap: 0.75rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 2.5rem; height: 1px; background: var(--ochre); }
+    .page-title { font-family: var(--ff-serif); font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.08; color: var(--parchment); margin-bottom: 1.5rem; }
+    .page-meta { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); }
+
+    .tos-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 220px 1fr; gap: 0; max-width: 1200px; margin: 0 auto; padding: 5rem 4rem 8rem; align-items: start; }
+    .tos-toc { position: sticky; top: 6rem; padding-right: 3rem; }
+    .toc-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); margin-bottom: 1.25rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.1rem; }
+    .toc-list a { font-size: 0.75rem; color: var(--slate); line-height: 1.5; padding: 0.3rem 0.75rem; display: block; border-left: 1px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .toc-list a:hover, .toc-list a.active { color: var(--parchment); border-left-color: var(--ochre); }
+
+    .tos-content { border-left: 1px solid var(--rule-light); padding-left: 4rem; }
+    .tos-preamble { font-size: 0.92rem; line-height: 1.8; color: var(--slate-l); max-width: 68ch; margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--rule-light); }
+    .tos-preamble strong { color: var(--parchment); font-weight: 500; }
+
+    .tos-section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule-light); opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); }
+    .tos-section.visible { opacity: 1; transform: none; }
+    .tos-section:last-child { border-bottom: none; margin-bottom: 0; }
+    .tos-section-num { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); margin-bottom: 0.6rem; }
+    .tos-section-title { font-family: var(--ff-serif); font-size: 1.75rem; font-weight: 400; color: var(--parchment); margin-bottom: 1.5rem; line-height: 1.2; }
+    .tos-section p { font-size: 0.88rem; line-height: 1.85; color: var(--slate-l); max-width: 68ch; margin-bottom: 1rem; }
+    .tos-section p:last-child { margin-bottom: 0; }
+    .tos-section p strong { color: var(--parchment); font-weight: 500; }
+    .tos-section ul, .tos-section ol { list-style: none; margin: 0.75rem 0 1rem 0; max-width: 66ch; }
+    .tos-section li { font-size: 0.88rem; line-height: 1.85; color: var(--slate-l); margin-bottom: 0.4rem; padding-left: 1.25rem; position: relative; }
+    .tos-section li::before { content: '—'; position: absolute; left: 0; color: var(--ochre); font-size: 0.75rem; top: 0.28em; line-height: 1; }
+    .tos-section li strong { color: var(--parchment); font-weight: 500; }
+    .tos-callout { margin: 1.5rem 0; padding: 1.25rem 1.5rem; border-left: 2px solid var(--ochre); background: rgba(200, 136, 58, 0.06); max-width: 68ch; }
+    .tos-callout p { margin-bottom: 0 !important; color: var(--parchment-d) !important; font-size: 0.85rem !important; }
+
+    /* Conformance status badges */
+    .conformance-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--rule);
+      color: var(--ochre);
+      margin-bottom: 1.5rem;
+    }
+    .conformance-badge::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ochre);
+    }
+
+    footer { position: relative; z-index: 1; background: var(--ink-80); border-top: 1px solid var(--rule-light); padding: 3.5rem 4rem 2.5rem; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule-light); margin-bottom: 2rem; }
+    .footer-brand-name { font-family: var(--ff-serif); font-size: 1.15rem; font-weight: 400; color: var(--parchment); margin-bottom: 0.25rem; }
+    .footer-brand-sub { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); margin-bottom: 1rem; }
+    .footer-tagline { font-size: 0.8rem; line-height: 1.65; color: var(--slate); margin-bottom: 1.25rem; max-width: 42ch; }
+    .footer-col-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); margin-bottom: 1.25rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-links a { font-size: 0.82rem; color: var(--slate-l); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--parchment); }
+    .footer-blurb { font-size: 0.78rem; line-height: 1.9; color: var(--slate-l); }
+    .footer-blurb a { color: var(--slate-l); transition: color 0.2s; }
+    .footer-blurb a:hover { color: var(--parchment); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; color: var(--slate); letter-spacing: 0.06em; }
+    .footer-bottom-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-bottom-links a { color: var(--slate); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--slate-l); }
+    .footer-bottom-links .active { color: var(--ochre); }
+
+    @media (max-width: 1024px) {
+      nav { padding: 1.25rem 2rem; }
+      .nav-links { display: none; }
+      .page-header { padding: 8rem 2rem 4rem; }
+      .tos-layout { grid-template-columns: 1fr; padding: 3rem 2rem 6rem; }
+      .tos-toc { display: none; }
+      .tos-content { border-left: none; padding-left: 0; }
+      footer { padding: 3rem 2rem 2rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .page-header { padding: 7rem 1.5rem 3rem; }
+      .tos-layout { padding: 2.5rem 1.5rem 5rem; }
+      .footer-top { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .footer-tagline { margin: 0 auto 1.25rem; max-width: 36ch; }
+      .footer-blurb { text-align: center; }
+      .footer-bottom { flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
+      .footer-bottom-links { flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topo-bg" aria-hidden="true"></div>
+
+  <nav id="main-nav" role="navigation" aria-label="Main navigation">
+    <a href="tx-gis" class="nav-logo">
+      <span class="nav-logo-primary">TX GIS Solutions</span>
+      <span class="nav-logo-sub">GIS Consulting · Texas</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="tx-gis.html#services">Services</a></li>
+      <li><a href="tx-gis.html#why-us">About</a></li>
+      <li><a href="tx-gis.html#sectors">Sectors</a></li>
+      <li><a href="tx-gis.html#demos">Demos</a></li>
+      <li><a href="../tools.html">Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="page-eyebrow">Legal</div>
+      <h1 class="page-title">Accessibility Statement</h1>
+      <p class="page-meta">TX GIS Solutions LLC &nbsp;·&nbsp; Effective Date: January 1, 2026 &nbsp;·&nbsp; Last Reviewed: February 1, 2026</p>
+    </div>
+  </header>
+
+  <div class="tos-layout">
+    <aside class="tos-toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#commitment">1. Our Commitment</a></li>
+        <li><a href="#standards">2. Standards &amp; Conformance</a></li>
+        <li><a href="#website-features">3. Website Features</a></li>
+        <li><a href="#gis-accessibility">4. GIS &amp; Map Accessibility</a></li>
+        <li><a href="#known-issues">5. Known Limitations</a></li>
+        <li><a href="#assistive-tech">6. Assistive Technology</a></li>
+        <li><a href="#government-clients">7. Government Client Obligations</a></li>
+        <li><a href="#feedback">8. Feedback &amp; Requests</a></li>
+        <li><a href="#enforcement">9. Formal Complaints</a></li>
+        <li><a href="#review">10. Review &amp; Updates</a></li>
+      </ul>
+    </aside>
+
+    <main class="tos-content">
+      <p class="tos-preamble">
+        TX GIS Solutions LLC is committed to ensuring that our website and the digital deliverables we produce for clients are accessible to all users, including individuals with disabilities. We believe that geographic information is a public resource, and that the communities our clients serve deserve equitable access to the GIS tools and portals we build on their behalf. This statement describes our current accessibility posture, known limitations, and how to reach us with feedback or accommodation requests.
+      </p>
+
+      <section class="tos-section" id="commitment">
+        <div class="tos-section-num">Section 01</div>
+        <h2 class="tos-section-title">Our Commitment</h2>
+        <p>TX GIS Solutions LLC is committed to making our website and client deliverables perceivable, operable, understandable, and robust for all users. We approach accessibility not as a compliance checkbox but as a professional obligation — particularly given that our primary clients are Texas local governments, many of which are subject to federal and state accessibility requirements under the Americans with Disabilities Act (ADA), Section 508 of the Rehabilitation Act, and Texas Government Code Chapter 2054 (the Texas Accessibility Standards).</p>
+        <p>We integrate accessibility considerations into our project scoping, design, and development processes rather than treating them as afterthoughts. Where our deliverables will be deployed as public-facing web portals by governmental entities, we work with clients to identify and address accessibility requirements as part of the engagement scope.</p>
+        <p>We recognize that accessibility is an ongoing effort and that perfect conformance is difficult to achieve across all content types — particularly interactive mapping applications, which present distinct technical challenges for users relying on assistive technologies. We are committed to continuous improvement and welcome feedback at any time.</p>
+      </section>
+
+      <section class="tos-section" id="standards">
+        <div class="tos-section-num">Section 02</div>
+        <h2 class="tos-section-title">Standards &amp; Conformance</h2>
+        <div class="conformance-badge">WCAG 2.1 · Level AA · Partial Conformance</div>
+        <p><strong>2.1 Target Standard.</strong> Our website targets conformance with the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA, published by the World Wide Web Consortium (W3C). WCAG 2.1 AA is the current benchmark referenced by the ADA, Section 508, and the Texas Accessibility Standards for web content.</p>
+        <p><strong>2.2 Current Status.</strong> This website is <strong>partially conformant</strong> with WCAG 2.1 Level AA. Partial conformance means that some parts of the content do not fully conform to the accessibility standard, primarily due to the interactive mapping components described in Section 5. Static content pages, including this statement, the Terms of Service, and the Privacy Policy, are designed to meet or exceed WCAG 2.1 AA requirements.</p>
+        <p><strong>2.3 Section 508.</strong> For client deliverables subject to Section 508 of the Rehabilitation Act (primarily deliverables intended for use by federal agencies or federally funded programs), we apply the Revised 508 Standards (effective January 18, 2018), which incorporate WCAG 2.0 Level AA by reference for web content and software.</p>
+        <p><strong>2.4 Texas Standards.</strong> For deliverables subject to the Texas Accessibility Standards (TAS) administered by the Texas Department of Information Resources (DIR), we apply the applicable TAS version in effect at project inception. Texas municipalities and counties procuring web-based GIS portals should identify applicable TAS requirements during project scoping.</p>
+        <p><strong>2.5 Self-Assessment.</strong> This conformance assessment is based on internal evaluation. We have not yet commissioned a formal third-party accessibility audit of our website. Clients requiring documented third-party audits of delivered portals may request this as a scope item.</p>
+      </section>
+
+      <section class="tos-section" id="website-features">
+        <div class="tos-section-num">Section 03</div>
+        <h2 class="tos-section-title">Website Features</h2>
+        <p><strong>3.1 Semantic HTML.</strong> Our website is built with semantic HTML5 elements including appropriate heading hierarchies, landmark regions (<code>nav</code>, <code>main</code>, <code>footer</code>, <code>header</code>), and descriptive link text to support screen reader navigation.</p>
+        <p><strong>3.2 Color Contrast.</strong> Text and interactive elements on our website are designed to meet WCAG 2.1 AA minimum contrast ratios: 4.5:1 for normal text and 3:1 for large text and user interface components. Our primary parchment-on-dark color scheme provides high contrast for body text. The ochre accent color (#c8883a) used for decorative elements and secondary labels may fall below AA thresholds in some contexts and is not used as the sole means of conveying information.</p>
+        <p><strong>3.3 Keyboard Navigation.</strong> All interactive elements on our static pages are accessible via keyboard using standard Tab, Shift+Tab, Enter, and Space key conventions. Focus indicators are visible on interactive elements.</p>
+        <p><strong>3.4 Responsive Design.</strong> Our website is responsive and functions on a range of screen sizes and orientations, including mobile devices. Content reflows appropriately at 400% zoom without loss of information or functionality on static pages.</p>
+        <p><strong>3.5 Images and Media.</strong> Decorative images are marked with empty alt attributes. Informational images include descriptive alt text. We do not currently use video content on our website. SVG graphics used in demo card thumbnails are marked with <code>aria-hidden="true"</code> as they are decorative.</p>
+        <p><strong>3.6 Motion and Animation.</strong> Our website uses CSS scroll-reveal animations and subtle background effects. We respect the <code>prefers-reduced-motion</code> media query — users who have indicated a preference for reduced motion in their operating system settings will experience static content without animation.</p>
+
+        <div class="tos-callout">
+          <p>Users who require accommodations not addressed by the features above — including alternative formats for any content on this site — are encouraged to contact us at <strong>owner@txgis.org</strong>. We will provide accessible alternatives promptly.</p>
+        </div>
+      </section>
+
+      <section class="tos-section" id="gis-accessibility">
+        <div class="tos-section-num">Section 04</div>
+        <h2 class="tos-section-title">GIS &amp; Map Accessibility</h2>
+        <p><strong>4.1 Inherent Challenges.</strong> Interactive web mapping applications present accessibility challenges that are not fully addressed by current WCAG guidelines. Spatial data rendered on a canvas or WebGL context is not natively accessible to screen readers, and the inherently visual nature of cartographic content makes full equivalence difficult to achieve through text alternatives alone.</p>
+        <p><strong>4.2 Our Approach.</strong> For the live demonstration viewers on our website and for client-facing GIS portals, we implement the following accessibility measures as standard practice:</p>
+        <ul>
+          <li><strong>Text alternatives:</strong> Information panels, attribute popups, and data tables that duplicate key spatial data in readable text format;</li>
+          <li><strong>Keyboard operability:</strong> Map zoom, pan, and layer toggle controls are keyboard accessible where technically feasible with the mapping library in use;</li>
+          <li><strong>ARIA labeling:</strong> Map containers include appropriate ARIA roles and labels to identify them as interactive regions;</li>
+          <li><strong>Skip links:</strong> Where maps are preceded by navigation, skip links allow keyboard users to bypass the map and access associated data tables or control panels;</li>
+          <li><strong>Color independence:</strong> Map legends and layer information are presented in text alongside color swatches so that color is not the sole means of conveying classification information;</li>
+          <li><strong>Sufficient contrast:</strong> Map interface controls (buttons, toggles, info panels) meet WCAG AA contrast requirements against their background colors.</li>
+        </ul>
+        <p><strong>4.3 Client Deliverables.</strong> For GIS portals developed for governmental clients, we are available to discuss enhanced accessibility features including tabular data export, alternative text descriptions of key map views, and screen-reader-optimized companion interfaces. Clients subject to ADA Title II or Section 508 obligations should raise accessibility requirements during project scoping to allow adequate time and budget allocation.</p>
+        <p><strong>4.4 Third-Party Libraries.</strong> Our mapping applications use MapLibre GL JS and Leaflet.js, both of which have active accessibility improvement efforts in their open-source communities. We track upstream accessibility improvements and incorporate them into our builds where applicable.</p>
+      </section>
+
+      <section class="tos-section" id="known-issues">
+        <div class="tos-section-num">Section 05</div>
+        <h2 class="tos-section-title">Known Limitations</h2>
+        <p>We are aware of the following accessibility limitations and are actively working to address them:</p>
+        <ul>
+          <li><strong>Interactive map canvases:</strong> The WebGL-rendered map canvases in our demo viewers are not fully navigable by screen reader. Attribute information is available through the click-to-inspect panels, which are keyboard accessible, but spatial relationships cannot be communicated through screen reader alone. We are evaluating approaches for providing accessible data table alternatives.</li>
+          <li><strong>Filter pill components:</strong> The interactive filter pill controls in the zoning and FLUM viewers rely on mouse interaction for activation. Keyboard-accessible equivalents are on our improvement roadmap.</li>
+          <li><strong>Mobile legend sheets:</strong> The slide-up legend panels in mobile viewers use CSS transforms; focus management when the panel opens may not be fully optimized for all screen reader + mobile browser combinations.</li>
+          <li><strong>Ochre accent contrast:</strong> The ochre accent color (#c8883a) used for eyebrow labels, section numbers, and decorative elements does not consistently meet the 4.5:1 contrast ratio at small text sizes. This color is used decoratively and is not the sole carrier of essential information.</li>
+          <li><strong>PDF deliverables:</strong> PDF reports and maps produced as project deliverables may not be fully tagged for screen reader access. Tagged PDF production is available as a project option upon request.</li>
+        </ul>
+        <p>If you encounter a barrier not listed here, please let us know using the contact information in Section 8.</p>
+      </section>
+
+      <section class="tos-section" id="assistive-tech">
+        <div class="tos-section-num">Section 06</div>
+        <h2 class="tos-section-title">Assistive Technology</h2>
+        <p><strong>6.1 Tested Combinations.</strong> Our website's static pages have been reviewed for compatibility with the following assistive technology combinations:</p>
+        <ul>
+          <li>NVDA 2024 + Chrome on Windows 11</li>
+          <li>VoiceOver + Safari on macOS Sonoma</li>
+          <li>VoiceOver + Safari on iOS 17</li>
+          <li>TalkBack + Chrome on Android 14</li>
+        </ul>
+        <p><strong>6.2 Browser Support.</strong> Our website supports the current and immediately prior versions of Chrome, Firefox, Safari, and Edge. Internet Explorer is not supported.</p>
+        <p><strong>6.3 Zoom and Text Resize.</strong> Our website supports browser text resizing up to 200% without loss of content or functionality on static pages. Content remains readable at operating-system-level zoom up to 400%.</p>
+        <p><strong>6.4 High Contrast Mode.</strong> We have tested our website in Windows High Contrast Mode (both Light and Dark themes). Most content remains legible, though some decorative elements may not render as intended in forced color modes. We do not use CSS <code>background-image</code> as a sole means of conveying information.</p>
+      </section>
+
+      <section class="tos-section" id="government-clients">
+        <div class="tos-section-num">Section 07</div>
+        <h2 class="tos-section-title">Government Client Obligations</h2>
+        <p><strong>7.1 ADA Title II.</strong> Texas municipalities and counties are subject to Title II of the Americans with Disabilities Act, which requires that programs, services, and activities — including web-based public services — be accessible to individuals with disabilities. GIS portals deployed by governmental clients as public-facing services should meet applicable accessibility standards.</p>
+        <p><strong>7.2 DOJ Web Accessibility Rule.</strong> The U.S. Department of Justice finalized a rule in April 2024 requiring state and local government websites to conform to WCAG 2.1 Level AA. Compliance deadlines vary by entity population size. Clients subject to this rule should ensure that GIS portals we develop on their behalf are scoped to meet WCAG 2.1 AA requirements.</p>
+        <p><strong>7.3 Texas Accessibility Standards.</strong> Texas state agencies and institutions of higher education are required to follow the Texas Accessibility Standards for technology purchases and development. Some Texas local governments adopt TAS voluntarily or as a procurement condition. We can develop to TAS requirements upon request.</p>
+        <p><strong>7.4 Voluntary Product Accessibility Template.</strong> For clients requiring a Voluntary Product Accessibility Template (VPAT) or Accessibility Conformance Report (ACR) for a delivered product, we can prepare this documentation as a deliverable item. VPATs describe the extent to which a product conforms to Section 508 and WCAG standards and are commonly required in government technology procurement.</p>
+
+        <div class="tos-callout">
+          <p>If your procurement requires documented accessibility conformance, a VPAT/ACR, or specific WCAG or TAS compliance testing for a delivered portal, please identify this requirement during project scoping. These services are available and should be included in the Statement of Work.</p>
+        </div>
+      </section>
+
+      <section class="tos-section" id="feedback">
+        <div class="tos-section-num">Section 08</div>
+        <h2 class="tos-section-title">Feedback &amp; Requests</h2>
+        <p><strong>8.1 Contact Us.</strong> We welcome feedback on the accessibility of our website and deliverables. If you experience a barrier, have difficulty accessing content, or wish to request an accessible alternative format, please contact us:</p>
+        <ul>
+          <li><strong>Email:</strong> gowner@txgis.org (preferred)</li>
+          <li><strong>Mail:</strong> TX GIS Solutions LLC, Attn: Accessibility, Dallas–Fort Worth, TX</li>
+        </ul>
+        <p><strong>8.2 Response Commitment.</strong> We will acknowledge accessibility feedback within three (3) business days and provide a substantive response within ten (10) business days. For urgent requests from individuals who need immediate access to information, we will make reasonable efforts to provide accessible content or a suitable alternative within two (2) business days.</p>
+        <p><strong>8.3 Alternative Formats.</strong> We can provide information available on our website in alternative formats including plain text, large print, or structured data upon request. For client deliverables, accessible format production should be specified in the project scope.</p>
+        <p><strong>8.4 Continuous Improvement.</strong> Accessibility feedback is reviewed by our team and used to prioritize improvements to our website and standard deliverable templates. We publish updates to this statement as material accessibility improvements are made.</p>
+      </section>
+
+      <section class="tos-section" id="enforcement">
+        <div class="tos-section-num">Section 09</div>
+        <h2 class="tos-section-title">Formal Complaints</h2>
+        <p><strong>9.1 Internal Resolution.</strong> We encourage individuals who experience accessibility barriers on our website or in our deliverables to contact us directly using the information in Section 8. We are committed to resolving accessibility concerns promptly and in good faith.</p>
+        <p><strong>9.2 External Recourse.</strong> If you are not satisfied with our response to an accessibility concern, you have the right to file a complaint with the relevant governmental authority:</p>
+        <ul>
+          <li><strong>ADA complaints</strong> regarding website accessibility may be filed with the U.S. Department of Justice Civil Rights Division at <strong>ada.gov</strong> or by calling 1-800-514-0301;</li>
+          <li><strong>Section 508 complaints</strong> regarding federally funded programs may be filed with the relevant federal agency's Section 508 coordinator;</li>
+          <li><strong>Texas state agency complaints</strong> regarding TAS compliance may be directed to the Texas Department of Information Resources at <strong>dir.texas.gov</strong>.</li>
+        </ul>
+        <p><strong>9.3 No Retaliation.</strong> TX GIS Solutions LLC does not retaliate against individuals who raise accessibility concerns or file complaints in good faith.</p>
+      </section>
+
+      <section class="tos-section" id="review">
+        <div class="tos-section-num">Section 10</div>
+        <h2 class="tos-section-title">Review &amp; Updates</h2>
+        <p><strong>10.1 Annual Review.</strong> We review this Accessibility Statement at least annually and update it to reflect changes in our website, the applicable standards landscape, and our conformance posture. The current version is always available at tx-gis.org/accessibility.html.</p>
+        <p><strong>10.2 Standards Evolution.</strong> We monitor developments in web accessibility standards, including the WCAG 3.0 Working Draft and updates to Section 508 and the Texas Accessibility Standards, and incorporate relevant guidance into our development practices as standards evolve.</p>
+        <p><strong>10.3 Roadmap.</strong> We are actively working on the following accessibility improvements:</p>
+        <ul>
+          <li>Implementing <code>prefers-reduced-motion</code> support across all animation instances in our demo viewers;</li>
+          <li>Adding keyboard-accessible filter controls to the zoning and FLUM map viewers;</li>
+          <li>Developing accessible tabular data companion views for key demo datasets;</li>
+          <li>Conducting a structured WCAG 2.1 AA review of all six live demo viewers;</li>
+          <li>Publishing a VPAT template for use in client procurement documentation.</li>
+        </ul>
+        <p><strong>10.4 Preparation.</strong> This statement was prepared on February 1, 2026 by TX GIS Solutions LLC based on self-assessment. It will next be reviewed no later than February 1, 2027.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">TX GIS Solutions</div>
+        <div class="footer-brand-sub">GIS Consulting · Texas</div>
+        <p class="footer-tagline">Delivering authoritative geographic information systems to local governments across the State of Texas since 2018.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <p class="footer-blurb"><a href="tx-gis.html#services">Parcel &amp; Land Records</a> · <a href="tx-gis.html#services">Utility &amp; Infrastructure GIS</a> · <a href="tx-gis.html#services">Emergency Management</a> · <a href="tx-gis.html#services">Zoning &amp; Planning</a> · <a href="tx-gis.html#services">Web GIS Portals</a></p>
+      </div>
+      <div>
+        <div class="footer-col-title">Sectors</div>
+        <p class="footer-blurb"><a href="tx-gis.html#sectors">Cities &amp; Municipalities</a> · <a href="tx-gis.html#sectors">County Governments</a> · <a href="tx-gis.html#sectors">Emergency Services</a> · <a href="tx-gis.html#sectors">Special Districts</a> · <a href="tx-gis.html#demos">Live Demos</a> · <a href="../tools.html">Full Portfolio</a></p>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:owner@txgis.org">owner@txgis.org</a></li>
+          <li style="color:var(--slate);cursor:default;">Dallas · Fort Worth · TX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TX GIS Solutions LLC. All rights reserved.</span>
+      <ul class="footer-bottom-links">
+        <li><a href="privacy">Privacy Policy</a></li>
+        <li><a href="tos">Terms of Service</a></li>
+        <li><a href="accessibility" class="active">Accessibility</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    const sections = document.querySelectorAll('.tos-section');
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    sections.forEach(s => observer.observe(s));
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const sectionEls = document.querySelectorAll('.tos-section[id]');
+    const tocObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { tocLinks.forEach(l => l.classList.remove('active')); const a = document.querySelector(`.toc-list a[href="#${e.target.id}"]`); if (a) a.classList.add('active'); } }); }, { threshold: 0.5 });
+    sectionEls.forEach(s => tocObserver.observe(s));
+  </script>
+</body>
+</html>

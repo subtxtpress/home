@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jeffrey's Epstein's Amazon Account — Subtxt Press</title>
+  <meta name="description" content="An interactive dashboard analyzing Jeffrey Epstein's Amazon shipment records from the Jmail document release.">
+  <meta name="author" content="Subtxt Press">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/tools/Epstein/epstein.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jeffrey Epstein's Amazon Account">
+  <meta property="og:description" content="An interactive dashboard analyzing Jeffrey Epstein's Amazon shipment records from the Jmail document release.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/tools/Epstein/epstein.html">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/tools/Epstein/img/epstein-dashboard.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Subtxt Press">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@subtxtpress">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <meta name="twitter:title" content="Jeffrey Epstein's Amazon Account">
+  <meta name="twitter:description" content="An interactive dashboard analyzing Jeffrey Epstein's Amazon shipment records from the Jmail document release.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/Epstein/img/epstein-dashboard.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg:         #0a0a0a;
+      --surface:    #111111;
+      --surface-2:  #1a1a1a;
+      --border:     rgba(255, 255, 255, 0.07);
+      --border-dim: rgba(255, 255, 255, 0.06);
+      --accent:     #c9d1d9;
+      --gold:       #fbbf24;
+      --red:        #f87171;
+      --text:       #e2e8f0;
+      --muted:      #8b949e;
+      --dim:        #484f58;
+      --radius:     10px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 56px;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: clamp(1.35rem, 4vw, 1.9rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .subhead {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .subhead a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .subhead a:hover {
+      text-decoration: none;
+    }
+
+    /* ── Stats ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 580px) {
+      .stats-row { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border-dim);
+      border-top: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+
+    .stat-n {
+      font-size: clamp(1.4rem, 4vw, 1.85rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-l {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    /* ── Layout grids ── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 740px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border-dim);
+      border-radius: var(--radius);
+      padding: 18px 20px 20px;
+    }
+
+    .card-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .chart-wrap {
+      position: relative;
+    }
+
+    /* ── Notable items ── */
+    .notable {
+      background: var(--surface);
+      border: 1px solid var(--border-dim);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .notable-head {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-dim);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .notable-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .notable-body {
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 740px) {
+      .notable-body { grid-template-columns: 1fr 1fr; }
+    }
+
+    .insight {
+      background: var(--surface-2);
+      border-radius: 8px;
+      padding: 13px 15px;
+      border: 1px solid var(--border-dim);
+      border-top: 2px solid var(--accent);
+    }
+
+    .insight.tag-s-top { border-top-color: lightgray;/*#f87171;*/ }
+    .insight.tag-u-top { border-top-color: lightgray;/*#fbbf24;*/ }
+    .insight.tag-a-top { border-top-color: lightgray;/*#a78bfa;*/ }
+    .insight.tag-c-top { border-top-color: lightgray;/*#34d399;*/ }
+    .insight.tag-b-top { border-top-color: lightgray;/*#38bdf8;*/ }
+    .insight.tag-k-top { border-top-color: lightgray;/*#fb923c;*/ }
+
+    .insight-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .insight-top strong {
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .insight p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tag-s { background: rgba(248,113,113,0.15); color: #f87171; }
+    .tag-u { background: rgba(251,191,36,0.15);  color: #fbbf24; }
+    .tag-a { background: rgba(167,139,250,0.15); color: #a78bfa; }
+    .tag-c { background: rgba(52,211,153,0.15);  color: #34d399; }
+    .tag-b { background: rgba(56,189,248,0.15);  color: #38bdf8; }
+    .tag-k { background: rgba(251,146,60,0.15);  color: #fb923c; }
+
+    /* ── Source strip ── */
+    .source {
+      background: var(--surface);
+      border: 1px solid var(--border-dim);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .source a { color: var(--accent); text-decoration: underline; }
+    .source a:hover { text-decoration: none; }
+
+    /* ── Focus styles ── */
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": “Jeffrey Epstein's Amazon Account",
+    "description": "An interactive dashboard analyzing Jeffrey Epstein's Amazon shipment records from the Jmail document release.",
+    "author": {
+      "@type": "Organization",
+      "name": "Subtxt Press",
+      "url": "https://subtxtpress.github.io/home/index.html"
+    },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Subtxt Press",
+        "url": "https://subtxtpress.github.io/home/index.html"
+    },
+    "url": "https://subtxtpress.github.io/home/tools/Epstein/epstein.html"
+  }
+  </script>
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="header">
+      <div class="eyebrow">Subtxt Press &mdash; Report</div>
+      <h1>Jeffrey Epstein's Amazon Shipments</h1>
+      <p class="subhead">
+        654 orders shipped to 7 properties &bull; September 2007 &ndash; July 2019 &bull;
+        Source: <a href="https://docs.google.com/spreadsheets/d/1nAQSUE_bcqSwVbmfCy_wS9nYf9LBkJld_JQVW6EbD34/" target="_blank">JMail files via Dropsite News</a>
+      </p>
+    </header>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-n">654</div>
+        <div class="stat-l">Total Orders</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">$51.7K</div>
+        <div class="stat-l">Total Spent</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">7</div>
+        <div class="stat-l">Properties</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">2018</div>
+        <div class="stat-l">Peak &mdash; 283 orders</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Orders &amp; Spending by Year</div>
+        <div class="chart-wrap" style="height:230px">
+          <canvas id="timelineChart" role="img" aria-label="Bar and line chart: Orders rose from 14 in 2007 to a peak of 283 in 2018, then fell to 67 in 2019. Spending followed the same arc, peaking at $19,696 in 2018."></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spending by Location</div>
+        <div class="chart-wrap" style="height:230px">
+          <canvas id="locationChart" role="img" aria-label="Donut chart of spending by location: Palm Beach El Brillo Way $24,268 (47%), NYC 9 E 71st St $23,670 (46%), Private Island $2,655 (5%), Yacht Harbor $502, New Mexico $179, Paris $136."></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <div class="card-title">Purchase Categories (estimated)</div>
+      <div class="chart-wrap" style="height:310px">
+        <canvas id="categoriesChart" role="img" aria-label="Horizontal bar chart of estimated purchase categories: Men's Clothing 58, Home Decor/Rugs 46, Health and Supplements 38, Sleep/CPAP 24, Electronics 22, Books 22, Women's Clothing 20, Pool and Water Sports 18, Bikes and Fitness 16, Food 14, Children's Items 11, Surveillance 9, Adult/Unusual 8."></canvas>
+      </div>
+    </div>
+
+    <div class="notable">
+      <div class="notable-head">
+        <span class="notable-title">Notable Patterns &amp; Insights</span>
+      </div>
+      <div class="notable-body">
+
+        <div class="insight tag-k-top">
+          <div class="insight-top">
+            <span class="tag tag-k">Bulk</span>
+            <strong>Bulk Purchasing</strong>
+          </div>
+          <p>Frequent multi-unit orders &mdash; 5&times; Sony WH-1000XM3 headphones ($1,905 in one order), 8&times; SENSO Bluetooth headphones, 10&ndash;20 packs of Oral-B toothbrush heads, 5&ndash;10 packs of underwear, and 4&ndash;6 giant swan pool floats at once.</p>
+        </div>
+
+        <div class="insight tag-u-top">
+          <div class="insight-top">
+            <span class="tag tag-u">Unusual</span>
+            <strong>Sleep &amp; Health Obsession</strong>
+          </div>
+          <p>45+ orders related to sleep apnea &mdash; CPAP machines, masks from multiple brands (Fisher &amp; Paykel, Respironics, Vogvigo), CPAP hoses, and humidifiers. Separately, 4+ orders of anti-snoring devices across multiple brands shipped to all properties.</p>
+        </div>
+
+        <div class="insight tag-b-top">
+          <div class="insight-top">
+            <span class="tag tag-b">Books</span>
+            <strong>Book Selection</strong>
+          </div>
+          <p><em>Filthy Rich</em> &mdash; a book about his own victims &mdash; purchased 4 separate times. Other titles: <em>Secrets of Western Tantra</em>, <em>Modern Sex Magick</em>, <em>Ecstasy Through Tantra</em>, <em>Nobody Likes a Cockblock</em>, <em>Room at the Topless</em>, <em>Man from Orgy</em>, Nabokov novels, and <em>Stock Investing for Dummies</em>.</p>
+        </div>
+
+        <div class="insight tag-c-top">
+          <div class="insight-top">
+            <span class="tag tag-c">Children</span>
+            <strong>Children&rsquo;s Items</strong>
+          </div>
+          <p>Baby crib toys, stacking toys, and infant rattles ordered to NYC and Palm Beach addresses. Girls&rsquo; school uniforms in multiple sizes (Cherokee, generic brands) shipped to the same residential properties.</p>
+        </div>
+
+        <div class="insight tag-s-top">
+          <div class="insight-top">
+            <span class="tag tag-s">Surveillance</span>
+            <strong>Surveillance Equipment</strong>
+          </div>
+          <p>Hidden cameras (FREDI 1080p covert), 2&times; Blink XT home security camera systems, multiple URPOWER motion sensors, and a HWC Police Security Private Property sign ordered across various properties.</p>
+        </div>
+
+        <div class="insight tag-a-top">
+          <div class="insight-top">
+            <span class="tag tag-a">Adult</span>
+            <strong>Unusual Combinations</strong>
+          </div>
+          <p>Portable exotic stripper spinning pole, prostate massager, clitoral device, 12&Prime; disco mirror ball, Israel Defense Forces sweatshirt, adult FBI costume, wedding dress (size 6), vaginal tightening cream, saliva hormone test kit, and fake rubber cockroaches.</p>
+        </div>
+
+        <div class="insight tag-k-top">
+          <div class="insight-top">
+            <span class="tag tag-k">Bulk</span>
+            <strong>Pool Float Collection</strong>
+          </div>
+          <p>Extensive purchases of giant swan pool floats (75&Prime; size) ordered to multiple properties including the private island. One order included 4&ndash;6 swan floats at once. Also: inflatable islands, Swimline products, and luxury water sports equipment.</p>
+        </div>
+
+        <div class="insight tag-u-top">
+          <div class="insight-top">
+            <span class="tag tag-u">Unusual</span>
+            <strong>Geographic Pattern</strong>
+          </div>
+          <p>Palm Beach (El Brillo Way) and NYC (9 E 71st St) together account for 97% of spending. The private island (Little St. James) received fewer but more specialized shipments. Paris and New Mexico together totaled under $320.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="source">
+      <strong>Source:</strong> All listed items were found in the JMail files published by
+      <a href="https://dropsiteusa.com" target="_blank">Dropsite News</a>.
+      The full spreadsheet linking to each listing to its original email can be found <a href="https://docs.google.com/spreadsheets/d/1nAQSUE_bcqSwVbmfCy_wS9nYf9LBkJld_JQVW6EbD34/" target="_blank">here</a>.
+    </div>
+
+  </div>
+
+  <script>
+    const ACCENT   = '#38bdf8';
+    const GOLD     = '#fbbf24';
+    const MUTED    = '#8b949e';
+    const GRID     = 'rgba(255,255,255,0.06)';
+    const FONT     = { family: "'Segoe UI', system-ui, sans-serif" };
+    const TOOLTIP  = {
+      backgroundColor: '#1a1a1a',
+      borderColor: 'rgba(255,255,255,0.1)',
+      borderWidth: 1,
+      titleColor: '#e2e8f0',
+      bodyColor: '#8b949e',
+      padding: 12,
+      cornerRadius: 6,
+    };
+
+    // Timeline: bars = orders, line = spending
+    new Chart(document.getElementById('timelineChart'), {
+      type: 'bar',
+      data: {
+        labels: ['2007','2014','2015','2016','2017','2018','2019'],
+        datasets: [
+          {
+            type: 'bar',
+            label: 'Orders',
+            data: [14, 10, 19, 72, 189, 283, 67],
+            backgroundColor: 'rgba(56,189,248,0.22)',
+            borderColor: ACCENT,
+            borderWidth: 1,
+            borderRadius: 3,
+            yAxisID: 'yO',
+            order: 2,
+          },
+          {
+            type: 'line',
+            label: 'Spent ($)',
+            data: [200, 2767, 901, 6049, 14212, 19696, 7929],
+            borderColor: GOLD,
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: GOLD,
+            pointBorderColor: '#0a0a0a',
+            pointBorderWidth: 2,
+            tension: 0.3,
+            yAxisID: 'yS',
+            order: 1,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { labels: { color: MUTED, font: FONT, boxWidth: 11, padding: 14 } },
+          tooltip: {
+            ...TOOLTIP,
+            callbacks: {
+              label: ctx => ctx.dataset.label === 'Spent ($)'
+                ? ` $${ctx.parsed.y.toLocaleString()}`
+                : ` ${ctx.parsed.y} orders`
+            }
+          }
+        },
+        scales: {
+          yO: {
+            type: 'linear', position: 'left', beginAtZero: true,
+            grid: { color: GRID },
+            ticks: { color: MUTED, font: FONT }
+          },
+          yS: {
+            type: 'linear', position: 'right', beginAtZero: true,
+            grid: { display: false },
+            ticks: {
+              color: GOLD, font: FONT,
+              callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v)
+            }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: MUTED, font: FONT }
+          }
+        }
+      }
+    });
+
+    // Location donut
+    new Chart(document.getElementById('locationChart'), {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'NYC — 9 E 71st St',
+          'Palm Beach — El Brillo Way',
+          'Private Island — St. James',
+          'Yacht Harbor',
+          'New Mexico Ranch',
+          'Paris — Ave Foch'
+        ],
+        datasets: [{
+          data: [23670, 24268, 2655, 502, 179, 136],
+          backgroundColor: [
+            'rgba(56,189,248,0.8)',
+            'rgba(251,191,36,0.8)',
+            'rgba(167,139,250,0.8)',
+            'rgba(52,211,153,0.8)',
+            'rgba(248,113,113,0.8)',
+            'rgba(251,146,60,0.8)',
+          ],
+          borderColor: '#111111',
+          borderWidth: 2,
+          hoverOffset: 6,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '60%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: MUTED, font: { ...FONT, size: 11 }, padding: 9, boxWidth: 11 }
+          },
+          tooltip: {
+            ...TOOLTIP,
+            callbacks: { label: ctx => ` $${ctx.parsed.toLocaleString()}` }
+          }
+        }
+      }
+    });
+
+    // Categories
+    new Chart(document.getElementById('categoriesChart'), {
+      type: 'bar',
+      data: {
+        labels: [
+          "Men's Clothing",
+          'Home Decor / Rugs',
+          'Health & Supplements',
+          'Sleep / CPAP / Anti-Snoring',
+          'Electronics & Tech',
+          'Books',
+          "Women's Clothing",
+          'Pool & Water Sports',
+          'Bikes & Fitness',
+          'Food & Snacks',
+          "Children's Items",
+          'Surveillance / Cameras',
+          'Adult / Unusual',
+        ],
+        datasets: [{
+          label: 'Est. orders',
+          data: [58, 46, 38, 24, 22, 22, 20, 18, 16, 14, 11, 9, 8],
+          backgroundColor: [
+            'rgba(56,189,248,0.75)',
+            'rgba(56,189,248,0.62)',
+            'rgba(56,189,248,0.50)',
+            'rgba(56,189,248,0.38)',
+            'rgba(251,191,36,0.75)',
+            'rgba(251,191,36,0.62)',
+            'rgba(167,139,250,0.75)',
+            'rgba(167,139,250,0.62)',
+            'rgba(52,211,153,0.72)',
+            'rgba(52,211,153,0.58)',
+            'rgba(52,211,153,0.44)',
+            'rgba(248,113,113,0.8)',
+            'rgba(248,113,113,0.65)',
+          ],
+          borderWidth: 0,
+          borderRadius: 3,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            ...TOOLTIP,
+            callbacks: { label: ctx => ` ~${ctx.parsed.x} items` }
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            grid: { color: GRID },
+            ticks: { color: MUTED, font: FONT }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: MUTED, font: { ...FONT, size: 11 } }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
