@@ -15,6 +15,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/tools/CourtListener/search">
   <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/courtlistener.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Subtxt Press">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -24,10 +27,10 @@
   <meta name="twitter:creator" content="@subtxtpress">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="../icons/icon-180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../icons/icon-16.png">
-  <link rel="manifest" href="../icons/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="manifest" href="../../icons/site.webmanifest">
 
   <!-- Styles -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -1011,9 +1014,10 @@
 
   <script>
     // Configuration
-    const API_BASE = window.location.hostname === 'localhost'
-      ? 'http://localhost:8000/api'
-      : 'https://your-api-domain.com/api'; // Update this for production
+    // The CourtListener API requires a token, so this UI calls a local FastAPI
+    // backend (app.py) that holds the token and proxies requests. Run `python app.py`
+    // in tools/CourtListener/ before searching.
+    const API_BASE = 'http://localhost:8000/api';
 
     let currentTab = 'cases';
     let allResults = [];
