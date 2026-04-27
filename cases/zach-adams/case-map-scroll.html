@@ -223,6 +223,41 @@
       font-size: 14px; line-height: 1.75;
       color: var(--text2); margin-bottom: 12px;
     }
+    .step-figure {
+      margin: 18px 0 8px;
+      border: 1px solid rgba(244,229,196,0.10);
+      background: rgba(0,0,0,0.35);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .step-figure img {
+      display: block; width: 100%;
+      max-height: 280px; object-fit: cover;
+    }
+    .step-figure figcaption {
+      font-family: var(--mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.06em;
+      padding: 8px 12px; border-top: 1px dashed rgba(244,229,196,0.10);
+      text-transform: uppercase;
+    }
+    .step-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin: 18px 0 8px;
+    }
+    .step-gallery img {
+      display: block; width: 100%;
+      aspect-ratio: 4 / 3; object-fit: cover;
+      border: 1px solid rgba(244,229,196,0.10);
+      background: rgba(0,0,0,0.35);
+      border-radius: 2px;
+    }
+    .step-gallery + .gallery-caption {
+      font-family: var(--mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.06em;
+      margin: -2px 0 12px; text-transform: uppercase;
+    }
     .step .person-pill {
       display: inline-flex; align-items: center; gap: 5px;
       font-family: var(--mono); font-size: 10px;
@@ -502,6 +537,10 @@
     <div class="step-title">Two silhouettes in the carport</div>
     <p>Clint walks into the den and looks through the sidelights — the windows next to the front door. He doesn't see anything. Then he turns to the carport window and hears voices. He raises the blinds: two figures kneeling beneath the window in the dark of the carport. A male voice on the left, a female voice on the right.</p>
     <p>He recognizes Holly. The man sounds aggravated; Holly sounds upset and agreeing. It sounds, Clint will later say, like the man is giving orders. He listens for seconds. Holly is good friends with her boyfriend Drew — he assumes that's who she's with.</p>
+    <figure class="step-figure">
+      <img src="photos/garage-from-vantage-point.jpeg" alt="View from inside the house toward the carport, where Clint heard voices" loading="lazy" />
+      <figcaption>The carport, from Clint's vantage point inside the house</figcaption>
+    </figure>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport / kneeling</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">den window</span></div>
@@ -614,6 +653,10 @@
     <div class="step-title">Blood by the car</div>
     <p>Clint opens the back door — the cold air hits him, and he's confused. He runs to his room to pull on pants, socks, shoes, a jacket. He grabs his cell phone and a loaded pistol and walks out through the open garage. Near Holly's car, where the silhouettes had been kneeling, he finds a pool of blood. He thinks maybe Drew or Richie shot a turkey.</p>
     <p>The blood was not in the carport when Karen left.</p>
+    <figure class="step-figure">
+      <img src="photos/blood-in-garage.png" alt="Pool of blood on the carport floor near Holly's car" loading="lazy" />
+      <figcaption>Carport floor, near Holly's car</figcaption>
+    </figure>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">woods (gone)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">carport / blood</span></div>
@@ -640,6 +683,10 @@
     <div class="step-title">911</div>
     <p>Clint calls 911 from the yard, gun in hand, scanning the tree line.</p>
     <p>The search for Holly Bobo begins.</p>
+    <figure class="step-figure">
+      <img src="photos/more-blood-in-garage.jpeg" alt="Additional blood evidence on the carport floor" loading="lazy" />
+      <figcaption>Carport floor, before processing</figcaption>
+    </figure>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">yard / 911</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ home</span></div>
@@ -935,13 +982,17 @@
     </div>
   </div>
 
-  <!-- STEP 21b: Yellow Springs Road evidence -->
-  <div class="step" data-step="21" data-border="var(--c-evid)" data-focus="yellow-springs,austin-home,bobo-home">
+  <!-- STEP 21b: Gooch Road evidence -->
+  <div class="step" data-step="21" data-border="var(--c-evid)" data-focus="underwear-find,paper-find,austin-home" data-max-zoom="17">
     <div class="step-time">Late afternoon</div>
-    <div class="step-title">A trail on Yellow Springs Road</div>
-    <p>Searchers comb the road network around the Bobo home. On Yellow Springs Road, a man named Gerald Stephens finds a pair of women's underwear in the middle of the road. Further down the same road, he picks up a piece of paper with Holly's name on it.</p>
-    <p>Booth notes the location: roughly <strong>75 feet from Shayne Austin's driveway</strong>.</p>
+    <div class="step-title">A trail on Gooch Road</div>
+    <p>Searchers comb the road network around the Bobo home. Driving slowly along Gooch Road, a cattle farmer named Gerald Stephens spots a pink item on the right shoulder, stops, and identifies it as a pair of women's underwear. About <strong>300–400 feet up the road</strong>, near the Yellow Springs community, he picks up a folded wad of paper that turns out to be one of Holly's school papers, with her name and address on it.</p>
+    <p>Stephens later testifies that the residence further down the road from the underwear find was Shayne Austin's mobile home. Booth, the investigator on scene, records the underwear's find spot using the nearest landmark: about <strong>75 feet from Austin's driveway</strong>, on the road itself.</p>
     <p style="opacity:0.7;font-size:12px;">Lab analysis later confirms the underwear is <em>not</em> Holly's.</p>
+    <figure class="step-figure">
+      <img src="photos/search.jpeg" alt="Searchers combing the area near the Bobo home" loading="lazy" />
+      <figcaption>Searchers in the area</figcaption>
+    </figure>
   </div>
 
   <!-- STEP 21c: TBI lab personnel clear the scene -->
@@ -971,6 +1022,20 @@
     <div class="step-time">2011 &ndash; 2014</div>
     <div class="step-title">Evidence sites</div>
     <p>Over the next three years, pieces of evidence surfaced across the region — Holly's lunchbox, her cell phone, a SIM card, nursing papers, and, finally, her remains.</p>
+    <div class="step-gallery">
+      <img src="photos/evidence-found-1.jpeg" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-2.jpeg" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-3.webp" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-4.webp" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-5.webp" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-6.webp" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-7.webp" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-8.webp" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-9.jpeg" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-10.png" alt="Recovered evidence" loading="lazy" />
+      <img src="photos/evidence-found-11.jpeg" alt="Recovered evidence" loading="lazy" />
+    </div>
+    <p class="gallery-caption">Items recovered between 2011 and 2014</p>
   </div>
 
   <!-- STEP 24 -->
@@ -978,6 +1043,14 @@
     <div class="step-time">September 7, 2014</div>
     <div class="step-title">Remains found</div>
     <p>A ginseng hunter named Larry Stone found Holly's skull beneath an upside-down bucket in the woods near a cell tower — roughly three miles from Shayne Austin's home, five from Zachary Adams'.</p>
+    <figure class="step-figure">
+      <img src="photos/remains-discovered.jpeg" alt="Site where Holly Bobo's remains were discovered" loading="lazy" />
+      <figcaption>Discovery site, September 7, 2014</figcaption>
+    </figure>
+    <figure class="step-figure">
+      <img src="photos/remains-recovered.jpeg" alt="Recovery of Holly Bobo's remains" loading="lazy" />
+      <figcaption>Recovery</figcaption>
+    </figure>
   </div>
 
   <!-- ACT 7: PEOPLE & PLACES -->
@@ -1070,13 +1143,15 @@ const POI = {
   'barnes-home':     { coord: BARNES_HOME,                  color: '#A8A29E', label: 'BARNES / WISE', pos: 'below' },
   'scotts-hill':     { coord: SCOTTS_HILL_ELEM,             color: '#E6C567', label: 'SCOTTS HILL ELEMENTARY' },
   'adams-home':      { coord: ADAMS_HOME,                   color: '#E63946', label: 'ADAMS HOME' },
-  'austin-home':     { coord: AUSTIN_HOME,                  color: '#a17ec2', label: 'AUSTIN HOME' },
+  'austin-home':     { coord: AUSTIN_HOME,                  color: '#a17ec2', label: 'AUSTIN HOME', pos: 'below' },
   'britt-home':      { coord: BRITT_HOME,                   color: '#D4A017', label: 'BRITT RESIDENCE' },
   'remains':         { coord: REMAINS_SITE,                 color: '#EBE2CD', label: 'REMAINS' },
   'atm':             { coord: ATM_LOC,                      color: '#E63946', label: 'CB&S BANK ATM' },
   'dottie':          { coord: [35.8186527, -88.0984935],    color: '#8E9AAF', label: "DOTTIE'S" },
   'corn-crib':       { coord: [35.8166, -88.127187],        color: '#8E9AAF', label: 'CORN CRIB' },
   'yellow-springs':  { coord: [35.8103424, -88.1233707],    color: '#EBE2CD', label: 'YELLOW SPRINGS RD' },
+  'underwear-find':  { coord: [35.8066301, -88.1206820],    color: '#EBE2CD', label: 'UNDERWEAR FOUND IN ROAD', offset: [0.0003, -0.0020] },
+  'paper-find':      { coord: [35.8079, -88.1215],          color: '#EBE2CD', label: "HOLLY'S SCHOOL PAPER FOUND", pos: 'right' },
   'dick-adams':      { coord: [35.8206623, -88.0840042],    color: '#8E9AAF', label: 'DICK ADAMS', pos: 'below' },
   'austin-parents':  { coord: [35.817543, -88.101237],      color: '#a17ec2', label: 'AUSTIN PARENTS' },
   'birdsong':        { coord: [35.8680952, -87.9434109],    color: '#9D4EDD', label: 'BIRDSONG' },
@@ -1424,10 +1499,11 @@ function renderFocus(el) {
       activeMarkers.push(distLbl);
     }
   }
+  const maxZoomOverride = parseInt(el.dataset.maxZoom, 10);
   if (coords.length === 1) {
-    map.flyTo(coords[0], 15, { duration: 1.2 });
+    map.flyTo(coords[0], Number.isFinite(maxZoomOverride) ? maxZoomOverride : 15, { duration: 1.2 });
   } else if (coords.length > 1) {
-    map.flyToBounds(coords, { duration: 1.2, padding: [140, 160], maxZoom: 13 });
+    map.flyToBounds(coords, { duration: 1.2, padding: [140, 160], maxZoom: Number.isFinite(maxZoomOverride) ? maxZoomOverride : 13 });
   }
   return true;
 }
