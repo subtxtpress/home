@@ -1017,7 +1017,7 @@
     // The CourtListener API requires a token, so this UI calls a local FastAPI
     // backend (app.py) that holds the token and proxies requests. Run `python app.py`
     // in tools/CourtListener/ before searching.
-    const API_BASE = 'http://localhost:8000/api';
+    const API_BASE = 'https://courtlistener.subtxtpress.com/api';
 
     let currentTab = 'cases';
     let allResults = [];
