@@ -1,18 +1,22 @@
-<!-- ═══ REPLACE EXISTING <head> CONTENT WITH THIS ═══ -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
 <title>GIS Procurement Intelligence Dashboard — Subtxt Press</title>
 <meta name="description" content="Federal GIS contract search, state procurement portal directory, active solicitation discovery, and public records request generator. Live data from USASpending.gov, SAM.gov, and 50-state open data APIs.">
 <meta name="author" content="Subtxt Press">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://subtxtpress.github.io/home/tools/gis/procurement.html">
+<link rel="canonical" href="https://subtxtpress.github.io/home/tools/gis/procurement">
  
 <!-- Open Graph -->
 <meta property="og:title" content="GIS Procurement Intelligence Dashboard">
 <meta property="og:description" content="Federal GIS contract search, state procurement portal directory, active solicitation discovery, and public records request generator. Live data from USASpending.gov, SAM.gov, and 50-state open data APIs.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://subtxtpress.github.io/home/tools/gis/procurement.html">
-<meta property="og:image" content="https://subtxtpress.github.io/home/tools/gis/img/gis-procurement.png">
+<meta property="og:url" content="https://subtxtpress.github.io/home/tools/gis/procurement">
+<meta property="og:image" content="https://subtxtpress.github.io/home/tools/gis/img/gis-procurement.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="620">
 <meta property="og:site_name" content="Subtxt Press">
@@ -23,7 +27,7 @@
 <meta name="twitter:creator" content="@subtxtpress">
 <meta name="twitter:title" content="GIS Procurement Intelligence Dashboard">
 <meta name="twitter:description" content="Federal GIS contract search, state procurement portal directory, active solicitation discovery, and public records request generator. Live data from USASpending.gov, SAM.gov, and 50-state open data APIs.">
-<meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/gis/img/gis-procurement.png">
+<meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/gis/img/gis-procurement.jpg">
  
 <!-- Favicons & Manifest -->
 <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
@@ -59,26 +63,26 @@
 <meta name="description" content="Federal GIS contract search, state procurement portal directory, and records request generator.">
 <style>
   :root {
-    --bg-primary: #1a1714;
-    --bg-secondary: #231f1b;
-    --bg-tertiary: #2c2722;
-    --bg-input: #1a1714;
-    --border: #3d3630;
-    --border-focus: #b8926a;
-    --text-primary: #e8ddd0;
-    --text-secondary: #a89880;
-    --text-muted: #7a6e60;
-    --accent: #b8926a;
-    --accent-hover: #d4a97a;
-    --accent-dim: rgba(184,146,106,0.15);
-    --error: #c45c4a;
-    --success: #6a9a5b;
-    --tag-bg: rgba(184,146,106,0.12);
-    --tag-border: rgba(184,146,106,0.25);
+    --bg-primary: #F7F5F2;
+    --bg-secondary: #E8E2D9;
+    --bg-tertiary: #DDD6CC;
+    --bg-input: #FFFFFF;
+    --border: #C5B99A;
+    --border-focus: #8B4513;
+    --text-primary: #1C1917;
+    --text-secondary: #44403C;
+    --text-muted: #78716C;
+    --accent: #8B4513;
+    --accent-hover: #A0522D;
+    --accent-dim: rgba(139,69,19,0.10);
+    --error: #DC2626;
+    --success: #16A34A;
+    --tag-bg: rgba(139,69,19,0.08);
+    --tag-border: rgba(139,69,19,0.20);
     --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
     --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -231,7 +235,7 @@
   }
   .btn:hover {
     background: var(--accent);
-    color: var(--bg-primary);
+    color: #FFFFFF;
   }
   .btn:disabled {
     opacity: 0.4;
@@ -298,7 +302,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  tr:hover td { color: var(--text-primary); background: rgba(184,146,106,0.03); }
+  tr:hover td { color: var(--text-primary); background: rgba(139,69,19,0.04); }
   td a {
     color: var(--accent);
     text-decoration: none;
@@ -317,8 +321,8 @@
     letter-spacing: 0.04em;
   }
   .tag-state {
-    background: rgba(106,154,91,0.12);
-    border-color: rgba(106,154,91,0.25);
+    background: rgba(22,163,74,0.08);
+    border-color: rgba(22,163,74,0.20);
     color: var(--success);
   }
 

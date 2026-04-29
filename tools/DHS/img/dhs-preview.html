@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280">
+<title>OG Preview — DHS Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; background: #060B14; }
+
+  .frame {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: #060B14;
+    overflow: hidden;
+  }
+
+  /* ── CANVAS NETWORK (drawn by JS) ── */
+  canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* ── GRID OVERLAY ── */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(18,64,60,0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(18,64,60,0.18) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ── VIGNETTE ── */
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(6,11,20,0.85) 100%);
+  }
+
+  /* ── LEFT CONTENT BLOCK ── */
+  .content {
+    position: absolute;
+    left: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 620px;
+    z-index: 10;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8AACB0;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D8DADB;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(216,218,219,0.6);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1.0;
+    color: #F5F5F5;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: #D8DADB;
+  }
+
+  .rule {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(to right, #D8DADB, rgba(216,218,219,0));
+    margin: 28px 0;
+  }
+
+  .desc {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(216,218,219,0.7);
+    max-width: 52ch;
+    border-left: 2px solid rgba(18,64,60,0.9);
+    padding-left: 16px;
+  }
+
+  .byline {
+    margin-top: 36px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.4);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .byline::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: rgba(216,218,219,0.25);
+  }
+
+  /* ── TOP BORDER STRIP ── */
+  .top-strip {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #D8DADB 0%, #9AACB0 40%, rgba(18,64,60,0.3) 100%);
+    z-index: 20;
+  }
+
+  /* ── BOTTOM META BAR ── */
+  .meta-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: rgba(18,64,60,0.12);
+    border-top: 1px solid rgba(18,64,60,0.5);
+    display: flex;
+    align-items: center;
+    padding: 0 72px;
+    gap: 32px;
+    z-index: 20;
+  }
+
+  .meta-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.3);
+  }
+
+  .meta-item + .meta-item::before {
+    content: '·';
+    margin-right: 32px;
+    color: rgba(18,64,60,0.8);
+  }
+
+  /* ── STAT CHIPS (right side) ── */
+  .stats {
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-end;
+  }
+
+  .stat-chip {
+    background: rgba(18,64,60,0.22);
+    border: 1px solid rgba(18,64,60,0.7);
+    border-right: 2px solid rgba(216,218,219,0.25);
+    padding: 10px 18px;
+    min-width: 180px;
+    text-align: right;
+  }
+
+  .stat-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 600;
+    color: #D8DADB;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.4);
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+  <!-- Network canvas (drawn by JS below) -->
+  <canvas id="net" width="1280" height="720"></canvas>
+
+  <!-- Grid -->
+  <div class="grid"></div>
+
+  <!-- Vignette -->
+  <div class="vignette"></div>
+
+  <!-- Top accent strip -->
+  <div class="top-strip"></div>
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="eyebrow">Subtxt Press · Investigative</div>
+    <h1>ICE/DHS<br><em>Surveillance</em><br>Infrastructure</h1>
+    <div class="rule"></div>
+    <p class="desc">Interactive dashboard mapping secret watchlists, Palantir's deportation machine, and the surveillance network tracking millions of Americans.</p>
+    <div class="byline">subtxtpress.github.io</div>
+  </div>
+
+  <!-- Stat chips -->
+  <div class="stats">
+    <div class="stat-chip">
+      <div class="stat-val">17+</div>
+      <div class="stat-label">Surveillance Systems</div>
+    </div>
+    <div class="stat-chip">
+      <div class="stat-val">$2.4B</div>
+      <div class="stat-label">Palantir Contracts</div>
+    </div>
+    <div class="stat-chip">
+      <div class="stat-val">300M+</div>
+      <div class="stat-label">Records Tracked</div>
+    </div>
+  </div>
+
+  <!-- Bottom meta bar -->
+  <div class="meta-bar">
+    <span class="meta-item">Interactive Dashboard</span>
+    <span class="meta-item">ICE · DHS · CBP · USCIS</span>
+    <span class="meta-item">Palantir · AWS · Accenture</span>
+    <span class="meta-item">2025</span>
+  </div>
+</div>
+
+<script>
+// ── NETWORK GRAPH ──────────────────────────────────────────────
+const canvas = document.getElementById('net');
+const ctx    = canvas.getContext('2d');
+const W = 1280, H = 720;
+
+// Seed deterministic nodes — clustered toward right half, some bleeding left
+const nodes = [
+  // Primary cluster (center-right)
+  { x: 820, y: 300, r: 5.5,  bright: 1.0 },
+  { x: 920, y: 220, r: 3.8,  bright: 0.85 },
+  { x: 1020, y: 310, r: 4.2, bright: 0.9 },
+  { x: 870, y: 410, r: 3.5,  bright: 0.75 },
+  { x: 960, y: 400, r: 2.8,  bright: 0.7 },
+  { x: 1080, y: 230, r: 3.0, bright: 0.65 },
+  { x: 1130, y: 380, r: 2.5, bright: 0.6 },
+  { x: 750, y: 230, r: 3.2,  bright: 0.7 },
+  { x: 780, y: 450, r: 2.6,  bright: 0.6 },
+  // Secondary cluster (upper right)
+  { x: 1160, y: 160, r: 3.5, bright: 0.65 },
+  { x: 1060, y: 130, r: 2.8, bright: 0.55 },
+  { x: 1200, y: 280, r: 2.2, bright: 0.5 },
+  // Outer scatter
+  { x: 690, y: 340, r: 2.0,  bright: 0.45 },
+  { x: 1180, y: 480, r: 2.2, bright: 0.45 },
+  { x: 1050, y: 530, r: 1.8, bright: 0.4 },
+  { x: 900, y: 550, r: 2.0,  bright: 0.4 },
+  { x: 830, y: 160, r: 2.4,  bright: 0.55 },
+  { x: 1240, y: 400, r: 1.6, bright: 0.35 },
+  { x: 680, y: 190, r: 1.8,  bright: 0.4 },
+  { x: 650, y: 480, r: 1.5,  bright: 0.35 },
+  // Faint bleed into left
+  { x: 590, y: 280, r: 1.4,  bright: 0.25 },
+  { x: 560, y: 420, r: 1.2,  bright: 0.2  },
+];
+
+// Connect nodes within distance threshold
+const EDGE_DIST = 200;
+
+function alpha(bright, base) {
+  return base * bright;
+}
+
+// Draw edges first
+for (let i = 0; i < nodes.length; i++) {
+  for (let j = i + 1; j < nodes.length; j++) {
+    const a = nodes[i], b = nodes[j];
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < EDGE_DIST) {
+      const fade = 1 - dist / EDGE_DIST;
+      const combinedBright = (a.bright + b.bright) / 2;
+
+      const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+      grad.addColorStop(0, `rgba(216,218,219,${alpha(combinedBright, 0.35) * fade})`);
+      grad.addColorStop(0.5, `rgba(138,176,181,${alpha(combinedBright, 0.2) * fade})`);
+      grad.addColorStop(1, `rgba(18,64,60,${alpha(combinedBright, 0.4) * fade})`);
+
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 0.8 * combinedBright;
+      ctx.stroke();
+    }
+  }
+}
+
+// Draw nodes
+for (const n of nodes) {
+  // Outer glow
+  const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 5);
+  glow.addColorStop(0, `rgba(216,218,219,${0.12 * n.bright})`);
+  glow.addColorStop(1, 'rgba(216,218,219,0)');
+  ctx.beginPath();
+  ctx.arc(n.x, n.y, n.r * 5, 0, Math.PI * 2);
+  ctx.fillStyle = glow;
+  ctx.fill();
+
+  // Node ring
+  ctx.beginPath();
+  ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(18,64,60,${0.8 * n.bright})`;
+  ctx.fill();
+  ctx.strokeStyle = `rgba(216,218,219,${0.9 * n.bright})`;
+  ctx.lineWidth = 0.9 * n.bright;
+  ctx.stroke();
+
+  // Core fill
+  if (n.bright > 0.8) {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r * 0.45, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(216,218,219,${0.95 * n.bright})`;
+    ctx.fill();
+  }
+}
+
+// Faint scan-line texture
+for (let y = 0; y < H; y += 3) {
+  ctx.beginPath();
+  ctx.moveTo(0, y);
+  ctx.lineTo(W, y);
+  ctx.strokeStyle = 'rgba(6,11,20,0.04)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+}
+</script>
+</body>
+</html>

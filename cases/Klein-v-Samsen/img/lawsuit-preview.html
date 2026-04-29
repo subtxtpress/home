@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: #060B14;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74,138,124,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,138,124,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    z-index: 0;
+  }
+
+  .nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    background: rgba(6,11,20,0.97);
+    border-bottom: 1px solid rgba(244,229,196,0.10);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 20;
+  }
+
+  .nav-brand {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 19px;
+    color: #F5F5F5;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4a8a7c;
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(74,138,124,0.35);
+  }
+
+  .nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.65);
+  }
+
+  .nav-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #ebe2cd;
+    background: rgba(18,64,60,0.45);
+    border: 1px solid rgba(74,138,124,0.35);
+    padding: 6px 14px;
+    border-radius: 3px;
+  }
+
+  .main {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 680px 1fr;
+    grid-template-rows: 1fr auto;
+    z-index: 1;
+  }
+
+  .left {
+    grid-row: 1;
+    grid-column: 1;
+    padding: 72px 48px 0 56px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 5;
+  }
+
+  .eyebrow-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dash {
+    width: 36px;
+    height: 2px;
+    background: #C04E01;
+  }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C04E01;
+  }
+
+  .headline {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.04;
+    color: #F5F5F5;
+    letter-spacing: -0.02em;
+  }
+
+  .headline em {
+    font-style: italic;
+    color: #4a8a7c;
+  }
+
+  .desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(216,218,219,0.70);
+    margin-top: 22px;
+    letter-spacing: 0.005em;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .cta-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #060B14;
+    background: #4a8a7c;
+    padding: 13px 26px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cta-secondary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.65);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .right {
+    grid-row: 1;
+    grid-column: 2;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .viz-frame {
+    position: absolute;
+    top: 80px;
+    right: 32px;
+    bottom: 80px;
+    left: 16px;
+    border: 1px solid rgba(74,138,124,0.22);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .corner {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    z-index: 3;
+  }
+  .corner-tl { top: -1px; left: -1px; border-top: 2px solid #4a8a7c; border-left: 2px solid #4a8a7c; }
+  .corner-tr { top: -1px; right: -1px; border-top: 2px solid #4a8a7c; border-right: 2px solid #4a8a7c; }
+  .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #4a8a7c; border-left: 2px solid #4a8a7c; }
+  .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #4a8a7c; border-right: 2px solid #4a8a7c; }
+
+  .viz-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(6,11,20,0.45) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Era timeline visualization */
+  .era-viz {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 56px;
+    gap: 0;
+  }
+
+  .era-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(244,229,196,0.06);
+    position: relative;
+  }
+
+  .era-row:last-child { border-bottom: none; }
+
+  .era-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .era-bar {
+    height: 6px;
+    border-radius: 3px;
+    opacity: 0.7;
+  }
+
+  .era-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.75);
+    white-space: nowrap;
+    width: 110px;
+    flex-shrink: 0;
+  }
+
+  .era-dates {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    color: rgba(216,218,219,0.55);
+    letter-spacing: 0.04em;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .scales-overlay {
+    display: none;
+  }
+
+  /* Quote cards */
+  .quote-float {
+    position: absolute;
+    z-index: 3;
+    background: rgba(6,11,20,0.88);
+    border: 1px solid rgba(244,229,196,0.12);
+    border-radius: 6px;
+    padding: 14px 18px;
+    backdrop-filter: blur(8px);
+    /*max-width: 320px;*/
+  }
+
+  .quote-float-text {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(245,245,245,0.90);
+  }
+
+  .quote-float-src {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7.5px;
+    color: rgba(216,218,219,0.55);
+    letter-spacing: 0.04em;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  .quote-float-era {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .stats-bar {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    display: flex;
+    border-top: 1px solid rgba(244,229,196,0.10);
+    height: 76px;
+    z-index: 10;
+    background: rgba(6,11,20,0.97);
+  }
+
+  .stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 32px;
+    border-right: 1px solid rgba(244,229,196,0.06);
+  }
+
+  .stat:last-child {
+    border-right: none;
+  }
+
+  .stat-value {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #F5F5F5;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.50);
+    margin-top: 5px;
+  }
+
+  .brand-stamp {
+    position: absolute;
+    bottom: 6px;
+    right: 16px;
+    z-index: 20;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7.5px;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(216,218,219,0.15);
+  }
+</style>
+</head>
+<body>
+
+  <div class="nav">
+    <span class="nav-brand">Klein v. Samsen</span>
+    <span class="nav-sub">Anti-SLAPP</span>
+    <div class="nav-links">
+      <span class="nav-link">Analysis</span>
+      <span class="nav-link">Timeline</span>
+      <span class="nav-link">Legal</span>
+      <span class="nav-link">Sources</span>
+      <span class="nav-cta">Case No. 30-2026-01553698-CU-DF-CJC</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="left">
+      <div class="eyebrow-line">
+        <span class="eyebrow-dash"></span>
+        <span class="eyebrow">Position Tracker &amp; Analysis</span>
+      </div>
+
+      <h1 class="headline">
+        The Evolution of<br>
+        Ethan Klein's Position<br>
+        on <em>Palestine</em> &amp; Israel<br>
+      </h1>
+
+      <p class="desc">
+        A compare/contrast analysis across three distinct eras — drawn from<br>
+        transcripts, videos, and public statements documented in the<br>
+        Klein v. Samsen case materials.
+      </p>
+
+      <div class="cta-row">
+        <span class="cta-primary">Read Analysis →</span>
+        <span class="cta-secondary">View Sources ↓</span>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="viz-frame">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <!-- Scales watermark -->
+        <svg class="scales-overlay" viewBox="0 0 496.159 496.159" xmlns="http://www.w3.org/2000/svg">
+          <rect x="243.03" y="157.629" fill="#F5F5F5" width="10.938" height="202.92"/>
+          <path fill="#F5F5F5" d="M268.273,386.501c0-46.279-19.353-45.438-19.353-45.438s-19.353-0.842-19.353,45.438c0,0,5.049,17.67-78.253,17.67v8.414h195.211v-8.414C263.226,404.171,268.273,386.501,268.273,386.501z"/>
+          <path fill="#F5F5F5" d="M248.5,123.134c-4.628,0-10.813,9.808-10.813,31.73s22.467,21.922,22.467,0C260.154,132.941,253.128,123.134,248.5,123.134z"/>
+          <path fill="#F5F5F5" d="M369.95,191.075c-1.718-0.696-3.685,0.13-4.385,1.853l-45.437,111.909c-0.7,1.723,0.129,3.686,1.852,4.385c0.415,0.169,0.843,0.248,1.266,0.248c1.328,0,2.588-0.793,3.119-2.1l45.437-111.91C372.502,193.737,371.673,191.774,369.95,191.075z"/>
+          <path fill="#F5F5F5" d="M431.964,304.837l-45.437-111.909c-0.7-1.723-2.667-2.549-4.385-1.853c-1.723,0.699-2.552,2.662-1.853,4.385l45.438,111.91c0.53,1.307,1.79,2.1,3.119,2.1c0.422,0,0.851-0.079,1.266-0.248C431.834,308.522,432.663,306.559,431.964,304.837z"/>
+          <path fill="#F5F5F5" d="M319.32,304c0,0,0.842,39.967,57.218,39.967c56.375,0,56.375-39.967,56.375-39.967H319.32z"/>
+          <path fill="#F5F5F5" d="M386.405,170.553c-0.007,0.033-0.02,0.066-0.027,0.101c-1.458-2.901-4.231-5.341-7.836-6.499c-6.525-2.098-13.288,0.783-15.104,6.432c-1.816,5.651,2.002,11.932,8.528,14.028c0.158,0.051,0.316,0.086,0.474,0.131c-3.192,0.753-6.618,0.694-9.967-0.383c-4.94-1.588-13.398-11.229-31.094-16.917c-14.019-4.506-45.149-5.23-85.212-18.106l-4.249,13.218c32.111,10.32,64.651,10.515,78.967,14.627c26.484,7.608,32.891,14.99,39.777,20.148c6.885,5.159,23.311,3.092,27.221-9.075C389.844,182.152,389.135,175.831,386.405,170.553z"/>
+          <path fill="#F5F5F5" d="M176.031,224.837l-45.437-111.909c-0.7-1.723-2.667-2.549-4.385-1.853c-1.723,0.699-2.552,2.662-1.853,4.385l45.438,111.91c0.531,1.307,1.79,2.1,3.119,2.1c0.422,0,0.851-0.079,1.266-0.248C175.901,228.522,176.73,226.559,176.031,224.837z"/>
+          <path fill="#F5F5F5" d="M114.018,111.075c-1.718-0.696-3.685,0.13-4.385,1.853L64.196,224.837c-0.7,1.723,0.129,3.686,1.852,4.385c0.415,0.169,0.843,0.248,1.266,0.248c1.328,0,2.588-0.793,3.119-2.1l45.437-111.91C116.569,113.737,115.74,111.774,114.018,111.075z"/>
+          <path fill="#F5F5F5" d="M63.247,224c0,0,0,39.967,56.375,39.967c56.376,0,57.217-39.967,57.217-39.967H63.247z"/>
+          <path fill="#F5F5F5" d="M166.358,114.409c-17.696-5.688-30.187-2.778-35.127-4.366c-3.35-1.076-6.168-3.024-8.324-5.496c0.155,0.055,0.303,0.119,0.461,0.17c6.524,2.097,13.288-0.782,15.104-6.434c1.816-5.648-2.003-11.93-8.528-14.026c-3.605-1.159-7.281-0.793-10.156,0.717c0.014-0.033,0.022-0.067,0.037-0.099c-5.294,2.7-9.554,7.424-11.516,13.529c-3.91,12.166,8.236,23.416,16.838,23.234c8.602-0.18,18.109-2.447,44.067,6.8c14.03,4.997,40.591,23.797,72.703,34.118l4.249-13.218C206.101,136.462,180.377,118.915,166.358,114.409z"/>
+        </svg>
+
+        <!-- Era timeline viz -->
+        <div class="era-viz">
+          <div class="era-row">
+            <div class="era-dot" style="background:#4a8a7c;"></div>
+            <span class="era-label">Era 1 · Pre-Breakup</span>
+            <div class="era-bar" style="width:280px; background:linear-gradient(to right, #4a8a7c, rgba(74,138,124,0.3));"></div>
+            <span class="era-dates">2017 – mid 2023</span>
+          </div>
+          <div class="era-row">
+            <div class="era-dot" style="background:#ebe2cd;"></div>
+            <span class="era-label">Era 2 · The Pivot</span>
+            <div class="era-bar" style="width:200px; background:linear-gradient(to right, #ebe2cd, rgba(235,226,205,0.3));"></div>
+            <span class="era-dates">Late 2023 – Early 2025</span>
+          </div>
+          <div class="era-row">
+            <div class="era-dot" style="background:#C04E01;"></div>
+            <span class="era-label">Era 3 · The Shield</span>
+            <div class="era-bar" style="width:140px; background:linear-gradient(to right, #C04E01, rgba(192,78,1,0.3));"></div>
+            <span class="era-dates">2025 – Present</span>
+          </div>
+        </div>
+
+        <!-- Floating quote cards -->
+        <div class="quote-float" style="bottom: 28px; left: 24px; max-width: 300px;">
+          <div class="quote-float-text">
+            <span class="quote-float-era" style="background:#4a8a7c;"></span>
+            "Genocidal, barbaric freaks... genocidal war criminals."
+          </div>
+          <div class="quote-float-src">H3TV #93 · Oct 9, 2023</div>
+        </div>
+
+        <div class="quote-float" style="top: 24px; right: 24px; max-width: 290px;">
+          <div class="quote-float-text">
+            <span class="quote-float-era" style="background:#C04E01;"></span>
+            "Psychopathic terrorists of the worst order."
+          </div>
+          <div class="quote-float-src">Content Nuke · Jan 31, 2025</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat" style="padding-left: 48px;">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Eras Tracked</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">38</div>
+        <div class="stat-label">Transcripts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">80+</div>
+        <div class="stat-label">Source Documents</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Legal Claims</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">§425.16</div>
+        <div class="stat-label">Anti-SLAPP Statute</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brand-stamp">subtxtpress · subtxtpress.github.io</div>
+
+</body>
+</html>

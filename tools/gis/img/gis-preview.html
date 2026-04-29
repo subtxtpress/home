@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>GIS Procurement Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1200px;
+    height: 675px;
+    overflow: hidden;
+    background: #1a1714;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .frame {
+    position: relative;
+    width: 1200px;
+    height: 620px;
+    background: #1a1714;
+    overflow: hidden;
+    margin-top: 2%;
+  }
+
+  .frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(184,146,106,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,146,106,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    z-index: 0;
+  }
+
+  /* ── LEFT COLUMN ── */
+  .left {
+    position: absolute;
+    left: 64px;
+    top: 0;
+    bottom: 72px;
+    width: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .eyebrow-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .eyebrow-dash {
+    width: 32px;
+    height: 1px;
+    background: #b8926a;
+    flex-shrink: 0;
+  }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b8926a;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.0;
+    color: #e8ddd0;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #a89880;
+    margin-bottom: 36px;
+    letter-spacing: 0.005em;
+  }
+
+  /* ── BOTTOM BAR ── */
+  .bottom-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 72px;
+    display: flex;
+    align-items: stretch;
+    border-top: 2px solid transparent;
+    background:
+      linear-gradient(rgba(26,23,20,0.97), rgba(26,23,20,0.97)) padding-box,
+      linear-gradient(to right, #7a6e60, #b8926a) border-box;
+    z-index: 10;
+  }
+
+  /* ── STAT NUMBERS ── */
+  .stats {
+    display: flex;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 60px;
+    border-right: 1px solid rgba(61,54,48,0.4);
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #e8ddd0;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: #7a6e60;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  /* ── BOTTOM CHIPS ── */
+  .chips {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding: 0 0 0 70px;
+    border-right: 1px solid rgba(61,54,48,0.4);
+  }
+
+  .chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #a89880;
+    border: 1px solid rgba(61,54,48,0.8);
+    border-radius: 2px;
+    padding: 5px 12px;
+  }
+
+  /* ── BRAND ── */
+  .brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(122,110,96,0.6);
+    display: flex;
+    align-items: center;
+    padding: 0 48px 0 32px;
+    margin-left: auto;
+  }
+
+  /* ── RIGHT TABLE PANEL ── */
+  .table-panel {
+    position: absolute;
+    right: 54px;
+    top: 56px;
+    bottom: 72px;
+    width: 470px;
+    height: 425px;
+    border: 1px solid rgba(61,54,48,0.8);
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+
+  .corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: 3;
+  }
+  .corner-tl { top: -1px; left: -1px; border-top: 2px solid #b8926a; border-left: 2px solid #b8926a; }
+  .corner-tr { top: -1px; right: -1px; border-top: 2px solid #b8926a; border-right: 2px solid #b8926a; }
+  .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #b8926a; border-left: 2px solid #b8926a; }
+  .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #b8926a; border-right: 2px solid #b8926a; }
+
+  .table-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b8926a;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(61,54,48,0.6);
+    background: rgba(35,31,27,0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .table-rows {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5%;
+    height: 44px;
+    border-bottom: 1px solid rgba(61,54,48,0.3);
+  }
+
+  .table-row:last-child {
+    border-bottom: none;
+  }
+
+  .vendor-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #e8ddd0;
+    letter-spacing: 0.005em;
+  }
+
+  .award-amount {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: #a89880;
+  }
+
+  .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #1a1714;
+    background: #b8926a;
+    border-radius: 2px;
+    padding: 3px 8px;
+  }
+
+  .badge.naics {
+    background: #6a9a5b;
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <!-- LEFT CONTENT -->
+  <div class="left">
+    <div class="eyebrow-line">
+      <span class="eyebrow-dash"></span>
+      <span class="eyebrow">Federal Procurement Search</span>
+    </div>
+    <h1>GIS<br>Procurement Intelligence Dashboard</h1>
+    <div class="description">
+      Search federal GIS contract awards, discover active solicitations, and generate public records requests across 50 state procurement portals with live government database queries.
+    </div>
+  </div>
+
+  <!-- RIGHT TABLE -->
+  <div class="table-panel">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+    <div class="table-header">Live Contract Query Results</div>
+    <div class="table-rows">
+      <div class="table-row">
+        <span class="vendor-name">Esri Inc.</span>
+        <span class="badge">541370</span>
+      </div>
+      <div class="table-row">
+        <span class="vendor-name">Maxar Technologies</span>
+        <span class="award-amount">$12.4M</span>
+      </div>
+      <div class="table-row">
+        <span class="vendor-name">Leidos</span>
+        <span class="badge">541370</span>
+      </div>
+      <div class="table-row">
+        <span class="vendor-name">Woolpert Inc.</span>
+        <span class="award-amount">$3.8M</span>
+      </div>
+      <div class="table-row">
+        <span class="vendor-name">CACI International</span>
+        <span class="award-amount">$7.1M</span>
+      </div>
+      <div class="table-row">
+        <span class="vendor-name">Dewberry Engineers</span>
+        <span class="badge naics">541330</span>
+      </div>
+      <div class="table-row">
+        <span class="vendor-name">Booz Allen Hamilton</span>
+        <span class="award-amount">$5.6M</span>
+      </div>
+      <div class="table-row">
+        <span class="vendor-name">NV5 Geospatial</span>
+        <span class="badge">541370</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">NAICS Codes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">50</div>
+        <div class="stat-label">State Portals</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">FY08+</div>
+        <div class="stat-label">Award Data</div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip">USASpending.gov</div>
+      <div class="chip">SAM.gov</div>
+      <div class="chip">Socrata APIs</div>
+      <div class="chip">FOIA / PRA</div>
+    </div>
+    <div class="brand">Subtxt Press</div>
+  </div>
+
+</div>
+</body>
+</html>
