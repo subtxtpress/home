@@ -1,0 +1,50 @@
+name: Deploy CourtListener Backend
+
+on:
+  push:
+    branches: [gh-pages]
+    paths:
+      - 'tools/CourtListener/app.py'
+      - 'tools/CourtListener/courtlistener_toolkit.py'
+      - 'tools/CourtListener/requirements.txt'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/cl-deploy
+          chmod 600 ~/.ssh/cl-deploy
+          ssh-keyscan -H ${{ secrets.VM_HOST_IP }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Copy backend files to VM
+        run: |
+          scp -i ~/.ssh/cl-deploy -o StrictHostKeyChecking=accept-new \
+            tools/CourtListener/app.py \
+            tools/CourtListener/courtlistener_toolkit.py \
+            tools/CourtListener/requirements.txt \
+            subtxtpress@${{ secrets.VM_HOST_IP }}:~/courtlistener/
+
+      - name: Install deps and restart if needed
+        run: |
+          ssh -i ~/.ssh/cl-deploy -o StrictHostKeyChecking=accept-new \
+            subtxtpress@${{ secrets.VM_HOST_IP }} << 'EOF'
+          cd ~/courtlistener
+          source venv/bin/activate
+          pip install -q -r requirements.txt
+
+          # Restart the backend (try systemd first, fall back to pkill+nohup)
+          if sudo systemctl is-active --quiet courtlistener 2>/dev/null; then
+            sudo systemctl restart courtlistener
+          else
+            pkill -f "uvicorn.*app:app" 2>/dev/null || true
+            sleep 1
+            nohup venv/bin/uvicorn app:app --host 0.0.0.0 --port 8000 > /dev/null 2>&1 &
+          fi
+
+          echo "Deploy complete."
+          EOF

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CourtListener Search — ReadMe</title>
+  <meta name="description" content="How to set up and use the CourtListener Search tool — search federal court cases, dockets, judges, and opinions without PACER fees.">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Core palette — warm light mode ── */
+      --palette-lightest: #F7F5F2;
+      --palette-light:    #E8E2D9;
+      --palette-mid:      #C5B99A;
+      --palette-accent:   #8B4513;
+      --palette-dark:     #1C1917;
+
+      /* ── Surface scale ── */
+      --surface-page:     #F7F5F2;
+      --surface-card:     #FFFFFF;
+      --surface-card-alt: rgba(197, 185, 154, 0.18);
+      --surface-elevated: #F0EBE2;
+
+      /* ── Text scale ── */
+      --text-heading: #1C1917;
+      --text-body:    #44403C;
+      --text-label:   #78716C;
+      --text-muted:   rgba(68, 64, 60, 0.45);
+
+      /* ── Accent (saddlebrown) ── */
+      --accent:        #8B4513;
+      --accent-subtle: rgba(139, 69, 19, 0.08);
+      --accent-border: rgba(139, 69, 19, 0.40);
+      --accent-hover:  #A0522D;
+
+      /* ── Borders ── */
+      --border-light:  rgba(197, 185, 154, 0.35);
+      --border-mid:    rgba(139, 100, 60, 0.20);
+      --border-strong: rgba(139, 100, 60, 0.45);
+
+      /* ── Gradients ── */
+      --grad-header:  linear-gradient(160deg, #F7F5F2 0%, #E8E2D9 100%);
+      --grad-accent:  linear-gradient(180deg, #C5B99A 0%, #8B4513 100%);
+      --grad-neutral: linear-gradient(to right, #C5B99A, #8B4513);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface-page);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: var(--accent); transition: color 0.15s ease; }
+    a:hover { color: var(--accent-hover); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.35; }
+    }
+    .animate { animation: fadeUp 0.5s ease forwards; opacity: 0; }
+    .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.12s; }
+    .d3 { animation-delay: 0.19s; } .d4 { animation-delay: 0.26s; }
+    .d5 { animation-delay: 0.33s; } .d6 { animation-delay: 0.40s; }
+    .d7 { animation-delay: 0.47s; }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 5vw;
+      background: rgba(247, 245, 242, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover  { color: var(--text-heading); }
+    .nav-links a.active { color: var(--accent); }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 120px 5vw 60px;
+      text-align: center;
+      background: var(--grad-header);
+      border-bottom: 1px solid var(--border-mid);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad-neutral);
+      pointer-events: none;
+    }
+
+    .hero .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .live-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 2s ease infinite;
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      color: var(--text-body);
+      letter-spacing: 0.04em;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ─── Content ───────────────────────────────────────────── */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 5vw 80px;
+    }
+
+    /* Section label — matches search.html eyebrow style */
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin: 48px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-mid);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p,
+    .card li {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin-top: 8px;
+    }
+
+    .card li { margin-bottom: 6px; }
+
+    .card strong { color: var(--text-heading); font-weight: 600; }
+
+    /* Feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .feature-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-top: 3px solid transparent;
+      border-radius: 10px;
+      padding: 20px;
+      transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .feature-card:hover {
+      background:
+        var(--grad-neutral) top left / 100% 3px no-repeat border-box,
+        var(--surface-elevated);
+      border-top-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
+    }
+
+    .feature-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 0.8125rem;
+      line-height: 1.55;
+      color: var(--text-body);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.5625rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      padding: 0.175rem 0.45rem;
+      border: 1px solid var(--border-mid);
+      border-radius: 3px;
+      background: rgba(197, 185, 154, 0.2);
+      margin-top: 10px;
+    }
+
+    .feature-tag.hot {
+      color: var(--text-label);
+      border-color: var(--accent-border);
+      background: var(--accent-subtle);
+    }
+
+    /* Code blocks */
+    .code-block {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-mid);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin: 12px 0;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--text-heading);
+      white-space: pre;
+    }
+
+    .code-block .comment { color: var(--text-label); }
+
+    /* Inline code */
+    code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8em;
+      background: var(--surface-card-alt);
+      border: 1px solid var(--border-light);
+      border-radius: 3px;
+      padding: 1px 5px;
+      color: var(--accent);
+    }
+
+    /* Steps */
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .step-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+
+    .step-body p {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    /* Info boxes */
+    .info-box {
+      position: relative;
+      border-radius: 10px;
+      padding: 18px 20px;
+      border: 1px solid transparent;
+      margin: 16px 0;
+    }
+
+    .info-box p {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    .info-box strong { color: var(--text-heading); font-weight: 600; }
+
+    .info-head {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-neutral {
+      background: rgba(197, 185, 154, 0.15);
+      border-color: var(--palette-mid);
+      border-left: 3px solid transparent;
+    }
+    .info-neutral::before {
+      content: '';
+      position: absolute;
+      left: -3px; top: -1px; bottom: -1px;
+      width: 3px;
+      background: linear-gradient(to bottom, #1C1917, #C5B99A);
+      border-radius: 10px 0 0 10px;
+      pointer-events: none;
+    }
+    .info-neutral .info-head { color: var(--text-heading); }
+
+    .info-alert {
+      background: var(--accent-subtle);
+      border-color: var(--accent);
+      border-left: 3px solid transparent;
+    }
+    .info-alert::before {
+      content: '';
+      position: absolute;
+      left: -3px; top: -1px; bottom: -1px;
+      width: 3px;
+      background: var(--grad-accent);
+      border-radius: 10px 0 0 10px;
+      pointer-events: none;
+    }
+    .info-alert .info-head { color: var(--accent); }
+
+    /* Endpoint table */
+    .endpoint-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+    }
+
+    .endpoint-table th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.5875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-mid);
+    }
+
+    .endpoint-table td {
+      font-size: 0.8125rem;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-body);
+      vertical-align: top;
+    }
+
+    .endpoint-table td:first-child {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .endpoint-table tr:last-child td { border-bottom: none; }
+
+    /* CTA button */
+    .btn-cta {
+      display: inline-block;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      background: var(--accent);
+      color: #FFFFFF;
+      margin-top: 8px;
+    }
+
+    .btn-cta:hover {
+      background: var(--accent-hover);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--accent-subtle);
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      margin-top: 40px;
+      padding: 24px 5vw;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      color: var(--text-label);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-social a:hover { color: var(--accent); }
+
+    /* ─── Mobile ────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .site-nav { padding: 12px 16px; }
+      .nav-links { gap: 16px; }
+      .hero { padding: 100px 20px 40px; }
+      .content { padding: 32px 16px 60px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .site-footer { padding: 20px 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <a href="../../index" class="nav-brand">Subtxt Press</a>
+    <ul class="nav-links">
+      <li><a href="../../index">Home</a></li>
+      <li><a href="search">Search</a></li>
+      <li><a href="readme" class="active">ReadMe</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero animate d1">
+    <span class="eyebrow"><span class="live-dot"></span>Documentation · CourtListener Search</span>
+    <h1>ReadMe</h1>
+    <p>How to set up and use the CourtListener Search tool — search federal court cases, dockets, judges, and opinions without PACER fees</p>
+  </section>
+
+  <div class="content">
+
+    <!-- Features -->
+    <div class="section-label animate d2">What It Does</div>
+    <div class="feature-grid animate d2">
+      <div class="feature-card">
+        <h3>Case / Docket Search</h3>
+        <p>Find cases by party name, judge, or court across all federal jurisdictions.</p>
+        <span class="feature-tag">search tab</span>
+      </div>
+      <div class="feature-card">
+        <h3>Case Law Search</h3>
+        <p>Search published opinions and decisions by keyword, court, or citation.</p>
+        <span class="feature-tag">search tab</span>
+      </div>
+      <div class="feature-card">
+        <h3>Judge Lookup</h3>
+        <p>Find federal judges by name and court. Returns bio, affiliations, and positions.</p>
+        <span class="feature-tag">search tab</span>
+      </div>
+      <div class="feature-card">
+        <h3>Judge Profile</h3>
+        <p>One-click bio, positions, and recent assigned dockets for a single judge.</p>
+        <span class="feature-tag hot">featured</span>
+      </div>
+      <div class="feature-card">
+        <h3>RECAP Archive</h3>
+        <p>Access free PACER documents through the RECAP archive — no PACER fees.</p>
+        <span class="feature-tag hot">free pacer</span>
+      </div>
+      <div class="feature-card">
+        <h3>Court Directory</h3>
+        <p>Browse all available federal courts by jurisdiction type.</p>
+        <span class="feature-tag">search tab</span>
+      </div>
+      <div class="feature-card">
+        <h3>CSV Export</h3>
+        <p>Download any result set as CSV with one click — including judge docket lists.</p>
+        <span class="feature-tag">all tabs</span>
+      </div>
+      <div class="feature-card">
+        <h3>Responsive Design</h3>
+        <p>Works on desktop, tablet, and mobile. Pagination for large result sets.</p>
+        <span class="feature-tag">ui</span>
+      </div>
+    </div>
+
+    <!-- Setup -->
+    <div class="section-label animate d3">Setup</div>
+    <div class="card animate d3">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <h3>Get Your API Token</h3>
+          <p>Sign up for a free account at <a href="https://www.courtlistener.com/help/api/rest/" target="_blank" rel="noopener">CourtListener's API page</a> and grab your token.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <h3>Configure Your Token</h3>
+          <p>Copy <code>.env.example</code> to <code>.env</code> and paste your token:</p>
+          <div class="code-block"><code>cp .env.example .env
+<span class="comment"># edit .env and replace your-token-here with your real token</span></code></div>
+          <p><code>app.py</code> auto-loads <code>.env</code> on startup. The file is gitignored so the token stays local.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <h3>Install Dependencies</h3>
+          <div class="code-block"><code>pip install fastapi uvicorn requests</code></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <h3>Run the Backend Server</h3>
+          <div class="code-block"><code>python app.py</code></div>
+          <p>The server starts on <code>http://localhost:8000</code>. Open <code>/search.html</code> for the web interface or <code>/docs</code> for the interactive API explorer.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage -->
+    <div class="section-label animate d4">Usage</div>
+    <div class="card animate d4">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <p>Select a search type from the tabs: Cases, Opinions, Judges, Judge Profile, RECAP, or Courts.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <p>Enter your search criteria and optionally pick a court from the dropdown to narrow results.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <p>Click <strong>Search</strong> to submit. Results appear below with pagination controls.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <p>Click <strong>Export CSV</strong> in the results header to download the current result set.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box info-neutral animate d4">
+      <div class="info-head">Judge Profile</div>
+      <p>The <strong>Judge Profile</strong> tab returns a single judge's bio, positions, and recent dockets in one view. The <strong>Export CSV</strong> button downloads that judge's full docket list.</p>
+    </div>
+
+    <!-- API Reference -->
+    <div class="section-label animate d5">API Endpoints</div>
+    <div class="card animate d5">
+      <table class="endpoint-table">
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>GET /api/search/cases</td><td>Docket search by party, judge, court</td></tr>
+          <tr><td>GET /api/search/opinions</td><td>Case law search by keywords</td></tr>
+          <tr><td>GET /api/search/judges</td><td>Judge lookup by name</td></tr>
+          <tr><td>GET /api/judge-profile</td><td>Single-judge bio + recent assigned dockets</td></tr>
+          <tr><td>GET /api/search/recap</td><td>RECAP archive search</td></tr>
+          <tr><td>GET /api/courts</td><td>List all federal courts</td></tr>
+          <tr><td>GET /api/case/{id}</td><td>Get single case details</td></tr>
+          <tr><td>GET /api/health</td><td>Backend health check</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card animate d5">
+      <h3>Example Requests</h3>
+      <div class="code-block"><code><span class="comment"># Search cases by party</span>
+curl "http://localhost:8000/api/search/cases?party=Apple&amp;limit=10"
+
+<span class="comment"># Search case law</span>
+curl "http://localhost:8000/api/search/opinions?query=patent&amp;court=cafc&amp;limit=10"
+
+<span class="comment"># Find judges</span>
+curl "http://localhost:8000/api/search/judges?name=Roberts&amp;limit=10"
+
+<span class="comment"># Pull a full judge profile in one call</span>
+curl "http://localhost:8000/api/judge-profile?name=Tanya+Chutkan&amp;max_cases=25"</code></div>
+    </div>
+
+    <div class="card animate d5">
+      <h3>Response Format</h3>
+      <p>All successful responses return:</p>
+      <div class="code-block"><code>{
+  "status": "success",
+  "total": 42,
+  "page": 1,
+  "count": 20,
+  "results": [ ... ],
+  "timestamp": "2024-04-27T14:30:00.000Z"
+}</code></div>
+    </div>
+
+    <!-- Limitations -->
+    <div class="section-label animate d6">Limitations</div>
+    <div class="info-box info-alert animate d6">
+      <div class="info-head">Token Required</div>
+      <p>All requests require a valid <code>COURTLISTENER_TOKEN</code>. If the token is not set, searches fail with a 503 error.</p>
+    </div>
+    <div class="card animate d6">
+      <ul>
+        <li><strong>Rate limits</strong> — CourtListener applies rate limiting. Free accounts have daily request caps. Check their <a href="https://www.courtlistener.com/help/api/rest/" target="_blank" rel="noopener">API documentation</a> for current limits.</li>
+        <li><strong>Search speed</strong> — Large datasets may take several seconds. The interface shows a loading spinner while fetching.</li>
+        <li><strong>Backend deploy is manual</strong> — Pushing to GitHub auto-deploys the frontend (GitHub Pages) but not the backend API on the GCP VM (see Deployment below).</li>
+      </ul>
+    </div>
+
+    <!-- Deployment -->
+    <div class="section-label animate d6">Deployment</div>
+    <div class="card animate d6">
+      <h3>Architecture</h3>
+      <p>The frontend and backend are deployed separately:</p>
+      <ul>
+        <li><strong>Frontend</strong> (<code>search.html</code>, <code>readme.html</code>) — hosted on <strong>GitHub Pages</strong> at <code>subtxtpress.github.io</code>. Pushing to the <code>main</code> branch auto-deploys the static files.</li>
+        <li><strong>Backend</strong> (<code>app.py</code>) — runs on a <strong>Google Cloud Compute Engine</strong> VM (<code>courtlistener</code> instance, <code>us-west1-b</code>) under the <code>subtxtpress</code> project. The API is at <code>courtlistener.subtxtpress.com</code>.</li>
+      </ul>
+    </div>
+    <div class="info-box info-neutral animate d6">
+      <div class="info-head">Frontend Deploys</div>
+      <p>Pushing to <code>main</code> on GitHub auto-deploys the HTML files via GitHub Pages. No extra steps needed for frontend changes.</p>
+    </div>
+    <div class="info-box info-alert animate d6">
+      <div class="info-head">Backend Deploys — Manual</div>
+      <p>The VM has no git repo — backend files were copied manually. Pushing to GitHub does <strong>not</strong> update the API server.</p>
+    </div>
+    <div class="card animate d6">
+      <h3>Updating the Backend</h3>
+      <div class="code-block"><code><span class="comment"># SSH into the VM</span>
+gcloud compute ssh courtlistener --zone=us-west1-b --project=subtxtpress
+
+<span class="comment"># Backend files live at ~/courtlistener</span>
+cd ~/courtlistener
+
+<span class="comment"># Copy updated files (e.g. via scp or paste)</span>
+<span class="comment"># Then restart the server</span>
+sudo systemctl restart courtlistener  <span class="comment"># or however the process is managed</span></code></div>
+      <p>To streamline this, you could initialize a git repo on the VM (<code>git init</code> + add a remote) so future updates are just <code>git pull</code>.</p>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="section-label animate d7">Troubleshooting</div>
+    <div class="card animate d7">
+      <h3>"CourtListener API not initialized" (503)</h3>
+      <p>The <code>COURTLISTENER_TOKEN</code> environment variable is not set. Make sure your <code>.env</code> file exists and contains a valid token, then restart <code>app.py</code>.</p>
+    </div>
+    <div class="card animate d7">
+      <h3>CORS Errors in Browser Console</h3>
+      <p>Make sure <code>app.py</code> is running and the API base URL in <code>search.html</code> matches your backend URL (<code>http://localhost:8000</code> for local dev).</p>
+    </div>
+    <div class="card animate d7">
+      <h3>Slow Searches</h3>
+      <p>Query complexity, result set size, and CourtListener server load all affect speed. Try narrowing your search with more specific filters.</p>
+    </div>
+
+    <!-- Files -->
+    <div class="section-label animate d7">Project Files</div>
+    <div class="card animate d7">
+      <table class="endpoint-table">
+        <thead>
+          <tr><th>File</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>search.html</td><td>Interactive web interface</td></tr>
+          <tr><td>app.py</td><td>FastAPI backend (auto-loads <code>.env</code>)</td></tr>
+          <tr><td>.env.example</td><td>Token template — copy to <code>.env</code></td></tr>
+          <tr><td>courtlistener_toolkit.py</td><td>Core Python client library</td></tr>
+          <tr><td>courtlistener_explorer.py</td><td>Alternative CLI tool</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Resources + CTA -->
+    <div class="section-label animate d7">Resources</div>
+    <div class="card animate d7">
+      <ul>
+        <li><a href="https://www.courtlistener.com/" target="_blank" rel="noopener">CourtListener Official Website</a></li>
+        <li><a href="https://www.courtlistener.com/help/api/rest/" target="_blank" rel="noopener">CourtListener API Documentation</a></li>
+        <li><a href="https://www.courtlistener.com/help/citations/" target="_blank" rel="noopener">Federal Court Jurisdiction Guide</a></li>
+        <li><a href="https://pacer.uscourts.gov/" target="_blank" rel="noopener">PACER Document Search</a></li>
+      </ul>
+      <br>
+      <a href="search" class="btn-cta">Open Search Tool</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <span class="footer-brand">CourtListener Search by Subtxt Press</span>
+    <div class="footer-social">
+      <a href="https://substack.com/@subtxtpress" target="_blank" rel="noopener" title="Substack">Substack</a>
+      <a href="https://www.courtlistener.com" target="_blank" rel="noopener" title="CourtListener">CourtListener</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

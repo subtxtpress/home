@@ -41,40 +41,40 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* ── Core palette — Subtxt peach on dark blue-gray ── */
-      --palette-darkest:  #0D0F14;
-      --palette-dark:     #1A1F2E;
-      --palette-mid:      #2E3650;
-      --palette-accent:   #E8956A;
-      --palette-lightest: #E8ECF4;
+      /* ── Core palette — warm light mode ── */
+      --palette-lightest: #F7F5F2;
+      --palette-light:    #E8E2D9;
+      --palette-mid:      #C5B99A;
+      --palette-accent:   #8B4513;
+      --palette-dark:     #1C1917;
 
       /* ── Surface scale ── */
-      --surface-page:     #0D0F14;
-      --surface-card:     #1A1F2E;
-      --surface-card-alt: rgba(46, 54, 80, 0.40);
-      --surface-elevated: #232940;
+      --surface-page:     #F7F5F2;
+      --surface-card:     #FFFFFF;
+      --surface-card-alt: rgba(197, 185, 154, 0.18);
+      --surface-elevated: #F0EBE2;
 
       /* ── Text scale ── */
-      --text-heading: #E8ECF4;
-      --text-body:    #B0BAD0;
-      --text-label:   #6B7799;
-      --text-muted:   rgba(176, 186, 208, 0.35);
+      --text-heading: #1C1917;
+      --text-body:    #44403C;
+      --text-label:   #78716C;
+      --text-muted:   rgba(68, 64, 60, 0.45);
 
-      /* ── Accent (peach) ── */
-      --accent:        #E8956A;
-      --accent-subtle: rgba(232, 149, 106, 0.10);
-      --accent-border: rgba(232, 149, 106, 0.40);
-      --accent-hover:  #f5b085;
+      /* ── Accent (saddlebrown) ── */
+      --accent:        #8B4513;
+      --accent-subtle: rgba(139, 69, 19, 0.08);
+      --accent-border: rgba(139, 69, 19, 0.40);
+      --accent-hover:  #A0522D;
 
       /* ── Borders ── */
-      --border-light:  rgba(176, 186, 208, 0.08);
-      --border-mid:    rgba(176, 186, 208, 0.14);
-      --border-strong: rgba(176, 186, 208, 0.30);
+      --border-light:  rgba(197, 185, 154, 0.35);
+      --border-mid:    rgba(139, 100, 60, 0.20);
+      --border-strong: rgba(139, 100, 60, 0.45);
 
       /* ── Gradients ── */
-      --grad-header:  linear-gradient(160deg, #1A1F2E 0%, #0D0F14 100%);
-      --grad-accent:  linear-gradient(180deg, #6B7799 0%, #E8956A 100%);
-      --grad-neutral: linear-gradient(to right, #6B7799, #E8956A);
+      --grad-header:  linear-gradient(160deg, #F7F5F2 0%, #E8E2D9 100%);
+      --grad-accent:  linear-gradient(180deg, #C5B99A 0%, #8B4513 100%);
+      --grad-neutral: linear-gradient(to right, #C5B99A, #8B4513);
     }
 
     html { scroll-behavior: smooth; }
@@ -111,7 +111,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 5vw;
-      background: rgba(13, 15, 20, 0.96);
+      background: rgba(247, 245, 242, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-light);
     }
@@ -222,7 +222,7 @@
       border-top: 3px solid transparent;
       border-radius: 12px;
       padding: 32px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
       overflow: visible;
     }
 
@@ -336,7 +336,7 @@
 
     .btn-search {
       background: var(--accent);
-      color: var(--palette-darkest);
+      color: #FFFFFF;
     }
 
     .btn-search:hover {
@@ -411,7 +411,7 @@
     .btn-export:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(232, 149, 106, 0.08);
+      background: rgba(139, 69, 19, 0.08);
     }
     .btn-export:disabled {
       opacity: 0.4;
@@ -441,7 +441,7 @@
         var(--surface-elevated);
       border-top-color: transparent;
       transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.50), 0 0 0 1px var(--accent-border);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10), 0 0 0 1px var(--accent-border);
     }
 
     .result-title {
@@ -517,7 +517,7 @@
       border-top: 3px solid transparent;
       border-radius: 12px;
       padding: 32px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
       position: relative;
     }
 
@@ -729,7 +729,7 @@
       border: 1px solid var(--accent-border);
     }
     .case-status.status-terminated {
-      background: rgba(176, 186, 208, 0.06);
+      background: rgba(197, 185, 154, 0.10);
       color: var(--text-label);
       border: 1px solid var(--border-mid);
     }
@@ -762,10 +762,10 @@
     }
 
     .error-message {
-      background: rgba(248, 113, 113, 0.08);
-      border: 1px solid rgba(248, 113, 113, 0.30);
-      border-left: 3px solid #f87171;
-      color: #fca5a5;
+      background: rgba(180, 30, 45, 0.06);
+      border: 1px solid rgba(180, 30, 45, 0.25);
+      border-left: 3px solid #b41e2d;
+      color: #9a2020;
       padding: 14px 18px;
       border-radius: 6px;
       margin-top: 12px;
@@ -800,7 +800,7 @@
 
     .pagination button:hover:not(.disabled):not(:disabled) {
       background: var(--accent);
-      color: var(--palette-darkest);
+      color: #FFFFFF;
     }
 
     .pagination button.disabled,
@@ -864,8 +864,8 @@
   <nav class="site-nav" id="siteNav">
     <a href="../../index" class="nav-brand">Subtxt Press</a>
     <ul class="nav-links">
-      <li><a href="../../index">Home</a></li>
-      <li><a href="../tools">Tools</a></li>
+      <li><a href="../../index" target="_blank">Home</a></li>
+      <li><a href="readme.html" target="_blank">ReadMe</a></li>
     </ul>
   </nav>
 
@@ -1005,7 +1005,7 @@
   </div>
 
   <footer class="site-footer">
-    <span class="footer-brand">CourtListener Search by Subtxt Press</span>
+    <span class="footer-brand">CourtListener Search developed by Subtxt<em>Press</em></span>
     <div class="footer-social">
       <a href="https://substack.com/@subtxtpress" target="_blank" rel="noopener" title="Substack">Substack</a>
       <a href="https://www.courtlistener.com" target="_blank" rel="noopener" title="CourtListener">CourtListener</a>

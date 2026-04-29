@@ -14,7 +14,7 @@ An interactive web interface for searching federal court data using the CourtLis
 - **CSV Export** - Download any result set (including a judge's docket list) as CSV
 - **Pagination** - Navigate through large result sets
 - **Responsive Design** - Works on desktop, tablet, and mobile
-- **Dark Theme UI** - Easy on the eyes with modern aesthetic
+- **Light Theme UI** - Warm light-mode palette with modern aesthetic
 
 ## Setup
 
@@ -139,7 +139,38 @@ All successful responses return:
 - **Rate Limits**: CourtListener API applies rate limiting. Free accounts have limits on requests per day. Check their [API documentation](https://www.courtlistener.com/help/api/rest/) for current limits.
 - **Search Delay**: Large datasets may take several seconds to return. The interface shows a loading spinner while fetching.
 - **Token Required**: All requests require a valid `COURTLISTENER_TOKEN`. If the token is not set, searches will fail with a 503 error.
-- **Local Deployment Only**: This tool is designed to run locally on your machine. It is not configured for production cloud deployment without additional security measures.
+- **Backend Deploy is Manual**: Pushing to GitHub auto-deploys the frontend (GitHub Pages) but not the backend API on the GCP VM (see Deployment below).
+
+## Deployment
+
+### Architecture
+
+The frontend and backend are deployed separately:
+
+- **Frontend** (`search.html`, `readme.html`) — hosted on **GitHub Pages** at `subtxtpress.github.io`. Pushing to the `main` branch auto-deploys the static files.
+- **Backend** (`app.py`) — runs on a **Google Cloud Compute Engine** VM (`courtlistener` instance, `us-west1-b`) under the `subtxtpress` project. The API is at `courtlistener.subtxtpress.com`.
+
+### Frontend Deploys
+
+Pushing to `main` on GitHub auto-deploys the HTML files via GitHub Pages. No extra steps needed for frontend changes.
+
+### Backend Deploys (Manual)
+
+The VM has no git repo — backend files were copied manually. Pushing to GitHub does **not** update the API server.
+
+```bash
+# SSH into the VM
+gcloud compute ssh courtlistener --zone=us-west1-b --project=subtxtpress
+
+# Backend files live at ~/courtlistener
+cd ~/courtlistener
+
+# Copy updated files (e.g. via scp or paste)
+# Then restart the server
+sudo systemctl restart courtlistener  # or however the process is managed
+```
+
+To streamline this, you could initialize a git repo on the VM (`git init` + add a remote) so future updates are just `git pull`.
 
 ## Troubleshooting
 
