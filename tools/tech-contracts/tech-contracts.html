@@ -50,6 +50,9 @@
             --error: #EF5350;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+            --grad-header: linear-gradient(160deg, #1A1F2E 0%, #0D0F14 100%);
+            --grad-accent: linear-gradient(90deg, #4F8EF7, #6B7799);
+            --grad-accent-warm: linear-gradient(135deg, #2E3650 0%, rgba(79,142,247,0.15) 100%);
         }
 
         * {
@@ -63,6 +66,7 @@
             background: var(--surface-page);
             color: var(--text-body);
             padding: 20px;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -71,17 +75,30 @@
         }
 
         header {
-            background: var(--surface-card);
-            padding: 30px;
-            border-radius: 10px;
+            background: var(--grad-header);
+            padding: 30px 30px 28px;
+            border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--border-mid);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--grad-accent);
         }
 
         h1 {
             color: var(--text-heading);
             margin-bottom: 10px;
+            letter-spacing: -0.02em;
         }
 
         .subtitle {
@@ -90,9 +107,9 @@
         }
 
         .search-box {
-            background: var(--surface-card);
+            background: var(--grad-accent-warm);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 20px;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-mid);
@@ -111,17 +128,19 @@
 
         input[type="text"] {
             width: 100%;
-            padding: 12px;
-            border: 2px solid var(--border-strong);
-            border-radius: 6px;
+            padding: 12px 16px;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
             font-size: 16px;
             background: var(--surface-page);
             color: var(--text-heading);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         input[type="text"]:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-subtle);
         }
 
         .filter-group {
@@ -163,10 +182,13 @@
         .btn-primary {
             background: var(--accent);
             color: var(--surface-page);
+            box-shadow: 0 2px 8px rgba(79, 142, 247, 0.25);
         }
 
         .btn-primary:hover {
             background: var(--accent-hover);
+            box-shadow: 0 4px 14px rgba(79, 142, 247, 0.35);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
@@ -192,21 +214,25 @@
         .quick-searches {
             background: var(--surface-card);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 20px;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-mid);
         }
 
+        h2 {
+            color: var(--text-heading);
+            letter-spacing: -0.01em;
+        }
+
         .quick-searches h2 {
             margin-bottom: 15px;
-            color: var(--text-heading);
         }
 
         .results {
             background: var(--surface-card);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-mid);
             display: none;
@@ -224,16 +250,17 @@
 
         .vendor-card {
             border: 1px solid var(--border-mid);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 20px;
             margin-bottom: 15px;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
             background: var(--surface-elevated);
         }
 
         .vendor-card:hover {
             border-color: var(--accent-border);
-            box-shadow: 0 2px 8px rgba(79, 142, 247, 0.2);
+            box-shadow: 0 4px 20px rgba(79, 142, 247, 0.12);
+            transform: translateY(-2px);
         }
 
         .vendor-name {
@@ -262,10 +289,12 @@
         }
 
         .tag {
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
             font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
         }
 
         .tag-prime {
@@ -296,7 +325,7 @@
         .link-btn {
             padding: 6px 12px;
             background: var(--surface-card);
-            border-radius: 4px;
+            border-radius: 6px;
             text-decoration: none;
             color: var(--accent);
             font-size: 13px;
@@ -308,6 +337,7 @@
         .link-btn:hover {
             background: var(--surface-elevated);
             border-color: var(--accent-border);
+            color: var(--accent-hover);
         }
 
         .stats-grid {
@@ -318,11 +348,17 @@
         }
 
         .stat-card {
-            background: var(--surface-elevated);
+            background: var(--grad-accent-warm);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
             border: 1px solid var(--border-mid);
+            transition: all 0.25s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-border);
+            transform: translateY(-2px);
         }
 
         .stat-number {
@@ -330,6 +366,7 @@
             font-weight: 700;
             color: var(--accent);
             margin-bottom: 5px;
+            letter-spacing: -0.02em;
         }
 
         .stat-label {
