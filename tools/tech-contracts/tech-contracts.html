@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHS Procurement Search Dashboard</title>
-
-    <!-- Open Graph / Social Preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="DHS Procurement Dashboard">
+    <title>DHS Tech Procurement Search</title>
+      <meta name="description" content="Search 310 DHS vendor profiles from the EFF dataset. Live contract lookups via USASpending.gov. Export data.">
+    <link rel="canonical" href="https://subtxtpress.github.io/home/tools/tech-contracts">
+    <!-- Open Graph -->
+    <meta property="og:title" content="DHS Tech Procurement Search">
     <meta property="og:description" content="Search 310 DHS vendor profiles from the EFF dataset. Live contract lookups via USASpending.gov. Export data.">
-    <meta property="og:image" content="https://subtxtpress.github.io/home/tools/tech-contracts/img/tech-contracts-preview.png">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="720">
-    <meta property="og:url" content="https://subtxtpress.github.io/home/tools/tech-contracts/tech-contracts.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://subtxtpress.github.io/home/tools/tech-contracts/search">
+    <meta property="og:image" content="https://subtxtpress.github.io/home/tools/tech-contracts/img/tech-contracts.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:site_name" content="Subtxt Press">
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/tech-contracts/img/tech-contracts-preview.png">
-
+    <meta name="twitter:title" content="DHS Tech Procurement Search">
+    <meta name="twitter:description" content="Search 310 DHS vendor profiles from the EFF dataset. Live contract lookups via USASpending.gov. Export data.">
+    <meta name="twitter:image" content="https://subtxtpress.github.io/home/tools/tech-contracts/img/tech-contracts.jpg">
+    <meta name="twitter:creator" content="@subtxtpress">
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
@@ -23,8 +28,30 @@
     <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <link rel="manifest" href="icons/site.webmanifest">
-
+    <!-- Styles -->
     <style>
+        :root {
+            --surface-page: #0D0F14;
+            --surface-card: #1A1F2E;
+            --surface-elevated: #232940;
+            --surface-card-alt: rgba(46, 54, 80, 0.40);
+            --text-heading: #E8ECF4;
+            --text-body: #B0BAD0;
+            --text-label: #6B7799;
+            --text-muted: rgba(176, 186, 208, 0.35);
+            --accent: #4F8EF7;
+            --accent-hover: #6BA0FF;
+            --accent-subtle: rgba(79, 142, 247, 0.10);
+            --accent-border: rgba(79, 142, 247, 0.40);
+            --border-light: rgba(176, 186, 208, 0.08);
+            --border-mid: rgba(176, 186, 208, 0.14);
+            --border-strong: rgba(176, 186, 208, 0.30);
+            --success: #34D399;
+            --error: #EF5350;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -33,8 +60,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background: #1a1a1a;
-            color: #e0e0e0;
+            background: var(--surface-page);
+            color: var(--text-body);
             padding: 20px;
         }
 
@@ -44,29 +71,31 @@
         }
 
         header {
-            background: #2d2d2d;
+            background: var(--surface-card);
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-mid);
         }
 
         h1 {
-            color: #ffffff;
+            color: var(--text-heading);
             margin-bottom: 10px;
         }
 
         .subtitle {
-            color: #b0b0b0;
+            color: var(--text-label);
             font-size: 14px;
         }
 
         .search-box {
-            background: #2d2d2d;
+            background: var(--surface-card);
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-mid);
         }
 
         .input-group {
@@ -77,22 +106,22 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #e0e0e0;
+            color: var(--text-heading);
         }
 
         input[type="text"] {
             width: 100%;
             padding: 12px;
-            border: 2px solid #404040;
+            border: 2px solid var(--border-strong);
             border-radius: 6px;
             font-size: 16px;
-            background: #1a1a1a;
-            color: #e0e0e0;
+            background: var(--surface-page);
+            color: var(--text-heading);
         }
 
         input[type="text"]:focus {
             outline: none;
-            border-color: #4a90e2;
+            border-color: var(--accent);
         }
 
         .filter-group {
@@ -106,7 +135,7 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            color: #e0e0e0;
+            color: var(--text-body);
         }
 
         input[type="checkbox"] {
@@ -132,50 +161,54 @@
         }
 
         .btn-primary {
-            background: #4a90e2;
-            color: white;
+            background: var(--accent);
+            color: var(--surface-page);
         }
 
         .btn-primary:hover {
-            background: #357abd;
+            background: var(--accent-hover);
         }
 
         .btn-secondary {
-            background: #505050;
-            color: white;
+            background: var(--surface-elevated);
+            color: var(--text-body);
+            border: 1px solid var(--border-mid);
         }
 
         .btn-secondary:hover {
-            background: #606060;
+            background: var(--surface-card-alt);
+            border-color: var(--border-strong);
         }
 
         .btn-success {
-            background: #28a745;
-            color: white;
+            background: var(--success);
+            color: var(--surface-page);
         }
 
         .btn-success:hover {
-            background: #218838;
+            background: #2BC48B;
         }
 
         .quick-searches {
-            background: #2d2d2d;
+            background: var(--surface-card);
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-mid);
         }
 
         .quick-searches h2 {
             margin-bottom: 15px;
-            color: #ffffff;
+            color: var(--text-heading);
         }
 
         .results {
-            background: #2d2d2d;
+            background: var(--surface-card);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-mid);
             display: none;
         }
 
@@ -186,38 +219,38 @@
         .loading {
             text-align: center;
             padding: 40px;
-            color: #b0b0b0;
+            color: var(--text-label);
         }
 
         .vendor-card {
-            border: 1px solid #404040;
+            border: 1px solid var(--border-mid);
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 15px;
             transition: all 0.2s;
-            background: #252525;
+            background: var(--surface-elevated);
         }
 
         .vendor-card:hover {
-            border-color: #4a90e2;
-            box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+            border-color: var(--accent-border);
+            box-shadow: 0 2px 8px rgba(79, 142, 247, 0.2);
         }
 
         .vendor-name {
             font-size: 18px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-heading);
             margin-bottom: 8px;
         }
 
         .vendor-ref {
-            color: #b0b0b0;
+            color: var(--text-label);
             font-size: 14px;
             margin-bottom: 12px;
         }
 
         .vendor-category {
-            color: #d0d0d0;
+            color: var(--text-body);
             margin-bottom: 8px;
         }
 
@@ -236,18 +269,21 @@
         }
 
         .tag-prime {
-            background: #1e3a5f;
-            color: #64b5f6;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
         }
 
         .tag-ai {
-            background: #3d1f4d;
-            color: #ba68c8;
+            background: rgba(186, 104, 200, 0.10);
+            color: #CE93D8;
+            border: 1px solid rgba(186, 104, 200, 0.30);
         }
 
         .tag-consortium {
-            background: #4d3319;
-            color: #ff9800;
+            background: rgba(255, 152, 0, 0.10);
+            color: #FFB74D;
+            border: 1px solid rgba(255, 152, 0, 0.30);
         }
 
         .vendor-links {
@@ -259,18 +295,19 @@
 
         .link-btn {
             padding: 6px 12px;
-            background: #404040;
+            background: var(--surface-card);
             border-radius: 4px;
             text-decoration: none;
-            color: #4a90e2;
+            color: var(--accent);
             font-size: 13px;
             transition: all 0.2s;
-            border: none;
+            border: 1px solid var(--border-mid);
             cursor: pointer;
         }
 
         .link-btn:hover {
-            background: #505050;
+            background: var(--surface-elevated);
+            border-color: var(--accent-border);
         }
 
         .stats-grid {
@@ -281,47 +318,47 @@
         }
 
         .stat-card {
-            background: #252525;
+            background: var(--surface-elevated);
             padding: 20px;
             border-radius: 8px;
             text-align: center;
-            border: 1px solid #404040;
+            border: 1px solid var(--border-mid);
         }
 
         .stat-number {
             font-size: 32px;
             font-weight: 700;
-            color: #4a90e2;
+            color: var(--accent);
             margin-bottom: 5px;
         }
 
         .stat-label {
-            color: #b0b0b0;
+            color: var(--text-label);
             font-size: 14px;
         }
 
         .export-section {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #404040;
+            border-top: 1px solid var(--border-mid);
         }
 
         .live-contracts {
             margin-top: 20px;
             padding: 15px;
-            background: #1a1a1a;
+            background: var(--surface-page);
             border-radius: 6px;
-            border: 1px solid #333;
+            border: 1px solid var(--border-mid);
         }
 
         .live-contracts h4 {
-            color: #4a90e2;
+            color: var(--accent);
             margin-bottom: 10px;
         }
 
         .contract-item {
             padding: 10px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-light);
             font-size: 14px;
         }
 
@@ -330,12 +367,12 @@
         }
 
         .contract-amount {
-            color: #4caf50;
+            color: var(--success);
             font-weight: 600;
         }
 
         .live-note {
-            color: #b0b0b0;
+            color: var(--text-label);
             font-size: 12px;
             font-style: italic;
             margin-top: 8px;
@@ -609,7 +646,7 @@
                         <div class="vendor-name">${escapedName}</div>
                         <div class="vendor-ref">${escapeHtml(vendor.ref)}</div>
                         ${vendor.categories ? `<div class="vendor-category">${escapeHtml(vendor.categories)}</div>` : ''}
-                        ${vendor.summary_preview ? `<div style="color: #999; font-size: 14px; margin-top: 8px;">${escapeHtml(vendor.summary_preview)}</div>` : ''}
+                        ${vendor.summary_preview ? `<div style="color: var(--text-label); font-size: 14px; margin-top: 8px;">${escapeHtml(vendor.summary_preview)}</div>` : ''}
                         <div class="vendor-tags">
                             ${vendor.prime_contractor ? '<span class="tag tag-prime">Prime Contractor</span>' : ''}
                             ${vendor.ai_ml ? '<span class="tag tag-ai">AI/ML</span>' : ''}
@@ -642,16 +679,16 @@
 
             let html = `
                 <button class="link-btn back-btn" onclick="searchVendors()">Back to results</button>
-                <div class="vendor-card" style="background: #1a1a1a; border: 2px solid #404040;">
+                <div class="vendor-card" style="background: var(--surface-page); border: 2px solid var(--border-strong);">
                     <div class="vendor-name">${escapeHtml(vendor.name)}</div>
                     <div class="vendor-ref">${escapeHtml(vendor.ref)}</div>
                     ${vendor.categories ? `<div class="vendor-category">${escapeHtml(vendor.categories)}</div>` : ''}
-                    ${vendor.parent_company ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Parent Company:</strong> ${escapeHtml(vendor.parent_company)}</div>` : ''}
-                    ${vendor.related_companies ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Related Companies:</strong> ${escapeHtml(vendor.related_companies)}</div>` : ''}
-                    ${vendor.dhs_programs ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>DHS Programs:</strong> ${escapeHtml(vendor.dhs_programs)}</div>` : ''}
-                    ${vendor.agency_contracts ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Agency Contracts:</strong> ${escapeHtml(vendor.agency_contracts)}</div>` : ''}
-                    ${vendor.notes ? `<div style="margin-top: 10px; color: #d0d0d0;"><strong>Notes:</strong> ${escapeHtml(vendor.notes)}</div>` : ''}
-                    ${vendor.summary ? `<div style="margin-top: 15px; padding: 15px; background: #2d2d2d; border-radius: 6px; color: #d0d0d0;"><strong>About:</strong><br>${escapeHtml(vendor.summary)}</div>` : ''}
+                    ${vendor.parent_company ? `<div style="margin-top: 10px; color: var(--text-body);"><strong>Parent Company:</strong> ${escapeHtml(vendor.parent_company)}</div>` : ''}
+                    ${vendor.related_companies ? `<div style="margin-top: 10px; color: var(--text-body);"><strong>Related Companies:</strong> ${escapeHtml(vendor.related_companies)}</div>` : ''}
+                    ${vendor.dhs_programs ? `<div style="margin-top: 10px; color: var(--text-body);"><strong>DHS Programs:</strong> ${escapeHtml(vendor.dhs_programs)}</div>` : ''}
+                    ${vendor.agency_contracts ? `<div style="margin-top: 10px; color: var(--text-body);"><strong>Agency Contracts:</strong> ${escapeHtml(vendor.agency_contracts)}</div>` : ''}
+                    ${vendor.notes ? `<div style="margin-top: 10px; color: var(--text-body);"><strong>Notes:</strong> ${escapeHtml(vendor.notes)}</div>` : ''}
+                    ${vendor.summary ? `<div style="margin-top: 15px; padding: 15px; background: var(--surface-card); border-radius: 6px; color: var(--text-body);"><strong>About:</strong><br>${escapeHtml(vendor.summary)}</div>` : ''}
                     <div class="vendor-tags" style="margin-top: 15px;">
                         ${vendor.prime_contractor ? '<span class="tag tag-prime">Prime Contractor</span>' : ''}
                         ${vendor.ai_ml ? '<span class="tag tag-ai">AI/ML</span>' : ''}
@@ -705,7 +742,7 @@
                         <div class="stat-label">With Federal Contracts</div>
                     </div>
                 </div>
-                <p style="margin-top: 20px; color: #b0b0b0;">Data source: Electronic Frontier Foundation Dataset &bull; Updated: ${stats.data_updated}</p>
+                <p style="margin-top: 20px; color: var(--text-label);">Data source: Electronic Frontier Foundation Dataset &bull; Updated: ${stats.data_updated}</p>
             `;
 
             document.getElementById('resultsTitle').textContent = 'Dataset Statistics';
@@ -751,7 +788,7 @@
                 const results = data.results || [];
                 const total = data.page_metadata?.total || 0;
 
-                let html = `<p style="margin-bottom: 15px; color: #b0b0b0;">Found ${total} DHS contract award${total !== 1 ? 's' : ''} (showing top ${results.length})</p>`;
+                let html = `<p style="margin-bottom: 15px; color: var(--text-label);">Found ${total} DHS contract award${total !== 1 ? 's' : ''} (showing top ${results.length})</p>`;
 
                 if (results.length === 0) {
                     html += '<p>No DHS contracts found for this vendor name. Try searching with a different name variation.</p>';
@@ -763,8 +800,8 @@
                             <div class="contract-item">
                                 <div><strong>${escapeHtml(contract['Award ID'] || 'N/A')}</strong></div>
                                 <div class="contract-amount">${formatted}</div>
-                                <div style="color: #b0b0b0; font-size: 13px;">${escapeHtml(contract['Recipient Name'] || '')} &bull; ${escapeHtml(contract['Start Date'] || '')}</div>
-                                ${contract['Description'] ? `<div style="color: #999; font-size: 13px; margin-top: 4px;">${escapeHtml(contract['Description'].substring(0, 200))}${contract['Description'].length > 200 ? '...' : ''}</div>` : ''}
+                                <div style="color: var(--text-label); font-size: 13px;">${escapeHtml(contract['Recipient Name'] || '')} &bull; ${escapeHtml(contract['Start Date'] || '')}</div>
+                                ${contract['Description'] ? `<div style="color: var(--text-label); font-size: 13px; margin-top: 4px;">${escapeHtml(contract['Description'].substring(0, 200))}${contract['Description'].length > 200 ? '...' : ''}</div>` : ''}
                             </div>
                         `;
                     });
@@ -784,7 +821,7 @@
 
             } catch (err) {
                 document.getElementById('resultsContent').innerHTML = `
-                    <p style="color: #ef5350;">Could not query USASpending.gov. The API may be temporarily unavailable.</p>
+                    <p style="color: var(--error);">Could not query USASpending.gov. The API may be temporarily unavailable.</p>
                     <p style="margin-top: 10px;">
                         <a href="https://www.usaspending.gov/search/?hash=recipient_search_text%3D${encodeURIComponent(vendorName)}" target="_blank" rel="noopener" class="link-btn">Search on USASpending.gov directly</a>
                     </p>
@@ -835,7 +872,7 @@
 
         function showError(message) {
             document.getElementById('resultsTitle').textContent = 'Error';
-            document.getElementById('resultsContent').innerHTML = `<p style="color: #ef5350;">${escapeHtml(message)}</p>`;
+            document.getElementById('resultsContent').innerHTML = `<p style="color: var(--error);">${escapeHtml(message)}</p>`;
             document.getElementById('results').classList.add('show');
         }
 
