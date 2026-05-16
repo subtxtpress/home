@@ -3,8 +3,8 @@
 ## Contents
 
 - `index.html`, `policies.html`, `tools.html` — top-level pages
-- `tools/` — interactive tools (CourtListener search, TX-GIS, DHS dashboard, tech contracts, boolean search, etc.)
-- `cases/` — investigation case files and supporting documents
+- `projects/` — interactive tools (CourtListener search, TX-GIS, DHS dashboard, tech contracts, boolean search, etc.)
+- `dockets/` — investigation case files and supporting documents
 - `img/`, `icons/` — shared assets
 
 ## Tools
