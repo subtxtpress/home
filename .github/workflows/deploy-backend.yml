@@ -4,9 +4,9 @@ on:
   push:
     branches: [gh-pages]
     paths:
-      - 'tools/CourtListener/app.py'
-      - 'tools/CourtListener/courtlistener_toolkit.py'
-      - 'tools/CourtListener/requirements.txt'
+      - 'projects/CourtListener/app.py'
+      - 'projects/CourtListener/courtlistener_toolkit.py'
+      - 'projects/CourtListener/requirements.txt'
 
 jobs:
   deploy:
@@ -24,9 +24,9 @@ jobs:
       - name: Copy backend files to VM
         run: |
           scp -i ~/.ssh/cl-deploy -o StrictHostKeyChecking=accept-new \
-            tools/CourtListener/app.py \
-            tools/CourtListener/courtlistener_toolkit.py \
-            tools/CourtListener/requirements.txt \
+            projects/CourtListener/app.py \
+            projects/CourtListener/courtlistener_toolkit.py \
+            projects/CourtListener/requirements.txt \
             subtxtpress@${{ secrets.VM_HOST_IP }}:~/courtlistener/
 
       - name: Install deps and restart if needed
