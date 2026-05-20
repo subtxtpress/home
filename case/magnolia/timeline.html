@@ -7,16 +7,20 @@
   <title>Magnolia Timeline – Subtxt Press</title>
   <meta name="description" content="A chronological timeline of the JLR domestic violence incident in Leavenworth, WA — December 24–28, 2025.">
   <link rel="canonical" href="https://subtxtpress.github.io/home/case/magnolia/timeline">
-  <!-- FB -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Magnolia Timeline – Subtxt Press">
   <meta property="og:description" content="A chronological timeline of the JLR domestic violence incident in Leavenworth, WA — December 24–28, 2025.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/case/magnolia/timeline">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/case/magnolia/img/timeline.png">
   <meta property="og:site_name" content="Subtxt Press">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Magnolia Timeline – Subtxt Press">
   <meta name="twitter:description" content="A chronological timeline of the JLR domestic violence incident in Leavenworth, WA — December 24–28, 2025.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/case/magnolia/img/timeline.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Style Sheets -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -613,7 +617,7 @@
   </div>
 
   <!-- STEP 12: Hospital and ATL -->
-  <div class="step" data-step="12" data-border="var(--blue)" data-map-focus="hospital">
+  <div class="step" data-step="12" data-border="var(--blue)" data-map-focus="route">
     <div class="step-time">~12:06 PM</div>
     <div class="step-title">ATL issued / Hospital visit</div>
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
@@ -625,7 +629,7 @@
   </div>
 
   <!-- STEP 11: Return from hospital -->
-  <div class="step" data-step="13" data-border="var(--amber)" data-map-focus="hotel">
+  <div class="step" data-step="13" data-border="var(--amber)" data-map-focus="route">
     <div class="step-time">1:53:30 PM</div>
     <div class="step-title">Return from hospital</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
@@ -773,6 +777,7 @@ const KML_DATA = {
 const FOCUS_POINTS = {
   'hotel':    { center: [47.5595, -120.6981], zoom: 16 },
   'hospital': { center: [47.5971, -120.6622], zoom: 15 },
+  'route':    { bounds: [[47.555, -120.702], [47.601, -120.658]] },
   'overview': { center: [47.58, -120.68], zoom: 13 },
 };
 
@@ -927,24 +932,27 @@ const progressBar = document.getElementById('progress-bar');
 const STEP_META = {
   0:  { date: 'DECEMBER 24, 2025', time: '',          focus: 'overview' },
   1:  { date: 'AUGUST 2025',       time: '',          focus: null },
-  2:  { date: 'DECEMBER 24, 2025', time: '11:00 PM',  focus: 'hotel' },
-  3:  { date: 'DECEMBER 25, 2025', time: '12:39 AM',  focus: 'hotel' },
-  4:  { date: 'DECEMBER 25, 2025', time: '12:52 AM',  focus: null },
-  5:  { date: 'DECEMBER 25, 2025', time: '9:12 AM',   focus: null },
-  6:  { date: 'DECEMBER 25, 2025', time: '9:18 AM',   focus: 'hotel' },
-  7:  { date: 'DECEMBER 25, 2025', time: '9:33 AM',   focus: 'hotel' },
-  8:  { date: 'DECEMBER 25, 2025', time: '10:21 AM',  focus: 'hotel' },
-  9:  { date: 'DECEMBER 25, 2025', time: '11:34 AM',  focus: null },
-  10: { date: 'DECEMBER 25, 2025', time: '12:06 PM',  focus: 'hospital' },
-  11: { date: 'DECEMBER 25, 2025', time: '1:53 PM',   focus: 'hotel' },
-  12: { date: 'DECEMBER 25, 2025', time: '1:42 PM',   focus: null },
-  13: { date: 'DECEMBER 25, 2025', time: '',           focus: 'hotel' },
-  14: { date: 'DECEMBER 25, 2025', time: '3:18 PM',   focus: null },
-  15: { date: 'DECEMBER 26, 2025', time: '',           focus: null },
-  16: { date: 'DECEMBER 26, 2025', time: '11:00 AM',  focus: null },
-  17: { date: 'DECEMBER 27, 2025', time: '',           focus: 'overview' },
-  18: { date: 'DECEMBER 28, 2025', time: '',           focus: 'overview' },
-  19: { date: 'JAN - MAR 2026',    time: '',           focus: 'overview' }
+  2:  { date: 'DECEMBER 22, 2025', time: '',          focus: 'overview' },
+  3:  { date: 'DECEMBER 24, 2025', time: '11:00 PM',  focus: 'hotel' },
+  4:  { date: 'DECEMBER 25, 2025', time: '12:39 AM',  focus: 'hotel' },
+  5:  { date: 'DECEMBER 25, 2025', time: '12:52 AM',  focus: null },
+  6:  { date: 'DECEMBER 25, 2025', time: '9:12 AM',   focus: null },
+  7:  { date: 'DECEMBER 25, 2025', time: '9:18 AM',   focus: 'hotel' },
+  8:  { date: 'DECEMBER 25, 2025', time: '9:33 AM',   focus: 'hotel' },
+  9:  { date: 'DECEMBER 25, 2025', time: '9:40 AM',   focus: 'hotel' },
+  10: { date: 'DECEMBER 25, 2025', time: '10:21 AM',  focus: 'hotel' },
+  11: { date: 'DECEMBER 25, 2025', time: '11:34 AM',  focus: null },
+  12: { date: 'DECEMBER 25, 2025', time: '12:06 PM',  focus: 'route' },
+  13: { date: 'DECEMBER 25, 2025', time: '1:53 PM',   focus: 'route' },
+  14: { date: 'DECEMBER 25, 2025', time: '1:42 PM',   focus: null },
+  15: { date: 'DECEMBER 25, 2025', time: '',           focus: 'hotel' },
+  16: { date: 'DECEMBER 25, 2025', time: '3:18 PM',   focus: null },
+  17: { date: 'DECEMBER 26, 2025', time: '',           focus: null },
+  18: { date: 'DECEMBER 26, 2025', time: '11:00 AM',  focus: null },
+  19: { date: 'DECEMBER 27, 2025', time: '',           focus: 'overview' },
+  20: { date: 'DECEMBER 28, 2025', time: '',           focus: 'overview' },
+  21: { date: 'DEC 29-30, 2025',   time: '',           focus: 'overview' },
+  22: { date: 'JAN - MAR 2026',    time: '',           focus: 'overview' }
 };
 
 let currentStep = -1;
@@ -985,7 +993,11 @@ function activateStep(stepNum) {
 
   if (focusKey && FOCUS_POINTS[focusKey]) {
     var fp = FOCUS_POINTS[focusKey];
-    map.flyTo(fp.center, fp.zoom, { duration: 1.0 });
+    if (fp.bounds) {
+      map.flyToBounds(fp.bounds, { duration: 1.0, padding: [30, 30] });
+    } else {
+      map.flyTo(fp.center, fp.zoom, { duration: 1.0 });
+    }
 
     // Add highlight marker at focus point
     if (focusKey === 'hotel') {
@@ -998,6 +1010,33 @@ function activateStep(stepNum) {
       activeMarkers.push(dot2);
       var lbl2 = makeLabel(HOSPITAL_COORDS, 'CASCADE MEDICAL CENTER', COLORS.deputy);
       activeMarkers.push(lbl2);
+    } else if (focusKey === 'route') {
+      // Both markers
+      var dotH = makeDot(HOTEL_COORDS, COLORS.jlr, 8, true);
+      activeMarkers.push(dotH);
+      var lblH = makeLabel(HOTEL_COORDS, 'ALL SEASON RIVER INN', COLORS.jlr);
+      activeMarkers.push(lblH);
+      var dotC = makeDot(HOSPITAL_COORDS, COLORS.deputy, 8, true);
+      activeMarkers.push(dotC);
+      var lblC = makeLabel(HOSPITAL_COORDS, 'CASCADE MEDICAL CENTER', COLORS.deputy);
+      activeMarkers.push(lblC);
+      // Dotted line between them
+      var routeLine = L.polyline([HOTEL_COORDS, HOSPITAL_COORDS], {
+        color: COLORS.deputy, weight: 2, opacity: 0.6, dashArray: '6, 8'
+      }).addTo(map);
+      activeMarkers.push(routeLine);
+      // Distance label at midpoint
+      var midLat = (HOTEL_COORDS[0] + HOSPITAL_COORDS[0]) / 2;
+      var midLng = (HOTEL_COORDS[1] + HOSPITAL_COORDS[1]) / 2;
+      var distIcon = L.divIcon({
+        className: '',
+        html: '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;font-weight:500;color:' + COLORS.deputy + ';' +
+          'background:rgba(6,11,20,0.85);padding:3px 8px;border-radius:3px;border:1px solid rgba(216,218,219,0.25);' +
+          'white-space:nowrap;transform:translate(-50%,-50%);pointer-events:none;">1.8 mi</div>',
+        iconSize: [0, 0], iconAnchor: [0, 0]
+      });
+      var distLabel = L.marker([midLat, midLng], { icon: distIcon, interactive: false }).addTo(map);
+      activeMarkers.push(distLabel);
     }
   }
 }

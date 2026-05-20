@@ -11,28 +11,19 @@
     width: 1200px;
     height: 675px;
     overflow: hidden;
-    background: #060B14;
+    background: #101010;
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     position: relative;
   }
 
-  body::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(74,138,124,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(74,138,124,0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-    z-index: 0;
-  }
+  /* grid lines removed */
 
   .nav {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 60px;
-    background: rgba(6,11,20,0.97);
+    background: rgba(16,16,16,0.97);
     border-bottom: 1px solid rgba(18,64,60,0.35);
     display: flex;
     align-items: center;
@@ -82,7 +73,7 @@
     font-weight: 600;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: #060B14;
+    color: #101010;
     background: #4a8a7c;
     padding: 7px 16px;
     border-radius: 2px;
@@ -252,8 +243,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(6,11,20,0.5) 100%),
-      linear-gradient(180deg, rgba(6,11,20,0.25) 0%, transparent 25%, transparent 75%, rgba(6,11,20,0.3) 100%);
+      radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(16,16,16,0.45) 100%),
+      linear-gradient(180deg, rgba(16,16,16,0.2) 0%, transparent 25%, transparent 75%, rgba(16,16,16,0.25) 100%);
     z-index: 2;
     pointer-events: none;
   }
@@ -264,7 +255,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 15;
-    background: rgba(6,11,20,0.94);
+    background: rgba(16,16,16,0.94);
     border: 1px solid rgba(74,138,124,0.35);
     border-radius: 4px;
     padding: 14px 22px 12px;
@@ -306,7 +297,7 @@
     border-top: 1px solid rgba(18,64,60,0.35);
     height: 78px;
     z-index: 10;
-    background: rgba(6,11,20,0.97);
+    background: rgba(16,16,16,0.97);
   }
 
   .stat {
@@ -417,14 +408,14 @@
         <span class="tick-label" style="bottom: 6px; right: 8px;">120.66°W</span>
 
         <!-- Replace with a screenshot of the magnolia timeline or case map -->
-        <img src="map-screenshot.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center 72%; z-index:1;" onerror="this.style.display='none'" />
+        <img src="box-screenshot.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center 72%; z-index:1;" onerror="this.style.display='none'" />
 
       </div>
     </div>
 
     <div class="stats-bar">
       <div class="stat" style="padding-left: 48px;">
-        <div class="stat-value">23</div>
+        <div class="stat-value">24</div>
         <div class="stat-label">Timeline Steps</div>
       </div>
       <div class="stat">
@@ -436,11 +427,11 @@
         <div class="stat-label">RCW Charges</div>
       </div>
       <div class="stat">
-        <div class="stat-value">4</div>
+        <div class="stat-value">9</div>
         <div class="stat-label">Dispatch Calls</div>
       </div>
       <div class="stat">
-        <div class="stat-value">3</div>
+        <div class="stat-value">5</div>
         <div class="stat-label">BodyCam Videos</div>
       </div>
     </div>
