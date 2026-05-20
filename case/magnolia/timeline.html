@@ -252,6 +252,24 @@
       color: var(--muted); letter-spacing: 0.06em;
       margin: -2px 0 12px; text-transform: uppercase;
     }
+    .step-embed {
+      margin: 14px 0 6px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #000;
+    }
+    .step-embed iframe {
+      display: block;
+      width: 100%;
+      height: 60px;
+      border: none;
+    }
+    .step-embed + .embed-caption {
+      font-family: var(--mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.06em;
+      margin: -2px 0 12px; text-transform: uppercase;
+    }
     .step .person-pill {
       display: inline-flex; align-items: center; gap: 5px;
       font-family: var(--mono); font-size: 10px;
@@ -512,6 +530,10 @@
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
     <p>CAD call initiated for domestic disturbance at the All Season River Inn. The call lasts approximately five minutes, ending at 09:23:44 AM.</p>
+    <div class="step-embed">
+      <iframe src="https://drive.google.com/file/d/1j9tRR3ewZU4iByxdPjDBEVZZnFquf-9y/preview" allow="autoplay"></iframe>
+    </div>
+    <div class="embed-caption">Dispatch Call 1 &mdash; 09:18 AM, Dec 25</div>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">All Season River Inn</span></div>
     </div>
