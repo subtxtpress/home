@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Jonathan Lee Riches Docket – Subtxt Press</title>
+  <meta name="description" content="Jonathan Lee Riches Filings &amp; Records | @subtxtpress GitHub">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/JLR/docket">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jonathan Lee Riches Docket – Subtxt Press">
+  <meta property="og:description" content="Jonathan Lee Riches Filings &amp; Records | @subtxtpress GitHub">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/JLR/docket">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Dockets | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jonathan Lee Riches Docket – Subtxt Press">
+  <meta name="twitter:description" content="Jonathan Lee Riches Filings &amp; Records | @subtxtpress GitHub">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --peach:   #E8956A;
+      --cream:   #F4EDE3;
+      --sand:    #DDD0BC;
+      --plum:    #3E2436;
+      --carmine: #7A5063;
+      --ink:     #241620;
+
+      --surface-page:     #F4EDE3;
+      --surface-card:     #FFFFFF;
+      --surface-elevated: #EDE5D8;
+
+      --text-heading: #241620;
+      --text-body:    #44373C;
+      --text-label:   #7A5063;
+      --text-muted:   rgba(68, 55, 60, 0.45);
+
+      --accent:        #E8956A;
+      --accent-border: rgba(232, 149, 106, 0.40);
+
+      --border-light:  rgba(221, 208, 188, 0.55);
+      --border-mid:    rgba(180, 140, 100, 0.22);
+
+      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface-page);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── Section label ──────────────────────────────────────── */
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-mid);
+    }
+
+    /* ─── Nav ───────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 5vw;
+      transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-nav.scrolled {
+      padding: 14px 5vw;
+      background: rgba(244, 237, 227, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--border-light);
+      box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
+    }
+
+    .nav-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .site-nav.scrolled .nav-brand { color: var(--ink); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover  { color: #fff; }
+    .nav-links a.active { color: var(--peach); }
+
+    .site-nav.scrolled .nav-links a         { color: var(--text-label); }
+    .site-nav.scrolled .nav-links a:hover   { color: var(--ink); }
+    .site-nav.scrolled .nav-links a.active  { color: var(--accent); }
+
+    /* ─── Masthead ──────────────────────────────────────────── */
+    .masthead {
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .masthead-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 52%;
+    }
+
+    .masthead::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.52)  0%,
+        rgba(0, 0, 0, 0.18) 45%,
+        rgba(0, 0, 0, 0.38) 100%
+      );
+    }
+
+    .masthead-text {
+      position: absolute;
+      bottom: 72px;
+      left: 5vw;
+      z-index: 2;
+    }
+
+    .masthead-kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .masthead-kicker::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: var(--peach);
+      flex-shrink: 0;
+    }
+
+    .masthead-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
+    }
+
+    /* ─── Content Section ───────────────────────────────────── */
+    .content-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 5vw 88px;
+    }
+
+    /* ─── Document Block ────────────────────────────────────── */
+    .doc-block {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+
+    .doc-block-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .doc-block-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .doc-block-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .doc-block-embed {
+      width: 100%;
+      height: 600px;
+      border: none;
+      display: block;
+    }
+
+    /* ─── Drive Link Card ───────────────────────────────────── */
+    .drive-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .drive-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.10),
+        0 0 0 1px var(--accent-border);
+    }
+
+    .drive-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .drive-card-body {
+      flex: 1;
+    }
+
+    .drive-card-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+
+    .drive-card-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+
+    .drive-card-desc a {
+      color: var(--carmine);
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    .drive-card-desc a:hover {
+      color: var(--ink);
+    }
+
+    .drive-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s, gap 0.2s;
+      flex-shrink: 0;
+    }
+
+    .drive-card-cta:hover {
+      color: var(--ink);
+      gap: 10px;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 24px 5vw;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      color: var(--text-muted);
+      font-size: 15px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--carmine); }
+
+    /* ─── Tablet ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .doc-block-embed { height: 480px; }
+      .drive-card { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── Mobile ─────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .site-nav,
+      .site-nav.scrolled  { padding: 14px 20px; }
+      .nav-links           { gap: 20px; }
+      .masthead-text       { left: 20px; bottom: 52px; }
+      .content-section     { padding: 32px 16px 56px; }
+      .doc-block-header    { padding: 16px 20px; }
+      .doc-block-embed     { height: 360px; }
+      .drive-card          { padding: 20px; }
+      .site-footer         { padding: 24px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" id="siteNav">
+    <a href="../../index" class="nav-brand">Subtxt Press</a>
+    <ul class="nav-links">
+      <li><a href="../../index">Home</a></li>
+      <li><a href="../../policies">Policies</a></li>
+      <li><a href="../cases" class="active">Dockets</a></li>
+      <li><a href="../../projects/tools">Tools</a></li>
+    </ul>
+  </nav>
+
+  <div class="masthead">
+    <img class="masthead-img" src="../../assets/img/landscape.jpg" alt="Red Rock Canyon">
+    <div class="masthead-text" data-aos="fade-up">
+      <p class="masthead-kicker">Dockets</p>
+      <h1 class="masthead-title">Jonathan Lee Riches</h1>
+    </div>
+  </div>
+
+  <section class="content-section">
+
+    <div class="section-label">Filings &middot; Records</div>
+
+    <div class="doc-block" data-aos="fade-up">
+      <div class="doc-block-header">
+        <span class="doc-block-number">01</span>
+        <h2 class="doc-block-title">Jonathan Lee Riches Doc-ket</h2>
+      </div>
+        <iframe class="doc-block-embed" src="https://drive.google.com/file/d/1qDsCAEPLKZiNANh1IckZiprrVJwMzY-s/preview" width="640" height="480"></iframe>
+    </div>
+
+    <div class="section-label">Source Files</div>
+
+    <a class="drive-card" href="https://drive.google.com/drive/folders/1xzIZI21U-FNAW1KVjbG9A5_QyrzFA3rs?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
+      <div class="drive-icon">
+        <i class="bi bi-folder2-open"></i>
+      </div>
+      <div class="drive-card-body">
+        <h3 class="drive-card-title">Google Drive Folder</h3>
+        <p class="drive-card-desc">All filings and documents for Jonathan Lee Riches.</p>
+      </div>
+      <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
+    </a>
+
+  </section>
+
+  <footer class="site-footer">
+    <span class="footer-brand">Subtxt Press</span>
+    <div class="footer-social">
+      <a href="https://substack.com/@subtxtpress" aria-label="Substack"><i class="bi bi-substack"></i></a>
+      <a href="https://www.tiktok.com/@subtxtpress" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+      <a href="https://vimeo.com/user253808178?fl=pp&fe=sh" aria-label="Vimeo"><i class="bi bi-vimeo"></i></a>
+      <a href="https://www.youtube.com/@subtxtpress" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      <a href="https://x.com/subtxtpress" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, easing: 'ease-out-quart', once: true, offset: 60 });
+
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
