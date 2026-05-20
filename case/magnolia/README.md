@@ -62,6 +62,7 @@ Deputy K. Talley signed an affidavit for probable cause to arrest JLR for:
 | Deputy Aaron Seabright (K28) | Responding officer |
 | Deputy Andrew Tilton (K64) | Responding officer |
 | Tony Smith | All Season River Inn manager |
+| Dean | All Season River Inn owner |
 
 ## Key Locations
 
