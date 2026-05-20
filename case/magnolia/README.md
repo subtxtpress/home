@@ -6,36 +6,36 @@ Interactive timeline and case map for the JLR domestic violence incident at the 
 
 Chelan County Incident **25C12789**.
 
-On December 24, 2025, Jaime Tennille Phillips (DOB 10/01/76) confronted her boyfriend Jonathan Lee Riches (DOB 12/27/76) about communications with other women and pornography found on his work phone while staying at the All Season River Inn (8751 Icicle Rd, Leavenworth, WA). Riches became enraged and struck Phillips multiple times with a closed fist — to the side of her head, her nose, and her ribs. When Phillips attempted to call 911, Riches took her phone and said "I will fucking kill you." Phillips believes she lost consciousness. Riches then grabbed two bags, his personal cellphone, and Phillips's cellphone, and left.
+On December 24, 2025, Magnolia (Magnolia Tennille Phillips) (DOB 10/01/76) confronted her boyfriend Jonathan Lee Riches (DOB 12/27/76) about communications with other women and pornography found on his work phone while staying at the All Season River Inn (8751 Icicle Rd, Leavenworth, WA). Riches became enraged and struck Magnolia multiple times with a closed fist — to the side of her head, her nose, and her ribs. When Magnolia attempted to call 911, Riches took her phone and said "I will fucking kill you." Magnolia believes she lost consciousness. Riches then grabbed two bags, his personal cellphone, and Magnolia's cellphone, and left.
 
-Phillips reported a prior incident in August 2025 in Charlotte, NC during a work trip — same pattern of confrontation, violent assault, followed by Riches fleeing with the rental car. Phillips stated there is a long history of assault in their almost 3-year dating relationship.
+Magnolia reported a prior incident in August 2025 in Charlotte, NC during a work trip — same pattern of confrontation, violent assault, followed by Riches fleeing with the rental car. Magnolia stated there is a long history of assault in their almost 3-year dating relationship.
 
 ## Key Timeline
 
 | Date/Time | Event |
 |---|---|
-| **Dec 22** | JLR and Jaime arrive in Seattle, WA and head to Leavenworth |
+| **Dec 22** | JLR and Magnolia arrive in Seattle, WA and head to Leavenworth |
 | **Dec 24, 11 PM–12 AM** | Assault at All Season River Inn, Shenandoah room |
 | **Dec 25, 12:39–12:44 AM** | 7 missed calls from Timothy Riches to JLR's work phone |
-| **Dec 25, 12:52 AM** | JLR calls Washington, DC number and Jaime from his personal phone |
+| **Dec 25, 12:52 AM** | JLR calls Washington, DC number and Magnolia from his personal phone |
 | **Dec 25, 9:12 AM** | JLR calls Washington, DC again |
-| **Dec 25, 9:18 AM** | Jaime calls Rivercom Dispatch — domestic disturbance |
+| **Dec 25, 9:18 AM** | Magnolia calls Rivercom Dispatch — domestic disturbance |
 | **Dec 25, 9:33 AM** | Deputy K. Talley arrives on scene |
 | **Dec 25, ~9:40 AM** | Crime scene documented — blood on wall, towels, nightstand, sink |
-| **Dec 25, ~10:21 AM** | Deputy Talley contacts Jaime; TELETYPE cross-reference initiated |
+| **Dec 25, ~10:21 AM** | Deputy Talley contacts Magnolia; TELETYPE cross-reference initiated |
 | **Dec 25, 11:34 AM–12:06 PM** | JLR texts from unknown location ("Worst moment ever," "You ruined this Christmas") |
-| **Dec 25, ~12:06 PM** | ATL issued for JLR; Deputy Talley meets Jaime at Cascade Medical Center |
+| **Dec 25, ~12:06 PM** | ATL issued for JLR; Deputy Talley meets Magnolia at Cascade Medical Center |
 | **Dec 25, 1:42–2:16 PM** | JLR texts: "Hello Magnolia. Where you at?" |
-| **Dec 25, 1:53 PM** | Jaime discharged, returned to hotel; room code changed |
+| **Dec 25, 1:53 PM** | Magnolia discharged, returned to hotel; room code changed |
 | **Dec 25, mid-day** | Hotel manager Tony Smith contacts dispatch after JLR calls front desk |
 | **Dec 25, 3:18 PM** | Deputy Talley signs affidavit — Assault 2nd Degree DV, Harassment/Threats to Kill DV, Interfering with DV Reporting |
-| **Dec 26, morning** | JLR texts Jaime: "I'm in trouble. What did you do?" |
+| **Dec 26, morning** | JLR texts Magnolia: "I'm in trouble. What did you do?" |
 | **Dec 26, mid-day** | JLR calls/emails/texts hotel owners trying to access the room |
-| **Dec 26, afternoon** | Jaime contacts dispatch multiple times with updates; cancels original flight, rebooks |
-| **Dec 27** | Jaime tracks JLR's location — traveling through North Dakota |
-| **Dec 27** | Jaime calls Pasco County Sheriff (Port Richey, FL — shared home), then Rivercom to confirm case file forwarded |
-| **Dec 28** | Jaime calls dispatch with new phone number and updates |
-| **Dec 29** | Follow-up contact with Jaime (victim involvement date per supplemental) |
+| **Dec 26, afternoon** | Magnolia contacts dispatch multiple times with updates; cancels original flight, rebooks |
+| **Dec 27** | Magnolia tracks JLR's location — traveling through North Dakota |
+| **Dec 27** | Magnolia calls Pasco County Sheriff (Port Richey, FL — shared home), then Rivercom to confirm case file forwarded |
+| **Dec 28** | Magnolia calls dispatch with new phone number and updates |
+| **Dec 29** | Follow-up contact with Magnolia (victim involvement date per supplemental) |
 | **Dec 30** | Case turned over to Chelan County Prosecutors (TOP) |
 
 ## Charges
@@ -59,7 +59,7 @@ Deputy K. Talley signed an affidavit for probable cause to arrest JLR for:
 
 | Person | Role |
 |---|---|
-| Jaime Tennille Phillips | Victim / reporting party |
+| Magnolia (Magnolia Tennille Phillips) | Victim / reporting party |
 | Jonathan Lee Riches (JLR) | Suspect (boyfriend) |
 | Timothy Riches | JLR's brother (called work phone repeatedly) |
 | Deputy Kyle Talley (K29) | Chelan County Sheriff — primary responding deputy |
@@ -77,7 +77,7 @@ Deputy K. Talley signed an affidavit for probable cause to arrest JLR for:
 
 ## Records Requests
 
-- Jan 6, 2026 — Jaime Phillips
+- Jan 6, 2026 — Magnolia
 - Mar 20, 2026 — NY Post
 - Mar 24, 2026 — Angie Hughes
 
