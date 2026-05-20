@@ -27,21 +27,21 @@
     border-bottom: 1px solid rgba(18,64,60,0.35);
     display: flex;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 4%;
     z-index: 20;
   }
 
   .nav-brand {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
     color: #F5F5F5;
     letter-spacing: 0.01em;
   }
 
   .nav-sub {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -60,7 +60,7 @@
 
   .nav-link {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -69,7 +69,7 @@
 
   .nav-cta {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -86,7 +86,7 @@
     right: 0;
     bottom: 0;
     display: grid;
-    grid-template-columns: 480px 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr auto;
     z-index: 1;
   }
@@ -99,13 +99,14 @@
     flex-direction: column;
     position: relative;
     z-index: 5;
+    padding-top: 10%;
   }
 
   .eyebrow-line {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 8%;
   }
 
   .eyebrow-dash {
@@ -116,7 +117,7 @@
 
   .eyebrow {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -130,6 +131,7 @@
     line-height: 1.02;
     color: #F5F5F5;
     letter-spacing: -0.01em;
+    margin-bottom: 8%;
   }
 
   .headline em {
@@ -140,10 +142,10 @@
 
   .desc {
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.65;
     color: rgba(216,218,219,0.50);
-    margin-top: 18px;
+    margin-bottom: 10%;
     letter-spacing: 0.005em;
   }
 
@@ -190,10 +192,11 @@
 
   .map-frame {
     position: absolute;
-    top: 18px;
-    right: 28px;
-    bottom: 18px;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 350px;
     border: 1px solid rgba(74,138,124,0.25);
     overflow: hidden;
   }
@@ -323,7 +326,7 @@
 
   .stat-label {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 7.5px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -366,14 +369,11 @@
       </div>
 
       <h1 class="headline">
-        The<br>
-        <em>Magnolia</em><br>
-        Timeline.
+        The <em>Magnolia</em> Timeline.
       </h1>
 
       <p class="desc">
-        Chelan County Sheriff records, dispatch logs,<br>
-        phone records, and text messages — mapped.
+        Chelan County Sheriff records, dispatch logs, phone records, and text messages — mapped.
       </p>
 
       <div class="cta-row">

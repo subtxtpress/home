@@ -14,14 +14,20 @@ Phillips reported a prior incident in August 2025 in Charlotte, NC during a work
 
 | Date/Time | Event |
 |---|---|
+| **Dec 22** | JLR and Jaime arrive in Seattle, WA and head to Leavenworth |
 | **Dec 24, 11 PM–12 AM** | Assault at All Season River Inn, Shenandoah room |
 | **Dec 25, 12:39–12:44 AM** | 7 missed calls from Timothy Riches to JLR's work phone |
+| **Dec 25, 12:52 AM** | JLR calls Washington, DC number and Jaime from his personal phone |
+| **Dec 25, 9:12 AM** | JLR calls Washington, DC again |
 | **Dec 25, 9:18 AM** | Jaime calls Rivercom Dispatch — domestic disturbance |
 | **Dec 25, 9:33 AM** | Deputy K. Talley arrives on scene |
-| **Dec 25, ~10:05 AM** | Jaime transported to Cascade Medical Center |
-| **Dec 25, 10:21 AM** | TELETYPE cross-reference initiated |
-| **Dec 25, mid-day** | Hotel manager Tony Smith contacts dispatch after JLR calls front desk |
+| **Dec 25, ~9:40 AM** | Crime scene documented — blood on wall, towels, nightstand, sink |
+| **Dec 25, ~10:21 AM** | Deputy Talley contacts Jaime; TELETYPE cross-reference initiated |
+| **Dec 25, 11:34 AM–12:06 PM** | JLR texts from unknown location ("Worst moment ever," "You ruined this Christmas") |
+| **Dec 25, ~12:06 PM** | ATL issued for JLR; Deputy Talley meets Jaime at Cascade Medical Center |
+| **Dec 25, 1:42–2:16 PM** | JLR texts: "Hello Magnolia. Where you at?" |
 | **Dec 25, 1:53 PM** | Jaime discharged, returned to hotel; room code changed |
+| **Dec 25, mid-day** | Hotel manager Tony Smith contacts dispatch after JLR calls front desk |
 | **Dec 25, 3:18 PM** | Deputy Talley signs affidavit — Assault 2nd Degree DV, Harassment/Threats to Kill DV, Interfering with DV Reporting |
 | **Dec 26, morning** | JLR texts Jaime: "I'm in trouble. What did you do?" |
 | **Dec 26, mid-day** | JLR calls/emails/texts hotel owners trying to access the room |
