@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Magnolia Timeline – Subtxt Press</title>
+  <meta name="description" content="A chronological timeline of the JLR domestic violence incident in Leavenworth, WA — December 24–28, 2025.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/magnolia/timeline">
+  <!-- FB -->
+  <meta property="og:title" content="Magnolia Timeline – Subtxt Press">
+  <meta property="og:description" content="A chronological timeline of the JLR domestic violence incident in Leavenworth, WA — December 24–28, 2025.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/magnolia/timeline">
+  <meta property="og:site_name" content="Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Magnolia Timeline – Subtxt Press">
+  <meta name="twitter:description" content="A chronological timeline of the JLR domestic violence incident in Leavenworth, WA — December 24–28, 2025.">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #060B14;
+      --surface: rgba(18,64,60,0.22);
+      --surface2: #12403C;
+      --border: rgba(244,229,196,0.10);
+      --border2: rgba(244,229,196,0.26);
+      --border-subtle: rgba(18,64,60,0.45);
+
+      --red: #C04E01;
+      --red-dim: rgba(192,78,1,0.10);
+      --red-border: rgba(192,78,1,0.55);
+      --amber: #ebe2cd;
+      --amber-dim: rgba(235,226,205,0.10);
+      --blue: #D8DADB;
+      --blue-dim: rgba(216,218,219,0.10);
+      --green: #4a8a7c;
+      --green-dim: rgba(18,64,60,0.22);
+
+      --text: #F5F5F5;
+      --text2: #D8DADB;
+      --text-label: #ebe2cd;
+      --muted: rgba(216,218,219,0.50);
+
+      --card-bg: rgba(6,11,20,0.45);
+      --grad-g03: linear-gradient(to right, #D8DADB, #C04E01);
+      --grad-teal: linear-gradient(to bottom, #F5F5F5, #12403C);
+
+      --mono: 'IBM Plex Mono', monospace;
+      --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --head: 'Barlow Condensed', sans-serif;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --nav-h: 48px;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text2);
+      font-family: var(--body);
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* -- NAV -- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(6,11,20,0.97);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      z-index: 1200;
+      gap: 10px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-title {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav-tag {
+      background: var(--red-dim); border: 1px solid var(--red-border);
+      color: var(--red); font-family: var(--mono); font-size: 10px;
+      padding: 2px 8px; border-radius: 3px; letter-spacing: 0.06em;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-source-link {
+      margin-left: auto; font-family: var(--mono); font-size: 10px;
+      color: var(--muted); text-decoration: none; letter-spacing: 0.04em;
+      opacity: 0.65; white-space: nowrap; transition: opacity 0.15s, color 0.15s;
+    }
+    .nav-source-link:hover { opacity: 1; color: var(--text2); }
+
+    /* -- PROGRESS BAR -- */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--grad-g03); z-index: 1300;
+      width: 0; transition: width 0.15s ease-out;
+    }
+
+    /* -- MAP -- */
+    #map {
+      position: fixed;
+      top: var(--nav-h); right: 0;
+      width: 60%; height: calc(100vh - var(--nav-h));
+      z-index: 1;
+    }
+
+    /* -- CLOCK -- */
+    #clock {
+      position: fixed;
+      top: calc(var(--nav-h) + 16px);
+      right: 16px;
+      z-index: 800;
+      background: rgba(6,11,20,0.82);
+      border: 1px solid var(--border2);
+      padding: 10px 18px;
+      border-radius: 4px;
+      text-align: right;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: opacity 0.4s;
+    }
+    .clock-date {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.12em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 2px;
+    }
+    .clock-time {
+      font-family: var(--mono); font-size: 26px;
+      font-weight: 500; color: var(--text);
+      letter-spacing: 0.04em;
+      transition: color 0.3s;
+    }
+    .clock-time.flash { color: var(--red); }
+
+    /* -- BASEMAP TOGGLE -- */
+    #basemap-toggle {
+      position: fixed;
+      bottom: 20px; right: 20px;
+      z-index: 800;
+      background: rgba(6,11,20,0.82);
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      font-family: var(--mono); font-size: 10px;
+      padding: 6px 12px; border-radius: 4px;
+      cursor: pointer; letter-spacing: 0.06em;
+      transition: background 0.2s;
+    }
+    #basemap-toggle:hover { background: var(--surface2); }
+
+    /* -- NARRATIVE COLUMN -- */
+    #narrative {
+      position: fixed;
+      top: var(--nav-h); left: 0;
+      width: 40%; height: calc(100vh - var(--nav-h));
+      overflow-y: auto; overflow-x: hidden;
+      z-index: 100;
+      background: var(--bg);
+      border-right: 1px solid;
+      border-image: var(--grad-teal) 1;
+    }
+    #narrative::-webkit-scrollbar { width: 4px; }
+    #narrative::-webkit-scrollbar-track { background: transparent; }
+    #narrative::-webkit-scrollbar-thumb { background: rgba(216,218,219,0.18); border-radius: 2px; }
+
+    .step {
+      min-height: 70vh;
+      padding: 48px 36px 48px 40px;
+      border-left: 3px solid transparent;
+      opacity: 0.3;
+      transition: opacity 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+      position: relative;
+    }
+    .step.is-active {
+      opacity: 1;
+      background: var(--surface);
+    }
+    .step:first-child { padding-top: 60px; }
+    .step:last-child { min-height: 90vh; }
+
+    .step-time {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.1em; color: var(--muted);
+      margin-bottom: 10px; text-transform: uppercase;
+    }
+    .step-title {
+      font-family: var(--head); font-size: 22px;
+      font-weight: 700; color: var(--text);
+      letter-spacing: 0.03em; margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .step p {
+      font-size: 14px; line-height: 1.75;
+      color: var(--text2); margin-bottom: 12px;
+    }
+    .step-figure {
+      margin: 18px 0 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .step-figure img {
+      display: block; width: 100%;
+      max-height: 280px; object-fit: cover;
+    }
+    .step-figure figcaption {
+      font-family: var(--mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.06em;
+      padding: 8px 12px; border-top: 1px dashed var(--border);
+      text-transform: uppercase;
+    }
+    .step-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin: 18px 0 8px;
+    }
+    .step-gallery img {
+      display: block; width: 100%;
+      aspect-ratio: 4 / 3; object-fit: cover;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .step-gallery img:hover { opacity: 0.85; }
+    .step-gallery + .gallery-caption {
+      font-family: var(--mono); font-size: 10px;
+      color: var(--muted); letter-spacing: 0.06em;
+      margin: -2px 0 12px; text-transform: uppercase;
+    }
+    .step .person-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.06em; padding: 3px 10px;
+      border-radius: 12px; margin-bottom: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .person-pill .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      display: inline-block;
+    }
+    .step .loc-strip {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      padding-top: 10px; margin-top: 14px;
+      border-top: 1px dashed rgba(244,229,196,0.10);
+    }
+    .loc-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.05em; padding: 3px 7px;
+      border-radius: 3px; text-transform: uppercase;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--text2); white-space: nowrap;
+    }
+    .loc-pill .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      display: inline-block; flex-shrink: 0;
+    }
+    .loc-pill .who { color: var(--text); font-weight: 600; }
+    .loc-pill .where { opacity: 0.65; }
+    .scroll-hint {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--muted); margin-top: 20px;
+      letter-spacing: 0.08em; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* Title card special */
+    .step.title-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 90vh;
+    }
+
+    .title-card .step-title {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .title-card .dateline {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    /* Act headers */
+    .act-label {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.16em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 6px;
+      padding-top: 8px;
+    }
+
+    /* -- LEAFLET OVERRIDES -- */
+    .leaflet-control-attribution { font-size: 9px !important; opacity: 0.5; }
+    .leaflet-control-zoom { border: 1px solid var(--border2) !important; }
+    .leaflet-control-zoom a {
+      background: rgba(6,11,20,0.9) !important;
+      color: var(--text) !important;
+      border-color: var(--border) !important;
+    }
+
+    /* Marker pulse animation */
+    @keyframes markerPulse {
+      0% { box-shadow: 0 0 0 0 currentColor; }
+      70% { box-shadow: 0 0 0 14px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+    .pulse-marker {
+      animation: markerPulse 2s infinite;
+    }
+    .leaflet-marker-icon {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .leaflet-marker-shadow {
+      display: none !important;
+    }
+    .ev-tip {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text-label);
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 2px;
+      padding: 3px 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    /* -- MOBILE -- */
+    @media (max-width: 767px) {
+      #map {
+        width: 100%; height: 40vh;
+        top: var(--nav-h); left: 0; right: 0;
+      }
+      #narrative {
+        width: 100%;
+        top: calc(var(--nav-h) + 40vh);
+        height: calc(60vh - var(--nav-h));
+        -webkit-overflow-scrolling: touch;
+      }
+      #clock { right: 10px; top: calc(var(--nav-h) + 8px); padding: 6px 12px; }
+      .clock-date { font-size: 9px; }
+      .clock-time { font-size: 18px; }
+      .step { padding: 24px 18px; min-height: calc(60vh - var(--nav-h) - 20px); }
+      .step:first-child { padding-top: 28px; }
+      .step.title-card { min-height: calc(60vh - var(--nav-h) - 20px); justify-content: flex-start; padding-top: 28px; }
+      .step-title { font-size: 19px; margin-bottom: 12px; }
+      .step p { font-size: 13.5px; line-height: 1.65; }
+      .step-figure img { max-height: 200px; }
+      .step-figure figcaption { font-size: 9px; padding: 6px 10px; }
+      .step-gallery { gap: 4px; margin: 14px 0 6px; }
+      .title-card .step-title { font-size: 22px; }
+      .title-card .dateline { font-size: 11px; }
+      .loc-pill { font-size: 8.5px; padding: 2px 6px; }
+      .person-pill { font-size: 9px; padding: 2px 8px; }
+      .act-label { font-size: 8.5px; }
+      .step-time { font-size: 10px; }
+      #basemap-toggle { bottom: auto; top: calc(var(--nav-h) + 40vh - 40px); right: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-tag { display: none; }
+      .nav-title { font-size: 13px; }
+      .nav-source-link { font-size: 0; }
+      .nav-source-link::after { content: '\2197'; font-size: 12px; }
+      #clock { padding: 5px 10px; }
+      .clock-time { font-size: 16px; }
+      .step { padding: 20px 16px; }
+      .step-title { font-size: 18px; }
+      .step-figure img { max-height: 170px; }
+      .step-gallery img { aspect-ratio: 1 / 1; }
+      .title-card .step-title { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress-bar"></div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-title"><em>Magnolia Timeline</em></div>
+  <span class="nav-tag">DV &middot; LEAVENWORTH, WA</span>
+  <a class="nav-source-link" href="https://github.com/subtxtpress" target="_blank" rel="noopener">subtxtpress &rarr;</a>
+</nav>
+
+<!-- Clock -->
+<div id="clock">
+  <div class="clock-date">DECEMBER 24, 2025</div>
+  <div class="clock-time" id="clock-time"></div>
+</div>
+
+<!-- Map -->
+<div id="map"></div>
+
+<!-- Basemap toggle -->
+<button id="basemap-toggle" onclick="toggleBasemap()">SATELLITE/DARK</button>
+
+<!-- Narrative -->
+<div id="narrative">
+
+  <!-- STEP 0: Title -->
+  <div class="step title-card" data-step="0">
+    <div class="dateline">December 24&ndash;28, 2025 &mdash; Leavenworth, Washington</div>
+    <div class="step-title">The Magnolia Timeline</div>
+    <p>On Christmas Eve 2025, Jaime Phillips was assaulted by her boyfriend Jonathan Lee Riches at the All Season River Inn in Leavenworth, Washington. This timeline reconstructs the incident using Chelan County Sheriff&rsquo;s Office records, dispatch logs, phone records, and text messages.</p>
+    <p style="opacity:0.7;font-size:10px;font-style:italic;">As of now, this is a <strong>living</strong> document being updated as records are obtained.</p>
+    <div class="scroll-hint">&darr; Scroll to begin</div>
+  </div>
+
+  <!-- STEP 1: Act I — Prior History -->
+  <div class="step" data-step="1" data-border="var(--amber)">
+    <div class="act-label">Act I &mdash; Prior History</div>
+    <div class="step-time">August 2025</div>
+    <div class="step-title">Charlotte, North Carolina</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
+    <p>Jaime was on a work trip with Jonathan in Charlotte. She first discovered his infidelity and confronted him. He attacked her in the hotel and drove their rental car back to Florida, where they live. Jaime stated there is a long history of assaults in their almost 3-year dating relationship.</p>
+    <figure class="step-figure">
+      <img src="photos/01-prior-injury.png" alt="Jaime's black eye from August 2025 assault in Charlotte" loading="lazy" />
+      <figcaption>Prior injury &mdash; August 2025, Charlotte, NC</figcaption>
+    </figure>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">Charlotte, NC</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--red)"></span><span class="who">JLR</span> <span class="where">Charlotte, NC</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Act II — Christmas Eve / The Assault -->
+  <div class="step" data-step="2" data-border="var(--red)" data-map-focus="hotel">
+    <div class="act-label">Act II &mdash; Christmas Eve</div>
+    <div class="step-time">11:00 PM &ndash; 12:00 AM</div>
+    <div class="step-title">The Assault</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>Jaime confronted Jonathan about communications with other women and pornography she observed on his work phone. Jonathan became enraged and struck her with a closed fist multiple times &mdash; on the side of her head, her nose, and her ribs. When Jaime grabbed her phone to dial 911, Jonathan took it from her and said &ldquo;I will fucking kill you.&rdquo; Jaime believes she lost consciousness. Jonathan grabbed two bags, his personal phone, Jaime&rsquo;s phone, and left. He left behind his work phone.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">All Season River Inn</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--red)"></span><span class="who">JLR</span> <span class="where">All Season River Inn &rarr; fled</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Timothy calls -->
+  <div class="step" data-step="3" data-border="var(--muted)" data-map-focus="hotel">
+    <div class="step-time">12:39 AM &ndash; 12:44 AM &middot; Dec 25</div>
+    <div class="step-title">Timothy Riches calls seven times</div>
+    <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Timothy Riches</div>
+    <p>Between 12:39 and 12:44 AM, seven missed calls from Timothy Riches are logged on JLR&rsquo;s work phone (the one he left behind with Jaime).</p>
+    <figure class="step-figure">
+      <img src="photos/02-timothy-calls.png" alt="Phone screen showing missed calls from Timothy Riches" loading="lazy" />
+      <figcaption>Missed calls from Timothy Riches &mdash; 12:39&ndash;12:44 AM</figcaption>
+    </figure>
+  </div>
+
+  <!-- STEP 4: JLR calls out -->
+  <div class="step" data-step="4" data-border="var(--red)">
+    <div class="step-time">12:52 AM &ndash; 12:53 AM</div>
+    <div class="step-title">JLR calls Washington, DC and Jaime</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>At 12:52 AM, JLR calls a Washington, DC number. At 12:53 AM, he calls Jaime (labeled &ldquo;WIFE&rdquo; in his contacts).</p>
+  </div>
+
+  <!-- STEP 5: Morning calls -->
+  <div class="step" data-step="5" data-border="var(--red)">
+    <div class="step-time">9:12 AM &ndash; 9:13 AM</div>
+    <div class="step-title">JLR calls Washington, DC again</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>Two more calls to the Washington, DC number.</p>
+  </div>
+
+  <!-- STEP 6: 911 Call -->
+  <div class="step" data-step="6" data-border="var(--blue)" data-map-focus="hotel">
+    <div class="act-label">Act III &mdash; Law Enforcement Response</div>
+    <div class="step-time">09:18:49 AM</div>
+    <div class="step-title">911 &mdash; Domestic Disturbance</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
+    <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
+    <p>CAD call initiated for domestic disturbance at the All Season River Inn. The call lasts approximately five minutes, ending at 09:23:44 AM.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">All Season River Inn</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 7: Deputies Arrive -->
+  <div class="step" data-step="7" data-border="var(--blue)" data-map-focus="hotel">
+    <div class="step-time">09:33:14 AM</div>
+    <div class="step-title">Deputies arrive</div>
+    <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
+    <p>Law enforcement arrives at the All Season River Inn. Medics get inside at 09:39:41 AM.</p>
+    <div class="step-gallery">
+      <img src="photos/03-scene-blood-wall.png" alt="Blood on the wall of the hotel room" loading="lazy" />
+      <img src="photos/04-scene-bloody-towel.png" alt="Bloody towel in the hotel room" loading="lazy" />
+      <img src="photos/05-scene-nightstand.png" alt="Nightstand in the hotel room" loading="lazy" />
+      <img src="photos/06-scene-sink.png" alt="Sink with blood evidence" loading="lazy" />
+    </div>
+    <div class="gallery-caption">Crime scene photos &mdash; 9:40 AM, Dec 25</div>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--blue)"></span><span class="who">Deputy</span> <span class="where">All Season River Inn</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">All Season River Inn</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 8: Deputy Talley's Report -->
+  <div class="step" data-step="8" data-border="var(--blue)" data-map-focus="hotel">
+    <div class="step-time">~10:21 AM</div>
+    <div class="step-title">Deputy Talley contacts Jaime</div>
+    <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
+    <p>Deputy Kyle Talley (K29), Chelan County Sheriff&rsquo;s Office, responds to the inn with four additional deputies. He activates his AXON body-worn camera. He observes bruising around Jaime&rsquo;s right eye, a red mark on her nose bridge, and her nose appears broken. Jaime&rsquo;s injuries are photographed by a female medic for documentation. Jaime is transported to Cascade Medical Center for evaluation.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--blue)"></span><span class="who">Deputy</span> <span class="where">All Season River Inn</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">&rarr; Cascade Medical Center</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 9: JLR texts from the road -->
+  <div class="step" data-step="9" data-border="var(--red)">
+    <div class="step-time">11:34 AM &ndash; 12:06 PM</div>
+    <div class="step-title">JLR texts from unknown location</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>A series of texts and calls arrive on the work phone JLR left behind: &ldquo;Worst moment ever&rdquo; (11:34 AM)&hellip; &ldquo;I called this phone over 100 times trying to find out what is going on. You kicked me out.&rdquo; (11:36 AM)&hellip; &ldquo;Hello. Answer the phone. I am in the middle of no where.&rdquo; (11:45 AM)&hellip; &ldquo;For the sake of god. Answer the phone Magnolia. I am crying non stop. You ruined this Christmas.&rdquo; (12:01 PM).</p>
+    <div class="step-gallery">
+      <img src="photos/07-texts-1136.png" alt="Text messages at 11:36 AM" loading="lazy" />
+      <img src="photos/08-texts-1145.png" alt="Text messages at 11:45 AM" loading="lazy" />
+      <img src="photos/09-texts-1159.png" alt="Missed calls and texts at 11:59 AM" loading="lazy" />
+      <img src="photos/10-texts-1201.png" alt="Text messages at 12:01 PM" loading="lazy" />
+    </div>
+    <div class="gallery-caption">Phone records &mdash; 11:36 AM&ndash;12:01 PM</div>
+    <p style="opacity:0.7;font-size:12px;">Two more missed calls from Timothy Riches at 11:57 and 11:58 AM.</p>
+  </div>
+
+  <!-- STEP 10: Hospital and ATL -->
+  <div class="step" data-step="10" data-border="var(--blue)" data-map-focus="hospital">
+    <div class="step-time">~12:06 PM</div>
+    <div class="step-title">ATL issued / Hospital visit</div>
+    <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
+    <p>Deputy Talley requests Rivercom put an ATL (Attempt to Locate) out for Jonathan. He meets Jaime at Cascade Medical Center, ER room 3. A medical release form is completed. Jaime reports Jonathan has been texting the work phone, telling her he&rsquo;s &ldquo;100 miles away&rdquo; and &ldquo;in the middle of nowhere.&rdquo; The white Jeep Compass at the hotel is later confirmed to belong to another guest.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--blue)"></span><span class="who">Deputy</span> <span class="where">Cascade Medical Center</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">Cascade Medical Center</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 11: Return from hospital -->
+  <div class="step" data-step="11" data-border="var(--amber)" data-map-focus="hotel">
+    <div class="step-time">1:53:30 PM</div>
+    <div class="step-title">Return from hospital</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
+    <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
+    <p>Jaime is discharged from Cascade Medical Center. Deputy Talley provides a courtesy ride back to the hotel. Deputy McComas and Talley search the room before Jaime re-enters. The hotel manager changes security codes for the front door and Jaime&rsquo;s room.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Jaime</span> <span class="where">All Season River Inn</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--blue)"></span><span class="who">Deputy</span> <span class="where">All Season River Inn</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 12: More JLR texts -->
+  <div class="step" data-step="12" data-border="var(--red)">
+    <div class="step-time">1:42 PM &ndash; 2:16 PM</div>
+    <div class="step-title">&ldquo;Hello Magnolia. Where you at?&rdquo;</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>&ldquo;Hello Magnolia. Where you at? We need to talk.&rdquo; (1:42 PM)&hellip; &ldquo;Magnolia? Where are you?&rdquo; (1:45 PM)&hellip; &ldquo;??&rdquo; (2:16 PM)</p>
+  </div>
+
+  <!-- STEP 13: Hotel manager report -->
+  <div class="step" data-step="13" data-border="var(--green)" data-map-focus="hotel">
+    <div class="step-time">Mid-day</div>
+    <div class="step-title">JLR calls the front desk</div>
+    <div class="person-pill"><span class="dot" style="background:var(--green)"></span> Tony Smith / Hotel</div>
+    <p>Hotel manager Tony Smith contacts Rivercom Dispatch after JLR calls the front desk trying to reach Jaime. The Sheriff had told Smith to call if JLR made contact. JLR told Tony he had to leave early and accidentally took Jaime&rsquo;s phone, and that he was headed to Snoqualmie.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--green)"></span><span class="who">Tony Smith</span> <span class="where">All Season River Inn</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--red)"></span><span class="who">JLR</span> <span class="where">&rarr; Snoqualmie (claimed)</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 14: Arrest warrant -->
+  <div class="step" data-step="14" data-border="var(--blue)">
+    <div class="step-time">3:18 PM</div>
+    <div class="step-title">Probable cause affidavit signed</div>
+    <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
+    <p>Deputy Kyle Talley signs an affidavit for probable cause to arrest JLR for violating RCW 9A.36.021 (Assault in the 2nd Degree DV), RCW 9A.46.020.2B (Harassment &mdash; threats to kill DV), and RCW 9A.36.150 (Interfering with the reporting of domestic violence). JLR is not booked on any of the three charges.</p>
+  </div>
+
+  <!-- STEP 15: Act IV — Dec 26 -->
+  <div class="step" data-step="15" data-border="var(--red)">
+    <div class="act-label">Act IV &mdash; The Aftermath</div>
+    <div class="step-time">Morning &middot; Dec 26</div>
+    <div class="step-title">&ldquo;I&rsquo;m in trouble. What did you do?&rdquo;</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>JLR texts Jaime: &ldquo;I&rsquo;m in trouble. What did you do?&rdquo; He also calls, emails, and texts the hotel owners trying to get access to the room. The Sheriff had told the owners to call if they hear from him.</p>
+    <figure class="step-figure">
+      <img src="photos/11-texts-after-police.png" alt="Text messages after police contact JLR" loading="lazy" />
+      <figcaption>Texts after police contact &mdash; Dec 26</figcaption>
+    </figure>
+  </div>
+
+  <!-- STEP 16: Magnolia dispatch calls -->
+  <div class="step" data-step="16" data-border="var(--muted)">
+    <div class="step-time">Dec 26 &middot; approx 11:00 AM onward</div>
+    <div class="step-title">Magnolia contacts dispatch</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
+    <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Rivercom Dispatch</div>
+    <p>Jaime (Magnolia) makes multiple calls to Rivercom Dispatch. She asks to speak to a deputy after learning Deputy Talley is off for the weekend. A Chelan County deputy calls her back. She makes additional calls reporting she&rsquo;s about to leave, sharing updates, and asking whether JLR has been picked up. She cancels her original flight, books with a different airline, and boards without issue. Deputy Talley is notified by text.</p>
+  </div>
+
+  <!-- STEP 17: Dec 27 — Tracking JLR -->
+  <div class="step" data-step="17" data-border="var(--amber)">
+    <div class="step-time">December 27, 2025</div>
+    <div class="step-title">JLR tracked to North Dakota</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
+    <p>Jaime contacts dispatch multiple times seeking updates. She reports she was able to track Jonathan&rsquo;s cell phone &mdash; he is driving eastbound through North Dakota. She also calls the Pasco County Sheriff&rsquo;s Office (Port Richey, FL &mdash; the home she and JLR shared), then calls Rivercom Dispatch to confirm they forwarded the case file to Pasco. She is back home in Florida. It is not known whether he is driving back to Florida or to another location.</p>
+  </div>
+
+  <!-- STEP 18: Dec 28 -->
+  <div class="step" data-step="18" data-border="var(--muted)">
+    <div class="step-time">December 28, 2025</div>
+    <div class="step-title">New phone, case still open</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Jaime Phillips</div>
+    <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Rivercom Dispatch</div>
+    <p>Jaime calls Rivercom Dispatch to provide her new phone number and share additional updates. Case marked CMPLT at 15:53:45 PM. Jonathan&rsquo;s destination remains unknown.</p>
+  </div>
+
+  <!-- STEP 19: Dec 29 follow-up + TOP -->
+  <div class="step" data-step="19" data-border="var(--blue)">
+    <div class="step-time">December 29&ndash;30, 2025</div>
+    <div class="step-title">Follow-up &amp; case turned over to prosecutors</div>
+    <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Chelan County Sheriff</div>
+    <p>December 29: Follow-up contact with Jaime Phillips (involvement date listed in supplemental incident report). December 30: Case 25C12789 turned over to Chelan County Prosecutors Office (TOP). Supplemental report generated March 26, 2026.</p>
+  </div>
+
+  <!-- STEP 20: Follow-up -->
+  <div class="step" data-step="20" data-border="var(--amber)">
+    <div class="step-time">January &ndash; March 2026</div>
+    <div class="step-title">Records requests</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Other</div>
+    <p>January 6, 2026: Jaime Phillips files a records request. March 20, 2026: NY Post files a records request. March 24, 2026: Angie Hughes files a records request.</p>
+  </div>
+
+  <!-- STEP 21: Doc-ket link -->
+  <div class="step" data-step="21" data-border="var(--amber)">
+    <div class="step-title">Source Documents</div>
+    <p>View the full JLR doc-ket — filings, records, and the Google Drive folder.</p>
+    <p style="margin-top:12px;"><a href="https://subtxtpress.github.io/home/dockets/JLR/docket" target="_blank" style="color:var(--amber);text-decoration:underline;text-underline-offset:3px;font-weight:500;">View Doc-ket &rarr;</a></p>
+  </div>
+
+</div><!-- /narrative -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+// =========================================================================
+// KML DATA
+// =========================================================================
+const KML_DATA = {
+  "locations": [
+    {
+      "name": "ALL SEASON RIVER INN",
+      "features": [{"type":"point","coords":[47.5595,-120.6981]}],
+      "desc": "<b>Crime Scene</b><br/>8751 Icicle Rd, Leavenworth, WA<br/>Location of the assault on Dec 24, 2025"
+    },
+    {
+      "name": "CASCADE MEDICAL CENTER",
+      "features": [{"type":"point","coords":[47.5971,-120.6622]}],
+      "desc": "<b>Medical</b><br/>Jaime was transported here for evaluation on Dec 25, 2025"
+    },
+    {
+      "name": "LEAVENWORTH",
+      "features": [{"type":"point","coords":[47.5962,-120.6615]}],
+      "desc": "<b>Town Center</b><br/>Leavenworth, Washington"
+    }
+  ]
+};
+
+// =========================================================================
+// FOCUS POINTS
+// =========================================================================
+const FOCUS_POINTS = {
+  'hotel':    { center: [47.5595, -120.6981], zoom: 16 },
+  'hospital': { center: [47.5971, -120.6622], zoom: 15 },
+  'overview': { center: [47.58, -120.68], zoom: 13 },
+};
+
+// =========================================================================
+// COLORS
+// =========================================================================
+const COLORS = {
+  jaime:    '#ebe2cd',
+  jlr:      '#C04E01',
+  deputy:   '#D8DADB',
+  timothy:  '#D8DADB',
+  hotel:    '#4a8a7c',
+  dispatch: '#D8DADB',
+  other:    '#ebe2cd'
+};
+
+// =========================================================================
+// MAP INIT
+// =========================================================================
+const satTiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri', maxZoom: 19
+});
+const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; CartoDB', maxZoom: 19
+});
+
+const map = L.map('map', {
+  center: [47.56, -120.70],
+  zoom: 13,
+  layers: [darkTiles],
+  zoomControl: true,
+  attributionControl: true
+});
+
+let usingSatellite = false;
+function toggleBasemap() {
+  if (usingSatellite) {
+    map.removeLayer(satTiles);
+    map.addLayer(darkTiles);
+  } else {
+    map.removeLayer(darkTiles);
+    map.addLayer(satTiles);
+  }
+  usingSatellite = !usingSatellite;
+}
+
+// =========================================================================
+// MARKERS
+// =========================================================================
+const activeMarkers = [];
+
+function clearActive() {
+  activeMarkers.forEach(m => map.removeLayer(m));
+  activeMarkers.length = 0;
+}
+
+function makeDot(latlng, color, radius, pulsing) {
+  const m = L.circleMarker(latlng, {
+    radius: radius || 7,
+    fillColor: color,
+    color: color,
+    weight: 2,
+    opacity: 0.9,
+    fillOpacity: 0.55
+  }).addTo(map);
+  if (pulsing) {
+    const ring = L.circleMarker(latlng, {
+      radius: radius ? radius + 8 : 15,
+      fillColor: 'transparent',
+      color: color,
+      weight: 1.5,
+      opacity: 0.6,
+      fillOpacity: 0,
+      className: 'pulse-marker'
+    }).addTo(map);
+    activeMarkers.push(ring);
+  }
+  return m;
+}
+
+function makeLabel(latlng, text, color, pos) {
+  const p = pos || 'above';
+  const transforms = {
+    above:  'translate(-50%,-100%);margin-top:-20px',
+    below:  'translate(-50%,0);margin-top:20px',
+    left:   'translate(-100%,-50%);margin-left:-20px',
+    right:  'translate(0,-50%);margin-left:20px'
+  };
+  const t = transforms[p] || transforms.above;
+  const icon = L.divIcon({
+    className: '',
+    html: '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:' + color + ';' +
+      'letter-spacing:0.06em;white-space:nowrap;' +
+      'text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);' +
+      'padding:2px 4px;transform:' + t + ';pointer-events:none;">' + text + '</div>',
+    iconSize: [0, 0],
+    iconAnchor: [0, 0]
+  });
+  return L.marker(latlng, { icon: icon, interactive: false }).addTo(map);
+}
+
+// Place persistent markers for the key locations
+const HOTEL_COORDS = [47.5595, -120.6981];
+const HOSPITAL_COORDS = [47.5971, -120.6622];
+const TOWN_COORDS = [47.5962, -120.6615];
+
+KML_DATA.locations.forEach(function(loc) {
+  const coords = loc.features[0].coords;
+  const m = L.circleMarker(coords, {
+    radius: 6,
+    fillColor: COLORS.other,
+    color: COLORS.other,
+    weight: 1.5,
+    opacity: 0.7,
+    fillOpacity: 0.35
+  }).addTo(map);
+  m.bindPopup(loc.desc, {
+    className: 'ev-tip',
+    closeButton: false,
+    maxWidth: 250
+  });
+});
+
+// =========================================================================
+// CLOCK
+// =========================================================================
+const clockEl = document.getElementById('clock-time');
+const clockDateEl = document.querySelector('.clock-date');
+
+function setClock(time, dateStr, flash) {
+  if (!time) {
+    clockEl.textContent = '';
+    clockDateEl.textContent = dateStr || '';
+    return;
+  }
+  clockEl.textContent = time;
+  if (dateStr) clockDateEl.textContent = dateStr;
+  if (flash) {
+    clockEl.classList.add('flash');
+    setTimeout(function() { clockEl.classList.remove('flash'); }, 1200);
+  }
+}
+
+// =========================================================================
+// SCROLL HANDLER — IntersectionObserver
+// =========================================================================
+const narrative = document.getElementById('narrative');
+const steps = document.querySelectorAll('.step');
+const progressBar = document.getElementById('progress-bar');
+
+// Step metadata for clock and map
+const STEP_META = {
+  0:  { date: 'DECEMBER 24, 2025', time: '',          focus: 'overview' },
+  1:  { date: 'AUGUST 2025',       time: '',          focus: null },
+  2:  { date: 'DECEMBER 24, 2025', time: '11:00 PM',  focus: 'hotel' },
+  3:  { date: 'DECEMBER 25, 2025', time: '12:39 AM',  focus: 'hotel' },
+  4:  { date: 'DECEMBER 25, 2025', time: '12:52 AM',  focus: null },
+  5:  { date: 'DECEMBER 25, 2025', time: '9:12 AM',   focus: null },
+  6:  { date: 'DECEMBER 25, 2025', time: '9:18 AM',   focus: 'hotel' },
+  7:  { date: 'DECEMBER 25, 2025', time: '9:33 AM',   focus: 'hotel' },
+  8:  { date: 'DECEMBER 25, 2025', time: '10:21 AM',  focus: 'hotel' },
+  9:  { date: 'DECEMBER 25, 2025', time: '11:34 AM',  focus: null },
+  10: { date: 'DECEMBER 25, 2025', time: '12:06 PM',  focus: 'hospital' },
+  11: { date: 'DECEMBER 25, 2025', time: '1:53 PM',   focus: 'hotel' },
+  12: { date: 'DECEMBER 25, 2025', time: '1:42 PM',   focus: null },
+  13: { date: 'DECEMBER 25, 2025', time: '',           focus: 'hotel' },
+  14: { date: 'DECEMBER 25, 2025', time: '3:18 PM',   focus: null },
+  15: { date: 'DECEMBER 26, 2025', time: '',           focus: null },
+  16: { date: 'DECEMBER 26, 2025', time: '11:00 AM',  focus: null },
+  17: { date: 'DECEMBER 27, 2025', time: '',           focus: 'overview' },
+  18: { date: 'DECEMBER 28, 2025', time: '',           focus: 'overview' },
+  19: { date: 'JAN - MAR 2026',    time: '',           focus: 'overview' }
+};
+
+let currentStep = -1;
+
+function activateStep(stepNum) {
+  if (stepNum === currentStep) return;
+  currentStep = stepNum;
+
+  // Update active class
+  steps.forEach(function(s) {
+    const sn = parseInt(s.dataset.step, 10);
+    if (sn === stepNum) {
+      s.classList.add('is-active');
+      s.style.borderColor = s.dataset.border || 'transparent';
+    } else {
+      s.classList.remove('is-active');
+      s.style.borderColor = 'transparent';
+    }
+  });
+
+  // Update clock
+  const meta = STEP_META[stepNum];
+  if (meta) {
+    setClock(meta.time || '', meta.date, !!meta.time);
+  }
+
+  // Update map focus
+  clearActive();
+  var focusKey = null;
+  if (meta && meta.focus) {
+    focusKey = meta.focus;
+  }
+  // Also check data-map-focus attribute on the step element
+  var activeEl = document.querySelector('.step[data-step="' + stepNum + '"][data-map-focus]');
+  if (activeEl && activeEl.dataset.mapFocus) {
+    focusKey = activeEl.dataset.mapFocus;
+  }
+
+  if (focusKey && FOCUS_POINTS[focusKey]) {
+    var fp = FOCUS_POINTS[focusKey];
+    map.flyTo(fp.center, fp.zoom, { duration: 1.0 });
+
+    // Add highlight marker at focus point
+    if (focusKey === 'hotel') {
+      var dot = makeDot(HOTEL_COORDS, COLORS.jlr, 9, true);
+      activeMarkers.push(dot);
+      var lbl = makeLabel(HOTEL_COORDS, 'ALL SEASON RIVER INN', COLORS.jlr);
+      activeMarkers.push(lbl);
+    } else if (focusKey === 'hospital') {
+      var dot2 = makeDot(HOSPITAL_COORDS, COLORS.deputy, 9, true);
+      activeMarkers.push(dot2);
+      var lbl2 = makeLabel(HOSPITAL_COORDS, 'CASCADE MEDICAL CENTER', COLORS.deputy);
+      activeMarkers.push(lbl2);
+    }
+  }
+}
+
+// Progress bar
+narrative.addEventListener('scroll', function() {
+  var scrollTop = narrative.scrollTop;
+  var scrollHeight = narrative.scrollHeight - narrative.clientHeight;
+  var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+});
+
+// IntersectionObserver to detect which step is active
+var observerOptions = {
+  root: narrative,
+  rootMargin: '-30% 0px -60% 0px',
+  threshold: 0
+};
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var stepNum = parseInt(entry.target.dataset.step, 10);
+      activateStep(stepNum);
+    }
+  });
+}, observerOptions);
+
+steps.forEach(function(step) {
+  observer.observe(step);
+});
+
+// Activate step 0 on load
+activateStep(0);
+</script>
+</body>
+</html>

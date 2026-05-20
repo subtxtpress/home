@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Magnolia Case Map – Subtxt Press</title>
+  <meta name="description" content="Geographic case map of the JLR domestic violence incident in Leavenworth, WA — December 2025.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/magnolia/case-map">
+  <!-- FB -->
+  <meta property="og:title" content="Magnolia Case Map – Subtxt Press">
+  <meta property="og:description" content="Geographic case map of the JLR domestic violence incident in Leavenworth, WA — December 2025.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/magnolia/case-map">
+  <meta property="og:site_name" content="Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Magnolia Case Map – Subtxt Press">
+  <meta name="twitter:description" content="Geographic case map of the JLR domestic violence incident in Leavenworth, WA — December 2025.">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #060B14;
+      --surface: rgba(18,64,60,0.22);
+      --surface2: #12403C;
+      --border: rgba(244,229,196,0.10);
+      --border2: rgba(244,229,196,0.26);
+      --border-subtle: rgba(18,64,60,0.45);
+
+      --red: #C04E01;
+      --red-dim: rgba(192,78,1,0.10);
+      --red-border: rgba(192,78,1,0.55);
+      --amber: #ebe2cd;
+      --amber-dim: rgba(235,226,205,0.10);
+      --blue: #D8DADB;
+      --blue-dim: rgba(216,218,219,0.10);
+      --green: #4a8a7c;
+      --green-dim: rgba(18,64,60,0.22);
+
+      --text: #F5F5F5;
+      --text2: #D8DADB;
+      --text-label: #ebe2cd;
+      --muted: rgba(216,218,219,0.50);
+
+      --card-bg: rgba(6,11,20,0.45);
+      --grad-g03: linear-gradient(to right, #D8DADB, #C04E01);
+      --grad-teal: linear-gradient(to bottom, #F5F5F5, #12403C);
+
+      --mono: 'IBM Plex Mono', monospace;
+      --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --head: 'Barlow Condensed', sans-serif;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+
+      --nav-h: 48px;
+      --panel-w: 280px;
+    }
+
+    html { width: 100%; height: 100%; overflow: hidden; }
+    body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text2);
+      font-family: var(--body);
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══════════════════════════════ NAV ═══════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(6,11,20,0.97);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      z-index: 1200;
+      gap: 10px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-back {
+      display: flex; align-items: center; gap: 5px;
+      color: var(--muted); text-decoration: none;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em;
+      white-space: nowrap; transition: color 0.2s;
+    }
+    .nav-back:hover {
+      color: var(--text);
+    }
+    .nav-sep {
+      color: var(--border2);
+    }
+
+    .nav-title {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav-tag {
+      background: var(--red-dim); border: 1px solid var(--red-border);
+      color: var(--red); font-family: var(--mono); font-size: 10px;
+      padding: 2px 8px; border-radius: 3px; letter-spacing: 0.06em;
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════ MAP ═══════════════════════════════ */
+    #map {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      transition: right 0.3s ease;
+    }
+    #map.explore-open { right: var(--panel-w); }
+
+    /* ═════════════════════════ EXPLORE PANEL ════════════════════════════ */
+    .explore-panel {
+      position: fixed;
+      top: var(--nav-h);
+      right: calc(-1 * var(--panel-w) - 2px);
+      width: var(--panel-w);
+      bottom: 0;
+      background: rgba(6,11,20,0.97);
+      border-left: 1px solid;
+      border-image: var(--grad-teal) 1;
+      display: flex;
+      flex-direction: column;
+      z-index: 1090;
+      overflow: hidden;
+      transition: right 0.3s ease;
+    }
+    .explore-panel.open {
+      right: 0;
+    }
+
+    .panel-hdr {
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+      flex-shrink: 0;
+    }
+    .panel-hdr h2 {
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--muted); flex: 1;
+    }
+    .panel-close-btn {
+      background: none; border: none; color: var(--muted);
+      cursor: pointer; padding: 4px; line-height: 1; border-radius: 4px;
+      transition: color 0.2s, background 0.2s; font-size: 16px;
+    }
+    .panel-close-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+
+    .panel-body {
+      flex: 1; overflow-y: auto; overflow-x: hidden; padding: 8px 0 16px;
+    }
+    .panel-body::-webkit-scrollbar { width: 3px; }
+    .panel-body::-webkit-scrollbar-track { background: transparent; }
+    .panel-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+
+    /* ── SECTION LABEL ── */
+    .sec-label {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      padding: 10px 14px 4px; opacity: 0.7;
+    }
+
+    /* ── LAYER TOGGLE ROW ── */
+    .layer-row {
+      display: flex; align-items: center; gap: 9px;
+      padding: 6px 14px; cursor: pointer; user-select: none;
+      transition: background 0.12s;
+    }
+    .layer-row:hover { background: rgba(255,255,255,0.04); }
+
+    .lchk {
+      position: relative; width: 15px; height: 15px; flex-shrink: 0;
+    }
+    .lchk input {
+      position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+    }
+    .lchk-box {
+      width: 15px; height: 15px; border: 1.5px solid var(--cc);
+      border-radius: 3px; display: flex; align-items: center; justify-content: center;
+      transition: background 0.12s;
+    }
+    .lchk input:checked ~ .lchk-box { background: var(--cc); }
+    .lchk-box svg { opacity: 0; transition: opacity 0.1s; }
+    .lchk input:checked ~ .lchk-box svg { opacity: 1; }
+
+    .layer-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    }
+    .layer-name {
+      font-size: 12px; font-weight: 500; color: var(--text2); flex: 1; line-height: 1.3;
+    }
+    .layer-ct {
+      font-family: var(--mono); font-size: 10px; color: var(--muted);
+    }
+
+    /* Basemap row */
+    .basemap-row {
+      display: flex; gap: 5px; padding: 8px 14px 4px;
+    }
+    .bm-btn {
+      flex: 1; padding: 5px 0;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--muted); font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.05em; border-radius: 4px; cursor: pointer;
+      text-align: center; transition: all 0.12s;
+    }
+    .bm-btn:hover { background: rgba(255,255,255,0.09); color: var(--text2); }
+    .bm-btn.active {
+      background: var(--green-dim); border-color: var(--border-subtle);
+      color: var(--text);
+    }
+
+    .divider { height: 1px; background: var(--border); margin: 8px 14px; }
+
+    /* Explore mode button */
+    .explore-btn {
+      position: fixed;
+      bottom: 10px;
+      right: 12px;
+      background: rgba(6,11,20,0.92);
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1050;
+      transition: all 0.2s;
+      backdrop-filter: blur(6px);
+      white-space: nowrap;
+    }
+    .explore-btn:hover { background: rgba(255,255,255,0.09); color: var(--text); }
+    .explore-btn.active {
+      background: var(--green-dim);
+      border-color: var(--border-subtle);
+      color: var(--text);
+    }
+
+    /* ══════════════════════ MAP ICON STYLES ════════════════════════════ */
+    .map-icon {
+      display: flex; align-items: center; justify-content: center;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7));
+    }
+    .map-icon svg { display: block; }
+
+    /* Named badge markers */
+    .named-marker {
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      font-family: var(--head);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,0,0,0.4);
+      line-height: 1;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .named-marker:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.4);
+    }
+
+    /* Visible label beneath marker */
+    .marker-label-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      pointer-events: none;
+    }
+    .marker-label {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.8);
+      white-space: nowrap;
+      text-transform: uppercase;
+      background: rgba(6,11,20,0.65);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    /* ══════════════════════ LEAFLET OVERRIDES ══════════════════════════ */
+    .leaflet-popup-content-wrapper {
+      background: rgba(8,14,24,0.97) !important;
+      border: 1px solid rgba(244,229,196,0.16) !important;
+      border-radius: 7px !important;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.65) !important;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .leaflet-popup-tip-container { display: none; }
+    .leaflet-popup-content {
+      margin: 13px 15px !important;
+      color: var(--text2) !important;
+      font-family: var(--body) !important;
+      font-size: 12px !important;
+      max-width: 280px; min-width: 180px;
+    }
+    .leaflet-popup-close-button {
+      color: var(--muted) !important; top: 5px !important; right: 8px !important;
+      font-size: 16px !important;
+    }
+    .leaflet-popup-close-button:hover { color: var(--text) !important; }
+
+    .pu-eyebrow {
+      font-family: var(--mono); font-size: 8px; letter-spacing: 0.10em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
+    }
+    .pu-title {
+      font-family: var(--head); font-size: 16px; font-weight: 700;
+      letter-spacing: 0.03em; color: var(--text);
+      margin-bottom: 7px; padding-right: 14px; line-height: 1.25;
+    }
+    .pu-narrative {
+      font-size: 12px; line-height: 1.6; color: var(--text2);
+      margin-bottom: 8px;
+    }
+    .pu-narrative b { color: var(--text); }
+    .pu-meta {
+      border-top: 1px solid var(--border); padding-top: 7px; margin-top: 4px;
+    }
+    .pu-row { display: flex; gap: 7px; margin-bottom: 4px; align-items: baseline; }
+    .pu-key {
+      font-family: var(--mono); font-size: 9px; color: var(--muted);
+      letter-spacing: 0.07em; text-transform: uppercase; flex-shrink: 0; width: 44px;
+    }
+    .pu-val { font-size: 11px; color: var(--text2); line-height: 1.4; }
+
+    .leaflet-control-attribution {
+      background: rgba(6,11,20,0.80) !important;
+      color: rgba(216,218,219,0.4) !important; font-size: 10px !important;
+    }
+    .leaflet-control-attribution a { color: rgba(216,218,219,0.5) !important; }
+    .leaflet-control-zoom a {
+      background: rgba(6,11,20,0.90) !important; color: var(--text2) !important;
+      border-color: var(--border) !important;
+    }
+    .leaflet-control-zoom a:hover { background: rgba(255,255,255,0.08) !important; }
+
+    /* ════════════════ MAP LEGEND (persistent, top-left) ═══════════════════ */
+    .map-legend {
+      position: fixed;
+      top: calc(var(--nav-h) + 10px);
+      left: 10px;
+      z-index: 1050;
+      display: block;
+      background: rgba(6,11,20,0.88);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 6px;
+      padding: 8px 11px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+    .map-legend-title {
+      font-family: var(--mono); font-size: 8px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .map-legend-row {
+      display: flex; align-items: center; gap: 6px;
+      margin-bottom: 4px;
+    }
+    .map-legend-row:last-child { margin-bottom: 0; }
+    .map-legend-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .map-legend-label {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.04em;
+      color: var(--text2); white-space: nowrap;
+    }
+
+    /* ══════════════════════ PERMANENT TOOLTIP LABELS ════════════════════════════ */
+    .leaflet-tooltip.map-label {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      color: #F5F5F5;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 4px;
+      white-space: nowrap;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);
+    }
+    .leaflet-tooltip.map-label::before { display: none; }
+
+    @media (max-width: 767px) {
+      .map-legend {
+        padding: 6px 8px;
+        max-width: calc(100vw - 80px);
+      }
+      .map-legend-title { font-size: 7px; margin-bottom: 4px; }
+      .map-legend-label { font-size: 8px; }
+      .map-legend-dot { width: 6px; height: 6px; }
+      .map-legend-row { margin-bottom: 3px; gap: 5px; }
+      .leaflet-tooltip.map-label { font-size: 8px; padding: 1px 4px; }
+
+      #map { right: 0; }
+      #map.explore-open { right: 0; bottom: 0; }
+
+      .explore-panel {
+        top: auto;
+        right: 0; left: 0;
+        width: 100%;
+        height: 65vh;
+        max-height: 65vh;
+        bottom: 0;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        transition: transform 0.3s ease;
+        transform: translateY(100%);
+      }
+      .explore-panel.open {
+        transform: translateY(0);
+      }
+      .panel-body {
+        display: flex; flex-direction: column;
+        overflow-y: auto; overflow-x: hidden;
+        padding: 10px 12px 16px; gap: 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .panel-body::-webkit-scrollbar { width: 3px; }
+      .sec-label {
+        display: block; font-size: 9px; letter-spacing: 0.14em;
+        color: var(--muted); text-transform: uppercase;
+        padding: 6px 2px 2px; margin-top: 2px;
+      }
+      .sec-label:first-child { margin-top: 0; }
+      .basemap-row {
+        display: flex; flex-direction: row; align-items: stretch;
+        gap: 6px; padding: 0; border: none;
+      }
+      .basemap-row .bm-btn { flex: 1; padding: 8px 10px; }
+      .bm-btn { font-size: 11px; }
+      .divider { display: none; }
+      #layer-list {
+        display: flex; flex-direction: column; gap: 4px;
+      }
+      .layer-row {
+        flex-direction: row; align-items: center; justify-content: flex-start;
+        padding: 9px 10px; border-radius: 6px; border: 1px solid var(--border);
+        gap: 10px; min-width: 0; max-width: none;
+      }
+      .layer-name { font-size: 12px; text-align: left; line-height: 1.3; white-space: normal; flex: 1; }
+      .layer-ct { display: inline-block; font-size: 10px; color: var(--muted); }
+
+      .explore-btn {
+        bottom: 8px;
+        right: 8px;
+        font-size: 9px;
+        padding: 5px 9px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-tag { display: none; }
+      .nav-title { font-size: 12px; }
+      .map-legend {
+        display: flex; flex-wrap: wrap; gap: 4px 8px;
+        padding: 5px 8px;
+      }
+      .map-legend-title { display: none; }
+      .map-legend-row { margin: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a class="nav-back" href="timeline">&#8592; Timeline</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-title"><em>Magnolia Case Map</em></span>
+    <span class="nav-tag">DV &middot; LEAVENWORTH, WA</span>
+  </nav>
+
+  <!-- Main map canvas -->
+  <div id="map"></div>
+
+  <!-- Persistent map legend (top-left) -->
+  <div class="map-legend" id="map-legend">
+    <div class="map-legend-title">Legend</div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#C04E01"></div>
+      <span class="map-legend-label">Incident Locations</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#D8DADB"></div>
+      <span class="map-legend-label">Medical &amp; Response</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#4a8a7c"></div>
+      <span class="map-legend-label">Travel &amp; Flight Route</span>
+    </div>
+    <div class="map-legend-row">
+      <div class="map-legend-dot" style="background:#ebe2cd"></div>
+      <span class="map-legend-label">Phone Activity</span>
+    </div>
+  </div>
+
+  <!-- Explore mode panel -->
+  <aside class="explore-panel" id="explore-panel">
+    <div class="panel-hdr">
+      <h2>Explore Layers</h2>
+      <button class="panel-close-btn" id="panel-close-btn" aria-label="Close explore panel">&#x2715;</button>
+    </div>
+    <div class="panel-body" id="panel-body">
+      <div class="sec-label" id="bm-label">Basemap</div>
+      <div class="basemap-row">
+        <button class="bm-btn active" id="bm-dark">Dark</button>
+        <button class="bm-btn" id="bm-satellite">Satellite</button>
+      </div>
+      <div class="divider"></div>
+      <div id="layer-list"></div>
+    </div>
+  </aside>
+
+  <!-- Explore toggle button -->
+  <button class="explore-btn" id="explore-btn">&#9776; Explore Layers</button>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+  'use strict';
+
+  /* ════════════════════════════════════════════════════════════════════════
+     LAYER CONFIG
+  ════════════════════════════════════════════════════════════════════════ */
+  const LAYERS = [
+    { key: 'incident',  label: 'Incident Locations',    color: '#C04E01', on: true },
+    { key: 'medical',   label: 'Medical & Response',     color: '#D8DADB', on: false },
+    { key: 'travel',    label: 'Travel & Flight Route',  color: '#4a8a7c', on: false },
+    { key: 'phone',     label: 'Phone Activity',         color: '#ebe2cd', on: false },
+  ];
+
+  /* ════════════════════════════════════════════════════════════════════════
+     MARKER NARRATIONS
+  ════════════════════════════════════════════════════════════════════════ */
+  const MARKER_NARRATIONS = {
+    'ALL SEASON RIVER INN': 'The hotel at 8751 Icicle Road in Leavenworth, WA where Jaime Phillips was assaulted by Jonathan Lee Riches on the night of December 24, 2025. Jaime was staying in the Shenandoah room upstairs.',
+    'CASCADE MEDICAL CENTER': 'The medical facility in Leavenworth where Jaime was transported for evaluation on December 25, 2025. Deputy Talley met her in ER room 3.',
+    'LEAVENWORTH TOWN CENTER': 'The Bavarian-themed town in Chelan County, Washington where the incident occurred during a Christmas holiday trip.',
+    'SNOQUALMIE': 'Jonathan told hotel manager Tony Smith he was headed to Snoqualmie after leaving the inn.',
+    'SEATTLE-TACOMA INTL AIRPORT': 'The airport where the rental Jeep Compass was originally rented and where Jaime\'s return flight departed from.',
+    'CHARLOTTE, NC': 'Location of a prior domestic violence incident in August 2025 during a work trip, as reported by Jaime to Deputy Talley.',
+    'NORTH DAKOTA (EASTBOUND)': 'On December 27, Jaime tracked Jonathan\'s cell phone to North Dakota, driving eastbound. His final destination was unknown.',
+    'WASHINGTON, DC': 'A phone number in Washington, DC that JLR called multiple times on December 25 (12:52 AM, 9:12 AM, 9:13 AM, 11:34 AM).',
+  };
+
+  /* ════════════════════════════════════════════════════════════════════════
+     LAYER MARKER DATA
+  ════════════════════════════════════════════════════════════════════════ */
+  const layerMarkerData = {
+    incident: [
+      { name: 'ALL SEASON RIVER INN', coords: [47.5595, -120.6981], color: '#C04E01',
+        desc: '<b>Crime Scene</b><br/>8751 Icicle Rd, Leavenworth, WA<br/>Dec 24, 2025 — Assault location' },
+      { name: 'SHENANDOAH ROOM', coords: [47.5596, -120.6978], color: '#C04E01',
+        desc: '<b>Hotel Room</b><br/>Upstairs room where Jaime\'s belongings were located' },
+    ],
+    medical: [
+      { name: 'CASCADE MEDICAL CENTER', coords: [47.5971, -120.6622], color: '#D8DADB',
+        desc: '<b>Hospital</b><br/>Jaime was transported here for evaluation — ER room 3' },
+      { name: 'CHELAN COUNTY SHERIFF', coords: [47.8403, -120.0157], color: '#D8DADB',
+        desc: '<b>Law Enforcement</b><br/>Deputy K. Talley — Chelan County Sheriff\'s Office' },
+    ],
+    travel: [
+      { name: 'SEATTLE-TACOMA INTL AIRPORT', coords: [47.4502, -122.3088], color: '#4a8a7c',
+        desc: '<b>Airport</b><br/>Rental car origin; Jaime\'s departure flight' },
+      { name: 'SNOQUALMIE', coords: [47.5287, -121.8253], color: '#4a8a7c',
+        desc: '<b>Claimed Destination</b><br/>JLR told hotel manager he was headed here' },
+      { name: 'CHARLOTTE, NC', coords: [35.2271, -80.8431], color: '#4a8a7c',
+        desc: '<b>Prior Incident</b><br/>August 2025 — previous DV assault during work trip' },
+      { name: 'NORTH DAKOTA (EASTBOUND)', coords: [47.5, -101.0], color: '#4a8a7c',
+        desc: '<b>JLR Tracked</b><br/>Dec 27 — Jaime tracked JLR\'s phone driving eastbound through ND' },
+    ],
+    phone: [
+      { name: 'WASHINGTON, DC', coords: [38.9072, -77.0369], color: '#ebe2cd',
+        desc: '<b>Phone Calls</b><br/>JLR called a DC number at 12:52 AM, 9:12 AM, 9:13 AM, and 11:34 AM on Dec 25' },
+      { name: 'TIMOTHY RICHES CALLS', coords: [47.5595, -120.6985], color: '#D8DADB',
+        desc: '<b>Incoming Calls</b><br/>7 missed calls from Timothy Riches between 12:39–12:44 AM on Dec 25' },
+    ],
+  };
+
+  /* ════════════════════════════════════════════════════════════════════════
+     GLOBALS
+  ════════════════════════════════════════════════════════════════════════ */
+  let map;
+  const groups = {};
+  let exploreOpen = false;
+
+  /* ════════════════════════════════════════════════════════════════════════
+     BASEMAPS
+  ════════════════════════════════════════════════════════════════════════ */
+  const BASEMAPS = {
+    dark: L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+      { subdomains: 'abcd', maxZoom: 19,
+        attribution: '© <a href="https://openstreetmap.org/copyright" target="_blank">OSM</a> contributors © <a href="https://carto.com" target="_blank">CARTO</a>' }
+    ),
+    satellite: L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      { maxZoom: 19,
+        attribution: '© <a href="https://www.esri.com" target="_blank">Esri</a>, Maxar, Earthstar Geographics' }
+    ),
+  };
+  let activeBasemap = 'dark';
+
+  function initBasemapToggle() {
+    document.getElementById('bm-dark').addEventListener('click', () => switchBasemap('dark'));
+    document.getElementById('bm-satellite').addEventListener('click', () => switchBasemap('satellite'));
+  }
+
+  function switchBasemap(name) {
+    if (name === activeBasemap) return;
+    BASEMAPS[activeBasemap].remove();
+    BASEMAPS[name].addTo(map);
+    BASEMAPS[name].bringToBack();
+    activeBasemap = name;
+    document.getElementById('bm-dark').classList.toggle('active', name === 'dark');
+    document.getElementById('bm-satellite').classList.toggle('active', name === 'satellite');
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     MAP INIT
+  ════════════════════════════════════════════════════════════════════════ */
+  function initMap() {
+    map = L.map('map', {
+      center: [47.58, -120.68],
+      zoom: 12,
+      zoomControl: false,
+    });
+    BASEMAPS.dark.addTo(map);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     POPUP BUILDER
+  ════════════════════════════════════════════════════════════════════════ */
+  function escH(s) {
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function makePopup(marker) {
+    let h = '';
+    h += `<div class="pu-title">${escH(marker.name)}</div>`;
+    if (marker.desc) {
+      h += `<div class="pu-narrative">${marker.desc}</div>`;
+    }
+    // Add narration if available
+    const narration = MARKER_NARRATIONS[marker.name];
+    if (narration) {
+      h += `<div class="pu-meta"><div class="pu-narrative" style="border:none;padding:0;margin:0;font-size:11px;line-height:1.55">${escH(narration)}</div></div>`;
+    }
+    return h;
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     MARKER HELPERS
+  ════════════════════════════════════════════════════════════════════════ */
+  function namedBadge(initials, color, size) {
+    size = size || 26;
+    return L.divIcon({
+      className: '',
+      html: '<div class="named-marker" style="width:' + size + 'px;height:' + size + 'px;background:' + color + ';font-size:' + Math.round(size * 0.38) + 'px">' + initials + '</div>',
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -size / 2 - 4],
+    });
+  }
+
+  function attachLabel(layer, text, direction) {
+    if (!text) return;
+    layer.bindTooltip(text, {
+      permanent: true,
+      direction: direction || 'right',
+      offset: [6, 0],
+      className: 'map-label',
+    });
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     BUILD LAYERS FROM DATA
+  ════════════════════════════════════════════════════════════════════════ */
+  function buildLayers() {
+    for (const cfg of LAYERS) {
+      const group = L.layerGroup();
+      const markers = layerMarkerData[cfg.key] || [];
+
+      for (const m of markers) {
+        const color = m.color || cfg.color;
+        const size = 8;
+        const marker = L.circleMarker(m.coords, {
+          radius: size,
+          color: color,
+          fillColor: color,
+          fillOpacity: 0.82,
+          weight: 1.5,
+        });
+        const popup = makePopup(m);
+        marker.bindPopup(popup, { maxWidth: 310, minWidth: 180 });
+
+        // Permanent label
+        attachLabel(marker, m.name, 'right');
+
+        marker.addTo(group);
+      }
+
+      groups[cfg.key] = group;
+
+      // Add layer to map if it's on by default
+      if (cfg.on) {
+        group.addTo(map);
+      }
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     EXPLORE PANEL TOGGLE
+  ════════════════════════════════════════════════════════════════════════ */
+  function initExploreToggle() {
+    const btn    = document.getElementById('explore-btn');
+    const panel  = document.getElementById('explore-panel');
+    const mapEl  = document.getElementById('map');
+    const closeBtn = document.getElementById('panel-close-btn');
+
+    function open() {
+      exploreOpen = true;
+      panel.classList.add('open');
+      mapEl.classList.add('explore-open');
+      btn.classList.add('active');
+      btn.textContent = '✕ Close';
+      setTimeout(function() { map.invalidateSize(); }, 320);
+    }
+    function close() {
+      exploreOpen = false;
+      panel.classList.remove('open');
+      mapEl.classList.remove('explore-open');
+      btn.classList.remove('active');
+      btn.innerHTML = '&#9776; Explore Layers';
+      setTimeout(function() { map.invalidateSize(); }, 320);
+    }
+
+    btn.addEventListener('click', function() { exploreOpen ? close() : open(); });
+    closeBtn.addEventListener('click', close);
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     LAYER TOGGLE UI (inside Explore panel)
+  ════════════════════════════════════════════════════════════════════════ */
+  function buildLayerUI() {
+    const container = document.getElementById('layer-list');
+    container.innerHTML = '<div class="sec-label">Case Layers</div>';
+
+    for (const cfg of LAYERS) {
+      var label = document.createElement('label');
+      label.className = 'layer-row';
+      label.setAttribute('for', 'chk-' + cfg.key);
+      label.innerHTML =
+        '<span class="lchk" style="--cc:' + cfg.color + '">' +
+          '<input type="checkbox" id="chk-' + cfg.key + '" data-key="' + cfg.key + '"' + (cfg.on ? ' checked' : '') + '>' +
+          '<span class="lchk-box">' +
+            '<svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+              '<polyline points="1.5,5 4,7.5 8.5,2.5"/>' +
+            '</svg>' +
+          '</span>' +
+        '</span>' +
+        '<span class="layer-dot" style="background:' + cfg.color + '"></span>' +
+        '<span class="layer-name">' + cfg.label + '</span>' +
+        '<span class="layer-ct" id="ct-' + cfg.key + '">' + (layerMarkerData[cfg.key] ? layerMarkerData[cfg.key].length : '') + '</span>';
+      container.appendChild(label);
+
+      label.querySelector('input').addEventListener('change', function() {
+        var key = this.dataset.key;
+        if (this.checked) {
+          groups[key] && groups[key].addTo(map);
+        } else {
+          groups[key] && groups[key].remove();
+        }
+      });
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     INIT
+  ════════════════════════════════════════════════════════════════════════ */
+  initMap();
+  initBasemapToggle();
+  buildLayers();
+  buildLayerUI();
+  initExploreToggle();
+
+  </script>
+</body>
+</html>
