@@ -27,14 +27,17 @@ Magnolia reported a prior incident in August 2025 in Charlotte, NC during a work
 | **Dec 25, ~12:06 PM** | ATL issued for JLR; Deputy Talley meets Magnolia at Cascade Medical Center |
 | **Dec 25, 1:42–2:16 PM** | JLR texts: "Hello Magnolia. Where you at?" |
 | **Dec 25, 1:53 PM** | Magnolia discharged, returned to hotel; room code changed |
-| **Dec 25, mid-day** | Hotel manager Tony Smith contacts dispatch after JLR calls front desk |
 | **Dec 25, 3:18 PM** | Deputy Talley signs affidavit — Assault 2nd Degree DV, Harassment/Threats to Kill DV, Interfering with DV Reporting |
 | **Dec 26, morning** | JLR texts Magnolia: "I'm in trouble. What did you do?" |
-| **Dec 26, mid-day** | JLR calls/emails/texts hotel owners trying to access the room |
-| **Dec 26, afternoon** | Magnolia contacts dispatch multiple times with updates; cancels original flight, rebooks |
-| **Dec 27** | Magnolia tracks JLR's location — traveling through North Dakota |
-| **Dec 27** | Magnolia calls Pasco County Sheriff (Port Richey, FL — shared home), then Rivercom to confirm case file forwarded |
-| **Dec 28** | Magnolia calls dispatch with new phone number and updates |
+| **Dec 26, 07:39 AM** | Hotel manager Tony Smith contacts dispatch after JLR calls front desk |
+| **Dec 26, 10:49 AM** | Hotel owner Dean contacts dispatch — JLR texted/emailed/called trying to access the room |
+| **Dec 26, 11:57 AM** | Magnolia calls dispatch asking to speak to a deputy (Talley off for weekend) |
+| **Dec 26, 20:00 PM** | Magnolia calls dispatch with updates; Deputy Tilton attempts callback at 20:18 — no answer, VM not set up |
+| **Dec 26, evening** | Magnolia cancels original flight, rebooks with different airline, boards without issue; texts Deputy Talley |
+| **Dec 27, 08:57 AM** | Magnolia calls dispatch requesting callback |
+| **Dec 27, 12:55 PM** | Magnolia calls re: Pasco County — says they need the case file sent to them |
+| **Dec 27** | Magnolia tracks JLR's location — traveling eastbound through North Dakota |
+| **Dec 28, 15:43 PM** | Magnolia calls dispatch with new phone number and updates; case marked CMPLT |
 | **Dec 29** | Follow-up contact with Magnolia (victim involvement date per supplemental) |
 | **Dec 30** | Case turned over to Chelan County Prosecutors (TOP) |
 | **Jan 6, 2026** | Magnolia files a records request |
