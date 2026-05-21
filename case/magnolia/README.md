@@ -37,6 +37,12 @@ Magnolia reported a prior incident in August 2025 in Charlotte, NC during a work
 | **Dec 28** | Magnolia calls dispatch with new phone number and updates |
 | **Dec 29** | Follow-up contact with Magnolia (victim involvement date per supplemental) |
 | **Dec 30** | Case turned over to Chelan County Prosecutors (TOP) |
+| **Jan 6, 2026** | Magnolia files a records request |
+| **Jan 23, 12:55 PM** | Magnolia calls Pasco County re: protection order (granted Jan 21, Garland County AR) and asks about filing charges for prior assaults |
+| **Jan 23, 2:12 PM** | JLR's Washington attorney calls Pasco County — JLR saw law enforcement at Baxley Lane that morning |
+| **Feb 1, 1:12 PM** | Magnolia calls Pasco County from Hot Springs, AR — requests report for Sept 6–7, 2025 assault in Port Richey; says WA intends to extradite JLR |
+| **Feb 1, 1:32 PM** | Three-way call: Pasco, Garland County, and Magnolia — jurisdictional dispute over who takes the report |
+| **Feb 1, 2:57 PM** | Cpl. Yarborough (Garland County) calls Pasco County to follow up |
 
 ## Charges
 
@@ -59,7 +65,7 @@ Deputy K. Talley signed an affidavit for probable cause to arrest JLR for:
 
 | Person | Role |
 |---|---|
-| Magnolia (Magnolia Tennille Phillips) | Victim / reporting party |
+| Magnolia (Jaime Tennille Phillips) | Victim / reporting party |
 | Jonathan Lee Riches (JLR) | Suspect (boyfriend) |
 | Timothy Riches | JLR's brother (called work phone repeatedly) |
 | Deputy Kyle Talley (K29) | Chelan County Sheriff — primary responding deputy |
@@ -69,11 +75,15 @@ Deputy K. Talley signed an affidavit for probable cause to arrest JLR for:
 | Deputy Andrew Tilton (K64) | Responding officer |
 | Tony Smith | All Season River Inn manager |
 | Dean | All Season River Inn owner |
+| JLR's Washington attorney | Representing JLR in Chelan County case |
+| Cpl. Yarborough | Garland County Sheriff's Office, Hot Springs, AR |
 
 ## Key Locations
 
 - **All Season River Inn** — 8751 Icicle Rd, Leavenworth, WA (Shenandoah room)
 - **Cascade Medical Center** — Leavenworth, WA (emergency room #3)
+- **Baxley Lane, Port Richey, FL** — Shared home (Pasco County); protection order served here
+- **Hot Springs, AR** — Garland County; Magnolia's temporary location (Airbnb) Jan–Feb 2026
 
 ## Records Requests
 
