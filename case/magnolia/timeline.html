@@ -269,6 +269,31 @@
       height: 60px;
       border: none;
     }
+    .embed-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 60px;
+      cursor: pointer;
+      transition: background 0.2s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .embed-placeholder:hover { background: rgba(255,255,255,0.06); }
+    .embed-placeholder:active { background: rgba(255,255,255,0.10); }
+    .embed-placeholder svg {
+      width: 12px; height: 12px;
+      fill: var(--muted);
+      flex-shrink: 0;
+    }
+    .embed-placeholder:hover svg { fill: var(--text); }
+    .embed-placeholder span {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.06em; color: var(--muted);
+      text-transform: uppercase;
+    }
+    .embed-placeholder:hover span { color: var(--text2); }
     .step-embed + .embed-caption {
       font-family: var(--mono); font-size: 10px;
       color: var(--muted); letter-spacing: 0.06em;
@@ -545,7 +570,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
     <p>CAD call initiated for domestic disturbance at the All Season River Inn. The call lasts approximately five minutes, ending at 09:23:44 AM.</p>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1j9tRR3ewZU4iByxdPjDBEVZZnFquf-9y/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1j9tRR3ewZU4iByxdPjDBEVZZnFquf-9y/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Dispatch Call 1 &mdash; 09:18 AM, Dec 25</div>
     <div class="loc-strip">
@@ -560,7 +585,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
     <p>Law enforcement arrives at the All Season River Inn. Medics get inside at 09:39:41 AM.</p>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1u3Q8AT-5hLfLl6InXh7Lv0uzTiSEay0N/preview" allow="autoplay" style="height:320px;"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1u3Q8AT-5hLfLl6InXh7Lv0uzTiSEay0N/preview" data-height="320px"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Body Camera &mdash; 09:33 AM, Dec 25</div>
     <div class="loc-strip">
@@ -632,15 +657,15 @@
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
     <p>Magnolia is discharged from Cascade Medical Center. Deputy Talley provides a courtesy ride back to the hotel. Deputy McComas and Talley search the room before Magnolia re-enters. The hotel manager changes security codes for the front door and Magnolia&rsquo;s room.</p>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1alYZ85Ij7lqRXeyscpyAs05BcZGEOPVI/preview" allow="autoplay" style="height:320px;"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1alYZ85Ij7lqRXeyscpyAs05BcZGEOPVI/preview" data-height="320px"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Body Camera 1 &mdash; 1:53 PM, Dec 25</div>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1UpG0IELqPwl6Jy6hYDUie-OeCj6DsyDZ/preview" allow="autoplay" style="height:320px;"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1UpG0IELqPwl6Jy6hYDUie-OeCj6DsyDZ/preview" data-height="320px"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Body Camera 2 &mdash; Room sweep, Dec 25</div>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1so2uwew-58U0grMyzjYYerN4C08wgnDa/preview" allow="autoplay" style="height:320px;"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1so2uwew-58U0grMyzjYYerN4C08wgnDa/preview" data-height="320px"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Body Camera 3 &mdash; Room sweep, Dec 25</div>
     <div class="loc-strip">
@@ -689,11 +714,11 @@
       <figcaption>Texts after police contact &mdash; Dec 26</figcaption>
     </figure>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1hHyE6SFRmAPiZjUaBzvUiJBWqnogMgI-/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1hHyE6SFRmAPiZjUaBzvUiJBWqnogMgI-/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Tony Smith Dispatch Call &mdash; Dec 26</div>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1L6H7c0TGA3XPd-RvhC53pDa6QHbTmKAm/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1L6H7c0TGA3XPd-RvhC53pDa6QHbTmKAm/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Dean Dispatch Call &mdash; Dec 26</div>
   </div>
@@ -706,15 +731,15 @@
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Rivercom Dispatch</div>
     <p>Magnolia makes multiple calls to Rivercom Dispatch. She asks to speak to a deputy after learning Deputy Talley is off for the weekend. A Chelan County deputy calls her back. She makes additional calls reporting she&rsquo;s about to leave, sharing updates, and asking whether JLR has been picked up. She cancels her original flight, books with a different airline, and boards without issue. Deputy Talley is notified by text.</p>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1aJPAWqLhZu_6jBkROSraAMVAhzLaXVkX/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1aJPAWqLhZu_6jBkROSraAMVAhzLaXVkX/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Magnolia Dispatch Call #1 &mdash; Dec 26</div>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1IuJTRxWbgXfuS035xAJizcxPm2rSzTFp/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1IuJTRxWbgXfuS035xAJizcxPm2rSzTFp/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Magnolia Dispatch Call #2 &mdash; Dec 26</div>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1GLPusaOgNbtb72j2u8CwTcLTaMbRqjUj/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1GLPusaOgNbtb72j2u8CwTcLTaMbRqjUj/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Magnolia Dispatch Call #3 &mdash; Dec 26</div>
   </div>
@@ -735,11 +760,11 @@
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Rivercom Dispatch</div>
     <p>Magnolia calls Rivercom Dispatch to provide her new phone number and share additional updates. Case marked CMPLT at 15:53:45 PM. Jonathan&rsquo;s destination remains unknown.</p>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/15J-RHjfQ_KCx5-j2-FhC3zr5mbt_Dl5i/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/15J-RHjfQ_KCx5-j2-FhC3zr5mbt_Dl5i/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Magnolia Dispatch Call #4 &mdash; Dec 28</div>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1C6d8q_R8-s0w95l-hW6KH7qCFNMXwyIl/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1C6d8q_R8-s0w95l-hW6KH7qCFNMXwyIl/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Magnolia Dispatch Call #5 &mdash; Dec 28</div>
   </div>
@@ -769,7 +794,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
     <p>Magnolia calls the Pasco County Sheriff&rsquo;s Office to check on the status of an ex parte protection order granted on January 21 by a Garland County, Arkansas circuit court judge. The order was sent to Pasco County to be served on JLR at the Baxley Lane address in Port Richey. She also asks whether she can file charges for prior assaults that occurred in Pasco County&rsquo;s jurisdiction, referencing a serious assault she did not report at the time because JLR threatened her. Dispatch advises a desk officer will call her back within the hour.</p>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1IzcBjD31wDHtNs_6KN_tNXHIi4MOk5xL/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1IzcBjD31wDHtNs_6KN_tNXHIi4MOk5xL/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Pasco County Dispatch &mdash; Jan 23, 2026</div>
   </div>
@@ -792,7 +817,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
     <p>Magnolia contacts the Pasco County Sheriff&rsquo;s Office from Hot Springs, Arkansas, where she has been staying at an Airbnb since fleeing Florida. She reports that a protection order has been served on JLR in Pasco County. She requests to file a police report for a prior assault &mdash; specifically the September 6&ndash;7, 2025 beating at their shared home in Port Richey, FL &mdash; as advised by Washington State authorities to help build the case. She reports that she had surgery to repair her broken nose from the Washington assault and is recovering. She states JLR contacted her by email a couple weeks earlier trying to take assets out of her name, which prompted her to file the protection order. She tells the dispatcher that Washington authorities told her they intend to extradite JLR.</p>
     <div class="step-embed">
-      <iframe data-src="https://drive.google.com/file/d/1_l3fcIYclL7O2cIqCJPfZzfA_nXPtb1t/preview" allow="autoplay"></iframe>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1_l3fcIYclL7O2cIqCJPfZzfA_nXPtb1t/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Pasco County / Garland County Dispatch &mdash; Feb 1, 2026 (~44 min)</div>
   </div>
@@ -1158,33 +1183,18 @@ steps.forEach(function(step) {
 activateStep(0);
 
 // =========================================================================
-// LAZY-LOAD IFRAMES — load when near viewport, unload when far away
+// CLICK-TO-LOAD EMBEDS — tap placeholder to inject iframe
 // =========================================================================
-var iframeObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    var iframes = entry.target.querySelectorAll('iframe[data-src]');
-    iframes.forEach(function(iframe) {
-      if (entry.isIntersecting) {
-        if (!iframe.src) {
-          iframe.src = iframe.dataset.src;
-        }
-      } else {
-        if (iframe.src) {
-          iframe.src = '';
-        }
-      }
-    });
+document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
+  ph.addEventListener('click', function() {
+    var src = ph.dataset.src;
+    var height = ph.dataset.height || '60px';
+    var iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.allow = 'autoplay';
+    iframe.style.cssText = 'display:block;width:100%;height:' + height + ';border:none;';
+    ph.parentNode.replaceChild(iframe, ph);
   });
-}, {
-  root: narrative,
-  rootMargin: '100% 0px 100% 0px',
-  threshold: 0
-});
-
-steps.forEach(function(step) {
-  if (step.querySelector('iframe[data-src]')) {
-    iframeObserver.observe(step);
-  }
 });
 </script>
 </body>
