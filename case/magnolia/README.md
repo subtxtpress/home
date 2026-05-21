@@ -24,7 +24,7 @@ Magnolia reported a prior incident in August 2025 in Charlotte, NC during a work
 | **Dec 25, ~9:40 AM** | Crime scene documented — blood on wall, towels, nightstand, sink |
 | **Dec 25, ~10:21 AM** | Deputy Talley contacts Magnolia; TELETYPE cross-reference initiated |
 | **Dec 25, 11:34 AM–12:06 PM** | JLR texts from unknown location ("Worst moment ever," "You ruined this Christmas") |
-| **Dec 25, ~12:06 PM** | ATL issued for JLR; Deputy Talley meets Magnolia at Cascade Medical Center |
+| **Dec 25, ~10:11 AM** | ATL issued for JLR; Deputy Talley meets Magnolia at Cascade Medical Center |
 | **Dec 25, 1:42–2:16 PM** | JLR texts: "Hello Magnolia. Where you at?" |
 | **Dec 25, 1:53 PM** | Magnolia discharged, returned to hotel; room code changed |
 | **Dec 25, 3:18 PM** | Deputy Talley signs affidavit — Assault 2nd Degree DV, Harassment/Threats to Kill DV, Interfering with DV Reporting |
@@ -45,6 +45,7 @@ Magnolia reported a prior incident in August 2025 in Charlotte, NC during a work
 | **Jan 23, 2:12 PM** | JLR's Washington attorney calls Pasco County — JLR saw law enforcement at Baxley Lane that morning |
 | **Feb 1, 1:12 PM** | Magnolia calls Pasco County from Hot Springs, AR — requests report for Sept 6–7, 2025 assault in Port Richey; says WA intends to extradite JLR |
 | **Feb 1, 1:32 PM** | Three-way call: Pasco, Garland County, and Magnolia — jurisdictional dispute over who takes the report |
+| **Feb 1, 1:42 PM** | Pasco calls Magnolia back — Garland County will reach out; call back when they do |
 | **Feb 1, 2:57 PM** | Cpl. Yarborough (Garland County) calls Pasco County to follow up |
 
 ## Charges
