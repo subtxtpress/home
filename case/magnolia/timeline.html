@@ -251,6 +251,29 @@
       transition: opacity 0.2s;
     }
     .step-gallery img:hover { opacity: 0.85; }
+    .step-figure img { cursor: pointer; }
+    .not-booked-callout {
+      margin: 18px 0 4px;
+      padding: 14px 18px;
+      background: var(--red-dim);
+      border-left: 3px solid var(--red);
+      font-family: var(--body);
+      font-size: 15px;
+      font-weight: 600;
+      color: #F5F5F5;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+    }
+    .not-booked-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
     .step-gallery + .gallery-caption {
       font-family: var(--mono); font-size: 10px;
       color: var(--muted); letter-spacing: 0.06em;
@@ -551,6 +574,10 @@
     <div class="step-title">JLR calls Washington, DC and Magnolia</div>
     <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
     <p>At 12:52 AM, JLR calls a Washington, DC number. At 12:53 AM, he calls Magnolia (labeled &ldquo;WIFE&rdquo; in his contacts).</p>
+    <figure class="step-figure">
+      <img src="photos/05-call-log.png" alt="JLR call log showing calls to Washington DC and Jaime WIFE at 12:52-12:53 AM" loading="lazy" />
+      <figcaption>Call log &mdash; &ldquo;Jaime WIFE&rdquo; at 12:53 AM, Washington DC at 12:52 AM</figcaption>
+    </figure>
   </div>
 
   <!-- STEP 5: Morning calls -->
@@ -621,24 +648,8 @@
     </div>
   </div>
 
-  <!-- STEP 11: JLR texts from the road -->
-  <div class="step" data-step="11" data-border="var(--red)">
-    <div class="step-time">11:34 AM &ndash; 12:06 PM</div>
-    <div class="step-title">JLR texts from unknown location</div>
-    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
-    <p>A series of texts and calls arrive on the work phone JLR left behind: &ldquo;Worst moment ever&rdquo; (11:34 AM)&hellip; &ldquo;I called this phone over 100 times trying to find out what is going on. You kicked me out.&rdquo; (11:36 AM)&hellip; &ldquo;Hello. Answer the phone. I am in the middle of no where.&rdquo; (11:45 AM)&hellip; &ldquo;For the sake of god. Answer the phone Magnolia. I am crying non stop. You ruined this Christmas.&rdquo; (12:01 PM).</p>
-    <div class="step-gallery">
-      <img src="photos/07-texts-1136.png" alt="Text messages at 11:36 AM" loading="lazy" />
-      <img src="photos/08-texts-1145.png" alt="Text messages at 11:45 AM" loading="lazy" />
-      <img src="photos/09-texts-1159.png" alt="Missed calls and texts at 11:59 AM" loading="lazy" />
-      <img src="photos/10-texts-1201.png" alt="Text messages at 12:01 PM" loading="lazy" />
-    </div>
-    <div class="gallery-caption">Phone records &mdash; 11:36 AM&ndash;12:01 PM</div>
-    <p style="opacity:0.7;font-size:12px;">Two more missed calls from Timothy Riches at 11:57 and 11:58 AM.</p>
-  </div>
-
-  <!-- STEP 12: Hospital and ATL -->
-  <div class="step" data-step="12" data-border="var(--blue)" data-map-focus="route">
+  <!-- STEP 11: Hospital and ATL -->
+  <div class="step" data-step="11" data-border="var(--blue)" data-map-focus="route">
     <div class="step-time">~10:11 AM</div>
     <div class="step-title">ATL issued / Hospital visit</div>
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
@@ -649,8 +660,45 @@
     </div>
   </div>
 
-  <!-- STEP 11: Return from hospital -->
-  <div class="step" data-step="13" data-border="var(--amber)" data-map-focus="route">
+  <!-- STEP 12: JLR texts — 11:34-11:36 AM -->
+  <div class="step" data-step="12" data-border="var(--red)">
+    <div class="step-time">11:34 AM &ndash; 11:36 AM</div>
+    <div class="step-title">&ldquo;Worst moment ever&rdquo;</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>Texts arrive on the work phone JLR left behind. At 11:34 AM: &ldquo;Worst moment ever.&rdquo; At 11:36 AM: &ldquo;And just so you know. I called this phone over 100 times trying to find out what is going on. You kicked me out.&rdquo;</p>
+    <div class="step-gallery">
+      <img src="photos/07-texts-1136.png" alt="Text messages at 11:36 AM" loading="lazy" />
+    </div>
+    <div class="gallery-caption">Phone records &mdash; 11:36 AM</div>
+  </div>
+
+  <!-- STEP 13: JLR text — 11:45 AM + Timothy calls -->
+  <div class="step" data-step="13" data-border="var(--red)">
+    <div class="step-time">11:45 AM</div>
+    <div class="step-title">&ldquo;I am in the middle of no where&rdquo;</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>&ldquo;Hello. Answer the phone. I am in the middle of no where.&rdquo; Two more missed calls from Timothy Riches arrive at 11:57 and 11:58 AM.</p>
+    <div class="step-gallery">
+      <img src="photos/08-texts-1145.png" alt="Text messages at 11:45 AM" loading="lazy" />
+      <img src="photos/09-texts-1159.png" alt="Missed calls and texts at 11:59 AM" loading="lazy" />
+    </div>
+    <div class="gallery-caption">Phone records &mdash; 11:45&ndash;11:59 AM</div>
+  </div>
+
+  <!-- STEP 14: JLR text — 12:01 PM -->
+  <div class="step" data-step="14" data-border="var(--red)">
+    <div class="step-time">12:01 PM</div>
+    <div class="step-title">&ldquo;You ruined this Christmas&rdquo;</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>&ldquo;For the sake of god. Answer the phone Magnolia. I am crying non stop. You ruined this Christmas.&rdquo;</p>
+    <div class="step-gallery">
+      <img src="photos/10-texts-1201.png" alt="Text messages at 12:01 PM" loading="lazy" />
+    </div>
+    <div class="gallery-caption">Phone records &mdash; 12:01 PM</div>
+  </div>
+
+  <!-- STEP 15: Return from hospital -->
+  <div class="step" data-step="15" data-border="var(--amber)" data-map-focus="route">
     <div class="step-time">1:53:30 PM</div>
     <div class="step-title">Return from hospital</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
@@ -674,16 +722,16 @@
     </div>
   </div>
 
-  <!-- STEP 12: More JLR texts -->
-  <div class="step" data-step="14" data-border="var(--red)">
+  <!-- STEP 16: More JLR texts -->
+  <div class="step" data-step="16" data-border="var(--red)">
     <div class="step-time">1:42 PM &ndash; 2:16 PM</div>
     <div class="step-title">&ldquo;Hello Magnolia. Where you at?&rdquo;</div>
     <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
     <p>&ldquo;Hello Magnolia. Where you at? We need to talk.&rdquo; (1:42 PM)&hellip; &ldquo;Magnolia? Where are you?&rdquo; (1:45 PM)&hellip; &ldquo;??&rdquo; (2:16 PM)</p>
   </div>
 
-  <!-- STEP 13: Hotel manager report -->
-  <div class="step" data-step="15" data-border="var(--green)" data-map-focus="hotel">
+  <!-- STEP 17: Hotel manager report -->
+  <div class="step" data-step="17" data-border="var(--green)" data-map-focus="hotel">
     <div class="step-time">Mid-day</div>
     <div class="step-title">JLR calls the front desk</div>
     <div class="person-pill"><span class="dot" style="background:var(--green)"></span> Tony Smith / Hotel</div>
@@ -694,16 +742,20 @@
     </div>
   </div>
 
-  <!-- STEP 14: Arrest warrant -->
-  <div class="step" data-step="16" data-border="var(--blue)">
+  <!-- STEP 18: Arrest warrant -->
+  <div class="step" data-step="18" data-border="var(--blue)">
     <div class="step-time">3:18 PM</div>
     <div class="step-title">Probable cause affidavit signed</div>
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Deputy Talley</div>
-    <p>Deputy Kyle Talley signs an affidavit for probable cause to arrest JLR for violating RCW 9A.36.021 (Assault in the 2nd Degree DV), RCW 9A.46.020.2B (Harassment &mdash; threats to kill DV), and RCW 9A.36.150 (Interfering with the reporting of domestic violence). JLR is not booked on any of the three charges.</p>
+    <p>Deputy Kyle Talley signs an affidavit for probable cause to arrest JLR for violating RCW 9A.36.021 (Assault in the 2nd Degree DV), RCW 9A.46.020.2B (Harassment &mdash; threats to kill DV), and RCW 9A.36.150 (Interfering with the reporting of domestic violence).</p>
+    <div class="not-booked-callout">
+      <span class="not-booked-label">Case status</span>
+      JLR fled the state before Chelan County could locate and arrest him on charges for the assault on Magnolia.
+    </div>
   </div>
 
-  <!-- STEP 15: Act IV — Dec 26 -->
-  <div class="step" data-step="17" data-border="var(--red)">
+  <!-- STEP 19: Act IV — Dec 26 -->
+  <div class="step" data-step="19" data-border="var(--red)">
     <div class="act-label">Act IV &mdash; The Aftermath</div>
     <div class="step-time">07:39 AM &middot; Dec 26</div>
     <div class="step-title">&ldquo;I&rsquo;m in trouble. What did you do?&rdquo;</div>
@@ -723,8 +775,8 @@
     <div class="embed-caption">Dean Dispatch Call &mdash; 10:49 AM, Dec 26</div>
   </div>
 
-  <!-- STEP 16: Magnolia dispatch calls -->
-  <div class="step" data-step="18" data-border="var(--muted)">
+  <!-- STEP 20: Magnolia dispatch calls -->
+  <div class="step" data-step="20" data-border="var(--muted)">
     <div class="step-time">Dec 26 &middot; 11:57 AM onward</div>
     <div class="step-title">Magnolia contacts dispatch</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
@@ -744,8 +796,8 @@
     <div class="embed-caption">Magnolia Dispatch Call #3 &mdash; Dec 26</div>
   </div>
 
-  <!-- STEP 17: Dec 27 — Tracking JLR -->
-  <div class="step" data-step="19" data-border="var(--amber)">
+  <!-- STEP 21: Dec 27 — Tracking JLR -->
+  <div class="step" data-step="21" data-border="var(--amber)">
     <div class="step-time">December 27, 2025</div>
     <div class="step-title">JLR tracked to North Dakota</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
@@ -760,8 +812,8 @@
     <div class="embed-caption">Magnolia Dispatch Call &mdash; 12:55 PM, Dec 27</div>
   </div>
 
-  <!-- STEP 18: Dec 28 -->
-  <div class="step" data-step="20" data-border="var(--muted)">
+  <!-- STEP 22: Dec 28 -->
+  <div class="step" data-step="22" data-border="var(--muted)">
     <div class="step-time">December 28, 2025</div>
     <div class="step-title">New phone, case still open</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
@@ -773,16 +825,16 @@
     <div class="embed-caption">Magnolia Dispatch Call &mdash; 15:43, Dec 28</div>
   </div>
 
-  <!-- STEP 19: Dec 29 follow-up + TOP -->
-  <div class="step" data-step="21" data-border="var(--blue)">
+  <!-- STEP 23: Dec 29 follow-up + TOP -->
+  <div class="step" data-step="23" data-border="var(--blue)">
     <div class="step-time">December 29&ndash;30, 2025</div>
     <div class="step-title">Follow-up &amp; case turned over to prosecutors</div>
     <div class="person-pill"><span class="dot" style="background:var(--blue)"></span> Chelan County Sheriff</div>
     <p>December 29: Follow-up contact with Magnolia (involvement date listed in supplemental incident report). December 30: Case 25C12789 turned over to Chelan County Prosecutors Office (TOP). Supplemental report generated March 26, 2026.</p>
   </div>
 
-  <!-- STEP 20: Follow-up -->
-  <div class="step" data-step="22" data-border="var(--amber)">
+  <!-- STEP 24: Follow-up -->
+  <div class="step" data-step="24" data-border="var(--amber)">
     <div class="step-time">January &ndash; March 2026</div>
     <div class="step-title">Records requests</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Other</div>
@@ -790,7 +842,7 @@
   </div>
 
   <!-- STEP: Jan 23 2026 — Magnolia calls Pasco re: protection order + prior charges -->
-  <div class="step" data-step="23" data-border="var(--amber)">
+  <div class="step" data-step="25" data-border="var(--amber)">
     <div class="act-label">Act V &mdash; Extradition &amp; Prior Assaults</div>
     <div class="step-time">January 23, 2026 &middot; 12:55 PM</div>
     <div class="step-title">Protection order &amp; prior assault charges</div>
@@ -798,26 +850,26 @@
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
     <p>Magnolia calls the Pasco County Sheriff&rsquo;s Office to check on the status of an ex parte protection order granted on January 21 by a Garland County, Arkansas circuit court judge. The order was sent to Pasco County to be served on JLR at the Baxley Lane address in Port Richey. She also asks whether she can file charges for prior assaults that occurred in Pasco County&rsquo;s jurisdiction, referencing a serious assault she did not report at the time because JLR threatened her. Dispatch advises a desk officer will call her back within the hour.</p>
     <div class="step-embed">
-      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1XIaPDi0nAGgiS6mv_Efi6WVxUT3_jMZI/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1XIaPDi0nAGgiS6mv_Efi6WVxUT3_jMZI/preview"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg><span>Click to read transcript</span></div>
     </div>
     <div class="embed-caption">Magnolia &rarr; Pasco County &mdash; 12:55 PM, Jan 23, 2026</div>
   </div>
 
   <!-- STEP: Jan 23 2026 — JLR's attorney calls Pasco -->
-  <div class="step" data-step="24" data-border="var(--red)">
+  <div class="step" data-step="26" data-border="var(--red)">
     <div class="step-time">January 23, 2026 &middot; 2:12 PM</div>
     <div class="step-title">JLR&rsquo;s Washington attorney calls Pasco County</div>
     <div class="person-pill"><span class="dot" style="background:var(--red)"></span> JLR&rsquo;s Attorney</div>
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
     <p>A Washington State attorney representing JLR calls Pasco County dispatch. He reports that his client got out of the shower that morning at approximately 6:30 AM to see law enforcement leaving his driveway at the Baxley Lane address. Nothing was left on the door and no one returned. The attorney says they are expecting possible service and wants to coordinate. Pasco dispatch cannot locate a call for that address at that time and suggests it may have been process service, providing a separate number.</p>
     <div class="step-embed">
-      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1XZQIpKHyKsab-kwjuQ1W_9aJIShw65ZL/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1XZQIpKHyKsab-kwjuQ1W_9aJIShw65ZL/preview"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg><span>Click to read transcript</span></div>
     </div>
     <div class="embed-caption">JLR&rsquo;s Attorney &rarr; Pasco County &mdash; 2:12 PM, Jan 23, 2026</div>
   </div>
 
   <!-- STEP: Feb 1 2026 — Magnolia calls Pasco County from Arkansas -->
-  <div class="step" data-step="25" data-border="var(--amber)">
+  <div class="step" data-step="27" data-border="var(--amber)">
     <div class="step-time">February 1, 2026 &middot; 1:12 PM</div>
     <div class="step-title">Magnolia calls Pasco County from Arkansas</div>
 
@@ -825,13 +877,13 @@
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
     <p>Magnolia contacts the Pasco County Sheriff&rsquo;s Office from Hot Springs, Arkansas, where she has been staying at an Airbnb since fleeing Florida. She reports that a protection order has been served on JLR in Pasco County. She requests to file a police report for a prior assault &mdash; specifically the September 6&ndash;7, 2025 beating at their shared home in Port Richey, FL &mdash; as advised by Washington State authorities to help build the case. She reports that she had surgery to repair her broken nose from the Washington assault and is recovering. She states JLR contacted her by email a couple weeks earlier trying to take assets out of her name, which prompted her to file the protection order. She tells the dispatcher that Washington authorities told her they intend to extradite JLR.</p>
     <div class="step-embed">
-      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1QhZXlBn1BhwWFfJwlwBw4fEo_6VmdEau/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1QhZXlBn1BhwWFfJwlwBw4fEo_6VmdEau/preview"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg><span>Click to read transcript</span></div>
     </div>
     <div class="embed-caption">Magnolia &rarr; Pasco County &mdash; 13:12, Feb 1, 2026</div>
   </div>
 
   <!-- STEP: Feb 1 2026 — Three-way call with Garland County -->
-  <div class="step" data-step="26" data-border="var(--muted)">
+  <div class="step" data-step="28" data-border="var(--muted)">
     <div class="step-time">February 1, 2026 &middot; 1:32 PM</div>
     <div class="step-title">Jurisdictional runaround &mdash; Pasco, Garland, and Magnolia</div>
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
@@ -839,39 +891,39 @@
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
     <p>Pasco County patches Magnolia into a three-way call with Garland County Sheriff&rsquo;s Office dispatch in Hot Springs, Arkansas. A jurisdictional dispute follows: Pasco says Garland must initiate the report because Magnolia currently resides in their jurisdiction; Garland says reports should be filed where the crime occurred. Magnolia pushes back, noting that Garland County deputies told her on Friday they could not take the report since the assault happened in Florida. She also clarifies she does not &ldquo;live&rdquo; in Garland County &mdash; her driver&rsquo;s license is from Pasco County, FL, and she is staying temporarily in an Airbnb for safety. No report is filed during the call.</p>
     <div class="step-embed">
-      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1Jtwnlk1xrrVmnqvLFus_l4QytTj6oiak/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1Jtwnlk1xrrVmnqvLFus_l4QytTj6oiak/preview"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg><span>Click to read transcript</span></div>
     </div>
-    <div class="embed-caption">Pasco / Garland / Magnolia three-way &mdash; 13:32, Feb 1, 2026</div>
+    <div class="embed-caption">Pasco / Garland / Magnolia three-way call &mdash; 13:32, Feb 1, 2026</div>
   </div>
 
   <!-- STEP: Feb 1 2026 — Magnolia/Pasco followup -->
-  <div class="step" data-step="27" data-border="var(--amber)">
+  <div class="step" data-step="29" data-border="var(--amber)">
     <div class="step-time">February 1, 2026 &middot; 1:42 PM</div>
     <div class="step-title">Pasco tells Magnolia to wait for Garland</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
     <p>Pasco County calls Magnolia back. They tell her Garland County will reach out to her and to call Pasco back once Garland makes contact.</p>
     <div class="step-embed">
-      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1SrOvEhvH8YRFk626xgotqUm9nGQSLhfW/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1SrOvEhvH8YRFk626xgotqUm9nGQSLhfW/preview"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg><span>Click to read transcript</span></div>
     </div>
     <div class="embed-caption">Pasco &rarr; Magnolia followup &mdash; 13:42, Feb 1, 2026</div>
   </div>
 
   <!-- STEP: Feb 1 2026 — Corporal Yarborough follow-up -->
-  <div class="step" data-step="28" data-border="var(--muted)">
+  <div class="step" data-step="30" data-border="var(--muted)">
     <div class="step-time">February 1, 2026 &middot; 2:57 PM</div>
     <div class="step-title">Corporal Yarborough calls Pasco County</div>
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Cpl. Yarborough, Garland Co.</div>
     <div class="person-pill"><span class="dot" style="background:var(--muted)"></span> Pasco County Sheriff</div>
     <p>Corporal Yarborough from the Garland County Sheriff&rsquo;s Office calls Pasco County dispatch to follow up on the earlier three-way call. He is patched through to request more information on how Pasco handles the reporting process. Pasco dispatch notes the call and advises a deputy or sergeant will call him back.</p>
     <div class="step-embed">
-      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1w-fq7B4pkgEgr-3YmtE4U56bE8MkzMhO/preview"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+      <div class="embed-placeholder" data-src="https://drive.google.com/file/d/1w-fq7B4pkgEgr-3YmtE4U56bE8MkzMhO/preview"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg><span>Click to read transcript</span></div>
     </div>
     <div class="embed-caption">Cpl. Yarborough &rarr; Pasco County &mdash; 14:57, Feb 1, 2026</div>
   </div>
 
   <!-- STEP: Doc-ket link -->
-  <div class="step" data-step="29" data-border="var(--amber)">
+  <div class="step" data-step="31" data-border="var(--amber)">
     <div class="step-title">Source Documents</div>
     <p>View the full JLR doc-ket — filings, records, and the Google Drive folder.</p>
     <p style="margin-top:12px;"><a href="https://subtxtpress.github.io/home/dockets/JLR/docket" target="_blank" style="color:var(--amber);text-decoration:underline;text-underline-offset:3px;font-weight:500;">View Doc-ket &rarr;</a></p>
@@ -1075,24 +1127,26 @@ const STEP_META = {
   8:  { date: 'DECEMBER 25, 2025', time: '9:33 AM',   focus: 'hotel' },
   9:  { date: 'DECEMBER 25, 2025', time: '9:40 AM',   focus: 'hotel' },
   10: { date: 'DECEMBER 25, 2025', time: '10:21 AM',  focus: 'hotel' },
-  11: { date: 'DECEMBER 25, 2025', time: '11:34 AM',  focus: null },
-  12: { date: 'DECEMBER 25, 2025', time: '10:11 AM',  focus: 'route' },
-  13: { date: 'DECEMBER 25, 2025', time: '1:53 PM',   focus: 'route' },
-  14: { date: 'DECEMBER 25, 2025', time: '1:42 PM',   focus: null },
-  15: { date: 'DECEMBER 25, 2025', time: '',           focus: 'hotel' },
-  16: { date: 'DECEMBER 25, 2025', time: '3:18 PM',   focus: null },
-  17: { date: 'DECEMBER 26, 2025', time: '07:39 AM',   focus: null },
-  18: { date: 'DECEMBER 26, 2025', time: '11:57 AM',  focus: null },
-  19: { date: 'DECEMBER 27, 2025', time: '08:57 AM',   focus: 'overview' },
-  20: { date: 'DECEMBER 28, 2025', time: '15:43 PM',   focus: 'overview' },
-  21: { date: 'DEC 29-30, 2025',   time: '',           focus: 'overview' },
-  22: { date: 'JAN - MAR 2026',    time: '',           focus: 'overview' },
-  23: { date: 'JANUARY 23, 2026',  time: '12:55 PM',   focus: null },
-  24: { date: 'JANUARY 23, 2026',  time: '2:12 PM',    focus: null },
-  25: { date: 'FEBRUARY 1, 2026',  time: '1:12 PM',    focus: null },
-  26: { date: 'FEBRUARY 1, 2026',  time: '1:32 PM',    focus: null },
-  27: { date: 'FEBRUARY 1, 2026',  time: '1:42 PM',    focus: null },
-  28: { date: 'FEBRUARY 1, 2026',  time: '2:57 PM',    focus: null }
+  11: { date: 'DECEMBER 25, 2025', time: '10:11 AM',  focus: 'route' },
+  12: { date: 'DECEMBER 25, 2025', time: '11:34 AM',  focus: null },
+  13: { date: 'DECEMBER 25, 2025', time: '11:45 AM',  focus: null },
+  14: { date: 'DECEMBER 25, 2025', time: '12:01 PM',  focus: null },
+  15: { date: 'DECEMBER 25, 2025', time: '1:53 PM',   focus: 'route' },
+  16: { date: 'DECEMBER 25, 2025', time: '1:42 PM',   focus: null },
+  17: { date: 'DECEMBER 25, 2025', time: '',           focus: 'hotel' },
+  18: { date: 'DECEMBER 25, 2025', time: '3:18 PM',   focus: null },
+  19: { date: 'DECEMBER 26, 2025', time: '07:39 AM',  focus: null },
+  20: { date: 'DECEMBER 26, 2025', time: '11:57 AM',  focus: null },
+  21: { date: 'DECEMBER 27, 2025', time: '08:57 AM',  focus: 'overview' },
+  22: { date: 'DECEMBER 28, 2025', time: '15:43 PM',  focus: 'overview' },
+  23: { date: 'DEC 29-30, 2025',   time: '',          focus: 'overview' },
+  24: { date: 'JAN - MAR 2026',    time: '',          focus: 'overview' },
+  25: { date: 'JANUARY 23, 2026',  time: '12:55 PM',  focus: null },
+  26: { date: 'JANUARY 23, 2026',  time: '2:12 PM',   focus: null },
+  27: { date: 'FEBRUARY 1, 2026',  time: '1:12 PM',   focus: null },
+  28: { date: 'FEBRUARY 1, 2026',  time: '1:32 PM',   focus: null },
+  29: { date: 'FEBRUARY 1, 2026',  time: '1:42 PM',   focus: null },
+  30: { date: 'FEBRUARY 1, 2026',  time: '2:57 PM',   focus: null }
 };
 
 let currentStep = -1;
@@ -1226,6 +1280,34 @@ document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
     ph.parentNode.replaceChild(iframe, ph);
   });
 });
+
+// =========================================================================
+// LIGHTBOX — click any gallery/figure image to view full size
+// =========================================================================
+(function() {
+  var overlay = document.createElement('div');
+  overlay.id = 'lightbox';
+  overlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,11,20,0.92);backdrop-filter:blur(8px);cursor:zoom-out;align-items:center;justify-content:center;padding:24px;';
+  var img = document.createElement('img');
+  img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 4px 40px rgba(0,0,0,0.6);';
+  var caption = document.createElement('div');
+  caption.style.cssText = 'position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(216,218,219,0.45);';
+  overlay.appendChild(img);
+  overlay.appendChild(caption);
+  document.body.appendChild(overlay);
+
+  function close() { overlay.style.display = 'none'; }
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+
+  document.querySelectorAll('.step-gallery img, .step-figure img').forEach(function(el) {
+    el.addEventListener('click', function() {
+      img.src = el.src;
+      caption.textContent = el.alt || '';
+      overlay.style.display = 'flex';
+    });
+  });
+})();
 </script>
 </body>
 </html>
