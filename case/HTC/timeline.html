@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Matthias v. Reality | Timeline</title>
+  <meta name="description" content="Interactive timeline of the Matthias v. M civil stalking case — seven acts, dual-narrative format.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/HTC/timeline">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Matthias v. Reality | Timeline">
+  <meta property="og:description" content="Interactive timeline of the Matthias v. M civil stalking case — seven acts, dual-narrative format.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/HTC/timeline">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Case Maps | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Matthias v. Reality | Timelin">
+  <meta name="twitter:description" content="Interactive timeline of the Matthias v. M civil stalking case — seven acts, dual-narrative format.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #1a1a1a;
+    --border: #2a2a2a;
+    --text: #e0e0e0;
+    --text-dim: #888;
+    --petitioner: #e85d4a;
+    --respondent: #4a9ee8;
+    --neutral: #888;
+    --accent: #f0c040;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- HEADER --- */
+  .hero {
+    padding: 2rem 1.25rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.25rem;
+  }
+  .hero .sub {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+  }
+  .hero .case-info {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  /* --- LEGEND --- */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.7rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .legend-dot.pet { background: var(--petitioner); }
+  .legend-dot.res { background: var(--respondent); }
+  .legend-dot.both { background: var(--accent); }
+
+  /* --- NAV PILLS --- */
+  .nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: none;
+  }
+  .nav-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0;
+    padding: 0.4rem 0.75rem;
+    border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .pill:hover, .pill.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  /* --- TIMELINE --- */
+  .timeline {
+    padding: 0 1rem 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .chapter {
+    padding-top: 1.5rem;
+  }
+  .chapter-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+
+  .event {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.25rem;
+    border-left: 2px solid var(--border);
+    margin-left: 0.25rem;
+  }
+  .event::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 1rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neutral);
+  }
+  .event.pet::before { background: var(--petitioner); }
+  .event.res::before { background: var(--respondent); }
+  .event.both::before { background: var(--accent); }
+  .event.key { border-left-color: var(--accent); }
+  .event.key::before { width: 10px; height: 10px; left: -6px; }
+
+  .event-date {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+  }
+  .event-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .event-body {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  /* --- SPLIT VIEW --- */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .split-side {
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+  .split-side.pet-side {
+    background: rgba(232, 93, 74, 0.08);
+    border: 1px solid rgba(232, 93, 74, 0.2);
+  }
+  .split-side.res-side {
+    background: rgba(74, 158, 232, 0.08);
+    border: 1px solid rgba(74, 158, 232, 0.2);
+  }
+  .split-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  .split-side.pet-side .split-label { color: var(--petitioner); }
+  .split-side.res-side .split-label { color: var(--respondent); }
+
+  /* --- EXPANDABLE --- */
+  details {
+    margin-top: 0.4rem;
+  }
+  details summary {
+    font-size: 0.7rem;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+  }
+  details summary::before {
+    content: '+ ';
+  }
+  details[open] summary::before {
+    content: '— ';
+  }
+  details .detail-body {
+    padding: 0.5rem 0;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  /* --- EVIDENCE TAG --- */
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin: 0.15rem 0.15rem 0.15rem 0;
+  }
+  .tag.exhibit { background: rgba(240, 192, 64, 0.15); color: var(--accent); }
+  .tag.police { background: rgba(74, 158, 232, 0.15); color: var(--respondent); }
+  .tag.disputed { background: rgba(232, 93, 74, 0.15); color: var(--petitioner); }
+  .tag.filing { background: rgba(136, 136, 136, 0.15); color: var(--text-dim); }
+
+  /* --- FOOTER --- */
+  .footer {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* --- DESKTOP --- */
+  @media (min-width: 768px) {
+    .hero h1 { font-size: 1.8rem; }
+    .timeline { padding: 0 2rem 3rem; }
+    .event-title { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Matthias v. M</h1>
+  <div class="sub">A civil stalking case in seven acts</div>
+  <div class="case-info">
+    Case No. 250404055 · Fourth District Court, Utah County<br>
+    Judge Kasey L. Wright · Filed 2025
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot pet"></div> Lauren's side</div>
+  <div class="legend-item"><div class="legend-dot res"></div> Christina's side</div>
+  <div class="legend-item"><div class="legend-dot both"></div> Disputed / both</div>
+</div>
+
+<nav class="nav-pills">
+  <a href="#ch1" class="pill">1. The Friendship</a>
+  <a href="#ch2" class="pill">2. The Fallout</a>
+  <a href="#ch3" class="pill">3. Going Public</a>
+  <a href="#ch4" class="pill">4. Boise</a>
+  <a href="#ch5" class="pill">5. The Injunction</a>
+  <a href="#ch6" class="pill">6. CrimeCon</a>
+  <a href="#ch7" class="pill">7. The Courts</a>
+</nav>
+
+<div class="timeline">
+
+  <!-- ====== CHAPTER 1 ====== -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-label">Act 1 · The Friendship (2024 – Early 2025)</div>
+
+    <div class="event">
+      <div class="event-date">April 2024</div>
+      <div class="event-title">Lauren and Christina meet</div>
+      <div class="event-body">They connect through mutual interest in a criminal case. Christina begins doing graphic design work for Lauren — thumbnails and graphics for her true crime content. Grayson Yohr, Lauren's producer, oversees the work and becomes friends with Christina.</div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">Fall 2024 – Jan 2025</div>
+      <div class="event-title">The circle expands</div>
+      <div class="event-body">Grayson starts full-time with Lauren in October. He and Christina become close — they talk often about Lauren's mental health while her mother and brother are both on hospice. Grayson connects Christina to Susan Hendricks (former CNN anchor) for design work. Lindzie, who works in true crime media, has known Lauren since 2023 and meets Christina around this time. Lori, based in California, also enters the circle.</div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">Feb 12, 2025</div>
+      <div class="event-title">Friendly terms</div>
+      <div class="event-body">Lori has lunch with Lauren in Las Vegas while traveling. Everyone is still on good terms. Within weeks, that changes.</div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">March 6, 2025</div>
+      <div class="event-title">Lauren's brother dies</div>
+      <div class="event-body">After a 2023 ATV accident and extended medical care. This becomes central to later events — a social media post about him in July becomes one of the most contested pieces of evidence.</div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 2 ====== -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-label">Act 2 · The Fallout (April 2025)</div>
+
+    <div class="event both key">
+      <div class="event-date">April 8–9, 2025</div>
+      <div class="event-title">The confrontation that started it all</div>
+      <div class="event-body">Christina and Lauren have an exchange at the Maricopa County Courthouse in Phoenix. What happened depends on who you ask:</div>
+      <div class="split">
+        <div class="split-side pet-side">
+          <div class="split-label">Lauren's side</div>
+          Christina confronted her. Lauren had a panic attack — Grayson had "never seen anything like that before." He texted Susan Hendricks to come to their AirBnB. Susan arrived to find Lauren "extremely emotional" in a state she'd "never seen her in before."
+        </div>
+        <div class="split-side res-side">
+          <div class="split-label">Christina's side</div>
+          Christina had a conversation with Lauren about statements Lauren had been making behind her back to mutual friends and colleagues. Not a confrontation — a reckoning.
+        </div>
+      </div>
+      <div class="event-body" style="margin-top:0.5rem">By 8:50 PM that evening, Lauren texted Christina threatening legal action. <span class="tag disputed">Both sides agree this happened</span></div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">April 11, 2025</div>
+      <div class="event-title">Cease-and-Desist to Lindzie</div>
+      <div class="event-body">Lauren sends Lindzie a C&D demanding she stop speaking publicly about Lauren. Lindzie says she hadn't been. She believes the C&D was meant to intimidate her into silence because of her friendship with Christina.</div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">April 15, 2025</div>
+      <div class="event-title">Janeese confrontation</div>
+      <div class="event-body">Lauren says Janeese confronted her at a courthouse, requiring bailiff intervention. <span class="tag exhibit">Ex 07</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 3 ====== -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-label">Act 3 · Going Public (June – August 2025)</div>
+
+    <div class="event both">
+      <div class="event-date">April – June 2025</div>
+      <div class="event-title">Escalating proximity</div>
+      <div class="event-body">Both sides accuse the other of deliberately positioning themselves nearby at court proceedings in Phoenix.</div>
+      <div class="split">
+        <div class="split-side pet-side">
+          <div class="split-label">Lauren's side</div>
+          Janeese repeatedly filmed Grayson at work "for no other reason than to harass me and intimidate me."
+        </div>
+        <div class="split-side res-side">
+          <div class="split-label">Christina's side</div>
+          Lauren and Grayson intentionally positioned themselves close to Lindzie on several occasions — sitting beside her, standing next to her, appearing to read her phone screen.
+        </div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">June 19, 2025</div>
+      <div class="event-title">The warning call</div>
+      <div class="event-body">Grayson receives a call from an unidentified woman warning him things were going to "go public" and people "wanted Lauren's head on a platter." He calls police. The officer contacts Christina, who then posts a video mocking the officer. <span class="tag exhibit">Ex 09</span></div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">Late June 2025</div>
+      <div class="event-title">The social media accounts appear</div>
+      <div class="event-body">Christina creates TikTok and Instagram accounts. Lauren's side says they exist solely to attack her. Over the following months, Lauren's filings document 53+ TikTok videos and 33+ Instagram posts, all referencing an "ex-friend."</div>
+    </div>
+
+    <div class="event pet key">
+      <div class="event-date">July 7, 2025</div>
+      <div class="event-title">Two events collide on the same day</div>
+      <div class="event-body">Christina posts a video about Lauren's deceased brother with the caption "without his consent," which Lauren says falsely insinuated sexual assault. The video gets 33,000+ views. <span class="tag exhibit">Ex 08</span></div>
+      <div class="event-body" style="margin-top:0.4rem">That same morning at 5 AM, Lauren's husband John — a forensic psychologist — wakes to find her rocking in fetal position. She tells him she doesn't want to live. First suicidal ideation in their 10-year marriage. Corroborated by three sources: John (witnessed it), Grayson (told by John that day), and Lauren's texts to Grayson. <span class="tag exhibit">Ex 40</span></div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">July – August 2025</div>
+      <div class="event-title">The campaign continues</div>
+      <div class="event-body">
+        Voice recordings comparing Lauren to Jodi Arias (33K+ views). Posts about her husband's credentials. Admitted she called UNLV to investigate him. Contacted national news producers warning against working with Lauren.
+        <details>
+          <summary>Key self-incriminating posts</summary>
+          <div class="detail-body">
+            <strong>Jul 24:</strong> "who I made this account to expose" <span class="tag exhibit">Ex 28</span><br>
+            <strong>Aug 8:</strong> "Can we all talk about her own words and actions though?" <span class="tag exhibit">Ex 17</span><br>
+            <strong>Aug 19:</strong> "Don't forget to like and comment and engage... Let's make sure this behavior is put out there" <span class="tag exhibit">Ex 33</span><br>
+            <strong>Aug 29:</strong> "I'm talking about this toxic person I met, and knew for a year" <span class="tag exhibit">Ex 30</span>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 4 ====== -->
+  <div class="chapter" id="ch4">
+    <div class="chapter-label">Act 4 · Boise (July 21–24, 2025)</div>
+
+    <div class="event both key">
+      <div class="event-date">July 23, 2025</div>
+      <div class="event-title">The Boise incident — courthouse</div>
+      <div class="event-body">Both sides are in Boise for the Bryan Kohberger sentencing. What happens at the courthouse:</div>
+      <div class="split">
+        <div class="split-side pet-side">
+          <div class="split-label">Lauren's side</div>
+          Lori screamed at Lauren for trying to sit down. Janeese filmed her and Grayson all day. Six "accomplices" present: Lindzie, Janeese, Lori, Sarah P, Julie I, Emma L.
+        </div>
+        <div class="split-side res-side">
+          <div class="split-label">Christina's side</div>
+          Lauren and Grayson approached Lindzie despite the C&D. Grayson stood right next to their row. Later followed Janeese into the bathroom. Bailiffs spoke to Janeese but did not remove her. Christina was out of the country.
+        </div>
+      </div>
+    </div>
+
+    <div class="event both key">
+      <div class="event-date">July 23, 2025 — evening</div>
+      <div class="event-title">The Boise incident — restaurant</div>
+      <div class="event-body">The confrontation moves to Bittercreek Ale House:</div>
+      <div class="split">
+        <div class="split-side pet-side">
+          <div class="split-label">Lauren's side</div>
+          Janeese filmed from outside. Lori and Sarah P approached their dinner table. After leaving, the group went across the street and waited. Lauren and Grayson called police for an escort. Officer Jacobs took stalking report #2025-510902.
+        </div>
+        <div class="split-side res-side">
+          <div class="split-label">Christina's side</div>
+          They had been dining for 2 hours when Lauren and Grayson arrived and positioned themselves at the exit — making it impossible to leave without passing them. Lori briefly told Lauren it was inappropriate to keep contacting Lindzie. They crossed the street for dessert. Lauren called the police on them. Officer closed the investigation.
+        </div>
+      </div>
+      <div class="event-body" style="margin-top:0.5rem"><span class="tag police">Report #2025-510902</span> <span class="tag disputed">Both sides claim the other called police / was the aggressor</span></div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">July 24, 2025</div>
+      <div class="event-title">The morning after</div>
+      <div class="event-body">Susan Hendricks meets Lauren and Grayson for breakfast. She describes them in "an absolute panicked state" — what she'd call "fight or flight." They kept watching the door at every noise.</div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 5 ====== -->
+  <div class="chapter" id="ch5">
+    <div class="chapter-label">Act 5 · The Injunction (September 4, 2025)</div>
+
+    <div class="event pet key">
+      <div class="event-date">September 4, 2025</div>
+      <div class="event-title">Civil Stalking Injunction issued</div>
+      <div class="event-body">The court grants a temporary CSI. Christina's husband Conner is served at their home. The order prohibits contact, requires 500 feet distance, names specific stay-away locations including CrimeCon and "online forums and social media accounts," and lists protected persons including Lauren, John, Grayson, their son, and extended family/co-workers.</div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">September 4 — that evening</div>
+      <div class="event-title">The "Whoops" video</div>
+      <div class="event-body">Within hours of service, Christina posts: "Whoops, you messed up, ran around and then you got caught." A commenter writes: "Time to tell the REAL STORY!" Christina responds: "As you wish." <span class="tag exhibit">Ex 22</span> <span class="tag exhibit">Ex 37</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 6 ====== -->
+  <div class="chapter" id="ch6">
+    <div class="chapter-label">Act 6 · CrimeCon (September 5–7, 2025)</div>
+
+    <div class="event both key">
+      <div class="event-date">September 5, 2025</div>
+      <div class="event-title">CrimeCon — the injunction is tested</div>
+      <div class="event-body">Both sides are at the Gaylord Rockies Resort in Aurora, Colorado. CrimeCon was specifically named as a stay-away location in the injunction.</div>
+      <div class="split">
+        <div class="split-side pet-side">
+          <div class="split-label">Lauren's side</div>
+          Christina told CrimeCon security she knew about the injunction but intended to attend anyway. Officers found her near Lauren, served her a physical copy, and removed her — told to leave or face arrest. She acknowledged her husband had sent her the order. After removal, she posted videos including one with Eminem's "Worms" lyrics. That evening at 10:17 PM, she stood ~20 feet from Lauren in the hotel bar wearing socks and holding a camera.
+        </div>
+        <div class="split-side res-side">
+          <div class="split-label">Christina's side</div>
+          Janeese saw no attempt by Christina to contact Lauren. She watched Lauren and Grayson walk right past Christina during the police interaction "to observe their handiwork." In the hotel bar, a retired Orange County PD officer approached Lindzie and warned her someone appeared to be following her — and pointed out Grayson.
+        </div>
+      </div>
+      <div class="event-body" style="margin-top:0.5rem">
+        Paul C, an independent third-party witness with no ties to either side, documented the hotel bar proximity with timestamped smartphone photos at 10:17 PM, estimating Christina was within 20 feet of Lauren. <span class="tag exhibit">Ex 25</span>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-date">September 6–7</div>
+      <div class="event-title">Proximity continues</div>
+      <div class="event-body">Grayson reports Christina was escorted by security into a restaurant directly behind them — within 500 feet, he estimates ~75 feet. Janeese takes a video showing Lauren chatting calmly in a restaurant, which she says contradicts Lauren's claims of immediate danger. <span class="tag exhibit">D-13</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 7 ====== -->
+  <div class="chapter" id="ch7">
+    <div class="chapter-label">Act 7 · The Courts (September – October 2025)</div>
+
+    <div class="event pet">
+      <div class="event-date">September 17, 2025</div>
+      <div class="event-title">Enforcement motion filed</div>
+      <div class="event-body">Lauren files an ex parte motion alleging 6 specific violations between Sep 4–10. Seeks contempt ($1,000 per violation), up to 30 days jail, permanent injunction, GPS monitoring, and — for the first time — a criminal prosecution referral. <span class="tag filing">Ex Parte Motion</span></div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">September 21, 2025</div>
+      <div class="event-title">Reply Memo / Pretrial Brief</div>
+      <div class="event-body">Filed on a Sunday. 20 pages. Argues the "public figure" defense has no basis in stalking law, citing Ragsdale v. Fishler (2025 UT App 36) and the statute's "to or about" language. Quantifies the campaign: 53+ videos, 33+ posts, 6+ months. <span class="tag filing">Reply Memo</span></div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">September 29, 2025</div>
+      <div class="event-title">Defense countermove</div>
+      <div class="event-body">Christina's lawyers serve an amended CSI with significantly narrower terms — stripping the social media/online activity restrictions, removing CrimeCon as a stay-away location, narrowing protected persons from broad categories to just 3 named individuals, and softening the 500-foot rule with "where reasonably possible."</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">October 8, 2025</div>
+      <div class="event-title">Procedural chess</div>
+      <div class="event-body">Defense files a Request to Submit, arguing Lauren didn't respond to the amended CSI in time — asking the court to enter the weaker version by default. Defense adds a second attorney (Jaussi). An unidentified media entity requests access to the evidentiary hearing. Lauren's lawyers object in a 14-page filing requesting the hearing be closed.</div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">October 10, 2025</div>
+      <div class="event-title">Lauren adds a second law firm</div>
+      <div class="event-body">Deiss Law PC enters the case six days before the hearing. Files a motion to continue — but with the wrong court header ("Third Judicial District Court, Salt Lake County" instead of Fourth District, Utah County).</div>
+    </div>
+
+    <div class="event both">
+      <div class="event-date">October 16, 2025</div>
+      <div class="event-title">Evidentiary hearing</div>
+      <div class="event-body">Scheduled before Judge Wright. The outcome is not reflected in the filings reviewed. Both sides have expanded their legal teams. Lauren has two law firms, an enforcement motion, and a media objection pending. Christina's lawyers have a default-entry motion on their amended CSI. Audio of this hearing exists.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Compiled from court filings in Case No. 250404055, Fourth District Court, Utah County, Utah.</p>
+  <p style="margin-top:0.5rem">All information sourced from sworn declarations, motions, and memoranda filed by both parties. No independent verification of factual claims.</p>
+  <p style="margin-top:0.75rem"><a href="../../dockets/HTC/docket">Docket →</a> · <a href="../../index.html">← Subtxt Press</a></p>
+</div>
+
+<script>
+  // Smooth scroll for nav pills
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(pill.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // Highlight active pill on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  const pills = document.querySelectorAll('.pill');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        pills.forEach(p => {
+          p.classList.toggle('active', p.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  chapters.forEach(ch => observer.observe(ch));
+</script>
+
+</body>
+</html>
