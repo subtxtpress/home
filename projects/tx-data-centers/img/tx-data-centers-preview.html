@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1200">
-<title>OG Preview — Boolean Search Generator</title>
+<title>OG Preview — TX Data Centers</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
 
@@ -154,7 +154,7 @@
   .headline {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
-    font-size: 56px;
+    font-size: 52px;
     line-height: 1.02;
     color: var(--text-heading);
     letter-spacing: -0.01em;
@@ -204,7 +204,7 @@
     color: var(--text-label);
   }
 
-  /* Right pane: query builder mockup */
+  /* Right pane: data center mockup */
   .right {
     grid-row: 1;
     grid-column: 2;
@@ -222,7 +222,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 430px;
+    height: 404px;
     width: 540px;
   }
 
@@ -255,125 +255,141 @@
     color: var(--text-label);
   }
 
-  .panel-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .panel-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
     color: var(--accent);
-    background: var(--accent-subtle);
-    border: 1px solid var(--accent-border);
-    padding: 2px 8px;
-    border-radius: 2px;
+    letter-spacing: 0.01em;
   }
 
   .panel-body {
     flex: 1;
-    padding: 16px 20px;
+    padding: 14px 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
 
-  /* Query output block */
-  .query-block {
-    background: var(--text-heading);
-    border-radius: 6px;
-    padding: 14px 16px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    line-height: 1.9;
-    color: #F0EBE2;
-  }
-  .query-block .op { color: #C5B99A; font-weight: 500; }
-  .query-block .quoted { color: #D4956A; }
-  .query-block .excluded { color: #B07070; }
-  .query-block .paren { color: #9A9080; }
-
-  /* Term group */
-  .term-group {
+  /* Facility rows */
+  .facility {
     background: var(--surface-alt);
     border: 1px solid var(--border-mid);
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 10px 14px;
-  }
-
-  .term-group-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-label);
-    margin-bottom: 6px;
-  }
-
-  .term-pills {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 3px 10px;
-    font-size: 11px;
-    font-family: 'IBM Plex Mono', monospace;
-    background: var(--surface-card);
-    border: 1px solid var(--border-light);
-    border-radius: 3px;
-    color: var(--text-heading);
-  }
-  .pill.exact {
-    border-color: var(--accent-border);
-    color: var(--accent);
-  }
-  .pill .x {
-    color: var(--text-muted);
-    font-size: 10px;
-    margin-left: 2px;
-  }
-
-  /* Ref rows */
-  .ref-section {
-    margin-top: 4px;
-  }
-
-  .ref-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-label);
-    margin-bottom: 6px;
-  }
-
-  .ref-grid {
-    display: grid;
+    flex-direction: column;
     gap: 3px;
   }
 
-  .ref-item {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 10px;
-    padding: 4px 10px;
-    background: var(--surface-elevated);
-    border-radius: 3px;
-    font-size: 10px;
-    align-items: center;
-    color: var(--text-body);
+  .facility-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
-  .ref-op {
+  .facility-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-heading);
+    letter-spacing: 0.005em;
+    flex: 1;
+  }
+
+  .pill {
     font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
     font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .pill-crypto {
+    background: rgba(180, 30, 45, 0.08);
+    color: #b41e2d;
+    border: 1px solid rgba(180, 30, 45, 0.30);
+  }
+
+  .pill-cloud {
+    background: rgba(59, 122, 181, 0.08);
+    color: #3B7AB5;
+    border: 1px solid rgba(59, 122, 181, 0.30);
+  }
+
+  .pill-enterprise {
+    background: var(--accent-subtle);
     color: var(--accent);
-    font-size: 10px;
+    border: 1px solid var(--accent-border);
+  }
+
+  .facility-meta {
+    display: flex;
+    gap: 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .facility-meta strong {
+    color: var(--text-body);
+    font-weight: 500;
+  }
+
+  .panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(247,245,242,0.4) 100%),
+      linear-gradient(180deg, rgba(247,245,242,0.2) 0%, transparent 25%, transparent 75%, rgba(247,245,242,0.25) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .data-card {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    background: rgba(247,245,242,0.96);
+    border: 1px solid var(--accent-border);
+    border-radius: 3px;
+    padding: 8px 16px 6px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+    min-width: 140px;
+  }
+
+  .data-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 6px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1px;
+  }
+
+  .data-card-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--text-heading);
+    line-height: 1.1;
+  }
+
+  .data-card-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 6.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    margin-top: 1px;
   }
 
   /* Stats bar */
@@ -441,14 +457,14 @@
 <body>
 
   <div class="nav">
-    <span class="nav-brand">Boolean Search Generator</span>
-    <span class="nav-sub">Query Builder</span>
+    <span class="nav-brand">Texas Data Centers</span>
+    <span class="nav-sub">Tax Exemption Registry</span>
     <div class="nav-links">
-      <span class="nav-link">Google</span>
-      <span class="nav-link">Twitter/X</span>
-      <span class="nav-link">Reddit</span>
-      <span class="nav-link">CourtListener</span>
-      <span class="nav-cta">Build Query</span>
+      <span class="nav-link">Map</span>
+      <span class="nav-link">Database</span>
+      <span class="nav-link">Ownership</span>
+      <span class="nav-link">Water</span>
+      <span class="nav-cta">Explore Dashboard</span>
     </div>
   </div>
 
@@ -456,19 +472,19 @@
     <div class="left">
       <div class="eyebrow-line">
         <span class="eyebrow-dash"></span>
-        <span class="eyebrow">Investigative Tool</span>
+        <span class="eyebrow">Investigative Database</span>
       </div>
 
       <h1 class="headline">
-        Build <em>powerful</em> search queries without syntax.
+        Who owns Texas's <em>tax-exempt</em> data infrastructure?
       </h1>
 
       <p class="desc">
-        Fill in the boxes, pick a platform, and copy or search. Supports Google, Twitter/X, Reddit, LinkedIn, CourtListener, and more.
+        112 registered qualifying data centers. Tracking ownership, shell entities, crypto miners on cloud exemptions, and what communities give up to host them.
       </p>
 
       <div class="cta-row">
-        <span class="cta-primary">Open Tool</span>
+        <span class="cta-primary">Open Dashboard</span>
         <span class="cta-secondary">View on GitHub</span>
       </div>
     </div>
@@ -480,73 +496,36 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <div class="panel-head">
-          <span class="panel-title">Generated Query</span>
-          <span class="panel-badge">Google</span>
-        </div>
+        <img src="box-screenshot.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center center; z-index:1;" />
 
-        <div class="panel-body">
-          <div class="query-block">
-            <span class="paren">(</span><span class="quoted">"police shooting"</span> <span class="op">AND</span> <span class="quoted">"use of force"</span><span class="paren">)</span><br>
-            <span class="op">OR</span> <span class="quoted">"officer involved"</span><br>
-            <span class="op">AND NOT</span> <span class="excluded">"training exercise"</span>
-          </div>
-
-          <div class="term-group">
-            <div class="term-group-label">Must contain all</div>
-            <div class="term-pills">
-              <span class="pill">police shooting <span class="x">&times;</span></span>
-              <span class="pill exact">"use of force" <span class="x">&times;</span></span>
-            </div>
-          </div>
-
-          <div class="term-group">
-            <div class="term-group-label">Must contain at least one</div>
-            <div class="term-pills">
-              <span class="pill">officer involved <span class="x">&times;</span></span>
-            </div>
-          </div>
-
-          <div class="term-group">
-            <div class="term-group-label">Exclude</div>
-            <div class="term-pills">
-              <span class="pill">training exercise <span class="x">&times;</span></span>
-            </div>
-          </div>
-
-          <div class="ref-section">
-            <div class="ref-label">Cheat Sheet</div>
-            <div class="ref-grid">
-              <div class="ref-item"><span class="ref-op">"exact phrase"</span><span>Match exact phrase</span></div>
-              <div class="ref-item"><span class="ref-op">term1 AND term2</span><span>Both terms required</span></div>
-              <div class="ref-item"><span class="ref-op">site:domain.com</span><span>Search within a site</span></div>
-              <div class="ref-item"><span class="ref-op">filetype:pdf</span><span>Filter by file type</span></div>
-            </div>
-          </div>
+        <div class="data-card">
+          <div class="data-card-label">Facilities Mapped</div>
+          <div class="data-card-value">112</div>
+          <div class="data-card-sub">Tax-exempt data centers</div>
         </div>
       </div>
     </div>
 
     <div class="stats-bar">
       <div class="stat" style="padding-left: 48px;">
-        <div class="stat-value">10+</div>
-        <div class="stat-label">Platforms</div>
+        <div class="stat-value">112</div>
+        <div class="stat-label">Registered</div>
       </div>
       <div class="stat">
-        <div class="stat-value">AND / OR</div>
-        <div class="stat-label">Boolean Logic</div>
+        <div class="stat-value">22</div>
+        <div class="stat-label">Crypto Mining</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Copy</div>
-        <div class="stat-label">One-Click Export</div>
+        <div class="stat-value">14</div>
+        <div class="stat-label">Microsoft</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Zero</div>
-        <div class="stat-label">Syntax Required</div>
+        <div class="stat-value">6</div>
+        <div class="stat-label">Google Shell LLCs</div>
       </div>
       <div class="stat">
         <div class="stat-value">Subtxt<em>Press</em></div>
-        <div class="stat-label">Investigative Tools</div>
+        <div class="stat-label">Investigative Database</div>
       </div>
     </div>
   </div>
