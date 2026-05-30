@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tricia Griffith Docket – Subtxt Press</title>
-  <meta name="description" content="Tricia Griffith Lawsuits &amp; Shenanigans | @subtxtpress GitHub">
+  <title>Tricia Griffith Docket | Subtxt Press</title>
+  <meta name="description" content="Tricia Griffith Lawsuits &amp; Records | @subtxtpress GitHub">
   <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/tricia-griffith/docket">
   <!-- Open Graph -->
-  <meta property="og:title" content="Tricia Griffith Docket – Subtxt Press">
-  <meta property="og:description" content="Tricia Griffith Lawsuits &amp; Shenanigans | @subtxtpress GitHub">
+  <meta property="og:title" content="Tricia Griffith Docket | Subtxt Press">
+  <meta property="og:description" content="Tricia Griffith Lawsuits &amp; Records | @subtxtpress GitHub">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/tricia-griffith/docket">
   <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
@@ -19,8 +19,8 @@
   <meta property="og:site_name" content="Dockets | Subtxt Press">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tricia Griffith Docket – Subtxt Press">
-  <meta name="twitter:description" content="Tricia Griffith Lawsuits &amp; Shenanigans | @subtxtpress GitHub">
+  <meta name="twitter:title" content="Tricia Griffith Docket | Subtxt Press">
+  <meta name="twitter:description" content="Tricia Griffith Lawsuits &amp; Records | @subtxtpress GitHub">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Favicons -->
@@ -46,23 +46,20 @@
       --plum:    #3E2436;
       --carmine: #7A5063;
       --ink:     #241620;
-
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-
       --text-heading: #241620;
       --text-body:    #44373C;
       --text-label:   #7A5063;
       --text-muted:   rgba(68, 55, 60, 0.45);
-
       --accent:        #E8956A;
       --accent-border: rgba(232, 149, 106, 0.40);
-
       --border-light:  rgba(221, 208, 188, 0.55);
       --border-mid:    rgba(180, 140, 100, 0.22);
-
       --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+      --status-open:   #2E7D32;
+      --status-closed: #B71C1C;
     }
 
     html { scroll-behavior: smooth; }
@@ -75,7 +72,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── Section label ──────────────────────────────────────── */
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6rem;
@@ -94,349 +90,222 @@
       background: var(--border-mid);
     }
 
-    /* ─── Nav ───────────────────────────────────────────────── */
     .site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 22px 5vw;
       transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
       border-bottom: 1px solid transparent;
     }
-
     .site-nav.scrolled {
       padding: 14px 5vw;
       background: rgba(244, 237, 227, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-bottom-color: var(--border-light);
       box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
     }
-
     .nav-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
-      color: #fff;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.3s;
+      font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500;
+      color: #fff; letter-spacing: 0.10em; text-transform: uppercase;
+      text-decoration: none; transition: color 0.3s;
     }
-
     .site-nav.scrolled .nav-brand { color: var(--ink); }
-
     .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      padding: 4px;
-      color: rgba(255,255,255,0.8);
-      margin-left: auto;
-      transition: color 0.3s;
+      display: none; background: none; border: none; font-size: 20px;
+      line-height: 1; cursor: pointer; padding: 4px;
+      color: rgba(255,255,255,0.8); margin-left: auto; transition: color 0.3s;
     }
     .site-nav.scrolled .nav-toggle { color: var(--ink); }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 40px;
-    }
-
+    .nav-links { list-style: none; display: flex; gap: 40px; }
     .nav-links a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62);
-      text-decoration: none;
-      transition: color 0.2s;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62); text-decoration: none; transition: color 0.2s;
     }
-
     .nav-links a:hover  { color: #fff; }
     .nav-links a.active { color: var(--peach); }
+    .site-nav.scrolled .nav-links a       { color: var(--text-label); }
+    .site-nav.scrolled .nav-links a:hover  { color: var(--ink); }
+    .site-nav.scrolled .nav-links a.active { color: var(--accent); }
 
-    .site-nav.scrolled .nav-links a         { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover   { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active  { color: var(--accent); }
-
-    /* ─── Masthead ──────────────────────────────────────────── */
     .masthead {
-      position: relative;
-      height: 80vh;
-      min-height: 520px;
-      overflow: hidden;
+      position: relative; height: 80vh; min-height: 520px; overflow: hidden;
     }
-
     .masthead-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 52%;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 52%;
     }
-
     .masthead::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.52)  0%,
-        rgba(0, 0, 0, 0.18) 45%,
-        rgba(0, 0, 0, 0.38) 100%
-      );
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.38) 100%);
     }
-
-    .masthead-text {
-      position: absolute;
-      bottom: 72px;
-      left: 5vw;
-      z-index: 2;
-    }
-
+    .masthead-text { position: absolute; bottom: 72px; left: 5vw; z-index: 2; }
     .masthead-kicker {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--peach);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--peach);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
     }
-
     .masthead-kicker::before {
-      content: '';
-      width: 22px;
-      height: 1.5px;
-      background: var(--peach);
-      flex-shrink: 0;
+      content: ''; width: 22px; height: 1.5px; background: var(--peach); flex-shrink: 0;
     }
-
     .masthead-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; color: #fff;
+      line-height: 0.95; text-transform: uppercase; letter-spacing: 0.02em;
       text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
     }
 
-    /* ─── Content Section ───────────────────────────────────── */
-    .content-section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 56px 5vw 88px;
-    }
+    .content-section { max-width: 960px; margin: 0 auto; padding: 56px 5vw 88px; }
 
-    /* ─── Document Block ────────────────────────────────────── */
-    .doc-block {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
+    .case-block {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
     }
-
-    .doc-block-header {
-      padding: 20px 28px;
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
+    .case-title-bar {
+      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: center; gap: 12px;
     }
-
-    .doc-block-number {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .doc-block-title {
+    .case-title-bar h2 {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-      font-weight: 700;
-      color: var(--text-heading);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 800;
+      color: var(--text-heading); text-align: center;
     }
-
-    .doc-block-embed {
-      width: 100%;
-      height: 600px;
-      border: none;
-      display: block;
+    .status-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px; flex-shrink: 0;
     }
+    .status-badge.open {
+      background: rgba(46, 125, 50, 0.10); border: 1px solid rgba(46, 125, 50, 0.35);
+      color: var(--status-open);
+    }
+    .case-meta {
+      padding: 24px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px;
+    }
+    .case-meta-item { font-size: 13px; line-height: 1.6; }
+    .case-meta-item strong { color: var(--text-heading); font-weight: 600; }
 
-    /* ─── Drive Link Card ───────────────────────────────────── */
-    .drive-card {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      padding: 28px;
+    .docket-table-wrap {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    }
+    .docket-table-header {
+      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
+    }
+    .docket-table-header h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 700;
+      color: var(--text-heading);
+    }
+    .docket-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .docket-table thead { background: var(--surface-elevated); }
+    .docket-table th {
+      padding: 10px 16px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-label); text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .docket-table td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-light);
+      color: var(--text-body); line-height: 1.5;
+    }
+    .docket-table th,
+    .docket-table td {
+      white-space: nowrap;
+    }
+
+    .docket-table td.wrap {
+      white-space: normal;
+      word-break: break-word;
+    }
+    .docket-table tbody tr:last-child td { border-bottom: none; }
+    .docket-table tbody tr:hover { background: rgba(232, 149, 106, 0.04); }
+    .docket-table .doc-icon {
+      color: var(--accent); font-size: 14px; text-align: center; width: 32px;
+    }
+
+    .drive-card {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px; display: flex; align-items: center; gap: 20px;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
     .drive-card:hover {
       transform: translateY(-2px);
-      box-shadow:
-        0 8px 28px rgba(0, 0, 0, 0.10),
-        0 0 0 1px var(--accent-border);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
     }
-
     .drive-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      background: var(--surface-elevated);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--accent);
-      font-size: 20px;
+      width: 48px; height: 48px; border-radius: 8px; background: var(--surface-elevated);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--accent); font-size: 20px;
     }
-
-    .drive-card-body {
-      flex: 1;
-    }
-
+    .drive-card-body { flex: 1; }
     .drive-card-title {
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin-bottom: 4px;
+      font-family: 'Raleway', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--text-heading); margin-bottom: 4px;
     }
-
-    .drive-card-desc {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-body);
-    }
-
-    .drive-card-desc a {
-      color: var(--carmine);
-      text-underline-offset: 2px;
-      font-weight: 500;
-    }
-
-    .drive-card-desc a:hover {
-      color: var(--ink);
-    }
-
+    .drive-card-desc { font-size: 13px; line-height: 1.6; color: var(--text-body); }
     .drive-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s, gap 0.2s;
-      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+      text-decoration: none; transition: color 0.2s, gap 0.2s; flex-shrink: 0;
     }
+    .drive-card-cta:hover { color: var(--ink); gap: 10px; }
 
-    .drive-card-cta:hover {
-      color: var(--ink);
-      gap: 10px;
-    }
-
-    /* ─── Footer ────────────────────────────────────────────── */
     .site-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 24px 5vw;
-      border-top: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; max-width: 100%; margin: 0 auto;
+      padding: 24px 5vw; border-top: 1px solid var(--border-light);
     }
-
     .footer-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
     }
-
-    .footer-social {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-social a {
-      color: var(--text-muted);
-      font-size: 15px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { color: var(--text-muted); font-size: 15px; text-decoration: none; transition: color 0.2s; }
     .footer-social a:hover { color: var(--carmine); }
 
-    /* ─── Tablet ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .doc-block-embed { height: 480px; }
+      .case-meta { grid-template-columns: 1fr; gap: 8px; }
       .drive-card { flex-direction: column; align-items: flex-start; }
+      .docket-table { font-size: 12px; }
+      .docket-table th, .docket-table td { padding: 10px 12px; }
     }
 
-    /* ─── Mobile ─────────────────────────────────────────────── */
     @media (max-width: 720px) {
-      .nav-toggle          { display: block; }
-      .site-nav,
-      .site-nav.scrolled   { padding: 12px 16px; }
+      .nav-toggle { display: block; }
+      .site-nav, .site-nav.scrolled { padding: 12px 16px; }
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0; right: 0;
-        flex-direction: column;
-        background: var(--surface-page);
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: var(--surface-page);
         border-bottom: 1px solid var(--border-light);
-        padding: 12px 20px 16px;
-        gap: 0;
+        padding: 12px 20px 16px; gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open      { display: flex; }
-      .nav-links li        { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
       .nav-links li:last-child { border-bottom: none; }
-      .nav-links a         { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active  { color: var(--accent) !important; }
-      .nav-links a:hover   { color: var(--ink) !important; }
-      .masthead-text       { left: 20px; bottom: 52px; }
-      .content-section     { padding: 32px 16px 56px; }
-      .doc-block-header    { padding: 16px 20px; }
-      .doc-block-embed     { height: 360px; }
-      .drive-card          { padding: 20px; }
-      .site-footer         { padding: 24px 20px; }
+      .nav-links a { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
+      .nav-links a.active { color: var(--accent) !important; }
+      .nav-links a:hover  { color: var(--ink) !important; }
+      .masthead-text { left: 20px; bottom: 52px; }
+      .content-section { padding: 32px 16px 56px; }
+      .case-title-bar { padding: 14px 20px; flex-wrap: wrap; }
+      .case-meta { padding: 18px 20px; }
+      .case-meta-item { font-size: 12px; }
+      .docket-table-wrap {  }
+      .docket-table-header { padding: 14px 20px; }
+      .docket-table { font-size: 10px; }
+      .docket-table th { padding: 8px 8px; font-size: 8px; letter-spacing: 0.08em; }
+      .docket-table td { padding: 8px 8px; }
+      .drive-card { padding: 20px; }
+      .site-footer { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -465,33 +334,280 @@
 
   <section class="content-section">
 
-    <div class="section-label">Lawsuits &middot; Filings</div>
 
-    <div class="doc-block" data-aos="fade-up">
-      <div class="doc-block-header">
-        <span class="doc-block-number">01</span>
-        <h2 class="doc-block-title">Tricia Griffith 2013 Lawsuit</h2>
+    <!-- ════════════════════════════════════════════════════════
+         CASE 1: Estate of Beth Bee (OPEN)
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>Estate of Beth Bee</h2>
+        <span class="status-badge open">Open</span>
       </div>
-        <iframe class="doc-block-embed" src="https://drive.google.com/file/d/1N0PQ59blVqq-Fi0Pmtv4X9vwOImZ-cw_/preview" width="640" height="480"></iframe>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Filing Date:</strong> 11-05-2025</div>
+        <div class="case-meta-item"><strong>Judge:</strong> Margaret R. Jones-Johnson</div>
+        <div class="case-meta-item"><strong>Filing Location:</strong> Dallas, TX</div>
+        <div class="case-meta-item"><strong>Applicant:</strong> Patricia A. Grift-ith</div>
+        <div class="case-meta-item"><strong>Court House:</strong> Probate Court No. 3</div>
+        <div class="case-meta-item"><strong>Attorney:</strong> Timothy Randall Strann</div>
+        <div class="case-meta-item"><strong>Case Type:</strong> Heirship/Administration</div>
+        <div class="case-meta-item"><strong>Matter Type:</strong> Succession of Property</div>
+      </div>
     </div>
 
-    <div class="doc-block" data-aos="fade-up">
-      <div class="doc-block-header">
-        <span class="doc-block-number">02</span>
-        <h2 class="doc-block-title">Estate of Beth B</h2>
+    <div class="section-label">Docket Entries</div>
+
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Filings &amp; Activity</h2>
       </div>
-        <iframe class="doc-block-embed" src="https://drive.google.com/file/d/1WyqD3NpTZsG7Kh9QPpnBYjH5V9nhLgxN/preview" width="640" height="480"></iframe>
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Document</th>
+            <th>Pages</th>
+            <th class="doc-icon"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>11-05-2025</td><td class="wrap">Application to Determine Heirship</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1R3gTabWiYX3-O9U7iwyQXabRt-YXAnRH/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-05-2025</td><td class="wrap">Creditor&rsquo;s Application for Letters of Administration</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Fq_JbN4OVdIh3K9OgGqLPvdDJuY2mRGy/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2025</td><td class="wrap">Creditor&rsquo;s Amended Application for Letters of Administration, Temporary Administration and Emergency</td><td>6</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Y5ywUWHYUlrNI0yv67F6KGXfckPIqFCn/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-07-2025</td><td class="wrap">Court RTN - Heirship</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fdwLbhjArrjqfuCm9vnXHoI5f4tqwd6c/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-07-2025</td><td class="wrap">Court RTN &ndash; Administration</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10neST9UKRg61OWl3AIFzrpo2-Wuxm4et/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-07-2025</td><td class="wrap">Proposed Order Appointing Temporary Administrator</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1lIQtJnT-7q6xoD-umVzoaocWO700hIl8/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-11-2025</td><td class="wrap">Return Posted Notice (1)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1BcoO40G-eN6hwI_bwLeutMe7pXYwsow4/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-11-2025</td><td class="wrap">Return Posted Notice (2)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1MxYOIt-IUX7bGiNRRDeXkpM8Aaxy4SUR/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-11-2025</td><td class="wrap">Return Posted Notice (3)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1bUjrnXM5s2Vqy_sJLBJbhos8wbzSBQWA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-18-2025</td><td class="wrap">Return of Service</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1WgRYwFM6Smx370H5zOrkxdruQyrQuvR9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-19-2025</td><td class="wrap">Notice Court Proceeding</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1SrgKDCfBIBnThcQGPaYcYNi6R2Jt2a0s/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-19-2025</td><td class="wrap">Original Answer</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/133dhcthIoHW9puXkcIAUcZXQ32yqaaTR/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2025</td><td class="wrap">Application to Probate Will and for Issuance of Letters of Independent Administrator with Will Annex</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1BjwLh5w8cRDz_aVy3TdvMv2eThSxjURF/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-02-2025</td><td class="wrap">Notice of Application to Probate Will</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12RxIeEXhy3nwdDHMpZmNHaJBL0H3pgm-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-03-2025</td><td class="wrap">Correspondece</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Eh0MuvqsShE53JAvIZOFGYTQZbXvBna8/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-03-2025</td><td class="wrap">2011 Will</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xdgOANZiAau55Zff2bYNtZlMg-rgrUFa/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-04-2025</td><td class="wrap">Cover Letter Request for filing of Last Will</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ZCr25t2nl9X1t6WQnPWciB5HSh-BBuor/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-04-2025</td><td class="wrap">Beth B Last Will and Testament</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1of1e592g0R4GzLp_dhE1OE2lXz5wyCuk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-04-2025</td><td class="wrap">Correspondence/Letter: Notice of Vacation dates</td><td>1</td><td class="doc-icon"></td></tr>
+          <tr><td>12-10-2025</td><td class="wrap">Application for Temporary Administration Hearing &ndash; CANCELED</td><td></td><td class="doc-icon"></td></tr>
+          <tr><td>12-11-2025</td><td class="wrap">Return Published Citation</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1CMLR8rmAo-cPOm0OAIAzVzTHNOful6Nt/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-30-2026</td><td class="wrap">Distributee's Consent to Application for Independent Administration with Will</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1FPln7IaPREoX7wKi0R8VbYJwOa5lpqpJ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-02-2026</td><td class="wrap">Cover Letter to Proposed Hearing Documents</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1d-oP-MtCejF7AH8XTTLeMk6vd90f1_d5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-02-2026</td><td class="wrap">Proposed Oath of Independent Administrator with Will Annexed.</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1MUoslsXNdaSvD_3sCLyXZba5dWN-XAST/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-02-2026</td><td class="wrap">Proposed Order Probating Will and Authorizing Letters of Independent Administration</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1KN6lmRHkA2pRCYDLjzcVSgb7FkUGOQaQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-02-2026</td><td class="wrap">Proposed Proof of Death and Other Facts</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1R37b_6QuACfnxxhawSMDASYkwdl0IGVN/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-29-2026</td><td class="wrap">Creditor's Objection and Opposition to Appointment of Executor</td><td>6</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1YfNrYU3PnhcUsovAxRrwUR5h1S_HOs5T/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>05-04-2026</td><td class="wrap">JM: ODY AM RPT. RVD &amp; FWD OBJ - ADM ASST</td><td></td><td class="doc-icon"></td></tr>
+          <tr><td>05-14-2026</td><td class="wrap">Applicant&rsquo;s Notice of NonSuit</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DCBfSGjYFImbJPGnXOxfXCD1Zj0-yXRL/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>05-22-2026</td><td class="wrap">Daphne's Motion in Limine Regarding Patricia Griffith's Standing</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GYm-0VDETn1jcN_dgs3rfElh99vNDzvA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>05-28-2026</td><td class="wrap">Cover Letter</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Ax38-2DFePD4McRFw4u-83hbyU1sWmdO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>05-28-2026</td><td class="wrap">Proposed Order</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1nlE7iMB5BRJ6RJ48yWcl_NfP1PB-SAYO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+        </tbody>
+      </table>
     </div>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         CASE 2: Websleuths.com LLC vs. Griffith (CLOSED)
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>Websleuths.com LLC vs. Griffith, Patricia Arrington</h2>
+        <span class="status-badge closed">Closed</span>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Cause:</strong> 201344862</div>
+        <div class="case-meta-item"><strong>Court:</strong> 157</div>
+        <div class="case-meta-item"><strong>Status:</strong> Dismissed on Agreement of Parties (06-09-2015)</div>
+      </div>
+    </div>
+
+    <div class="section-label">Docket Entries</div>
+
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Filings &amp; Activity</h2>
+      </div>
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Number</th>
+            <th>Document</th>
+            <th>Pages</th>
+            <th class="doc-icon"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Date</td><td>Number</td><td>Document</td><td>Pages</td><td class="doc-icon"></td></tr>
+          <tr><td>06-09-2015</td><td>65751938</td><td class="wrap">Dismissed on Agreement of Parties</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XB2-HOKcDUMyMyqb9tcX2L4NOJFnPTe0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>06-08-2015</td><td>65724449</td><td class="wrap">Agreed Motion to Dismiss with Prejudice</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/14SHbBa_HL59tGG7LNftBrGZU-6798c4E/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>06-08-2015</td><td>65724450</td><td class="wrap">&nbsp;&nbsp;Proposed Order</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1QkatAF4AFMBwL0IGzKJyqDP9tA_3CQAl/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-06-2015</td><td>64916511</td><td class="wrap">Order Signed Resetting Trial</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1jv4ypHS0B-CGsfM1dTeD-DNRt7hyu7AC/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-23-2015</td><td>64360675</td><td class="wrap">Griffith Sur-Reply to Pruitt's Untimely Demand for Jury Trial</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Vz0EyG7wmjjcGoNIlnDKSJgalj9UG1vq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64338852</td><td class="wrap">Griffith's Objection and Response to Pruitt's Untimely Demand for Jury Trial</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1mvT3AVUpy8_LpnNu_2YPr0j6PyL5atKM/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64338853</td><td class="wrap">&nbsp;&nbsp;Proposed Order on Plaintiff's Jury Demand</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1SKSCwdzQFkFCsbFjJ1msuL0ynqYZ5WtZ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64339990</td><td class="wrap">Plaintiff's Response to Griffith's Objection to Pruitt's Jury Demand</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/15N1O2jAibstP4xaI-eTTj-E3eqkq-IbR/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64339991</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Emails Re: Griffith's Latest Disclosures)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ayGU2JJwdhU6RK-Kry8lkJaJYBoivRYe/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64339992</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Verification of Ciro J. Samperi)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1z9UxlJUXb_oVC54v5lWPBj2S2JJtxkdz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64339993</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Emails Re: Give me a call)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1sRBglW8j9iYTMfjC0GbY6r82aFkDh2go/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64339994</td><td class="wrap">&nbsp;&nbsp;Exhibit D (Emails Re: Update)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zH6SRUEYaTWgtskUlyiWly2nNn4jFoGB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-20-2015</td><td>64339995</td><td class="wrap">&nbsp;&nbsp;Proposed Order Overrulling Defendant's Objection to Plaintiff's Jury Demand</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1rMbCM07tcsAALqAS3a6ynTy9Kz2Y7g1r/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-19-2015</td><td>64319843</td><td class="wrap">Plaintiff's Jury Demand</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/13nQbajn3IRPjJdV1eeEJTMNfKnxXUzyv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-12-2015</td><td>64220212</td><td class="wrap">Griffith's Notice of Intent to Use Pruitt's Discovery Products Under TRCP 193.7</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HHvpbDQAApgudjw-a5qe1WS7yWx7wgw7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-12-2015</td><td>64220316</td><td class="wrap">Plaintiff's Amended Rule 193.7 Notice</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HHvpbDQAApgudjw-a5qe1WS7yWx7wgw7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-11-2015</td><td>64193498</td><td class="wrap">Plaintiff's Rule 193.7 Notice</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10ZfFnF9ZREYBYlhvgvBp8elNByrA3Rjs/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-05-2015</td><td>64123237</td><td class="wrap">Joint Letter to Court in Advance of Trial</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DVgJRKmF_T1TJbQGoQ-eIiKZ3NUoN9dB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-04-2015</td><td>64111295</td><td class="wrap">Reporter's Certificate for Oral Deposition of Patricia A. Griffith on January 29, 2015</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1m3eoqAS0Sz4hfHGsS-ULWmadzTyVOJRc/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-26-2015</td><td>63974535</td><td class="wrap">Defendant's Second Amended Answer</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1E-AgIBPNVaR9PPhZES_Kw0bCn8l3SVsj/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-26-2015</td><td>63981521</td><td class="wrap">Defendant's Amended Answer</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1NlwHF95R4zBPqM0hbS2-_QI_ANUxTMTk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-23-2015</td><td>63953547</td><td class="wrap">Plaintiff's Second Amended Original Petition</td><td>10</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1kucseaZOaKMHxBwQl3vDWzT_Id7_6Yxx/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-23-2015</td><td>63953607</td><td class="wrap">Order Granting Leave to File Pleading Signed</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pFihIK3d43KtbjXWrxqsHq_rjex4VTER/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-23-2015</td><td>63953608</td><td class="wrap">Order Signed Denying Trial Continuance</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/114xRwbmNp72yE6pjxVgTreOWlnVlGG9u/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2015</td><td>63942528</td><td class="wrap">Defendant's Response to Plaintiff's Motion for Leave</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HP4vR_ymRWC1sjP7iRdTIlhc8Zf2B-iq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2015</td><td>63942529</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Sept. 24, 2013)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1QVGxZQ-uStabzGOwcgOrojLvzvzJlCLX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2015</td><td>63942531</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Emails Re: ABA of Paralegals)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1VmCjf4_E2qr7xv00vKU97b0QgJkizFUO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2015</td><td>63942611</td><td class="wrap">Defendant's Response to Plaintiff's Motion for Continuance</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1BVrQ0xXbSxiVzuLa0r6PeubHIXqLPxYd/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2015</td><td>63942612</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Emails Re: Defamation?)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1NV-85QQSyL064yWo-TydGWAD8f0_wS9D/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2015</td><td>63942613</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Emails Re: disclosures)</td><td>11</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1dYDst2ud2UAiWGOh72k9irjAsgldm1Va/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2015</td><td>63942614</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Emails RE: disclosures)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/15SDjZxsbQnEp2-_5jMB5xF7AQhgNk83n/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-08-2015</td><td>63774205</td><td class="wrap">Plaintiff's Motion for Leave to File Second Amended Petition</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1k8jgoxU6Sg001gY3M3N0dMWxtBGrRUJ5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-08-2015</td><td>63774206</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Plaintiff's Second Amended Original Petition)</td><td>10</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1SGH2kP6EU0iA0Rt210Pa3SzsogonEqTY/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-08-2015</td><td>63777218</td><td class="wrap">Opposed Motion for Continuance</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1NUqnMVNCzCF2C_--TQCGYz8hBOxsqu0N/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-08-2015</td><td>63777219</td><td class="wrap">Exhibit A (Verification)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1KlW6vAiPENwcnNINwZZOz81zSRgepK9S/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-08-2015</td><td>63777220</td><td class="wrap">Proposed Order</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XuZV2eFu6sL_3VLbZN16Qyhj3DZ4eJk4/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-08-2015</td><td>63777221</td><td class="wrap">Notice of Oral Hearing on Plaintiff's Motion for Leave to File Plaintiff's Second Amended Petition and Plaintiff's Opposed Motion for Continuance</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1EHoNQVMI-aWEKq-n-ExecdRi4zAypv_z/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-15-2014</td><td>63512102</td><td class="wrap">Defendant's Declaration Invoking Offer-of-Settlement Procedure</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1KEqo4u8_3ubAH0reRwbuI53G-FKd6nAw/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-09-2014</td><td>63473510</td><td class="wrap">Order Signed Denying Final Summary Judgement</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/13m7Q5n9QXoCiBIzepfYUEcffQ3njQPvN/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-08-2014</td><td>63430312</td><td class="wrap">Proposed on Griffith's Traditional Motion For Partial Summary Judgment</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1QFgZv4Av-oPVJ3JKQs5VfGmyme8o7aCU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-08-2014</td><td>63430310</td><td class="wrap">&nbsp;&nbsp;Proposed on Griffth's  No-Evidence Motion For Partial Summary Judgment</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1TI6CmhaiGucUvOFr0UbbWs7kTNLuJuYO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-05-2014</td><td>63406361</td><td class="wrap">Order Signed Denying Motion to Compel Production</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xcPwPBtKiVrtJ50bWQXKvraEclrKe2kk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-04-2014</td><td>63392717</td><td class="wrap">Griffith's (1) Motion to Strike, (2) Reply to Pruitt's Response to Griffith's Amended No-Evidence and Traditional Motions for Partial Summary Judgement, and (3) Request for Attorneys' Fees</td><td>18</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1m4BKXpjv4-pwkWgUIPD9fvDJgsVaqUC5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-04-2014</td><td>63392718</td><td class="wrap">&nbsp;&nbsp;Exhibits</td><td>30</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HfaHGTFZYBxrmX4q8cvcLjWwJKU_BJeW/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343517</td><td class="wrap">Plaintiff's Response to Defendant's Amended No-Evidence and Traditional Motions for Partial Summary Judgment</td><td>13</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XMUrYHagWwKItaGnxKJalpyoybGuSDft/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343518</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Oral Videotaped Deposition of Patricia A. Griffith on September 27, 2014)</td><td>10</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1K25MLIbOeu1mFbU_W1BKggjefMAKRhmj/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343519</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Affidavit of Donna R. Farrar)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1LXUP2g0DeHYeAUKnBGgrbb1vRzIuFFxP/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343520</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Affidavit of Connie Hawkins)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1NaJh7C5V-21bPnP_5O9Xmyo0jdxi4TKE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343521</td><td class="wrap">&nbsp;&nbsp;Exhibit D (Affidavit of Cynthia Downey)</td><td>7</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GQoAMOQ7tTvBTAauOxQAPF-LC-jqBpng/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343522</td><td class="wrap">&nbsp;&nbsp;Exhibit E (Affidavit of Cathy Rhodes)</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1BL9pkRfLhqCd_XT_xf-u51jnDLCfqbXT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343523</td><td class="wrap">&nbsp;&nbsp;Exhibit F (Regulations of Websleuths.com, L.L.C.)</td><td>21</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1B07HsKAO36tpRyHgR2F32cdv1qt1bINY/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343524</td><td class="wrap">&nbsp;&nbsp;Exhibit G (Oral Deposition of Susan Pruitt on July 10, 2014)</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1cgYLBAw114oi9goYqwaHlwYUBCYqYJ5m/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343525</td><td class="wrap">&nbsp;&nbsp;Exhibit H (Affidavit of Susan Pruitt)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/18-Q5lZP1nHXxC3nDMRNtlBGXTBiz1zXR/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343526</td><td class="wrap">&nbsp;&nbsp;Exhibit I (Chase Bank Consolidated Balance Summary)</td><td>194</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1wTQUGieX7vb4dSU1LfY_8e1hcdinbdqh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343527</td><td class="wrap">&nbsp;&nbsp;Exhibit J (Payments received &ndash; Apr 25, 2011 to Jul 6, 2014)</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xhxOIkrxKa1ADUn9lWGjVhqnt9nX1fIE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2014</td><td>63343528</td><td class="wrap">&nbsp;&nbsp;Proposed Order on Denying Defendant Patricia Griffith's Amended No-Evidence and Traditional Motions For Partial Summary Judgment</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1CguAasqEItW_GeIfOV2otnu_3SXEqyaS/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-17-2014</td><td>63200352</td><td class="wrap">Notice of Submission for Patricia Griffith's Amended No-Evidence and Traditional Motions for Partial Summary Judgment</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1YJwrg9iHp64oJEJzckT0kQatzNAM3ZfE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-17-2014</td><td>63200451</td><td class="wrap">Notice of Oral Hearing for Plaintiff's Motion to Compel Responses Regarding Gambling</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1U6PEejb3L14H9zvFn5aYb6QjPmPWcxH1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63180933</td><td class="wrap">Websleuths.com LLC and Patricia Arrington Griffth's First Amended Counter-Petition and Request for Declaratory Judgment</td><td>15</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1l6Y5mWJX5ZSt6AIh9BpDiz1CsRzzIUV0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181499</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Articles of Organization for Websleuths.com, L.L.C.)</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HZCsQhO4u9sssL4EfCNs-4OqvsmzDwL1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181500</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Texas Franchise Tax Public Information Report for 2012)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/11Zg3MgiXSThoFjiXewWLlQ5XSyfS48ML/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181501</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Texas Franchise Tax Public Information Report for 2013)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1OOyvEZ4X0mKJOchxbotimlSwwiBijsl-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181502</td><td class="wrap">&nbsp;&nbsp;Exhibit D (Plaintiff Susan Pruitt's Responses to Defendant's First Requests for Discovery)</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1AIuRl6AIJKwtvQfiVG3-sOOWnpDJAtlJ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181503</td><td class="wrap">&nbsp;&nbsp;Exhibit E (Emails Re: Websleuths.com SALARY ADDENDUM)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1flQG33DMCqpxtgLUXtG2uOFHg5DQiT68/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181504</td><td class="wrap">&nbsp;&nbsp;Exhibit F (Regulations of Websleuths.com, L.L.C</td><td>22</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1uv_ytXgi_tTjwjCR2Iig06RDI0Bcgoyb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181588</td><td class="wrap">Griffith's Amended No Evidence and Traditional Motions for Summary Judgment</td><td>11</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1swA6EYW5s6UCZHqAyou0tWGh9Q2SAtlr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181589</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Oral Deposition of Susan Pruitt on July 10, 2014)</td><td>28</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12E3bkPeTcuuWdmzsMF0nckEYPKDTS4-m/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181590</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Emails Re: Websleuths.com SALARY ADDENDUM)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1UfF30ng-KnV0ESlQa4G90ljyiyc_7vuS/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181591</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Affidavit of Brad Dennis)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xP6pDoTqGZ8HbnGEO9zhrjR7oq3iIE5t/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181592</td><td class="wrap">&nbsp;&nbsp;Exhibit D (Affidavit of Vicki Pate)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1u_B06R50Znavqic775HzQdgSU9o3Jryk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63181593</td><td class="wrap">Defendant's Response to Plaintiff's  Motion to Compel</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zFgwQIZGP34Ois1deMC8_q0hVleW34Ub/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63187505</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Lawyer's Reply To Me about Tricia's Response)</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1H-FQlp3Cy34WtuRlqcxOggC05dWEl_CB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-14-2014</td><td>63187506</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Affidavit of Michael James Haagenstad)</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1uQiSq4BRT5KFBofzDD31oDhlGy7MmpCX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-13-2014</td><td>63161220</td><td class="wrap">Reporter's Certificate Oral Videotaped Deposition of Patricia A Griffth September 27, 2014</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DMDMrU3AkNXKzQNBH-y12M2yNGnLY1Ui/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078480</td><td class="wrap">Plaintiff's Motion to Compel Responses Regarding Gambling</td><td>9</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1CbSistwuwohdzZkTVBBTglMNmgog2JUt/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078481</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Regulations of Websleuths.com, L.L.C.)</td><td>21</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pi-_4Yc-4awkOZO3eyrpXnEVMmb3BVxd/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078482</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Oral Videotaped Deposition of Patricia A. Griffith on September 27, 2014)</td><td>52</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1s3E3BZ-RBtTFpPzqIFOatcosseqXWyBQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078483</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Chase Bank Service Charge Summary)</td><td>38</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DMtU-8i1iEsxde4rMXLXKdSuHbulPMkR/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078484</td><td class="wrap">&nbsp;&nbsp;Exhibit D (Emails Re: Tricia served last Monday)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1joihciOnJT8A3Wu9gI6UuBMtf0lTLu5-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078485</td><td class="wrap">&nbsp;&nbsp;Exhibit E (Emails Re: Clarification)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ucd7EbgRnWbEp1mFpPzRDaky9C7brcQO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078486</td><td class="wrap">&nbsp;&nbsp;Exhibit F (Emails Re: Good gosh...)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PYWqwE0c93_DTgdjC15YeY1WB5XNyTwd/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078487</td><td class="wrap">&nbsp;&nbsp;Exhibit G (Emails Re: Amazon)</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/16d4REPRFqhP-kHV-x4oYxMO4pLG-4CtT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-06-2014</td><td>63078488</td><td class="wrap">&nbsp;&nbsp;Proposed Order</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XK15JJQZotWCu5TH-xDdGT4bmXdWBpgi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-23-2014</td><td>62456771</td><td class="wrap">Defendant's First Amended Answer</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1E4mM5hKAzUm6kNjWLAbmxuZeLMsTeYNW/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-10-2014</td><td>62298830</td><td class="wrap">Docket Control/Pretrial Order Signed</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/128jfl91oZ1nQQI5GoMV0C4YZWsQ9lL0I/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-08-2014</td><td>62246775</td><td class="wrap">Letter to Court</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/16vaS02etMxGLhPNLY7ZfE6O-NQsXfvp7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-29-2014</td><td>62166198</td><td class="wrap">Order Signed Granting Trial Continuance</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1AafDjqmpC3TTY1EFo8okpcUwc02qnZzd/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-27-2014</td><td>62123865</td><td class="wrap">Agreed Motion for Continuance</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1I0AlpJF3DPqWNQ13wRLjYVlLUIQ0Uu0x/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-27-2014</td><td>62123866</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Verification)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1iU2_RZeweSNKFQMHwyC-8RIotFOR8ZNx/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-27-2014</td><td>62123867</td><td class="wrap">&nbsp;&nbsp;Proposed Order</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1bH-apfUc3pfXJ-hxpp_ZQh6MIE5hHqGU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2014</td><td>62086627</td><td class="wrap">Patricia Griffith Response to Susan Pruitt's Motion for Continuance</td><td>8</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1T8UdtToxS_XoyiRNygqubL_dfDcjbhwC/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2014</td><td>62086630</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Meagan Hassan emails Re: Pruitt vs. Griffith)</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PYdpIzV4q4zqm4Apf27wDaTdftf42vcj/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2014</td><td>62086631</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Susan Pruitt Depo Excerpt)</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1x8-f4M92I7lAeI4OfqqB35xdN1WKcSUk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2014</td><td>62086665</td><td class="wrap">Plaintiff's Motion for Continuance of Defendant's Summary Judgment Hearing</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/18-FdqcXJ-hA7IhY9oAYT8XZj6yiiA_ac/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2014</td><td>62086666</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Verification)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1lDyLpO4a6GQRfGzqgZQZ_xIEPYoRnTZP/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2014</td><td>62086673</td><td class="wrap">&nbsp;&nbsp;Proposed Order on Plaintiff's Motion for Continuance of Defendant's Summary Judgment Hearing</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1W-db9k1xrXW6eNugGgXDWPoSSsANoPD5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-21-2014</td><td>62050700</td><td class="wrap">Notice of Submission for Patricia Griffith's No-Evidece and Traditional Motions for Partial Summary Judgement</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1YbCxknIk-x_2pkCAlhz6JeZ6FYl3hVSe/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-21-2014</td><td>62064969</td><td class="wrap">Plaintiff's Objection to Defendant's Summary Judgment</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PrY1zn--JfQhIM-W93Y60cUmBrv7mnvD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-21-2014</td><td>62064970</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Modified Docket Control Order)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10GZx26MDpPniiusvLop91gydH7m045rI/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-21-2014</td><td>62064971</td><td class="wrap">&nbsp;&nbsp;Proposed Order</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1l_VtDCixztA4J2BOb-8eLIKhwFdGbu6E/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-20-2014</td><td>62048679</td><td class="wrap">Motion for Continuance</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1lWMdcwrvGnHGg7ghhIavxS_QZVJBpCLW/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-20-2014</td><td>62048680</td><td class="wrap">Exhibit A (Verification)</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1IgrG_00N-C4rohaZrvagSfU1gXHFSlpW/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-20-2014</td><td>62048681</td><td class="wrap">Proposed Order</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/18g7USyVjiOcxvTfkAHlyIV0Nu9Fi2Yx7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-19-2014</td><td>62019046</td><td class="wrap">Griffith's No Evidence and Traditional Motions for Partial Summary Judgment</td><td>12</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1JOdlJkSmTvMVAVinI0CwfTA7uImyDyWO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-19-2014</td><td>62019047</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Oral Deposition of Sarah Pruitt on July 10, 2014)</td><td>28</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1JOdlJkSmTvMVAVinI0CwfTA7uImyDyWO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-19-2014</td><td>62019048</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Re: Websleuths.com SALARY ADDENDUM)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1b51QT_vpdRPvCnEzHGbmXz4T4mj6nXle/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-19-2014</td><td>62019049</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Affidavit of Brad Dennis)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zEkv3n00MB-Jgxv9YB4am5dhV36MkqlL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-19-2014</td><td>62019050</td><td class="wrap">&nbsp;&nbsp;Exhibit D (Affidavit of Vicki Pate)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Nf8q1qQh7yD0xW6B6CSqGzlxVn1Z9pSi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-31-2014</td><td>61798016</td><td class="wrap">Reporter's Certificate Oral Deposition of Susan Pruitt</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PyVNeH5Tp3rDMBOVcie0m9BJ5XoMifw9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-10-2014</td><td>59600551</td><td class="wrap">Docket Control/Pretrial Order Signed</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1adVBuDKAZ24_0W9mqYdfHYx90rwJauHv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-05-2014</td><td>59599813</td><td class="wrap">Docket Control/Pretrial Order Signed</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1oPCf_ImvB2btVYKJFr05-kuccy9FMuZ_/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-27-2014</td><td>59519331</td><td class="wrap">Agreed Motion for Modified Docket Control Order</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/16JGD6wuaouE19tnYrcl9DGawExZ0pBjY/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-27-2014</td><td>59519333</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Modified Docket Control Order)</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1g0KVrBZHGTYHm0Xbtftg01ECzbRnFV2q/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-22-2014</td><td>59349604</td><td class="wrap">Defendant's Answer</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1jvEASXLsBSIVmWgClelDStPHAroRujG0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-30-2013</td><td>59282708</td><td class="wrap">Websleuths.com LLC's and Patricia Arrington Griffith's Original Counter-Petition and Request for Declaratory Judgment</td><td>10</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zh1ppswI10sr0ClC0x_183hwK-pEsckv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-30-2013</td><td>59282709</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Articles of Organization for Websleuths.com LLC).PDF</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1eLdC0wD5xwuKfm9ygCV9FcigePDcVhMF/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-30-2013</td><td>59282710</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Texas Franchise Tax Public Information Report 2012)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1V1k7_qlHaI0PZCHHSfBENbdOOeAGaC-5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-30-2013</td><td>59282711</td><td class="wrap">&nbsp;&nbsp;Exhibit C (Texas Franchise Tax Public Information Report 2013)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ZZ4UZFvLEmw2kubLlLNnfN_o9k0iqts7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-30-2013</td><td>59282712</td><td class="wrap">&nbsp;&nbsp;Exhibit D (Plaintiff Susan Pruitt's Responses to Defendant's First Requests for Discovery)</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ITiByzwVcXj5FoRXudE2jcwTFnlyQWju/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-30-2013</td><td>59282713</td><td class="wrap">&nbsp;&nbsp;Exhibit E (Re: Websleuths.com SALARY ADDENDUM)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1jR5VzZBNaAfOBstVsACHfiy6Ntc75Zma/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-30-2013</td><td>59282714</td><td class="wrap">&nbsp;&nbsp;Exhibit F (Regulations of Websleuths)</td><td>22</td><td class="doc-icon"><a href="https://drive.google.com/file/d/18Ie33j4Tpxtx9A4NUZIExGuWoo6LAev6/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-21-2013</td><td>57903339</td><td class="wrap">Notice of Intention to Take Deposition by Written Questions</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Mb7uI0v01o5HW87JPT3ayeTTzWaKtPCQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-16-2013</td><td>57900758</td><td class="wrap">Order Striking Websleuth.com LLC's Pleadings</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HC7kQarV5VDYeNYvSHwzGTht9MMEk31O/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-07-2013</td><td>57672905</td><td class="wrap">Proposed Striking Websleuths.com LLCs Pleadings</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fDBt1nkrCG-dnFJszzjbAW4b-3HYTAv5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-04-2013</td><td>57654947</td><td class="wrap">Docket Control/Pretrial Order Signed</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fRyYL87u-v8H51KCt8NiGT5-9n3PM_OC/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-04-2013</td><td>57672327</td><td class="wrap">Order Signed Staying Proceedings</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10DNjf_aLP2L4nLl-oS5Mnp_AJGP-JrDr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-03-2013</td><td>57633350</td><td class="wrap">Plaintiffs' Amended Original Petition</td><td>9</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fAB6exI6-tQ9ARKBiyE4hTTnudclE9Xl/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-03-2013</td><td>57642034</td><td class="wrap">&nbsp;&nbsp;FREEfax Cover Sheet</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1olyhneozJUPbSEpKOMadJvY5gl2i78Rk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-03-2013</td><td>57703500</td><td class="wrap">Defendant's (1) Motion For Protection From Discovery And (2) Motion To Quash</td><td>10</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1piENxtZD7uDr8XYxcydXkQcDrFdacI64/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-03-2013</td><td>57703502</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Notice of Intent to Take Depositions)</td><td>6</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1s8Uwqvl69NK-DsD1X58PkmEw3e6_MMrH/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-03-2013</td><td>57703501</td><td class="wrap">&nbsp;&nbsp;Proposed Order</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1bEmkRqsDOnvn8oumgQrwYw4BE7GfX9ko/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-02-2013</td><td>57635771</td><td class="wrap">Plaintiffs' Response to Defendant's Special Exceptions</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fAB6exI6-tQ9ARKBiyE4hTTnudclE9Xl/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-02-2013</td><td>57635772</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Defendant's Original Answer And Requests For Disclosure)</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/18CA-luODuLj6eBqWbG2K90d2GV7DRJhy/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-02-2013</td><td>57628475</td><td class="wrap">FREEfax Cover Sheet</td><td>1</td><td class="doc-icon"></td></tr>
+          <tr><td>09-27-2013</td><td>57512589</td><td class="wrap">Plaintiffs' Response to Defendant's Motion Requesting Hanszen Laporte, LLP to Show Authority to Act</td><td>5</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1OojfTcn4AlyoNoAxcNir5fNvHECmFTMb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-27-2013</td><td>57512590</td><td class="wrap">&nbsp;&nbsp;Exhibit A (Retainment Letter)</td><td>9</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1OULuprwSd1IuiwX8SlGWw3QYR9MkGuOm/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-27-2013</td><td>57512591</td><td class="wrap">&nbsp;&nbsp;Exhibit B (Defendant's Motion To Show Authority To Act)</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1RPQ8eNYW6ssN6baBn4cjg-NdtuYuJ5Sw/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-27-2013</td><td>57513095</td><td class="wrap">&nbsp;&nbsp;FREEfax Cover Sheet</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Nfz6IOl_SjSiSOsbfaa8bWxbj7m3sYOe/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-11-2013</td><td>57247600</td><td class="wrap">Notice of Hearing on Defendant's Special Exceptions and Motion to Show Authority</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1_WPoV0ot2EeD_OSqCzjJQWYvrf0wRm7k/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-06-2013</td><td>57215439</td><td class="wrap">Defendant's Motion Requesting Hancsen Laporte, L.L.P. To Show Authority To Act</td><td>4</td><td class="doc-icon"><a href="https://drive.google.com/file/d/132gTBPBgI9AxY-PK1P8JmI8FqkmQ48wr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-06-2013</td><td>57215440</td><td class="wrap">&nbsp;&nbsp;Proposed Order</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Jt4ejIuWjWfScrxIhC0eH5H0wGCOnbgE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-30-2013</td><td>57131106</td><td class="wrap">Defendants Original Answer and Requests for Disclosure</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1j1_SqfSafhEpvpmp8w8KBfS6gjiC4D9m/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-30-2013</td><td>57143013</td><td class="wrap">&nbsp;&nbsp;FREEfax Cover Sheet</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1OkYrRJ-dlpNVAS5SNDaCQ8qjnAYpJRop/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-16-2013</td><td>57002243</td><td class="wrap">Citation (Secretary of State Non-Resident Affidavit of Service)</td><td>2</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qLGSMCSvarPDPKjFI0CbPsuFDcfUP_fp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-02-2013</td><td>56879984</td><td class="wrap">Civil Process Pick-Up Form</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1CXywjBdaNpNfAXSx5k6h0rHIvkCIKlkX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-01-2013</td><td>56810062</td><td class="wrap">Civil Case Information Sheet</td><td>1</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pUGVs2Hny-yAk9SSJDTZY469jEenVmrq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-01-2013</td><td>56810065</td><td class="wrap">Plaintiffs' Original Petition</td><td>8</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HVbjgfZZC29wjyuHiOpXRSENG_e1u1bq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         SOURCE FILES
+         ════════════════════════════════════════════════════════ -->
 
     <div class="section-label">Source Files</div>
 
-    <a class="drive-card" href="https://drive.google.com/drive/folders/1EYPGXGL97cKMhzjeQ7MiC9MxwjNQnzA1?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
+    <a class="drive-card" href="https://drive.google.com/drive/folders/1OzzzNUFOGnKWxtzvLuqcCnfvRh45CfET" target="_blank" data-aos="fade-up" style="text-decoration:none;">
       <div class="drive-icon">
         <i class="bi bi-folder2-open"></i>
       </div>
       <div class="drive-card-body">
-        <h3 class="drive-card-title">Google Drive Folder</h3>
-        <p class="drive-card-desc">All filings and documents for Tricia Griffith.</p>
+        <h3 class="drive-card-title">Estate of Beth Bee &mdash; Google Drive</h3>
+        <p class="drive-card-desc">All filings and documents for the Estate of Beth Bee case.</p>
       </div>
       <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
     </a>

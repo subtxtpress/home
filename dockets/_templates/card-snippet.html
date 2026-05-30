@@ -1,0 +1,33 @@
+<!--
+  CASES.HTML CARD SNIPPET
+  Copy this block into the .work-grid in cases.html.
+  Update the number, category, title, description, tags, and link.
+-->
+
+<!-- {{CARD_NUMBER}} {{CASE_NAME}} -->
+<div class="project-card" data-aos="fade-up" data-aos-delay="60">
+  <div class="card-thumb" data-num="{{CARD_NUMBER}}">
+    <div class="cover-glow" style="background: radial-gradient(circle, #3e2436, transparent);"></div>
+    <div class="card-cover">
+      <div class="cover-rule"></div>
+      <span class="cover-cat">{{JURISDICTION}} &middot; {{CASE_TYPE}} &middot; {{CASE_TAG}}</span>
+      <h3 class="cover-head">{{COVER_TITLE}}</h3>
+    </div>
+  </div>
+  <div class="card-info">
+    <div class="card-meta">
+      <span class="card-number">{{CARD_NUMBER}}</span>
+      <span class="card-category">{{JURISDICTION}} &middot; {{CASE_TYPE}} &middot; {{CASE_TAG}}</span>
+    </div>
+    <h2 class="card-title">{{CARD_TITLE}}</h2>
+    <p class="card-desc">{{CARD_DESCRIPTION}}</p>
+    <div class="card-tags">
+      <span class="tag">{{JURISDICTION}}</span>
+      <span class="tag">{{CASE_TYPE}}</span>
+      <span class="tag">{{CASE_TAG}}</span>
+    </div>
+    <div class="card-actions">
+      <a href="{{FOLDER_SLUG}}/docket" class="card-cta" target="_blank">View Doc-ket &rarr;</a>
+    </div>
+  </div>
+</div>

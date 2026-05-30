@@ -46,23 +46,20 @@
       --plum:    #3E2436;
       --carmine: #7A5063;
       --ink:     #241620;
-
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-
       --text-heading: #241620;
       --text-body:    #44373C;
       --text-label:   #7A5063;
       --text-muted:   rgba(68, 55, 60, 0.45);
-
       --accent:        #E8956A;
       --accent-border: rgba(232, 149, 106, 0.40);
-
       --border-light:  rgba(221, 208, 188, 0.55);
       --border-mid:    rgba(180, 140, 100, 0.22);
-
       --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+      --status-open:   #2E7D32;
+      --status-closed: #B71C1C;
     }
 
     html { scroll-behavior: smooth; }
@@ -75,7 +72,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── Section label ──────────────────────────────────────── */
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6rem;
@@ -94,349 +90,222 @@
       background: var(--border-mid);
     }
 
-    /* ─── Nav ───────────────────────────────────────────────── */
     .site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 22px 5vw;
       transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
       border-bottom: 1px solid transparent;
     }
-
     .site-nav.scrolled {
       padding: 14px 5vw;
       background: rgba(244, 237, 227, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-bottom-color: var(--border-light);
       box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
     }
-
     .nav-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
-      color: #fff;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.3s;
+      font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500;
+      color: #fff; letter-spacing: 0.10em; text-transform: uppercase;
+      text-decoration: none; transition: color 0.3s;
     }
-
     .site-nav.scrolled .nav-brand { color: var(--ink); }
-
     .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      padding: 4px;
-      color: rgba(255,255,255,0.8);
-      margin-left: auto;
-      transition: color 0.3s;
+      display: none; background: none; border: none; font-size: 20px;
+      line-height: 1; cursor: pointer; padding: 4px;
+      color: rgba(255,255,255,0.8); margin-left: auto; transition: color 0.3s;
     }
     .site-nav.scrolled .nav-toggle { color: var(--ink); }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 40px;
-    }
-
+    .nav-links { list-style: none; display: flex; gap: 40px; }
     .nav-links a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62);
-      text-decoration: none;
-      transition: color 0.2s;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62); text-decoration: none; transition: color 0.2s;
     }
-
     .nav-links a:hover  { color: #fff; }
     .nav-links a.active { color: var(--peach); }
+    .site-nav.scrolled .nav-links a       { color: var(--text-label); }
+    .site-nav.scrolled .nav-links a:hover  { color: var(--ink); }
+    .site-nav.scrolled .nav-links a.active { color: var(--accent); }
 
-    .site-nav.scrolled .nav-links a         { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover   { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active  { color: var(--accent); }
-
-    /* ─── Masthead ──────────────────────────────────────────── */
     .masthead {
-      position: relative;
-      height: 80vh;
-      min-height: 520px;
-      overflow: hidden;
+      position: relative; height: 80vh; min-height: 520px; overflow: hidden;
     }
-
     .masthead-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 52%;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 52%;
     }
-
     .masthead::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.52)  0%,
-        rgba(0, 0, 0, 0.18) 45%,
-        rgba(0, 0, 0, 0.38) 100%
-      );
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.38) 100%);
     }
-
-    .masthead-text {
-      position: absolute;
-      bottom: 72px;
-      left: 5vw;
-      z-index: 2;
-    }
-
+    .masthead-text { position: absolute; bottom: 72px; left: 5vw; z-index: 2; }
     .masthead-kicker {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--peach);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--peach);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
     }
-
     .masthead-kicker::before {
-      content: '';
-      width: 22px;
-      height: 1.5px;
-      background: var(--peach);
-      flex-shrink: 0;
+      content: ''; width: 22px; height: 1.5px; background: var(--peach); flex-shrink: 0;
     }
-
     .masthead-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; color: #fff;
+      line-height: 0.95; text-transform: uppercase; letter-spacing: 0.02em;
       text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
     }
 
-    /* ─── Content Section ───────────────────────────────────── */
-    .content-section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 56px 5vw 88px;
-    }
+    .content-section { max-width: 960px; margin: 0 auto; padding: 56px 5vw 88px; }
 
-    /* ─── Document Block ────────────────────────────────────── */
-    .doc-block {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
+    .case-block {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
     }
-
-    .doc-block-header {
-      padding: 20px 28px;
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
+    .case-title-bar {
+      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: center; gap: 12px;
     }
-
-    .doc-block-number {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .doc-block-title {
+    .case-title-bar h2 {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-      font-weight: 700;
-      color: var(--text-heading);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 800;
+      color: var(--text-heading); text-align: center;
     }
-
-    .doc-block-embed {
-      width: 100%;
-      height: 600px;
-      border: none;
-      display: block;
+    .status-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px; flex-shrink: 0;
     }
+    .status-badge.open {
+      background: rgba(46, 125, 50, 0.10); border: 1px solid rgba(46, 125, 50, 0.35);
+      color: var(--status-open);
+    }
+    .case-meta {
+      padding: 24px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px;
+    }
+    .case-meta-item { font-size: 13px; line-height: 1.6; }
+    .case-meta-item strong { color: var(--text-heading); font-weight: 600; }
 
-    /* ─── Drive Link Card ───────────────────────────────────── */
-    .drive-card {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      padding: 28px;
+    .docket-table-wrap {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    }
+    .docket-table-header {
+      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
+    }
+    .docket-table-header h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 700;
+      color: var(--text-heading);
+    }
+    .docket-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .docket-table thead { background: var(--surface-elevated); }
+    .docket-table th {
+      padding: 10px 16px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-label); text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .docket-table td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-light);
+      color: var(--text-body); line-height: 1.5;
+    }
+    .docket-table th,
+    .docket-table td {
+      white-space: nowrap;
+    }
+
+    .docket-table td.wrap {
+      white-space: normal;
+      word-break: break-word;
+    }
+    .docket-table tbody tr:last-child td { border-bottom: none; }
+    .docket-table tbody tr:hover { background: rgba(232, 149, 106, 0.04); }
+    .docket-table .doc-icon {
+      color: var(--accent); font-size: 14px; text-align: center; width: 32px;
+    }
+
+    .drive-card {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px; display: flex; align-items: center; gap: 20px;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
     .drive-card:hover {
       transform: translateY(-2px);
-      box-shadow:
-        0 8px 28px rgba(0, 0, 0, 0.10),
-        0 0 0 1px var(--accent-border);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
     }
-
     .drive-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      background: var(--surface-elevated);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--accent);
-      font-size: 20px;
+      width: 48px; height: 48px; border-radius: 8px; background: var(--surface-elevated);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--accent); font-size: 20px;
     }
-
-    .drive-card-body {
-      flex: 1;
-    }
-
+    .drive-card-body { flex: 1; }
     .drive-card-title {
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin-bottom: 4px;
+      font-family: 'Raleway', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--text-heading); margin-bottom: 4px;
     }
-
-    .drive-card-desc {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-body);
-    }
-
-    .drive-card-desc a {
-      color: var(--carmine);
-      text-underline-offset: 2px;
-      font-weight: 500;
-    }
-
-    .drive-card-desc a:hover {
-      color: var(--ink);
-    }
-
+    .drive-card-desc { font-size: 13px; line-height: 1.6; color: var(--text-body); }
     .drive-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s, gap 0.2s;
-      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+      text-decoration: none; transition: color 0.2s, gap 0.2s; flex-shrink: 0;
     }
+    .drive-card-cta:hover { color: var(--ink); gap: 10px; }
 
-    .drive-card-cta:hover {
-      color: var(--ink);
-      gap: 10px;
-    }
-
-    /* ─── Footer ────────────────────────────────────────────── */
     .site-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 24px 5vw;
-      border-top: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; max-width: 100%; margin: 0 auto;
+      padding: 24px 5vw; border-top: 1px solid var(--border-light);
     }
-
     .footer-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
     }
-
-    .footer-social {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-social a {
-      color: var(--text-muted);
-      font-size: 15px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { color: var(--text-muted); font-size: 15px; text-decoration: none; transition: color 0.2s; }
     .footer-social a:hover { color: var(--carmine); }
 
-    /* ─── Tablet ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .doc-block-embed { height: 480px; }
+      .case-meta { grid-template-columns: 1fr; gap: 8px; }
       .drive-card { flex-direction: column; align-items: flex-start; }
+      .docket-table { font-size: 12px; }
+      .docket-table th, .docket-table td { padding: 10px 12px; }
     }
 
-    /* ─── Mobile ─────────────────────────────────────────────── */
     @media (max-width: 720px) {
-      .nav-toggle          { display: block; }
-      .site-nav,
-      .site-nav.scrolled   { padding: 12px 16px; }
+      .nav-toggle { display: block; }
+      .site-nav, .site-nav.scrolled { padding: 12px 16px; }
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0; right: 0;
-        flex-direction: column;
-        background: var(--surface-page);
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: var(--surface-page);
         border-bottom: 1px solid var(--border-light);
-        padding: 12px 20px 16px;
-        gap: 0;
+        padding: 12px 20px 16px; gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open      { display: flex; }
-      .nav-links li        { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
       .nav-links li:last-child { border-bottom: none; }
-      .nav-links a         { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active  { color: var(--accent) !important; }
-      .nav-links a:hover   { color: var(--ink) !important; }
-      .masthead-text       { left: 20px; bottom: 52px; }
-      .content-section     { padding: 32px 16px 56px; }
-      .doc-block-header    { padding: 16px 20px; }
-      .doc-block-embed     { height: 360px; }
-      .drive-card          { padding: 20px; }
-      .site-footer         { padding: 24px 20px; }
+      .nav-links a { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
+      .nav-links a.active { color: var(--accent) !important; }
+      .nav-links a:hover  { color: var(--ink) !important; }
+      .masthead-text { left: 20px; bottom: 52px; }
+      .content-section { padding: 32px 16px 56px; }
+      .case-title-bar { padding: 14px 20px; flex-wrap: wrap; }
+      .case-meta { padding: 18px 20px; }
+      .case-meta-item { font-size: 12px; }
+      .docket-table-wrap {  }
+      .docket-table-header { padding: 14px 20px; }
+      .docket-table { font-size: 10px; }
+      .docket-table th { padding: 8px 8px; font-size: 8px; letter-spacing: 0.08em; }
+      .docket-table td { padding: 8px 8px; }
+      .drive-card { padding: 20px; }
+      .site-footer { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -465,15 +334,107 @@
 
   <section class="content-section">
 
-    <div class="section-label">Utah &middot; Fourth District Court &middot; Filings</div>
+    <!-- ════════════════════════════════════════════════════════
+         CASE: Lauren Matthias and Grayson Yohr v. Reality
+         ════════════════════════════════════════════════════════ -->
 
-    <div class="doc-block" data-aos="fade-up">
-      <div class="doc-block-header">
-        <span class="doc-block-number">01</span>
-        <h2 class="doc-block-title">Declaration of Lauren Matthias</h2>
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>Lauren Matthias and Grayson Yohr v. Reality</h2>
+        <span class="status-badge open">Open</span>
       </div>
-        <iframe class="doc-block-embed" src="https://drive.google.com/file/d/1aKjNVODLT2tbleKvZdACYdCvBmy0jFml/preview" width="640" height="480"></iframe>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Case No.:</strong> 250404055</div>
+        <div class="case-meta-item"><strong>Judge:</strong> Kasey L. Wright</div>
+        <div class="case-meta-item"><strong>Court:</strong> Fourth District Court, Utah County</div>
+        <div class="case-meta-item"><strong>Case Type:</strong> Civil Stalking Injunction</div>
+      </div>
     </div>
+
+    <div class="section-label">Evidence &middot; Filings &middot; Records</div>
+
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Filings &amp; Activity</h2>
+      </div>
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Document</th>
+            <th class="doc-icon"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>11-09-2023</td><td class="wrap">Christina text to Lauren &amp;#x2018;how&amp;#x2019;s it goin&amp;#x2019; at 02:02 PM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-09-2025</td><td class="wrap">Lauren love bombs Christina while humble bragging at 09:52 AM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fxpJV5nGLOXhW0QXj-ZRo4YuTryj_4CS/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-09-2025</td><td class="wrap">Janeese tries to confront Lauren about lies Lauren has been spreading (00 min 36 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1MFHdKpvwQgxVndS4D_ORK6G5jiOnDbhQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-09-2025</td><td class="wrap">Janeese tries to confront Lauren about lies Lauren has been spreading (00 min 39 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1WGyE0jwR0oXjQe-H4gWpb7KFqF7J_Kp6/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-09-2025</td><td class="wrap">Lauren texts Christina false accusations and then threatens legal action at 08:50 PM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1-huEs_Z4W68nNNtIVF5EylXUXoIS5LGs/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-21-2025</td><td class="wrap">Email from Christina to Lauren re: Lauren being a coward</td><td class="doc-icon"><a href="https://drive.google.com/file/d/15GiAyBk8Hs4bQkcBf09ZLxAVqz7oqNgB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-21-2025</td><td class="wrap">iMessages between Christina and Lauren re: Reddit post about Lauren poaching Annie Elise&amp;#x2019;s employee and recycling 10 to Life scripts</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1OW1tXCxErLjdrRZepGAR1MqZ4_tIYOAr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-22-2025</td><td class="wrap">Email from Lauren to Christina re: Lauren feeling threatened by criticism</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1T7Oysv--bxOpWwnCnl_KTu6gJywpjjLp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>06-19-2025</td><td class="wrap">Voicemail from Liz to Lauren (01 min 55 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1V664t6qYMpzl_aOwNo9mOz9Umxoi_p-r/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>06-19-2025</td><td class="wrap">Henderson Incident Report HP250619000420 at 14:50:38 PM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ci2FRoHbk0pEVvTC7equLWIPZpeFJsjt/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-03-2025</td><td class="wrap">Henderson Incident Report HP250703000578 at 16:03:45 PM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ZxjzNTakX7914AVknjS816OaNol6xv_R/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-06-2025</td><td class="wrap">TikTok video of Christina recounting the story Lauren told her about her brother</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1rlFuk4JDCsTOlXMZ3ByJ1qW1O860nR-v/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-07-2025</td><td class="wrap">Jawn's iMessage blaming his health on the stalking situation that Lauren and Grayson made up</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GHk9wt_xKsztiu0N4nhxkqPcDgf0Vh_b/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-09-2025</td><td class="wrap">TikTok video of Christina talking to officer who can&amp;#x2019;t explain what Nevada law she &amp;#x201C;broke&amp;#x201D;</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1NBkR6cUnRqNW4h1qip3N6D0x__nhtj8G/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-12-2025</td><td class="wrap">TikTok video of Christina talking about an ex-friend who was a fake friend</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1U9ACbLdYwDfVRSRK63ydQMSVBNd0hK-5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-13-2025</td><td class="wrap">Christina TikTok video of Lauren with a clown sticker redacting her bozo head bc Lauren was &amp;#x201C;poking the bear&amp;#x201D;</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ctBppmwVzi48adaLL21qVWnVnrf08r8B/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-14-2025</td><td class="wrap">Christina comments " 👀👀👀" on Hidden True Crime's Lauren Matthias Pt. 1 &ndash; Early Years &amp;amp; Journalism Career | Ep. 2040</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1thufoLI0ot5ycf1Af6GPIc3qmT_cku_y/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-16-2025</td><td class="wrap">Felicia O&amp;#x2019;Shields emails with John Dehlin at 10:17 PM re: Christina&amp;#x2019;s TikTok videos</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-23-2025</td><td class="wrap">Lauren confronted by Sarah P and Lori D about making false claims against people and then hitting them with a Cease-and-Desist to obstruct them from clearing shit it up (02 min 55 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-23-2025</td><td class="wrap">Lauren filming Grayson crying at Bittercreek Ale House (00 min 39 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1W6YhNtVkRWZqNN4oaeEMD7oM5pNifilC/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-23-2025</td><td class="wrap">Lauren filming Grayson crying at Bittercreek Ale House (00 min 36 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1W6YhNtVkRWZqNN4oaeEMD7oM5pNifilC/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>04-09-2025</td><td class="wrap">Voicemail from Liz to Lauren (01 min 55 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1V664t6qYMpzl_aOwNo9mOz9Umxoi_p-r/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-23-2025</td><td class="wrap">Lauren and Grayson deciding whether to call Boise PD about the exactly zero danger they're in (01 min 12 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1n1j-mZeq68JekVK-e3Y5Cn1ztSP0OpR8/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-23-2025</td><td class="wrap">Lauren files a police report at 23:27 PM against her former colleagues about an incident she says happened on 04-09-2025</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-29-2025</td><td class="wrap">TikTok video of Christina playing audio of Lauren talking with a friend about &amp;#x201C;weaponized&amp;#x201D; kindness</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1-nLVIWxLnury-f3w2yeenSdl7A1ZuFPb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-06-2025</td><td class="wrap">TikTok video re: Lauren using Jawn&amp;#x2019;s credentials for street cred</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1QR0Q61kcAoMXvrQfdt-dvOHpq3kz1mJJ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-07-2025</td><td class="wrap">Grayson reaches out to Lauren during a panic attack at 12:17 AM and Lauren kinda just suggests Grayson get back to work</td><td class="doc-icon"><a href="https://drive.google.com/file/d/193wb8CC5gvfbJRauUAvBZkcw0vLWECEy/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-08-2025</td><td class="wrap">TikTok video of Christina&amp;#x2019;s recap of Lauren&amp;#x2019;s stalking and manipulation tactics</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1WsRD8yRQcMq2Bj7yJLCT0cnZ7cpoZC3I/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-13-2025</td><td class="wrap">Another TikTok video of Christina talking to officer who can&amp;#x2019;t explain what Nevada law she &amp;#x201C;broke&amp;#x201D;</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1csYn8pVWLyB44k4O-QAsEUEDu4QoS5nr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-27-2025</td><td class="wrap">Declaration of Grayson Yohr</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xDm8nd993QXjHO2pdDhdwPEYE4WN9pSp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-27-2025</td><td class="wrap">Declaration of Lauren Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1gKPrLw8Ca6k-_n-YBgCiQxTUy6lQ-4o-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-05-2025</td><td class="wrap">15:07:06 PM Bodycam 1 -600 Axon Body 4 D01A0526G (08 min 21 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12wyviTt2M-cn9uPveVACC7R1T2wEOusT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-05-2025</td><td class="wrap">15:27:20 PM Bodycam 2 -600 Axon Body 4 D01A0288H (14 min 12 sec)</td><td class="doc-icon"></td></tr>
+          <tr><td>09-05-2025</td><td class="wrap">15:27:14 PM Bodycam 3 -600 Axon Body 4 D01A0576G (14 min 17 sec)</td><td class="doc-icon"></td></tr>
+          <tr><td>09-05-2025</td><td class="wrap">15:51:41 PM Bodycam 4 -600 Axon Body 4 D01A0288H (09 min 09 sec)</td><td class="doc-icon"></td></tr>
+          <tr><td>09-05-2025</td><td class="wrap">15:53:35 PM Bodycam 5 -600 Axon Body 4 D01A0576G (07 min 15 sec)</td><td class="doc-icon"></td></tr>
+          <tr><td>09-05-2025</td><td class="wrap">09-05-2025 Texts from Joe Schmoe at 10:17 PM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xwmqX8U27pMyHiQb2ciTqKizrM5EhJr_/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-06-2025</td><td class="wrap">Christina metaglasses video of Lauren&amp;#x2019;s errand boy harassing Christina for her</td><td class="doc-icon"></td></tr>
+          <tr><td>09-11-2025</td><td class="wrap">Shitposts on HTC pages</td><td class="doc-icon"></td></tr>
+          <tr><td>09-13-2025</td><td class="wrap">Second Declaration of Lauren Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/15h01W4D9uhZYJz7xv3iRV4-B0joVxbP5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap">Paul C. Witness Affidavit</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zUq3iPUNG5o0vVpgUuGOCjc5p44IX8Xm/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-17-2025</td><td class="wrap">Ex Parte Motion to Enforce 09-04-2025 Civil Stalking Injunction and for Sanctions</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ghcK7dWANUmMl-IJ4H25y6G-0K0dSu8_/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-17-2025</td><td class="wrap">Respondent Christina M (1) Memorandum in Opposition to Request for Civil Stalking Injunction and (2) Prehearing Brief</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Ts_jXtOGxfgvD3q1ZWTsgkZw7Hinxoqi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-19-2025</td><td class="wrap">Second Declaration of Grayson Yohr</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1W4FvKeT7pvP5fUEBe2NUSPdKuUewpExG/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-19-2025</td><td class="wrap">Declaration of Janeese S</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qfV7BXqPSPoMGMqdIXSkDXN4n7aQyLA3/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-19-2025</td><td class="wrap">Declaration of Lindzie H</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1rBXn-4m4m0S7PeNcuIFPko1EIU7eeyxC/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-19-2025</td><td class="wrap">Declaration of Lori D</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ylnKKku02Rzk2dKyhOr9jgC37Y6y3KDH/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-19-2025</td><td class="wrap">Declaration of John Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XSXE7H_8jHDZfltWP1T3mjM2we1Vaqtd/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-21-2025</td><td class="wrap">Declaration of Lauren Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12wfumLVSEUYCA2zIFe7ZtOv4RO5nnHs1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-22-2025</td><td class="wrap">Respondent Christina M Objection to Declarations Filed by Petitioner</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xSrCkUgM10OQbUQCxtGNYwFlO1yQs7Gu/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-22-2025</td><td class="wrap">Hearing &ndash; audio</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1VNmVg0s0DpZ3Ra1ymDlEaqx9ZntYqlOL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-22-2025</td><td class="wrap">Hearing &ndash; transcript</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1VNmVg0s0DpZ3Ra1ymDlEaqx9ZntYqlOL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-23-2025</td><td class="wrap">Petitioner&amp;#x2019;s Objections to Respondent&amp;#x2019;s Declarations</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1kV0-8uolwSFl9b6yvj6gMm5RdATrGpJM/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-08-2025</td><td class="wrap">Objection to Unspecified, Unverified Media Request for Attendance at Evidentiary Hearing and Access to Court Records</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1AA5U3kjuaDH_79nInbvvbdMnRJyz8C_5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-08-2025</td><td class="wrap">Request to Submit for Decision Amended Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1su0QIeR_vLFGOuBQsc_UMWYXj6kar4GL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-08-2025</td><td class="wrap">Certificate of Service Amended Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zkcsBjZW3kCaGY7OlENt3fuJxKwopqRr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-08-2025</td><td class="wrap">Proposed Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1YBTW-BY_29dZcGqZraf5qt0DyUWJJrZg/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-10-2025</td><td class="wrap">Motion to Continue Evidentiary Hearing</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1nBAdh3VXrl61WXZPAKT2ZRmNKIqyX0Mi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-10-2025</td><td class="wrap">Declaration of Susan Hendricks</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ciOo-96Djx8CGgE37s4_OGFvtdOp0oeI/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-10-2025</td><td class="wrap">Third Declaration of Lauren Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1cK1liz2oElMOlb_0F475ytixaUiHThpL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-10-2025</td><td class="wrap">Declaration of Sarah N</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1tIKfd2ugfMb7mCsNbT0llYWCs_h2edLi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-20-2025</td><td class="wrap">Screenshot of Christina commenting on Lori Hellis video</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1VNmVg0s0DpZ3Ra1ymDlEaqx9ZntYqlOL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         CASE TIMELINE LINK
+         ════════════════════════════════════════════════════════ -->
 
     <a class="drive-card" href="../../case/HTC/timeline" data-aos="fade-up" style="text-decoration:none;">
       <div class="drive-icon">
@@ -481,20 +442,35 @@
       </div>
       <div class="drive-card-body">
         <h3 class="drive-card-title">Case Timeline</h3>
-        <p class="drive-card-desc">A civil stalking case in seven acts. Dual-narrative timeline of Matthias v. Reality (Case No. 250404055) — tracks contested events from both sides, color-coded by party, with exhibit references and split-view panels for disputed incidents.</p>
+        <p class="drive-card-desc">A civil stalking case in seven acts. Dual-narrative timeline of Matthias v. Reality (Case No. 250404055) &mdash; tracks contested events from both sides, color-coded by party, with exhibit references and split-view panels for disputed incidents.</p>
       </div>
       <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
     </a>
 
+    <!-- ════════════════════════════════════════════════════════
+         SOURCE FILES
+         ════════════════════════════════════════════════════════ -->
+
     <div class="section-label">Source Files</div>
+
+    <a class="drive-card" href="https://drive.google.com/drive/folders/1KDsnHoiS6UuFhgwgtxWMcY_R0veVqsmF" target="_blank" data-aos="fade-up" style="text-decoration:none;">
+      <div class="drive-icon">
+        <i class="bi bi-folder2-open"></i>
+      </div>
+      <div class="drive-card-body">
+        <h3 class="drive-card-title">Google Drive Folder</h3>
+        <p class="drive-card-desc">All filings and documents for Lauren Matthias and Grayson Yohr v. Reality.</p>
+      </div>
+      <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
+    </a>
 
     <a class="drive-card" href="https://drive.google.com/drive/folders/15gnlT4myzNSXV4hlS3myFd7WaG4vChKZ?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
       <div class="drive-icon">
         <i class="bi bi-folder2-open"></i>
       </div>
       <div class="drive-card-body">
-        <h3 class="drive-card-title">Google Drive Folder</h3>
-        <p class="drive-card-desc">All filings and documents for Hidden True Crime.</p>
+        <h3 class="drive-card-title">Declaration of Lauren Matthias &mdash; Google Drive</h3>
+        <p class="drive-card-desc">Original declaration and supporting documents.</p>
       </div>
       <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
     </a>

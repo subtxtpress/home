@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sarah Grace Patrick Docket – Subtxt Press</title>
+  <title>Sarah Grace Patrick Docket | Subtxt Press</title>
   <meta name="description" content="Sarah Grace Patrick Filings &amp; Records | @subtxtpress GitHub">
   <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/SGP/docket">
   <!-- Open Graph -->
-  <meta property="og:title" content="Sarah Grace Patrick Docket – Subtxt Press">
+  <meta property="og:title" content="Sarah Grace Patrick Docket | Subtxt Press">
   <meta property="og:description" content="Sarah Grace Patrick Filings &amp; Records | @subtxtpress GitHub">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/SGP/docket">
@@ -19,7 +19,7 @@
   <meta property="og:site_name" content="Dockets | Subtxt Press">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sarah Grace Patrick Docket – Subtxt Press">
+  <meta name="twitter:title" content="Sarah Grace Patrick Docket | Subtxt Press">
   <meta name="twitter:description" content="Sarah Grace Patrick Filings &amp; Records | @subtxtpress GitHub">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
   <meta name="twitter:creator" content="@subtxtpress">
@@ -46,23 +46,20 @@
       --plum:    #3E2436;
       --carmine: #7A5063;
       --ink:     #241620;
-
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-
       --text-heading: #241620;
       --text-body:    #44373C;
       --text-label:   #7A5063;
       --text-muted:   rgba(68, 55, 60, 0.45);
-
       --accent:        #E8956A;
       --accent-border: rgba(232, 149, 106, 0.40);
-
       --border-light:  rgba(221, 208, 188, 0.55);
       --border-mid:    rgba(180, 140, 100, 0.22);
-
       --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+      --status-open:   #2E7D32;
+      --status-closed: #B71C1C;
     }
 
     html { scroll-behavior: smooth; }
@@ -75,7 +72,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── Section label ──────────────────────────────────────── */
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6rem;
@@ -94,349 +90,222 @@
       background: var(--border-mid);
     }
 
-    /* ─── Nav ───────────────────────────────────────────────── */
     .site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 22px 5vw;
       transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
       border-bottom: 1px solid transparent;
     }
-
     .site-nav.scrolled {
       padding: 14px 5vw;
       background: rgba(244, 237, 227, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-bottom-color: var(--border-light);
       box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
     }
-
     .nav-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
-      color: #fff;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.3s;
+      font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500;
+      color: #fff; letter-spacing: 0.10em; text-transform: uppercase;
+      text-decoration: none; transition: color 0.3s;
     }
-
     .site-nav.scrolled .nav-brand { color: var(--ink); }
-
     .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      padding: 4px;
-      color: rgba(255,255,255,0.8);
-      margin-left: auto;
-      transition: color 0.3s;
+      display: none; background: none; border: none; font-size: 20px;
+      line-height: 1; cursor: pointer; padding: 4px;
+      color: rgba(255,255,255,0.8); margin-left: auto; transition: color 0.3s;
     }
     .site-nav.scrolled .nav-toggle { color: var(--ink); }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 40px;
-    }
-
+    .nav-links { list-style: none; display: flex; gap: 40px; }
     .nav-links a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62);
-      text-decoration: none;
-      transition: color 0.2s;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62); text-decoration: none; transition: color 0.2s;
     }
-
     .nav-links a:hover  { color: #fff; }
     .nav-links a.active { color: var(--peach); }
+    .site-nav.scrolled .nav-links a       { color: var(--text-label); }
+    .site-nav.scrolled .nav-links a:hover  { color: var(--ink); }
+    .site-nav.scrolled .nav-links a.active { color: var(--accent); }
 
-    .site-nav.scrolled .nav-links a         { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover   { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active  { color: var(--accent); }
-
-    /* ─── Masthead ──────────────────────────────────────────── */
     .masthead {
-      position: relative;
-      height: 80vh;
-      min-height: 520px;
-      overflow: hidden;
+      position: relative; height: 80vh; min-height: 520px; overflow: hidden;
     }
-
     .masthead-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 52%;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 52%;
     }
-
     .masthead::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.52)  0%,
-        rgba(0, 0, 0, 0.18) 45%,
-        rgba(0, 0, 0, 0.38) 100%
-      );
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.38) 100%);
     }
-
-    .masthead-text {
-      position: absolute;
-      bottom: 72px;
-      left: 5vw;
-      z-index: 2;
-    }
-
+    .masthead-text { position: absolute; bottom: 72px; left: 5vw; z-index: 2; }
     .masthead-kicker {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--peach);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--peach);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
     }
-
     .masthead-kicker::before {
-      content: '';
-      width: 22px;
-      height: 1.5px;
-      background: var(--peach);
-      flex-shrink: 0;
+      content: ''; width: 22px; height: 1.5px; background: var(--peach); flex-shrink: 0;
     }
-
     .masthead-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; color: #fff;
+      line-height: 0.95; text-transform: uppercase; letter-spacing: 0.02em;
       text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
     }
 
-    /* ─── Content Section ───────────────────────────────────── */
-    .content-section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 56px 5vw 88px;
-    }
+    .content-section { max-width: 960px; margin: 0 auto; padding: 56px 5vw 88px; }
 
-    /* ─── Document Block ────────────────────────────────────── */
-    .doc-block {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
+    .case-block {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
     }
-
-    .doc-block-header {
-      padding: 20px 28px;
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
+    .case-title-bar {
+      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: center; gap: 12px;
     }
-
-    .doc-block-number {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .doc-block-title {
+    .case-title-bar h2 {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-      font-weight: 700;
-      color: var(--text-heading);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 800;
+      color: var(--text-heading); text-align: center;
     }
-
-    .doc-block-embed {
-      width: 100%;
-      height: 600px;
-      border: none;
-      display: block;
+    .status-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px; flex-shrink: 0;
     }
+    .status-badge.open {
+      background: rgba(46, 125, 50, 0.10); border: 1px solid rgba(46, 125, 50, 0.35);
+      color: var(--status-open);
+    }
+    .case-meta {
+      padding: 24px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px;
+    }
+    .case-meta-item { font-size: 13px; line-height: 1.6; }
+    .case-meta-item strong { color: var(--text-heading); font-weight: 600; }
 
-    /* ─── Drive Link Card ───────────────────────────────────── */
-    .drive-card {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      padding: 28px;
+    .docket-table-wrap {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    }
+    .docket-table-header {
+      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
+    }
+    .docket-table-header h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 700;
+      color: var(--text-heading);
+    }
+    .docket-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .docket-table thead { background: var(--surface-elevated); }
+    .docket-table th {
+      padding: 10px 16px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-label); text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .docket-table td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-light);
+      color: var(--text-body); line-height: 1.5;
+    }
+    .docket-table th,
+    .docket-table td {
+      white-space: nowrap;
+    }
+
+    .docket-table td.wrap {
+      white-space: normal;
+      word-break: break-word;
+    }
+    .docket-table tbody tr:last-child td { border-bottom: none; }
+    .docket-table tbody tr:hover { background: rgba(232, 149, 106, 0.04); }
+    .docket-table .doc-icon {
+      color: var(--accent); font-size: 14px; text-align: center; width: 32px;
+    }
+
+    .drive-card {
+      background: var(--surface-card); border: 1px solid var(--border-mid);
+      border-radius: 10px; padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px; display: flex; align-items: center; gap: 20px;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
     .drive-card:hover {
       transform: translateY(-2px);
-      box-shadow:
-        0 8px 28px rgba(0, 0, 0, 0.10),
-        0 0 0 1px var(--accent-border);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
     }
-
     .drive-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      background: var(--surface-elevated);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--accent);
-      font-size: 20px;
+      width: 48px; height: 48px; border-radius: 8px; background: var(--surface-elevated);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--accent); font-size: 20px;
     }
-
-    .drive-card-body {
-      flex: 1;
-    }
-
+    .drive-card-body { flex: 1; }
     .drive-card-title {
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin-bottom: 4px;
+      font-family: 'Raleway', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--text-heading); margin-bottom: 4px;
     }
-
-    .drive-card-desc {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-body);
-    }
-
-    .drive-card-desc a {
-      color: var(--carmine);
-      text-underline-offset: 2px;
-      font-weight: 500;
-    }
-
-    .drive-card-desc a:hover {
-      color: var(--ink);
-    }
-
+    .drive-card-desc { font-size: 13px; line-height: 1.6; color: var(--text-body); }
     .drive-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s, gap 0.2s;
-      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+      text-decoration: none; transition: color 0.2s, gap 0.2s; flex-shrink: 0;
     }
+    .drive-card-cta:hover { color: var(--ink); gap: 10px; }
 
-    .drive-card-cta:hover {
-      color: var(--ink);
-      gap: 10px;
-    }
-
-    /* ─── Footer ────────────────────────────────────────────── */
     .site-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 24px 5vw;
-      border-top: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; max-width: 100%; margin: 0 auto;
+      padding: 24px 5vw; border-top: 1px solid var(--border-light);
     }
-
     .footer-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
     }
-
-    .footer-social {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-social a {
-      color: var(--text-muted);
-      font-size: 15px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { color: var(--text-muted); font-size: 15px; text-decoration: none; transition: color 0.2s; }
     .footer-social a:hover { color: var(--carmine); }
 
-    /* ─── Tablet ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .doc-block-embed { height: 480px; }
+      .case-meta { grid-template-columns: 1fr; gap: 8px; }
       .drive-card { flex-direction: column; align-items: flex-start; }
+      .docket-table { font-size: 12px; }
+      .docket-table th, .docket-table td { padding: 10px 12px; }
     }
 
-    /* ─── Mobile ─────────────────────────────────────────────── */
     @media (max-width: 720px) {
-      .nav-toggle          { display: block; }
-      .site-nav,
-      .site-nav.scrolled   { padding: 12px 16px; }
+      .nav-toggle { display: block; }
+      .site-nav, .site-nav.scrolled { padding: 12px 16px; }
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0; right: 0;
-        flex-direction: column;
-        background: var(--surface-page);
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: var(--surface-page);
         border-bottom: 1px solid var(--border-light);
-        padding: 12px 20px 16px;
-        gap: 0;
+        padding: 12px 20px 16px; gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open      { display: flex; }
-      .nav-links li        { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
       .nav-links li:last-child { border-bottom: none; }
-      .nav-links a         { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active  { color: var(--accent) !important; }
-      .nav-links a:hover   { color: var(--ink) !important; }
-      .masthead-text       { left: 20px; bottom: 52px; }
-      .content-section     { padding: 32px 16px 56px; }
-      .doc-block-header    { padding: 16px 20px; }
-      .doc-block-embed     { height: 360px; }
-      .drive-card          { padding: 20px; }
-      .site-footer         { padding: 24px 20px; }
+      .nav-links a { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
+      .nav-links a.active { color: var(--accent) !important; }
+      .nav-links a:hover  { color: var(--ink) !important; }
+      .masthead-text { left: 20px; bottom: 52px; }
+      .content-section { padding: 32px 16px 56px; }
+      .case-title-bar { padding: 14px 20px; flex-wrap: wrap; }
+      .case-meta { padding: 18px 20px; }
+      .case-meta-item { font-size: 12px; }
+      .docket-table-wrap {  }
+      .docket-table-header { padding: 14px 20px; }
+      .docket-table { font-size: 10px; }
+      .docket-table th { padding: 8px 8px; font-size: 8px; letter-spacing: 0.08em; }
+      .docket-table td { padding: 8px 8px; }
+      .drive-card { padding: 20px; }
+      .site-footer { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -465,14 +334,174 @@
 
   <section class="content-section">
 
-    <div class="section-label">Filings &middot; Records</div>
-
-    <div class="doc-block" data-aos="fade-up">
-      <div class="doc-block-header">
-        <span class="doc-block-number">01</span>
-        <h2 class="doc-block-title">Sarah Grace Patrick Doc-ket</h2>
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>State of Georgia vs. Sarah Grace Patrick</h2>
+        <span class="status-badge open">Open</span>
       </div>
-        <iframe class="doc-block-embed" src="https://drive.google.com/file/d/1ITNWkxifLCTyknmE_sgUOo8n6LnUyHoH/preview" width="640" height="480"></iframe>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Court:</strong> Carroll County Superior Court</div>
+        <div class="case-meta-item"><strong>Judge:</strong> Dustin W. Hightower</div>
+        <div class="case-meta-item"><strong>Case Type:</strong> Criminal</div>
+        <div class="case-meta-item"><strong>Status:</strong> Open</div>
+        <div class="case-meta-item"><strong>Source:</strong> <a href="https://carrollcountydocket.com/CourtsCMWS/CMWebSearch/SearchByParty/SearchByParty" style="color:var(--carmine);text-underline-offset:2px;">Carroll County Docket</a></div>
+        <div class="case-meta-item"><strong>Search Party:</strong> &ldquo;Patrick Sarah&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="section-label">Docket Entries</div>
+
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Filings &amp; Activity</h2>
+      </div>
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Filed</th>
+            <th>Comments</th>
+            <th class="doc-icon"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>08-22-2022</td><td class="wrap">Kristin Nolan Patrick Warrant for DV Cruelty to Children</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1vClfrMG7OzH-2kv2KVsqWEAK4CM5yTn3/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-24-2025</td><td class="wrap">James Brock Family Violence Ex Parte Protective Order against Kristin Patrick</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1INcvkJUv0lGwqT5fExZ_PU9F3XS3SqTX/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2022</td><td class="wrap">James Brock Petition for Temporary Protective Order against Kristin Nolan Patrick</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1bjwChQCXqP_O3qeaufHGstvXNGHKOJ4b/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2022</td><td class="wrap">Affidavit Regarding Companion and Related Actions</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1K1AVHAk7YDrKZNSl_GHdvv8IM4tsjiqG/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-25-2022</td><td class="wrap">Verification</td><td class="doc-icon"><a href="https://drive.google.com/file/d/14tRCuFvcIRme0A8cNOJih93zn7JVJAAW/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-14-2022</td><td class="wrap">James Brock Motion to Dismiss Charges</td><td class="doc-icon"><a href="https://drive.google.com/file/d/19q7hurqAfG6TTdtDs1mn8LjIlSZ5KZBP/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>02-21-2025</td><td class="wrap">Kristin Patrick Charges on Cruelty to Children Dismissed Due To Death</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DkRCaAy6BfJns7aBo4SMdUue2VjFbyhH/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-03-2025</td><td class="wrap">Warrant Jackson David Spradlin</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1IhvlMO8XutCLOcH44owO0eIuufwMMzaz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1UjINUaHYuwZhKXOybXegbXnmh0Hgps6h/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1hyWvJ4fZPaQaljvrB4NEkfUWhFBa3RxN/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qvn_FreSNEbNQaqh5suFpxuuC0dCOXEG/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1RVY3XWlBhNnJPCKluEJQhBQZEPb1JB-P/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-09-2025</td><td class="wrap">Latoya Williams Appearance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1y8VndnCyD3TOw0ZzmOLhZ1AqtyRDUeT-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-09-2025</td><td class="wrap">Notice of Defendant's Election to Proceed Under Official Code of Georgia Annotated Section 17-16-1, Et Seq.</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Z163-95KC4eBkIJWDDlLgyJgo6V3sYX-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-11-2025</td><td class="wrap">Motion for Bond</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pXU5AJqrnKXfwQEteHo4hosYQGL6cXXh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-22-2025</td><td class="wrap">Rule Nisi</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1llsAa9IT149-rRpMDffyp5FlF4bSUS4p/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-23-2025</td><td class="wrap">Motion for Bond  **Removed**</td><td class="doc-icon"></td></tr>
+          <tr><td>07-24-2025</td><td class="wrap">Party Notice Printed Court Event: Non-Jury <br>Court Date: the 11th day of Aug., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10w0hO5IfjTOQPiDtanemLeJK370whq09/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>07-30-2025</td><td class="wrap">Motion for Bond</td><td class="doc-icon"></td></tr>
+          <tr><td>08-01-2025</td><td class="wrap">Amended Rule Nisi</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1UwAw8w_-cr9FRTP3uOsD24_xtSUu5d_d/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-11-2025</td><td class="wrap">Request to Use A Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td><td class="doc-icon"></td></tr>
+          <tr><td>08-11-2025</td><td class="wrap">Request to Use A Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td><td class="doc-icon"></td></tr>
+          <tr><td>08-11-2025</td><td class="wrap">Order on Requests to Record Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>08-13-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>08-18-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>08-18-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>08-18-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>08-19-2025</td><td class="wrap">11/17; 12/16; 1/5</td><td class="doc-icon"></td></tr>
+          <tr><td>08-19-2025</td><td class="wrap">12/16; 1/5</td><td class="doc-icon"></td></tr>
+          <tr><td>08-19-2025</td><td class="wrap">1/5</td><td class="doc-icon"></td></tr>
+          <tr><td>08-19-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>08-19-2025</td><td class="wrap">Order: Bond Denied</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pNeQ7UUtjlKaGSca5KK85QF8Fd8gUWAD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>08-19-2025</td><td class="wrap">Bill of Indictment</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1_iq4PjDwB3Mtvh2cb93Z2cjyZchgIJVP/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-02-2025</td><td class="wrap">Second Order on Requests to Record Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>09-02-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>09-09-2025</td><td class="wrap">Waiver of Arraignment</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10XfhVvlZ2fjc-fQwbtjtRb9LJkX5qn3n/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-09-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>09-10-2025</td><td class="wrap">Party Notice Printed Court Event: Arraignment <br>Court Date: the 22nd day of Sept., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1E_L9R-ZB-zChltO9w9_Y85JPKOyqsN_7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-10-2025</td><td class="wrap">Bondsman &amp; Attorney Notices to Ragas Arnold Court Event: Arraignment <br>Court Date: the 22nd day of Sept., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GeOggA4z-_cLUf8bp1IFOPX0eTlGReof/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-10-2025</td><td class="wrap">Bondsman &amp; Attorney Notices to Williams LaToya Court Event: Arraignment <br>Court Date: the 22nd day of Sept., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service Discovery</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1_MHgaztW6naJmfNAMhCqDxyldpOchm5l/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-16-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>09-22-2025</td><td class="wrap">Leave of Absence</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1BbWC4_xpfGqMgMkbP48yC6x1qovDxOY0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-02-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>10-29-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>11-06-2025</td><td class="wrap">Party Notice Printed Court Event: Non-Jury <br>Court Date: the 17th day of Nov., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"></td></tr>
+          <tr><td>11-06-2025</td><td class="wrap">Bondsman &amp; Attorney Notices to Ragas ArnoldCourt Event: Non-Jury <br>Court Date: the 17th day of Nov., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"></td></tr>
+          <tr><td>11-06-2025</td><td class="wrap">Bondsman &amp; Attorney Notices to Williams LaToyaCourt Event: Non-Jury <br>Court Date: the 17th day of Nov., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"></td></tr>
+          <tr><td>11-13-2025</td><td class="wrap">Third Order on Requests to Record Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>11-13-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>11-13-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>11-17-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>11-19-2025</td><td class="wrap">Defendant&rsquo;s Request for Continuance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/19LAfnep_-XTIsNMxCyUOpeL540MxWFfi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-19-2025</td><td class="wrap">Defendant&rsquo;s Motion to Change Venue</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1sn5m07kfvw-46XEo4oHv3jFh3fnWt6cb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-20-2025</td><td class="wrap">State&rsquo;s Response to the Defendant&rsquo;s Request for Continuance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1K1JhKqsYSJ_JH_WVVUVjC-raxhZcDZbX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-21-2025</td><td class="wrap">Order Denying Request for Continuance</td><td class="doc-icon"></td></tr>
+          <tr><td>11-24-2025</td><td class="wrap">State&rsquo;s Response to the Defendant&rsquo;s Motion for Change Venue</td><td class="doc-icon"><a href="https://drive.google.com/file/d/13ZwQGoRdPMY6Hu9mBCCqEEM56YFvjI3E/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>11-25-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>11-26-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>12-01-2025</td><td class="wrap">Order Denying Motion to Change Venue</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Vmax4sQx3RhQjdopi4LBPV-FBsyHD71c/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2025</td><td class="wrap">Party Notice Printed Court Event: Calendar Call <br>Court Date: the 16th day of Dec., 2025<br>Judge: Dustin W. Hightower</td><td class="doc-icon"></td></tr>
+          <tr><td>12-01-2025</td><td class="wrap">Defendant&rsquo;s Request for Certificate of Immediate Review Emailed to JDH 12/2/25 KM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qlIYP_iGkGUnkfpzCNRrm_2g43fFnVzm/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-01-2025</td><td class="wrap">Motion in Limine</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1eKE5PmCJajNkljQv2s4_9Fxd1WSPpqaD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-03-2025</td><td class="wrap">Order Denying Certificate of Immediate Review</td><td class="doc-icon"><a href="https://drive.google.com/file/d/188yd7Or0DNUfGuUg435_9rfhgoQxmAZv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-09-2025</td><td class="wrap">Fourth Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/16gcaY6-KtU7pyWRpINF-m7AzfeHSJI0g/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-09-2025</td><td class="wrap">Order Concerning Use of Recording Device(s) in Courtroom Pursuant to USCA Rule 22 (48 Hours/CBS/Charlotte Fuller)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1H6w2dPW_SRxTJcXduJeO9sVBcZMVqo4B/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-09-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta News First)</td><td class="doc-icon"></td></tr>
+          <tr><td>12-09-2025</td><td class="wrap">Order Limiting Access to Court File</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1VEngJckPE2auHpde3ruM8LCQf6u-Q3-H/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-11-2025</td><td class="wrap">On Law &amp; Crime Network's Rule 22 Request</td><td class="doc-icon"></td></tr>
+          <tr><td>12-15-2025</td><td class="wrap">Defendant&rsquo;s Notice Re: Expert Testimony of Dr. Robert Shaffery</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1q4IHaKqfNCI0TPtJCreQHvqNtJL0IGzh/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-15-2025</td><td class="wrap">Notice of Defendant's Discovery</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1S0afRxc8-nFyP0Aj8LQBL-mqAZePqckW/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-15-2025</td><td class="wrap">Order Concerning Use of Recording Device(s) in Courtroom Pursuant to Rule 22 (Kevyn Stewart, Stephon Herron, Michelle Mandell)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fR2-ANuYHpG1ivRdRHjtg7dDa5DRkrS6/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-15-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 (WXIA)</td><td class="doc-icon"></td></tr>
+          <tr><td>12-15-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 (Billy Heath Kevyn Steweart, Stephon Herron, Fox 5)</td><td class="doc-icon"></td></tr>
+          <tr><td>12-16-2025</td><td class="wrap"></td><td class="doc-icon"><a href="https://drive.google.com/file/d/1yKIzss3TuL41lan74K0wPdQX4khHXc-M/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-17-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>12-17-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>12-19-2025</td><td class="wrap"></td><td class="doc-icon"><a href="https://drive.google.com/file/d/1wm5g8rVCfIB8McEt8oKp8eXgDeJnTueE/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-19-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>12-23-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Law &amp; Crime)</td><td class="doc-icon"></td></tr>
+          <tr><td>12-23-2025</td><td class="wrap">Fifth Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1g-0cwGhi5d_CpeOYSIzhaKp3sHeDQ6J0/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>12-23-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>12-23-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>12-23-2025</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>12-29-2025</td><td class="wrap">Attorney Michael Parrish is on leave from 04/04/2026 to 04/12/2016</td><td class="doc-icon"></td></tr>
+          <tr><td>12-29-2025</td><td class="wrap">Attorney Michael Parrish is on leave from 07/17/2026 to 07/24/2026</td><td class="doc-icon"></td></tr>
+          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WSB-TV)</td><td class="doc-icon"></td></tr>
+          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Fox 5))</td><td class="doc-icon"></td></tr>
+          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta News First)</td><td class="doc-icon"></td></tr>
+          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td><td class="doc-icon"></td></tr>
+          <tr><td>01-02-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA 11 Alive News)</td><td class="doc-icon"></td></tr>
+          <tr><td>01-02-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta Journal-Constitution)</td><td class="doc-icon"></td></tr>
+          <tr><td>01-05-2026</td><td class="wrap">8/3</td><td class="doc-icon"></td></tr>
+          <tr><td>01-05-2026</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>01-05-2026</td><td class="wrap">Motion for Immediate Bond Reconsideration</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1t758qjV6_RYqPGR3vR0tW8Gl-0bgFu5F/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <tr><td>01-05-2026</td><td class="wrap">Motion for Bond Reconsideration 7/18; 8/3</td><td class="doc-icon"></td></tr>
+          <tr><td>01-05-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td><td class="doc-icon"></td></tr>
+          <tr><td>01-07-2026</td><td class="wrap">Rule Nisi (Motion for Immediate Bond Reconsideration)</td><td class="doc-icon"></td></tr>
+          <tr><td>01-13-2026</td><td class="wrap">Party Notice Printed Court Event: Non-Jury <br>Court Date: the 27th day of Jan., 2026<br>Judge: Dustin W. Hightower</td><td class="doc-icon"></td></tr>
+          <tr><td>01-26-2026</td><td class="wrap">Sixth Order</td><td class="doc-icon"></td></tr>
+          <tr><td>01-26-2026</td><td class="wrap">Sixth Order on Requests to Record Proceedings</td><td class="doc-icon"></td></tr>
+          <tr><td>01-26-2026</td><td class="wrap">Rule 22 &ndash; Law &amp; Crime</td><td class="doc-icon"></td></tr>
+          <tr><td>01-26-2026</td><td class="wrap">Rule 22 &ndash; Ladywell Films</td><td class="doc-icon"></td></tr>
+          <tr><td>01-26-2026</td><td class="wrap">Rule 22 &ndash; Court TV</td><td class="doc-icon"></td></tr>
+          <tr><td>01-29-2026</td><td class="wrap">Order Denying Bond</td><td class="doc-icon"></td></tr>
+          <tr><td>02-03-2026</td><td class="wrap">Substitution of Counsel</td><td class="doc-icon"></td></tr>
+          <tr><td>02-19-2026</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+          <tr><td>05-06-2026</td><td class="wrap"></td><td class="doc-icon"></td></tr>
+
+        </tbody>
+      </table>
     </div>
 
     <div class="section-label">Source Files</div>
