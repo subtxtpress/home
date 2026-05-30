@@ -31,7 +31,7 @@
     }
 
     body {
-      width: 1200px;
+      width: 900px;
       height: 675px;
       overflow: hidden;
       background: var(--surface-page);
@@ -68,20 +68,19 @@
     .nav-brand {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 14px;
       color: var(--text-body);
-      letter-spacing: 0.01em;
+      margin-left: -25px;
     }
 
     .nav-sub {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 500;
-      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
       margin-left: 14px;
-      padding-left: 14px;
+      padding-left: 8px;
       border-left: 1px solid var(--accent-border);
     }
 
@@ -96,7 +95,6 @@
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-muted);
     }
@@ -112,6 +110,7 @@
       border: 1px solid var(--accent-border);
       padding: 7px 16px;
       border-radius: 2px;
+      margin-right: -30px;  
     }
 
     .main {
@@ -129,12 +128,12 @@
     .left {
       grid-row: 1;
       grid-column: 1;
-      padding: 36px 40px 0 48px;
+      padding: 36px 40px 0 25px;
       display: flex;
       flex-direction: column;
       position: relative;
       z-index: 5;
-      padding-top: 10%;
+      padding-top: 23%;
     }
 
     .eyebrow-line {
@@ -154,7 +153,7 @@
 
     .eyebrow {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
+      font-size: 9px;
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -164,7 +163,7 @@
     .headline {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 64px;
+      font-size: 48px;
       line-height: 1.02;
       color: var(--text-heading);
       letter-spacing: -0.01em;
@@ -179,12 +178,13 @@
 
     .desc {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 400;
       line-height: 1.65;
       color: rgba(216,218,219,0.65);
       border-left: 2px solid var(--accent);
       padding-left: 14px;
+      padding-right: 3%;
     }
 
     .right {
@@ -196,9 +196,9 @@
     .box-frame {
       position: absolute;
       top: 50%;
-      left: 50%;
+      left: 48%;
       transform: translate(-50%, -50%);
-      width: 500px;
+      width: 450px;
       height: 350px;
       border: 1px solid var(--border-mid);
       overflow: hidden;
@@ -261,7 +261,7 @@
       padding: 8px 16px 6px;
       backdrop-filter: blur(12px);
       text-align: center;
-      min-width: 140px;
+      /*min-width: 140px;*/
     }
 
     .data-card-label {
@@ -277,7 +277,7 @@
     .data-card-value {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
-      font-size: 28px;
+      font-size: 22px;
       color: var(--text-heading);
       line-height: 1.1;
     }
@@ -318,16 +318,15 @@
     .stat-value {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
-      font-size: 28px;
+      font-size: 22px;
       color: var(--text-heading);
       line-height: 1;
     }
 
     .stat-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-label);
       margin-top: 5px;
