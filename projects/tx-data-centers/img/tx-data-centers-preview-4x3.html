@@ -27,8 +27,8 @@
   }
 
   body {
-    width: 1200px;
-    height: 900px;
+    width: 900px;
+    height: 675px;
     overflow: hidden;
     background: var(--surface-page);
     font-family: 'Inter', sans-serif;
@@ -67,6 +67,7 @@
     font-size: 20px;
     color: var(--text-heading);
     letter-spacing: 0.01em;
+    margin-left: -20px;
   }
 
   .nav-sub {
@@ -121,12 +122,12 @@
   .left {
     grid-row: 1;
     grid-column: 1;
-    padding: 36px 40px 0 48px;
+    padding: 36px 40px 0 20px;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 5;
-    padding-top: 8%;
+    padding-top: 12%;
   }
 
   .eyebrow-line {
@@ -180,7 +181,7 @@
     display: flex;
     align-items: center;
     gap: 22px;
-    margin-top: 28px;
+    margin-top: 10px;
   }
 
   .cta-primary {
@@ -222,10 +223,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 404px;
-    width: 540px;
+    height: 400px;
+    width: 425px;
   }
-
+ 
   .corner {
     position: absolute;
     width: 18px;
@@ -432,9 +433,8 @@
 
   .stat-label {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 500;
-    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-label);
     margin-top: 6px;
@@ -496,7 +496,7 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <img src="box-screenshot.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center center; z-index:1;" />
+        <img src="box-screenshot-4x3.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center center; z-index:1;" />
 
         <div class="data-card">
           <div class="data-card-label">Facilities Mapped</div>
