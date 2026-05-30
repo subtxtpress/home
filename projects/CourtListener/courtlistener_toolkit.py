@@ -79,8 +79,9 @@ class CourtListenerClient:
             print("ERROR: Authentication failed. Check your API token.")
             sys.exit(1)
         if resp.status_code == 429:
-            # Rate limited — wait and retry once
-            retry_after = int(resp.headers.get('Retry-After', 5))
+            if not getattr(self, 'retry_on_429', True):
+                return None
+            retry_after = min(int(resp.headers.get('Retry-After', 5)), 30)
             print(f"  Rate limited. Waiting {retry_after}s...")
             time.sleep(retry_after)
             resp = self.session.get(url, params=params, timeout=30)
@@ -110,7 +111,7 @@ class CourtListenerClient:
             return None
 
         if resp.status_code == 429:
-            retry_after = int(resp.headers.get('Retry-After', 5))
+            retry_after = min(int(resp.headers.get('Retry-After', 5)), 30)
             print(f"  Rate limited. Waiting {retry_after}s...")
             time.sleep(retry_after)
             resp = self.session.get(url, timeout=30)
@@ -292,13 +293,18 @@ class CourtListenerClient:
     # ── Opinions ──
 
     def search_opinions(self, query, court=None, date_after=None,
-                        date_before=None, max_results=20):
-        """Search case law opinions."""
+                        date_before=None, semantic=False, highlight=False,
+                        max_results=20):
+        """Search case law opinions. Set semantic=True for natural-language search."""
         params = {
             'q': query,
             'type': 'o',
             'order_by': 'score desc',
         }
+        if semantic:
+            params['semantic'] = 'true'
+        if highlight:
+            params['highlight'] = 'on'
         if court:
             params['court'] = court
         if date_after:

@@ -350,6 +350,105 @@
       border-color: var(--accent);
     }
 
+    /* ─── Search Mode Toggle ────────────────────────────────── */
+    .search-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .search-mode-toggle {
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 26px;
+      border: 1px solid var(--border-mid);
+      border-radius: 4px;
+      background: var(--surface-card-alt);
+      color: var(--accent);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 2;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .search-mode-toggle:hover {
+      border-color: var(--accent);
+      background: var(--accent-subtle);
+    }
+
+    .search-mode-toggle.semantic {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .search-input-wrap input[type="text"] {
+      width: 100%;
+      padding: 11px 14px 11px 44px;
+      background: var(--surface-card-alt);
+      border: 1px solid var(--border-mid);
+      border-radius: 6px;
+      color: var(--text-heading);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .search-input-wrap input[type="text"]::placeholder { color: var(--text-muted); }
+    .search-input-wrap input[type="text"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--surface-elevated);
+    }
+
+    .search-mode-hint {
+      margin-top: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--text-label);
+    }
+
+    /* ─── Semantic Score Badge ───────────────────────────────── */
+    .score-badges {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .score-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+    }
+
+    .score-badge.badge-semantic {
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+
+    .score-badge.badge-keyword {
+      background: rgba(197, 185, 154, 0.15);
+      color: var(--text-label);
+      border: 1px solid var(--border-mid);
+    }
+
     /* ─── Results ────────────────────────────────────────────── */
     .results-section {
       max-width: 1200px;
@@ -905,14 +1004,24 @@
       <form class="search-form" id="opinionsForm" data-tab="opinions">
         <div class="form-group">
           <label>Keywords / Case Law</label>
-          <input type="text" name="query" placeholder="e.g., ineffective assistance of counsel">
+          <div class="search-input-wrap">
+            <button type="button" class="search-mode-toggle" id="searchModeToggle" title="Toggle keyword / semantic search">
+              <span class="mode-icon">&amp;</span>
+            </button>
+            <input type="text" name="query" id="opinionsQuery" placeholder="e.g., ineffective assistance of counsel">
+            <input type="hidden" name="semantic" id="semanticFlag" value="false">
+          </div>
+          <div class="search-mode-hint" id="searchModeHint">
+            <span class="mode-keyword">Keyword search — matches exact words and operators</span>
+            <span class="mode-semantic" style="display:none">Semantic search — finds cases by meaning. Use "quotes" for exact terms.</span>
+          </div>
         </div>
         <div class="form-group">
           <label>Court (Optional)</label>
           <select class="court-select" name="court"><option value="">All courts</option></select>
         </div>
         <div class="button-group">
-          <button type="submit" class="btn btn-search">Search Opinions</button>
+          <button type="submit" class="btn btn-search" id="opinionsSubmit">Search Opinions</button>
         </div>
       </form>
 
@@ -1011,7 +1120,9 @@
     // The CourtListener API requires a token, so this UI calls a local FastAPI
     // backend (app.py) that holds the token and proxies requests. Run `python app.py`
     // in tools/CourtListener/ before searching.
-    const API_BASE = 'https://courtlistener.subtxtpress.com/api';
+    const API_BASE = window.location.hostname === 'localhost'
+      ? 'http://localhost:8000/api'
+      : 'https://courtlistener.subtxtpress.com/api';
 
     let currentTab = 'cases';
     let allResults = [];
@@ -1065,6 +1176,26 @@
     }
 
     loadCourts();
+
+    // Semantic/keyword toggle
+    const toggleBtn = document.getElementById('searchModeToggle');
+    const semanticFlag = document.getElementById('semanticFlag');
+    const queryInput = document.getElementById('opinionsQuery');
+    const hintKeyword = document.querySelector('.mode-keyword');
+    const hintSemantic = document.querySelector('.mode-semantic');
+    let isSemantic = false;
+
+    toggleBtn.addEventListener('click', () => {
+      isSemantic = !isSemantic;
+      semanticFlag.value = isSemantic ? 'true' : 'false';
+      toggleBtn.querySelector('.mode-icon').textContent = isSemantic ? '?' : '&';
+      toggleBtn.classList.toggle('semantic', isSemantic);
+      hintKeyword.style.display = isSemantic ? 'none' : '';
+      hintSemantic.style.display = isSemantic ? '' : 'none';
+      queryInput.placeholder = isSemantic
+        ? 'e.g., tenant evicted for having a dog'
+        : 'e.g., ineffective assistance of counsel';
+    });
 
     // Tab switching
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1435,6 +1566,15 @@
         const docket = result.docketNumber || '';
         const judges = result.judge || '';
         const cite = Array.isArray(result.citation) && result.citation.length ? result.citation[0] : '';
+        const meta = result.meta || {};
+        const score = meta.score || {};
+        const hasSemantic = score.semantic != null;
+        const scoreBadges = hasSemantic
+          ? `<div class="score-badges">
+               <span class="score-badge badge-semantic">Semantic ${(+score.semantic).toFixed(1)}</span>
+               <span class="score-badge badge-keyword">Keyword ${(+score.bm25).toFixed(1)}</span>
+             </div>`
+          : '';
         return `
           <div class="result-card">
             <div class="result-title">${escapeHtml(title)}</div>
@@ -1445,6 +1585,7 @@
               ${cite ? `<span><strong>Citation:</strong> ${escapeHtml(cite)}</span>` : ''}
             </div>
             ${judges ? `<div class="result-desc"><strong>Judges:</strong> ${escapeHtml(judges)}</div>` : ''}
+            ${scoreBadges}
             <a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="result-link">View on CourtListener →</a>
           </div>
         `;

@@ -96,6 +96,9 @@ def require_client():
             detail="CourtListener API not initialized. Set COURTLISTENER_TOKEN environment variable."
         )
 
+if client:
+    client.retry_on_429 = False
+
 def format_response(results, total=None, page=None):
     """Format results into standard response."""
     return {
@@ -139,9 +142,11 @@ async def search_cases(
 async def search_opinions(
     query: str,
     court: Optional[str] = None,
+    semantic: bool = False,
+    highlight: bool = False,
     limit: int = 20
 ):
-    """Search case law / opinions."""
+    """Search case law / opinions. Pass semantic=true for natural-language search."""
     require_client()
 
     if not query:
@@ -151,6 +156,8 @@ async def search_opinions(
         results, total = client.search_opinions(
             query=query,
             court=court,
+            semantic=semantic,
+            highlight=highlight,
             max_results=limit
         )
         return format_response(results, total=total)
