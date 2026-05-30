@@ -449,6 +449,103 @@
       border: 1px solid var(--border-mid);
     }
 
+    /* ─── Disclosure Cards ────────────────────────────────────── */
+    .disclosure-year {
+      grid-column: 1 / -1;
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+    }
+
+    .disclosure-year-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-mid);
+    }
+
+    .disclosure-year-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .disclosure-year-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    .disclosure-section {
+      margin-bottom: 18px;
+    }
+
+    .disclosure-section-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .disclosure-section-count {
+      color: var(--text-label);
+      font-weight: 400;
+    }
+
+    .disclosure-item {
+      padding: 8px 12px;
+      background: var(--surface-card-alt);
+      border: 1px solid var(--border-light);
+      border-radius: 5px;
+      margin-bottom: 6px;
+      font-size: 0.8125rem;
+      color: var(--text-body);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .disclosure-item-desc {
+      flex: 1;
+    }
+
+    .disclosure-item-values {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .disclosure-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+      white-space: nowrap;
+    }
+
+    .disclosure-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.8125rem;
+      padding: 4px 0;
+    }
+
     /* ─── Results ────────────────────────────────────────────── */
     .results-section {
       max-width: 1200px;
@@ -971,10 +1068,11 @@
   <div class="search-container">
     <div class="search-box">
       <div class="search-tabs">
-        <button class="tab-btn active" data-tab="cases">Case Search</button>
+        <button class="tab-btn active" data-tab="cases">Cases</button>
         <button class="tab-btn" data-tab="opinions">Case Law</button>
-        <button class="tab-btn" data-tab="judges">Judge Lookup</button>
+        <button class="tab-btn" data-tab="judges">Judges</button>
         <button class="tab-btn" data-tab="judge-profile">Judge Profile</button>
+        <button class="tab-btn" data-tab="disclosures">Judge Disclosures</button>
         <button class="tab-btn" data-tab="recap">RECAP Archive</button>
         <button class="tab-btn" data-tab="courts">Courts</button>
       </div>
@@ -1071,6 +1169,23 @@
         </div>
         <div class="button-group">
           <button type="submit" class="btn btn-search">Search Archive</button>
+        </div>
+      </form>
+
+      <!-- Disclosures Tab -->
+      <form class="search-form" id="disclosuresForm" data-tab="disclosures">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Judge Name</label>
+            <input type="text" name="name" placeholder="e.g., Chutkan, Sotomayor" required>
+          </div>
+          <div class="form-group">
+            <label>Year (Optional)</label>
+            <input type="number" name="year" placeholder="e.g., 2022" min="1978" max="2026">
+          </div>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-search">View Disclosures</button>
         </div>
       </form>
 
@@ -1239,6 +1354,22 @@
           const judgeName = (data.judge && data.judge.name) || 'judge';
           const slug = judgeName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
           setExport({ type: 'judge-profile', rows: data.cases || [], filenameHint: `judge-${slug}-cases` });
+          return;
+        }
+
+        // Financial Disclosures uses its own endpoint + render path
+        if (currentTab === 'disclosures') {
+          const params = new URLSearchParams();
+          for (let [k, v] of formData) if (v) params.append(k, v);
+
+          const res = await fetch(`${API_BASE}/judge-disclosures?${params}`);
+          if (!res.ok) {
+            const detail = await res.json().catch(() => ({}));
+            throw new Error(detail.detail || `API error: ${res.status}`);
+          }
+          const data = await res.json();
+          displayDisclosures(data);
+          setExport(null);
           return;
         }
 
@@ -1468,6 +1599,147 @@
           <div class="profile-cases">${caseRows}</div>
         </div>
       `;
+    }
+
+    const VALUE_CODES = {
+      'A': '$1–$1K', 'B': '$1K–$2.5K', 'C': '$2.5K–$5K', 'D': '$5K–$15K',
+      'E': '$15K–$50K', 'F': '$50K–$100K', 'G': '$100K–$1M',
+      'H1': '$1M–$5M', 'H2': '$5M–$25M', 'H3': '$25M–$50M', 'H4': '$50M+',
+      'J': '≤$15K', 'K': '$15K–$50K', 'L': '$50K–$100K', 'M': '$100K–$250K',
+      'N': '$250K–$500K', 'O': '$500K–$1M', 'P1': '$1M–$5M', 'P2': '$5M–$25M',
+      'P3': '$25M–$50M', 'P4': '$50M+'
+    };
+
+    function decodeValue(code) {
+      if (!code) return '';
+      return VALUE_CODES[code.trim()] || code;
+    }
+
+    function renderDisclosureSection(title, items, renderItem) {
+      if (!items || !items.length) return '';
+      const rows = items.map(renderItem).join('');
+      return `
+        <div class="disclosure-section">
+          <div class="disclosure-section-title">${title} <span class="disclosure-section-count">(${items.length})</span></div>
+          ${rows}
+        </div>
+      `;
+    }
+
+    function displayDisclosures(data) {
+      const container = document.getElementById('resultsContainer');
+      const grid = document.getElementById('resultsGrid');
+      const count = document.getElementById('resultCount');
+      const paginationContainer = document.getElementById('paginationContainer');
+      const CL = 'https://www.courtlistener.com';
+
+      container.style.display = 'block';
+      paginationContainer.innerHTML = '';
+
+      const j = data.judge || {};
+      const disclosures = data.disclosures || [];
+      count.textContent = `${disclosures.length} disclosure year${disclosures.length !== 1 ? 's' : ''}`;
+
+      const judgeUrl = j.absolute_url ? CL + j.absolute_url : '#';
+      const judgeName = escapeHtml(j.name || 'Unknown judge');
+
+      if (!disclosures.length) {
+        grid.innerHTML = `
+          <div class="disclosure-year">
+            <div class="disclosure-year-header">
+              <div class="disclosure-year-title">${judgeName}</div>
+              <a href="${escapeHtml(judgeUrl)}" target="_blank" rel="noopener" class="profile-link">View on CourtListener →</a>
+            </div>
+            <div class="disclosure-empty">No financial disclosures on file for this judge.</div>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = disclosures.map(d => {
+        const investments = d.investments || [];
+        const gifts = d.gifts || [];
+        const debts = d.debts || [];
+        const positions = d.positions || [];
+        const reimbursements = d.reimbursements || [];
+        const nonInvIncome = d.non_investment_incomes || [];
+        const spouseIncome = d.spouse_incomes || [];
+        const pdfUrl = d.filepath || '';
+
+        const investmentRows = renderDisclosureSection('Investments', investments, inv => `
+          <div class="disclosure-item">
+            <div class="disclosure-item-desc">${escapeHtml(inv.description || 'Unnamed')}</div>
+            <div class="disclosure-item-values">
+              ${inv.gross_value_code ? `<span class="disclosure-val" title="Gross value">${decodeValue(inv.gross_value_code)}</span>` : ''}
+              ${inv.income_during_reporting_period_code ? `<span class="disclosure-val" title="Income">${decodeValue(inv.income_during_reporting_period_code)}${inv.income_during_reporting_period_type ? ' ' + escapeHtml(inv.income_during_reporting_period_type) : ''}</span>` : ''}
+              ${inv.transaction_during_reporting_period ? `<span class="disclosure-val" title="Transaction">${escapeHtml(inv.transaction_during_reporting_period)}</span>` : ''}
+            </div>
+          </div>
+        `);
+
+        const giftRows = renderDisclosureSection('Gifts', gifts, g => `
+          <div class="disclosure-item">
+            <div class="disclosure-item-desc">${escapeHtml(g.description || g.source || 'Unnamed')}</div>
+            <div class="disclosure-item-values">
+              ${g.value ? `<span class="disclosure-val">${escapeHtml(g.value)}</span>` : ''}
+            </div>
+          </div>
+        `);
+
+        const debtRows = renderDisclosureSection('Debts', debts, db => `
+          <div class="disclosure-item">
+            <div class="disclosure-item-desc">${escapeHtml(db.creditor_name || db.description || 'Unnamed')}</div>
+            <div class="disclosure-item-values">
+              ${db.value_code ? `<span class="disclosure-val">${decodeValue(db.value_code)}</span>` : ''}
+            </div>
+          </div>
+        `);
+
+        const positionRows = renderDisclosureSection('Positions', positions, p => `
+          <div class="disclosure-item">
+            <div class="disclosure-item-desc">${escapeHtml(p.position || '')}${p.organization_name ? ' — ' + escapeHtml(p.organization_name) : ''}</div>
+          </div>
+        `);
+
+        const reimbRows = renderDisclosureSection('Reimbursements', reimbursements, r => `
+          <div class="disclosure-item">
+            <div class="disclosure-item-desc">${escapeHtml(r.source || '')}${r.location ? ' · ' + escapeHtml(r.location) : ''}${r.purpose ? ' · ' + escapeHtml(r.purpose) : ''}</div>
+          </div>
+        `);
+
+        const incomeRows = renderDisclosureSection('Non-Investment Income', nonInvIncome, n => `
+          <div class="disclosure-item">
+            <div class="disclosure-item-desc">${escapeHtml(n.source_type || n.description || 'Unnamed')}</div>
+            <div class="disclosure-item-values">
+              ${n.income_amount ? `<span class="disclosure-val">${escapeHtml(n.income_amount)}</span>` : ''}
+            </div>
+          </div>
+        `);
+
+        const spouseRows = renderDisclosureSection('Spouse Income', spouseIncome, s => `
+          <div class="disclosure-item">
+            <div class="disclosure-item-desc">${escapeHtml(s.source_type || s.description || 'Unnamed')}</div>
+          </div>
+        `);
+
+        const hasSomething = investments.length || gifts.length || debts.length || positions.length || reimbursements.length || nonInvIncome.length || spouseIncome.length;
+
+        return `
+          <div class="disclosure-year">
+            <div class="disclosure-year-header">
+              <div>
+                <div class="disclosure-year-title">${judgeName} — ${d.year || '?'}</div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:center">
+                ${pdfUrl ? `<a href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener" class="profile-link">View PDF →</a>` : ''}
+                <a href="${escapeHtml(judgeUrl)}" target="_blank" rel="noopener" class="profile-link">Judge Profile →</a>
+              </div>
+            </div>
+            ${hasSomething ? '' : '<div class="disclosure-empty">No detailed data extracted for this year.</div>'}
+            ${investmentRows}${positionRows}${giftRows}${debtRows}${reimbRows}${incomeRows}${spouseRows}
+          </div>
+        `;
+      }).join('');
     }
 
     function showLoading() {

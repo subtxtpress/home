@@ -266,6 +266,55 @@ async def judge_profile(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/judge-disclosures")
+async def judge_disclosures(
+    name: str,
+    court: Optional[str] = None,
+    year: Optional[int] = None
+):
+    """Look up a judge's financial disclosures by name."""
+    require_client()
+
+    if not name:
+        raise HTTPException(status_code=400, detail="'name' parameter required")
+
+    try:
+        judges, _ = client.search_judges(name=name, court=court, max_results=1)
+        if not judges:
+            raise HTTPException(status_code=404, detail=f"No judge found matching '{name}'")
+        judge = judges[0]
+
+        person_id = judge.get('id')
+        if not person_id:
+            raise HTTPException(status_code=404, detail="Could not determine judge ID")
+
+        disclosures = client.get_financial_disclosures(person_id)
+        if not disclosures:
+            return {
+                "status": "success",
+                "judge": judge,
+                "disclosures": [],
+                "total": 0,
+                "timestamp": datetime.utcnow().isoformat()
+            }
+
+        if year:
+            disclosures = [d for d in disclosures if d.get('year') == year]
+
+        disclosures.sort(key=lambda d: d.get('year', 0), reverse=True)
+
+        return {
+            "status": "success",
+            "judge": judge,
+            "disclosures": disclosures,
+            "total": len(disclosures),
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/case/{case_id}")
 async def get_case(case_id: int):
     """Get details for a specific case."""
