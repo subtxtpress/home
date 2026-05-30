@@ -5,9 +5,11 @@ An interactive web interface for searching federal court data using the CourtLis
 ## Features
 
 - **Case/Docket Search** - Find cases by party name, judge, or court
-- **Case Law Search** - Search published opinions and decisions
+- **Case Law Search** - Search published opinions and decisions with keyword or semantic search
+- **Semantic Search** - Toggle between keyword (`&`) and semantic (`?`) search on the Case Law tab — find cases by meaning, not just exact words
 - **Judge Lookup** - Find federal judges by name and court
 - **Judge Profile** - One-click bio, positions, and recent assigned dockets for a single judge
+- **Judge Financial Disclosures** - View a judge's investments, positions, gifts, debts, and reimbursements by year
 - **RECAP Archive Search** - Access free PACER documents
 - **Court Directory** - Browse all available federal courts
 - **Court dropdown** - All federal courts populated from the API and cached per session
@@ -72,12 +74,14 @@ Open your browser to:
 
 ### Web Interface
 
-1. Select a search type from the tabs (Cases, Opinions, Judges, Judge Profile, RECAP, Courts)
+1. Select a search type from the tabs: Cases, Case Law, Judges, Judge Profile, Judge Disclosures, RECAP Archive, or Courts
 2. Enter your search criteria (party name, judge name, keywords, etc.) and pick a court from the dropdown if you want to narrow it
-3. Click "Search" to submit
-4. Results appear below with pagination controls
-5. Click **Export CSV** in the results header to download the current result set
-6. The Judge Profile tab returns a single judge's bio, positions, and recent dockets in one shot — Export CSV downloads the docket list
+3. On the **Case Law** tab, click the `&`/`?` toggle to switch between keyword and semantic search — semantic search finds cases by meaning, not just exact word matches
+4. Click "Search" to submit
+5. Results appear below with pagination controls
+6. Click **Export CSV** in the results header to download the current result set
+7. The **Judge Profile** tab returns a single judge's bio, positions, and recent dockets in one shot
+8. The **Judge Disclosures** tab shows a judge's financial disclosure filings — investments, outside positions, gifts, debts, and reimbursements
 
 ### API Endpoints
 
@@ -87,14 +91,20 @@ If you prefer to interact directly with the API:
 # Search cases by party
 curl "http://localhost:8000/api/search/cases?party=Apple&limit=10"
 
-# Search case law
+# Search case law (keyword)
 curl "http://localhost:8000/api/search/opinions?query=patent&court=cafc&limit=10"
+
+# Search case law (semantic — finds cases by meaning)
+curl "http://localhost:8000/api/search/opinions?query=tenant+evicted+for+having+a+dog&semantic=true&limit=10"
 
 # Find judges
 curl "http://localhost:8000/api/search/judges?name=Roberts&limit=10"
 
 # Pull a full judge profile (bio + recent dockets) in one call
 curl "http://localhost:8000/api/judge-profile?name=Tanya+Chutkan&max_cases=25"
+
+# Get a judge's financial disclosures
+curl "http://localhost:8000/api/judge-disclosures?name=Chutkan"
 
 # List federal courts
 curl "http://localhost:8000/api/courts"
@@ -110,9 +120,10 @@ See `http://localhost:8000/docs` for complete API documentation.
 ### Search Endpoints
 
 - `GET /api/search/cases` - Docket search by party, judge, court
-- `GET /api/search/opinions` - Case law search by keywords
+- `GET /api/search/opinions` - Case law search by keywords (add `&semantic=true` for semantic search)
 - `GET /api/search/judges` - Judge lookup by name
 - `GET /api/judge-profile` - Single-judge bio + recent assigned dockets
+- `GET /api/judge-disclosures` - Judge financial disclosures (investments, gifts, debts, positions)
 - `GET /api/search/recap` - RECAP archive search
 - `POST /api/search/advanced` - Combined filter search
 - `GET /api/courts` - List all federal courts
@@ -235,4 +246,4 @@ CourtListener data is provided under the terms of their API agreement. See [Cour
 
 ---
 
-**Last Updated**: April 27, 2026
+**Last Updated**: May 30, 2026

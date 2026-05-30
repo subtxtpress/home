@@ -589,8 +589,8 @@
       </div>
       <div class="feature-card">
         <h3>Case Law Search</h3>
-        <p>Search published opinions and decisions by keyword, court, or citation.</p>
-        <span class="feature-tag">search tab</span>
+        <p>Search published opinions and decisions by keyword or natural language with semantic search.</p>
+        <span class="feature-tag hot">semantic search</span>
       </div>
       <div class="feature-card">
         <h3>Judge Lookup</h3>
@@ -601,6 +601,11 @@
         <h3>Judge Profile</h3>
         <p>One-click bio, positions, and recent assigned dockets for a single judge.</p>
         <span class="feature-tag hot">featured</span>
+      </div>
+      <div class="feature-card">
+        <h3>Judge Disclosures</h3>
+        <p>View a judge's financial disclosure filings — investments, positions, gifts, debts, and reimbursements by year.</p>
+        <span class="feature-tag hot">new</span>
       </div>
       <div class="feature-card">
         <h3>RECAP Archive</h3>
@@ -670,7 +675,7 @@
       <div class="step">
         <span class="step-num">1</span>
         <div class="step-body">
-          <p>Select a search type from the tabs: Cases, Opinions, Judges, Judge Profile, RECAP, or Courts.</p>
+          <p>Select a search type from the tabs: Cases, Case Law, Judges, Judge Profile, Judge Disclosures, RECAP Archive, or Courts.</p>
         </div>
       </div>
       <div class="step">
@@ -694,8 +699,13 @@
     </div>
 
     <div class="info-box info-neutral animate d4">
-      <div class="info-head">Judge Profile</div>
-      <p>The <strong>Judge Profile</strong> tab returns a single judge's bio, positions, and recent dockets in one view. The <strong>Export CSV</strong> button downloads that judge's full docket list.</p>
+      <div class="info-head">Semantic Search</div>
+      <p>On the <strong>Case Law</strong> tab, click the <code>&amp;</code>/<code>?</code> toggle to switch between keyword and semantic search. Semantic search finds cases by meaning — e.g., "tenant evicted for having a dog" finds pet-related housing cases, not just results containing those exact words. Wrap terms in "quotes" for hybrid keyword + semantic matching.</p>
+    </div>
+
+    <div class="info-box info-neutral animate d4">
+      <div class="info-head">Judge Profile &amp; Disclosures</div>
+      <p>The <strong>Judge Profile</strong> tab returns a single judge's bio, positions, and recent dockets in one view. The <strong>Judge Disclosures</strong> tab shows their financial disclosure filings — investments, outside positions, gifts, debts, and reimbursements organized by year.</p>
     </div>
 
     <!-- API Reference -->
@@ -710,9 +720,10 @@
         </thead>
         <tbody>
           <tr><td>GET /api/search/cases</td><td>Docket search by party, judge, court</td></tr>
-          <tr><td>GET /api/search/opinions</td><td>Case law search by keywords</td></tr>
+          <tr><td>GET /api/search/opinions</td><td>Case law search — add <code>&amp;semantic=true</code> for semantic search</td></tr>
           <tr><td>GET /api/search/judges</td><td>Judge lookup by name</td></tr>
           <tr><td>GET /api/judge-profile</td><td>Single-judge bio + recent assigned dockets</td></tr>
+          <tr><td>GET /api/judge-disclosures</td><td>Judge financial disclosures (investments, gifts, debts)</td></tr>
           <tr><td>GET /api/search/recap</td><td>RECAP archive search</td></tr>
           <tr><td>GET /api/courts</td><td>List all federal courts</td></tr>
           <tr><td>GET /api/case/{id}</td><td>Get single case details</td></tr>
@@ -726,14 +737,20 @@
       <div class="code-block"><code><span class="comment"># Search cases by party</span>
 curl "http://localhost:8000/api/search/cases?party=Apple&amp;limit=10"
 
-<span class="comment"># Search case law</span>
+<span class="comment"># Search case law (keyword)</span>
 curl "http://localhost:8000/api/search/opinions?query=patent&amp;court=cafc&amp;limit=10"
+
+<span class="comment"># Search case law (semantic — finds cases by meaning)</span>
+curl "http://localhost:8000/api/search/opinions?query=tenant+evicted+for+having+a+dog&amp;semantic=true&amp;limit=10"
 
 <span class="comment"># Find judges</span>
 curl "http://localhost:8000/api/search/judges?name=Roberts&amp;limit=10"
 
 <span class="comment"># Pull a full judge profile in one call</span>
-curl "http://localhost:8000/api/judge-profile?name=Tanya+Chutkan&amp;max_cases=25"</code></div>
+curl "http://localhost:8000/api/judge-profile?name=Tanya+Chutkan&amp;max_cases=25"
+
+<span class="comment"># Get a judge's financial disclosures</span>
+curl "http://localhost:8000/api/judge-disclosures?name=Chutkan"</code></div>
     </div>
 
     <div class="card animate d5">
