@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{{CASE_TITLE}} | Timeline</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/{{SLUG}}/timeline">
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{CASE_TITLE}} | Timeline">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/{{SLUG}}/timeline">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Case Maps | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{CASE_TITLE}} | Timeline">
+  <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     THEME: DARK (default)
+     Subtxt Press case maps palette
+     bg #060B14 · teal #4a8a7c · red #C04E01 · accent #ebe2cd
+     ═══════════════════════════════════════════════════════════════ */
+  :root {
+    --bg: #060B14;
+    --surface: #0f1620;
+    --surface-elevated: #17202e;
+    --border: rgba(235, 226, 205, 0.10);
+    --border-strong: rgba(235, 226, 205, 0.22);
+    --text: #ebe2cd;
+    --text-body: #b5ad9a;
+    --text-dim: #7a7468;
+    --petitioner: #C04E01;
+    --respondent: #4a8a7c;
+    --neutral: #7a7468;
+    --accent: #ebe2cd;
+    --disputed: #d4a843;
+    --grad-header: linear-gradient(160deg, #0f1620, #060B14);
+    --grad-accent: linear-gradient(to right, #4a8a7c, #C04E01);
+    --shadow: 0 2px 12px rgba(0,0,0,0.50);
+    --shadow-hover: 0 8px 28px rgba(0,0,0,0.60);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     THEME: LIGHT
+     Warm inversion of the dark palette
+     ═══════════════════════════════════════════════════════════════ */
+  [data-theme="light"] {
+    --bg: #f4ede3;
+    --surface: #ffffff;
+    --surface-elevated: #ece5d9;
+    --border: rgba(62, 36, 54, 0.14);
+    --border-strong: rgba(62, 36, 54, 0.28);
+    --text: #241620;
+    --text-body: #4a3f45;
+    --text-dim: #7a7063;
+    --petitioner: #a8420a;
+    --respondent: #377a6d;
+    --neutral: #7a7063;
+    --accent: #7A5063;
+    --disputed: #8a6d1b;
+    --grad-header: linear-gradient(160deg, #f4ede3, #ece5d9);
+    --grad-accent: linear-gradient(to right, #4a8a7c, #C04E01);
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --shadow-hover: 0 8px 28px rgba(0,0,0,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* ─── Top accent strip ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-accent);
+    z-index: 200;
+    pointer-events: none;
+  }
+
+  /* --- HEADER --- */
+  .hero {
+    padding: 2.5rem 1.25rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--grad-header);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+  .hero .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+  .hero .case-info {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    transition: color 0.3s ease;
+  }
+
+  /* --- LEGEND --- */
+  .legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.7rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .legend-items {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    transition: color 0.3s ease;
+  }
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  .legend-dot.pet { background: var(--petitioner); }
+  .legend-dot.res { background: var(--respondent); }
+  .legend-dot.both { background: var(--disputed); }
+
+  /* --- THEME TOGGLE --- */
+  .theme-toggle {
+    position: absolute;
+    right: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.3rem 0.65rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1;
+    transition: all 0.25s ease;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface-elevated);
+  }
+
+  /* --- NAV PILLS --- */
+  .nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: none;
+    transition: border-color 0.3s ease;
+  }
+  .nav-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0;
+    padding: 0.4rem 0.75rem;
+    border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .pill:hover, .pill.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  /* --- TIMELINE --- */
+  .timeline {
+    padding: 0 1rem 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .chapter {
+    padding-top: 1.5rem;
+  }
+  .chapter-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.3s ease;
+  }
+  .chapter-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    transition: background-color 0.3s ease;
+  }
+
+  .event {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.25rem;
+    border-left: 2px solid var(--border);
+    margin-left: 0.25rem;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.2s ease, border-color 0.3s ease;
+  }
+  .event:hover {
+    background: color-mix(in srgb, var(--surface) 50%, transparent);
+  }
+  .event::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 1.05rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neutral);
+    transition: background-color 0.3s ease;
+  }
+  .event.pet::before { background: var(--petitioner); }
+  .event.res::before { background: var(--respondent); }
+  .event.both::before { background: var(--disputed); }
+  .event.key { border-left-color: var(--accent); }
+  .event.key::before { width: 10px; height: 10px; left: -6px; top: 1rem; }
+
+  .event-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+    transition: color 0.3s ease;
+  }
+  .event-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+  }
+  .event-body {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+    transition: color 0.3s ease;
+  }
+
+  /* --- SPLIT VIEW --- */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .split-side {
+    padding: 0.75rem 0.875rem;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .split-side.pet-side {
+    background: color-mix(in srgb, var(--petitioner) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--petitioner) 20%, transparent);
+    color: var(--text-body);
+  }
+  .split-side.res-side {
+    background: color-mix(in srgb, var(--respondent) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--respondent) 20%, transparent);
+    color: var(--text-body);
+  }
+  .split-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+  .split-side.pet-side .split-label { color: var(--petitioner); }
+  .split-side.res-side .split-label { color: var(--respondent); }
+
+  /* --- EXPANDABLE --- */
+  details {
+    margin-top: 0.4rem;
+  }
+  details summary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.3s ease;
+  }
+  details summary::before {
+    content: '+ ';
+  }
+  details[open] summary::before {
+    content: '— ';
+  }
+  details .detail-body {
+    padding: 0.5rem 0;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  /* --- EVIDENCE TAG --- */
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0.15rem 0.15rem 0.15rem 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .tag.exhibit {
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--accent);
+  }
+  .tag.police {
+    background: color-mix(in srgb, var(--respondent) 15%, transparent);
+    color: var(--respondent);
+  }
+  .tag.disputed {
+    background: color-mix(in srgb, var(--disputed) 18%, transparent);
+    color: var(--disputed);
+  }
+  .tag.filing {
+    background: color-mix(in srgb, var(--text-dim) 15%, transparent);
+    color: var(--text-dim);
+  }
+
+  /* --- FOOTER --- */
+  .footer {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* --- DESKTOP --- */
+  @media (min-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .timeline { padding: 0 2rem 3rem; }
+    .event-title { font-size: 1rem; }
+  }
+
+  /* --- MOBILE --- */
+  @media (max-width: 580px) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+    .hero { padding: 2rem 1rem 1.25rem; }
+    .hero h1 { font-size: 1.3rem; }
+    .hero .sub { font-size: 0.75rem; }
+    .legend { padding: 0.6rem 0.75rem; }
+    .legend-items { gap: 0.6rem; }
+    .legend-item { font-size: 0.5rem; gap: 0.25rem; }
+    .legend-dot { width: 6px; height: 6px; }
+    .theme-toggle { right: 0.5rem; padding: 0.2rem 0.5rem; font-size: 0.7rem; }
+    .nav-pills { justify-content: flex-start; padding: 0.6rem 0.75rem; }
+    .pill { font-size: 0.55rem; padding: 0.35rem 0.6rem; }
+    .timeline { padding: 0 0.75rem 2rem; }
+    .event { padding: 0.6rem 0 0.6rem 1rem; }
+    .event-title { font-size: 0.82rem; }
+    .event-body { font-size: 0.72rem; }
+    .event-date { font-size: 0.55rem; }
+    .chapter-label { font-size: 0.5rem; }
+    .split-side { font-size: 0.68rem; padding: 0.65rem 0.75rem; }
+    .tag { font-size: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>{{CASE_TITLE}}</h1>
+  <div class="sub">{{SUBTITLE}}</div>
+  <div class="case-info">
+    Case No. {{CASE_NUMBER}} · {{COURT}}<br>
+    Judge {{JUDGE}} · Filed {{YEAR}}
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-items">
+    <div class="legend-item"><div class="legend-dot pet"></div> {{PETITIONER_LABEL}}</div>
+    <div class="legend-item"><div class="legend-dot res"></div> {{RESPONDENT_LABEL}}</div>
+    <div class="legend-item"><div class="legend-dot both"></div> Disputed / both</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
+</div>
+
+<!-- Add/remove pills to match your chapters -->
+<nav class="nav-pills">
+  <a href="#ch1" class="pill">1. {{CH1_TITLE}}</a>
+  <a href="#ch2" class="pill">2. {{CH2_TITLE}}</a>
+  <a href="#ch3" class="pill">3. {{CH3_TITLE}}</a>
+</nav>
+
+<div class="timeline">
+
+  <!-- ====== CHAPTER 1 ====== -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-label">Act 1 · {{CH1_TITLE}} ({{CH1_DATES}})</div>
+
+    <!-- BASIC EVENT — neutral, no party attribution -->
+    <div class="event">
+      <div class="event-date">{{DATE}}</div>
+      <div class="event-title">{{TITLE}}</div>
+      <div class="event-body">{{BODY}}</div>
+    </div>
+
+    <!-- PARTY EVENT — color-coded dot (pet = petitioner, res = respondent) -->
+    <div class="event pet">
+      <div class="event-date">{{DATE}}</div>
+      <div class="event-title">{{TITLE}}</div>
+      <div class="event-body">{{BODY}} <span class="tag exhibit">Ex ##</span></div>
+    </div>
+
+    <!-- KEY EVENT — accent border + larger dot. Combine with party: "event both key", "event pet key", etc. -->
+    <div class="event both key">
+      <div class="event-date">{{DATE}}</div>
+      <div class="event-title">{{TITLE}}</div>
+      <div class="event-body">{{BODY}}</div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 2 ====== -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-label">Act 2 · {{CH2_TITLE}} ({{CH2_DATES}})</div>
+
+    <!-- SPLIT VIEW — disputed event with both sides -->
+    <div class="event both key">
+      <div class="event-date">{{DATE}}</div>
+      <div class="event-title">{{TITLE}}</div>
+      <div class="event-body">{{INTRO_TEXT}}</div>
+      <div class="split">
+        <div class="split-side pet-side">
+          <div class="split-label">{{PETITIONER_LABEL}}</div>
+          {{PETITIONER_ACCOUNT}}
+        </div>
+        <div class="split-side res-side">
+          <div class="split-label">{{RESPONDENT_LABEL}}</div>
+          {{RESPONDENT_ACCOUNT}}
+        </div>
+      </div>
+      <div class="event-body" style="margin-top:0.5rem">{{FOLLOWUP}} <span class="tag disputed">{{DISPUTE_NOTE}}</span></div>
+    </div>
+
+    <!-- EVENT WITH EXPANDABLE DETAILS -->
+    <div class="event pet">
+      <div class="event-date">{{DATE}}</div>
+      <div class="event-title">{{TITLE}}</div>
+      <div class="event-body">
+        {{BODY}}
+        <details>
+          <summary>{{DETAILS_LABEL}}</summary>
+          <div class="detail-body">
+            <strong>{{DATE_1}}:</strong> {{DETAIL_1}} <span class="tag exhibit">Ex ##</span><br>
+            <strong>{{DATE_2}}:</strong> {{DETAIL_2}} <span class="tag exhibit">Ex ##</span>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 3 ====== -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-label">Act 3 · {{CH3_TITLE}} ({{CH3_DATES}})</div>
+
+    <!-- EVENT WITH MULTIPLE BODY BLOCKS -->
+    <div class="event pet key">
+      <div class="event-date">{{DATE}}</div>
+      <div class="event-title">{{TITLE}}</div>
+      <div class="event-body">{{BODY_1}} <span class="tag exhibit">Ex ##</span></div>
+      <div class="event-body" style="margin-top:0.4rem">{{BODY_2}} <span class="tag exhibit">Ex ##</span></div>
+    </div>
+
+    <!-- EVENT WITH POLICE/FILING TAGS -->
+    <div class="event res">
+      <div class="event-date">{{DATE}}</div>
+      <div class="event-title">{{TITLE}}</div>
+      <div class="event-body">{{BODY}} <span class="tag police">Report #{{REPORT_NUMBER}}</span> <span class="tag filing">{{FILING_LABEL}}</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>{{FOOTER_SOURCE}}</p>
+  <p style="margin-top:0.5rem">{{FOOTER_DISCLAIMER}}</p>
+  <p style="margin-top:0.75rem"><a href="../../dockets/{{SLUG}}/docket">Docket →</a> · <a href="../../index.html">← Subtxt Press</a></p>
+</div>
+
+<script>
+  // Theme toggle
+  const toggle = document.getElementById('theme-toggle');
+  const stored = localStorage.getItem('timeline-theme');
+  if (stored) document.documentElement.setAttribute('data-theme', stored);
+  updateToggleIcon();
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('timeline-theme', next);
+    updateToggleIcon();
+  });
+
+  function updateToggleIcon() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    toggle.textContent = theme === 'dark' ? '☀' : '☽';
+  }
+
+  // Smooth scroll for nav pills
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(pill.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // Highlight active pill on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  const pills = document.querySelectorAll('.pill');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        pills.forEach(p => {
+          p.classList.toggle('active', p.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  chapters.forEach(ch => observer.observe(ch));
+</script>
+
+</body>
+</html>

@@ -20,6 +20,8 @@ No build system — all pages are standalone HTML files with inline CSS/JS.
 | `docket.html` | Embedded PDF docket (Google Drive iframe) |
 | `docket-typed.html` | Typed-in docket — filing entries, case headers, tables |
 | `card-snippet.html` | Card block to paste into `dockets/cases.html` |
+| `preview-img.html` | OG image card (1200x675) — light palette, docket filing list + stats |
+| `preview-img-4x3.html` | 4:3 preview card (900x675) — same layout, narrower |
 
 **Workflow — new docket page:**
 1. Create folder: `dockets/{SLUG}/`
@@ -44,6 +46,9 @@ No build system — all pages are standalone HTML files with inline CSS/JS.
 | File | Use |
 |---|---|
 | `scrolly-map.html` | Scrollytelling timeline with Leaflet map |
+| `timeline.html` | Dual-narrative timeline with chapters, split views, and exhibit tags |
+| `preview-img.html` | OG image card (1200x675) — dark palette, timeline + stats |
+| `preview-img-4x3.html` | 4:3 preview card (900x675) — same layout, narrower |
 
 **Workflow — new scrolly timeline:**
 1. Create folder: `case/{slug}/`
@@ -61,12 +66,30 @@ No build system — all pages are standalone HTML files with inline CSS/JS.
 - `.step-embed` with `.embed-placeholder` — click-to-load iframe (transcripts, audio)
 - `.callout` — highlighted callout box
 
+**Workflow — new dual-narrative timeline:**
+1. Create folder: `case/{slug}/`
+2. Copy `timeline.html` into it as `timeline.html`
+3. Replace meta tag placeholders (`{{CASE_TITLE}}`, `{{SLUG}}`, `{{CASE_NUMBER}}`, etc.)
+4. Set legend labels (`{{PETITIONER_LABEL}}`, `{{RESPONDENT_LABEL}}`)
+5. Add/remove nav pills and chapters as needed (template starts with 3)
+6. Fill in events using the block types below
+
+**Timeline event types** (mix and match inside each `.chapter`):
+- `.event` — neutral event (gray dot)
+- `.event.pet` — petitioner-attributed (red dot)
+- `.event.res` — respondent-attributed (blue dot)
+- `.event.both` — disputed by both sides (accent dot)
+- `.event.key` — key moment (accent border + larger dot); combine with party class
+- `.split` inside event — side-by-side panels (`.split-side.pet-side` + `.split-side.res-side`)
+- `details` inside `.event-body` — expandable section with `summary` + `.detail-body`
+- `.tag.exhibit` / `.tag.police` / `.tag.disputed` / `.tag.filing` — inline evidence badges
+
 ## Case Input Format
 
 When the user provides case details in this format, use the appropriate template and fill everything in:
 
 ```
-Type: docket | docket-typed | scrolly-map
+Type: docket | docket-typed | scrolly-map | timeline
 Name: [case/person name]
 Folder: [slug for the folder name]
 Masthead: [title shown in the hero banner]
