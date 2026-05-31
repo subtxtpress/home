@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1200">
-  <title>OG Preview — Magnolia Case Map</title>
+  <title>OG Preview — Tiera Strand Timeline</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
@@ -33,7 +33,7 @@
     }
 
     body {
-      width: 1200px;
+      width: 900px;
       height: 675px;
       overflow: hidden;
       background: var(--surface-page);
@@ -62,15 +62,13 @@
       font-weight: 600;
       font-size: 18px;
       color: var(--text-body);
-      letter-spacing: 0.01em;
-      margin-left: -10px;
+      margin-left: -20px;
     }
 
     .nav-sub {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--respondent);
       margin-left: 14px;
@@ -90,7 +88,6 @@
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-muted);
     }
@@ -99,14 +96,13 @@
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.10em;
       text-transform: uppercase;
       color: var(--text-label);
       background: transparent;
       border: 1px solid var(--accent-border);
       padding: 6px 14px;
       border-radius: 2px;
-      margin-right: -15px;
+      margin-right: -20px;
     }
 
     .main {
@@ -129,15 +125,15 @@
       flex-direction: column;
       position: relative;
       z-index: 5;
-      padding-top: 15%;
-      margin-left: -15px;
+      padding-top: 25%;
+      margin-left: -20px;
     }
 
     .eyebrow-line {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 4%;
+      margin-bottom: 5%;
     }
 
     .eyebrow-dot {
@@ -152,7 +148,6 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-label);
     }
@@ -160,22 +155,22 @@
     .headline {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 54px;
-      line-height: 1.02;
+      font-size: 40px;
+      line-height: 1.12;
       color: var(--text-heading);
-      letter-spacing: -0.01em;
-      margin-bottom: 11%;
+      margin-bottom: 15%;
     }
 
     .headline em {
       font-style: italic;
       font-weight: 400;
       color: var(--disputed);
+      font-size: 44px;
     }
 
     .desc {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 400;
       line-height: 1.65;
       color: rgba(181,173,154,0.65);
@@ -188,15 +183,14 @@
       grid-row: 1;
       grid-column: 2;
       position: relative;
-      padding: 32px 15px 0 0px;
-      margin-top: 2%;
+      padding: 32px 20px 0 20px;
+      margin-top: 8%;
     }
 
     .tl-preview {
       position: relative;
       padding-left: 20px;
-      padding-top: 25px;
-      padding-bottom: 10px;
+      padding-top: 10px;
     }
 
     .tl-line {
@@ -207,7 +201,6 @@
       width: 2px;
       background: linear-gradient(to bottom, var(--respondent), var(--petitioner), var(--disputed));
       border-radius: 2px;
-
     }
 
     .tl-entry {
@@ -244,7 +237,7 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--text-heading);
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .tl-body {
@@ -264,7 +257,7 @@
     .tl-split-side {
       padding: 6px 8px;
       border-radius: 4px;
-      font-size: 10px;
+      font-size: 8px;
       line-height: 1.4;
       color: var(--text-body);
     }
@@ -279,11 +272,11 @@
 
     .tl-split-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 8px;
+      font-size: 6px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 2px;
+      margin-bottom: 5px;
     }
     .tl-split-side.pet .tl-split-label { color: var(--petitioner); }
     .tl-split-side.res .tl-split-label { color: var(--respondent); }
@@ -291,7 +284,7 @@
     .tl-tag {
       display: inline-block;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 8px;
+      font-size: 6px;
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -320,8 +313,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 28px;
       border-right: 1px solid var(--border-light);
+      margin-left: -20px;
     }
 
     .stat:last-child {
@@ -337,13 +330,13 @@
     }
 
     .stat-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-label);
       margin-top: 4px;
+      letter-spacing: 0.09em;
     }
 
     .brand-stamp {
@@ -354,7 +347,6 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 7px;
       font-weight: 400;
-      letter-spacing: 0.10em;
       text-transform: uppercase;
       color: var(--text-muted);
     }
@@ -363,8 +355,8 @@
 <body>
 
   <div class="nav">
-    <span class="nav-brand">Magnolia Case Map</span>
-    <span class="nav-sub">Domestic Violence &middot; Leavenworth, WA</span>
+    <span class="nav-brand">Tiera Strand</span>
+    <span class="nav-sub">Missing Person &middot; Austin, TX</span>
     <div class="nav-links">
       <span class="nav-link">Timeline</span>
       <span class="nav-link">Evidence</span>
@@ -382,11 +374,11 @@
       </div>
 
       <h1 class="headline">
-        The Magnolia <br> <em>"Incident"</em> <br>
+        Tiera <br> <em>Strand</em> <br> Investigative Timeline
       </h1>
 
       <p class="desc">
-        Geographic case map of the JLR domestic violence incident in Leavenworth, WA &mdash; December 24-28, 2025. Interactive map with evidence markers and narrative timeline.
+        Investigative timeline of the disappearance and death of Tiera Strand, 25, last seen April 16, 2023 on Austin's 6th Street. Body recovered in Bell County, TX. Case active.
       </p>
     </div>
 
@@ -396,59 +388,57 @@
 
         <div class="tl-entry">
           <div class="tl-dot pet key"></div>
-          <div class="tl-date">Dec 24, 2025</div>
-          <div class="tl-title">Christmas Eve incident at Magnolia property</div>
-          <div class="tl-body">Leavenworth, WA. Chelan County deputies respond.</div>
+          <div class="tl-date">Apr 16, 2023</div>
+          <div class="tl-title">Last seen on 6th Street, Austin</div>
+          <div class="tl-body">Tiera Strand, 25, disappears after a night out.</div>
         </div>
 
         <div class="tl-entry">
           <div class="tl-dot pet"></div>
-          <div class="tl-date">Dec 25, 2025</div>
-          <div class="tl-title">Incident report filed</div>
-          <div class="tl-body">Chelan County Incident #25CI2789. Affidavit for probable cause signed.</div>
-        </div>
-
-        <div class="tl-entry">
-          <div class="tl-dot res"></div>
-          <div class="tl-date">Dec 28, 2025</div>
-          <div class="tl-title">Supplemental report filed</div>
-          <div class="tl-body">Additional investigation details documented.</div>
+          <div class="tl-date">Apr-May 2023</div>
+          <div class="tl-title">Search efforts</div>
+          <div class="tl-body">Family and community organize searches across Austin area.</div>
         </div>
 
         <div class="tl-entry">
           <div class="tl-dot dis key"></div>
-          <div class="tl-date">Jan 2026</div>
-          <div class="tl-title">Protection order proceedings begin</div>
-          <div class="tl-body">Garland Circuit Court, Arkansas.</div>
+          <div class="tl-date">May 2023</div>
+          <div class="tl-title">Body recovered in Bell County</div>
+          <div class="tl-body">Remains found in rural Bell County, TX.</div>
+        </div>
+
+        <div class="tl-entry">
+          <div class="tl-dot res"></div>
+          <div class="tl-date">Ongoing</div>
+          <div class="tl-title">Investigation active</div>
+          <div class="tl-body">Case remains open. No arrests announced.</div>
         </div>
       </div>
     </div>
 
     <div class="stats-bar">
       <div class="stat" style="padding-left: 48px;">
-        <div class="stat-value">4</div>
-        <div class="stat-label">Key Locations</div>
+        <div class="stat-value">2023</div>
+        <div class="stat-label">Year</div>
       </div>
       <div class="stat">
-        <div class="stat-value">3</div>
-        <div class="stat-label">Incident Reports</div>
+        <div class="stat-value">25</div>
+        <div class="stat-label">Age</div>
       </div>
       <div class="stat">
-        <div class="stat-value">WA</div>
+        <div class="stat-value">TX</div>
         <div class="stat-label">State</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Dec 2025</div>
-        <div class="stat-label">Date Range</div>
+        <div class="stat-value">Active</div>
+        <div class="stat-label">Case Status</div>
       </div>
       <div class="stat">
-        <div class="stat-value">1</div>
-        <div class="stat-label">Case Map</div>
+        <div class="stat-value">2</div>
+        <div class="stat-label">Counties</div>
       </div>
     </div>
   </div>
-
-  <div class="brand-stamp">subtxtpress.github.io</div>
 
 </body>
 </html>

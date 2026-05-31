@@ -1,456 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200">
+  <title>OG Preview — Zach Adams Case Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --surface-page:      #060B14;
+      --surface-card:      rgba(15, 22, 32, 0.90);
+      --surface-elevated:  #0f1620;
+      --text-heading:      #ebe2cd;
+      --text-body:         #b5ad9a;
+      --text-label:        #ebe2cd;
+      --text-muted:        rgba(181, 173, 154, 0.50);
+      --accent:            #ebe2cd;
+      --petitioner:        #C04E01;
+      --respondent:        #4a8a7c;
+      --disputed:          #d4a843;
+      --accent-border:     rgba(235, 226, 205, 0.22);
+      --border-light:      rgba(235, 226, 205, 0.08);
+      --border-mid:        rgba(235, 226, 205, 0.14);
+      --grad-accent:       linear-gradient(to right, #4a8a7c, #C04E01);
+      --grad-neutral:      linear-gradient(to right, #4a8a7c, #C04E01);
+    }
 
-  body {
-    width: 1200px;
-    height: 675px;
-    overflow: hidden;
-    background: #0C0E12;
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    position: relative;
-  }
+    body {
+      width: 1200px;
+      height: 675px;
+      overflow: hidden;
+      background: var(--surface-page);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
 
-  body::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(212,168,67,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(212,168,67,0.025) 1px, transparent 1px);
-    background-size: 48px 48px;
-    z-index: 0;
-  }
 
-  .nav {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 60px;
-    background: rgba(12,14,18,0.97);
-    border-bottom: 1px solid rgba(212,168,67,0.12);
-    display: flex;
-    align-items: center;
-    padding: 0 40px;
-    z-index: 20;
-  }
+    .nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      background:
+        linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
+        var(--grad-neutral) border-box;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      padding: 0 4%;
+      z-index: 20;
+    }
 
-  .nav-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #F2EDE4;
-    letter-spacing: 0.01em;
-  }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text-body);
+      letter-spacing: 0.01em;
+      margin-left: -10px;
+    }
 
-  .nav-sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #D4A843;
-    margin-left: 14px;
-    padding-left: 14px;
-    border-left: 1px solid rgba(212,168,67,0.25);
-  }
+    .nav-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--respondent);
+      margin-left: 14px;
+      padding-left: 14px;
+      border-left: 1px solid var(--accent-border);
+      margin-top: 5px;
+    }
 
-  .nav-links {
-    margin-left: auto;
-    display: flex;
-    gap: 28px;
-    align-items: center;
-  }
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
 
-  .nav-link {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(242,237,228,0.45);
-  }
+    .nav-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
 
-  .nav-cta {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: #0C0E12;
-    background: #D4A843;
-    padding: 7px 16px;
-    border-radius: 2px;
-  }
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      background: transparent;
+      border: 1px solid var(--accent-border);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-right: -15px;
+    }
 
-  .main {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: 480px 1fr;
-    grid-template-rows: 1fr auto;
-    z-index: 1;
-  }
+    .main {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      z-index: 1;
+    }
 
-  .left {
-    grid-row: 1;
-    grid-column: 1;
-    padding: 36px 40px 0 48px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 5;
-  }
+    .left {
+      grid-row: 1;
+      grid-column: 1;
+      padding: 36px 40px 0 48px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 5;
+      padding-top: 15%;
+      margin-left: -15px;
+    }
 
-  .eyebrow-line {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
+    .eyebrow-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4%;
+    }
 
-  .eyebrow-dash {
-    width: 32px;
-    height: 1px;
-    background: #D4A843;
-  }
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--respondent);
+      box-shadow: 0 0 8px rgba(74,138,124,0.6);
+    }
 
-  .eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #D4A843;
-  }
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
 
-  .headline {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-    font-size: 58px;
-    line-height: 1.02;
-    color: #F2EDE4;
-    letter-spacing: -0.01em;
-  }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 54px;
+      line-height: 1.02;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      margin-bottom: 11%;
+    }
 
-  .headline em {
-    font-style: italic;
-    font-weight: 600;
-    color: #D4A843;
-  }
+    .headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--disputed);
+    }
 
-  .desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    line-height: 1.65;
-    color: rgba(242,237,228,0.50);
-    margin-top: 18px;
-    letter-spacing: 0.005em;
-  }
+    .desc {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(181,173,154,0.65);
+      border-left: 2px solid var(--respondent);
+      padding-left: 14px;
+    }
 
-  .cta-row {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-top: 28px;
-  }
+    /* ─── Right: Timeline preview ─── */
+    .right {
+      grid-row: 1;
+      grid-column: 2;
+      position: relative;
+      padding: 32px 15px 0 0px;
+      margin-top: 2%;
+    }
 
-  .cta-primary {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: #0C0E12;
-    background: #D4A843;
-    padding: 11px 22px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+    .tl-preview {
+      position: relative;
+      padding-left: 20px;
+      padding-top: 25px;
+      padding-bottom: 10px;
+    }
 
-  .cta-secondary {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: rgba(242,237,228,0.45);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+    .tl-line {
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--respondent), var(--petitioner), var(--disputed));
+      border-radius: 2px;
 
-  .right {
-    grid-row: 1;
-    grid-column: 2;
-    position: relative;
-    overflow: hidden;
-  }
+    }
 
-  .map-frame {
-    position: absolute;
-    top: 18px;
-    right: 28px;
-    bottom: 18px;
-    left: 0;
-    border: 1px solid rgba(212,168,67,0.22);
-    overflow: hidden;
-  }
+    .tl-entry {
+      position: relative;
+      padding: 0 0 18px 0;
+    }
 
-  .corner {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    z-index: 3;
-  }
-  .corner-tl { top: -1px; left: -1px; border-top: 2px solid #D4A843; border-left: 2px solid #D4A843; }
-  .corner-tr { top: -1px; right: -1px; border-top: 2px solid #D4A843; border-right: 2px solid #D4A843; }
-  .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid #D4A843; border-left: 2px solid #D4A843; }
-  .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid #D4A843; border-right: 2px solid #D4A843; }
+    .tl-dot {
+      position: absolute;
+      left: -17px;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 2px solid var(--surface-page);
+    }
+    .tl-dot.pet { background: var(--petitioner); }
+    .tl-dot.res { background: var(--respondent); }
+    .tl-dot.dis { background: var(--disputed); }
+    .tl-dot.key { width: 10px; height: 10px; left: -18px; top: 4px; }
 
-  .tick-h {
-    position: absolute;
-    width: 8px; height: 1px;
-    background: rgba(212,168,67,0.30);
-    z-index: 3;
-  }
-  .tick-v {
-    position: absolute;
-    width: 1px; height: 8px;
-    background: rgba(212,168,67,0.30);
-    z-index: 3;
-  }
-  .tick-label {
-    position: absolute;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 7px;
-    color: rgba(212,168,67,0.35);
-    letter-spacing: 0.04em;
-    z-index: 3;
-  }
+    .tl-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
 
-  .map-svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
+    .tl-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 10px;
+    }
 
-  .map-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(12,14,18,0.5) 100%),
-      linear-gradient(180deg, rgba(12,14,18,0.25) 0%, transparent 25%, transparent 75%, rgba(12,14,18,0.3) 100%);
-    z-index: 2;
-    pointer-events: none;
-  }
+    .tl-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
-  .data-card {
-    position: absolute;
-    bottom: -22px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 15;
-    background: rgba(12,14,18,0.94);
-    border: 1px solid rgba(212,168,67,0.30);
-    border-radius: 4px;
-    padding: 14px 22px 12px;
-    backdrop-filter: blur(12px);
-    text-align: center;
-    min-width: 180px;
-  }
+    .tl-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
 
-  .data-card-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 7.5px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #D4A843;
-    margin-bottom: 2px;
-  }
+    .tl-split-side {
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      line-height: 1.4;
+      color: var(--text-body);
+    }
+    .tl-split-side.pet {
+      background: rgba(192, 78, 1, 0.08);
+      border: 1px solid rgba(192, 78, 1, 0.20);
+    }
+    .tl-split-side.res {
+      background: rgba(74, 138, 124, 0.08);
+      border: 1px solid rgba(74, 138, 124, 0.20);
+    }
 
-  .data-card-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-    font-size: 40px;
-    color: #F2EDE4;
-    line-height: 1.1;
-  }
+    .tl-split-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .tl-split-side.pet .tl-split-label { color: var(--petitioner); }
+    .tl-split-side.res .tl-split-label { color: var(--respondent); }
 
-  .data-card-sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8px;
-    color: rgba(242,237,228,0.38);
-    letter-spacing: 0.02em;
-    margin-top: 1px;
-  }
+    .tl-tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .tl-tag.exhibit { background: rgba(235,226,205,0.12); color: var(--accent); }
+    .tl-tag.disputed { background: rgba(212,168,67,0.15); color: var(--disputed); }
 
-  .stats-bar {
-    grid-row: 2;
-    grid-column: 1 / -1;
-    display: flex;
-    border-top: 1px solid rgba(212,168,67,0.12);
-    height: 78px;
-    z-index: 10;
-    background: rgba(12,14,18,0.97);
-  }
+    /* ─── Stats bar ─── */
+    .stats-bar {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      display: flex;
+      border-top: 3px solid transparent;
+      height: 72px;
+      z-index: 10;
+      background:
+        linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
+        var(--grad-neutral) border-box;
+    }
 
-  .stat {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 32px;
-    border-right: 1px solid rgba(212,168,67,0.08);
-  }
+    .stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 28px;
+      border-right: 1px solid var(--border-light);
+    }
 
-  .stat:last-child {
-    border-right: none;
-  }
+    .stat:last-child {
+      border-right: none;
+    }
 
-  .stat-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: #F2EDE4;
-    line-height: 1;
-  }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 26px;
+      color: var(--text-heading);
+      line-height: 1;
+    }
 
-  .stat-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 7.5px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(242,237,228,0.30);
-    margin-top: 5px;
-  }
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-top: 4px;
+    }
 
-  .brand-stamp {
-    position: absolute;
-    bottom: 6px;
-    right: 16px;
-    z-index: 20;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 7.5px;
-    font-weight: 400;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: rgba(242,237,228,0.18);
-  }
-</style>
+    .brand-stamp {
+      position: absolute;
+      bottom: 5px;
+      right: 14px;
+      z-index: 20;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7px;
+      font-weight: 400;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
 
   <div class="nav">
-    <span class="nav-brand">TN vs. Zach Adams</span>
-    <span class="nav-sub">Holly Bobo</span>
+    <span class="nav-brand">Zach Adams Case Map</span>
+    <span class="nav-sub">Murder Trial &middot; Evidence Map</span>
     <div class="nav-links">
-      <span class="nav-link">Layers</span>
       <span class="nav-link">Timeline</span>
       <span class="nav-link">Evidence</span>
-      <span class="nav-link">GPS Trail</span>
-      <span class="nav-cta">Explore Map →</span>
+      <span class="nav-link">Map</span>
+      <span class="nav-link">Sources</span>
+      <span class="nav-cta">View Case Map</span>
     </div>
   </div>
 
   <div class="main">
     <div class="left">
       <div class="eyebrow-line">
-        <span class="eyebrow-dash"></span>
-        <span class="eyebrow">Interactive Case Map</span>
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow">Subtxt Press &middot; Case Maps</span>
       </div>
 
       <h1 class="headline">
-        Explore the<br>
-        evidence from<br>
-        the <em>Zach Adams</em><br>
-        trial.
+        Zach Adams <br> <em>Trial Evidence</em> <br> Case Map
       </h1>
 
       <p class="desc">
-        Evidence sites, cell tower records, GPS trail data,<br>
-        chronological phone timeline—animated.
+        Geographic data introduced at the Zach Adams trial — evidence sites, cell tower records, GPS trail data, and a chronological phone timeline.
       </p>
-
-      <div class="cta-row">
-        <span class="cta-primary">Open Case Map →</span>
-        <span class="cta-secondary">View Layers ↓</span>
-      </div>
     </div>
 
     <div class="right">
-      <div class="map-frame">
-        <div class="corner corner-tl"></div>
-        <div class="corner corner-tr"></div>
-        <div class="corner corner-bl"></div>
-        <div class="corner corner-br"></div>
+      <div class="tl-preview">
+        <div class="tl-line"></div>
 
-        <div class="tick-h" style="top:0; left:25%;"></div>
-        <div class="tick-h" style="top:0; left:50%;"></div>
-        <div class="tick-h" style="top:0; left:75%;"></div>
-        <div class="tick-h" style="bottom:0; left:25%;"></div>
-        <div class="tick-h" style="bottom:0; left:50%;"></div>
-        <div class="tick-h" style="bottom:0; left:75%;"></div>
-        <div class="tick-v" style="left:0; top:25%;"></div>
-        <div class="tick-v" style="left:0; top:50%;"></div>
-        <div class="tick-v" style="left:0; top:75%;"></div>
-        <div class="tick-v" style="right:0; top:25%;"></div>
-        <div class="tick-v" style="right:0; top:50%;"></div>
-        <div class="tick-v" style="right:0; top:75%;"></div>
+        <div class="tl-entry">
+          <div class="tl-dot pet key"></div>
+          <div class="tl-date">Apr 13, 2011</div>
+          <div class="tl-title">Holly Bobo disappearance</div>
+          <div class="tl-body">Last seen at her home in Parsons, TN.</div>
+        </div>
 
-        <span class="tick-label" style="top: 6px; right: 8px;">87.82°W</span>
-        <span class="tick-label" style="top: 6px; left: 8px;">35.65°N</span>
-        <span class="tick-label" style="bottom: 6px; left: 8px;">35.52°N</span>
-        <span class="tick-label" style="bottom: 6px; right: 8px;">87.98°W</span>
+        <div class="tl-entry">
+          <div class="tl-dot pet"></div>
+          <div class="tl-date">2011-2014</div>
+          <div class="tl-title">Investigation and arrests</div>
+          <div class="tl-body">Multiple suspects identified. Cell tower data analyzed.</div>
+        </div>
 
-        <!-- Patch to cover tooltip artifact in screenshot -->
-        <div style="position:absolute; top:0; left:200px; width:320px; height:52px; background: linear-gradient(180deg, #0C0E12 60%, transparent); z-index:4;"></div>
+        <div class="tl-entry">
+          <div class="tl-dot dis key"></div>
+          <div class="tl-date">Sep 2017</div>
+          <div class="tl-title">Trial begins</div>
+          <div class="tl-body">Zach Adams tried in Savannah, TN. GPS and phone evidence presented.</div>
+        </div>
 
-        <img src="map-screenshot.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center 72%; z-index:1;" />
-
+        <div class="tl-entry">
+          <div class="tl-dot res"></div>
+          <div class="tl-date">Sep 22, 2017</div>
+          <div class="tl-title">Guilty verdict</div>
+          <div class="tl-body">Convicted of felony murder and kidnapping.</div>
+        </div>
       </div>
     </div>
 
     <div class="stats-bar">
       <div class="stat" style="padding-left: 48px;">
-        <div class="stat-value">8</div>
-        <div class="stat-label">Data Layers</div>
+        <div class="stat-value">15+</div>
+        <div class="stat-label">Evidence Sites</div>
       </div>
       <div class="stat">
-        <div class="stat-value">54+</div>
-        <div class="stat-label">Mapped Locations</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">5</div>
+        <div class="stat-value">6</div>
         <div class="stat-label">Cell Towers</div>
       </div>
       <div class="stat">
-        <div class="stat-value">GPS</div>
-        <div class="stat-label">Trail Playback</div>
+        <div class="stat-value">TN</div>
+        <div class="stat-label">State</div>
       </div>
       <div class="stat">
-        <div class="stat-value">100%</div>
-        <div class="stat-label">Public Records</div>
+        <div class="stat-value">2017</div>
+        <div class="stat-label">Trial Year</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">2</div>
+        <div class="stat-label">Map Layers</div>
       </div>
     </div>
   </div>
 
-  <div class="brand-stamp">Subtxt Press · Dallas, TX</div>
+  <span class="brand-stamp">subtxtpress.github.io</span>
 
 </body>
 </html>
