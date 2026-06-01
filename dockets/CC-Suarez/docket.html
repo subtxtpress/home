@@ -2,955 +2,979 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>CC Suarez Docket | Subtxt Press</title>
-  <meta name="description" content="Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.">
-  <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/CC-Suarez/docket">
-  <!-- Open Graph -->
-  <meta property="og:title" content="CC Suarez Docket | Subtxt Press">
-  <meta property="og:description" content="Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/CC-Suarez/docket">
-  <meta property="og:image" content="https://subtxtpress.github.io/home/dockets/CC-Suarez/img/cc-suarez.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="675">
-  <meta property="og:site_name" content="Dockets | Subtxt Press">
-  <!-- Twitter --> 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CC Suarez Docket | Subtxt Press">
-  <meta name="twitter:description" content="Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.">
-  <meta name="twitter:image" content="https://subtxtpress.github.io/home/dockets/CC-Suarez/img/cc-suarez.png">
-  <meta name="twitter:creator" content="@subtxtpress">
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
-  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
-  <link rel="manifest" href="../../icons/site.webmanifest">
-
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
-  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --peach:   #E8956A;
-      --cream:   #F4EDE3;
-      --sand:    #DDD0BC;
-      --plum:    #3E2436;
-      --carmine: #7A5063;
-      --ink:     #241620;
-
-      --surface-page:     #F4EDE3;
-      --surface-card:     #FFFFFF;
-      --surface-elevated: #EDE5D8;
-
-      --text-heading: #241620;
-      --text-body:    #44373C;
-      --text-label:   #7A5063;
-      --text-muted:   rgba(68, 55, 60, 0.45);
-
-      --accent:        #E8956A;
-      --accent-border: rgba(232, 149, 106, 0.40);
-
-      --border-light:  rgba(221, 208, 188, 0.55);
-      --border-mid:    rgba(180, 140, 100, 0.22);
-
-      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
-
-      --status-open:   #2E7D32;
-      --status-closed: #B71C1C;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--surface-page);
-      color: var(--text-body);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    .section-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-label);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border-mid);
-    }
-
-    /* ─── Nav ───────────────────────────────────────────────── */
-    .site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 5vw;
-      transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
-      border-bottom: 1px solid transparent;
-    }
-
-    .site-nav.scrolled {
-      padding: 14px 5vw;
-      background: rgba(244, 237, 227, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom-color: var(--border-light);
-      box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
-    }
-
-    .nav-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
-      color: #fff;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .site-nav.scrolled .nav-brand { color: var(--ink); }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      padding: 4px;
-      color: rgba(255,255,255,0.8);
-      margin-left: auto;
-      transition: color 0.3s;
-    }
-    .site-nav.scrolled .nav-toggle { color: var(--ink); }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 40px;
-    }
-
-    .nav-links a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover  { color: #fff; }
-    .nav-links a.active { color: var(--peach); }
-
-    .site-nav.scrolled .nav-links a         { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover   { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active  { color: var(--accent); }
-
-    /* ─── Masthead ──────────────────────────────────────────── */
-    .masthead {
-      position: relative;
-      height: 80vh;
-      min-height: 520px;
-      overflow: hidden;
-    }
-
-    .masthead-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 52%;
-    }
-
-    .masthead::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.52)  0%,
-        rgba(0, 0, 0, 0.18) 45%,
-        rgba(0, 0, 0, 0.38) 100%
-      );
-    }
-
-    .masthead-text {
-      position: absolute;
-      bottom: 72px;
-      left: 5vw;
-      z-index: 2;
-    }
-
-    .masthead-kicker {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--peach);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .masthead-kicker::before {
-      content: '';
-      width: 22px;
-      height: 1.5px;
-      background: var(--peach);
-      flex-shrink: 0;
-    }
-
-    .masthead-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
-    }
-
-    /* ─── Content Section ───────────────────────────────────── */
-    .content-section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 56px 5vw 88px;
-    }
-
-    /* ─── Case Header ───────────────────────────────────────── */
-    .case-block {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 32px;
-    }
-
-    .case-title-bar {
-      padding: 18px 28px;
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .case-title-bar h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-      font-weight: 800;
-      color: var(--text-heading);
-      text-align: center;
-    }
-
-    .case-title-bar h2 a {
-      color: var(--carmine);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .status-badge {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 3px;
-      flex-shrink: 0;
-    }
-    .status-badge.open {
-      background: rgba(46, 125, 50, 0.10);
-      border: 1px solid rgba(46, 125, 50, 0.35);
-      color: var(--status-open);
-    }
-    .status-badge.closed {
-      background: rgba(183, 28, 28, 0.08);
-      border: 1px solid rgba(183, 28, 28, 0.30);
-      color: var(--status-closed);
-    }
-
-    .case-meta {
-      padding: 24px 28px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 40px;
-    }
-
-    .case-meta-item {
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .case-meta-item strong {
-      color: var(--text-heading);
-      font-weight: 600;
-    }
-
-    /* ─── Filing Entries ────────────────────────────────────── */
-    .filings {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 32px;
-    }
-
-    .filings-header {
-      padding: 18px 28px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .filings-header h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-      font-weight: 700;
-      color: var(--text-heading);
-    }
-
-    .filing {
-      padding: 16px 28px;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .filing:last-child {
-      border-bottom: none;
-    }
-
-    .filing-link {
-      color: var(--carmine);
-      font-weight: 600;
-      text-underline-offset: 2px;
-    }
-
-    .filing-link:hover {
-      color: var(--ink);
-    }
-
-    .filing-bold {
-      font-weight: 600;
-      color: var(--text-heading);
-    }
-
-    .filing-note {
-      margin-top: 8px;
-      padding: 14px 20px;
-      background: var(--surface-elevated);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 6px 6px 0;
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--text-body);
-    }
-
-    /* ─── Docket Table ──────────────────────────────────────── */
-    .docket-table-wrap {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 32px;
-    }
-
-    .docket-table-header {
-      padding: 18px 28px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .docket-table-header h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-      font-weight: 700;
-      color: var(--text-heading);
-    }
-
-    .docket-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-
-    .docket-table thead {
-      background: var(--surface-elevated);
-    }
-
-    .docket-table th {
-      padding: 10px 16px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-label);
-      text-align: left;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .docket-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border-light);
-      color: var(--text-body);
-      line-height: 1.5;
-    }
-
-    .docket-table th,
-    .docket-table td {
-      white-space: nowrap;
-    }
-
-    .docket-table td.wrap {
-      white-space: normal;
-      word-break: break-word;
-    }
-
-    .docket-table .doc-icon {
-      width: 32px;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .docket-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .docket-table tbody tr:hover {
-      background: rgba(232, 149, 106, 0.04);
-    }
-
-    /* ─── Drive Link Card ───────────────────────────────────── */
-    .drive-card {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      padding: 28px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .drive-card:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 8px 28px rgba(0, 0, 0, 0.10),
-        0 0 0 1px var(--accent-border);
-    }
-
-    .drive-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      background: var(--surface-elevated);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--accent);
-      font-size: 20px;
-    }
-
-    .drive-card-body { flex: 1; }
-
-    .drive-card-title {
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin-bottom: 4px;
-    }
-
-    .drive-card-desc {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-body);
-    }
-
-    .drive-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s, gap 0.2s;
-      flex-shrink: 0;
-    }
-
-    .drive-card-cta:hover {
-      color: var(--ink);
-      gap: 10px;
-    }
-
-    /* ─── Footer ────────────────────────────────────────────── */
-    .site-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 24px 5vw;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .footer-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-social a {
-      color: var(--text-muted);
-      font-size: 15px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-social a:hover { color: var(--carmine); }
-
-    /* ─── Tablet ─────────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .case-meta { grid-template-columns: 1fr; gap: 8px; }
-      .drive-card { flex-direction: column; align-items: flex-start; }
-      .docket-table { font-size: 12px; }
-      .docket-table th, .docket-table td { padding: 10px 12px; }
-    }
-
-    /* ─── Mobile ─────────────────────────────────────────────── */
-    @media (max-width: 720px) {
-      .nav-toggle          { display: block; }
-      .site-nav,
-      .site-nav.scrolled   { padding: 12px 16px; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0; right: 0;
-        flex-direction: column;
-        background: var(--surface-page);
-        border-bottom: 1px solid var(--border-light);
-        padding: 12px 20px 16px;
-        gap: 0;
-        box-shadow: 0 4px 16px rgba(36,22,32,0.08);
-      }
-      .nav-links.open      { display: flex; }
-      .nav-links li        { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
-      .nav-links li:last-child { border-bottom: none; }
-      .nav-links a         { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active  { color: var(--accent) !important; }
-      .nav-links a:hover   { color: var(--ink) !important; }
-      .masthead-text       { left: 20px; bottom: 52px; }
-      .content-section     { padding: 32px 16px 56px; }
-      .case-title-bar      { padding: 14px 20px; flex-wrap: wrap; }
-      .case-meta           { padding: 18px 20px; }
-      .case-meta-item      { font-size: 12px; }
-      .filing              { padding: 14px 20px; font-size: 13px; }
-      .filing-note         { padding: 12px 16px; font-size: 12px; }
-      .docket-table-wrap   {  }
-      .docket-table-header { padding: 14px 20px; }
-      .docket-table        { font-size: 10px; }
-      .docket-table th     { padding: 8px 8px; font-size: 8px; letter-spacing: 0.08em; }
-      .docket-table td     { padding: 8px 8px; }
-      .drive-card          { padding: 20px; }
-      .site-footer         { padding: 24px 20px; }
-    }
-  </style>
+ <meta charset="utf-8">
+ <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+ <title>CC Suarez Docket | Subtxt Press</title>
+ <meta name="description" content="Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.">
+ <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/CC-Suarez/docket">
+ <!-- Open Graph -->
+ <meta property="og:title" content="CC Suarez Docket | Subtxt Press">
+ <meta property="og:description" content="Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/CC-Suarez/docket">
+ <meta property="og:image" content="https://subtxtpress.github.io/home/dockets/CC-Suarez/img/cc-suarez.png">
+ <meta property="og:image:width" content="1200">
+ <meta property="og:image:height" content="675">
+ <meta property="og:site_name" content="Dockets | Subtxt Press">
+ <!-- Twitter --> 
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="CC Suarez Docket | Subtxt Press">
+ <meta name="twitter:description" content="Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.">
+ <meta name="twitter:image" content="https://subtxtpress.github.io/home/dockets/CC-Suarez/img/cc-suarez.png">
+ <meta name="twitter:creator" content="@subtxtpress">
+ <!-- Favicons -->
+ <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+ <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+ <link rel="manifest" href="../../icons/site.webmanifest">
+
+ <link href="https://fonts.googleapis.com" rel="preconnect">
+ <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+ <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+ <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+
+ <style>
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+ :root {
+ --peach: #E8956A;
+ --cream: #F4EDE3;
+ --sand: #DDD0BC;
+ --plum: #3E2436;
+ --carmine: #7A5063;
+ --ink: #241620;
+
+ --surface-page: #F4EDE3;
+ --surface-card: #FFFFFF;
+ --surface-elevated: #EDE5D8;
+
+ --text-heading: #241620;
+ --text-body: #44373C;
+ --text-label: #7A5063;
+ --text-muted: rgba(68, 55, 60, 0.45);
+
+ --accent: #E8956A;
+ --accent-border: rgba(232, 149, 106, 0.40);
+
+ --border-light: rgba(221, 208, 188, 0.55);
+ --border-mid: rgba(180, 140, 100, 0.22);
+
+ --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+
+ --status-open: #2E7D32;
+ --status-closed: #B71C1C;
+ }
+
+ html { scroll-behavior: smooth; }
+
+ body {
+ font-family: 'Inter', sans-serif;
+ background: var(--surface-page);
+ color: var(--text-body);
+ -webkit-font-smoothing: antialiased;
+ overflow-x: hidden;
+ }
+
+ .section-label {
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 0.6rem;
+ letter-spacing: 0.2em;
+ text-transform: uppercase;
+ color: var(--text-label);
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+ margin-bottom: 1.5rem;
+ }
+ .section-label::after {
+ content: '';
+ flex: 1;
+ height: 1px;
+ background: var(--border-mid);
+ }
+
+ /* ─── Nav ───────────────────────────────────────────────── */
+ .site-nav {
+ position: fixed;
+ top: 0; left: 0; right: 0;
+ z-index: 100;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 22px 5vw;
+ transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
+ border-bottom: 1px solid transparent;
+ }
+
+ .site-nav.scrolled {
+ padding: 14px 5vw;
+ background: rgba(244, 237, 227, 0.96);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ border-bottom-color: var(--border-light);
+ box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
+ }
+
+ .nav-brand {
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 14px;
+ font-weight: 500;
+ color: #fff;
+ letter-spacing: 0.10em;
+ text-transform: uppercase;
+ text-decoration: none;
+ transition: color 0.3s;
+ }
+
+ .site-nav.scrolled .nav-brand { color: var(--ink); }
+
+ .nav-toggle {
+ display: none;
+ background: none;
+ border: none;
+ font-size: 20px;
+ line-height: 1;
+ cursor: pointer;
+ padding: 4px;
+ color: rgba(255,255,255,0.8);
+ margin-left: auto;
+ transition: color 0.3s;
+ }
+ .site-nav.scrolled .nav-toggle { color: var(--ink); }
+
+ .nav-links {
+ list-style: none;
+ display: flex;
+ gap: 40px;
+ }
+
+ .nav-links a {
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 11px;
+ font-weight: 500;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: rgba(255, 255, 255, 0.62);
+ text-decoration: none;
+ transition: color 0.2s;
+ }
+
+ .nav-links a:hover { color: #fff; }
+ .nav-links a.active { color: var(--peach); }
+
+ .site-nav.scrolled .nav-links a { color: var(--text-label); }
+ .site-nav.scrolled .nav-links a:hover { color: var(--ink); }
+ .site-nav.scrolled .nav-links a.active { color: var(--accent); }
+
+ /* ─── Masthead ──────────────────────────────────────────── */
+ .masthead {
+ position: relative;
+ height: 80vh;
+ min-height: 520px;
+ overflow: hidden;
+ }
+
+ .masthead-img {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ object-position: center 52%;
+ }
+
+ .masthead::after {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(
+ 180deg,
+ rgba(0, 0, 0, 0.52) 0%,
+ rgba(0, 0, 0, 0.18) 45%,
+ rgba(0, 0, 0, 0.38) 100%
+ );
+ }
+
+ .masthead-text {
+ position: absolute;
+ bottom: 72px;
+ left: 5vw;
+ z-index: 2;
+ }
+
+ .masthead-kicker {
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 11px;
+ font-weight: 500;
+ letter-spacing: 0.22em;
+ text-transform: uppercase;
+ color: var(--peach);
+ margin-bottom: 12px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ }
+
+ .masthead-kicker::before {
+ content: '';
+ width: 22px;
+ height: 1.5px;
+ background: var(--peach);
+ flex-shrink: 0;
+ }
+
+ .masthead-title {
+ font-family: 'Barlow Condensed', sans-serif;
+ font-size: clamp(2.4rem, 5vw, 4rem);
+ font-weight: 600;
+ color: #ffffff;
+ line-height: 0.95;
+ text-transform: uppercase;
+ letter-spacing: 0.02em;
+ text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
+ }
+
+ /* ─── Content Section ───────────────────────────────────── */
+ .content-section {
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 56px 5vw 88px;
+ }
+
+ /* ─── Case Header ───────────────────────────────────────── */
+ .case-block {
+ background: var(--surface-card);
+ border: 1px solid var(--border-mid);
+ border-radius: 10px;
+ overflow: hidden;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+ margin-bottom: 32px;
+ }
+
+ .case-title-bar {
+ padding: 18px 28px;
+ border-bottom: 1px solid var(--border-light);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 12px;
+ }
+
+ .case-title-bar h2 {
+ font-family: 'Raleway', sans-serif;
+ font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+ font-weight: 800;
+ color: var(--text-heading);
+ text-align: center;
+ }
+
+ .case-title-bar h2 a {
+ color: var(--carmine);
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ }
+
+ .status-badge {
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 9px;
+ font-weight: 500;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ padding: 3px 10px;
+ border-radius: 3px;
+ flex-shrink: 0;
+ }
+ .status-badge.open {
+ background: rgba(46, 125, 50, 0.10);
+ border: 1px solid rgba(46, 125, 50, 0.35);
+ color: var(--status-open);
+ }
+ .status-badge.closed {
+ background: rgba(183, 28, 28, 0.08);
+ border: 1px solid rgba(183, 28, 28, 0.30);
+ color: var(--status-closed);
+ }
+
+ .case-meta {
+ padding: 24px 28px;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 10px 40px;
+ }
+
+ .case-meta-item {
+ font-size: 13px;
+ line-height: 1.6;
+ }
+
+ .case-meta-item strong {
+ color: var(--text-heading);
+ font-weight: 600;
+ }
+
+ /* ─── Filing Entries ────────────────────────────────────── */
+ .filings {
+ background: var(--surface-card);
+ border: 1px solid var(--border-mid);
+ border-radius: 10px;
+ overflow: hidden;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+ margin-bottom: 32px;
+ }
+
+ .filings-header {
+ padding: 18px 28px;
+ border-bottom: 1px solid var(--border-light);
+ }
+
+ .filings-header h2 {
+ font-family: 'Raleway', sans-serif;
+ font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+ font-weight: 700;
+ color: var(--text-heading);
+ }
+
+ 
+ .filing {
+ display: flex;
+ gap: 24px;
+ padding: 16px 28px;
+ border-bottom: 1px solid var(--border-light);
+ font-size: 14px;
+ line-height: 1.7;
+ }
+
+ .filing-date {
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 12px;
+ color: var(--text-label);
+ font-weight: 500;
+ flex-shrink: 0;
+ min-width: 75px;
+ letter-spacing: 0.05em;
+ }
+
+ .filing-content {
+ flex: 1;
+ }
+
+
+ .filing:last-child {
+ border-bottom: none;
+ }
+
+ .filing-link {
+ color: var(--carmine);
+ font-weight: 600;
+ text-underline-offset: 2px;
+ }
+
+ .filing-link:hover {
+ color: var(--ink);
+ }
+
+ .filing-bold {
+ font-weight: 600;
+ color: var(--text-heading);
+ }
+
+ .filing-note {
+ margin-top: 8px;
+ padding: 14px 20px;
+ background: var(--surface-elevated);
+ border-left: 3px solid var(--accent);
+ border-radius: 0 6px 6px 0;
+ font-size: 13px;
+ line-height: 1.75;
+ color: var(--text-body);
+ }
+
+ /* ─── Docket Table ──────────────────────────────────────── */
+ .docket-table-wrap {
+ background: var(--surface-card);
+ border: 1px solid var(--border-mid);
+ border-radius: 10px;
+ overflow: hidden;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+ margin-bottom: 32px;
+ }
+
+ .docket-table-header {
+ padding: 18px 28px;
+ border-bottom: 1px solid var(--border-light);
+ }
+
+ .docket-table-header h2 {
+ font-family: 'Raleway', sans-serif;
+ font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+ font-weight: 700;
+ color: var(--text-heading);
+ }
+
+ .docket-table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: 13px;
+ }
+
+ .docket-table thead {
+ background: var(--surface-elevated);
+ }
+
+ .docket-table th {
+ padding: 10px 16px;
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 10px;
+ font-weight: 500;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: var(--text-label);
+ text-align: left;
+ border-bottom: 1px solid var(--border-light);
+ }
+
+ .docket-table td {
+ padding: 12px 16px;
+ border-bottom: 1px solid var(--border-light);
+ color: var(--text-body);
+ line-height: 1.5;
+ }
+
+ .docket-table th,
+ .docket-table td {
+ white-space: nowrap;
+ }
+
+ .docket-table td.wrap {
+ white-space: normal;
+ word-break: break-word;
+ }
+
+ .docket-table .doc-icon {
+ width: 32px;
+ text-align: center;
+ white-space: nowrap;
+ }
+
+ .docket-table tbody tr:last-child td {
+ border-bottom: none;
+ }
+
+ .docket-table tbody tr:hover {
+ background: rgba(232, 149, 106, 0.04);
+ }
+
+ /* ─── Drive Link Card ───────────────────────────────────── */
+ .drive-card {
+ background: var(--surface-card);
+ border: 1px solid var(--border-mid);
+ border-radius: 10px;
+ padding: 28px;
+ box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+ margin-bottom: 32px;
+ display: flex;
+ align-items: center;
+ gap: 20px;
+ transition: transform 0.35s ease, box-shadow 0.35s ease;
+ }
+
+ .drive-card:hover {
+ transform: translateY(-2px);
+ box-shadow:
+ 0 8px 28px rgba(0, 0, 0, 0.10),
+ 0 0 0 1px var(--accent-border);
+ }
+
+ .drive-icon {
+ width: 48px;
+ height: 48px;
+ border-radius: 8px;
+ background: var(--surface-elevated);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-shrink: 0;
+ color: var(--accent);
+ font-size: 20px;
+ }
+
+ .drive-card-body { flex: 1; }
+
+ .drive-card-title {
+ font-family: 'Raleway', sans-serif;
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: var(--text-heading);
+ margin-bottom: 4px;
+ }
+
+ .drive-card-desc {
+ font-size: 13px;
+ line-height: 1.6;
+ color: var(--text-body);
+ }
+
+ .drive-card-cta {
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 10px;
+ font-weight: 500;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: var(--accent);
+ text-decoration: none;
+ transition: color 0.2s, gap 0.2s;
+ flex-shrink: 0;
+ }
+
+ .drive-card-cta:hover {
+ color: var(--ink);
+ gap: 10px;
+ }
+
+ /* ─── Footer ────────────────────────────────────────────── */
+ .site-footer {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 12px;
+ max-width: 100%;
+ margin: 0 auto;
+ padding: 24px 5vw;
+ border-top: 1px solid var(--border-light);
+ }
+
+ .footer-brand {
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: 11px;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ color: var(--text-muted);
+ }
+
+ .footer-social {
+ display: flex;
+ gap: 20px;
+ }
+
+ .footer-social a {
+ color: var(--text-muted);
+ font-size: 15px;
+ text-decoration: none;
+ transition: color 0.2s;
+ }
+
+ .footer-social a:hover { color: var(--carmine); }
+
+ /* ─── Tablet ─────────────────────────────────────────────── */
+ @media (max-width: 900px) {
+ .case-meta { grid-template-columns: 1fr; gap: 8px; }
+ .drive-card { flex-direction: column; align-items: flex-start; }
+ .docket-table { font-size: 12px; }
+ .docket-table th, .docket-table td { padding: 10px 12px; }
+ }
+
+ /* ─── Mobile ─────────────────────────────────────────────── */
+ @media (max-width: 720px) {
+ .nav-toggle { display: block; }
+ .site-nav,
+ .site-nav.scrolled { padding: 12px 16px; }
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0; right: 0;
+ flex-direction: column;
+ background: var(--surface-page);
+ border-bottom: 1px solid var(--border-light);
+ padding: 12px 20px 16px;
+ gap: 0;
+ box-shadow: 0 4px 16px rgba(36,22,32,0.08);
+ }
+ .nav-links.open { display: flex; }
+ .nav-links li { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
+ .nav-links li:last-child { border-bottom: none; }
+ .nav-links a { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
+ .nav-links a.active { color: var(--accent) !important; }
+ .nav-links a:hover { color: var(--ink) !important; }
+ .masthead-text { left: 20px; bottom: 52px; }
+ .content-section { padding: 32px 16px 56px; }
+ .case-title-bar { padding: 14px 20px; flex-wrap: wrap; }
+ .case-meta { padding: 18px 20px; }
+ .case-meta-item { font-size: 12px; }
+ .filing { padding: 14px 20px; font-size: 13px; }
+ .filing-note { padding: 12px 16px; font-size: 12px; }
+ .docket-table-wrap { }
+ .docket-table-header { padding: 14px 20px; }
+ .docket-table { font-size: 10px; }
+ .docket-table th { padding: 8px 8px; font-size: 8px; letter-spacing: 0.08em; }
+ .docket-table td { padding: 8px 8px; }
+ .drive-card { padding: 14px; gap: 12px; flex-direction: row !important; align-items: center !important; }
+ .drive-icon { width: 32px; height: 32px; font-size: 14px; flex-shrink: 0; }
+ .drive-card-body { flex: 1; }
+ .drive-card-title { font-size: 0.9rem; margin-bottom: 0px; }
+ .drive-card-desc { font-size: 11px; line-height: 1.4; }
+ .drive-card-cta { font-size: 8px; }
+ .site-footer { padding: 24px 20px; }
+ }
+ </style>
 </head>
 
 <body>
 
-  <nav class="site-nav" id="siteNav">
-    <a href="../../index" class="nav-brand">Subtxt Press</a>
-    <ul class="nav-links">
-      <li><a href="../../index">Home</a></li>
-      <li><a href="../../policies">Policies</a></li>
-      <li><a href="../cases" class="active">Dockets</a></li>
-      <li><a href="../../case/maps">Case Maps</a></li>
-      <li><a href="../../projects/tools">Projects</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
-  </nav>
+ <nav class="site-nav" id="siteNav">
+ <a href="../../index" class="nav-brand">Subtxt Press</a>
+ <ul class="nav-links">
+ <li><a href="../../index">Home</a></li>
+ <li><a href="../../policies">Policies</a></li>
+ <li><a href="../cases" class="active">Dockets</a></li>
+ <li><a href="../../case/maps">Case Maps</a></li>
+ <li><a href="../../projects/tools">Projects</a></li>
+ </ul>
+ <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+ </nav>
 
-  <div class="masthead">
-    <img class="masthead-img" src="../../assets/img/landscape.jpg" alt="Red Rock Canyon">
-    <div class="masthead-text" data-aos="fade-up">
-      <p class="masthead-kicker">Dockets</p>
-      <h1 class="masthead-title">CC Suarez</h1>
-    </div> 
-  </div>
+ <div class="masthead">
+ <img class="masthead-img" src="../../assets/img/landscape.jpg" alt="Red Rock Canyon">
+ <div class="masthead-text" data-aos="fade-up">
+ <p class="masthead-kicker">Dockets</p>
+ <h1 class="masthead-title">CC Suarez</h1>
+ </div> 
+ </div>
 
-  <section class="content-section">
-
-
-    <!-- ════════════════════════════════════════════════════════
-         CASE HEADER — one per case/sub-case on this page.
-         Use "open" or "closed" class on the status-badge.
-         ════════════════════════════════════════════════════════ -->
-
-    <div class="case-block" data-aos="fade-up">
-      <div class="case-title-bar">
-        <h2>Wilson v. Noshirvan and Suarez</h2>
-        <span class="status-badge open">Open</span>
-        <!-- or: <span class="status-badge closed">Closed</span> -->
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-item"><strong>Case Number:</strong> 8:25-cv-00635-JMG-JMD</div>
-        <div class="case-meta-item"><strong>Assigned To:</strong> Senior Judge John M. Gerrard</div>
-        <div class="case-meta-item"><strong>Referred To:</strong> Magistrate Judge Jacqueline M. DeLuca</div>
-        <div class="case-meta-item"><strong>Filing Date:</strong> October 30, 2025</div>
-        <div class="case-meta-item"><strong>Petitioner:</strong> Jeromy Wilson</div>
-        <div class="case-meta-item"><strong>Court:</strong> U.S. District of Nebraska (8 Omaha)</div>
-        <div class="case-meta-item"><strong>Attorney for Petitioner:</strong> Pro Se</div>
-        <div class="case-meta-item"><strong>Case Type:</strong> 320 Assault Libel & Slander</div>
-        <div class="case-meta-item"><strong>Respondent:</strong> Danesh Noshirvan</div>  
-        <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Taylor J. Wemhoff</div>
-        <div class="case-meta-item"><strong>Respondent:</strong> Chelsea Suarez</div>  
-        <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Taylor J. Wemhoff</div>
-        <div class="case-meta-item"><strong>Respondent:</strong> Table Rock Management, LLC</div>  
-        <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Bartholomew L. McLeay, Jeremy T. Fitzpatrick</div>
-        <div class="case-meta-item"><strong>Attorney for Interested Party:</strong> Joseph Anthony Camp (Terminated 04-06-2026)</div>
-        <div class="case-meta-item"><strong>Status:</strong> Open</div>
-        <!-- Add/remove rows as needed. The grid auto-fills two columns. -->
-      </div>
-    </div>
+ <section class="content-section">
 
 
-    <!-- ════════════════════════════════════════════════════════
-         CASE SUMMARY — filing entries, one <div class="filing"> per entry.
-         Mix and match from the examples below.
-         ════════════════════════════════════════════════════════ -->
+ <!-- ════════════════════════════════════════════════════════
+ CASE HEADER — one per case/sub-case on this page.
+ Use "open" or "closed" class on the status-badge.
+ ════════════════════════════════════════════════════════ -->
 
-    <div class="section-label">Case Summary</div>
-
-    <div class="filings" data-aos="fade-up">
-      <div class="filings-header">
-        <h2>Filings &amp; Activity</h2>
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1WLI9PLgcU5EEN7Wo5ikN_3e2RKg0Lkqy/view?usp=drive_link" target="_blank">COMPLAINT with jury demand</a> against Danesh Noshirvan filed on 10-30-2025.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1A7y_TnxhGqBKX2w5BEEdzPwgPqs7g8M1/view?usp=drive_link" target="_blank">MOTION for Leave to Proceed in forma pauperis</a> filed on 10-30-2025.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">NOTICE by Clerk acknowledging receipt of complaint filed by a pro se party</span> on 10-30-2025.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">GENERAL ORDER NO. 2025-01</span> issued on 10-30-2025 regarding management and assignment of pro se cases.
-      </div>
-
-      <div class="filing">
-        Judge Joseph F. Bataillon issues an <a class="filing-link" href="https://drive.google.com/file/d/12ro4KLzm_sUdy-M7gqN5bh8h22EWLnUs/view?usp=drive_link" target="_blank">ORDER granting Leave to proceed in forma pauperis</a> on 10-31-2025.
-        <div class="filing-note">
-          Plaintiff advised that the Court will conduct an initial review of his claims to determine whether summary dismissal is appropriate under 28 U.S.C. § 1915(e)(2).
-        </div>
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1Cs_IlqQbdXluivCULQ08duWdNLShLiMv/view?usp=drive_link" target="_blank">MOTION for Exemption From PACER Fees</a> filed on 11-03-2025.
-      </div>
-
-      <div class="filing">
-        Judge Joseph F. Bataillon issues a <a class="filing-link" href="https://drive.google.com/file/d/1EpkyTPsIAORVL8zelkcbg9ELYYxsxczM/view?usp=drive_link" target="_blank">MEMORANDUM AND ORDER denying Motion for Exemption from PACER Fees</a> on 11-07-2025.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">CM/ECF NextGen electronic filing access granted</span> to pro se plaintiff Jeromy Wilson on 11-17-2025.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/18dZN9PTpOvMusRqluw9sASxeIOkTvem9/view?usp=drive_link" target="_blank">MOTION for Service by United States Marshals</a> filed on 12-09-2025.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Filing fee paid</span> on 12-23-2025 (Receipt #8074125, $405.00).
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Summons issued</span> to defendant Danesh Noshirvan on 12-23-2025.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1m2bmUM7ag4Sz0Vguset4IaUmkQcyswHS/view?usp=drive_link" target="_blank">MOTION for Order directing service by United States Marshal</a> filed on 12-29-2025.
-      </div>
-
-      <div class="filing">
-        Judge Joseph F. Bataillon issues a <a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drive_link" target="_blank">TEXT ORDER</a> on 01-02-2026 removing the case from the pro se docket.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">REASSIGNMENT ORDER</span> issued on 01-05-2026: Case reassigned to Senior District Judge John M. Gerrard and Magistrate Judge Jacqueline M. DeLuca.
-      </div>
-
-      <div class="filing">
-        Magistrate Judge Jacqueline M. DeLuca issues an <a class="filing-link" href="https://drive.google.com/file/d/1n9vO700RDLq1yp0bDt8ZRUDnp6T512ox/view?usp=drive_link" target="_blank">ORDER granting Plaintiff's Motions for service by United States Marshal</a> on 01-09-2026.
-        <div class="filing-note">
-          Service directed to: Danesh Noshirvan, 2411 Charleston Road, Mansfield, Pennsylvania 16933.
-        </div>
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1-nUJzXsBev2w0oLog1y_vIP5ZpnXWi6K/view?usp=drive_link" target="_blank">MOTION for Expedited Discovery and Leave to Serve Rule 45 Subpoena on Meta Platforms, Inc.</a> filed on 01-21-2026.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Certificate of Service</span> filed on 01-21-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drive_link" target="_blank">MOTION to Amend Complaint</a> filed on 02-10-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1pxDsltwgqH-uTDruCc49HUP42C2XrlRi/view?usp=drive_link" target="_blank">PROPOSED FIRST AMENDED COMPLAINT</a> filed on 02-10-2026.
-      </div>
-
-      <div class="filing">
-        Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/1yeMY4HmpV6NKjY14bmbgYqp60I74vAP8/view?usp=drive_link" target="_blank">MEMORANDUM AND ORDER</a> on 02-24-2026 granting leave to file First Amended Complaint.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1pxDsltwgqH-uTDruCc49HUP42C2XrlRi/view?usp=drive_link" target="_blank">FIRST AMENDED COMPLAINT with jury demand</a> filed on 02-25-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drive_link" target="_blank">MOTION for Leave to Amend Complaint a Second Time</a> filed on 04-14-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drive_link" target="_blank">PROPOSED SECOND AMENDED COMPLAINT</a> filed on 04-14-2026.
-      </div>
-
-      <div class="filing">
-        Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/1Hf2YaippOoTI1soR11VPoDagbE9N4RZ8/view?usp=drive_link" target="_blank">MEMORANDUM AND ORDER</a> on 04-14-2026 approving Second Amended Complaint and granting leave to file.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1j0Y6XSJWKkbObWi5DGCoDUPv_fFJwxoD/view?usp=drive_link" target="_blank">SECOND AMENDED COMPLAINT with jury demand</a> (improperly filed version) filed on 04-14-2026.
-        <div class="filing-note">
-          This version was subsequently stricken by Court order for not matching the approved proposed amendment.
-        </div>
-      </div>
-
-      <div class="filing">
-        Judge John M. Gerrard issues a <a class="filing-link" href="https://drive.google.com/file/d/1htjoWpCHXPJc1lhjJcoZHbQnE6e8Obrp/view?usp=drive_link" target="_blank">TEXT ORDER striking Plaintiff's Second Amended Complaint</a> on 04-15-2026.
-        <div class="filing-note">
-          The filed version differs from the Court-approved proposed amendment. Plaintiff ordered to refile compliant version by 04-20-2026.
-        </div>
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1j0Y6XSJWKkbObWi5DGCoDUPv_fFJwxoD/view?usp=drive_link" target="_blank">SECOND AMENDED COMPLAINT with jury demand</a> (compliant version) filed on 04-15-2026.
-        <div class="filing-note" style="background: rgba(232, 149, 106, 0.15); border-left-color: var(--accent); font-weight: 500;">
-          <strong style="color: var(--accent);">⚡ Chelsea Suarez added as defendant</strong> — First appearance of Chelsea Suarez in the amended complaint. Previously, only Danesh Noshirvan was named in the original complaint.
-        </div>
-      </div>
-
-      <div class="filing">
-        Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drive_link" target="_blank">TEXT ORDER</a> on 04-17-2026 staying deadlines pending case progression conference.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">CM/ECF NextGen electronic filing access granted</span> to pro se defendant Chelsea Suarez on 04-23-2026.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Subpoena returned</span> as to Google LLC on 04-27-2026.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Summons issued</span> to defendants Chelsea Suarez and Table Rock Management, LLC on 04-27-2026.
-      </div>
-
-      <div class="filing">
-        Attorney Taylor J. Wemhoff files <a class="filing-link" href="https://drive.google.com/file/d/1Gg5T4VKdwbHhPZz8ZlJocBlUcAeclDOL/view?usp=drive_link" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> on behalf of Defendant Danesh Noshirvan on 05-07-2026.
-        <div class="filing-note">
-          This filing was initially stricken for being unsigned and refiled in compliant form.
-        </div>
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Mail returned as undeliverable</span> to Joseph Anthony Camp regarding Order on Motion to Intervene on 05-07-2026.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Summons returned executed</span> upon defendant Chelsea Suarez (service date: 04-30-2026) on 05-12-2026.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">Summons returned executed</span> upon defendant Table Rock Management, LLC (service date: 04-30-2026) on 05-12-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1zRjkeDSiAsQLzGVVfZxZ-vD4mLmBlXtt/view?usp=drive_link" target="_blank">MOTION for Orders Authorizing Platform and Third-Party Discovery and for Court Order Under 18 U.S.C. § 2703(d)</a> filed by Plaintiff on 05-13-2026.
-      </div>
-
-      <div class="filing">
-        Attorney Bartholomew L. McLeay files <a class="filing-link" href="https://drive.google.com/file/d/10gfEvdcLvVrcUlEkX19et8MrKK_jS1jO/view?usp=drive_link" target="_blank">MOTION for Extension of Time to File a Responsive Pleading</a> on behalf of Defendant Table Rock Management, LLC on 05-13-2026.
-      </div>
-
-      <div class="filing">
-        Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drive_link" target="_blank">TEXT ORDER</a> on 05-14-2026 setting response deadline to opposition for 05-20-2026.
-      </div>
-
-      <div class="filing">
-        Attorney Taylor J. Wemhoff files <a class="filing-link" href="https://drive.google.com/file/d/1b-9BlFRNaCytD-PywIqnprWsMXBAW2V7/view?usp=drive_link" target="_blank">NOTICE of Appearance of Counsel</a> on behalf of Defendant Chelsea Suarez on 05-20-2026.
-      </div>
-
-      <div class="filing">
-        Attorney Taylor J. Wemhoff files <a class="filing-link" href="https://drive.google.com/file/d/1Gg5T4VKdwbHhPZz8ZlJocBlUcAeclDOL/view?usp=drive_link" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> on behalf of Defendant Chelsea Suarez on 05-20-2026.
-      </div>
-
-      <div class="filing">
-        Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/1epWCNpLD5HMBCUanK9_h1HsG_8uW5_PN/view?usp=drive_link" target="_blank">TEXT ORDER granting Motion for Extension of Time</a> on 05-21-2026.
-        <div class="filing-note">
-          Table Rock Management, LLC shall file answer or responsive pleading by 06-04-2026.
-        </div>
-      </div>
-
-      <div class="filing">
-        Magistrate Judge Jacqueline M. DeLuca issues an <a class="filing-link" href="https://drive.google.com/file/d/1K6-2EbqxC41KJzBKoGaHcO3kFbMfWiSf/view?usp=drive_link" target="_blank">ORDER denying Plaintiff's Motion for third-party discovery</a> on 05-21-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1OsxV14BLncmL4Z18Z9c1_ZE9nIV_9gAX/view?usp=drive_link" target="_blank">MOTION to Disqualify Counsel Taylor J. Wemhoff and Liberty Law Group, LLC</a> filed by Plaintiff on 05-22-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1_E-tqqpP2xxTxvLwbCaVTvUkxvsl5xMW/view?usp=drive_link" target="_blank">BRIEF in support of MOTION to Disqualify Counsel</a> filed by Plaintiff on 05-22-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/102qwbIrz1ecO5e513nAe-ogIVUN_SO-X/view?usp=drive_link" target="_blank">BRIEF in opposition to Defendant Suarez's MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> filed by Plaintiff on 05-22-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1SsWykCxxqV0emVEOHVUNchzJC__4B826/view?usp=drive_link" target="_blank">BRIEF in opposition to Defendant Noshirvan's MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> filed by Plaintiff on 05-22-2026.
-      </div>
-
-      <div class="filing">
-        <span class="filing-bold">TEXT NOTICE REGARDING CORPORATE DISCLOSURE STATEMENT</span> issued on 05-26-2026 requiring Table Rock Management, LLC to file Corporate Disclosure Statement.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1SbLRBHVFIsMD1StMbIC2b2vL-thkOspt/view?usp=drive_link" target="_blank">NOTICE of Supplemental Authority in opposition to defendant Noshirvan's Motion to Strike and Dismiss Second Amended Complaint</a> filed by Plaintiff on 05-26-2026.
-      </div>
-
-      <div class="filing">
-        <a class="filing-link" href="https://drive.google.com/file/d/1Qqje9BudQNJGAUmAqO_eSAWxhsj0faeY/view?usp=drive_link" target="_blank">CORPORATE DISCLOSURE STATEMENT</a> identifying Corporate Parent Veritone, Inc. filed by counsel for Table Rock Management, LLC on 05-26-2026.
-      </div>
-
-    </div>
+ <div class="case-block" data-aos="fade-up">
+ <div class="case-title-bar">
+ <h2>Wilson v. Noshirvan and Suarez</h2>
+ <span class="status-badge open">Open</span>
+ <!-- or: <span class="status-badge closed">Closed</span> -->
+ </div>
+ <div class="case-meta">
+ <div class="case-meta-item"><strong>Case Number:</strong> 8:25-cv-00635-JMG-JMD</div>
+ <div class="case-meta-item"><strong>Assigned To:</strong> Senior Judge John M. Gerrard</div>
+ <div class="case-meta-item"><strong>Referred To:</strong> Magistrate Judge Jacqueline M. DeLuca</div>
+ <div class="case-meta-item"><strong>Filing Date:</strong> October 30, 2025</div>
+ <div class="case-meta-item"><strong>Petitioner:</strong> Jeromy Wilson</div>
+ <div class="case-meta-item"><strong>Court:</strong> U.S. District of Nebraska (8 Omaha)</div>
+ <div class="case-meta-item"><strong>Attorney for Petitioner:</strong> Pro Se</div>
+ <div class="case-meta-item"><strong>Case Type:</strong> 320 Assault Libel & Slander</div>
+ <div class="case-meta-item"><strong>Respondent:</strong> Danesh Noshirvan</div> 
+ <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Taylor J. Wemhoff</div>
+ <div class="case-meta-item"><strong>Respondent:</strong> Chelsea Suarez</div> 
+ <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Taylor J. Wemhoff</div>
+ <div class="case-meta-item"><strong>Respondent:</strong> Table Rock Management, LLC</div> 
+ <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Bartholomew L. McLeay, Jeremy T. Fitzpatrick</div>
+ <div class="case-meta-item"><strong>Attorney for Interested Party:</strong> Joseph Anthony Camp (Terminated 04-06-2026)</div>
+ <div class="case-meta-item"><strong>Status:</strong> Open</div>
+ <!-- Add/remove rows as needed. The grid auto-fills two columns. -->
+ </div>
+ </div>
 
 
-    <!-- ════════════════════════════════════════════════════════
-         TABLE — for case events, documents, citations, etc.
-         Add/remove columns and rows as needed.
-         ════════════════════════════════════════════════════════ -->
+ <!-- ════════════════════════════════════════════════════════
+ CASE SUMMARY — filing entries, one <div class="filing"> per entry.
+ Mix and match from the examples below.
+ ════════════════════════════════════════════════════════ -->
+
+ <div class="section-label">Case Summary</div>
+
+ <div class="filings" data-aos="fade-up">
+ <div class="filings-header">
+ <h2>Filings &amp; Activity</h2>
+ </div>
+
+ <div class="filing"><div class="filing-date">10-30-2025</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1WLI9PLgcU5EEN7Wo5ikN_3e2RKg0Lkqy/view?usp=drive_link" target="_blank">COMPLAINT with jury demand</a> against Danesh Noshirvan filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">10-30-2025</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1A7y_TnxhGqBKX2w5BEEdzPwgPqs7g8M1/view?usp=drive_link" target="_blank">MOTION for Leave to Proceed in forma pauperis</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">10-30-2025</div><div class="filing-content">
+ <span class="filing-bold">NOTICE by Clerk acknowledging receipt of complaint filed by a pro se party</span> .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">10-30-2025</div><div class="filing-content">
+ <span class="filing-bold">GENERAL ORDER NO. 2025-01</span> issued regarding management and assignment of pro se cases.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">10-31-2025</div><div class="filing-content">
+ Judge Joseph F. Bataillon issues an <a class="filing-link" href="https://drive.google.com/file/d/12ro4KLzm_sUdy-M7gqN5bh8h22EWLnUs/view?usp=drive_link" target="_blank">ORDER granting Leave to proceed in forma pauperis</a> .
+ <div class="filing-note">
+ Plaintiff advised that the Court will conduct an initial review of his claims to determine whether summary dismissal is appropriate under 28 U.S.C. § 1915(e)(2).
+ </div></div>
+ </div>
+
+ <div class="filing"><div class="filing-date">11-03-2025</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1Cs_IlqQbdXluivCULQ08duWdNLShLiMv/view?usp=drive_link" target="_blank">MOTION for Exemption From PACER Fees</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">11-07-2025</div><div class="filing-content">
+ Judge Joseph F. Bataillon issues a <a class="filing-link" href="https://drive.google.com/file/d/1EpkyTPsIAORVL8zelkcbg9ELYYxsxczM/view?usp=drive_link" target="_blank">MEMORANDUM AND ORDER denying Motion for Exemption from PACER Fees</a> .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">11-17-2025</div><div class="filing-content">
+ <span class="filing-bold">CM/ECF NextGen electronic filing access granted</span> to pro se plaintiff Jeromy Wilson .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">12-09-2025</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/18dZN9PTpOvMusRqluw9sASxeIOkTvem9/view?usp=drive_link" target="_blank">MOTION for Service by United States Marshals</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">12-23-2025</div><div class="filing-content">
+ <span class="filing-bold">Filing fee paid</span> (Receipt #8074125, $405.00).
+ </div></div>
+
+ <div class="filing"><div class="filing-date">12-23-2025</div><div class="filing-content">
+ <span class="filing-bold">Summons issued</span> to defendant Danesh Noshirvan .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">12-29-2025</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1m2bmUM7ag4Sz0Vguset4IaUmkQcyswHS/view?usp=drive_link" target="_blank">MOTION for Order directing service by United States Marshal</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">01-02-2026</div><div class="filing-content">
+ Judge Joseph F. Bataillon issues a <a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drive_link" target="_blank">TEXT ORDER</a> removing the case from the pro se docket.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">01-05-2026</div><div class="filing-content">
+ <span class="filing-bold">REASSIGNMENT ORDER</span> issued : Case reassigned to Senior District Judge John M. Gerrard and Magistrate Judge Jacqueline M. DeLuca.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">01-09-2026</div><div class="filing-content">
+ Magistrate Judge Jacqueline M. DeLuca issues an <a class="filing-link" href="https://drive.google.com/file/d/1n9vO700RDLq1yp0bDt8ZRUDnp6T512ox/view?usp=drive_link" target="_blank">ORDER granting Plaintiff's Motions for service by United States Marshal</a> .
+ <div class="filing-note">
+ Service directed to: Danesh Noshirvan, 2411 Charleston Road, Mansfield, Pennsylvania 16933.
+ </div></div>
+ </div>
+
+ <div class="filing"><div class="filing-date">01-21-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1-nUJzXsBev2w0oLog1y_vIP5ZpnXWi6K/view?usp=drive_link" target="_blank">MOTION for Expedited Discovery and Leave to Serve Rule 45 Subpoena on Meta Platforms, Inc.</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">01-21-2026</div><div class="filing-content">
+ <span class="filing-bold">Certificate of Service</span> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">02-10-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drive_link" target="_blank">MOTION to Amend Complaint</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">02-10-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1pxDsltwgqH-uTDruCc49HUP42C2XrlRi/view?usp=drive_link" target="_blank">PROPOSED FIRST AMENDED COMPLAINT</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">02-24-2026</div><div class="filing-content">
+ Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/1yeMY4HmpV6NKjY14bmbgYqp60I74vAP8/view?usp=drive_link" target="_blank">MEMORANDUM AND ORDER</a> granting leave to file First Amended Complaint.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">02-25-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1pxDsltwgqH-uTDruCc49HUP42C2XrlRi/view?usp=drive_link" target="_blank">FIRST AMENDED COMPLAINT with jury demand</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">04-14-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drive_link" target="_blank">MOTION for Leave to Amend Complaint a Second Time</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">04-14-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drive_link" target="_blank">PROPOSED SECOND AMENDED COMPLAINT</a> filed
+ </div></div>
+
+ <div class="filing"><div class="filing-date">04-14-2026</div><div class="filing-content">
+ Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/1Hf2YaippOoTI1soR11VPoDagbE9N4RZ8/view?usp=drive_link" target="_blank">MEMORANDUM AND ORDER</a> approving Second Amended Complaint and granting leave to file.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">04-14-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1j0Y6XSJWKkbObWi5DGCoDUPv_fFJwxoD/view?usp=drive_link" target="_blank">SECOND AMENDED COMPLAINT with jury demand</a> (improperly filed version) filed
+ <div class="filing-note">
+ This version was subsequently stricken by Court order for not matching the approved proposed amendment.
+ </div></div>
+ </div>
+
+ <div class="filing"><div class="filing-date">04-15-2026</div><div class="filing-content">
+ Judge John M. Gerrard issues a <a class="filing-link" href="https://drive.google.com/file/d/1htjoWpCHXPJc1lhjJcoZHbQnE6e8Obrp/view?usp=drive_link" target="_blank">TEXT ORDER striking Plaintiff's Second Amended Complaint</a> .
+ <div class="filing-note">
+ The filed version differs from the Court-approved proposed amendment. Plaintiff ordered to refile compliant version by 04-20-2026.
+ </div></div>
+ </div>
+
+ <div class="filing"><div class="filing-date">04-15-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1j0Y6XSJWKkbObWi5DGCoDUPv_fFJwxoD/view?usp=drive_link" target="_blank">SECOND AMENDED COMPLAINT with jury demand</a> (compliant version) filed
+ <div class="filing-note" style="background: rgba(232, 149, 106, 0.15); border-left-color: var(--accent); font-weight: 500;">
+ <strong style="color: var(--accent);">⚡ Chelsea Suarez added as defendant</strong> — First appearance of Chelsea Suarez in the amended complaint. Previously, only Danesh Noshirvan was named in the original complaint.
+ </div></div>
+ </div>
+
+ <div class="filing"><div class="filing-date">04-17-2026</div><div class="filing-content">
+ Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drive_link" target="_blank">TEXT ORDER</a> staying deadlines pending case progression conference.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">04-23-2026</div><div class="filing-content">
+ <span class="filing-bold">CM/ECF NextGen electronic filing access granted</span> to pro se defendant Chelsea Suarez .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">04-27-2026</div><div class="filing-content">
+ <span class="filing-bold">Subpoena returned</span> as to Google LLC .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">04-27-2026</div><div class="filing-content">
+ <span class="filing-bold">Summons issued</span> to defendants Chelsea Suarez and Table Rock Management, LLC .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-07-2026</div><div class="filing-content">
+ Attorney Taylor J. Wemhoff files <a class="filing-link" href="https://drive.google.com/file/d/1Gg5T4VKdwbHhPZz8ZlJocBlUcAeclDOL/view?usp=drive_link" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> on behalf of Defendant Danesh Noshirvan .
+ <div class="filing-note">
+ This filing was initially stricken for being unsigned and refiled in compliant form.
+ </div></div>
+ </div>
+
+ <div class="filing"><div class="filing-date">05-07-2026</div><div class="filing-content">
+ <span class="filing-bold">Mail returned as undeliverable</span> to Joseph Anthony Camp regarding Order on Motion to Intervene .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-12-2026</div><div class="filing-content">
+ <span class="filing-bold">Summons returned executed</span> upon defendant Chelsea Suarez (service date: 04-30-2026) .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-12-2026</div><div class="filing-content">
+ <span class="filing-bold">Summons returned executed</span> upon defendant Table Rock Management, LLC (service date: 04-30-2026) .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-13-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1zRjkeDSiAsQLzGVVfZxZ-vD4mLmBlXtt/view?usp=drive_link" target="_blank">MOTION for Orders Authorizing Platform and Third-Party Discovery and for Court Order Under 18 U.S.C. § 2703(d)</a> filed by Plaintiff .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-13-2026</div><div class="filing-content">
+ Attorney Bartholomew L. McLeay files <a class="filing-link" href="https://drive.google.com/file/d/10gfEvdcLvVrcUlEkX19et8MrKK_jS1jO/view?usp=drive_link" target="_blank">MOTION for Extension of Time to File a Responsive Pleading</a> on behalf of Defendant Table Rock Management, LLC .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-14-2026</div><div class="filing-content">
+ Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drive_link" target="_blank">TEXT ORDER</a> setting response deadline to opposition for 05-20-2026.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-20-2026</div><div class="filing-content">
+ Attorney Taylor J. Wemhoff files <a class="filing-link" href="https://drive.google.com/file/d/1b-9BlFRNaCytD-PywIqnprWsMXBAW2V7/view?usp=drive_link" target="_blank">NOTICE of Appearance of Counsel</a> on behalf of Defendant Chelsea Suarez .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-20-2026</div><div class="filing-content">
+ Attorney Taylor J. Wemhoff files <a class="filing-link" href="https://drive.google.com/file/d/1Gg5T4VKdwbHhPZz8ZlJocBlUcAeclDOL/view?usp=drive_link" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> on behalf of Defendant Chelsea Suarez .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-21-2026</div><div class="filing-content">
+ Magistrate Judge Jacqueline M. DeLuca issues a <a class="filing-link" href="https://drive.google.com/file/d/1epWCNpLD5HMBCUanK9_h1HsG_8uW5_PN/view?usp=drive_link" target="_blank">TEXT ORDER granting Motion for Extension of Time</a> .
+ <div class="filing-note">
+ Table Rock Management, LLC shall file answer or responsive pleading by 06-04-2026.
+ </div></div>
+ </div>
+
+ <div class="filing"><div class="filing-date">05-21-2026</div><div class="filing-content">
+ Magistrate Judge Jacqueline M. DeLuca issues an <a class="filing-link" href="https://drive.google.com/file/d/1K6-2EbqxC41KJzBKoGaHcO3kFbMfWiSf/view?usp=drive_link" target="_blank">ORDER denying Plaintiff's Motion for third-party discovery</a> .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-22-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1OsxV14BLncmL4Z18Z9c1_ZE9nIV_9gAX/view?usp=drive_link" target="_blank">MOTION to Disqualify Counsel Taylor J. Wemhoff and Liberty Law Group, LLC</a> filed by Plaintiff .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-22-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1_E-tqqpP2xxTxvLwbCaVTvUkxvsl5xMW/view?usp=drive_link" target="_blank">BRIEF in support of MOTION to Disqualify Counsel</a> filed by Plaintiff .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-22-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/102qwbIrz1ecO5e513nAe-ogIVUN_SO-X/view?usp=drive_link" target="_blank">BRIEF in opposition to Defendant Suarez's MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> filed by Plaintiff .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-22-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1SsWykCxxqV0emVEOHVUNchzJC__4B826/view?usp=drive_link" target="_blank">BRIEF in opposition to Defendant Noshirvan's MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> filed by Plaintiff .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-26-2026</div><div class="filing-content">
+ <span class="filing-bold">TEXT NOTICE REGARDING CORPORATE DISCLOSURE STATEMENT</span> issued requiring Table Rock Management, LLC to file Corporate Disclosure Statement.
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-26-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1SbLRBHVFIsMD1StMbIC2b2vL-thkOspt/view?usp=drive_link" target="_blank">NOTICE of Supplemental Authority in opposition to defendant Noshirvan's Motion to Strike and Dismiss Second Amended Complaint</a> filed by Plaintiff .
+ </div></div>
+
+ <div class="filing"><div class="filing-date">05-26-2026</div><div class="filing-content">
+ <a class="filing-link" href="https://drive.google.com/file/d/1Qqje9BudQNJGAUmAqO_eSAWxhsj0faeY/view?usp=drive_link" target="_blank">CORPORATE DISCLOSURE STATEMENT</a> identifying Corporate Parent Veritone, Inc. filed by counsel for Table Rock Management, LLC .
+ </div></div>
+
+ </div>
+
+
+ <!-- ════════════════════════════════════════════════════════
+ TABLE — for case events, documents, citations, etc.
+ Add/remove columns and rows as needed.
+ ════════════════════════════════════════════════════════ -->
 
 <!-- Docket table removed - filing details available in Filings & Activity section above -->
 
 
-    <!-- ════════════════════════════════════════════════════════
-         REPEAT: For multi-case dockets (like JLR), add another
-         case-block + filings section + tables below.
-         ════════════════════════════════════════════════════════ -->
+ <!-- ════════════════════════════════════════════════════════
+ REPEAT: For multi-case dockets (like JLR), add another
+ case-block + filings section + tables below.
+ ════════════════════════════════════════════════════════ -->
 
 
-    <!-- ════════════════════════════════════════════════════════
-         SOURCE FILES — optional Drive folder link
-         ════════════════════════════════════════════════════════ -->
+ <!-- ════════════════════════════════════════════════════════
+ SOURCE FILES — optional Drive folder link
+ ════════════════════════════════════════════════════════ -->
 
-    <div class="section-label">Source Files</div>
+ <div class="section-label">Source Files</div>
 
-    <a class="drive-card" href="https://drive.google.com/drive/folders/1kZOyhl8Xyitd7BtHYQxpJMgR6r8clJ1q?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
-      <div class="drive-icon">
-        <i class="bi bi-folder2-open"></i>
-      </div>
-      <div class="drive-card-body">
-        <h3 class="drive-card-title">Google Drive Folder</h3>
-        <p class="drive-card-desc">All filings and documents for Wilson v. Noshirvan and Suarez.</p>
-      </div>
-      <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
-    </a>
+ <a class="drive-card" href="https://drive.google.com/drive/folders/1kZOyhl8Xyitd7BtHYQxpJMgR6r8clJ1q?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
+ <div class="drive-icon">
+ <i class="bi bi-folder2-open"></i>
+ </div>
+ <div class="drive-card-body">
+ <h3 class="drive-card-title">Google Drive Folder</h3>
+ <p class="drive-card-desc">All filings and documents for Wilson v. Noshirvan and Suarez.</p>
+ </div>
+ <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
+ </a>
 
-  </section>
+ </section>
 
-  <footer class="site-footer">
-    <span class="footer-brand">Subtxt Press</span>
-    <div class="footer-social">
-      <a href="https://substack.com/@subtxtpress" aria-label="Substack"><i class="bi bi-substack"></i></a>
-      <a href="https://www.youtube.com/@subtxtpress" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-      <a href="https://x.com/subtxtpress" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-    </div>
-  </footer>
+ <footer class="site-footer">
+ <span class="footer-brand">Subtxt Press</span>
+ <div class="footer-social">
+ <a href="https://substack.com/@subtxtpress" aria-label="Substack"><i class="bi bi-substack"></i></a>
+ <a href="https://www.youtube.com/@subtxtpress" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+ <a href="https://x.com/subtxtpress" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+ </div>
+ </footer>
 
-  <script src="../../assets/vendor/aos/aos.js"></script>
-  <script>
-    AOS.init({ duration: 600, easing: 'ease-out-quart', once: true, offset: 60 });
+ <script src="../../assets/vendor/aos/aos.js"></script>
+ <script>
+ AOS.init({ duration: 600, easing: 'ease-out-quart', once: true, offset: 60 });
 
-    const nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
+ const nav = document.getElementById('siteNav');
+ window.addEventListener('scroll', () => {
+ nav.classList.toggle('scrolled', window.scrollY > 50);
+ }, { passive: true });
 
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.innerHTML = open ? '&#10005;' : '&#9776;';
-    });
-  </script>
+ const navToggle = document.querySelector('.nav-toggle');
+ const navLinks = document.querySelector('.nav-links');
+ navToggle.addEventListener('click', () => {
+ const open = navLinks.classList.toggle('open');
+ navToggle.innerHTML = open ? '&#10005;' : '&#9776;';
+ });
+ </script>
 
 </body>
 </html>
+
