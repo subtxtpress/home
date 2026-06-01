@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1200">
-  <title>OG Preview — Kelsey Fitzsimmons Trial</title>
+  <title>Timeline Preview — Kelsey Fitzsimmons</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
@@ -12,7 +12,6 @@
       margin: 0;
       padding: 0;
     }
-
     :root {
       --surface-page:      #060B14;
       --surface-card:      rgba(15, 22, 32, 0.90);
@@ -22,8 +21,8 @@
       --text-label:        #ebe2cd;
       --text-muted:        rgba(181, 173, 154, 0.50);
       --accent:            #ebe2cd;
-      --petitioner:        #C04E01;
-      --respondent:        #4a8a7c;
+      --petitioner:        #d66417;
+      --respondent:        #6fbdac;
       --disputed:          #d4a843;
       --accent-border:     rgba(235, 226, 205, 0.22);
       --border-light:      rgba(235, 226, 205, 0.08);
@@ -31,7 +30,6 @@
       --grad-accent:       linear-gradient(to right, #4a8a7c, #C04E01);
       --grad-neutral:      linear-gradient(to right, #4a8a7c, #C04E01);
     }
-
     body {
       width: 900px;
       height: 675px;
@@ -41,34 +39,33 @@
       -webkit-font-smoothing: antialiased;
       position: relative;
     }
-
-
     .nav {
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 56px;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: 50px;
       background:
         linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
         var(--grad-neutral) border-box;
       border-bottom: 2px solid transparent;
       display: flex;
       align-items: center;
-      padding: 0 4%;
+      padding: 0 3% 0 2%;
       z-index: 20;
     }
-
     .nav-brand {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
       font-size: 18px;
       color: var(--text-body);
-      margin-left: -20px;
+      letter-spacing: 0.01em;
     }
-
     .nav-sub {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
       font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--respondent);
       margin-left: 14px;
@@ -76,35 +73,33 @@
       border-left: 1px solid var(--accent-border);
       margin-top: 5px;
     }
-
     .nav-links {
       margin-left: auto;
       display: flex;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
     }
-
     .nav-link {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 12px;
       font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-heading);
     }
-
     .nav-cta {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 12px;
       font-weight: 600;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
       color: var(--text-label);
       background: transparent;
       border: 1px solid var(--accent-border);
       padding: 6px 14px;
       border-radius: 2px;
-      margin-right: -20px;
+      margin-right: -10px;
     }
-
     .main {
       position: absolute;
       top: 56px;
@@ -116,26 +111,22 @@
       grid-template-rows: 1fr auto;
       z-index: 1;
     }
-
     .left {
       grid-row: 1;
       grid-column: 1;
-      padding: 36px 40px 0 48px;
       display: flex;
       flex-direction: column;
       position: relative;
       z-index: 5;
-      padding-top: 25%;
-      margin-left: -20px;
+      margin-top: 16%;
+      padding: 0 5%;
     }
-
     .eyebrow-line {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 5%;
+      margin-bottom: 13%;
     }
-
     .eyebrow-dot {
       width: 6px;
       height: 6px;
@@ -143,56 +134,52 @@
       background: var(--respondent);
       box-shadow: 0 0 8px rgba(74,138,124,0.6);
     }
-
     .eyebrow {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-label);
     }
-
     .headline {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 40px;
-      line-height: 1.12;
+      font-size: 48px;
+      line-height: 1.02;
       color: var(--text-heading);
+      letter-spacing: -0.01em;
       margin-bottom: 15%;
     }
-
     .headline em {
       font-style: italic;
       font-weight: 400;
       color: var(--disputed);
-      font-size: 44px;
     }
-
     .desc {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
-      line-height: 1.65;
-      color: rgba(181,173,154,0.65);
+      line-height: 1.78;
+      color: var(--text-body);
       border-left: 2px solid var(--respondent);
       padding-left: 14px;
     }
-
     /* ─── Right: Timeline preview ─── */
     .right {
       grid-row: 1;
       grid-column: 2;
       position: relative;
-      padding: 32px 20px 0 20px;
-      margin-top: 8%;
+      margin-top: 17%;
+      margin-left: 11%;
+      padding: 0;
     }
-
     .tl-preview {
       position: relative;
       padding-left: 20px;
-      padding-top: 10px;
+      padding-top: 20px;
+   
     }
-
     .tl-line {
       position: absolute;
       left: 6px;
@@ -202,62 +189,67 @@
       background: linear-gradient(to bottom, var(--respondent), var(--petitioner), var(--disputed));
       border-radius: 2px;
     }
-
     .tl-entry {
       position: relative;
       padding: 0 0 18px 0;
+      margin-bottom: 3%;
     }
-
     .tl-dot {
       position: absolute;
       left: -17px;
       top: 5px;
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      border: 2px solid var(--surface-page);
+      border: 1px solid var(--surface-page);
     }
-    .tl-dot.pet { background: var(--petitioner); }
-    .tl-dot.res { background: var(--respondent); }
-    .tl-dot.dis { background: var(--disputed); }
-    .tl-dot.key { width: 10px; height: 10px; left: -18px; top: 4px; }
-
+    .tl-dot.pet { 
+      background: var(--petitioner); 
+    }
+    .tl-dot.res { 
+      background: var(--respondent); 
+    }
+    .tl-dot.dis { 
+      background: var(--disputed); 
+    }
+    .tl-dot.key { 
+      width: 10px; 
+      height: 10px; 
+      left: -18px; 
+      top: 4px; 
+    }
     .tl-date {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 8px;
+      font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 10px;
+      color: var(--text-body);
+      margin-bottom: 8px;
     }
-
     .tl-title {
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-heading);
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
-
     .tl-body {
       font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      color: var(--text-muted);
+      font-size: 13px;
+      color: var(--text-body);
       line-height: 1.5;
     }
-
     .tl-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6px;
       margin-top: 6px;
     }
-
     .tl-split-side {
       padding: 6px 8px;
       border-radius: 4px;
-      font-size: 8px;
+      font-size: 10px;
       line-height: 1.4;
       color: var(--text-body);
     }
@@ -269,22 +261,24 @@
       background: rgba(74, 138, 124, 0.08);
       border: 1px solid rgba(74, 138, 124, 0.20);
     }
-
     .tl-split-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 6px;
+      font-size: 8px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
     }
-    .tl-split-side.pet .tl-split-label { color: var(--petitioner); }
-    .tl-split-side.res .tl-split-label { color: var(--respondent); }
-
+    .tl-split-side.pet .tl-split-label { 
+      color: var(--petitioner); 
+    }
+    .tl-split-side.res .tl-split-label { 
+      color: var(--respondent); 
+    }
     .tl-tag {
       display: inline-block;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 6px;
+      font-size: 8px;
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -292,71 +286,60 @@
       border-radius: 2px;
       margin-top: 4px;
     }
-    .tl-tag.exhibit { background: rgba(235,226,205,0.12); color: var(--accent); }
-    .tl-tag.disputed { background: rgba(212,168,67,0.15); color: var(--disputed); }
-
+    .tl-tag.exhibit { 
+      background: rgba(235,226,205,0.12); 
+      color: var(--accent); 
+    }
+    .tl-tag.disputed { 
+      background: rgba(212,168,67,0.15); 
+      color: var(--disputed); 
+    }
     /* ─── Stats bar ─── */
     .stats-bar {
       grid-row: 2;
       grid-column: 1 / -1;
       display: flex;
       border-top: 3px solid transparent;
-      height: 72px;
+      height: 58px;
       z-index: 10;
       background:
         linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
         var(--grad-neutral) border-box;
     }
-
     .stat {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 0 3%;
       border-right: 1px solid var(--border-light);
-      margin-left: -20px;
     }
-
     .stat:last-child {
       border-right: none;
     }
-
     .stat-value {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 26px;
+      font-size: 18px;
       color: var(--text-heading);
       line-height: 1;
     }
-
     .stat-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
       font-weight: 500;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
       color: var(--text-label);
       margin-top: 4px;
-      letter-spacing: 0.09em;
-    }
-
-    .brand-stamp {
-      position: absolute;
-      bottom: 5px;
-      right: 14px;
-      z-index: 20;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 7px;
-      font-weight: 400;
-      text-transform: uppercase;
-      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
 
-  <div class="nav">
+ <div class="nav">
     <span class="nav-brand">Kelsey Fitzsimmons</span>
-    <span class="nav-sub">Cop-on-Cop Shooting &middot; MA</span>
+    <span class="nav-sub">Cop-on-Cop Shooting</span>
     <div class="nav-links">
       <span class="nav-link">Timeline</span>
       <span class="nav-link">Evidence</span>
@@ -374,11 +357,11 @@
       </div>
 
       <h1 class="headline">
-        Kelsey <br> <em>Fitzsimmons</em> <br> Trial Analysis
+        Commonwealth v. Kelsey <em>Fitzsimmons</em> &mdash;Trial Analysis
       </h1>
 
       <p class="desc">
-        Interactive analysis of Officer Noonan's testimony in Commonwealth v. Kelsey Fitzsimmons &mdash; a cop-on-cop shooting case in North Andover, MA. Tracks 11 documented inconsistencies.
+        Interactive case map of Officer Noonan's testimony in Commonwealth v. Kelsey Fitzsimmons. Play-by-play analysis of the cop-on-cop shooting case in North Andover, MA. Tracks 11 documented inconsistencies across testimony and evidence.
       </p>
     </div>
 
@@ -406,7 +389,6 @@
           <div class="tl-title">Officer Noonan direct examination</div>
           <div class="tl-body">11 inconsistencies documented between direct and cross.</div>
         </div>
-
         <div class="tl-entry">
           <div class="tl-dot res"></div>
           <div class="tl-date">Trial</div>
@@ -430,17 +412,15 @@
         <div class="stat-label">State</div>
       </div>
       <div class="stat">
-        <div class="stat-value">1</div>
-        <div class="stat-label">Floor Plan</div>
+        <div class="stat-value">10</div>
+        <div class="stat-label">Play-by-Plays</div>
       </div>
       <div class="stat">
-        <div class="stat-value">1</div>
-        <div class="stat-label">Transcript</div>
+        <div class="stat-value">5</div>
+        <div class="stat-label">Transcripts</div>
       </div>
     </div>
   </div>
-
-  <div class="brand-stamp">subtxtpress.github.io</div>
 
 </body>
 </html>
