@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200">
+  <title>CC Suarez Docket Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --surface-page:      #060B14;
+      --surface-card:      rgba(255,255,255,0.95);
+      --surface-elevated:  #0f1620;
+      --text-heading:      #ebe2cd;
+      --text-body:         #b5ad9a;
+      --text-label:        #E8956A;
+      --text-muted:        rgba(181, 173, 154, 0.50);
+      --accent:            #E8956A;
+      --accent-border:     rgba(232, 149, 106, 0.40);
+      --border-light:      rgba(235, 226, 205, 0.08);
+      --border-mid:        rgba(235, 226, 205, 0.14);
+      --plum:              #3E2436;
+      --carmine:           #E8956A;
+      --status-open:       #4ade80;
+      --status-closed:     #f87171;
+      --grad-neutral:      linear-gradient(to right, #DDD0BC, #E8956A);
+      /* docket card (light-on-dark) */
+      --dk-heading:        #241620;
+      --dk-body:           #44373C;
+      --dk-muted:          rgba(68, 55, 60, 0.45);
+      --dk-border:         rgba(221, 208, 188, 0.55);
+    }
+
+    body {
+      width: 1200px;
+      height: 675px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
+        url('../../../assets/img/landscape.jpg') center/cover no-repeat;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    .nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      background: none;
+      border-bottom: 2px solid;
+      border-image: var(--grad-neutral) 1;
+      display: flex;
+      align-items: center;
+      padding: 0 4%;
+      z-index: 20;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text-heading);
+      letter-spacing: 0.01em;
+      margin-left: -10px;
+    }
+
+    .nav-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-left: 14px;
+      padding-left: 14px;
+      border-left: 1px solid var(--accent-border);
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-heading);
+    }
+
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-heading);
+      background: transparent;
+      border: 1px solid var(--accent-border);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-right: -15px;
+    }
+
+    .main {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      z-index: 1;
+    }
+
+    .left {
+      grid-row: 1;
+      grid-column: 1;
+      padding: 36px 40px 0 48px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 5;
+      margin-top: 12%;
+      margin-left: -15px;
+    }
+
+    .eyebrow-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4%;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(232,149,106,0.5);
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 54px;
+      line-height: 1.02;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      margin-bottom: 8%;
+    }
+
+    .headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--carmine);
+    }
+
+    .desc {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text-heading);
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    /* ─── Right: Docket preview ─── */
+    .right {
+      grid-row: 1;
+      grid-column: 2;
+      position: relative;
+      padding: 32px 15px 0 0;
+      margin-top: 12%;
+    }
+
+    .docket-preview {
+      position: relative;
+      width: 525px;
+      height: 375px;
+      left: 10%;
+      padding: 4% 4%;
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      border-top: 3px solid transparent;
+      background-image: var(--grad-neutral);
+      background-size: 100% 3px;
+      background-repeat: no-repeat;
+      background-position: top left;
+      background-origin: border-box;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+
+    .dk-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--dk-border);
+    }
+
+    .dk-case-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.08em;
+      color: var(--dk-heading);
+    }
+
+    .dk-case-no {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: var(--dk-muted);
+      letter-spacing: 0.02em;
+      margin-top: 10px;
+    }
+
+    .dk-status {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 9px;
+      border-radius: 3px;
+      margin-top: 4px;
+    }
+    .dk-status.open {
+      background: rgba(46,125,50,0.10);
+      color: #2E7D32;
+      border: 1px solid rgba(46,125,50,0.25);
+    }
+    .dk-status.closed {
+      background: rgba(183,28,28,0.10);
+      color: #B71C1C;
+      border: 1px solid rgba(183,28,28,0.25);
+    }
+
+    .dk-filing {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--dk-border);
+    }
+
+    .dk-filing-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .dk-filing-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--dk-heading);
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+
+    .dk-filing-note {
+      font-size: 11px;
+      color: var(--dk-muted);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .dk-filing-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--dk-muted);
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+
+    /* ─── Stats bar ─── */
+    .stats-bar {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      display: flex;
+      border-top: 3px solid;
+      border-image: var(--grad-neutral) 1;
+      height: 72px;
+      z-index: 10;
+      background: none;
+    }
+
+    .stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text-heading);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-top: 4px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <span class="nav-brand">Wilson v. Noshirvan and Suarez</span>
+    <span class="nav-sub">Defamation &mdash; Civil</span>
+    <div class="nav-links">
+      <span class="nav-link">Docket</span>
+      <span class="nav-link">Filings</span>
+      <span class="nav-link">Orders</span>
+      <span class="nav-link">Parties</span>
+      <span class="nav-cta">View Full Docket</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="left">
+      <div class="eyebrow-line">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow">Subtxt Press &middot; Dockets</span>
+      </div>
+
+      <h1 class="headline">
+        Wilson v. Noshirvan and <em>CC Suarez</em> Defamation Lawsuit
+      </h1>
+
+      <p class="desc">
+        Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.
+      </p>
+    </div>
+
+    <div class="right">
+      <div class="docket-preview">
+        <div class="dk-header">
+          <div>
+            <div class="dk-case-name">Wilson v. Noshirvan and Suarez</div>
+            <div class="dk-case-no">Case No. 38:25-cv-00635-JMG-JMD &middot; Omaha, Nebraska U.S. District Court</div>
+          </div>
+          <span class="dk-status open">Open</span>
+        </div>
+
+        <div class="dk-filing">
+          <div class="dk-filing-text">
+            <div class="dk-filing-title">Complaint (Demand for Jury Trial)</div>
+            <div class="dk-filing-note">Filed by Jeremy Wilson &mdash; 4 pages</div>
+          </div>
+          <div class="dk-filing-date">10-30-2025</div>
+        </div>
+
+        <div class="dk-filing">
+          <div class="dk-filing-text">
+            <div class="dk-filing-title">Second Amended Complaint</div>
+            <div class="dk-filing-note">Filed by Jeremy Wilson &mdash; 60 pages</div>
+          </div>
+          <div class="dk-filing-date">04-15-2026</div>
+        </div>
+
+        <div class="dk-filing">
+          <div class="dk-filing-text">
+            <div class="dk-filing-title">Summons Issued</div>
+            <div class="dk-filing-note">Defendants Chelsea Suarez and Table Rock Management, LLC.</div>
+          </div>
+          <div class="dk-filing-date">04-27-2026</div>
+        </div>
+
+        <div class="dk-filing">
+          <div class="dk-filing-text">
+            <div class="dk-filing-title">Motionto Disqualify Counsel Wemhoff and Liberty Law Group</div>
+            <div class="dk-filing-note">Filed by Jeremy Wilson &mdash; 60 pages</div>
+          </div>
+          <div class="dk-filing-date">05-2-2026</div>
+        </div>
+
+        <div class="dk-filing" style="border-bottom: none;">
+          <div class="dk-filing-text">
+            <div class="dk-filing-title">Corporate Disclosure Statement</div>
+          </div>
+          <div class="dk-filing-date">05-26-2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat" style="padding-left: 48px;">
+        <div class="stat-value">78</div>
+        <div class="stat-label">Docket Entries</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">100+</div>
+        <div class="stat-label">Complaint Pages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Defendants Named</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">NE</div>
+        <div class="stat-label">Federal</div>
+      </div> 
+      <div class="stat">
+        <div class="stat-value">$9K+</div>
+        <div class="stat-label">CC Fund Goal</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
