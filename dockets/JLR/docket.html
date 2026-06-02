@@ -255,7 +255,7 @@
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 12px;
     }
 
@@ -264,7 +264,8 @@
       font-size: clamp(1.1rem, 1.6vw, 1.35rem);
       font-weight: 800;
       color: var(--text-heading);
-      text-align: center;
+      text-align: left;
+      flex: 1;
     }
 
     .case-title-bar h2 a {
@@ -321,8 +322,10 @@
     }
 
     .filings-header {
-      padding: 18px 28px;
+      padding: 24px 28px;
       border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
     }
 
     .filings-header h2 {
@@ -330,13 +333,31 @@
       font-size: clamp(1.05rem, 1.5vw, 1.3rem);
       font-weight: 700;
       color: var(--text-heading);
+      text-align: left;
+      margin: 0;
     }
 
     .filing {
+      display: flex;
+      gap: 24px;
       padding: 16px 28px;
       border-bottom: 1px solid var(--border-light);
       font-size: 14px;
       line-height: 1.7;
+    }
+
+    .filing-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-label);
+      font-weight: 500;
+      flex-shrink: 0;
+      min-width: 75px;
+      letter-spacing: 0.05em;
+    }
+
+    .filing-content {
+      flex: 1;
     }
 
     .filing:last-child {
@@ -379,8 +400,10 @@
     }
 
     .docket-table-header {
-      padding: 18px 28px;
+      padding: 24px 28px;
       border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
     }
 
     .docket-table-header h2 {
@@ -388,6 +411,8 @@
       font-size: clamp(1.05rem, 1.5vw, 1.3rem);
       font-weight: 700;
       color: var(--text-heading);
+      text-align: left;
+      margin: 0;
     }
 
     .docket-table {
@@ -441,6 +466,60 @@
 
     .docket-table tbody tr:hover {
       background: rgba(232, 149, 106, 0.04);
+    }
+
+    /* Mobile table card layout */
+    @media (max-width: 720px) {
+      .docket-table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+      }
+
+      .docket-table thead {
+        display: none;
+      }
+
+      .docket-table tbody tr {
+        display: flex;
+        flex-direction: column;
+        background: var(--surface-card);
+        border: 1px solid var(--border-mid);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        padding: 16px;
+        gap: 12px;
+      }
+
+      .docket-table tbody tr:hover {
+        background: var(--surface-card);
+      }
+
+      .docket-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0;
+        border: none;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .docket-table td::before {
+        content: attr(data-label);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-label);
+        min-width: 80px;
+        flex-shrink: 0;
+      }
+
+      .docket-table td.wrap {
+        word-break: normal;
+      }
     }
 
     .drive-card {
@@ -577,17 +656,24 @@
       .nav-links a:hover   { color: var(--ink) !important; }
       .masthead-text       { left: 20px; bottom: 52px; }
       .content-section     { padding: 32px 16px 56px; }
-      .case-title-bar      { padding: 14px 20px; flex-wrap: wrap; }
+      .case-title-bar      { padding: 14px 20px; }
       .case-meta           { padding: 18px 20px; }
       .case-meta-item      { font-size: 12px; }
-      .filing              { padding: 14px 20px; font-size: 13px; }
+      .filings-header      { padding: 14px 20px; }
+      .filing              { padding: 14px 20px; font-size: 13px; gap: 16px; }
+      .filing-date         { font-size: 11px; min-width: 65px; }
       .filing-note         { padding: 12px 16px; font-size: 12px; }
       .docket-table-wrap   {  }
       .docket-table-header { padding: 14px 20px; }
       .docket-table        { font-size: 10px; }
       .docket-table th     { padding: 8px 8px; font-size: 8px; letter-spacing: 0.08em; }
       .docket-table td     { padding: 8px 8px; }
-      .drive-card          { padding: 20px; }
+      .drive-card          { padding: 14px; gap: 12px; flex-direction: row !important; align-items: center !important; }
+      .drive-icon          { width: 32px; height: 32px; font-size: 14px; flex-shrink: 0; }
+      .drive-card-body     { flex: 1; }
+      .drive-card-title    { font-size: 0.9rem; margin-bottom: 0px; }
+      .drive-card-desc     { font-size: 11px; line-height: 1.4; }
+      .drive-card-cta      { font-size: 8px; }
       .site-footer         { padding: 24px 20px; }
     }
   </style>
@@ -627,30 +713,30 @@
       <div class="filings-header">
         <h2>Background Records</h2>
       </div>
-      <div class="filing">
-        Bureau of Prisons <a class="filing-link" href="#">Clinical Encounter</a> on February 28, 2011.
-      </div>
-      <div class="filing">
-        Bureau of Prisons <a class="filing-link" href="#">Clinical Encounter</a> on March 10, 2011.
-      </div>
-      <div class="filing">
-        Bureau of Prisons <a class="filing-link" href="#">Clinical Encounter</a> on March 12, 2011.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Preliminary Injunction, Temporary Restraining Order</a> filed on March 11, 2013.
-      </div>
-      <div class="filing">
-        Chelan County <a class="filing-link" href="#">Incident Report for Incident 25CI2789</a> filed on December 25, 2025.
-      </div>
-      <div class="filing">
-        Chelan County <a class="filing-link" href="#">Affidavit for Probable Cause</a> to arrest Jonathan Lee Bitches signed on December 25, 2025.
-      </div>
-      <div class="filing">
-        Chelan County <a class="filing-link" href="#">Supplemental Incident Report for Incident 25CI2789</a> on December 28, 2025.
-      </div>
-      <div class="filing">
+      <div class="filing"><div class="filing-date">02-28-2011</div><div class="filing-content">
+        Bureau of Prisons <a class="filing-link" href="#">Clinical Encounter</a>.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-10-2011</div><div class="filing-content">
+        Bureau of Prisons <a class="filing-link" href="#">Clinical Encounter</a>.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-12-2011</div><div class="filing-content">
+        Bureau of Prisons <a class="filing-link" href="#">Clinical Encounter</a>.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-11-2013</div><div class="filing-content">
+        <a class="filing-link" href="#">Preliminary Injunction, Temporary Restraining Order</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">12-25-2025</div><div class="filing-content">
+        Chelan County <a class="filing-link" href="#">Incident Report for Incident 25CI2789</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">12-25-2025</div><div class="filing-content">
+        Chelan County <a class="filing-link" href="#">Affidavit for Probable Cause</a> to arrest Jonathan Lee Bitches signed.
+      </div></div>
+      <div class="filing"><div class="filing-date">12-28-2025</div><div class="filing-content">
+        Chelan County <a class="filing-link" href="#">Supplemental Incident Report for Incident 25CI2789</a>.
+      </div></div>
+      <div class="filing"><div class="filing-date"></div><div class="filing-content">
         <a class="filing-link" href="#">Photos and messages</a> taken and released by Chelan County Sheriff&rsquo;s Department.
-      </div>
+      </div></div>
     </div>
 
 
@@ -683,110 +769,110 @@
       <div class="filings-header">
         <h2>Filings &amp; Activity</h2>
       </div>
-      <div class="filing">
-        <span class="filing-bold">MOF</span> filed on January 20, 2026.
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Administrative Office of the Courts Cover Sheet re: Domestic Relations</span> filed on January 20, 2026.
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Confidential Information Sheet</span> filed on January 20, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Petition for Order of Protection</a> and <a class="filing-link" href="#">Exhibits</a> filed on January 20, 2026.
-      </div>
-      <div class="filing">
-        Judge Petro issues an <a class="filing-link" href="#">Ex Parte Order of Protection</a> filed on January 21, 2026.
+      <div class="filing"><div class="filing-date">01-20-2026</div><div class="filing-content">
+        <span class="filing-bold">MOF</span> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">01-20-2026</div><div class="filing-content">
+        <span class="filing-bold">Administrative Office of the Courts Cover Sheet re: Domestic Relations</span> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">01-20-2026</div><div class="filing-content">
+        <span class="filing-bold">Confidential Information Sheet</span> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">01-20-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Petition for Order of Protection</a> and <a class="filing-link" href="#">Exhibits</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">01-21-2026</div><div class="filing-content">
+        Judge Petro issues an <a class="filing-link" href="#">Ex Parte Order of Protection</a>.
         <div class="filing-note">
-          THE COURT HEREBY FINDS AND ORDERS: That there is jurisdiction over the parties and subject matter, and Petitioner has presented sufficient evidence to show: (1) that the victim(s) is (are) in immediate and present danger of domestic abuse, or (2) that the Respondent is scheduled to be released from incarceration within thirty (30) days, and upon the Respondent&rsquo;s release there will be an immediate and present danger of domestic abuse.<br><br>
-          [X] That the Petitioner has also presented sufficient evidence to show that the Respondent presents a credible threat to the physical safety of a person named in the order of protection as a family member or household member, a child of the family or household member, or a child of the respondent or enjoined party.<br><br>
-          [X] That an Ex Parte Temporary Order of Protection is hereby granted pursuant to the terms herein.<br><br>
-          That the Respondent is ordered to appear before the Court on the 17th day of February, 2026 at 9:30 AM in the Courthouse located at 607 Ouachita Ave., Hot Springs, AR 71901, Courtroom 2. The Respondent is hereby restrained from committing any criminal act against the victim(s) including, but not limited to: acts of violence or Domestic Abuse, A.C.A. &sect;9-15-103(3); Harassment A.C.A. &sect;5-71-208; Harassing Communications A.C.A. &sect;5-71-209; Stalking A.C.A. &sect;5-71-229; or Terroristic Threatening A.C.A. &sect;5-13-301.<br><br>
-          [X] The Respondent is prohibited from initiating any contact with the victim(s) including but not limited to physical presence, telephonic, electronic, oral, written, visual, or video. Respondent also shall not use a third party to contact the victim(s) except by legal counsel or as authorized by law or court order.<br><br>
+          THE COURT HEREBY FINDS AND ORDERS: That there is jurisdiction over the parties and subject matter, and Petitioner has presented sufficient evidence to show: (1) that the victim(s) is (are) in immediate and present danger of domestic abuse, or (2) that the Respondent is scheduled to be released from incarceration within thirty (30) days, and upon the Respondent&rsquo;s release there will be an immediate and present danger of domestic abuse.<br>
+          [X] That the Petitioner has also presented sufficient evidence to show that the Respondent presents a credible threat to the physical safety of a person named in the order of protection as a family member or household member, a child of the family or household member, or a child of the respondent or enjoined party.<br>
+          [X] That an Ex Parte Temporary Order of Protection is hereby granted pursuant to the terms herein.<br>
+          That the Respondent is ordered to appear before the Court on the 17th day of February, 2026 at 9:30 AM in the Courthouse located at 607 Ouachita Ave., Hot Springs, AR 71901, Courtroom 2. The Respondent is hereby restrained from committing any criminal act against the victim(s) including, but not limited to: acts of violence or Domestic Abuse, A.C.A. &sect;9-15-103(3); Harassment A.C.A. &sect;5-71-208; Harassing Communications A.C.A. &sect;5-71-209; Stalking A.C.A. &sect;5-71-229; or Terroristic Threatening A.C.A. &sect;5-13-301.<br>
+          [X] The Respondent is prohibited from initiating any contact with the victim(s) including but not limited to physical presence, telephonic, electronic, oral, written, visual, or video. Respondent also shall not use a third party to contact the victim(s) except by legal counsel or as authorized by law or court order.<br>
           [X] The Respondent is excluded from the Petitioner&rsquo;s residence and the immediate vicinity thereof.
         </div>
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Hearing Scheduling Activity</span> on January 21, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">01-21-2026</div><div class="filing-content">
+        <span class="filing-bold">Hearing Scheduling Activity</span>.
         <div class="filing-note">
           Order of Protection Hearing Scheduled for April 21, 2026 at 9:30 AM in Courtroom 2.
         </div>
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Return of Service</a> filed on February 2, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-02-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Return of Service</a> filed.
         <div class="filing-note">
           Jonathan Bitches served OOP 01-23-2026 in Pasco County, Florida.
         </div>
-      </div>
-      <div class="filing">
-        Jamie Curtis Beal <span class="filing-bold">Notice of Appearance</span> e-filed on February 3, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Motion for Continuance</a> filed on February 3, 2026.
-      </div>
-      <div class="filing">
-        Judge Petro issues an <a class="filing-link" href="#">Order Granting Continuance</a> on February 3, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-03-2026</div><div class="filing-content">
+        Jamie Curtis Beal <span class="filing-bold">Notice of Appearance</span> e-filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-03-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Motion for Continuance</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-03-2026</div><div class="filing-content">
+        Judge Petro issues an <a class="filing-link" href="#">Order Granting Continuance</a>.
         <div class="filing-note">
           On this day came before the Court the Respondent&rsquo;s Motion for Continuance. From the motion and other matters before the Court, the Court finds that the motion should be GRANTED for good cause shown. IT IS THEREFORE ORDERED: 1. The hearing currently set for February 17, 2026 at 9:30 a.m. is CONTINUED. 2. This matter is reset for hearing on March 17, 2026 at 9:30 a.m. 3. Any ex parte/temporary order of protection presently in effect shall remain in effect until the reset hearing unless modified by further order of the Court. 4. The Clerk shall provide notice of the reset hearing date and time to the parties and counsel of record. IT IS SO ORDERED.
         </div>
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Hearing Scheduling Activity</span> on February 4, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-04-2026</div><div class="filing-content">
+        <span class="filing-bold">Hearing Scheduling Activity</span>.
         <div class="filing-note">
           Order of Protection Hearing Continued.
         </div>
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Hearing Scheduling Activity</span> on February 4, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-04-2026</div><div class="filing-content">
+        <span class="filing-bold">Hearing Scheduling Activity</span>.
         <div class="filing-note">
           Order of Protection Hearing scheduled.
         </div>
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Clerk Note</span> on February 4, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-04-2026</div><div class="filing-content">
+        <span class="filing-bold">Clerk Note</span>.
         <div class="filing-note">
           Sent to S.O. for service, sent a copy of Order to email provided to Petitioner.
         </div>
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Proof of Service</a> re: Jamie Phillips served Order for Continuance filed on February 9, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Motion to Require Identification of Corroborating Records and Witness List</a> filed on February 24, 2026.
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Order of Protection Hearing Held</span> on March 17, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-09-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Proof of Service</a> re: Jamie Phillips served Order for Continuance filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">02-24-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Motion to Require Identification of Corroborating Records and Witness List</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-17-2026</div><div class="filing-content">
+        <span class="filing-bold">Order of Protection Hearing Held</span>.
         <div class="filing-note">
           No action taken. <a class="filing-link" href="#">Transcript</a>.
         </div>
-      </div>
-      <div class="filing">
-        Judge Petro issues an <a class="filing-link" href="#">Order for Continuance</a> on March 17, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-17-2026</div><div class="filing-content">
+        Judge Petro issues an <a class="filing-link" href="#">Order for Continuance</a>.
         <div class="filing-note">
           For good cause shown, the Court FINDS and ORDERS as follows: 1. The hearing on Petitioner&rsquo;s Petition for Order of Protection shall be continued until the 21st day of April, 2026, at 9:30 AM and shall be held at the Garland County District Courtroom 2, located in the Garland County District Courts Building, 607 Ouachita Avenue, Hot Springs, Arkansas, 71901. 2. Any Ex Parte Order of Protection previously entered in this matter shall remain in full force and effect without modification pending further orders of the Court. IT IS HEREBY ORDERED, ADJUDGED AND DECREED.
         </div>
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Hearing Scheduling Activity</span> on March 17, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-17-2026</div><div class="filing-content">
+        <span class="filing-bold">Hearing Scheduling Activity</span>.
         <div class="filing-note">
           Order of Continuance scheduled for 04-21-2026. Attorneys Jamie Beal for Respondent and Angela Echols for Petitioner. Agreed to 3 year No Contact Order. Attorneys prepare Order.
         </div>
-      </div>
-      <div class="filing">
-        Angela Renee Echols files a <span class="filing-bold">Notice of Appearance</span> on March 27, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Agreed Order</a> filed on March 30, 2026.
-      </div>
-      <div class="filing">
-        <span class="filing-bold">AOC Disposition Sheet</span> filed on March 30, 2026.
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Order for Protection Hearing</span> on March 30, 2026.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-27-2026</div><div class="filing-content">
+        Angela Renee Echols files a <span class="filing-bold">Notice of Appearance</span>.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-30-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Agreed Order</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-30-2026</div><div class="filing-content">
+        <span class="filing-bold">AOC Disposition Sheet</span> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">03-30-2026</div><div class="filing-content">
+        <span class="filing-bold">Order for Protection Hearing</span>.
         <div class="filing-note">
           Cancelled.
         </div>
-      </div>
+      </div></div>
     </div>
 
 
@@ -819,42 +905,42 @@
       <div class="filings-header">
         <h2>Filings &amp; Activity</h2>
       </div>
-      <div class="filing">
-        Case 512026MM001741MMAXWS Filed with Clerk on 4/27/2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Direct Information Filed: BATTERY 1*M (DV)</a> on April 27, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Notice of Appearance and Written Plea of Not Guilty and Demand for Discovery</a> on April 29, 2026.
+      <div class="filing"><div class="filing-date">04-27-2026</div><div class="filing-content">
+        Case 512026MM001741MMAXWS Filed with Clerk.
+      </div></div>
+      <div class="filing"><div class="filing-date">04-27-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Direct Information Filed: BATTERY 1*M (DV)</a>.
+      </div></div>
+      <div class="filing"><div class="filing-date">04-29-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Notice of Appearance and Written Plea of Not Guilty and Demand for Discovery</a>.
         <div class="filing-note">
           DEMAND FOR COPY OF INFO WAIVER OF ARRAIGNMENT. WAIVER OF SPEEDY TRIAL EMAIL DESIGNATION.
         </div>
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Notice</a> issued on May 11, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Summons</a> issued on May 11, 2026.
-      </div>
-      <div class="filing">
-        <span class="filing-bold">Hearing Scheduling Activity</span>
+      </div></div>
+      <div class="filing"><div class="filing-date">05-11-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Notice</a> issued.
+      </div></div>
+      <div class="filing"><div class="filing-date">05-11-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Summons</a> issued.
+      </div></div>
+      <div class="filing"><div class="filing-date">05-11-2026</div><div class="filing-content">
+        <span class="filing-bold">Hearing Scheduling Activity</span>.
         <div class="filing-note">
           Arraignment for Jonathan Lee Bitches scheduled for June 2, 2026 at 9:00 AM at the West Pasco Judicial Center 1A NPR.
         </div>
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Notice of Request for Costs of Prosecution</a> filed on May 21, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Answer To Demand For Discovery</a> filed on May 21, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Witness List</a> filed on May 21, 2026.
-      </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Notice of Confidential Information Within Court File REVIEWED</a> filed on May 21, 2026.
-      </div>
+      </div></div>
+      <div class="filing"><div class="filing-date">05-21-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Notice of Request for Costs of Prosecution</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">05-21-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Answer To Demand For Discovery</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">05-21-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Witness List</a> filed.
+      </div></div>
+      <div class="filing"><div class="filing-date">05-21-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Notice of Confidential Information Within Court File REVIEWED</a> filed.
+      </div></div>
     </div>
 
 
@@ -886,9 +972,9 @@
       <div class="filings-header">
         <h2>Filings &amp; Activity</h2>
       </div>
-      <div class="filing">
-        <a class="filing-link" href="#">Complaint for Disorderly Conduct</a> issued on April 28, 2026.
-      </div>
+      <div class="filing"><div class="filing-date">04-28-2026</div><div class="filing-content">
+        <a class="filing-link" href="#">Complaint for Disorderly Conduct</a> issued.
+      </div></div>
     </div>
 
     <div class="docket-table-wrap" data-aos="fade-up">
@@ -908,12 +994,12 @@
         </thead>
         <tbody>
           <tr>
-            <td>26040015</td>
-            <td>001: Filed</td>
-            <td class="wrap">13-2904-MI: Disorderly Conduct</td>
-            <td>N</td>
-            <td>M1</td>
-            <td></td>
+            <td data-label="Complaint #">26040015</td>
+            <td data-label="Count">001: Filed</td>
+            <td class="wrap" data-label="Violation">13-2904-MI: Disorderly Conduct</td>
+            <td data-label="DV">N</td>
+            <td data-label="Class">M1</td>
+            <td data-label="Disposition"></td>
           </tr>
         </tbody>
       </table>
@@ -935,53 +1021,53 @@
         </thead>
         <tbody>
           <tr>
-            <td>07-02-2026</td>
-            <td>09:30 AM</td>
-            <td>Hearing</td>
-            <td class="wrap">Case Management Conference</td>
-            <td></td>
+            <td data-label="Date">07-02-2026</td>
+            <td data-label="Time">09:30 AM</td>
+            <td data-label="Matter">Hearing</td>
+            <td class="wrap" data-label="Event">Case Management Conference</td>
+            <td data-label="Result"></td>
           </tr>
           <tr>
-            <td>05-26-2026</td>
-            <td>11:00 AM</td>
-            <td>Hearing</td>
-            <td class="wrap">Case Management Conference</td>
-            <td></td>
+            <td data-label="Date">05-26-2026</td>
+            <td data-label="Time">11:00 AM</td>
+            <td data-label="Matter">Hearing</td>
+            <td class="wrap" data-label="Event">Case Management Conference</td>
+            <td data-label="Result"></td>
           </tr>
           <tr>
-            <td>05-26-2026</td>
-            <td></td>
-            <td>Customer Service</td>
-            <td class="wrap">Incoming Phone Call</td>
-            <td>Completed</td>
+            <td data-label="Date">05-26-2026</td>
+            <td data-label="Time"></td>
+            <td data-label="Matter">Customer Service</td>
+            <td class="wrap" data-label="Event">Incoming Phone Call</td>
+            <td data-label="Result">Completed</td>
           </tr>
           <tr>
-            <td>04-28-2026</td>
-            <td>09:30 AM</td>
-            <td>Hearing</td>
-            <td class="wrap">Criminal Arraignment</td>
-            <td>Completed</td>
+            <td data-label="Date">04-28-2026</td>
+            <td data-label="Time">09:30 AM</td>
+            <td data-label="Matter">Hearing</td>
+            <td class="wrap" data-label="Event">Criminal Arraignment</td>
+            <td data-label="Result">Completed</td>
           </tr>
           <tr>
-            <td>04-28-2026</td>
-            <td></td>
-            <td>Fingerprinting Compliance</td>
-            <td class="wrap">Process Control Number (PCN) Generated</td>
-            <td></td>
+            <td data-label="Date">04-28-2026</td>
+            <td data-label="Time"></td>
+            <td data-label="Matter">Fingerprinting Compliance</td>
+            <td class="wrap" data-label="Event">Process Control Number (PCN) Generated</td>
+            <td data-label="Result"></td>
           </tr>
           <tr>
-            <td>04-27-2026</td>
-            <td></td>
-            <td>Customer Service</td>
-            <td class="wrap">Incoming Phone Call</td>
-            <td>Completed</td>
+            <td data-label="Date">04-27-2026</td>
+            <td data-label="Time"></td>
+            <td data-label="Matter">Customer Service</td>
+            <td class="wrap" data-label="Event">Incoming Phone Call</td>
+            <td data-label="Result">Completed</td>
           </tr>
           <tr>
-            <td>04-23-2026</td>
-            <td></td>
-            <td>Notice</td>
-            <td class="wrap">Notice of Appearance</td>
-            <td>Filed</td>
+            <td data-label="Date">04-23-2026</td>
+            <td data-label="Time"></td>
+            <td data-label="Matter">Notice</td>
+            <td class="wrap" data-label="Event">Notice of Appearance</td>
+            <td data-label="Result">Filed</td>
           </tr>
         </tbody>
       </table>
@@ -1002,28 +1088,28 @@
         </thead>
         <tbody>
           <tr>
-            <td>Misdemeanor Documents</td>
-            <td class="wrap">CRM &ndash; Minute Entry</td>
-            <td class="wrap">CRM &ndash; Minute Entry</td>
-            <td>05-26-2026</td>
+            <td data-label="Type">Misdemeanor Documents</td>
+            <td class="wrap" data-label="SubType">CRM &ndash; Minute Entry</td>
+            <td class="wrap" data-label="Caption">CRM &ndash; Minute Entry</td>
+            <td data-label="Date">05-26-2026</td>
           </tr>
           <tr>
-            <td>Misdemeanor Documents</td>
-            <td class="wrap">CRM &ndash; Minute Entry</td>
-            <td class="wrap">CRM &ndash; Minute Entry</td>
-            <td>04-28-2026</td>
+            <td data-label="Type">Misdemeanor Documents</td>
+            <td class="wrap" data-label="SubType">CRM &ndash; Minute Entry</td>
+            <td class="wrap" data-label="Caption">CRM &ndash; Minute Entry</td>
+            <td data-label="Date">04-28-2026</td>
           </tr>
           <tr>
-            <td>Misdemeanor Documents</td>
-            <td class="wrap">CRM &ndash; Minute Entry</td>
-            <td class="wrap">CRM &ndash; Minute Entry</td>
-            <td>04-28-2026</td>
+            <td data-label="Type">Misdemeanor Documents</td>
+            <td class="wrap" data-label="SubType">CRM &ndash; Minute Entry</td>
+            <td class="wrap" data-label="Caption">CRM &ndash; Minute Entry</td>
+            <td data-label="Date">04-28-2026</td>
           </tr>
           <tr>
-            <td>Misdemeanor Documents</td>
-            <td>CRM &ndash; Notice</td>
-            <td class="wrap">Notice of Appearance</td>
-            <td>04-23-2026</td>
+            <td data-label="Type">Misdemeanor Documents</td>
+            <td data-label="SubType">CRM &ndash; Notice</td>
+            <td class="wrap" data-label="Caption">Notice of Appearance</td>
+            <td data-label="Date">04-23-2026</td>
           </tr>
         </tbody>
       </table>
