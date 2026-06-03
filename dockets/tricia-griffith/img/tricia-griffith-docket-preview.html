@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1200">
-  <title>OG Preview — Tricia Griffith Docket</title>
+  <title>Tricia Griffith Docket Preview</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
@@ -12,7 +12,6 @@
       margin: 0;
       padding: 0;
     }
-
     :root {
       --surface-page:      #060B14;
       --surface-card:      rgba(255,255,255,0.95);
@@ -21,7 +20,7 @@
       --text-body:         #b5ad9a;
       --text-label:        #E8956A;
       --text-muted:        rgba(181, 173, 154, 0.50);
-      --accent:            #E8956A;
+      --accent:            #f5a47b; /*#E8956A;*/
       --accent-border:     rgba(232, 149, 106, 0.40);
       --border-light:      rgba(235, 226, 205, 0.08);
       --border-mid:        rgba(235, 226, 205, 0.14);
@@ -36,7 +35,6 @@
       --dk-muted:          rgba(68, 55, 60, 0.45);
       --dk-border:         rgba(221, 208, 188, 0.55);
     }
-
     body {
       width: 1200px;
       height: 675px;
@@ -48,7 +46,6 @@
       -webkit-font-smoothing: antialiased;
       position: relative;
     }
-
     .nav {
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -61,36 +58,32 @@
       padding: 0 4%;
       z-index: 20;
     }
-
     .nav-brand {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 18px;
+      font-size: 16px;
       color: var(--text-heading);
       letter-spacing: 0.01em;
       margin-left: -10px;
     }
-
     .nav-sub {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
       margin-left: 14px;
       padding-left: 14px;
-      border-left: 1px solid var(--accent-border);
+      border-left: 3px solid var(--accent-border);
       margin-top: 5px;
     }
-
     .nav-links {
       margin-left: auto;
       display: flex;
       gap: 24px;
       align-items: center;
     }
-
     .nav-link {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 12px;
@@ -99,7 +92,6 @@
       text-transform: uppercase;
       color: var(--text-heading);
     }
-
     .nav-cta {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 12px;
@@ -108,12 +100,10 @@
       text-transform: uppercase;
       color: var(--text-heading);
       background: transparent;
-      border: 1px solid var(--accent-border);
+      border: 1px solid var(--accent);
       padding: 6px 14px;
       border-radius: 2px;
-      margin-right: -15px;
     }
-
     .main {
       position: absolute;
       top: 56px;
@@ -125,7 +115,6 @@
       grid-template-rows: 1fr auto;
       z-index: 1;
     }
-
     .left {
       grid-row: 1;
       grid-column: 1;
@@ -134,17 +123,14 @@
       flex-direction: column;
       position: relative;
       z-index: 5;
-      padding-top: 23%;
-      margin-left: -15px;
+      margin-top: 12%;
     }
-
     .eyebrow-line {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 4%;
+      margin-bottom: 6%;
     }
-
     .eyebrow-dot {
       width: 6px;
       height: 6px;
@@ -152,7 +138,6 @@
       background: var(--accent);
       box-shadow: 0 0 8px rgba(232,149,106,0.5);
     }
-
     .eyebrow {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
@@ -161,23 +146,20 @@
       text-transform: uppercase;
       color: var(--text-label);
     }
-
     .headline {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 54px;
+      font-size: 68px;
       line-height: 1.02;
       color: var(--text-heading);
       letter-spacing: -0.01em;
-      margin-bottom: 8%;
+      margin-bottom: 12%;
     }
-
     .headline em {
       font-style: italic;
       font-weight: 400;
       color: var(--carmine);
     }
-
     .desc {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 14px;
@@ -187,22 +169,20 @@
       border-left: 2px solid var(--accent);
       padding-left: 14px;
     }
-
     /* ─── Right: Docket preview ─── */
     .right {
       grid-row: 1;
       grid-column: 2;
       position: relative;
-      padding: 32px 15px 0 0;
-      margin-top: 12%;
+      padding: 1%;
     }
-
     .docket-preview {
       position: relative;
       width: 500px;
-      height: 375px;
-      left: 10%;
-      padding: 5% 4%;
+      height: 340px;
+      padding: 4% 4%;
+      margin-top: 16%;
+      left: 9%;
       background: var(--surface-card);
       border: 1px solid var(--border-mid);
       border-radius: 8px;
@@ -214,42 +194,37 @@
       background-origin: border-box;
       box-shadow: 0 4px 24px rgba(0,0,0,0.25);
     }
-
     .dk-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
       border-bottom: 1px solid var(--dk-border);
     }
-
     .dk-case-name {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       font-style: italic;
       letter-spacing: 0.08em;
       color: var(--dk-heading);
+      margin: 2% 0;
     }
-
     .dk-case-no {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       color: var(--dk-muted);
       letter-spacing: 0.02em;
-      margin-top: 10px;
+      margin: 2% 0;
     }
-
     .dk-status {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 9px 9px;
+      padding: 1% 2%;
       border-radius: 3px;
-      margin-top: 4px;
+      margin-top: 3.5%;
     }
     .dk-status.open {
       background: rgba(46,125,50,0.10);
@@ -261,48 +236,40 @@
       color: #B71C1C;
       border: 1px solid rgba(183,28,28,0.25);
     }
-
     .dk-filing {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 16px;
-      padding: 9px 0;
       border-bottom: 1px solid var(--dk-border);
+      padding: 1% 0;
     }
-
     .dk-filing-text {
       flex: 1;
       min-width: 0;
     }
-
     .dk-filing-title {
       font-family: 'Inter', sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--dk-heading);
       line-height: 1.4;
-      margin-bottom: 5px;
+      padding: 1% 0;
     }
-
     .dk-filing-note {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--dk-muted);
-      margin-top: 2px;
       line-height: 1.4;
     }
-
     .dk-filing-date {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 500;
       letter-spacing: 0.06em;
       color: var(--dk-muted);
       flex-shrink: 0;
       text-align: right;
     }
-
-
     /* ─── Stats bar ─── */
     .stats-bar {
       grid-row: 2;
@@ -314,7 +281,6 @@
       z-index: 10;
       background: none;
     }
-
     .stat {
       flex: 1;
       display: flex;
@@ -323,11 +289,9 @@
       padding: 0 28px;
       border-right: 1px solid var(--border-light);
     }
-
     .stat:last-child {
       border-right: none;
     }
-
     .stat-value {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
@@ -335,7 +299,6 @@
       color: var(--text-heading);
       line-height: 1;
     }
-
     .stat-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 8px;
@@ -345,14 +308,13 @@
       color: var(--text-label);
       margin-top: 4px;
     }
-
   </style>
 </head>
 <body>
 
   <div class="nav">
     <span class="nav-brand">Tricia Griffith</span>
-    <span class="nav-sub">Estate / Succession</span>
+    <span class="nav-sub">Breach of Contract &middot; Estate Interloping</span>
     <div class="nav-links">
       <span class="nav-link">Docket</span>
       <span class="nav-link">Filings</span>
@@ -374,7 +336,7 @@
       </h1>
 
       <p class="desc">
-        Estate administration and succession of property case filed in Dallas County Probate Court. Includes a related prior lawsuit from 2013.
+        Estate administration and succession of property case filed in Dallas County Probate Court. Includes a related prior lawsuit from 2013 for breach of contract.
       </p>
     </div>
 

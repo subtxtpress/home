@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{{CASE_TITLE}} | Timeline</title>
-  <meta name="description" content="{{META_DESCRIPTION}}">
+  <title>Case_Title | Timeline</title>
+  <meta name="description" content="Meta_Description">
   <link rel="canonical" href="https://subtxtpress.github.io/home/case/{{SLUG}}/timeline">
   <!-- Open Graph -->
-  <meta property="og:title" content="{{CASE_TITLE}} | Timeline">
-  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:title" content="Case_Title | Timeline">
+  <meta property="og:description" content="Meta_Description">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/case/{{SLUG}}/timeline">
   <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
@@ -19,8 +19,8 @@
   <meta property="og:site_name" content="Case Maps | Subtxt Press">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{CASE_TITLE}} | Timeline">
-  <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta name="twitter:title" content="Case_Title | Timeline">
+  <meta name="twitter:description" content="Meta_Description">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Favicons -->
@@ -56,7 +56,6 @@
     --shadow: 0 2px 12px rgba(0,0,0,0.50);
     --shadow-hover: 0 8px 28px rgba(0,0,0,0.60);
   }
-
   /* ═══════════════════════════════════════════════════════════════
      THEME: LIGHT
      Warm inversion of the dark palette
@@ -80,9 +79,11 @@
     --shadow: 0 2px 12px rgba(0,0,0,0.06);
     --shadow-hover: 0 8px 28px rgba(0,0,0,0.10);
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+  }
   body {
     font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
     background: var(--bg);
@@ -91,7 +92,6 @@
     -webkit-font-smoothing: antialiased;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-
   /* ─── Top accent strip ─── */
   body::before {
     content: '';
@@ -102,7 +102,6 @@
     z-index: 200;
     pointer-events: none;
   }
-
   /* --- HEADER --- */
   .hero {
     padding: 2.5rem 1.25rem 1.5rem;
@@ -136,7 +135,6 @@
     letter-spacing: 0.06em;
     transition: color 0.3s ease;
   }
-
   /* --- LEGEND --- */
   .legend {
     display: flex;
@@ -172,10 +170,15 @@
     border-radius: 50%;
     transition: background-color 0.3s ease;
   }
-  .legend-dot.pet { background: var(--petitioner); }
-  .legend-dot.res { background: var(--respondent); }
-  .legend-dot.both { background: var(--disputed); }
-
+  .legend-dot.pet { 
+    background: var(--petitioner); 
+  }
+  .legend-dot.res { 
+    background: var(--respondent); 
+  }
+  .legend-dot.both { 
+    background: var(--disputed); 
+  }
   /* --- THEME TOGGLE --- */
   .theme-toggle {
     position: absolute;
@@ -195,7 +198,6 @@
     color: var(--accent);
     background: var(--surface-elevated);
   }
-
   /* --- NAV PILLS --- */
   .nav-pills {
     display: flex;
@@ -208,7 +210,9 @@
     scrollbar-width: none;
     transition: border-color 0.3s ease;
   }
-  .nav-pills::-webkit-scrollbar { display: none; }
+  .nav-pills::-webkit-scrollbar { 
+    display: none; 
+  }
   .pill {
     flex-shrink: 0;
     padding: 0.4rem 0.75rem;
@@ -228,14 +232,12 @@
     color: var(--bg);
     border-color: var(--accent);
   }
-
   /* --- TIMELINE --- */
   .timeline {
     padding: 0 1rem 3rem;
     max-width: 640px;
     margin: 0 auto;
   }
-
   .chapter {
     padding-top: 1.5rem;
   }
@@ -260,7 +262,6 @@
     background: var(--border);
     transition: background-color 0.3s ease;
   }
-
   .event {
     position: relative;
     padding: 0.75rem 0 0.75rem 1.25rem;
@@ -283,12 +284,24 @@
     background: var(--neutral);
     transition: background-color 0.3s ease;
   }
-  .event.pet::before { background: var(--petitioner); }
-  .event.res::before { background: var(--respondent); }
-  .event.both::before { background: var(--disputed); }
-  .event.key { border-left-color: var(--accent); }
-  .event.key::before { width: 10px; height: 10px; left: -6px; top: 1rem; }
-
+  .event.pet::before { 
+    background: var(--petitioner); 
+  }
+  .event.res::before { 
+    background: var(--respondent); 
+  }
+  .event.both::before { 
+    background: var(--disputed); 
+  }
+  .event.key { 
+    border-left-color: var(--accent); 
+  }
+  .event.key::before { 
+    width: 10px; 
+    height: 10px; 
+    left: -6px; 
+    top: 1rem; 
+  }
   .event-date {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.6rem;
@@ -313,7 +326,6 @@
     line-height: 1.55;
     transition: color 0.3s ease;
   }
-
   /* --- SPLIT VIEW --- */
   .split {
     display: grid;
@@ -347,9 +359,12 @@
     letter-spacing: 0.1em;
     margin-bottom: 0.3rem;
   }
-  .split-side.pet-side .split-label { color: var(--petitioner); }
-  .split-side.res-side .split-label { color: var(--respondent); }
-
+  .split-side.pet-side .split-label { 
+    color: var(--petitioner); 
+  }
+  .split-side.res-side .split-label { 
+    color: var(--respondent); 
+  }
   /* --- EXPANDABLE --- */
   details {
     margin-top: 0.4rem;
@@ -375,7 +390,6 @@
     color: var(--text-dim);
     line-height: 1.55;
   }
-
   /* --- EVIDENCE TAG --- */
   .tag {
     display: inline-block;
@@ -405,7 +419,6 @@
     background: color-mix(in srgb, var(--text-dim) 15%, transparent);
     color: var(--text-dim);
   }
-
   /* --- FOOTER --- */
   .footer {
     padding: 2rem 1.25rem;
@@ -415,129 +428,178 @@
     border-top: 1px solid var(--border);
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
-  .footer a { color: var(--accent); text-decoration: none; }
-
+  .footer a { 
+    color: var(--accent); 
+    text-decoration: none; 
+  }
   /* --- DESKTOP --- */
   @media (min-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .timeline { padding: 0 2rem 3rem; }
-    .event-title { font-size: 1rem; }
+    .hero h1 { 
+      font-size: 2.2rem; 
+    }
+    .timeline { 
+      padding: 0 2rem 3rem; 
+    }
+    .event-title { 
+      font-size: 1rem; 
+    }
   }
-
   /* --- MOBILE --- */
   @media (max-width: 580px) {
     .split {
       grid-template-columns: 1fr;
     }
-    .hero { padding: 2rem 1rem 1.25rem; }
-    .hero h1 { font-size: 1.3rem; }
-    .hero .sub { font-size: 0.75rem; }
-    .legend { padding: 0.6rem 0.75rem; }
-    .legend-items { gap: 0.6rem; }
-    .legend-item { font-size: 0.5rem; gap: 0.25rem; }
-    .legend-dot { width: 6px; height: 6px; }
-    .theme-toggle { right: 0.5rem; padding: 0.2rem 0.5rem; font-size: 0.7rem; }
-    .nav-pills { justify-content: flex-start; padding: 0.6rem 0.75rem; }
-    .pill { font-size: 0.55rem; padding: 0.35rem 0.6rem; }
-    .timeline { padding: 0 0.75rem 2rem; }
-    .event { padding: 0.6rem 0 0.6rem 1rem; }
-    .event-title { font-size: 0.82rem; }
-    .event-body { font-size: 0.72rem; }
-    .event-date { font-size: 0.55rem; }
-    .chapter-label { font-size: 0.5rem; }
-    .split-side { font-size: 0.68rem; padding: 0.65rem 0.75rem; }
-    .tag { font-size: 0.5rem; }
+    .hero { 
+      padding: 2rem 1rem 1.25rem; 
+    }
+    .hero h1 { 
+      font-size: 1.3rem; 
+    }
+    .hero .sub { 
+      font-size: 0.75rem; 
+    }
+    .legend { 
+      padding: 0.6rem 0.75rem; 
+    }
+    .legend-items { 
+      gap: 0.6rem; 
+    }
+    .legend-item { 
+      font-size: 0.5rem; gap: 0.25rem; 
+    }
+    .legend-dot { 
+      width: 6px; 
+      height: 6px; 
+    }
+    .theme-toggle { 
+      right: 0.5rem; 
+      padding: 0.2rem 0.5rem; 
+      font-size: 0.7rem; 
+    }
+    .nav-pills { 
+      justify-content: flex-start; 
+      padding: 0.6rem 0.75rem; 
+    }
+    .pill { 
+      font-size: 0.55rem; 
+      padding: 0.35rem 0.6rem; 
+    }
+    .timeline { 
+      padding: 0 0.75rem 2rem; 
+    }
+    .event { 
+      padding: 0.6rem 0 0.6rem 1rem; 
+    }
+    .event-title { 
+      font-size: 0.82rem; 
+    }
+    .event-body { 
+      font-size: 0.72rem; 
+    }
+    .event-date { 
+      font-size: 0.55rem; 
+    }
+    .chapter-label { 
+      font-size: 0.5rem; 
+    }
+    .split-side { 
+      font-size: 0.68rem; 
+      padding: 0.65rem 0.75rem; 
+    }
+    .tag { 
+      font-size: 0.5rem; 
+    }
   }
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <h1>{{CASE_TITLE}}</h1>
-  <div class="sub">{{SUBTITLE}}</div>
+  <h1>Case_Title</h1>
+  <div class="sub">Subtitle</div>
   <div class="case-info">
-    Case No. {{CASE_NUMBER}} · {{COURT}}<br>
-    Judge {{JUDGE}} · Filed {{YEAR}}
+    Case No. Case_Number · Court<br>
+    Judge_Name · Filed 202X
   </div>
 </div>
 
 <div class="legend">
   <div class="legend-items">
-    <div class="legend-item"><div class="legend-dot pet"></div> {{PETITIONER_LABEL}}</div>
-    <div class="legend-item"><div class="legend-dot res"></div> {{RESPONDENT_LABEL}}</div>
-    <div class="legend-item"><div class="legend-dot both"></div> Disputed / both</div>
+    <div class="legend-item"><div class="legend-dot pet"></div> Petitioner_Label</div>
+    <div class="legend-item"><div class="legend-dot res"></div> Respondent_Label</div>
+    <div class="legend-item"><div class="legend-dot both"></div> Disputed / Both</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
 </div>
 
 <!-- Add/remove pills to match your chapters -->
 <nav class="nav-pills">
-  <a href="#ch1" class="pill">1. {{CH1_TITLE}}</a>
-  <a href="#ch2" class="pill">2. {{CH2_TITLE}}</a>
-  <a href="#ch3" class="pill">3. {{CH3_TITLE}}</a>
+  <a href="#ch1" class="pill">1. Ch. 1_Title</a>
+  <a href="#ch2" class="pill">2. Ch. 2_Title</a>
+  <a href="#ch3" class="pill">3. Ch. 3_Title</a>
 </nav>
 
 <div class="timeline">
 
   <!-- ====== CHAPTER 1 ====== -->
   <div class="chapter" id="ch1">
-    <div class="chapter-label">Act 1 · {{CH1_TITLE}} ({{CH1_DATES}})</div>
+    <div class="chapter-label">Act 1 · Title / Date</div>
 
     <!-- BASIC EVENT — neutral, no party attribution -->
     <div class="event">
-      <div class="event-date">{{DATE}}</div>
-      <div class="event-title">{{TITLE}}</div>
-      <div class="event-body">{{BODY}}</div>
+      <div class="event-date">Date</div>
+      <div class="event-title">Title</div>
+      <div class="event-body">Body</div>
     </div>
 
     <!-- PARTY EVENT — color-coded dot (pet = petitioner, res = respondent) -->
     <div class="event pet">
-      <div class="event-date">{{DATE}}</div>
-      <div class="event-title">{{TITLE}}</div>
-      <div class="event-body">{{BODY}} <span class="tag exhibit">Ex ##</span></div>
+      <div class="event-date">Date</div>
+      <div class="event-title">Title</div>
+      <div class="event-body">Body <span class="tag exhibit">Ex ##</span></div>
     </div>
 
     <!-- KEY EVENT — accent border + larger dot. Combine with party: "event both key", "event pet key", etc. -->
     <div class="event both key">
-      <div class="event-date">{{DATE}}</div>
-      <div class="event-title">{{TITLE}}</div>
-      <div class="event-body">{{BODY}}</div>
+      <div class="event-date">Date</div>
+      <div class="event-title">Title</div>
+      <div class="event-body">Body</div>
     </div>
   </div>
 
   <!-- ====== CHAPTER 2 ====== -->
   <div class="chapter" id="ch2">
-    <div class="chapter-label">Act 2 · {{CH2_TITLE}} ({{CH2_DATES}})</div>
+    <div class="chapter-label">Act 2 · Title / Date</div>
 
     <!-- SPLIT VIEW — disputed event with both sides -->
     <div class="event both key">
-      <div class="event-date">{{DATE}}</div>
-      <div class="event-title">{{TITLE}}</div>
-      <div class="event-body">{{INTRO_TEXT}}</div>
+      <div class="event-date">Date</div>
+      <div class="event-title">Title</div>
+      <div class="event-body">Intro Text</div>
       <div class="split">
         <div class="split-side pet-side">
-          <div class="split-label">{{PETITIONER_LABEL}}</div>
-          {{PETITIONER_ACCOUNT}}
+          <div class="split-label">Petitioner Label</div>
+          Petitioner Account
         </div>
         <div class="split-side res-side">
-          <div class="split-label">{{RESPONDENT_LABEL}}</div>
-          {{RESPONDENT_ACCOUNT}}
+          <div class="split-label">Respondent Label</div>
+          Respondent Account
         </div>
       </div>
-      <div class="event-body" style="margin-top:0.5rem">{{FOLLOWUP}} <span class="tag disputed">{{DISPUTE_NOTE}}</span></div>
+      <div class="event-body" style="margin-top:0.5rem">Follow0up <span class="tag disputed">Dispute Note</span></div>
     </div>
 
     <!-- EVENT WITH EXPANDABLE DETAILS -->
     <div class="event pet">
-      <div class="event-date">{{DATE}}</div>
-      <div class="event-title">{{TITLE}}</div>
+      <div class="event-date">Date</div>
+      <div class="event-title">Title</div>
       <div class="event-body">
-        {{BODY}}
+        Body
         <details>
-          <summary>{{DETAILS_LABEL}}</summary>
+          <summary>Details Summary</summary>
           <div class="detail-body">
-            <strong>{{DATE_1}}:</strong> {{DETAIL_1}} <span class="tag exhibit">Ex ##</span><br>
-            <strong>{{DATE_2}}:</strong> {{DETAIL_2}} <span class="tag exhibit">Ex ##</span>
+            <strong>Date 1:</strong> Detail 1 <span class="tag exhibit">Ex ##</span><br>
+            <strong>Date 2:</strong> Detail 2 <span class="tag exhibit">Ex ##</span>
           </div>
         </details>
       </div>
@@ -546,29 +608,29 @@
 
   <!-- ====== CHAPTER 3 ====== -->
   <div class="chapter" id="ch3">
-    <div class="chapter-label">Act 3 · {{CH3_TITLE}} ({{CH3_DATES}})</div>
+    <div class="chapter-label">Act 3 · Title / Date</div>
 
     <!-- EVENT WITH MULTIPLE BODY BLOCKS -->
     <div class="event pet key">
-      <div class="event-date">{{DATE}}</div>
-      <div class="event-title">{{TITLE}}</div>
-      <div class="event-body">{{BODY_1}} <span class="tag exhibit">Ex ##</span></div>
-      <div class="event-body" style="margin-top:0.4rem">{{BODY_2}} <span class="tag exhibit">Ex ##</span></div>
+      <div class="event-date">Date</div>
+      <div class="event-title">Title</div>
+      <div class="event-body">Body 1 <span class="tag exhibit">Ex ##</span></div>
+      <div class="event-body" style="margin-top:0.4rem">Body 2 <span class="tag exhibit">Ex ##</span></div>
     </div>
 
     <!-- EVENT WITH POLICE/FILING TAGS -->
     <div class="event res">
-      <div class="event-date">{{DATE}}</div>
-      <div class="event-title">{{TITLE}}</div>
-      <div class="event-body">{{BODY}} <span class="tag police">Report #{{REPORT_NUMBER}}</span> <span class="tag filing">{{FILING_LABEL}}</span></div>
+      <div class="event-date">Date</div>
+      <div class="event-title">Title</div>
+      <div class="event-body">Body <span class="tag police">Report #Report #</span> <span class="tag filing">Filing Label</span></div>
     </div>
   </div>
 
 </div>
 
 <div class="footer">
-  <p>{{FOOTER_SOURCE}}</p>
-  <p style="margin-top:0.5rem">{{FOOTER_DISCLAIMER}}</p>
+  <p>Footer_Source</p>
+  <p style="margin-top:0.5rem">Footer_Disclaimer</p>
   <p style="margin-top:0.75rem"><a href="../../dockets/{{SLUG}}/docket">Docket →</a> · <a href="../../index.html">← Subtxt Press</a></p>
 </div>
 

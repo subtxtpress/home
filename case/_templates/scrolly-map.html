@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>{{PAGE_TITLE}} | Subtxt Press</title>
-  <meta name="description" content="{{META_DESCRIPTION}}">
+  <title>Page_Title | Subtxt Press</title>
+  <meta name="description" content="Meta_Description">
   <link rel="canonical" href="https://subtxtpress.github.io/home/case/{{FOLDER_SLUG}}/timeline">
   <!-- Open Graph -->
-  <meta property="og:title" content="{{PAGE_TITLE}} | Subtxt Press">
-  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:title" content="Page_Title | Subtxt Press">
+  <meta property="og:description" content="Meta_Description">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/case/{{FOLDER_SLUG}}/timeline">
   <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
@@ -18,8 +18,8 @@
   <meta property="og:site_name" content="Subtxt Press">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{PAGE_TITLE}} | Subtxt Press">
-  <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta name="twitter:title" content="Page_Title | Subtxt Press">
+  <meta name="twitter:description" content="Meta_Description">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Favicons -->
@@ -35,8 +35,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
     :root {
       --bg: #060B14;
       --surface: rgba(18,64,60,0.22);
@@ -44,35 +47,36 @@
       --border: rgba(244,229,196,0.10);
       --border2: rgba(244,229,196,0.26);
       --border-subtle: rgba(18,64,60,0.45);
-
-      /* ── CASE COLORS — customize per case ── */
+      /* ── Case Colors — customize per case ── */
       --c-primary:   #C04E01;
       --c-secondary: #D8DADB;
       --c-accent:    #ebe2cd;
       --c-teal:      #4a8a7c;
       --c-red:       #E63946;
-
+      /* ── Borders ── */
       --c-primary-dim:    rgba(192,78,1,0.10);
       --c-primary-border: rgba(192,78,1,0.55);
-
+      /* ── Font colors ── */
       --text: #F5F5F5;
       --text2: #D8DADB;
       --text-label: #ebe2cd;
       --muted: rgba(216,218,219,0.50);
-
+      /* ── Cards and gradients ── */
       --card-bg: rgba(6,11,20,0.45);
       --grad-g03: linear-gradient(to right, #D8DADB, #C04E01);
       --grad-teal: linear-gradient(to bottom, #F5F5F5, #12403C);
-
+      /* ── Fonts ── */
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --head: 'Barlow Condensed', sans-serif;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --nav-h: 48px;
     }
-
-    html, body { width: 100%; height: 100%; overflow: hidden; }
-
+    html, body { 
+      width: 100%; 
+      height: 100%; 
+      overflow: hidden; 
+    }
     body {
       background: var(--bg);
       color: var(--text2);
@@ -80,98 +84,156 @@
       font-size: 14px;
       -webkit-font-smoothing: antialiased;
     }
-
     /* ── PROGRESS BAR ── */
     #progress-bar {
-      position: fixed; top: 0; left: 0; height: 3px;
-      background: var(--grad-g03); z-index: 1300;
-      width: 0; transition: width 0.15s ease-out;
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      height: 3px;
+      background: var(--grad-g03); 
+      z-index: 1300;
+      width: 0; 
+      transition: width 0.15s ease-out;
     }
-
     /* ── NAV ── */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      right: 0;
       height: var(--nav-h);
       background: rgba(6,11,20,0.97);
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: center;
-      padding: 0 14px; z-index: 1200; gap: 10px;
+      display: flex; 
+      align-items: center;
+      padding: 0 14px; 
+      z-index: 1200; 
+      gap: 10px;
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     }
     .nav-title {
-      font-family: var(--serif); font-size: 16px; font-weight: 800;
-      letter-spacing: 0.05em; color: var(--text);
-      flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      font-family: var(--serif); 
+      font-size: 16px; 
+      font-weight: 800;
+      letter-spacing: 0.05em; 
+      color: var(--text);
+      flex: 1; 
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis;
     }
     .nav-tag {
-      background: var(--c-primary-dim); border: 1px solid var(--c-primary-border);
-      color: var(--c-primary); font-family: var(--mono); font-size: 10px;
-      padding: 2px 8px; border-radius: 3px; letter-spacing: 0.06em;
-      white-space: nowrap; flex-shrink: 0;
+      background: var(--c-primary-dim); 
+      border: 1px solid var(--c-primary-border);
+      color: var(--c-primary); 
+      font-family: var(--mono); 
+      font-size: 10px;
+      padding: 2px 8px; 
+      border-radius: 3px; 
+      letter-spacing: 0.06em;
+      white-space: nowrap; 
+      flex-shrink: 0;
     }
     .nav-source-link {
-      margin-left: auto; font-family: var(--mono); font-size: 10px;
-      color: var(--muted); text-decoration: none; letter-spacing: 0.04em;
-      opacity: 0.65; white-space: nowrap; transition: opacity 0.15s, color 0.15s;
+      margin-left: auto; 
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      text-decoration: none; 
+      letter-spacing: 0.04em;
+      opacity: 0.65; 
+      white-space: nowrap; 
+      transition: opacity 0.15s, color 0.15s;
     }
-    .nav-source-link:hover { opacity: 1; color: var(--text2); }
-
+    .nav-source-link:hover { 
+      opacity: 1; 
+      color: var(--text2); 
+    }
     /* ── MAP ── */
     #map {
       position: fixed;
-      top: var(--nav-h); right: 0;
-      width: 60%; height: calc(100vh - var(--nav-h));
+      top: var(--nav-h); 
+      right: 0;
+      width: 60%; 
+      height: calc(100vh - var(--nav-h));
       z-index: 1;
     }
-
     /* ── CLOCK OVERLAY ── */
     #clock {
       position: fixed;
-      top: calc(var(--nav-h) + 16px); right: 16px;
+      top: calc(var(--nav-h) + 16px); 
+      right: 16px;
       z-index: 800;
       background: rgba(6,11,20,0.82);
       border: 1px solid var(--border2);
-      padding: 10px 18px; border-radius: 4px;
+      padding: 10px 18px; 
+      border-radius: 4px;
       text-align: right;
       backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
     }
     .clock-date {
-      font-family: var(--mono); font-size: 10px;
-      letter-spacing: 0.12em; color: var(--muted);
-      text-transform: uppercase; margin-bottom: 2px;
+      font-family: var(--mono); 
+      font-size: 10px;
+      letter-spacing: 0.12em; 
+      color: var(--muted);
+      text-transform: uppercase; 
+      margin-bottom: 2px;
     }
     .clock-time {
-      font-family: var(--mono); font-size: 26px;
-      font-weight: 500; color: var(--text);
-      letter-spacing: 0.04em; transition: color 0.3s;
+      font-family: var(--mono); 
+      font-size: 26px;
+      font-weight: 500; 
+      color: var(--text);
+      letter-spacing: 0.04em; 
+      transition: color 0.3s;
     }
-    .clock-time.flash { color: var(--c-primary); }
-
+    .clock-time.flash { 
+      color: var(--c-primary); 
+    }
     /* ── BASEMAP TOGGLE ── */
     #basemap-toggle {
-      position: fixed; bottom: 20px; right: 20px; z-index: 800;
-      background: rgba(6,11,20,0.82); border: 1px solid var(--border2);
-      color: var(--text2); font-family: var(--mono); font-size: 10px;
-      padding: 6px 12px; border-radius: 4px;
-      cursor: pointer; letter-spacing: 0.06em; transition: background 0.2s;
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      z-index: 800;
+      background: rgba(6,11,20,0.82); 
+      border: 1px solid var(--border2);
+      color: var(--text2); 
+      font-family: var(--mono); 
+      font-size: 10px;
+      padding: 6px 12px; 
+      border-radius: 4px;
+      cursor: pointer; 
+      letter-spacing: 0.06em; 
+      transition: background 0.2s;
     }
-    #basemap-toggle:hover { background: var(--surface2); }
-
+    #basemap-toggle:hover { 
+      background: var(--surface2); 
+    }
     /* ── NARRATIVE COLUMN ── */
     #narrative {
       position: fixed;
-      top: var(--nav-h); left: 0;
-      width: 40%; height: calc(100vh - var(--nav-h));
-      overflow-y: auto; overflow-x: hidden;
+      top: var(--nav-h); 
+      left: 0;
+      width: 40%;
+      height: calc(100vh - var(--nav-h));
+      overflow-y: auto; 
+      overflow-x: hidden;
       z-index: 100;
       background: var(--bg);
       border-right: 1px solid;
       border-image: var(--grad-teal) 1;
     }
-    #narrative::-webkit-scrollbar { width: 4px; }
-    #narrative::-webkit-scrollbar-track { background: transparent; }
-    #narrative::-webkit-scrollbar-thumb { background: rgba(216,218,219,0.18); border-radius: 2px; }
-
+    #narrative::-webkit-scrollbar { 
+      width: 4px; 
+    }
+    #narrative::-webkit-scrollbar-track { 
+      background: transparent; 
+    }
+    #narrative::-webkit-scrollbar-thumb { 
+      background: rgba(216,218,219,0.18); 
+      border-radius: 2px; 
+    }
     /* ── STEP ── */
     .step {
       min-height: 70vh;
@@ -185,142 +247,244 @@
       opacity: 1;
       background: var(--surface);
     }
-    .step:first-child { padding-top: 60px; }
-    .step:last-child { min-height: 90vh; }
-
+    .step:first-child { 
+      padding-top: 60px; 
+    }
+    .step:last-child { 
+      min-height: 90vh; 
+    }
     .step-time {
-      font-family: var(--mono); font-size: 11px;
-      letter-spacing: 0.1em; color: var(--muted);
-      margin-bottom: 10px; text-transform: uppercase;
+      font-family: var(--mono); 
+      font-size: 11px;
+      letter-spacing: 0.1em; 
+      color: var(--muted);
+      margin-bottom: 10px; 
+      text-transform: uppercase;
     }
     .step-title {
-      font-family: var(--head); font-size: 22px;
-      font-weight: 700; color: var(--text);
-      letter-spacing: 0.03em; margin-bottom: 14px; line-height: 1.3;
+      font-family: var(--head); 
+      font-size: 22px;
+      font-weight: 700; 
+      color: var(--text);
+      letter-spacing: 0.03em; 
+      margin-bottom: 14px; 
+      line-height: 1.3;
     }
     .step p {
-      font-size: 14px; line-height: 1.75;
-      color: var(--text2); margin-bottom: 12px;
+      font-size: 14px; 
+      line-height: 1.75;
+      color: var(--text2); 
+      margin-bottom: 12px;
     }
-
     /* Person pills */
     .person-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--mono); font-size: 10px;
-      letter-spacing: 0.06em; color: var(--muted);
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px;
+      font-family: var(--mono); 
+      font-size: 10px;
+      letter-spacing: 0.06em; 
+      color: var(--muted);
       margin: 0 10px 10px 0;
     }
     .person-pill .dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      width: 8px; 
+      height: 8px; 
+      border-radius: 50%; 
+      flex-shrink: 0;
     }
-
     /* Figure/image */
     .step-figure {
       margin: 18px 0 8px;
       border: 1px solid var(--border);
       background: var(--card-bg);
-      border-radius: 2px; overflow: hidden;
+      border-radius: 2px; 
+      overflow: hidden;
     }
     .step-figure img {
-      display: block; width: 100%;
-      max-height: 280px; object-fit: cover; cursor: pointer;
+      display: block; 
+      width: 100%;
+      max-height: 280px; 
+      object-fit: cover; 
+      cursor: pointer;
     }
     .step-figure figcaption {
-      font-family: var(--mono); font-size: 10px;
-      color: var(--muted); letter-spacing: 0.06em;
-      padding: 8px 12px; border-top: 1px dashed var(--border);
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      letter-spacing: 0.06em;
+      padding: 8px 12px; 
+      border-top: 1px dashed var(--border);
       text-transform: uppercase;
     }
-
     /* Image gallery */
     .step-gallery {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 6px; margin: 18px 0 8px;
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px; 
+      margin: 18px 0 8px;
     }
     .step-gallery img {
-      display: block; width: 100%;
-      aspect-ratio: 4 / 3; object-fit: cover;
+      display: block; 
+      width: 100%;
+      aspect-ratio: 4 / 3; 
+      object-fit: cover;
       border: 1px solid var(--border);
-      background: var(--card-bg); border-radius: 2px;
-      cursor: pointer; transition: opacity 0.2s;
+      background: var(--card-bg); 
+      border-radius: 2px;
+      cursor: pointer; 
+      transition: opacity 0.2s;
     }
-    .step-gallery img:hover { opacity: 0.85; }
+    .step-gallery img:hover { 
+      opacity: 0.85; 
+    }
     .gallery-caption {
-      font-family: var(--mono); font-size: 10px;
-      color: var(--muted); letter-spacing: 0.06em;
-      margin: -2px 0 12px; text-transform: uppercase;
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      letter-spacing: 0.06em;
+      margin: -2px 0 12px; 
+      text-transform: uppercase;
     }
-
     /* Embed (click-to-load iframe) */
     .step-embed {
       margin: 14px 0 6px;
       border: 1px solid var(--border-subtle);
-      border-radius: 4px; overflow: hidden; background: #000;
+      border-radius: 4px; 
+      overflow: hidden; 
+      background: #000;
     }
     .step-embed iframe {
-      display: block; width: 100%; height: 60px; border: none;
+      display: block; 
+      width: 100%; 
+      height: 60px; 
+      border: none;
     }
     .embed-placeholder {
-      display: flex; align-items: center; justify-content: center;
-      gap: 8px; height: 60px; cursor: pointer;
-      transition: background 0.2s; user-select: none;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 8px; 
+      height: 60px; 
+      cursor: pointer;
+      transition: background 0.2s; 
+      user-select: none;
     }
-    .embed-placeholder:hover { background: rgba(255,255,255,0.06); }
-    .embed-placeholder svg { width: 12px; height: 12px; fill: var(--muted); flex-shrink: 0; }
-    .embed-placeholder:hover svg { fill: var(--text); }
+    .embed-placeholder:hover { 
+      background: rgba(255,255,255,0.06); 
+    }
+    .embed-placeholder svg { 
+      width: 12px; 
+      height: 12px; fill: var(--muted); 
+      flex-shrink: 0; 
+    }
+    .embed-placeholder:hover svg { 
+      fill: var(--text); 
+    }
     .embed-placeholder span {
-      font-family: var(--mono); font-size: 10px;
-      letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase;
+      font-family: var(--mono); 
+      font-size: 10px;
+      letter-spacing: 0.06em; 
+      color: var(--muted); 
+      text-transform: uppercase;
     }
-    .embed-placeholder:hover span { color: var(--text2); }
+    .embed-placeholder:hover span { 
+      color: var(--text2); 
+    }
     .embed-caption {
-      font-family: var(--mono); font-size: 10px;
-      color: var(--muted); letter-spacing: 0.04em;
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      letter-spacing: 0.04em;
       margin: 4px 0 12px;
     }
-
     /* Callout */
     .callout {
-      margin: 18px 0 4px; padding: 14px 18px;
+      margin: 18px 0 4px; 
+      padding: 14px 18px;
       background: var(--c-primary-dim);
       border-left: 3px solid var(--c-primary);
-      font-size: 15px; font-weight: 600;
-      color: var(--text); letter-spacing: 0.01em; line-height: 1.5;
+      font-size: 15px; 
+      font-weight: 600;
+      color: var(--text); 
+      letter-spacing: 0.01em; 
+      line-height: 1.5;
     }
     .callout-label {
-      display: block; font-family: var(--mono);
-      font-size: 9px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--c-primary); margin-bottom: 4px;
+      display: block; 
+      font-family: var(--mono);
+      font-size: 9px; 
+      font-weight: 500;
+      letter-spacing: 0.14em; 
+      text-transform: uppercase;
+      color: var(--c-primary); 
+      margin-bottom: 4px;
     }
-
     /* Pulse animation for active markers */
-    @keyframes pulse-ring { 0% { opacity: 0.6; } 100% { opacity: 0; } }
-    .pulse-marker { animation: pulse-ring 2s ease-out infinite; }
-
+    @keyframes pulse-ring { 
+      0% { 
+        opacity: 0.6; 
+      } 
+      100% { 
+        opacity: 0; 
+      } 
+    }
+    .pulse-marker { 
+      animation: pulse-ring 2s ease-out infinite; 
+    }
     /* Leaflet popup */
     .ev-tip .leaflet-popup-content-wrapper {
-      background: rgba(6,11,20,0.92); color: var(--text2);
-      border: 1px solid var(--border2); border-radius: 4px;
-      font-family: var(--body); font-size: 12px;
+      background: rgba(6,11,20,0.92); 
+      color: var(--text2);
+      border: 1px solid var(--border2); 
+      border-radius: 4px;
+      font-family: var(--body); 
+      font-size: 12px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.5);
     }
-    .ev-tip .leaflet-popup-tip { background: rgba(6,11,20,0.92); }
-
+    .ev-tip .leaflet-popup-tip { 
+      background: rgba(6,11,20,0.92); 
+    }
     /* ── MOBILE ── */
     @media (max-width: 768px) {
-      #map { width: 100%; height: 40vh; top: var(--nav-h); position: fixed; }
-      #narrative {
-        width: 100%; top: calc(var(--nav-h) + 40vh);
-        height: calc(60vh - var(--nav-h));
-        border-right: none; border-top: 1px solid var(--border2);
+      #map { 
+        width: 100%; 
+        height: 40vh; 
+        top: var(--nav-h); 
+        position: fixed; 
       }
-      #clock { top: calc(var(--nav-h) + 8px); right: 8px; padding: 6px 12px; }
-      .clock-time { font-size: 18px; }
-      .step { padding: 28px 20px; min-height: 50vh; }
-      .step-title { font-size: 18px; }
-      .step p { font-size: 13px; }
-      #basemap-toggle { bottom: auto; top: calc(var(--nav-h) + 40vh - 36px); right: 8px; font-size: 9px; padding: 4px 8px; }
+      #narrative {
+        width: 100%; 
+        top: calc(var(--nav-h) + 40vh);
+        height: calc(60vh - var(--nav-h));
+        border-right: none; 
+        border-top: 1px solid var(--border2);
+      }
+      #clock { 
+        top: calc(var(--nav-h) + 8px); 
+        right: 8px; 
+        padding: 6px 12px; 
+      }
+      .clock-time { 
+        font-size: 18px; 
+      }
+      .step { 
+        padding: 28px 20px; 
+        min-height: 50vh; 
+      }
+      .step-title { 
+        font-size: 18px; 
+      }
+      .step p { 
+        font-size: 13px; 
+      }
+      #basemap-toggle { 
+        bottom: auto; 
+        top: calc(var(--nav-h) + 40vh - 36px); 
+        right: 8px; 
+        font-size: 9px; 
+        padding: 4px 8px; 
+      }
     }
   </style>
 </head>
@@ -330,8 +494,8 @@
 <div id="progress-bar"></div>
 
 <nav class="nav">
-  <span class="nav-title">{{NAV_TITLE}}</span>
-  <span class="nav-tag">{{NAV_TAG}}</span>
+  <span class="nav-title">Nav_Title</span>
+  <span class="nav-tag">Nav_Tag</span>
   <a class="nav-source-link" href="{{DOCKET_URL}}" target="_blank">Doc-ket &rarr;</a>
 </nav>
 
@@ -368,66 +532,66 @@
 
   <!-- ── STEP 0: Intro ── -->
   <div class="step" data-step="0" data-border="var(--c-accent)">
-    <div class="step-time">{{DATE_RANGE}}</div>
-    <div class="step-title">{{INTRO_TITLE}}</div>
-    <p>{{INTRO_TEXT}}</p>
+    <div class="step-time">Date_Range</div>
+    <div class="step-title">Intro_Title</div>
+    <p>Intro_Text</p>
   </div>
 
   <!-- ── STEP 1: Example with person pills ── -->
   <div class="step" data-step="1" data-border="var(--c-primary)">
-    <div class="step-time">{{DATE}} &middot; {{TIME}}</div>
-    <div class="step-title">{{STEP_TITLE}}</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> {{PERSON_1}}</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-secondary)"></span> {{PERSON_2}}</div>
-    <p>{{STEP_TEXT}}</p>
+    <div class="step-time">Date &middot; Time</div>
+    <div class="step-title">Step_Title</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Person_1</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-secondary)"></span> Person_2</div>
+    <p>Step_Text</p>
   </div>
 
   <!-- ── STEP 2: Example with image ── -->
   <div class="step" data-step="2" data-border="var(--c-accent)">
-    <div class="step-time">{{DATE}} &middot; {{TIME}}</div>
-    <div class="step-title">{{STEP_TITLE}}</div>
-    <p>{{STEP_TEXT}}</p>
+    <div class="step-time">Date &middot; Time</div>
+    <div class="step-title">Step_Title</div>
+    <p>Step_Text</p>
     <figure class="step-figure">
-      <img src="{{IMAGE_PATH}}" alt="{{IMAGE_ALT}}">
-      <figcaption>{{IMAGE_CAPTION}}</figcaption>
+      <img src="Image_Path" alt="Image_Alt">
+      <figcaption>Image_Caption</figcaption>
     </figure>
   </div>
 
   <!-- ── STEP 3: Example with click-to-load embed ── -->
   <div class="step" data-step="3" data-border="var(--c-secondary)">
-    <div class="step-time">{{DATE}} &middot; {{TIME}}</div>
-    <div class="step-title">{{STEP_TITLE}}</div>
-    <p>{{STEP_TEXT}}</p>
+    <div class="step-time">Date &middot; Time</div>
+    <div class="step-title">Step_Title</div>
+    <p>Step_Text</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="https://drive.google.com/file/d/{{DRIVE_FILE_ID}}/preview">
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg>
         <span>Click to read transcript</span>
       </div>
     </div>
-    <div class="embed-caption">{{EMBED_CAPTION}}</div>
+    <div class="embed-caption">Embed_Caption</div>
   </div>
 
   <!-- ── STEP 4: Example with callout ── -->
   <div class="step" data-step="4" data-border="var(--c-primary)">
-    <div class="step-time">{{DATE}}</div>
-    <div class="step-title">{{STEP_TITLE}}</div>
-    <p>{{STEP_TEXT}}</p>
+    <div class="step-time">Date</div>
+    <div class="step-title">Step_Title</div>
+    <p>Step_Text</p>
     <div class="callout">
-      <span class="callout-label">{{CALLOUT_LABEL}}</span>
-      {{CALLOUT_TEXT}}
+      <span class="callout-label">Callout_Label</span>
+      Callout_Text
     </div>
   </div>
 
   <!-- ── STEP 5: Example with gallery ── -->
   <div class="step" data-step="5" data-border="var(--c-accent)">
-    <div class="step-time">{{DATE}}</div>
-    <div class="step-title">{{STEP_TITLE}}</div>
-    <p>{{STEP_TEXT}}</p>
+    <div class="step-time">Date</div>
+    <div class="step-title">Step_Title</div>
+    <p>Step_Text</p>
     <div class="step-gallery">
-      <img src="{{IMG_1}}" alt="{{ALT_1}}">
-      <img src="{{IMG_2}}" alt="{{ALT_2}}">
+      <img src="Image_Path_1" alt="Image_Alt_1">
+      <img src="Image_Path_2" alt="Image_Alt_2">
     </div>
-    <div class="gallery-caption">{{GALLERY_CAPTION}}</div>
+    <div class="gallery-caption">Gallery_Caption</div>
   </div>
 
   <!-- ── FINAL STEP: Source link ── -->

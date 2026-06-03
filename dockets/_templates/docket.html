@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{{PAGE_TITLE}} | Subtxt Press</title>
-  <meta name="description" content="{{META_DESCRIPTION}}">
+  <title>Page_Title | Subtxt Press</title>
+  <meta name="description" content="Meta_Description">
   <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/{{FOLDER_SLUG}}/docket">
   <!-- Open Graph -->
-  <meta property="og:title" content="{{PAGE_TITLE}} | Subtxt Press">
-  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:title" content="Page_Title | Subtxt Press">
+  <meta property="og:description" content="Meta_Description">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/{{FOLDER_SLUG}}/docket">
   <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
@@ -19,8 +19,8 @@
   <meta property="og:site_name" content="Dockets | Subtxt Press">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{PAGE_TITLE}} | Subtxt Press">
-  <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta name="twitter:title" content="Page_Title | Subtxt Press">
+  <meta name="twitter:description" content="Meta_Description">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Favicons -->
@@ -46,27 +46,27 @@
       --plum:    #3E2436;
       --carmine: #7A5063;
       --ink:     #241620;
-
+      /* Surface colors */
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-
+      /* Font colors */
       --text-heading: #241620;
       --text-body:    #44373C;
       --text-label:   #7A5063;
       --text-muted:   rgba(68, 55, 60, 0.45);
-
+      /* Accent colors */
       --accent:        #E8956A;
       --accent-border: rgba(232, 149, 106, 0.40);
-
+      /* Border colors */
       --border-light:  rgba(221, 208, 188, 0.55);
       --border-mid:    rgba(180, 140, 100, 0.22);
-
+      /* Gradient colors */
       --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
     }
-
-    html { scroll-behavior: smooth; }
-
+    html { 
+      scroll-behavior: smooth; 
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--surface-page);
@@ -74,7 +74,6 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6rem;
@@ -92,10 +91,11 @@
       height: 1px;
       background: var(--border-mid);
     }
-
     .site-nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0; 
+      left: 0; 
+      right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
@@ -104,7 +104,6 @@
       transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
       border-bottom: 1px solid transparent;
     }
-
     .site-nav.scrolled {
       padding: 14px 5vw;
       background: rgba(244, 237, 227, 0.96);
@@ -113,7 +112,6 @@
       border-bottom-color: var(--border-light);
       box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
     }
-
     .nav-brand {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 14px;
@@ -124,9 +122,9 @@
       text-decoration: none;
       transition: color 0.3s;
     }
-
-    .site-nav.scrolled .nav-brand { color: var(--ink); }
-
+    .site-nav.scrolled .nav-brand { 
+      color: var(--ink); 
+    }
     .nav-toggle {
       display: none;
       background: none;
@@ -139,14 +137,14 @@
       margin-left: auto;
       transition: color 0.3s;
     }
-    .site-nav.scrolled .nav-toggle { color: var(--ink); }
-
+    .site-nav.scrolled .nav-toggle { 
+      color: var(--ink); 
+    }
     .nav-links {
       list-style: none;
       display: flex;
       gap: 40px;
     }
-
     .nav-links a {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -157,21 +155,27 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .nav-links a:hover  { color: #fff; }
-    .nav-links a.active { color: var(--peach); }
-
-    .site-nav.scrolled .nav-links a         { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover   { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active  { color: var(--accent); }
-
+    .nav-links a:hover  { 
+      color: #fff; 
+    }
+    .nav-links a.active { 
+      color: var(--peach); 
+    }
+    .site-nav.scrolled .nav-links a { 
+      color: var(--text-label); 
+    }
+    .site-nav.scrolled .nav-links a:hover { 
+      color: var(--ink); 
+    }
+    .site-nav.scrolled .nav-links a.active { 
+      color: var(--accent); 
+    }
     .masthead {
       position: relative;
       height: 80vh;
       min-height: 520px;
       overflow: hidden;
     }
-
     .masthead-img {
       position: absolute;
       inset: 0;
@@ -180,7 +184,6 @@
       object-fit: cover;
       object-position: center 52%;
     }
-
     .masthead::after {
       content: '';
       position: absolute;
@@ -192,14 +195,12 @@
         rgba(0, 0, 0, 0.38) 100%
       );
     }
-
     .masthead-text {
       position: absolute;
       bottom: 72px;
       left: 5vw;
       z-index: 2;
     }
-
     .masthead-kicker {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -212,7 +213,6 @@
       align-items: center;
       gap: 10px;
     }
-
     .masthead-kicker::before {
       content: '';
       width: 22px;
@@ -220,7 +220,6 @@
       background: var(--peach);
       flex-shrink: 0;
     }
-
     .masthead-title {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(2.4rem, 5vw, 4rem);
@@ -231,13 +230,11 @@
       letter-spacing: 0.02em;
       text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
     }
-
     .content-section {
       max-width: 960px;
       margin: 0 auto;
       padding: 56px 5vw 88px;
     }
-
     .doc-block {
       background: var(--surface-card);
       border: 1px solid var(--border-mid);
@@ -246,7 +243,6 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
     }
-
     .doc-block-header {
       padding: 20px 28px;
       border-bottom: 1px solid var(--border-light);
@@ -254,7 +250,6 @@
       align-items: baseline;
       gap: 12px;
     }
-
     .doc-block-number {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
@@ -263,7 +258,6 @@
       color: var(--accent);
       flex-shrink: 0;
     }
-
     .doc-block-title {
       font-family: 'Raleway', sans-serif;
       font-size: clamp(1.05rem, 1.5vw, 1.3rem);
@@ -272,14 +266,12 @@
       line-height: 1.25;
       letter-spacing: -0.01em;
     }
-
     .doc-block-embed {
       width: 100%;
       height: 600px;
       border: none;
       display: block;
     }
-
     .drive-card {
       background: var(--surface-card);
       border: 1px solid var(--border-mid);
@@ -292,14 +284,12 @@
       gap: 20px;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
     .drive-card:hover {
       transform: translateY(-2px);
       box-shadow:
         0 8px 28px rgba(0, 0, 0, 0.10),
         0 0 0 1px var(--accent-border);
     }
-
     .drive-icon {
       width: 48px;
       height: 48px;
@@ -312,9 +302,9 @@
       color: var(--accent);
       font-size: 20px;
     }
-
-    .drive-card-body { flex: 1; }
-
+    .drive-card-body { 
+      flex: 1; 
+    }
     .drive-card-title {
       font-family: 'Raleway', sans-serif;
       font-size: 1.1rem;
@@ -322,21 +312,19 @@
       color: var(--text-heading);
       margin-bottom: 4px;
     }
-
     .drive-card-desc {
       font-size: 13px;
       line-height: 1.6;
       color: var(--text-body);
     }
-
     .drive-card-desc a {
       color: var(--carmine);
       text-underline-offset: 2px;
       font-weight: 500;
     }
-
-    .drive-card-desc a:hover { color: var(--ink); }
-
+    .drive-card-desc a:hover { 
+      color: var(--ink); 
+    }
     .drive-card-cta {
       display: inline-flex;
       align-items: center;
@@ -351,12 +339,10 @@
       transition: color 0.2s, gap 0.2s;
       flex-shrink: 0;
     }
-
     .drive-card-cta:hover {
       color: var(--ink);
       gap: 10px;
     }
-
     .site-footer {
       display: flex;
       align-items: center;
@@ -368,7 +354,6 @@
       padding: 24px 5vw;
       border-top: 1px solid var(--border-light);
     }
-
     .footer-brand {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -376,30 +361,36 @@
       text-transform: uppercase;
       color: var(--text-muted);
     }
-
     .footer-social {
       display: flex;
       gap: 20px;
     }
-
     .footer-social a {
       color: var(--text-muted);
       font-size: 15px;
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .footer-social a:hover { color: var(--carmine); }
-
-    @media (max-width: 900px) {
-      .doc-block-embed { height: 480px; }
-      .drive-card { flex-direction: column; align-items: flex-start; }
+    .footer-social a:hover { 
+      color: var(--carmine); 
     }
-
+    @media (max-width: 900px) {
+      .doc-block-embed { 
+        height: 480px; 
+      }
+      .drive-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+      }
+    }
     @media (max-width: 720px) {
-      .nav-toggle          { display: block; }
+      .nav-toggle { 
+        display: block; 
+      }
       .site-nav,
-      .site-nav.scrolled   { padding: 12px 16px; }
+      .site-nav.scrolled { 
+        padding: 12px 16px; 
+      }
       .nav-links {
         display: none;
         position: absolute;
@@ -412,18 +403,46 @@
         gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open      { display: flex; }
-      .nav-links li        { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
-      .nav-links li:last-child { border-bottom: none; }
-      .nav-links a         { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active  { color: var(--accent) !important; }
-      .nav-links a:hover   { color: var(--ink) !important; }
-      .masthead-text       { left: 20px; bottom: 52px; }
-      .content-section     { padding: 32px 16px 56px; }
-      .doc-block-header    { padding: 16px 20px; }
-      .doc-block-embed     { height: 360px; }
-      .drive-card          { padding: 20px; }
-      .site-footer         { padding: 24px 20px; }
+      .nav-links.open { 
+        display: flex; 
+      }
+      .nav-links li { 
+        padding: 8px 0; 
+        border-bottom: 1px solid var(--border-mid); 
+      }
+      .nav-links li:last-child { 
+        border-bottom: none; 
+      }
+      .nav-links a { 
+        font-size: 10px !important; 
+        letter-spacing: 0.12em !important; 
+        color: var(--text-label) !important; 
+      }
+      .nav-links a.active { 
+        color: var(--accent) !important; 
+      }
+      .nav-links a:hover { 
+        color: var(--ink) !important; 
+      }
+      .masthead-text { 
+        left: 20px; 
+        bottom: 52px; 
+      }
+      .content-section { 
+        padding: 32px 16px 56px; 
+      }
+      .doc-block-header { 
+        padding: 16px 20px; 
+      }
+      .doc-block-embed { 
+        height: 360px; 
+      }
+      .drive-card { 
+        padding: 20px; 
+      }
+      .site-footer { 
+        padding: 24px 20px; 
+      } 
     }
   </style>
 </head>
@@ -446,13 +465,13 @@
     <img class="masthead-img" src="../../assets/img/landscape.jpg" alt="Red Rock Canyon">
     <div class="masthead-text" data-aos="fade-up">
       <p class="masthead-kicker">Dockets</p>
-      <h1 class="masthead-title">{{MASTHEAD_TITLE}}</h1>
+      <h1 class="masthead-title">MastHead_Title</h1>
     </div>
   </div>
 
   <section class="content-section">
 
-    <div class="section-label">{{SECTION_LABEL}}</div>
+    <div class="section-label">Section_Label</div>
 
     <!--
       DOCUMENT BLOCKS — copy this block for each filing/document.
@@ -461,7 +480,7 @@
     <div class="doc-block" data-aos="fade-up">
       <div class="doc-block-header">
         <span class="doc-block-number">01</span>
-        <h2 class="doc-block-title">{{DOCUMENT_TITLE}}</h2>
+        <h2 class="doc-block-title">Document_Title</h2>
       </div>
       <iframe class="doc-block-embed" src="https://drive.google.com/file/d/{{GOOGLE_DRIVE_FILE_ID}}/preview" width="640" height="480"></iframe>
     </div>
@@ -481,7 +500,7 @@
       </div>
       <div class="drive-card-body">
         <h3 class="drive-card-title">Google Drive Folder</h3>
-        <p class="drive-card-desc">All filings and documents for {{CASE_NAME}}.</p>
+        <p class="drive-card-desc">All filings and documents for Case_Name.</p>
       </div>
       <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
     </a>
