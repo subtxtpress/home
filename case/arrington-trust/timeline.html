@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Arrington Trust & Griffith Properties Timeline</title>
+  <meta name="description" content="Comprehensive property records timeline: 154 Arrington Trust + 49 Patricia Griffith transactions. Includes deed analysis, lender history, refinancing patterns, and distressed sales.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/arrington-trust/timeline">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Arrington Trust & Griffith Properties Timeline">
+  <meta property="og:description" content="Comprehensive property records timeline: 154 Arrington Trust + 49 Patricia Griffith transactions. Includes deed analysis, lender history, refinancing patterns, and distressed sales.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/arrington-trust/timeline">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/case/arrington-trust/img/arrington-trust.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arrington Trust & Griffith Properties Timeline">
+  <meta name="twitter:description" content="Comprehensive property records timeline: 154 Arrington Trust + 49 Patricia Griffith transactions. Includes deed analysis, lender history, refinancing patterns, and distressed sales.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/case/arrington-trust/img/arrington-trust.png">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #F4EDE3;
+            --surface: #ffffff;
+            --border: rgba(62, 36, 54, 0.14);
+            --text: #241620;
+            --text-dim: #7a7063;
+            --accent-primary: #7A5063;
+            --accent-secondary: #E8956A;
+            --trust-color: #3E2436;
+            --griffith-color: #E8956A;
+        }
+
+        [data-theme="dark"] {
+            --bg: #060B14;
+            --surface: #0f1620;
+            --border: rgba(235, 226, 205, 0.10);
+            --text: #ebe2cd;
+            --text-dim: #7a7468;
+            --accent-primary: #4a8a7c;
+            --accent-secondary: #C04E01;
+            --trust-color: #3E2436;
+            --griffith-color: #C04E01;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--trust-color), var(--griffith-color));
+            z-index: 200;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 2.5rem 1.25rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(160deg, var(--surface), var(--bg));
+        }
+
+        header h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.7rem;
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 100;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-dim);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.trust {
+            background: var(--trust-color);
+        }
+
+        .legend-dot.griffith {
+            background: var(--griffith-color);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            transition: all 0.25s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: color-mix(in srgb, var(--surface) 50%, transparent);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .stat-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 0.25rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            background: var(--surface);
+            color: var(--text);
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(122, 80, 99, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-primary);
+            color: var(--bg);
+            border-color: var(--accent-primary);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .transaction {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1.25rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .transaction:hover {
+            background: color-mix(in srgb, var(--surface) 50%, transparent);
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .transaction.arrington {
+            border-left-color: var(--trust-color);
+        }
+
+        .transaction.griffith {
+            border-left-color: var(--griffith-color);
+        }
+
+        .transaction-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+
+        .transaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .transaction-description {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .source-badge {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.6rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .source-badge.trust {
+            background: rgba(62, 36, 54, 0.2);
+            color: var(--trust-color);
+        }
+
+        .source-badge.griffith {
+            background: rgba(232, 149, 106, 0.2);
+            color: var(--griffith-color);
+        }
+
+        .transaction-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .transaction.expanded .transaction-details {
+            display: block;
+        }
+
+        .detail-row {
+            margin-bottom: 0.5rem;
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 1rem;
+        }
+
+        .detail-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .detail-value {
+            color: var(--text);
+            word-break: break-word;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.4rem; }
+            .timeline-container { padding: 1rem; }
+            .timeline { grid-template-columns: 1fr; }
+            .legend { flex-direction: column; gap: 0.5rem; }
+            .controls { flex-direction: column; }
+            .search-box { min-width: unset; }
+            .filter-buttons { width: 100%; justify-content: flex-start; }
+        }
+
+        .highlight {
+            background: rgba(232, 149, 106, 0.3);
+            padding: 0 3px;
+            border-radius: 2px;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .map-section {
+            margin: 2rem 0;
+        }
+
+        .map-section h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: var(--surface);
+            color: var(--text);
+            border-radius: 8px;
+        }
+
+        .leaflet-popup-content {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .leaflet-popup-tip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .analysis-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .analysis-section:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-section h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .entity-list, .lender-list, .refinance-list, .default-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .entity-item, .lender-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            background: color-mix(in srgb, var(--surface) 50%, transparent);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .entity-item strong, .lender-item strong {
+            flex: 1;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+
+        .count {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            background: var(--accent-primary);
+            color: var(--bg);
+            padding: 0.3rem 0.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .refinance-item, .default-item {
+            padding: 0.75rem;
+            background: color-mix(in srgb, var(--surface) 50%, transparent);
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-primary);
+            font-size: 0.85rem;
+        }
+
+        .prop-header {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            word-break: break-word;
+            color: var(--text);
+        }
+
+        .event-timeline, .default-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .event, .notice {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 0.75rem;
+            align-items: flex-start;
+            font-size: 0.75rem;
+        }
+
+        .date {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .type, .notice-type {
+            color: var(--text);
+            font-size: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .notice-type {
+            background: rgba(122, 80, 99, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .entity-list, .lender-list, .refinance-list, .default-list {
+                max-height: 250px;
+            }
+
+            .event, .notice {
+                grid-template-columns: 90px 1fr;
+                font-size: 0.7rem;
+            }
+        }
+
+
+        .leaflet-container {
+            background: var(--bg);
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+<header>
+    <h1>Arrington Trust & Griffith Properties</h1>
+    <p>Combined Property Transaction Timeline (1983–2026)</p>
+</header>
+
+<div class="legend" style="position: relative;">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+        <div class="legend-item"><div class="legend-dot trust"></div> Arrington Trust</div>
+        <div class="legend-item"><div class="legend-dot griffith"></div> Patricia Griffith</div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">☀</button>
+</div>
+
+<div class="timeline-container">
+    <div class="map-section">
+        <h2>Property Locations</h2>
+        <div id="map"></div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">203</div>
+            <div class="stat-label">Total Transactions</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">154</div>
+            <div class="stat-label">Arrington Trust</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">49</div>
+            <div class="stat-label">Patricia Griffith</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">21</div>
+            <div class="stat-label">Properties</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">43</div>
+            <div class="stat-label">Year Span</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">192</div>
+            <div class="stat-label">Unique Parties</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search by name, property, document type...">
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="trust">Trust</button>
+            <button class="filter-btn" data-filter="griffith">Griffith</button>
+            <button class="filter-btn" data-filter="deed">Deeds</button>
+        </div>
+    </div>
+
+    
+    <div class="analysis-grid">
+        <div class="analysis-section" id="people-section"><h3>People & Entities</h3><div class="entity-list"><div class="entity-item"><strong>ARRINGTON BURTON & PATSY M</strong> <span class="count">22</span></div><div class="entity-item"><strong>ARRINGTON BURTON TRUSTEE</strong> <span class="count">17</span></div><div class="entity-item"><strong>WHOM IT MAY CONCERN</strong> <span class="count">15</span></div><div class="entity-item"><strong>Summit County Treasurer</strong> <span class="count">12</span></div><div class="entity-item"><strong>ARRINGTON JOHN E & MARY F</strong> <span class="count">11</span></div><div class="entity-item"><strong>ARRINGTON JOHN E TRUSTEE</strong> <span class="count">11</span></div><div class="entity-item"><strong>Joseph Douglass Griffith; Patricia Arrington Griffith</strong> <span class="count">11</span></div><div class="entity-item"><strong>Joseph Douglas Griffith; Patricia Arrington Griffith</strong> <span class="count">10</span></div><div class="entity-item"><strong>Patricia Arrington Griffith</strong> <span class="count">9</span></div><div class="entity-item"><strong>B & P M ARRINGTON FAMILY TRUST</strong> <span class="count">8</span></div><div class="entity-item"><strong>ARRINGTON JOHN E, ARRINGTON MARY F</strong> <span class="count">6</span></div><div class="entity-item"><strong>ARRINGTON BURTON J, ARRINGTON KAREN L</strong> <span class="count">6</span></div><div class="entity-item"><strong>Patricia A. Griffith</strong> <span class="count">6</span></div><div class="entity-item"><strong>ARRINGTON JOHN E TRUSTEE, ARRINGTON MARY F TRUSTEE</strong> <span class="count">5</span></div><div class="entity-item"><strong>LUEVANO JULIE A</strong> <span class="count">5</span></div><div class="entity-item"><strong>eTitle Insurance Agency</strong> <span class="count">5</span></div><div class="entity-item"><strong>ARRINGTON CRAIG P SUCCESOR TRUSTEE, ARRINGTON JOHN E TRUSTEE (DECEASED), ARRINGTON MARY F TRUSTEE (DECEASED)</strong> <span class="count">5</span></div><div class="entity-item"><strong>Joseph Douglas Griffith (JT); Patricia Arrington Griffith (JT)</strong> <span class="count">4</span></div><div class="entity-item"><strong>John E. Arrington Trustee</strong> <span class="count">4</span></div><div class="entity-item"><strong>ARRINGTON CRAIG P H/W (JT), ARRINGTON CAROLE D H/W (JT)</strong> <span class="count">4</span></div></div></div>
+        <div class="analysis-section" id="lenders-section"><h3>Lenders & Financial Institutions</h3><div class="lender-list"><div class="lender-item"><strong>ARRINGTON JOHN E & MARY F</strong> <span class="count">3 mortgages</span></div><div class="lender-item"><strong>UNIVERSITY OF UTAH CREDIT UNION</strong> <span class="count">2 mortgages</span></div><div class="lender-item"><strong>KAUFMAN HAROLD</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>ARRINGTON JOHN E TRUSTEE, ARRINGTON MARY F TRUSTEE</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>Bank One – Utah</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>BANK ONE</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>ARRINGTON JOHN E TRUSTEE</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>LNV CORPORATION</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>ARRINGTON BRADLEY M</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>JPMORGAN CHASE BANK</strong> <span class="count">1 mortgage</span></div><div class="lender-item"><strong>ZB, ZIONS BANK</strong> <span class="count">1 mortgage</span></div></div></div>
+        <div class="analysis-section" id="refinance-section"><h3>Refinancing Patterns</h3><div class="refinance-list"><div class="refinance-item"><div class="prop-header"><strong>CHC-301</strong> (3 events)</div><div class="event-timeline"><div class="event"><span class="date">1992-05-14</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">1993-12-09</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">1994-01-11</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>NS-238-F-1</strong> (3 events)</div><div class="event-timeline"><div class="event"><span class="date">1984-01-05</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2020-04-22</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2023-09-11</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>NS-238-F-1, NS-238-F-2</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">2017-10-04</span> <span class="type">Trust Deed</span></div><div class="event"><span class="date">2023-09-11</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>NS-238-F-2</strong> (5 events)</div><div class="event-timeline"><div class="event"><span class="date">1984-01-05</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2004-12-29</span> <span class="type">Trust Deed</span></div><div class="event"><span class="date">2005-06-22</span> <span class="type">Trust Deed</span></div><div class="event"><span class="date">2017-10-04</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2020-03-20</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>PE-2-238</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">1992-02-10</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2022-09-14</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>TH-90</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">1998-04-15</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2005-03-10</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WA-1-19</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">1994-07-06</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">1994-07-18</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WS-62</strong> (4 events)</div><div class="event-timeline"><div class="event"><span class="date">2000-12-29</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2004-11-04</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2004-11-04</span> <span class="type">Trust Deed</span></div><div class="event"><span class="date">2014-06-24</span> <span class="type">Trust Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WS-63</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">1985-06-24</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">1989-06-13</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WS-70</strong> (3 events)</div><div class="event-timeline"><div class="event"><span class="date">2015-12-18</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2019-01-03</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2019-01-03</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WS-71, WS-72</strong> (3 events)</div><div class="event-timeline"><div class="event"><span class="date">2014-10-15</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2014-10-15</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2014-10-15</span> <span class="type">Trust Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WS-74</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">2007-11-26</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2007-12-05</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WS-74, WS-75</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">1999-11-12</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">1999-11-12</span> <span class="type">Warranty Deed</span></div></div></div><div class="refinance-item"><div class="prop-header"><strong>WVE-9</strong> (2 events)</div><div class="event-timeline"><div class="event"><span class="date">2013-01-16</span> <span class="type">Warranty Deed</span></div><div class="event"><span class="date">2015-01-08</span> <span class="type">Trust Deed</span></div></div></div></div></div>
+        <div class="analysis-section" id="default-section"><h3>Default Cycles & Distress</h3><div class="default-list"><div class="default-item"><div class="prop-header"><strong></strong> (2 notices)</div><div class="default-timeline"><div class="notice"><span class="date">1996-01-23</span> <span class="notice-type">Substitution of Trustee</span></div><div class="notice"><span class="date">1998-11-23</span> <span class="notice-type">Substitution of Trustee</span></div></div></div><div class="default-item"><div class="prop-header"><strong>00716073, WS-62</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2023-02-14</span> <span class="notice-type">Substitution of Trustee and Deed of Reconveyence</span></div></div></div><div class="default-item"><div class="prop-header"><strong>01010462 WVE-9</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2016-12-30</span> <span class="notice-type">Substitution of Trustee and Deed of Reconveyence</span></div></div></div><div class="default-item"><div class="prop-header"><strong>01078960, NS-238-F-1, NS-238-F-2</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2020-04-13</span> <span class="notice-type">Substitution of Trustee and Deed of Reconveyence</span></div></div></div><div class="default-item"><div class="prop-header"><strong>1092753</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2018-08-20</span> <span class="notice-type">Cancellation of Notice of Default</span></div></div></div><div class="default-item"><div class="prop-header"><strong>394376</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2002-08-03</span> <span class="notice-type">Substitution of Trustee and Deed of Reconveyence</span></div></div></div><div class="default-item"><div class="prop-header"><strong>627097</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2003-08-07</span> <span class="notice-type">Substitution of Trustee and Deed of Reconveyance</span></div></div></div><div class="default-item"><div class="prop-header"><strong>666518</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2005-04-14</span> <span class="notice-type">Substitution of Trustee and Deed of Reconveyence</span></div></div></div><div class="default-item"><div class="prop-header"><strong>839188</strong> (3 notices)</div><div class="default-timeline"><div class="notice"><span class="date">2010-03-10</span> <span class="notice-type">Notice of Default and Election to Sell</span></div><div class="notice"><span class="date">2011-12-19</span> <span class="notice-type">Notice of Default and Election to Sell</span></div><div class="notice"><span class="date">2018-06-04</span> <span class="notice-type">Notice of Default and Election to Sell</span></div></div></div><div class="default-item"><div class="prop-header"><strong>893930</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2010-08-10</span> <span class="notice-type">Cancellation of Notice of Default</span></div></div></div><div class="default-item"><div class="prop-header"><strong>936167</strong> (1 notice)</div><div class="default-timeline"><div class="notice"><span class="date">2012-08-14</span> <span class="notice-type">Cancellation of Notice of Default</span></div></div></div></div></div>
+    </div>
+
+
+    <div class="timeline" id="timeline"></div>
+    <div id="noResults" class="no-results" style="display: none;">
+        <p>No transactions match your search.</p>
+    </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    const transactions = [{"account": "Unit 212928", "description": "Warranty Deed", "summary": "B: 278 P: 204", "date": "1983-11-09", "related": "PE-2-237", "from": "ARRINGTON JOHN E & MARY F", "to": "TURNER ROY J JR & LEANN S", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "215246", "description": "Warranty Deed", "summary": "B: 286 P: 398", "date": "1984-01-05", "related": "NS-238-F-1", "from": "ARRINGTON JOHN E & MARY F", "to": "ARRINGTON JEFFREY B & JULIE B", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "215247", "description": "Trust Deed", "summary": "B: 286 P: 399", "date": "1984-01-05", "related": "", "from": "ARRINGTON JEFFREY B & JULIE B", "to": "ARRINGTON JOHN E & MARY F", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "215248", "description": "Warranty Deed", "summary": "B: 286 P: 402", "date": "1984-01-05", "related": "NS-238-F-2", "from": "ARRINGTON JOHN E & MARY F", "to": "ARRINGTON  BURTON J &  KAREN L", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "215249", "description": "Trust Deed", "summary": "B: 286 P: 403", "date": "1984-01-05", "related": "", "from": "ARRINGTON BURTON J & KAREN L", "to": "ARRINGTON JOHN E & MARY F", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "216535", "description": "Warranty Deed", "summary": "B: 289 P: 336", "date": "1984-01-31", "related": "", "from": "ARRINGTON JOHN E & MARY F", "to": "ARRINGTON JEFFREY B & JULIE B", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "216536", "description": "Trust Deed", "summary": "B: 289 P: 337", "date": "1984-01-31", "related": "", "from": "ARRINGTON JEFFERY B & JULIE B", "to": "ARRINGTON JOHN E & MARY F", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "216537", "description": "Warranty Deed", "summary": "B: 289 P: 340", "date": "1984-01-31", "related": "", "from": "ARRINGTON JOHN E & MARY F", "to": "ARRINGTON  BURTON J &  KAREN L", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "220939", "description": "Quit Claim Deed", "summary": "B: Unit 301 P: 187", "date": "1984-05-31", "related": "NS-238-F", "from": "ARRINGTON JOHN E & MARY F", "to": "ARRINGTON BURTON & PATSY M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "220940", "description": "Quit Claim Deed", "summary": "B: Unit 301 P: 188", "date": "1984-05-31", "related": "NS-238-F", "from": "ARRINGTON BURTON & PATSY M", "to": "ARRINGTON JOHN E & MARY F", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "227477", "description": "Quit Claim Deed", "summary": "B: 321 P: 104", "date": "1984-11-23", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "ARRINGTON BURTON & PATSY M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "227478", "description": "Quit Claim Deed", "summary": "B: 321 P: 106", "date": "1984-11-23", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "ARRINGTON BURTON & PATSY M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "227479", "description": "Quit Claim Deed", "summary": "B: 321 P: 107", "date": "1984-11-23", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "ARRINGTON BURTON & PATSY M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "227480", "description": "Quit Claim Deed", "summary": "B: 321 P: 108", "date": "1984-11-23", "related": "NS-238-G", "from": "ARRINGTON BURTON & PATSY M", "to": "ARRINGTON BURTON & PATSY M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "229332", "description": "Petition", "summary": "B: 327 P: 640", "date": "1985-01-10", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "WEBER BASIN WATER C D", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "230770", "description": "Petition", "summary": "B: 331 P: 780", "date": "1985-02-15", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "WEBER BASIN WATER CD", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "231585", "description": "Release", "summary": "B: 334 P: 655", "date": "1985-03-11", "related": "", "from": "CONOCO INC", "to": "CRANDALL FORD MERCURY, ARRINGTON IRBY N ETUX, JACKLIN LLOYD R ETUX", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "235726", "description": "Warranty Deed", "summary": "B: 346 P: 156", "date": "1985-06-24", "related": "WS-63", "from": "GREENWOOD E EARL JR & MAUDE W", "to": "ARRINGTON JOHN E & MARY F", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "251332", "description": "Quit Claim Deed", "summary": "B: 385 P: 239", "date": "1986-05-15", "related": "WS-70", "from": "ARRINGTON BURTON", "to": "ARRINGTON BURTON & PATSY M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "309234", "description": "Warranty Deed", "summary": "B: 524 P: 462", "date": "1989-06-13", "related": "WS-63", "from": "ARRINGTON JOHN E, ARRINGTON MARY F", "to": "NEWBOLD HAROLD J & LUELLA M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "323004", "description": "Trust Deed", "summary": "B: 560", "date": "1990-04-09", "related": "", "from": "ARRINGTON DANIEL R, 6 N FOURTH AVE ASSOCIATES", "to": "KAUFMAN HAROLD", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341509", "description": "Quit Claim Deed", "summary": "B: 609 P: 650", "date": "1991-05-24", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341510", "description": "Quit Claim Deed", "summary": "B: 609 P: 651", "date": "1991-05-24", "related": "WS-71", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341511", "description": "Quit Claim Deed", "summary": "B: 609 P: 652", "date": "1991-05-24", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341512", "description": "Quit Claim Deed", "summary": "B: 609 P: 653", "date": "1991-05-24", "related": "NS-238-G", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341513", "description": "Quit Claim Deed", "summary": "B: 609 P: 654", "date": "1991-05-24", "related": "NS-238-G", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341514", "description": "Quit Claim Deed", "summary": "B: 609 P: 655", "date": "1991-05-24", "related": "NS-238-G", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341515", "description": "Quit Claim Deed", "summary": "B: 609 P: 656", "date": "1991-05-24", "related": "NS-238-G", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341516", "description": "Quit Claim Deed", "summary": "B: 609 P: 658", "date": "1991-05-24", "related": "WS-70", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "341517", "description": "Quit Claim Deed", "summary": "B: 609 P: 659", "date": "1991-05-24", "related": "", "from": "ARRINGTON BURTON & PATSY M", "to": "B & P M ARRINGTON FAMILY TRUST", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "342481", "description": "Warranty Deed", "summary": "B: 612 P: 346", "date": "1991-06-14", "related": "SL-C-152", "from": "ARRINGTON O N & MARGARET M", "to": "STEGNER RITA, GOMMLICH CHARLOTTE", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "342482", "description": "Assignment", "summary": "B: 612 P: 347", "date": "1991-06-14", "related": "", "from": "SILVER CREEK RANCH CORP", "to": "ARRINGTON O N & MARGARET M", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "344865", "description": "Assignment of Trust Deed", "summary": "B: 618 P: 724", "date": "1991-08-05", "related": "", "from": "ARRINGTON JOHN E, ARRINGTON MARY F", "to": "ARRINGTON JOHN E TRUSTEE, ARRINGTON MARY F TRUSTEE", "subdivision": "PINE PLATEAU ESTATES NO 2, WANSHIP", "lot_unit": "Lot: 238, Lot: 62", "source": "Arrington Trust"}, {"account": "344866", "description": "Warranty Deed", "summary": "B: 618 P: 726", "date": "1991-08-05", "related": "WS-72-A, WS-73", "from": "ARRINGTON JOHN E, ARRINGTON MARY F", "to": "ARRINGTON JOHN E TRUSTEE, ARRINGTON MARY F TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 72, Lot: 73", "source": "Arrington Trust"}, {"account": "351356", "description": "Warranty Deed", "summary": "B: 637 P: 584", "date": "1991-12-13", "related": "00302540, CHC-212", "from": "KAUFMAN HAROLD", "to": "ARRINGTON DANIEL R, 120/6 N. FOURTH AVE ASSOCIATES", "subdivision": "CARRIAGE HOUSE CONDO", "lot_unit": "Unit 212", "source": "Arrington Trust"}, {"account": "351357", "description": "Warranty Deed", "summary": "B: 637 P: 585", "date": "1991-12-13", "related": "CHC-212", "from": "ARRINGTON DANIEL R, 120/6 N. FOURTH AVE ASSOCIATES", "to": "STEINER BARRY H (JT), STEINER KAREN M (JT)", "subdivision": "CARRIAGE HOUSE CONDO", "lot_unit": "Unit 212", "source": "Arrington Trust"}, {"account": "351650", "description": "Reconveyence", "summary": "B: 638 P: 490", "date": "1991-12-19", "related": "323004", "from": "COALITION TITLE AGENCY TR", "to": "ARRINGTON DANIEL R, 120/6 N FOURTH AVE ASSOCIATES", "subdivision": "CARRIAGE HOUSE CONDO", "lot_unit": "Unit 212", "source": "Arrington Trust"}, {"account": "353869", "description": "Warranty Deed", "summary": "B: 645 P: 252", "date": "1992-02-10", "related": "PE-2-238", "from": "ARRINGTON JOHN E, ARRINGTON MARY F", "to": "ARRINGTON JOHN E TRUSTEE, ARRINGTON MARY F TRUSTEE", "subdivision": "PINE PLATEAU ESTATES NO 2", "lot_unit": "Lot: 238", "source": "Arrington Trust"}, {"account": "357743", "description": "Warranty Deed", "summary": "B: 658 P: 293", "date": "1992-04-21", "related": "NS-238-F", "from": "ARRINGTON JOHN E, ARRINGTON MARY F", "to": "ARRINGTON JOHN E TRUSTEE, ARRINGTON MARY F TRUSTEE", "subdivision": "", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "358997", "description": "Warranty Deed", "summary": "B: 662 P: 601", "date": "1992-05-14", "related": "CHC-301", "from": "JARVIS RIAN DON", "to": "ARRINGTON DANIEL R, 120/6 N FOURTH AVENUE ASSOCIATES", "subdivision": "CARRIAGE HOUSE CONDO", "lot_unit": "Unit 301", "source": "Arrington Trust"}, {"account": "359772", "description": "Warranty Deed", "summary": "B: 665 P: 191", "date": "1992-06-01", "related": "357743", "from": "ARRINGTON JOHN E, ARRINGTON MARY F", "to": "ARRINGTON JOHN E TRUSTEE, ARRINGTON MARY F TRUSTEE", "subdivision": "", "lot_unit": "", "source": "Arrington Trust"}, {"account": "362937", "description": "Deed of Trust", "summary": "B: 674 P: 690", "date": "1992-07-22", "related": "", "from": "Joseph Douglas Griffith; Patricia Arrington Griffith", "to": "Valley Bank & Trust Company", "subdivision": "Snyders Blk 16", "lot_unit": "24; 23; 22", "source": "Patricia Griffith"}, {"account": "362936", "description": "Quit-Claim Deed", "summary": "B: 674 P: 688", "date": "1992-07-23", "related": "", "from": "Joseph Douglas Griffith; Patricia Arrington Griffith", "to": "Joseph Douglas Griffith; Patricia Arrington Griffith", "subdivision": "Snyders Blk 16", "lot_unit": "26", "source": "Patricia Griffith"}, {"account": "362997", "description": "Quit-Claim Deed", "summary": "B: 674 P: 814", "date": "1992-07-27", "related": "", "from": "Otto W. Carpenter Trustee; LaRue H. Carpenter Trustee", "to": "Joseph Douglas Griffith (JT); Patricia Arrington Griffith (JT)", "subdivision": "Snyders Blk 16", "lot_unit": "24; 23; 22", "source": "Patricia Griffith"}, {"account": "362938", "description": "Uniform Commercial Code 1 Form", "summary": "B: 674 P: 698", "date": "1992-07-28", "related": "", "from": "Joseph Douglas Griffith; Patricia Arrington Griffith", "to": "Valley Bank & Trust Company; Valley National Mortgage Company", "subdivision": "Snyders Blk 16", "lot_unit": "24; 23; 22", "source": "Patricia Griffith"}, {"account": "393257", "description": "Warranty Deed", "summary": "B: 772 P: 42", "date": "1993-12-09", "related": "CHC-301", "from": "ARRINGTON DANIEL R, 120/6 N FOURTH AVENUE ASSOCIATES", "to": "JACOBSEN C BAARRY (JT), JACOBSEN CAROL E (JT)", "subdivision": "CARRIAGE HOUSE CONDO", "lot_unit": "Unit 301", "source": "Arrington Trust"}, {"account": "394376", "description": "Deed of Trust", "summary": "B: 775 P: 830", "date": "1993-12-17", "related": "", "from": "Joseph Douglas Griffith; Patricia Arrington Griffith", "to": "Bank One Mortgage Corporation", "subdivision": "Snyders Blk 16", "lot_unit": "24; 23; 22", "source": "Patricia Griffith"}, {"account": "394375", "description": "Quit-Claim Deed", "summary": "B: 775 P: 829", "date": "1993-12-20", "related": "SA-168-1-B", "from": "Joseph Douglas Griffith; Patricia Arrington Griffith", "to": "Joseph Douglas Griffith (JT); Patricia Arrington Griffith (JT)", "subdivision": "Snyders Blk 16", "lot_unit": "24; 23; 22", "source": "Patricia Griffith"}, {"account": "394906", "description": "Quit-Claim Deed", "summary": "B: 777 P: 339", "date": "1993-12-20", "related": "", "from": "Otto W. Carpenter Trustee; LaRue H. Carpenter Trustee", "to": "Joseph Douglas Griffith (JT); Patricia Arrington Griffith (JT)", "subdivision": "Snyders Blk 16", "lot_unit": "24; 23; 22", "source": "Patricia Griffith"}, {"account": "395754", "description": "Warranty Deed", "summary": "B: 779 P: 794", "date": "1994-01-11", "related": "CHC-301", "from": "ARRINGTON DANIEL R, 120/6 N FOURTH AVENUE ASSOCIATES", "to": "JACOBSEN C BARRY (JT), JACOBSEN CAROL E (JT)", "subdivision": "CARRIAGE HOUSE CONDO", "lot_unit": "Unit 301", "source": "Arrington Trust"}, {"account": "408852", "description": "Warranty Deed", "summary": "B: 818 P: 271", "date": "1994-07-06", "related": "WA-1-19", "from": "HAUETER WILLIAM RAY, HAUETER DEAUN C", "to": "GLAD TERRY LUE, THAYNE DIXIE RAE, HARDY LINDA KAY, JACKSON JUDY, ARRINGTON CAROLE DEAUN, ...", "subdivision": "WILDERNESS ACRES NO 1", "lot_unit": "Lot: 19", "source": "Arrington Trust"}, {"account": "409730", "description": "Warranty Deed", "summary": "B: 821 P: 12", "date": "1994-07-18", "related": "WA-1-19", "from": "GLAD TERRY LUE, THAYNE DIXIE RAE, HARDY LINDA KAY, JACKSON TINA LARAE, ARRINGTON CAROLE DEAUN, ...", "to": "WEST WAYNE (JT), WEST BETSY (JT)", "subdivision": "WILDERNESS ACRES NO 1", "lot_unit": "Lot: 19", "source": "Arrington Trust"}, {"account": "416591", "description": "Full Reconveyance and Deed of Release", "summary": "B: 842 P: 291", "date": "1994-09-16", "related": "362937", "from": "Valley Bank & Trust Company; Bank One \u2013 Utah NA", "to": "Joseph Douglas Griffith; Patricia Arrington Griffith", "subdivision": "Snyders Blk 16", "lot_unit": "24; 23; 22", "source": "Patricia Griffith"}, {"account": "446776", "description": "Substitution of Trustee", "summary": "B: 940 P: 4", "date": "1996-01-23", "related": "", "from": "ARRINGTON JOHN E", "to": "METRO NATIONAL TITLE SUCCESSOR TRUSTEE", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "446777", "description": "Reconveyence", "summary": "B: 940 P: 6", "date": "1996-01-23", "related": "215249", "from": "METRO NATIONAL TITLE TRUSTEE", "to": "ARRINGTON BURTON H, ARRINGTON KAREN L", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "463852", "description": "Warranty Deed", "summary": "B: 996 P: 179", "date": "1996-09-27", "related": "", "from": "ARRINGTON JOHN E, WRIGHT SHIRLEY M", "to": "SAUNDERS BARNEY", "subdivision": "MISCELLANEOUS", "lot_unit": "", "source": "Arrington Trust"}, {"account": "504433", "description": "Warranty Deed", "summary": "B: 1136 P: 347", "date": "1998-04-15", "related": "TH-90", "from": "GIACOMINI CHARLES W, CHARLES W GIACOMINI IRA ACCOUNT", "to": "ARRINGTON JOHN E TRUSTEE, MARY F ARRINGTON F", "subdivision": "THAYNES CANYON", "lot_unit": "Lot: 90", "source": "Arrington Trust"}, {"account": "523389", "description": "Substitution of Trustee", "summary": "B: 1203 P: 764", "date": "1998-11-23", "related": "", "from": "ARRINGTON JOHN E", "to": "METRO NATIONAL TITLE", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "523390", "description": "Reconveyence", "summary": "B: 1203 P: 765", "date": "1998-11-23", "related": "215247", "from": "METRO NATIONAL TITLE", "to": "ARRINGTON JEFFREY B, ARRINGTON JULIE B", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "552861", "description": "Warranty Deed", "summary": "B: 1295 P: 517", "date": "1999-11-12", "related": "WS-74, WS-75", "from": "KENNEY GLENN E CO TRUSTEE", "to": "ARRINGTON JOHN E TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 74, Lot: 75", "source": "Arrington Trust"}, {"account": "552862", "description": "Warranty Deed", "summary": "B: 1295 P: 519", "date": "1999-11-12", "related": "WS-74, WS-75", "from": "BOOTHE EDWARD J", "to": "ARRINGTON JOHN E TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 74", "source": "Arrington Trust"}, {"account": "552917", "description": "Agreement", "summary": "B: 1295 P: 709", "date": "1999-11-15", "related": "", "from": "BOOTHE VIRGINIA A", "to": "ARRINGTON JOHN E", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 74, Lot: 75", "source": "Arrington Trust"}, {"account": "503792", "description": "Quit-Claim Deed", "summary": "B: 1134 P: 395", "date": "2000-01-13", "related": "", "from": "John E. Arrington Trustee", "to": "Joseph Douglass Griffith (JT); Patricia Arrington Griffith (JT)", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "1045", "source": "Patricia Griffith"}, {"account": "557174", "description": "Quit Claim Deed", "summary": "B: 1303 P: 1026", "date": "2000-01-14", "related": "TH-90", "from": "ARRINGTON JOHN E TRUSTEE", "to": "ARRINGTON FAMILY TRUST (THE)", "subdivision": "THAYNES CANYON", "lot_unit": "Lot 90", "source": "Arrington Trust"}, {"account": "557175", "description": "Quit Claim Deed", "summary": "B: 1303 P: 1027", "date": "2000-01-14", "related": "TH-90", "from": "ARRINGTON JOHN E TRUSTEE", "to": "GRIFFITH JOSEPH DOUGLAS (JT), GRIFFITH PATRICIA A (JT)", "subdivision": "THAYNES CANYON", "lot_unit": "Lot 90", "source": "Arrington Trust"}, {"account": "557771", "description": "Warranty Deed", "summary": "B: 1304 P: 1071", "date": "2000-01-20", "related": "", "from": "John E. Arrington Trustee", "to": "Joseph Douglass Griffith (JT); Patricia Arrington Griffith (JT)", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "557771", "description": "Warranty Deed", "summary": "B: 1304 P: 1071", "date": "2000-01-25", "related": "", "from": "ARRINGTON JOHN E TRUSTEE", "to": "GRIFFITH JOSEPH DOUGLAS (JT), GRIFFITH PATRICIA A (JT)", "subdivision": "THAYNES CANYON", "lot_unit": "Lot 90", "source": "Arrington Trust"}, {"account": "557175", "description": "Quit-Claim Deed", "summary": "B: 1303 P: 1027", "date": "2000-04-12", "related": "TH-90", "from": "John E. Arrington Trustee", "to": "Joseph Douglass Griffith (JT); Patricia Arrington Griffith (JT)", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "563529", "description": "Quit Claim Deed", "summary": "B: 1315 P: 589", "date": "2000-04-14", "related": "", "from": "ARRINGTON JOHN E TRUSTEE", "to": "ARRINGTON JOHN E TRUSTEE", "subdivision": "THAYNES CANYON", "lot_unit": "Lot 90", "source": "Arrington Trust"}, {"account": "563530", "description": "Quit Claim Deed", "summary": "B: 1315 P: 590", "date": "2000-04-14", "related": "", "from": "ARRINGTON JOHN E TRUSTEE", "to": "GRIFFITH JOSEPH DOUGLAS (JT), GRIFFITH PATRICIA A (JT)", "subdivision": "THAYNES CANYON", "lot_unit": "Lot 90", "source": "Arrington Trust"}, {"account": "563531", "description": "Trust Deed With Assignment of Rents", "summary": "B: 1315 P: 591", "date": "2000-04-14", "related": "", "from": "Joseph Douglass Griffith; Patricia Arrington Griffith", "to": "Bank One \u2013 Utah", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "569203", "description": "Warranty Deed", "summary": "B: 1326 P: 72", "date": "2000-07-17", "related": "WS-56", "from": "ARRINGTON CRAIG P", "to": "ARRINGTON CRAIG P H/W (JT), ARRINGTON CAROLE D H/W (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 56", "source": "Arrington Trust"}, {"account": "579463", "description": "Warranty Deed", "summary": "B: 1347 P: 827", "date": "2000-12-29", "related": "WS-62", "from": "BELL ARCHIE JR, BELL IRENE D", "to": "ARRINGTON JOHN E TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "584398", "description": "Quit-Claim Deed", "summary": "B: 1358 P: 898", "date": "2001-03-15", "related": "SA-168-1-B", "from": "Joseph Douglas Griffith; Patricia Arrington Griffith", "to": "Joseph Douglas Griffith (JT); Patricia Arrington Griffith (JT)", "subdivision": "Snyders Blk 16", "lot_unit": "26", "source": "Patricia Griffith"}, {"account": "584585", "description": "Trust Deed", "summary": "B: 1358 P: 1496", "date": "2001-03-19", "related": "WS-67", "from": "MASSEY BILLY CHARLES, ARRINGTON-MASSEY ANN LOUISE", "to": "BANK ONE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 67", "source": "Arrington Trust"}, {"account": "586698", "description": "Deed of Trust", "summary": "B: 1364 P: 1100", "date": "2001-04-16", "related": "TH-90", "from": "Joseph Douglass Griffith; Patricia Arrington Griffith", "to": "Washington Mutual Bank", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "589145", "description": "Full Reconveyance", "summary": "B: 1371 P: 302", "date": "2001-05-08", "related": "563531", "from": "Bank One \u2013 Utah", "to": "Joseph Douglass Griffith; Patricia Arrington Griffith", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "589573", "description": "Quit Claim Deed", "summary": "B: 1372 P: 695", "date": "2001-05-23", "related": "PKR-101-332", "from": "SMITH KENT D, SMITH CHERYL G, ARRINGTON CHERYL G", "to": "SMITH KENT D", "subdivision": "PARK REGENCY CONDO", "lot_unit": "Unit: 205", "source": "Arrington Trust"}, {"account": "619347", "description": "Quit Claim Deed", "summary": "B: 1450 P: 738", "date": "2002-05-17", "related": "WS-69", "from": "ARRINGTON IRBY N, ARRINGTON FAITH L", "to": "MASSEY ANN L TRUSTEE, ARRINGTON CAMMON I TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 69", "source": "Arrington Trust"}, {"account": "623720", "description": "Warranty Deed", "summary": "B: 1458 P: 209", "date": "2002-06-28", "related": "SA-168-1-B", "from": "Joseph Douglas Griffith; Patricia Arrington Griffith", "to": "Terrie T. Allon", "subdivision": "Snyders Blk 16", "lot_unit": "26", "source": "Patricia Griffith"}, {"account": "666518", "description": "Home Equity Line of Credit Deed of Trust (Securing Future Advances)", "summary": "B: 1554 P: 1498", "date": "2002-07-11", "related": "TH-90", "from": "Joseph Douglass Griffith; Patricia Arrington Griffith", "to": "Chase Manhattan Bank USA", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "627097", "description": "Deed of Trust", "summary": "B: 1464 P: 551", "date": "2002-08-01", "related": "TH-90", "from": "Joseph Douglass Griffith; Patricia Arrington Griffith", "to": "Chase Manhattan Mortgage Corporation", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "630764", "description": "Substitution of Trustee and Deed of Reconveyence", "summary": "B: 1470 P: 88", "date": "2002-08-03", "related": "394376", "from": "Rod Rivers Trustee", "to": "Joseph Douglas Griffith; Patricia Arrington Griffith", "subdivision": "Snyders Blk 16", "lot_unit": "26", "source": "Patricia Griffith"}, {"account": "632538", "description": "Deed of Reconveyance", "summary": "B: 1474 P: 244", "date": "2002-09-11", "related": "586698", "from": "Fidelity National Title Insurance Company TR", "to": "Joseph Douglass Griffith; Patricia Arrington Griffith", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "662935", "description": "Reconveyence", "summary": "B: 1545 P: 80", "date": "2003-06-24", "related": "00584585, WS-67", "from": "BANK ONE", "to": "MASSEY BILLY CHARLES, ARRINGTON-MASSEY LOUISE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 69", "source": "Arrington Trust"}, {"account": "666630", "description": "Request for Notice", "summary": "B: 1555 P: 228", "date": "2003-07-11", "related": "TH-90", "from": "Chase Manhattan Bank USA", "to": "Megastar Financial Corporation; Joseph Douglass Griffith; Patricia Arrington Griffith", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "666517", "description": "Deed of Trust", "summary": "B: 1554 P: 1487", "date": "2003-07-17", "related": "TH-90", "from": "Joseph Douglass Griffith; Patricia Arrington Griffith", "to": "Megastar Financial Corporation", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "670294", "description": "Substitution of Trustee and Deed of Reconveyance", "summary": "B: 1563 P: 1677", "date": "2003-08-07", "related": "627097", "from": "Rod Rivers Trustee", "to": "Joseph Douglass Griffith; Patricia Arrington Griffith", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "673588", "description": "Warranty Deed", "summary": "B: 1570 P: 826", "date": "2003-09-19", "related": "WLD-201", "from": "BULLOCK BRADLEY RASMUSSEN, ARRINGTON JULIE ANN BULLOCK", "to": "MERRITT MONTE", "subdivision": "WILDWOOD CONDO (AKA SNOWBLAZE CONDO)", "lot_unit": "Unit: 201", "source": "Arrington Trust"}, {"account": "680338", "description": "Quit Claim Deed", "summary": "B: 1583 P: 97", "date": "2003-11-17", "related": "PKR-101-332", "from": "SMITH TERRY L, SMITH BROOKE I", "to": "ARRINGTON ROBERT, ARRINGTON CHERYL", "subdivision": "PARK REGENCY CONDO", "lot_unit": "Unit: 205", "source": "Arrington Trust"}, {"account": "682334", "description": "Lien", "summary": "B: 1586 P: 1980", "date": "2003-12-08", "related": "NS-193", "from": "HEBER APPLIANCE, ARRINGTON MARK", "to": "IMPERIAL HOTEL", "subdivision": "PARK CITY BLOCK 12", "lot_unit": "Lot: 5, Lot: 6", "source": "Arrington Trust"}, {"account": "694567", "description": "Deed", "summary": "B: 1611 P: 377", "date": "2004-04-08", "related": "WS-70", "from": "B & PM ARRINGTON FAMILY TRUST", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70", "source": "Arrington Trust"}, {"account": "694568", "description": "Deed", "summary": "B: 1611 P: 379", "date": "2004-04-08", "related": "WS-71, WS-72", "from": "B & PM ARRINGTON FAMILY TRUST", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71, Lot: 72, Lot: ETAL", "source": "Arrington Trust"}, {"account": "694569", "description": "Deed", "summary": "B: 1611 P: 381", "date": "2004-04-08", "related": "NS-238-G", "from": "B & PM ARRINGTON FAMILY TRUST", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "697230", "description": "Deed", "summary": "B: 1617 P: 1384", "date": "2004-05-05", "related": "WS-71, WS-72", "from": "ARRINGTON SURVIVORS TRUST, ARRINGTON BURTON TRUSTEE", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71", "source": "Arrington Trust"}, {"account": "697231", "description": "Deed", "summary": "B: 1617 P: 1386", "date": "2004-05-05", "related": "WS-70", "from": "ARRINGTON QTIP TRUST, ARRINGTON BURTON TRUSTEE", "to": "ARRINGTON SURVIVORS TRUST, ARRINGTON BURTON TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70", "source": "Arrington Trust"}, {"account": "709196", "description": "Warranty Deed", "summary": "B: 1643 P: 1", "date": "2004-08-30", "related": "NS-Lot: 238-F-1", "from": "ARRINGTON JEFFREY B, ARRINGTON JULIE B", "to": "ARRINGTON BURT H/W (JT), ARRINGTON KAREN H/W (JT)", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "716072", "description": "Warranty Deed", "summary": "B: 1658 P: 35", "date": "2004-11-04", "related": "WS-62", "from": "ARRINGTON JOHN E TRUSTEE", "to": "ARRINGTON JEFFREY B H/W (JT), ARRINGTON JULIE B H/W (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "716073", "description": "Trust Deed", "summary": "B: 1658 P: 36", "date": "2004-11-04", "related": "WS-62", "from": "ARRINGTON JEFFREY B, ARRINGTON JULIE B", "to": "ARRINGTON JOHN E TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "721473", "description": "Trust Deed", "summary": "B: 1669 P: 1656", "date": "2004-12-29", "related": "NS-238-F-2", "from": "ARRINGTON BURTON J, ARRINGTON KAREN L", "to": "UNIVERSITY OF UTAH CREDIT UNION", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "729395", "description": "Warranty Deed", "summary": "B: 1685 P: 434", "date": "2005-03-10", "related": "TH-90", "from": "Joseph Douglass Griffith; Patricia Arrington Griffith", "to": "R. Allan BradleyH/W (JT); Mildred P. BradleyH/W (JT)", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "735567", "description": "Substitution of Trustee and Deed of Reconveyence", "summary": "B: 1698 P: 1413", "date": "2005-04-14", "related": "666518", "from": "Rod Rivers Trustee", "to": "Joseph Douglass Griffith; Patricia Arrington Griffith", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "738387", "description": "Deed of Reconveyance", "summary": "B: 1705 P: 663", "date": "2005-05-20", "related": "666517", "from": "First American Title Insurance Company", "to": "Joseph Douglass Griffith; Patricia Arrington Griffith", "subdivision": "Thaynes Canyon Subdivsion", "lot_unit": "90", "source": "Patricia Griffith"}, {"account": "740160", "description": "Trust Deed", "summary": "B: 1709 P: 1393", "date": "2005-06-22", "related": "NS-238-F-2", "from": "ARRINGTON BURTON J, ARRINGTON KAREN L", "to": "UNIVERSITY OF UTAH CREDIT UNION", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "742821", "description": "Deed", "summary": "B: 1716 P: 1084", "date": "2005-07-18", "related": "WS-70, WS-71, WS-72", "from": "ARRINGTON BURTON TRUSTEE, B & PM ARRINGTON FAMILY TRUST", "to": "QTIP TRUST", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70, Lot: ETAL", "source": "Arrington Trust"}, {"account": "742822", "description": "Deed", "summary": "B: 1716 P: 1086", "date": "2005-07-18", "related": "", "from": "ARRINGTON BURTON TRUSTEE, B & PM ARRINGTON FAMILY TRUST", "to": "QTIP TRUST", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "775224", "description": "Quit-Claim Deed", "summary": "B: 1785 P: 1323", "date": "2006-04-20", "related": "WS-55", "from": "Patricia Arrington Griffith", "to": "Joseph Douglas Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "55", "source": "Patricia Griffith"}, {"account": "780639", "description": "Warranty Deed", "summary": "B: 1797 P: 192", "date": "2006-06-13", "related": "PKR-\n101-\n332", "from": "ARRINGTON ROBERT, ARRINGTON CHERYL", "to": "STARPOINT RESORT GROUP", "subdivision": "PARK REGENCY CONDO", "lot_unit": "Unit: 205", "source": "Arrington Trust"}, {"account": "792845", "description": "Lien", "summary": "B: 1821 P: 507", "date": "2006-10-03", "related": "NS-238-F-2", "from": "A-SHED USA LLC", "to": "ARRINGTON BURTON J, ARRINGTON KAREN L", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "793272", "description": "Release of Lien", "summary": "B: 1822 P: 244", "date": "2006-10-06", "related": "00792845, NS-238-F-2", "from": "A-SHED USA LLC", "to": "ARRINGTON BURTON J, ARRINGTON KAREN L", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "794106", "description": "Deed", "summary": "B: 1823 P: 1867", "date": "2006-10-18", "related": "NS-238-G, NS-238-G-1", "from": "ARRINGTON BURTON TRUSTEE", "to": "ARRINGTON MITCHELL B", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "Lot: 90", "source": "Arrington Trust"}, {"account": "794107", "description": "Deed", "summary": "B: 1823 P: 1870", "date": "2006-10-18", "related": "NS-238-G, NS-238-G-2", "from": "ARRINGTON BURTON TRUSTEE", "to": "LUEVANO JULIE ANN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 91-A", "source": "Arrington Trust"}, {"account": "796253", "description": "Deed", "summary": "B: 1828 P: 1486", "date": "2006-11-09", "related": "NS-238-G-2", "from": "LUEVANO JULIE A", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "Lot: 91-A", "source": "Arrington Trust"}, {"account": "802282", "description": "Deed", "summary": "B: 1842 P: 0264", "date": "2007-01-18", "related": "NS-238-G-1, NS-238-G", "from": "ARRINGTON BURTON TRUSTEE", "to": "ARRINGTON MITCHELL B", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "802283", "description": "Deed", "summary": "B: 1842 P: 0267", "date": "2007-01-18", "related": "NS-238-G, NS-238-G-3", "from": "ARRINGTON BURTON TRUSTEE", "to": "LUEVANO JULIE ANN", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "802850", "description": "Quit Claim Deed", "summary": "B: 1843 P: 0810", "date": "2007-01-24", "related": "WS-56", "from": "ARRINGTON CRAIG, ARRINGTON CAROLE", "to": "JOE GRIFFITH PLUMBING INC", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 56", "source": "Arrington Trust"}, {"account": "806465", "description": "Deed", "summary": "B: 1851 P: 1580", "date": "2007-03-08", "related": "NS-238-G, NS-238-G", "from": "LUEVANO JULIE A", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "Lot: 91-B", "source": "Arrington Trust"}, {"account": "807619", "description": "Reconveyence", "summary": "B: 1854 P: 0104", "date": "2007-03-20", "related": "00740160, NS-238-F-2", "from": "TRANSUNION TITLE INSURANCE SOLUTIONS UTAH LLC", "to": "ARRINGTON BURTON J, ARRINGTON KAREN L", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "808047", "description": "Deed", "summary": "B: 1855 P: 0151", "date": "2007-03-26", "related": "NS-238-G-3", "from": "ARRINGTON BURTON TRUSTEE", "to": "LUEVANO JULIE ANN", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "Lot: 91-B", "source": "Arrington Trust"}, {"account": "808740", "description": "Reconveyence", "summary": "B: 1856 P: 1239", "date": "2007-04-02", "related": "00721473, NS-238-F-2", "from": "LANDMARK TITLE COMPANY", "to": "ARRINGTON BURTON J , ARRINGTON KAREN L", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "811039", "description": "Deed", "summary": "B: 1861 P: 0749", "date": "2007-04-26", "related": "NS-238-G-3", "from": "LUEVANO JULIE A", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "Lot: 91-B", "source": "Arrington Trust"}, {"account": "822066", "description": "Reconveyence", "summary": "B: 1882 P: 1691", "date": "2007-08-14", "related": "00118940, WS-76, WS-77", "from": "SUTHERLAND TITLE COMPANY", "to": "BATES DAVID E, BATES CHRISTINE, ARRINGTON JOHN E, ARRINGTON MARY F", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 76, Lot: 77", "source": "Arrington Trust"}, {"account": "822630", "description": "Deed", "summary": "B: 1883 P: 1623", "date": "2007-08-17", "related": "NS-238-G-1", "from": "ARRINGTON MITCHELL B", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 90", "source": "Arrington Trust"}, {"account": "824516", "description": "Quit Claim Deed", "summary": "B: 1887 P: 0337", "date": "2007-09-04", "related": "WS-74", "from": "ARRINGTON CRAIG P SUCCESSOR TRUSTEE", "to": "GRIFFITH PATRICIA SUCCESSOR TRUSTEE", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 78, Lot: 79", "source": "Arrington Trust"}, {"account": "824516", "description": "Quit-Claim Deed", "summary": "B: 1887 P: 337", "date": "2007-09-04", "related": "WS-74", "from": "Craig P. Arrington Successor Trustee", "to": "Patricia Arrington Griffith Successor Trustee", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2007-09-19", "related": "WS-74", "from": "John E. Arrington Trustee", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "826355", "description": "Right of Way", "summary": "B: 1890 P: 1630", "date": "2007-09-25", "related": "NS-238-C, WS-78, WS-79", "from": "ARRINGTON CRAIG P TRUSTEE, MARY ARRINGTON FAMILY TRUST THE", "to": "TOBIN REYNOLDS", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 78, Lot: 79", "source": "Arrington Trust"}, {"account": "831997", "description": "Warranty Deed", "summary": "B: 1902 P: 1789", "date": "2007-11-26", "related": "WS-74", "from": "Craig P. Arrington Successor Trustee; Patricia Arrington Griffith Successor Trustee; Mary F. Arrington Family Trust", "to": "Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "831997", "description": "Warranty Deed", "summary": "B: 1902 P: 1789", "date": "2007-12-05", "related": "WS-74", "from": "ARRINGTON CRAIG P SUCCESSOR TRUSTEE, GRIFFITH PATRICIA A SUCCESSOR TRUSTEE, MARY F ARRINGTON FAMILY TRUST", "to": "GRIFFITH PATRICIA A", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 74", "source": "Arrington Trust"}, {"account": "839188", "description": "Short Form Deed of Trust (with future advance clause)", "summary": "B: 1918 P: 268", "date": "2008-02-12", "related": "WS-74", "from": "Patricia Arrington Griffith", "to": "Wells Fargo Bank", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "862699", "description": "Deed", "summary": "B: 1963 P: 0719", "date": "2009-01-16", "related": "NS-238-G", "from": "ARRINGTON BURTON TRUSTEE", "to": "ARRINGTON WENDY LOU", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "862700", "description": "Deed", "summary": "B: 1963 P: 0722", "date": "2009-01-16", "related": "NS-238-G", "from": "ARRINGTON BURTON TRUSTEE", "to": "ARRINGTON WENDY LOU", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "879663", "description": "Request for Notice", "summary": "B: 1996 P: 1351", "date": "2009-07-31", "related": "839188", "from": "Wells Fargo Bank", "to": "Wells Fargo Bank; Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "889926", "description": "Deed", "summary": "B: 2016 P: 1736", "date": "2010-01-11", "related": "NS-238-G", "from": "ARRINGTON BURTON TRUSTEE", "to": "ARRINGTON WENDY LOU", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "893930", "description": "Notice of Default and Election to Sell", "summary": "B: 2024 P: 303", "date": "2010-03-10", "related": "839188", "from": "eTitle Insurance Agency", "to": "Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "894019", "description": "Deed", "summary": "B: 2024 P: 0650", "date": "2010-03-15", "related": "NS-238-G", "from": "ARRINGTON WENDY LOU", "to": "ARRINGTON BURTON TRUSTEE", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "904701", "description": "Cancellation of Notice of Default", "summary": "B: 2043 P: 1459", "date": "2010-08-10", "related": "893930", "from": "eTitle Insurance Agency", "to": "Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "936167", "description": "Notice of Default and Election to Sell", "summary": "B: 2108 P: 1458", "date": "2011-12-19", "related": "839188", "from": "eTitle Insurance Agency", "to": "Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "951242", "description": "Cancellation of Notice of Default", "summary": "B: 2142 P: 347", "date": "2012-08-14", "related": "936167", "from": "eTitle Insurance Agency Trustee", "to": "Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "961722", "description": "Warranty Deed", "summary": "B: 2166 P: 1410", "date": "2013-01-16", "related": "WVE-9", "from": "WEIR JACK D TRUSTEE, WEIR JOANNE S TRUSTEE", "to": "ARRINGTON BRADLEY M", "subdivision": "WALKER VIEW ESTATES", "lot_unit": "Lot: 9", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2013-06-24", "related": "936167", "from": "Patricia A. Griffith", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2013-08-27", "related": "936167", "from": "Patricia A. Griffith", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2013-12-04", "related": "936167", "from": "Patricia A. Griffith", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "988446", "description": "Quit Claim Deed", "summary": "B: 2225 P: 1503", "date": "2014-01-27", "related": "WS-72, AWS-73", "from": "BULLOCK BRADLEY RASMUSSEN TRUSTEE, ARRINGTON JULIE ANN BULLOCK TRUSTEE To", "to": "BULLOCK BRADLEY R TRUSTEE, BULLOCK PATRICIA A TRUSTEE Subd", "subdivision": "ALPINE ACRES PLAT A", "lot_unit": "Lot: 13", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2014-04-28", "related": "936167", "from": "The Arrington Family Trust; Craig P. Arrington", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "995000", "description": "Quit Claim Deed", "summary": "B: 2239 P: 1032", "date": "2014-05-12", "related": "WVE-9", "from": "ARRINGTON BRADLEY M, ARRINGTON BRAD", "to": "BRADLEYS CONSOLIDATED TRUST", "subdivision": "WALKER VIEW ESTATES", "lot_unit": "Lot: 9", "source": "Arrington Trust"}, {"account": "995001", "description": "Affidavit", "summary": "B: 2239 P: 1033", "date": "2014-05-12", "related": "WS-71, WS-72", "from": "ARRINGTON BRADELY SUCCESSOR TRUSTEE, ARRINGTON BURTON (DECEASED), ARRINGTON BURTON TRUSTEE (DECEASED), ARRINGTON PATSY MARLOR (DECEASED), ARRINGTON PATSY MARLOR TRUSTEE (DECEASED), ...", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71, Lot: 72", "source": "Arrington Trust"}, {"account": "995002", "description": "Quit Claim Deed", "summary": "B: 2239 P: 1037", "date": "2014-05-12", "related": "WS-71", "from": "ARRINGTON BRAD TRUSTEE, B & PM ARRINGTON FAMILY TRUST", "to": "BRADLEYS CONSOLIDATED TRUST", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71", "source": "Arrington Trust"}, {"account": "995003", "description": "Quit Claim Deed", "summary": "B: 2239 P: 1038", "date": "2014-05-12", "related": "WS-72", "from": "ARRINGTON BRAD, B & PM ARRINGTON FAMILY TRUST", "to": "BRADLEYS CONSOLIDATED TRUST", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 72", "source": "Arrington Trust"}, {"account": "997698", "description": "Trust Deed", "summary": "B: 2245 P: 1233", "date": "2014-06-24", "related": "WS-62", "from": "WHOLESALE CLEANERS INC, ARRINGTON JEFFREY B, ARRINGTON JULIE B", "to": "LNV CORPORATION", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "1000335", "description": "Warranty Deed", "summary": "B: 2251 P: 1106", "date": "2014-08-05", "related": "WS-69", "from": "MASSEY ANN L TRUSTEE, ARRINGTON CAMMON I TRUSTEE", "to": "LARSEN KURT H/W (JT), CHRISTOPULOS TYRENE H/W (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 69", "source": "Arrington Trust"}, {"account": "1004957", "description": "Certificate", "summary": "B: 2261 P: 0762", "date": "2014-10-15", "related": "00697230, WS-71, WS-72", "from": "ARRINGTON BRADLEY M, ARRINGTON WENDY LOU, EVANS-LUEVANO JULIE, ARRINGTON BURTON (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71, Lot: 72", "source": "Arrington Trust"}, {"account": "1004958", "description": "Warranty Deed", "summary": "B: 2261 P: 0766", "date": "2014-10-15", "related": "WS-71, WS-72", "from": "ARRINTON BRADLEY M CO-TRUSTEE, ARRINGTON WENDY LOU CO-TRUSTEE, EVANS-LUEVANO JULIE CO-TRUSTEE", "to": "ARRINGTON BRADLEY M", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71, Lot: 72", "source": "Arrington Trust"}, {"account": "1004959", "description": "Warranty Deed", "summary": "B: 2261 P: 0770", "date": "2014-10-15", "related": "WS-71, WS-72", "from": "ARRINGTON BRADLEY M", "to": "WIRTHLIN MICHAEL H/W (JT), HAYCOCK-WIRTHLIN TAMRA H/W (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71, Lot: 72", "source": "Arrington Trust"}, {"account": "1004960", "description": "Trust Deed", "summary": "B: 2261 P: 0771", "date": "2014-10-15", "related": "WS-71, WS-72", "from": "WIRTHLIN MICHAEL, HAYCOCK-WIRTHLIN TAMRA", "to": "ARRINGTON BRADLEY M", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71, Lot: 72", "source": "Arrington Trust"}, {"account": "1010462", "description": "Trust Deed", "summary": "B: 2274 P: 0612", "date": "2015-01-08", "related": "WVE-9", "from": "LUEVANO JULIE ANN TRUSTEE, ARRINGTON BRADLEY M", "to": "JPMORGAN CHASE BANK", "subdivision": "WALKER VIEW ESTATES", "lot_unit": "Lot: 9", "source": "Arrington Trust"}, {"account": "1024001", "description": "Warranty Deed", "summary": "B: 2305 P: 0020", "date": "2015-07-20", "related": "MTNSD-A-7856", "from": "DE JONG JOHN L, DE JONG JANET L", "to": "KINCAID KENDALL L, ARRINGTON-KINCAID CHERYL", "subdivision": "MOUNTAINSIDE CONDO PHASES 1 & 2", "lot_unit": "Unit 7856", "source": "Arrington Trust"}, {"account": "1029997", "description": "Modification", "summary": "B: 2318 P: 1234", "date": "2015-10-07", "related": "00997698, WS-62", "from": "WHOLESALE CLEANERS INC, ARRINGTON JEFFERY B, LNV CORPORATION, ARRINGTON CRAIG P TRUSTEE, ARRINGTON JULIE B", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "1035136", "description": "Affidavit", "summary": "B: 2330 P: 0046", "date": "2015-12-18", "related": "WS-70", "from": "LUEVANO JULIE ARRINGTON SUCCESOR TRUSTEE, ARRINGTON BURTON TRUSTEE (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70", "source": "Arrington Trust"}, {"account": "1035137", "description": "Warranty Deed", "summary": "B: 2330 P: 0048", "date": "2015-12-18", "related": "WS-70", "from": "ARRINGTON BRAD SUCCESSOR TRUSTEE, LUEVANO JULIE ARRINGTON SUCCESSOR TRUSTEE, POSTIL WENDY ARRINGTON SUCCESSOR TRUSTEE, ARRINGTON MITCHELL B SUCCESSOR TRUSTEE", "to": "ARRINGTON FAMILY PROPERTIES LLC", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70", "source": "Arrington Trust"}, {"account": "1035138", "description": "Affidavit", "summary": "B: 2330 P: 0051", "date": "2015-12-18", "related": "NS-238-G-2, NS-238-G-3", "from": "ARRINGTON MITCHELL TRUSTEE, ARRINGTON BURTON TRUSTEE (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1035139", "description": "Warranty Deed", "summary": "B: 2330 P: 0054", "date": "2015-12-18", "related": "NS-238-G-3", "from": "ARRINGTON MITCHELL BRENT SUCCESSOR TRUSTEE", "to": "LUEVANO JULIE A", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1035140", "description": "Warranty Dee", "summary": "B: 2330 P: 0056", "date": "2015-12-18", "related": "NS-238-G-2", "from": "ARRINGTON MITCHELL BRENT SUCCESSOR TRUSTEE", "to": "LUEVANO JULIE A", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1059548", "description": "Affidavit", "summary": "B: Lot: 2387 P: 0957", "date": "2016-12-07", "related": "00995000, WVE-9", "from": "LUEVANO JULIE ANN, ARRINGTON BURTON (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WALKER VIEW ESTATES", "lot_unit": "Lot: 9", "source": "Arrington Trust"}, {"account": "1059549", "description": "Affidavit", "summary": "B: Lot: 2387 P: 0959", "date": "2016-12-07", "related": "00995000, WVE-9", "from": "LUEVANO JULIE ANN, ARRINGTON PATSY RUTH MARLOR (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WALKER VIEW ESTATES", "lot_unit": "Lot: 9", "source": "Arrington Trust"}, {"account": "1059550", "description": "Affidavit", "summary": "B: Lot: 2387 P: 0961", "date": "2016-12-07", "related": "00995000, WVE-9", "from": "LUEVANO JULIE ANN, ARRINGTON BRADLEY MARLOR (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WALKER VIEW ESTATES SUBDIVISION", "lot_unit": "Lot: 9", "source": "Arrington Trust"}, {"account": "1061035", "description": "Substitution of Trustee and Deed of Reconveyence", "summary": "B: 2391 P: 0716", "date": "2016-12-30", "related": "01010462 WVE-9", "from": "J.P. MORGAN CHASE CUSTODY SERVICES, INC SUCCESSOR TRUSTEE", "to": "ARRINGTON BRADLEY M, ARRINGTON BRALEY M TRUSTEE", "subdivision": "WALKER VIEW ESTATES SUBDIVISION", "lot_unit": "Lot: 9", "source": "Arrington Trust"}, {"account": "1078959", "description": "Warranty Deed", "summary": "B: 2431 P: 0459", "date": "2017-10-04", "related": "NS-238-F-2", "from": "ARRINGTON BURTON J, ARRINGTON KAREN L", "to": "ARRINGTON BURTON H/W (JT), ARRINGTON KAREN H/W (JT)", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1078960", "description": "Trust Deed", "summary": "B: 2431 P: 0460", "date": "2017-10-04", "related": "NS-238-F-1, NS-238-F-2", "from": "ARRINGTON BURTON, ARRINGTON KAREN", "to": "ZB, ZIONS BANK", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1080084", "description": "Modification", "summary": "B: 2433 P: 1719", "date": "2017-10-23", "related": "00997698 WS-62", "from": "WHOLESALE CLEANERS INC, ARRINGTON JEFFERY B, LNV CORPORATION, ARRINGTON CRAIG P TRUSTEE", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "1086903", "description": "Reconveyence", "summary": "B: 2451 P: 0547", "date": "2018-02-22", "related": "WS-62", "from": "STEWART TITLE AGENCY OF UTAH , BONNEVILLE SUPERIOR TITLE TRUSTEE", "to": "WHOLESALE CLEANERS INC, ARRINGTON JEFFREY B", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "1092753", "description": "Notice of Default and Election to Sell", "summary": "B: 2465 P: 153", "date": "2018-06-04", "related": "839188", "from": "eTitle Insurance Agency", "to": "Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "1097034", "description": "Cancellation of Notice of Default", "summary": "B: 2475 P: 1279", "date": "2018-08-20", "related": "1092753", "from": "eTitle Insurance Agency", "to": "Patricia Arrington Griffith", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "1104149", "description": "Warranty Deed", "summary": "B: 2492 P: 0697", "date": "2019-01-03", "related": "WS-70", "from": "ARRINGTON FAMILY PROPERTIES LLC", "to": "ARRINGTON CST LLC", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70", "source": "Arrington Trust"}, {"account": "1104150", "description": "Warranty Deed", "summary": "B: 2492 P: 0698", "date": "2019-01-03", "related": "WS-70", "from": "ARRINGTON CST LLC", "to": "EDWARD AND MARLOR PROPERTIES LLC", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2019-04-30", "related": "936167", "from": "Janet Wolford", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "1111632", "description": "Water Deed", "summary": "B: 2510 P: 1202", "date": "2019-05-29", "related": "WS-70, 35-5745", "from": "ARRINGTON WENDY LOU SUCCESOR CO-TRUSTEE, EVANS-LUEVANO JULIE SUCCESOR CO-TRUSTEE, ARRINGTON MITCHELL B SUCCESOR CO-TRUSTEE", "to": "KOHLER SOPHY (JT), KOHLER GRADY (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 70", "source": "Arrington Trust"}, {"account": "1115703", "description": "Affidavit", "summary": "B: 2522 P: 0941", "date": "2019-08-08", "related": "00357743, NS-238-F", "from": "ARRINGTON CRAIG P SUCCESOR TRUSTEE, ARRINGTON JOHN E TRUSTEE (DECEASED), ARRINGTON MARY F TRUSTEE (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "1115704", "description": "Affidavit", "summary": "B: 2522 P: 0945", "date": "2019-08-08", "related": "WS-75", "from": "ARRINGTON CRAIG P SUCCESOR TRUSTEE, ARRINGTON JOHN E TRUSTEE (DECEASED), ARRINGTON MARY F TRUSTEE (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 75", "source": "Arrington Trust"}, {"account": "1115705", "description": "Warranty Deed", "summary": "B: 2522 P: 0948", "date": "2019-08-08", "related": "WS-75", "from": "ARRINGTON CRAIG P SUCCESOR TRUSTEE", "to": "ARRINGTON CRAIG P H/W (JT), ARRINGTON CAROLE D H/W (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 75", "source": "Arrington Trust"}, {"account": "1115706", "description": "Affidavit", "summary": "B: 2522 P: 0949", "date": "2019-08-08", "related": "00344866, WS-73", "from": "ARRINGTON CRAIG P SUCCESOR TRUSTEE, ARRINGTON JOHN E TRUSTEE (DECEASED), ARRINGTON MARY F TRUSTEE (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 73", "source": "Arrington Trust"}, {"account": "1115707", "description": "Warranty Deed", "summary": "B: 2522 P: 0953", "date": "2019-08-08", "related": "WS-73", "from": "ARRINGTON CRAIG P SUCCESSOR TRUSTEE", "to": "ARRINGTON CRAIG P H/W (JT), ARRINGTON CAROLE D H/W (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 73", "source": "Arrington Trust"}, {"account": "1115708", "description": "Affidavit", "summary": "B: 2522 P: 0954", "date": "2019-08-08", "related": "00344866, WS-72-A", "from": "ARRINGTON CRAIG P SUCCESOR TRUSTEE, ARRINGTON JOHN E TRUSTEE (DECEASED), ARRINGTON MARY F TRUSTEE (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 72", "source": "Arrington Trust"}, {"account": "1115709", "description": "Warranty Deed", "summary": "B: 2522 P: 0957", "date": "2019-08-08", "related": "WS-72-A", "from": "ARRINGTON CRAIG P SUCCESOR TRUSTEE", "to": "ARRINGTON CRAIG P H/W (JT), ARRINGTON CAROLE D H/W (JT)", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 72", "source": "Arrington Trust"}, {"account": "1115710", "description": "Affidavit", "summary": "B: 2522 P: 0958", "date": "2019-08-08", "related": "00353869, PE-2-238", "from": "ARRINGTON CRAIG P SUCCESOR TRUSTEE, ARRINGTON JOHN E TRUSTEE (DECEASED), ARRINGTON MARY F TRUSTEE (DECEASED)", "to": "WHOM IT MAY CONCERN", "subdivision": "PINE PLATEAU ESTATES NO 2", "lot_unit": "Lot: 238", "source": "Arrington Trust"}, {"account": "1129320", "description": "Warranty Deed", "summary": "B: 2561 P: 0166", "date": "2020-03-20", "related": "NS-238-F-2", "from": "ARRINGTON BURTON, ARRINGTON KAREN", "to": "ARRINGTON BURTON J TRUSTEE, ARRINGTON KAREN TRUSTEE", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1130551", "description": "Substitution of Trustee and Deed of Reconveyence", "summary": "B: 2565 P: 0516", "date": "2020-04-13", "related": "01078960, NS-238-F-1, NS-238-F-2", "from": "RIVERS ROD TRUSTEE", "to": "ARRINGTON BURTON, ARRINGTON KAREN", "subdivision": "Quarter NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1131059", "description": "Warranty Deed", "summary": "B: 2567 P: 0084", "date": "2020-04-22", "related": "NS-238-F-1", "from": "ARRINGTON BURT, ARRINGTON KAREN", "to": "ARRINGTON BURTON JOHN TRUSTEE, ARRINGTON KAREN TRUSTEE", "subdivision": "Quarter NW S 29 T 1n R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1139919", "description": "Plat", "summary": "B: 2593 P: 1208", "date": "2020-08-26", "related": "WS-71, WS-72, WS-72-A", "from": "WIRTHLIN MICHAEL, HAYCOCK WIRTHLIN TAMRA, ARRINGTON, CRAIG P, ARRINGTON CAROLE D", "to": "WHOM IT MAY CONCERN", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 71, Lot: 72", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2020-11-30", "related": "936167", "from": "Instant Payments", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "1171492", "description": "Quit Claim Deed", "summary": "B: 2687 P: 0739", "date": "2021-08-24", "related": "WS-56", "from": "ARRINGTON CRAIG P, ARRINGTON CAROLE D", "to": "JOE GRIFFITH PLUMBING & HEATING INC", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 56", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2022-06-09", "related": "936167", "from": "Patricia A. Griffith", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "1195076", "description": "Warranty Deed", "summary": "B: 2757 P: 0Unit 301", "date": "2022-09-14", "related": "PE-2-238", "from": "ARRINGTON FAMILY TRUST, ARRINGTON CRAIG P SUCCESSOR TRUSTEE, ARRINGTON PATRICIA A SUCCESSOR TRUSTEE", "to": "ONE TREE ROAD LLC", "subdivision": "PINE PLATEAU ESTATES NO 2", "lot_unit": "Lot: 238", "source": "Arrington Trust"}, {"account": "1200763", "description": "Substitution of Trustee and Deed of Reconveyence", "summary": "B: 2771 P: 1521", "date": "2023-02-14", "related": "00716073, WS-62", "from": "COTTONWOOD TITLE INSURANCE AGENCY INC", "to": "ARRINGTON JEFFREY B , ARRINGTON JULIE B", "subdivision": "WANSHIP COTTAGE SITES", "lot_unit": "Lot: 62", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2023-07-10", "related": "936167", "from": "Patricia A. Griffith", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "1209399", "description": "Quit Claim Deed", "summary": "B: 2793 P: 1739", "date": "2023-09-11", "related": "01129320, NS-238-F-2", "from": "ARRINGTON BURTON, ARRINGTON KAREN", "to": "ARRINGTON BURTON J TRUSTEE, ARRINGTON KAREN TRUSTEE", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1209400", "description": "Warranty Deed", "summary": "B: 2793 P: 1741", "date": "2023-09-11", "related": "NS-238-F-1", "from": "ARRINGTON BURTON JOHN TRUSTEE, ARRINGTON KAREN TRUSTEE", "to": "ARRINGTON BURTON J TRUSTEE, ARRINGTON KAREN TRUSTEE", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "1209401", "description": "Warranty Deed", "summary": "B: 2793 P: 1743", "date": "2023-09-11", "related": "NS-238-F-1, NS-238-F-2", "from": "ARRINGTON BURTON J TRUSTEE, ARRINGTON KAREN TRUSTEE", "to": "STORM SPENCER H/W (JT), STORM MARGARET H/W (JT)", "subdivision": "Quarter: NW S 29 T 1N R 5E", "lot_unit": "", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2024-02-02", "related": "936167", "from": "Instant Payments", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "1223623", "description": "Warranty Deed", "summary": "B: 2828 P: 0813", "date": "2024-08-09", "related": "EM-10-AM, 55-12606", "from": "MORRIS TED LEE TRUSTEE, MORRIS ROSEMARY B TRUSTEE", "to": "OLSEN RENN, ARRINGTON NICOLE", "subdivision": "ELK MEADOWS", "lot_unit": "Lot: 10", "source": "Arrington Trust"}, {"account": "1223795", "description": "Water Deed", "summary": "B: 2828 P: 1679", "date": "2024-08-14", "related": "55-12606", "from": "MORRIS TED", "to": "OLSEN RENN (JT), ARRINGTON NICOLE (JT)", "subdivision": "MISCELLANEOUS", "lot_unit": "", "source": "Arrington Trust"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2024-12-04", "related": "936167", "from": "Billtrax CC", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}, {"account": "", "description": "Property Tax Payment", "summary": "", "date": "2026-04-17", "related": "936167", "from": "Patricia A. Griffith", "to": "Summit County Treasurer", "subdivision": "Wanship Cottage Sites Subdivision & Amended", "lot_unit": "74", "source": "Patricia Griffith"}];
+
+    let filteredTransactions = transactions;
+    let currentFilter = 'all';
+    let searchTerm = '';
+
+    AOS.init({ duration: 600, once: false });
+
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('arrington-griffith-theme');
+    if (stored) document.documentElement.setAttribute('data-theme', stored);
+    updateToggleIcon();
+
+    toggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('arrington-griffith-theme', next);
+        updateToggleIcon();
+    });
+
+    function updateToggleIcon() {
+        const theme = document.documentElement.getAttribute('data-theme') || 'light';
+        toggle.textContent = theme === 'dark' ? '☀' : '☽';
+    }
+
+    function getCategory(description) {
+        const desc = description.toLowerCase();
+        if (desc.includes('deed')) return 'deed';
+        if (desc.includes('trust')) return 'trust';
+        if (desc.includes('lien')) return 'lien';
+        return 'other';
+    }
+
+    function highlightText(text, term) {
+        if (!term || !text) return text;
+        const regex = new RegExp(`(${term})`, 'gi');
+        return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    function render() {
+        const timeline = document.getElementById('timeline');
+        timeline.innerHTML = '';
+
+        filteredTransactions = transactions.filter(t => {
+            const matchesFilter = 
+                (currentFilter === 'all') ||
+                (currentFilter === 'trust' && t.source === 'Arrington Trust') ||
+                (currentFilter === 'griffith' && t.source === 'Patricia Griffith') ||
+                (currentFilter === 'deed' && getCategory(t.description) === 'deed');
+
+            const matchesSearch = !searchTerm ||
+                t.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                t.from.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                t.to.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                t.subdivision.toLowerCase().includes(searchTerm.toLowerCase());
+
+            return matchesFilter && matchesSearch;
+        });
+
+        if (filteredTransactions.length === 0) {
+            document.getElementById('noResults').style.display = 'block';
+            return;
+        }
+
+        document.getElementById('noResults').style.display = 'none';
+
+        filteredTransactions.forEach((t, idx) => {
+            const card = document.createElement('div');
+            const sourceClass = t.source === 'Arrington Trust' ? 'arrington' : 'griffith';
+            const sourceBadge = t.source === 'Arrington Trust' ? 'Trust' : 'Griffith';
+            
+            card.className = `transaction ${sourceClass}`;
+            card.setAttribute('data-aos', 'fade-up');
+            card.setAttribute('data-aos-delay', idx * 30);
+
+            const detailsHtml = `
+                <div class="transaction-details">
+                    ${t.from ? `<div class="detail-row"><div class="detail-label">From</div><div class="detail-value">${highlightText(t.from, searchTerm)}</div></div>` : ''}
+                    ${t.to ? `<div class="detail-row"><div class="detail-label">To</div><div class="detail-value">${highlightText(t.to, searchTerm)}</div></div>` : ''}
+                    ${t.subdivision ? `<div class="detail-row"><div class="detail-label">Property</div><div class="detail-value">${highlightText(t.subdivision, searchTerm)}</div></div>` : ''}
+                    ${t.lot_unit ? `<div class="detail-row"><div class="detail-label">Lot/Unit</div><div class="detail-value">${highlightText(t.lot_unit, searchTerm)}</div></div>` : ''}
+                    ${t.summary ? `<div class="detail-row"><div class="detail-label">Ref</div><div class="detail-value"><code>${t.summary}</code></div></div>` : ''}
+                </div>
+            `;
+
+            card.innerHTML = `
+                <div class="transaction-date">${t.date}</div>
+                <div class="transaction-header">
+                    <div class="transaction-description">${highlightText(t.description, searchTerm)}</div>
+                    <span class="source-badge ${sourceClass === 'arrington' ? 'trust' : 'griffith'}">${sourceBadge}</span>
+                </div>
+                ${detailsHtml}
+            `;
+
+            card.addEventListener('click', () => {
+                card.classList.toggle('expanded');
+                AOS.refresh();
+            });
+
+            timeline.appendChild(card);
+        });
+
+        AOS.refresh();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        searchTerm = e.target.value;
+        render();
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            currentFilter = e.target.dataset.filter;
+            render();
+        });
+    });
+
+    render();
+</script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const properties = [
+  {
+    "name": "Wanship Cottage Sites",
+    "lat": 40.796285,
+    "lng": -111.405795
+  },
+  {
+    "name": "Carriage House Condo",
+    "lat": 40.662743,
+    "lng": -111.496144
+  },
+  {
+    "name": "Thaynes Canyon",
+    "lat": 40.665253,
+    "lng": -111.522132
+  },
+  {
+    "name": "Walker View Estates",
+    "lat": 40.906173,
+    "lng": -111.39134
+  },
+  {
+    "name": "Snyders Block 16",
+    "lat": 40.648672,
+    "lng": -111.502369
+  },
+  {
+    "name": "Park Regency Condo",
+    "lat": 40.66222,
+    "lng": -111.499285
+  },
+  {
+    "name": "Pine Plateau Estates No 2",
+    "lat": 40.922398,
+    "lng": -111.829479
+  },
+  {
+    "name": "Wilderness Acres No 1",
+    "lat": 40.919934,
+    "lng": -110.812777
+  },
+  {
+    "name": "Alpine Acres Plat A",
+    "lat": 40.785579,
+    "lng": -110.991417
+  },
+  {
+    "name": "Mountainside Condo Phases 1 & 2",
+    "lat": 40.65036,
+    "lng": -111.507425
+  },
+  {
+    "name": "Wildwood Condo (aka Snowblaze Condo)",
+    "lat": 40.653398,
+    "lng": -111.505558
+  },
+  {
+    "name": "Elk Meadows",
+    "lat": 40.588101,
+    "lng": -111.233906
+  },
+  {
+    "name": "Park City Block 12",
+    "lat": 40.811732,
+    "lng": -111.406726
+  }
+];
+
+        function initializeMap() {
+            const map = L.map('map').setView([40.75, -111.45], 10);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19,
+                className: 'map-tile'
+            }).addTo(map);
+
+            properties.forEach(prop => {
+                const marker = L.circleMarker([prop.lat, prop.lng], {
+                    radius: 8,
+                    fillColor: '#7A5063',
+                    color: '#fff',
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.7
+                }).addTo(map);
+                
+                marker.bindPopup(`<strong>${prop.name}</strong>`);
+            });
+
+            // Responsive height adjustment
+            function resizeMap() {
+                if (window.innerWidth < 768) {
+                    document.getElementById('map').style.height = '300px';
+                } else {
+                    document.getElementById('map').style.height = '500px';
+                }
+                map.invalidateSize();
+            }
+            
+            window.addEventListener('resize', resizeMap);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeMap);
+        } else {
+            initializeMap();
+        }
+    </script>
+
+</body>
+</html>
