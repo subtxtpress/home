@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Othram Inc. | Timeline</title>
+  <meta name="description" content="Othram Inc. 2018–2025: forensic genetic genealogy, cold case identifications, and international partnerships.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/othram/timeline">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Othram Inc. | Timeline">
+  <meta property="og:description" content="Othram Inc. 2018–2025: forensic genetic genealogy, cold case identifications, and international partnerships.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/othram/timeline">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/case/othram/img/othram.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Case Maps | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Othram Inc. | Timeline">
+  <meta name="twitter:description" content="Othram Inc. 2018–2025: forensic genetic genealogy, cold case identifications, and international partnerships.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/case/othram/img/othram.png">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════════════════════
+     THEME: DARK (default)
+     Subtxt Press case maps palette
+     bg #060B14 · teal #4a8a7c · red #C04E01 · accent #ebe2cd
+     ═══════════════════════════════════════════════════════════════ */
+  :root {
+    --bg: #060B14;
+    --surface: #0f1620;
+    --surface-elevated: #17202e;
+    --border: rgba(235, 226, 205, 0.10);
+    --border-strong: rgba(235, 226, 205, 0.22);
+    --text: #ebe2cd;
+    --text-body: #b5ad9a;
+    --text-dim: #7a7468;
+    --petitioner: #C04E01;
+    --respondent: #4a8a7c;
+    --neutral: #7a7468;
+    --accent: #ebe2cd;
+    --disputed: #d4a843;
+    --grad-header: linear-gradient(160deg, #0f1620, #060B14);
+    --grad-accent: linear-gradient(to right, #4a8a7c, #C04E01);
+    --shadow: 0 2px 12px rgba(0,0,0,0.50);
+    --shadow-hover: 0 8px 28px rgba(0,0,0,0.60);
+  }
+  /* ═══════════════════════════════════════════════════════════════
+     THEME: LIGHT
+     Warm inversion of the dark palette
+     ═══════════════════════════════════════════════════════════════ */
+  [data-theme="light"] {
+    --bg: #f4ede3;
+    --surface: #ffffff;
+    --surface-elevated: #ece5d9;
+    --border: rgba(62, 36, 54, 0.14);
+    --border-strong: rgba(62, 36, 54, 0.28);
+    --text: #241620;
+    --text-body: #4a3f45;
+    --text-dim: #7a7063;
+    --petitioner: #a8420a;
+    --respondent: #377a6d;
+    --neutral: #7a7063;
+    --accent: #7A5063;
+    --disputed: #8a6d1b;
+    --grad-header: linear-gradient(160deg, #f4ede3, #ece5d9);
+    --grad-accent: linear-gradient(to right, #4a8a7c, #C04E01);
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --shadow-hover: 0 8px 28px rgba(0,0,0,0.10);
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  /* ─── Top accent strip ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-accent);
+    z-index: 200;
+    pointer-events: none;
+  }
+  /* --- HEADER --- */
+  .hero {
+    padding: 2.5rem 1.25rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--grad-header);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+  .hero .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+  .hero .case-info {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    transition: color 0.3s ease;
+  }
+  /* --- LEGEND --- */
+  .legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.7rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .legend-items {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    transition: color 0.3s ease;
+  }
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  .legend-dot.pet {
+    background: var(--petitioner);
+  }
+  .legend-dot.res {
+    background: var(--respondent);
+  }
+  .legend-dot.both {
+    background: var(--disputed);
+  }
+  /* --- THEME TOGGLE --- */
+  .theme-toggle {
+    position: absolute;
+    right: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.3rem 0.65rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1;
+    transition: all 0.25s ease;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface-elevated);
+  }
+  /* --- NAV PILLS --- */
+  .nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: none;
+    transition: border-color 0.3s ease;
+  }
+  .nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .pill {
+    flex-shrink: 0;
+    padding: 0.4rem 0.75rem;
+    border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .pill:hover, .pill.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  /* --- TIMELINE --- */
+  .timeline {
+    padding: 0 1rem 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .chapter {
+    padding-top: 1.5rem;
+  }
+  .chapter-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.3s ease;
+  }
+  .chapter-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    transition: background-color 0.3s ease;
+  }
+  .event {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.25rem;
+    border-left: 2px solid var(--border);
+    margin-left: 0.25rem;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.2s ease, border-color 0.3s ease;
+  }
+  .event:hover {
+    background: color-mix(in srgb, var(--surface) 50%, transparent);
+  }
+  .event::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 1.05rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neutral);
+    transition: background-color 0.3s ease;
+  }
+  .event.pet::before {
+    background: var(--petitioner);
+  }
+  .event.res::before {
+    background: var(--respondent);
+  }
+  .event.both::before {
+    background: var(--disputed);
+  }
+  .event.key {
+    border-left-color: var(--accent);
+  }
+  .event.key::before {
+    width: 10px;
+    height: 10px;
+    left: -6px;
+    top: 1rem;
+  }
+  .event-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+    transition: color 0.3s ease;
+  }
+  .event-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+  }
+  .event-body {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+    transition: color 0.3s ease;
+  }
+  /* --- EXPANDABLE --- */
+  details {
+    margin-top: 0.4rem;
+  }
+  details summary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.3s ease;
+  }
+  details summary::before {
+    content: '+ ';
+  }
+  details[open] summary::before {
+    content: '— ';
+  }
+  details .detail-body {
+    padding: 0.5rem 0;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  /* --- EVIDENCE TAG --- */
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0.15rem 0.15rem 0.15rem 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .tag.exhibit {
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--accent);
+  }
+  .tag.police {
+    background: color-mix(in srgb, var(--respondent) 15%, transparent);
+    color: var(--respondent);
+  }
+  .tag.filing {
+    background: color-mix(in srgb, var(--petitioner) 15%, transparent);
+    color: var(--petitioner);
+  }
+  /* --- FOOTER --- */
+  .footer {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  /* --- DESKTOP --- */
+  @media (min-width: 768px) {
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    .timeline {
+      padding: 0 2rem 3rem;
+    }
+    .event-title {
+      font-size: 1rem;
+    }
+  }
+  /* --- MOBILE --- */
+  @media (max-width: 580px) {
+    .hero {
+      padding: 2rem 1rem 1.25rem;
+    }
+    .hero h1 {
+      font-size: 1.3rem;
+    }
+    .hero .sub {
+      font-size: 0.75rem;
+    }
+    .legend {
+      padding: 0.6rem 0.75rem;
+    }
+    .legend-items {
+      gap: 0.6rem;
+    }
+    .legend-item {
+      font-size: 0.5rem; gap: 0.25rem;
+    }
+    .legend-dot {
+      width: 6px;
+      height: 6px;
+    }
+    .theme-toggle {
+      right: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.7rem;
+    }
+    .nav-pills {
+      justify-content: flex-start;
+      padding: 0.6rem 0.75rem;
+    }
+    .pill {
+      font-size: 0.55rem;
+      padding: 0.35rem 0.6rem;
+    }
+    .timeline {
+      padding: 0 0.75rem 2rem;
+    }
+    .event {
+      padding: 0.6rem 0 0.6rem 1rem;
+    }
+    .event-title {
+      font-size: 0.82rem;
+    }
+    .event-body {
+      font-size: 0.72rem;
+    }
+    .event-date {
+      font-size: 0.55rem;
+    }
+    .chapter-label {
+      font-size: 0.5rem;
+    }
+    .tag {
+      font-size: 0.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Othram Inc.</h1>
+  <div class="sub">Forensic Genetic Genealogy: Founding to Scale (2018–2025)</div>
+  <div class="case-info">
+    Founded 2018 · The Woodlands, Texas<br>
+    David & Kristen Mittelman
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-items">
+    <div class="legend-item"><div class="legend-dot pet"></div> Company Milestones</div>
+    <div class="legend-item"><div class="legend-dot res"></div> Cases Identified</div>
+    <div class="legend-item"><div class="legend-dot both"></div> Key Breakthrough</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
+</div>
+
+<nav class="nav-pills">
+  <a href="#ch1" class="pill">2018</a>
+  <a href="#ch2" class="pill">2019</a>
+  <a href="#ch3" class="pill">2020</a>
+  <a href="#ch4" class="pill">2021</a>
+  <a href="#ch5" class="pill">2022</a>
+  <a href="#ch6" class="pill">2023</a>
+  <a href="#ch7" class="pill">2024</a>
+  <a href="#ch8" class="pill">2025</a>
+  <a href="#ch9" class="pill">2026</a>
+</nav>
+
+<div class="timeline">
+
+  <!-- ====== 2018 ====== -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-label">2018 · Founding</div>
+
+    <div class="event pet key">
+      <div class="event-date">2018</div>
+      <div class="event-title">Othram Inc. Founded</div>
+      <div class="event-body">David and Kristen Mittelman establish Othram Inc. in The Woodlands, Texas. <span class="tag filing">COMPANY</span></div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">2018</div>
+      <div class="event-title">Forensic-Grade Lab Established</div>
+      <div class="event-body">Purpose-built sequencing lab for degraded and trace DNA. Focus: whole-genome sequencing for cold cases.</div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">2018</div>
+      <div class="event-title">Mission: Forensic Genetic Genealogy</div>
+      <div class="event-body">Develop proprietary methods for ultra-low-quantity DNA recovery and kinship matching using publicly available genealogical databases.</div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2019 ====== -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-label">2019 · Platform Launch & First Cases</div>
+
+    <div class="event pet key">
+      <div class="event-date">Early 2019</div>
+      <div class="event-title">DNASolves® Platform Launched</div>
+      <div class="event-body">Volunteer DNA + crowdfunding + forensic genomics model. Enables public families and nonprofits to submit cases for pro-bono analysis. <span class="tag filing">PRODUCT</span></div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">2019</div>
+      <div class="event-title">Early Government Partnerships</div>
+      <div class="event-body">
+        <details>
+          <summary>NamUs, NCMEC, Australian Federal Police</summary>
+          <div class="detail-body">
+            Othram begins official casework with U.S. National Missing & Unidentified Persons System (NamUs), National Center for Missing & Exploited Children (NCMEC), and Australian Federal Police National DNA Program. Sets foundation for international reach.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">2019</div>
+      <div class="event-title">Delta Dawn Case Submitted</div>
+      <div class="event-body">Alisha Ann Heinrich. Evidence sent for sequencing analysis.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">2019</div>
+      <div class="event-title">Baby Boy Horry Case Submitted</div>
+      <div class="event-body">Ronald Eugene Woodham IV. Evidence submitted.</div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">October 15, 2019</div>
+      <div class="event-title">Christine Jessop Identified</div>
+      <div class="event-body">Toronto Police Service case. Offender named: Calvin Hoover. First major international identification. <span class="tag exhibit">CANADA</span></div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2020 ====== -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-label">2020 · Adoption & Scaling</div>
+
+    <div class="event pet key">
+      <div class="event-date">2020</div>
+      <div class="event-title">Genome Sequencing Widely Adopted</div>
+      <div class="event-body">Othram's forensic-grade genome sequencing becomes standard for U.S. cold-case units. Lab expands internal enrichment chemistry for ultra-low-quantity DNA samples.</div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">2020</div>
+      <div class="event-title">International Lab Partnerships Begin</div>
+      <div class="event-body">EU and UK partner labs receive identity inference and kinship analysis support. Cross-border U.S.–Mexico identifications launch via NGOs.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Apr–May 2020</div>
+      <div class="event-title">Carla Walker & Walker County Jane Doe Cases Submitted</div>
+      <div class="event-body">Evidence submitted for analysis. Walker County Sheriff's Office, Texas.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Jul 2020</div>
+      <div class="event-title">Mostly Harmless Case Submitted</div>
+      <div class="event-body">Vance Rodriguez. Evidence submitted.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">2020</div>
+      <div class="event-title">Septic Tank Sam & Beth Doe Cases Submitted</div>
+      <div class="event-body">Gordon Sanderson and Evelyn Colon. Evidence sent for analysis.</div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">December 4, 2020</div>
+      <div class="event-title">Delta Dawn Identified</div>
+      <div class="event-body">Alisha Ann Heinrich identified. Jackson County Sheriff's Office, Mississippi. First major published identification.</div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2021 ====== -->
+  <div class="chapter" id="ch4">
+    <div class="chapter-label">2021 · First Wave of Major Identifications</div>
+
+    <div class="event pet">
+      <div class="event-date">2021</div>
+      <div class="event-title">Vertical Integration Complete</div>
+      <div class="event-body">Othram expands sequencing capacity and fully integrates extraction → enrichment → sequencing → genealogical analysis in-house.</div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">2021</div>
+      <div class="event-title">Canadian Law Enforcement Partnership</div>
+      <div class="event-body">Sustained partnerships with RCMP and provincial agencies. Othram becomes de facto standard for Canadian cold cases.</div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">Jan 12, 2021</div>
+      <div class="event-title">Mostly Harmless Identified</div>
+      <div class="event-body">Vance Rodriguez. Missoula Police Department, Montana.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">February 2021</div>
+      <div class="event-title">Woodlawn Jane Doe Case Submitted</div>
+      <div class="event-body">Margaret Fetterolf. Evidence submitted.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">March 2021</div>
+      <div class="event-title">Walker County Jane Doe Potential Match</div>
+      <div class="event-body">Genealogical analysis identifies likely match.</div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">Mar 31, 2021</div>
+      <div class="event-title">Beth Doe Identified</div>
+      <div class="event-body">Evelyn Colon. Pennsylvania State Police. Arrest made.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">May 2021</div>
+      <div class="event-title">Christy Crystal Creek Identified</div>
+      <div class="event-body">Janet Lucas. Missoula County Sheriff's Office, Idaho/Montana.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">June 2021</div>
+      <div class="event-title">Septic Tank Sam Identified</div>
+      <div class="event-body">Gordon Sanderson.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Sep 15, 2021</div>
+      <div class="event-title">Woodlawn Jane Doe Identified</div>
+      <div class="event-body">Margaret Fetterolf. Baltimore County Police, Maryland.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Sep 21, 2021</div>
+      <div class="event-title">Escatawpa Jane Doe Identified</div>
+      <div class="event-body">Clara Birdlong.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Nov 3, 2021</div>
+      <div class="event-title">Queens John Doe Identified</div>
+      <div class="event-body">George Seitz. NYPD/Queens DA's Office, New York. Arrest made.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Nov 9, 2021</div>
+      <div class="event-title">Walker County Jane Doe Identified</div>
+      <div class="event-body">Sherri Jarvis. Walker County Sheriff's Office, Texas.</div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2022 ====== -->
+  <div class="chapter" id="ch5">
+    <div class="chapter-label">2022 · International Reach, Scaling & Federal Contracts</div>
+
+    <div class="event pet key">
+      <div class="event-date">2022</div>
+      <div class="event-title">Lab Reaches Full Operational Maturity</div>
+      <div class="event-body">Othram's vertically integrated sequencing and genealogy lab reaches peak efficiency. Supporting national-level investigations internationally.</div>
+    </div>
+
+    <div class="event both key">
+      <div class="event-date">2022</div>
+      <div class="event-title">NamUs Partnership (DOJ/NIJ-funded)</div>
+      <div class="event-body">
+        <details>
+          <summary>National Institute of Justice partnership</summary>
+          <div class="detail-body">
+            NamUs (operated by RTI International under DOJ contract) selects Othram as a designated partner for forensic DNA testing. National-level partnership for missing/unidentified persons. Enables casework on federal matching system. Notable cases: Anne Papalardo-Blake, Roger Brian Bennett.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">January 2022</div>
+      <div class="event-title">Christmas Tree Lady Evidence Submitted</div>
+      <div class="event-body">Joyce Sommers. Evidence sent for analysis.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Mar 2022</div>
+      <div class="event-title">Little Miss Nobody Identified</div>
+      <div class="event-body">Sharon Gallegos. Arizona cold case.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">May 2022</div>
+      <div class="event-title">Christmas Tree Lady Investigative Leads Returned</div>
+      <div class="event-body">Genealogical analysis identifies probable offender.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">2022</div>
+      <div class="event-title">Lady of the Dunes DNA Submitted</div>
+      <div class="event-body">Ruth Marie Terry. Evidence sent for sequencing and genealogical analysis.</div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">Jul 7, 2022</div>
+      <div class="event-title">Christmas Tree Lady Identified</div>
+      <div class="event-body">Joyce Sommers. Fairfax County Police Department, Virginia.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Aug 30, 2022</div>
+      <div class="event-title">Elk Valley Jane Doe Identified</div>
+      <div class="event-body">Tracy Walker. Spokane County Medical Examiner's Office, Washington.</div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">Nov 17, 2022</div>
+      <div class="event-title">Lady of the Dunes Identified</div>
+      <div class="event-body">Ruth Marie Terry. Cape Cod, Massachusetts. Offender identified; case closure follows in 2023.</div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2023 ====== -->
+  <div class="chapter" id="ch6">
+    <div class="chapter-label">2023 · Closures, Partnerships & Federal Innovation Programs</div>
+
+    <div class="event both key">
+      <div class="event-date">2023</div>
+      <div class="event-title">U.S. Air Force SBIR Phase I Contract Awarded</div>
+      <div class="event-body">
+        <details>
+          <summary>$74,936 federal research grant</summary>
+          <div class="detail-body">
+            Contract #FA8649-23-P-0097. U.S. Department of Defense / Air Force. Purpose: Digitizing DNA evidence with Forensic-Grade Genome Sequencing to modernize identification of missing U.S. service members. Entry into federal defense innovation programs. <span class="tag filing">USAF SBIR</span>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">Jan 19, 2023</div>
+      <div class="event-title">Opelika Jane Doe Identified</div>
+      <div class="event-body">Amore Wiggins. Opelika Police Department, Alabama. Arrests made.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">2023</div>
+      <div class="event-title">Christmas/Waycross Jane Doe Identified</div>
+      <div class="event-body">Kenyatta Odom. Georgia Bureau of Investigation. Arrests made.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Jun 7, 2023</div>
+      <div class="event-title">Torso Girl Identified</div>
+      <div class="event-body">Kerry Cummings. Lane County Sheriff's Office, Oregon.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">Aug 4, 2023</div>
+      <div class="event-title">Fire Island Jane Doe Identified</div>
+      <div class="event-body">Karen Vergata. New York.</div>
+    </div>
+
+    <div class="event res key">
+      <div class="event-date">Aug 28, 2023</div>
+      <div class="event-title">Lady of the Dunes Case Officially Closed</div>
+      <div class="event-body">Ruth Marie Terry. Offender identified and prosecuted. Full justice closure.</div>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">October 2023</div>
+      <div class="event-title">Suzanne Jane Doe Identified</div>
+      <div class="event-body">Suzanne Kjellenberg.</div>
+    </div>
+
+    <div class="event pet key">
+      <div class="event-date">Dec 26, 2023</div>
+      <div class="event-title">Strategic Partnership: Websleuths</div>
+      <div class="event-body">Othram (via DNASolves) invests in Websleuths to integrate community-driven crowdsourced investigation into forensic workflow.</div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2024 ====== -->
+  <div class="chapter" id="ch7">
+    <div class="chapter-label">2024 · Major Federal Contract & Sustained Operations</div>
+
+    <div class="event both key">
+      <div class="event-date">June 4, 2024</div>
+      <div class="event-title">U.S. Air Force SBIR Phase II Contract Awarded</div>
+      <div class="event-body">
+        <details>
+          <summary>$1.25 million federal contract</summary>
+          <div class="detail-body">
+            U.S. Department of the Air Force / AFWERX. Othram's largest publicly known federal contract. Purpose: Advance forensic DNA sequencing for national defense applications including DPAA (Defense POW/MIA Accounting Agency), AFMES (Armed Forces Medical Examiner System), and AFOSI cold cases. Demonstrates federal commitment to forensic genealogy scaling. <span class="tag filing">USAF AFWERX</span>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">2024</div>
+      <div class="event-title">Continued Casework (Public Record Sparse)</div>
+      <div class="event-body">Year of sustained casework and organizational scaling. Limited public announcements. Focus on internal product development and federal partnerships.</div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2025 ====== -->
+  <div class="chapter" id="ch8">
+    <div class="chapter-label">2025 · Product Ecosystem & Federal Expansion</div>
+
+    <div class="event both key">
+      <div class="event-date">February 20, 2025</div>
+      <div class="event-title">Bureau of Indian Affairs Partnership: Operation Spirit Return</div>
+      <div class="event-body">
+        <details>
+          <summary>Federal partnership for missing/unidentified American Indian/Alaska Native persons</summary>
+          <div class="detail-body">
+            U.S. Bureau of Indian Affairs, Office of Justice Services. Multi-case, national-level initiative to identify unknown human remains believed to belong to American Indian or Alaska Native persons. Collaborative with NamUs. Expands federal footprint to Interior Department. <span class="tag filing">BIA Partnership</span>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event pet key">
+      <div class="event-date">May 2025</div>
+      <div class="event-title">Othram Maps Launched</div>
+      <div class="event-body">Graph-powered platform for forensic intelligence. Transforms GEDCOM files into dynamic, searchable, and editable family trees. Features AI-driven insights, graph-based analysis, and genetic context for genealogical investigation.</div>
+    </div>
+
+    <div class="event pet key">
+      <div class="event-date">June 12, 2025</div>
+      <div class="event-title">SNPSuite Product Launch</div>
+      <div class="event-body">
+        <details>
+          <summary>Offline, secure SNP-based analysis platform</summary>
+          <div class="detail-body">
+            Built on Othram's proprietary KinSNP® engine. Designed for air-gapped forensic environments. Compatible with sequencing and microarray data. Enables external labs to conduct kinship testing without internet access or proprietary software licensing.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">June 12, 2025</div>
+      <div class="event-title">Major Technology Expansion Announced</div>
+      <div class="event-body">Othram begins offering AI-powered forensic workflows to external labs and agencies worldwide. <span class="tag filing">EXPANSION</span></div>
+    </div>
+
+    <div class="event pet key">
+      <div class="event-date">July 2025</div>
+      <div class="event-title">Total TreeCall Launched</div>
+      <div class="event-body">Microtasking platform announced by genealogist Megan Smolenyak. Users get paid to research and build family trees on phone or computer using public records. Enables crowdsourced genealogical research for cold case investigations.</div>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">2025</div>
+      <div class="event-title">Leadership Expansion</div>
+      <div class="event-body">New commercial and operations leadership roles added to support global scaling and international market entry.</div>
+    </div>
+
+    <div class="event both key">
+      <div class="event-date">December 4, 2025</div>
+      <div class="event-title">U.S. Marine Corps Partnership Awarded</div>
+      <div class="event-body">
+        <details>
+          <summary>Marine Corps Installations National Capital Region contract</summary>
+          <div class="detail-body">
+            Selected by MCINCR-RCO to provide comprehensive genealogical support services for Marine and Family Programs Division. Scope: Identify, locate, and engage next-of-kin of unaccounted-for Marines for repatriation and historical case resolution. Capacity: Thousands of cases. Services include end-to-end genealogical research, trauma-informed next-of-kin outreach, family tree reconstruction, DNA kit assembly. Uses Othram Maps and Othram Glimpse AI tools. Credentialed genealogists (ICAPGen certified). <span class="tag filing">USMC MCINCR-RCO</span>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ====== 2026 ====== -->
+  <div class="chapter" id="ch9">
+    <div class="chapter-label">2026 · Storytelling & Platform Evolution</div>
+
+    <div class="event pet key">
+      <div class="event-date">April 2026</div>
+      <div class="event-title">Othram Studios Launched</div>
+      <div class="event-body">
+        <details>
+          <summary>Science-driven storytelling platform</summary>
+          <div class="detail-body">
+            Othram Studios brings real forensic investigations to global audiences through curated, science-driven narratives. Integrates with Othram Maps for pedigree visualization. Combines investigative journalism with forensic genealogy education.
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <p><strong>Sources:</strong> Othram Inc. public announcements, case closure records, law enforcement contracts (U.S. state/county level), court dockets, press releases, NGO partnerships.</p>
+  <p style="margin-top:0.5rem"><strong>Note:</strong> Timeline documents known public identifications, government partnerships, and product milestones. Many casework submissions and government contracts are not publicly announced.</p>
+  <p style="margin-top:0.75rem"><a href="../../case/maps.html">← Case Maps</a> · <a href="../../index.html">← Subtxt Press</a></p>
+</div>
+
+<script>
+  // Theme toggle
+  const toggle = document.getElementById('theme-toggle');
+  const stored = localStorage.getItem('timeline-theme');
+  if (stored) document.documentElement.setAttribute('data-theme', stored);
+  updateToggleIcon();
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('timeline-theme', next);
+    updateToggleIcon();
+  });
+
+  function updateToggleIcon() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    toggle.textContent = theme === 'dark' ? '☀' : '☽';
+  }
+
+  // Smooth scroll for nav pills
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(pill.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // Highlight active pill on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  const pills = document.querySelectorAll('.pill');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        pills.forEach(p => {
+          p.classList.toggle('active', p.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  chapters.forEach(ch => observer.observe(ch));
+</script>
+
+</body>
+</html>
