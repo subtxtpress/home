@@ -246,9 +246,9 @@
     }
     .case-title-bar h2 {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.1rem, 1.6vw, 1.35rem); 
+      font-size: clamp(0.95rem, 1.6vw, 1.35rem);
       font-weight: 800;
-      color: var(--text-heading); 
+      color: var(--text-heading);
       text-align: center;
     }
     .status-badge {
@@ -262,9 +262,14 @@
       flex-shrink: 0;
     }
     .status-badge.open {
-      background: rgba(46, 125, 50, 0.10); 
+      background: rgba(46, 125, 50, 0.10);
       border: 1px solid rgba(46, 125, 50, 0.35);
       color: var(--status-open);
+    }
+    .status-badge.closed {
+      background: rgba(183, 28, 28, 0.08);
+      border: 1px solid rgba(183, 28, 28, 0.30);
+      color: var(--status-closed);
     }
     .case-meta {
       padding: 24px 28px; 
@@ -276,9 +281,64 @@
       font-size: 13px; 
       line-height: 1.6; 
     }
-    .case-meta-item strong { 
-      color: var(--text-heading); 
-      font-weight: 600; 
+    .case-meta-item strong {
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+    details.case-details {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      transition: box-shadow 0.3s;
+    }
+    details.case-details:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10), 0 0 0 1px var(--accent-border);
+    }
+    summary.case-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 28px;
+      background: var(--surface-card);
+      border-bottom: 1px solid var(--border-light);
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+    summary.case-summary::-webkit-details-marker {
+      display: none;
+    }
+    summary.case-summary::before {
+      content: '▼';
+      display: inline-flex;
+      width: 20px;
+      color: var(--accent);
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      margin-right: 8px;
+    }
+    details.case-details[open] > summary.case-summary::before {
+      transform: rotate(0deg);
+    }
+    details.case-details:not([open]) > summary.case-summary::before {
+      transform: rotate(-90deg);
+    }
+    summary.case-summary h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(0.95rem, 1.6vw, 1.35rem);
+      font-weight: 800;
+      color: var(--text-heading);
+      text-align: left;
+      flex: 1;
+      margin: 0;
+    }
+    .case-details-body {
+      margin-top: 0;
     }
     .docket-table-wrap {
       background: var(--surface-card); 
@@ -522,11 +582,34 @@
       .docket-table td { 
         padding: 8px 8px; 
       }
-      .drive-card { 
-        padding: 20px; 
+      .drive-card {
+        padding: 14px;
+        gap: 12px;
+        flex-direction: row !important;
+        align-items: center !important;
       }
-      .site-footer { 
-        padding: 24px 20px; 
+      .drive-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      .drive-card-body {
+        flex: 1;
+      }
+      .drive-card-title {
+        font-size: 0.9rem;
+        margin-bottom: 0px;
+      }
+      .drive-card-desc {
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      .drive-card-cta {
+        font-size: 8px;
+      }
+      .site-footer {
+        padding: 24px 20px;
       }
     }
   </style>
@@ -560,26 +643,26 @@
          CASE 1: Estate of Beth Bee (OPEN)
          ════════════════════════════════════════════════════════ -->
 
-    <div class="case-block" data-aos="fade-up">
-      <div class="case-title-bar">
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
         <h2>Estate of Beth Bee</h2>
         <span class="status-badge open">Open</span>
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-item"><strong>Filing Date:</strong> 11-05-2025</div>
-        <div class="case-meta-item"><strong>Judge:</strong> Margaret R. Jones-Johnson</div>
-        <div class="case-meta-item"><strong>Filing Location:</strong> Dallas, TX</div>
-        <div class="case-meta-item"><strong>Applicant:</strong> Patricia A. Grift-ith</div>
-        <div class="case-meta-item"><strong>Court House:</strong> Probate Court No. 3</div>
-        <div class="case-meta-item"><strong>Attorney:</strong> Timothy Randall Strann</div>
-        <div class="case-meta-item"><strong>Case Type:</strong> Heirship/Administration</div>
-        <div class="case-meta-item"><strong>Matter Type:</strong> Succession of Property</div>
-      </div>
-    </div>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Filing Date:</strong> 11-05-2025</div>
+          <div class="case-meta-item"><strong>Judge:</strong> Margaret R. Jones-Johnson</div>
+          <div class="case-meta-item"><strong>Filing Location:</strong> Dallas, TX</div>
+          <div class="case-meta-item"><strong>Applicant:</strong> Patricia A. Grift-ith</div>
+          <div class="case-meta-item"><strong>Court House:</strong> Probate Court No. 3</div>
+          <div class="case-meta-item"><strong>Attorney:</strong> Timothy Randall Strann</div>
+          <div class="case-meta-item"><strong>Case Type:</strong> Heirship/Administration</div>
+          <div class="case-meta-item"><strong>Matter Type:</strong> Succession of Property</div>
+        </div>
 
-    <div class="section-label">Docket Entries</div>
+        <div class="section-label">Docket Entries</div>
 
-    <div class="docket-table-wrap" data-aos="fade-up">
+        <div class="docket-table-wrap" data-aos="fade-up">
       <div class="docket-table-header">
         <h2>Filings &amp; Activity</h2>
       </div>
@@ -629,28 +712,30 @@
           <tr><td>06-09-2026</td><td class="wrap">Notice of Virtual Court Proceeding</td><td>3</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1YuVKKsvnkV57AS9W3lP7fVx0hjBRqddi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
         </tbody>
       </table>
-    </div>
+        </div>
+      </div>
+    </details>
 
 
     <!-- ════════════════════════════════════════════════════════
          CASE 2: Websleuths.com LLC vs. Griffith (CLOSED)
          ════════════════════════════════════════════════════════ -->
 
-    <div class="case-block" data-aos="fade-up">
-      <div class="case-title-bar">
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
         <h2>Websleuths.com LLC vs. Griffith, Patricia Arrington</h2>
         <span class="status-badge closed">Closed</span>
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-item"><strong>Cause:</strong> 201344862</div>
-        <div class="case-meta-item"><strong>Court:</strong> 157</div>
-        <div class="case-meta-item"><strong>Status:</strong> Dismissed on Agreement of Parties (06-09-2015)</div>
-      </div>
-    </div>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Cause:</strong> 201344862</div>
+          <div class="case-meta-item"><strong>Court:</strong> 157</div>
+          <div class="case-meta-item"><strong>Status:</strong> Dismissed on Agreement of Parties (06-09-2015)</div>
+        </div>
 
-    <div class="section-label">Docket Entries</div>
+        <div class="section-label">Docket Entries</div>
 
-    <div class="docket-table-wrap" data-aos="fade-up">
+        <div class="docket-table-wrap" data-aos="fade-up">
       <div class="docket-table-header">
         <h2>Filings &amp; Activity</h2>
       </div>
@@ -815,7 +900,9 @@
           <tr><td>08-01-2013</td><td>56810065</td><td class="wrap">Plaintiffs' Original Petition</td><td>8</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HVbjgfZZC29wjyuHiOpXRSENG_e1u1bq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
         </tbody>
       </table>
-    </div>
+        </div>
+      </div>
+    </details>
 
     <!-- ════════════════════════════════════════════════════════
         CASE TIMELINE LINK
