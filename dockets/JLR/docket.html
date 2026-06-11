@@ -438,6 +438,66 @@
     .docket-table tbody tr:hover {
       background: rgba(232, 149, 106, 0.04);
     }
+    details.case-details {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      transition: box-shadow 0.3s;
+    }
+    details.case-details:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10), 0 0 0 1px var(--accent-border);
+    }
+    summary.case-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 28px;
+      background: var(--surface-card);
+      border-bottom: 1px solid var(--border-light);
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+    summary.case-summary::-webkit-details-marker {
+      display: none;
+    }
+    summary.case-summary::before {
+      content: '▼';
+      display: inline-flex;
+      width: 20px;
+      color: var(--accent);
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      margin-right: 8px;
+    }
+    details.case-details[open] > summary.case-summary::before {
+      transform: rotate(0deg);
+    }
+    details.case-details:not([open]) > summary.case-summary::before {
+      transform: rotate(-90deg);
+    }
+    summary.case-summary h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+      font-weight: 800;
+      color: var(--text-heading);
+      text-align: left;
+      flex: 1;
+      margin: 0;
+    }
+    summary.case-summary h2 a {
+      color: var(--carmine);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .case-details-body {
+      margin-top: 0;
+    }
     /* Mobile table card layout */
     @media (max-width: 720px) {
       .docket-table {
@@ -745,12 +805,12 @@
          PRE-CASE RECORDS
          ════════════════════════════════════════════════════════ -->
 
-    <div class="section-label">Prior Records &middot; Incident Reports</div>
-
-    <div class="filings" data-aos="fade-up">
-      <div class="filings-header">
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
         <h2>Background Records</h2>
-      </div>
+      </summary>
+      <div class="case-details-body">
+        <div class="filings">
       <div class="filing"><div class="filing-date">02-28-2011</div><div class="filing-content">
         Bureau of Prisons <a class="filing-link" href="https://drive.google.com/file/d/1l7dW8evGpiUJQy1CzOe_MoCDaD-ocDaI/view?usp=drive_link" target="_blank">Clinical Encounter</a>.
       </div></div>
@@ -832,44 +892,45 @@
       <div class="filing"><div class="filing-date">02-01-2026</div><div class="filing-content">
         <a class="filing-link" href="https://drive.google.com/file/d/1SrOvEhvH8YRFk626xgotqUm9nGQSLhfW/view?usp=drive_link" target="_blank">Magnolia call</a> to Pasco County Sheriff’s Office at 13:42:05 PM (transcript).
       </div></div> 
-      <div class="filing"><div class="filing-date">02-01-2026</div><div class="filing-content">
-        <a class="filing-link" href="https://drive.google.com/file/d/1w-fq7B4pkgEgr-3YmtE4U56bE8MkzMhO/view?usp=drive_link" target="_blank">Corporal Yarborough call</a> to Pasco County Sheriff’s Office at 14:57:06 PM (transcript).
-      </div></div> 
-    </div>
+          <div class="filing"><div class="filing-date">02-01-2026</div><div class="filing-content">
+            <a class="filing-link" href="https://drive.google.com/file/d/1w-fq7B4pkgEgr-3YmtE4U56bE8MkzMhO/view?usp=drive_link" target="_blank">Corporal Yarborough call</a> to Pasco County Sheriff’s Office at 14:57:06 PM (transcript).
+          </div></div>
+        </div>
+      </div>
+    </details>
 
 
     <!-- ════════════════════════════════════════════════════════
          CASE 1: Jaime T. Phillips v. Jonathan L. Bitches
          ════════════════════════════════════════════════════════ -->
 
-    <div class="case-block" data-aos="fade-up">
-      <div class="case-title-bar">
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
         <h2>Jaime T. Phillips v. Jonathan L. Bitches</h2>
         <span class="status-badge closed">Closed</span>
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-item"><strong>Case Number:</strong> 26DR-26-51</div>
-        <div class="case-meta-item"><strong>Judge:</strong> Honorable Kara Petro</div>
-        <div class="case-meta-item"><strong>Filing Date:</strong> 01-20-2026</div>
-        <div class="case-meta-item"><strong>Petitioner:</strong> Jamie Phillips</div>
-        <div class="case-meta-item"><strong>Court:</strong> Garland Circuit</div>
-        <div class="case-meta-item"><strong>Attorney for Petitioner:</strong> Angela Echols</div>
-        <div class="case-meta-item"><strong>Case Type:</strong> Order of Protection</div>
-        <div class="case-meta-item"><strong>Respondent:</strong> Jonathan Lee Bitches</div>
-        <div class="case-meta-item"><strong>Status:</strong> Closed on 03-30-2026</div>
-        <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Jamie Curtis Beal</div>
-      </div>
-    </div>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Case Number:</strong> 26DR-26-51</div>
+          <div class="case-meta-item"><strong>Judge:</strong> Honorable Kara Petro</div>
+          <div class="case-meta-item"><strong>Filing Date:</strong> 01-20-2026</div>
+          <div class="case-meta-item"><strong>Petitioner:</strong> Jamie Phillips</div>
+          <div class="case-meta-item"><strong>Court:</strong> Garland Circuit</div>
+          <div class="case-meta-item"><strong>Attorney for Petitioner:</strong> Angela Echols</div>
+          <div class="case-meta-item"><strong>Case Type:</strong> Order of Protection</div>
+          <div class="case-meta-item"><strong>Respondent:</strong> Jonathan Lee Bitches</div>
+          <div class="case-meta-item"><strong>Status:</strong> Closed on 03-30-2026</div>
+          <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Jamie Curtis Beal</div>
+        </div>
+        <div class="section-label">Case Summary</div>
 
-    <div class="section-label">Case Summary</div>
-
-    <div class="filings" data-aos="fade-up">
-      <div class="filings-header">
-        <h2>Filings &amp; Activity</h2>
-      </div>
-      <div class="filing"><div class="filing-date">01-20-2026</div><div class="filing-content">
-        <span class="filing-bold">MOF</span> filed.
-      </div></div>
+        <div class="filings" data-aos="fade-up">
+          <div class="filings-header">
+            <h2>Filings &amp; Activity</h2>
+          </div>
+          <div class="filing"><div class="filing-date">01-20-2026</div><div class="filing-content">
+            <span class="filing-bold">MOF</span> filed.
+          </div></div>
       <div class="filing"><div class="filing-date">01-20-2026</div><div class="filing-content">
         <span class="filing-bold">Administrative Office of the Courts Cover Sheet re: Domestic Relations</span> filed.
       </div></div>
@@ -965,44 +1026,46 @@
       <div class="filing"><div class="filing-date">03-30-2026</div><div class="filing-content">
         <span class="filing-bold">AOC Disposition Sheet</span> filed.
       </div></div>
-      <div class="filing"><div class="filing-date">03-30-2026</div><div class="filing-content">
-        <span class="filing-bold">Order for Protection Hearing</span>.
-        <div class="filing-note">
-          Cancelled.
+          <div class="filing"><div class="filing-date">03-30-2026</div><div class="filing-content">
+            <span class="filing-bold">Order for Protection Hearing</span>.
+            <div class="filing-note">
+              Cancelled.
+            </div>
+          </div></div>
         </div>
-      </div></div>
-    </div>
+      </div>
+    </details>
 
 
     <!-- ════════════════════════════════════════════════════════
          CASE 2: State of Florida vs. Jonathan Lee Bitches
          ════════════════════════════════════════════════════════ -->
 
-    <div class="case-block" data-aos="fade-up">
-      <div class="case-title-bar">
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
         <h2>State of Florida vs. Jonathan Lee Bitches</h2>
         <span class="status-badge open">Open</span>
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-item"><strong>Case Number:</strong> 512026MM001741MMAXWS</div>
-        <div class="case-meta-item"><strong>Court:</strong> Sixth Judicial Circuit</div>
-        <div class="case-meta-item"><strong>Filing Date:</strong> 04-27-2026</div>
-        <div class="case-meta-item"><strong>Case Type:</strong> Misdemeanor 34-D</div>
-        <div class="case-meta-item"><strong>Case Status:</strong> Open</div>
-        <div class="case-meta-item"><strong>Next Court Date:</strong> Thursday, July 02, 2026 at 09:30 AM</div>
-        <div class="case-meta-item"><strong>Courtroom:</strong> West Pasco Judicial Center 1A NPR</div>
-        <div class="case-meta-item"><strong>Judge:</strong> Honorable Joseph Justice</div>
-        <div class="case-meta-item"><strong>Defendant:</strong> Jonathan Lee Bitches</div>
-        <div class="case-meta-item"><strong>Attorney for Mr. Bitches:</strong> Philip Michael DiSpirito</div>
-        <div class="case-meta-item"><strong>Prosecutor:</strong> Theophilos Mike Klonaris</div>
-        <div class="case-meta-item"><strong>Assistant State Attorney:</strong> Bruce Bartlett</div>
-        <div class="case-meta-item"><strong>Source:</strong> <a href="https://www.pascoclerk.com/172/Search-Court-Records" style="color:var(--carmine);text-underline-offset:2px;" target="_blank">Online Court Records Search</a></div>
-      </div>
-    </div>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Case Number:</strong> 512026MM001741MMAXWS</div>
+          <div class="case-meta-item"><strong>Court:</strong> Sixth Judicial Circuit</div>
+          <div class="case-meta-item"><strong>Filing Date:</strong> 04-27-2026</div>
+          <div class="case-meta-item"><strong>Case Type:</strong> Misdemeanor 34-D</div>
+          <div class="case-meta-item"><strong>Case Status:</strong> Open</div>
+          <div class="case-meta-item"><strong>Next Court Date:</strong> Thursday, July 02, 2026 at 09:30 AM</div>
+          <div class="case-meta-item"><strong>Courtroom:</strong> West Pasco Judicial Center 1A NPR</div>
+          <div class="case-meta-item"><strong>Judge:</strong> Honorable Joseph Justice</div>
+          <div class="case-meta-item"><strong>Defendant:</strong> Jonathan Lee Bitches</div>
+          <div class="case-meta-item"><strong>Attorney for Mr. Bitches:</strong> Philip Michael DiSpirito</div>
+          <div class="case-meta-item"><strong>Prosecutor:</strong> Theophilos Mike Klonaris</div>
+          <div class="case-meta-item"><strong>Assistant State Attorney:</strong> Bruce Bartlett</div>
+          <div class="case-meta-item"><strong>Source:</strong> <a href="https://www.pascoclerk.com/172/Search-Court-Records" style="color:var(--carmine);text-underline-offset:2px;" target="_blank">Online Court Records Search</a></div>
+        </div>
 
-    <div class="section-label">Case Summary</div>
+        <div class="section-label">Case Summary</div>
 
-    <div class="filings" data-aos="fade-up">
+        <div class="filings" data-aos="fade-up">
       <div class="filings-header">
         <h2>Filings &amp; Activity</h2>
       </div>
@@ -1102,37 +1165,38 @@
           <div class="filing-content">
             <a class="filing-link" href="https://drive.google.com/file/d/1BWPDJ-sQx8OozrPh2ocpNxqDk7TN9VOQ/view?usp=drive_link" target="_blank">Summons Returned Unserved</a>.
           </div>
+          </div>
         </div>
       </div>
-    </div>
+    </details>
 
 
     <!-- ════════════════════════════════════════════════════════
          CASE 3: Pima County Justice Court vs. Jonathan Lee Bitches
          ════════════════════════════════════════════════════════ -->
 
-    <div class="case-block" data-aos="fade-up">
-      <div class="case-title-bar">
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
         <h2>Pima County Justice Court vs. Jonathan Lee Bitches</h2>
         <span class="status-badge open">Open</span>
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-item"><strong>Case Number:</strong> CR26-005138-MI</div>
-        <div class="case-meta-item"><strong>DOB:</strong> 12/1976</div>
-        <div class="case-meta-item"><strong>Filed:</strong> 04-13-2026</div>
-        <div class="case-meta-item"><strong>Case Status:</strong> Open</div>
-        <div class="case-meta-item"><strong>Next Court Date:</strong> Thursday, July 02, 2026 at 09:30 AM</div>
-        <div class="case-meta-item"><strong>Courtroom:</strong> 406 at 09:30 AM (Cornejo)</div>
-        <div class="case-meta-item"><strong>Assigned Judge:</strong> Honorable Erica Cornejo</div>
-        <div class="case-meta-item"><strong>Defendant:</strong> &ldquo;Lee, Riches Jonathon&rdquo;</div>
-        <div class="case-meta-item"><strong>Source:</strong> <a href="https://www.jp.pima.gov/CaseSearch/" style="color:var(--carmine);text-underline-offset:2px;" target="_blank">Online Case Search</a></div>
-        <div class="case-meta-item"><strong>Search By:</strong> Case Number &ldquo;CR26-005138-MI&rdquo;</div>
-      </div>
-    </div>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Case Number:</strong> CR26-005138-MI</div>
+          <div class="case-meta-item"><strong>DOB:</strong> 12/1976</div>
+          <div class="case-meta-item"><strong>Filed:</strong> 04-13-2026</div>
+          <div class="case-meta-item"><strong>Case Status:</strong> Open</div>
+          <div class="case-meta-item"><strong>Next Court Date:</strong> Thursday, July 02, 2026 at 09:30 AM</div>
+          <div class="case-meta-item"><strong>Courtroom:</strong> 406 at 09:30 AM (Cornejo)</div>
+          <div class="case-meta-item"><strong>Assigned Judge:</strong> Honorable Erica Cornejo</div>
+          <div class="case-meta-item"><strong>Defendant:</strong> &ldquo;Lee, Bitches Jonathon&rdquo;</div>
+          <div class="case-meta-item"><strong>Source:</strong> <a href="https://www.jp.pima.gov/CaseSearch/" style="color:var(--carmine);text-underline-offset:2px;" target="_blank">Online Case Search</a></div>
+          <div class="case-meta-item"><strong>Search By:</strong> Case Number &ldquo;CR26-005138-MI&rdquo;</div>
+        </div>
 
-    <div class="section-label">Case Summary</div>
+        <div class="section-label">Case Summary</div>
 
-    <div class="filings" data-aos="fade-up">
+        <div class="filings" data-aos="fade-up">
       <div class="filings-header">
         <h2>Filings &amp; Activity</h2>
       </div>
@@ -1288,8 +1352,170 @@
             </tr>
           </tbody>
         </table>
-    </div>
+      </div>
+      </div>
+    </details>
 
+
+    <!-- ════════════════════════════════════════════════════════
+         CASE 4: Jacob Mantel v. Jonathan Riches
+         ════════════════════════════════════════════════════════ -->
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
+        <h2>Jacob Mantel v. Jonathan Bitches</h2>
+        <span class="status-badge open">Open</span>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Case Number:</strong> 471-04015-2026</div>
+          <div class="case-meta-item"><strong>Court:</strong> Collin County District Court</div>
+          <div class="case-meta-item"><strong>Filing Date:</strong> 06-10-2026</div>
+          <div class="case-meta-item"><strong>Case Type:</strong> All Other Civil Cases</div>
+          <div class="case-meta-item"><strong>Case Status:</strong> Open</div>
+          <div class="case-meta-item"><strong>Judge:</strong> Honorable Bryan Gantt</div>
+          <div class="case-meta-item"><strong>Judicial District:</strong> 471st District Court</div>
+          <div class="case-meta-item"><strong>Plaintiff:</strong> Jacob Mantel</div>
+          <div class="case-meta-item"><strong>Plaintiff Attorney:</strong> Pro Se</div>
+          <div class="case-meta-item"><strong>Defendant:</strong> Jonathan Bitches</div>
+          <div class="case-meta-item"><strong>Defendant Attorney:</strong> Pro Se</div>
+          <div class="case-meta-item"><strong>Defendant Address:</strong> 9713 Baxley Lane, Port Richey, FL 34668</div>
+          <div class="case-meta-item"><strong>Next Court Date:</strong> Thursday, June 26, 2026 at 9:00 AM</div>
+        </div>
+
+        <div class="section-label">Case Summary</div>
+
+        <div class="filings" data-aos="fade-up">
+          <div class="filings-header">
+            <h2>Filings &amp; Activity</h2>
+          </div>
+          <div class="filing"><div class="filing-date">06-10-2026</div><div class="filing-content">
+            <a class="filing-link" href="#">Plaintiff's Original Petition to Enjoin Harassing Behavior and Application for Temporary Restraining Order</a> filed.
+            <div class="filing-note">
+              Cost: $350.00
+            </div>
+          </div></div>
+          <div class="filing"><div class="filing-date">06-10-2026</div><div class="filing-content">
+            <span class="filing-bold">Judge's Docket Entry</span>.
+            <div class="filing-note">
+              Application for TRO denied. Case set for status on June 26.
+            </div>
+          </div></div>
+          <div class="filing"><div class="filing-date">06-10-2026</div><div class="filing-content">
+            <span class="filing-bold">Request for Notice</span> filed.
+            <div class="filing-note">
+              Cost: $8.00
+            </div>
+          </div></div>
+          <div class="filing"><div class="filing-date">06-10-2026</div><div class="filing-content">
+            <span class="filing-bold">Notice</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">06-26-2026</div><div class="filing-content">
+            <span class="filing-bold">Status Hearing</span> scheduled for 9:00 AM.
+          </div></div>
+        </div>
+      </div>
+    </details>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         CASE 5: Jonathan Lee Bitches vs. Matthew Demauro
+         ════════════════════════════════════════════════════════ -->
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
+        <h2>Jonathan Lee Bitches vs. Matthew Demauro</h2>
+        <span class="status-badge closed">Closed</span>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Case Number:</strong> 512026DR001843DRAXWS</div>
+          <div class="case-meta-item"><strong>Court:</strong> Domestic Relations/Family Court</div>
+          <div class="case-meta-item"><strong>Filing Date:</strong> 04-09-2026</div>
+          <div class="case-meta-item"><strong>Case Type:</strong> Stalking Cyberstalking Injunction</div>
+          <div class="case-meta-item"><strong>Case Status:</strong> Closed on 05-14-2026</div>
+          <div class="case-meta-item"><strong>Judge:</strong> Honorable Kemba Damali Johnson Lewis</div>
+          <div class="case-meta-item"><strong>Petitioner:</strong> Jonathan Lee Bitches</div>
+          <div class="case-meta-item"><strong>Respondent:</strong> Matthew Demauro</div>
+          <div class="case-meta-item"><strong>Case Type Code:</strong> 46-E</div>
+        </div>
+
+        <div class="section-label">Case Summary</div>
+
+        <div class="filings" data-aos="fade-up">
+          <div class="filings-header">
+            <h2>Filings &amp; Activity</h2>
+          </div>
+          <div class="filing"><div class="filing-date">04-09-2026</div><div class="filing-content">
+            <span class="filing-bold">Petitioner's Waiver or Non Waiver</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">04-09-2026</div><div class="filing-content">
+            <span class="filing-bold">Request for Confidential Address</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">04-09-2026</div><div class="filing-content">
+            <span class="filing-bold">Cyber/Stalking Violence Temporary Injunction Without Notice</span> issued.
+          </div></div>
+          <div class="filing"><div class="filing-date">04-09-2026</div><div class="filing-content">
+            <span class="filing-bold">Notice of Cases Judicially Noticed</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">04-10-2026</div><div class="filing-content">
+            <span class="filing-bold">Notice Of Appearance</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">04-16-2026</div><div class="filing-content">
+            <span class="filing-bold">Cyber/Stalking Violence Injunction Returned Served With Attached Firearm Affidavit</span>.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-05-2026</div><div class="filing-content">
+            <span class="filing-bold"><a class="filing-link" href="https://drive.google.com/file/d/1CYD0IreU5klexL7yrF3MzCF2ySXadgBw/view?usp=drivesdk" target="_blank">Motion for Modification of Injunction for Protection</a></span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-08-2026</div><div class="filing-content">
+            <span class="filing-bold"><a class="filing-link" href="https://drive.google.com/file/d/1s5ufq958QiEcaI8rbUrCh7cDtN12FAM2/view?usp=drivesdk" target="_blank">Order Denying Motion for Modification</a></span> issued.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-12-2026</div><div class="filing-content">
+            <span class="filing-bold">Motion To Continue</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-12-2026</div><div class="filing-content">
+            <span class="filing-bold">Motion To Continue With Attachments</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-12-2026</div><div class="filing-content">
+            <span class="filing-bold">Supplemental Petition</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-14-2026</div><div class="filing-content">
+            <span class="filing-bold">Return of Service on Order</span> served.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-14-2026</div><div class="filing-content">
+            <span class="filing-bold">Final Judgment of Injunction After Hearing for Cyber/Stalking Violence</span> entered.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-14-2026</div><div class="filing-content">
+            <span class="filing-bold">Firearm Affidavit</span> filed.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-14-2026</div><div class="filing-content">
+            <span class="filing-bold">Case Status</span> set to CLOSED.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-17-2026</div><div class="filing-content">
+            <span class="filing-bold">Order Extending Injunction</span> issued.
+          </div></div>
+          <div class="filing"><div class="filing-date">05-17-2026</div><div class="filing-content">
+            <span class="filing-bold">Order Extending Injunction Return Served</span>.
+          </div></div>
+        </div>
+      </div>
+    </details>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         CASE TIMELINE LINK
+         ════════════════════════════════════════════════════════ -->
+
+    <a class="drive-card" href="../../case/magnolia/timeline" data-aos="fade-up" style="text-decoration:none;" target="_blank">
+      <div class="drive-icon">
+        <i class="bi bi-signpost-split"></i>
+      </div>
+      <div class="drive-card-body">
+        <h3 class="drive-card-title">Case Timeline</h3>
+        <p class="drive-card-desc">A chronological reconstruction of the JLR domestic violence incident in Leavenworth, WA — built from Chelan County Sheriff's Office records, dispatch logs, phone records, and text messages. December 24–28, 2025.</p>
+      </div>
+      <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
+    </a>
 
     <!-- ════════════════════════════════════════════════════════
          SOURCE FILES
@@ -1302,7 +1528,7 @@
         </div>
         <div class="drive-card-body">
           <h3 class="drive-card-title">Google Drive Folder</h3>
-            <p class="drive-card-desc">All filings and documents for Jonathan Lee Riches.</p>
+            <p class="drive-card-desc">All filings and documents for Jonathan Lee Bitches.</p>
         </div>
           <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
       </a>
