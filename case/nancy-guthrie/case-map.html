@@ -934,7 +934,7 @@
     <h1>NANCY GUTHRIE</h1>
     <p>Catalina Foothills Resource Map</p>
     <strong><a href="user-guide" style="display:inline-block;margin-top:6px;font-size:10px;color:var(--link);text-decoration:none;opacity:.8;letter-spacing:.5px;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'"><i class="bi bi-info-circle" style="font-size:11px;margin-right:3px;"></i>User Guide</a></strong>
-    <div style="margin-top:4px;font-size:10px;color:var(--dim);letter-spacing:.3px;">You can return to Subtxt Press case maps <strong><a href="../maps" target="_blank" rel="noopener" style="color:var(--link);">here</a></strong>.</div>
+    <div style="margin-top:4px;font-size:10px;color:var(--dim);letter-spacing:.3px;">Comprehensive case timeline can be found <strong><a href="timeline" target="_blank" rel="noopener" style="color:var(--link);">here</a></strong>.</div>
     <div class="view-tabs">
       <button id="tab-map" class="active" onclick="switchView('map')">MAP</button>
       <button id="tab-analysis" onclick="switchView('analysis')">CORRIDOR ANALYSIS</button>
@@ -970,7 +970,7 @@
     <label class="lyr"><input type="checkbox" data-layer="hillshade"><i class="bi bi-brightness-high" style="color:#D4A85C;margin-right:6px;"></i>Terrain Hillshade</label>
     <label class="lyr" style="margin-top:6px;border-top:1px solid var(--border);padding-top:6px;"><input type="checkbox" data-layer="escapeRoute"><i class="bi bi-exclamation-triangle-fill" style="color:#E8784A;margin-right:6px;"></i>WB I-10 Escape Corridor</label>
     <label class="lyr"><input type="checkbox" data-layer="quarries"><i class="bi bi-gem" style="color:#A8C875;margin-right:6px;"></i>Rock Quarries &amp; Pits <span class="cnt" id="cnt-quarries">-</span></label>
-    <label class="lyr"><input type="checkbox" data-layer="genematasRoute"><i class="bi bi-car-front" style="color:#D4845C;margin-right:6px;"></i>Genematas Dr Route (7.6 mi)</label>
+    <label class="lyr" style="display:none;"><input type="checkbox" data-layer="genematasRoute"><i class="bi bi-car-front" style="color:#D4845C;margin-right:6px;"></i>Genematas Dr Route (7.6 mi)</label>
     <label class="lyr"><input type="checkbox" data-layer="jammerZone"><i class="bi bi-wifi" style="color:#B8A578;margin-right:6px;"></i>WiFi Jammer Disruption Zone</label>
     <label class="lyr"><input type="checkbox" data-layer="tpdDivisions"><i class="bi bi-exclamation-octagon-fill" style="color:#E8784A;margin-right:6px;"></i>TPD Divisions</label>
     <label class="lyr"><input type="checkbox" data-layer="territories"><i class="bi bi-flag-fill" style="color:#E89860;margin-right:6px;"></i>Criminal Territories &amp; Corridors <span class="cnt" id="cnt-territories">6</span></label>
@@ -3089,46 +3089,32 @@ map.on('click', e => {
   const GR = ly.genematasRoute;
 
   const routeCoords = [
-    // Shadow Hills area (eastern extent)
-    [32.3880, -110.9550],
-    [32.3870, -110.9600],
-    [32.3860, -110.9660],
-    // Near 5830 N Genematas Dr
-    [32.3850, -110.9740],
-    [32.3830, -110.9760],
-    [32.3810, -110.9780],
-    [32.3780, -110.9800],
-    // South to W Ina Rd
-    [32.3755, -110.9830],
-    [32.3755, -110.9900],
-    // West on Ina Rd past Oracle (Hwy 77)
-    [32.3755, -111.0000],
-    [32.3755, -111.0100],
-    [32.3755, -111.0200],
-    [32.3755, -111.0300],
-    [32.3755, -111.0400],
-    [32.3755, -111.0480],
-    // Turn south on La Cholla Blvd
-    [32.3755, -111.0530],
-    [32.3720, -111.0530],
-    [32.3680, -111.0530],
-    [32.3640, -111.0530],
-    [32.3600, -111.0530],
-    [32.3560, -111.0530],
-    [32.3520, -111.0530],
-    [32.3480, -111.0530],
-    [32.3440, -111.0530],
-    // W Roller Coaster Rd heading west
-    [32.3415, -111.0530],
-    [32.3410, -111.0560],
-    [32.3405, -111.0590],
-    [32.3400, -111.0620],
-    [32.3395, -111.0660],
-    [32.3390, -111.0700],
-    // Past greentoes North, Bashas', Lulu Walker (western extent)
-    [32.3385, -111.0740],
-    [32.3380, -111.0780],
-    [32.3375, -111.0810],
+    // Start: Flowing Wells area (southwest)
+    [32.3050, -111.0665],
+    // Head east toward Lulu Walker
+    [32.3120, -111.0520],
+    // Lulu Walker Elementary School
+    [32.3180, -111.0500],
+    // North on N La Cañada Dr
+    [32.3280, -111.0480],
+    [32.3320, -111.0480],
+    // Turn east across desert
+    [32.3320, -111.0200],
+    [32.3320, -111.0050],
+    // Head north toward Genematas
+    [32.3280, -110.9950],
+    [32.3250, -110.9900],
+    // 5830 N Genematas Dr area
+    [32.3120, -110.9690],
+    // Continue northeast with turns toward Camino Escalante
+    [32.3140, -110.9650],
+    [32.3170, -110.9600],
+    [32.3200, -110.9550],
+    // Head toward final destination
+    [32.3180, -110.9450],
+    [32.3150, -110.9380],
+    // End: 5820 N Camino Escalante (northeast)
+    [32.3120, -110.9410]
   ];
 
   // Draw route polyline
@@ -3142,7 +3128,7 @@ map.on('click', e => {
   ).addTo(GR);
 
   // Pin at 5830 N Genematas Dr
-  L.circleMarker([32.3850, -110.9740], {
+  L.circleMarker([32.3120, -110.9690], {
     radius: 8, color: '#e00', fillColor: '#e00', fillOpacity: 0.9, weight: 2,
   }).bindPopup(
     `<b style="color:#e00;">&#x1f4cd; 5830 N Genematas Drive</b>`

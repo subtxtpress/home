@@ -295,10 +295,13 @@
     }
     /* Figure/image */
     .step-figure {
-      margin: 18px 0 8px;
+      margin: 18px 0 8px 0;
+      width: calc(100% + 76px);
+      margin-left: -40px;
+      margin-right: -36px;
       border: 1px solid var(--border);
       background: var(--card-bg);
-      border-radius: 2px; 
+      border-radius: 2px;
       overflow: hidden;
     }
     .step-figure img {
@@ -480,7 +483,7 @@
         font-size: 13px;
       }
       .step-figure img {
-        max-height: 200px;
+        height: 200px;
       }
       .step-gallery {
         gap: 4px;
@@ -525,10 +528,10 @@
         font-size: 17px;
       }
       .step-figure img {
-        max-height: 170px;
+        height: 170px;
       }
       .step-gallery img {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 4 / 3; object-fit: cover;
       }
     }
   </style>
@@ -581,11 +584,11 @@
     <div class="step-time">January 31 - February 1, 2026</div>
     <div class="step-title">Nancy Guthrie Missing</div>
     <p>Nancy Guthrie, 84, was reported missing from her home in Tucson, Arizona on February 1, 2026. Authorities believe she was abducted in the early morning hours of February 1 after being last seen the previous evening.</p>
-    <p><em>This page is a living document being updated as information becomes available. It is also currently under construction.</em></p>
     <div class="callout">
       <span class="callout-label">Case Status</span>
       Open investigation — FBI and Pima County Sheriff's Department actively investigating
     </div>
+    <p style="padding-top:1%;"><em>This page is being updated / under construction.</em></p>
   </div>
 
   <!-- ── STEP 1: Suspect in Doorbell Camera Footage ── -->
@@ -1114,18 +1117,18 @@
 // Map locations (persistent markers)
 var KML_DATA = {
   locations: [
-    { name: 'Nancy\'s Home', features: [{type:'point', coords:[32.2245, -110.9735]}], desc: '<b>Nancy Guthrie\'s Home</b><br/>Tucson, Arizona<br/>Last seen 9:48 PM, Jan 31' },
-    { name: 'Annie\'s Home', features: [{type:'point', coords:[32.2280, -110.9690]}], desc: '<b>Daughter\'s Home</b><br/>Where Nancy had dinner<br/>Jan 31, 5:32 PM arrival' },
-    { name: 'Gloves Found', features: [{type:'point', coords:[32.2100, -110.9800]}], desc: '<b>Evidence Location</b><br/>Black gloves recovered<br/>~2 miles from home' },
+    { name: 'Nancy\'s Home', features: [{type:'point', coords:[32.3120, -110.9410]}], desc: '<b>Nancy Guthrie\'s Home</b><br/>Tucson, Arizona<br/>Last seen 9:48 PM, Jan 31' },
+    { name: 'Annie\'s Home', features: [{type:'point', coords:[32.3120, -110.9690]}], desc: '<b>Daughter\'s Home</b><br/>Where Nancy had dinner<br/>Jan 31, 5:32 PM arrival' },
+    { name: 'Mariposa, Mexico', features: [{type:'point', coords:[31.4200, -111.3500]}], desc: '<b>Mariposa Area</b><br/>West of Nogales<br/>Along AZ-Mexico Border' },
   ]
 };
 
 // Named map views — reference these in STEP_META.focus
 var FOCUS_POINTS = {
-  'overview': { center: [32.2245, -110.9735], zoom: 13 },
-  'home':     { center: [32.2245, -110.9735], zoom: 15 },
-  'area':     { center: [32.2200, -110.9750], zoom: 14 },
-  'family-check': { center: [32.311, -110.963], zoom: 14 },
+  'overview': { center: [32.3120, -110.9410], zoom: 13 },
+  'home':     { center: [32.3120, -110.9410], zoom: 15 },
+  'area':     { center: [32.3100, -110.9600], zoom: 14 },
+  'family-check': { center: [32.3120, -110.9550], zoom: 14 },
 };
 
 // Per-person marker colors
@@ -1137,12 +1140,12 @@ var COLORS = {
 
 // Per-step metadata: clock display + map focus
 var STEP_META = {
-  0: { date: 'January 31 - February 1, 2026', time: '', focus: 'overview' },
-  1: { date: 'Unknown Date', time: '', focus: 'overview' },
-  2: { date: 'January 31', time: '5:32 PM', focus: 'family-check' },
-  3: { date: 'January 31', time: '9:48 PM', focus: 'family-check' },
+  0: { date: 'January 31 - February 1, 2026', time: '', focus: 'home' },
+  1: { date: 'Unknown Date', time: '', focus: 'home' },
+  2: { date: 'January 31', time: '5:32 PM', focus: 'home' },
+  3: { date: 'January 31', time: '9:48 PM', focus: 'home' },
   4: { date: 'February 1', time: '1:47 AM', focus: 'home' },
-  5: { date: 'February 1', time: '2:12 AM', focus: 'family-check' },
+  5: { date: 'February 1', time: '2:12 AM', focus: 'home' },
   6: { date: 'February 1', time: '2:28 AM', focus: 'home' },
   7: { date: 'February 1', time: '11:56 AM', focus: 'home' },
   8: { date: 'February 1', time: '12:03 PM', focus: 'home' },
@@ -1154,34 +1157,34 @@ var STEP_META = {
   14: { date: 'February 3', time: '', focus: 'home' },
   15: { date: 'February 4-5', time: '', focus: 'home' },
   16: { date: 'February 5', time: '', focus: 'home' },
-  17: { date: 'February 6', time: '', focus: 'area' },
-  18: { date: 'February 7', time: '', focus: 'area' },
+  17: { date: 'February 6', time: '', focus: 'home' },
+  18: { date: 'February 7', time: '', focus: 'home' },
   19: { date: 'February 8', time: '', focus: 'home' },
-  20: { date: 'February 9', time: '', focus: 'area' },
+  20: { date: 'February 9', time: '', focus: 'home' },
   21: { date: 'February 10', time: '', focus: 'home' },
-  22: { date: 'February 11', time: '', focus: 'area' },
-  23: { date: 'February 12', time: '', focus: 'area' },
-  24: { date: 'February 13', time: '', focus: 'area' },
-  25: { date: 'February 15', time: '', focus: 'area' },
-  26: { date: 'February 16', time: '', focus: 'area' },
-  27: { date: 'February 17', time: '', focus: 'area' },
-  28: { date: 'February 17', time: '', focus: 'area' },
-  29: { date: 'February 18', time: '', focus: 'area' },
-  30: { date: 'February 20', time: '', focus: 'family-check' },
-  31: { date: 'February 21', time: '', focus: 'area' },
-  32: { date: 'February 22', time: '', focus: 'area' },
-  33: { date: 'February 23', time: '', focus: 'area' },
+  22: { date: 'February 11', time: '', focus: 'home' },
+  23: { date: 'February 12', time: '', focus: 'home' },
+  24: { date: 'February 13', time: '', focus: 'home' },
+  25: { date: 'February 15', time: '', focus: 'home' },
+  26: { date: 'February 16', time: '', focus: 'home' },
+  27: { date: 'February 17', time: '', focus: 'home' },
+  28: { date: 'February 17', time: '', focus: 'home' },
+  29: { date: 'February 18', time: '', focus: 'home' },
+  30: { date: 'February 20', time: '', focus: 'home' },
+  31: { date: 'February 21', time: '', focus: 'home' },
+  32: { date: 'February 22', time: '', focus: 'home' },
+  33: { date: 'February 23', time: '', focus: 'home' },
   34: { date: 'February 24', time: '', focus: 'home' },
   35: { date: 'February 25', time: '', focus: 'home' },
   36: { date: 'February 26', time: '', focus: 'home' },
-  37: { date: 'February 27', time: '', focus: 'area' },
-  38: { date: 'February 28', time: '', focus: 'area' },
-  39: { date: 'March 4', time: '', focus: 'area' },
-  40: { date: 'March 5', time: '', focus: 'area' },
-  41: { date: 'March 6', time: '', focus: 'area' },
-  42: { date: 'April 6', time: '', focus: 'area' },
-  43: { date: 'April 16', time: '', focus: 'area' },
-  44: { date: 'Ongoing', time: '', focus: 'overview' },
+  37: { date: 'February 27', time: '', focus: 'home' },
+  38: { date: 'February 28', time: '', focus: 'home' },
+  39: { date: 'March 4', time: '', focus: 'home' },
+  40: { date: 'March 5', time: '', focus: 'home' },
+  41: { date: 'March 6', time: '', focus: 'home' },
+  42: { date: 'April 6', time: '', focus: 'home' },
+  43: { date: 'April 16', time: '', focus: 'home' },
+  44: { date: 'Ongoing', time: '', focus: 'home' },
 };
 
 // Initial map center and zoom
@@ -1215,8 +1218,9 @@ function toggleBasemap() {
   usingSatellite = !usingSatellite;
 }
 
-// Persistent markers from KML_DATA
+// Persistent markers from KML_DATA (skip Annie's home)
 KML_DATA.locations.forEach(function(loc) {
+  if (loc.name === 'Annie\'s Home') return; // Skip Annie's home
   var coords = loc.features[0].coords;
   var m = L.circleMarker(coords, {
     radius: 6, fillColor: '#ebe2cd', color: '#ebe2cd',
@@ -1316,7 +1320,10 @@ function activateStep(stepNum) {
   }
 
   // ── CUSTOM MARKERS PER STEP ──
-  // (Markers to be added back after step entry refinement)
+  // Every step: Nancy's home marker only
+  var nancyHome = [32.3120, -110.9410];
+  makeDot(nancyHome, '#ebe2cd', 8, false);
+  makeLabel(nancyHome, "Nancy's home", '#ebe2cd', 'below');
 }
 
 // Progress bar
