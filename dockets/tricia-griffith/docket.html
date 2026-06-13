@@ -459,9 +459,42 @@
       transition: color 0.2s, gap 0.2s; 
       flex-shrink: 0;
     }
-    .drive-card-cta:hover { 
-      color: var(--ink); 
-      gap: 10px; 
+    .drive-card-cta:hover {
+      color: var(--ink);
+      gap: 10px;
+    }
+    .note-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .note-card-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .note-card-body {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+    .note-card-body p {
+      margin-bottom: 8px;
+    }
+    .note-card-body a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .note-card-body a:hover {
+      color: var(--ink);
+      text-decoration: underline;
     }
     .site-footer {
       display: flex; 
@@ -638,6 +671,17 @@
 
   <section class="content-section">
 
+    <!-- ════════════════════════════════════════════════════════
+         NOTE: Case names and redactions
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="note-card" data-aos="fade-up">
+      <h3 class="note-card-title">Note on Case Names and Document Redactions</h3>
+      <div class="note-card-body">
+        <p>The case name below uses an alias to respect the privacy of individuals Tricia Griffith has involved in these matters. This case and the filings are public record but if you're covering the case and want to display filings on screen during livestreams, these redacted versions are available here to prevent further undue exposure to the people Tricia dragged into this situation.</p>
+        <p>The original, unredacted court documents can be found on the <a style="font-weight:bold;text-decoration:underline;" href="https://courtsportal.dallascounty.org/DALLASPROD" target="_blank">Dallas County Probate 3 Court portal</a> by searching case #<strong>PR-25-03629-3</strong>.</p>
+      </div>
+    </div>
 
     <!-- ════════════════════════════════════════════════════════
          CASE 1: Estate of Beth Bee (OPEN)
