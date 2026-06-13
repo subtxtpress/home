@@ -1766,21 +1766,55 @@ async function loadPointData() {
   setStatus('towers','loading');
   setStatus('trailheads','loading');
 
-  const bbox = C.bboxWide;
-  const q = `[out:json][timeout:45];(
-    node["historic"~"^mine"](${bbox});
-    node["man_made"~"^(mineshaft|adit)$"](${bbox});
-    way["historic"~"^mine"](${bbox});
-    node["man_made"="mast"]["tower:type"="communication"](${bbox});
-    node["man_made"="tower"]["tower:type"="communication"](${bbox});
-    node["man_made"="communications_tower"](${bbox});
-    way["man_made"="mast"]["tower:type"="communication"](${bbox});
-    node["highway"="trailhead"](${bbox});
-    node["information"="trailhead"](${bbox});
-  );out center;`;
+  const cacheKey = 'nancy_pointdata_cache';
+  const cacheTime = 86400000; // 24 hours in ms
+  const cached = localStorage.getItem(cacheKey);
+
+  let data;
+
+  // Try to use cached data if available
+  if (cached) {
+    const cache = JSON.parse(cached);
+    if (Date.now() - cache.timestamp < cacheTime) {
+      data = cache.data;
+      console.log('Using cached point data');
+    } else {
+      localStorage.removeItem(cacheKey);
+    }
+  }
+
+  // If no valid cache, fetch from Overpass API
+  if (!data) {
+    const bbox = C.bboxWide;
+    const q = `[out:json][timeout:45];(
+      node["historic"~"^mine"](${bbox});
+      node["man_made"~"^(mineshaft|adit)$"](${bbox});
+      way["historic"~"^mine"](${bbox});
+      node["man_made"="mast"]["tower:type"="communication"](${bbox});
+      node["man_made"="tower"]["tower:type"="communication"](${bbox});
+      node["man_made"="communications_tower"](${bbox});
+      way["man_made"="mast"]["tower:type"="communication"](${bbox});
+      node["highway"="trailhead"](${bbox});
+      node["information"="trailhead"](${bbox});
+    );out center;`;
+
+    try {
+      data = await overpass(q);
+      // Cache the result
+      localStorage.setItem(cacheKey, JSON.stringify({
+        timestamp: Date.now(),
+        data: data
+      }));
+    } catch(e) {
+      console.error('Point data error:',e);
+      setStatus('mines','error',e.message);
+      setStatus('towers','error','');
+      setStatus('trailheads','error','');
+      return;
+    }
+  }
 
   try {
-    const data = await overpass(q);
     let mc=0, tc=0, thc=0;
 
     data.elements.forEach(el => {
@@ -1820,7 +1854,7 @@ async function loadPointData() {
     setStatus('towers','loaded',`(${tc})`);
     setStatus('trailheads','loaded',`(${thc})`);
   } catch(e) {
-    console.error('Point data error:',e);
+    console.error('Point data processing error:',e);
     setStatus('mines','error',e.message);
     setStatus('towers','error','');
     setStatus('trailheads','error','');
@@ -2980,6 +3014,7 @@ document.querySelectorAll('[data-layer]').forEach(cb => {
     const layer = ly[cb.dataset.layer];
     if (!layer) return;
     if (cb.checked) {
+      if (cb.dataset.layer === 'escapeRoute' && !escapeRouteLoaded) buildEscapeRoute();
       map.addLayer(layer);
       if (cb.dataset.layer === 'aircraft' && !aircraftLoaded) loadAircraft();
       if (cb.dataset.layer === 'stormDrains' && !stormDrainsLoaded) loadStormDrains();
@@ -3145,7 +3180,10 @@ map.on('click', e => {
 // =============================================================
 // ESCAPE ROUTE ANALYSIS: WB I-10 Corridor (2-3 AM scenario)
 // =============================================================
-(function buildEscapeRoute() {
+var escapeRouteLoaded = false;
+function buildEscapeRoute() {
+  if (escapeRouteLoaded) return;
+  escapeRouteLoaded = true;
   const ER = ly.escapeRoute;
 
   // --- Helper: geographically-anchored tag (circleMarker + permanent tooltip) ---
@@ -3282,8 +3320,7 @@ map.on('click', e => {
 
   waypoint([31.3400,-110.9400], 'Nogales / MX · ⚠ monitored', '#ef4444',
     '<b>Nogales / Mexico Border</b><br>~60 mi / ~1 hr from I-10/I-19 junction<br>⚠ Border Patrol checkpoints on I-19<br>⚠ Heavily monitored corridor<br>Higher interception risk vs WB I-10').addTo(ER);
-
-})();
+}
 
 // =============================================================
 // TOOL: DISTANCE RINGS
@@ -4458,8 +4495,7 @@ loadCameras();
 loadWater();
 loadWatersheds();
 
-// Auto-run drive-time analysis after cameras + geocode have time to load
-setTimeout(() => runDriveTime(), 4000);
+// Drive-time analysis runs on demand only (button click)
 
 // Mobile: auto-collapse sidebar on small screens, close on map tap
 if (window.innerWidth <= 768) {

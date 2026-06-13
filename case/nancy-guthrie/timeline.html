@@ -587,7 +587,7 @@
   <!-- ── STEP 0: Intro ── -->
   <!-- ── STEP 0: Nancy Guthrie Missing ── -->
   <div class="step" data-step="0" data-border="var(--c-accent)">
-    <div class="step-time">January 31 - February 1, 2026</div>
+    <div class="step-time">February 1, 2026</div>
     <div class="step-title">Nancy Guthrie Missing</div>
     <p>Nancy Guthrie, 84, was reported missing from her home in Tucson, Arizona on February 1, 2026. Authorities believe she was abducted in the early morning hours of February 1 after being last seen the previous evening.</p>
     <div class="callout">
@@ -1220,8 +1220,16 @@ var map = L.map('map', {
 
 var usingSatellite = false;
 function toggleBasemap() {
-  if (usingSatellite) { map.removeLayer(satTiles); map.addLayer(darkTiles); }
-  else { map.removeLayer(darkTiles); map.addLayer(satTiles); }
+  var btn = document.getElementById('basemap-toggle');
+  if (usingSatellite) {
+    map.removeLayer(satTiles);
+    map.addLayer(darkTiles);
+    btn.textContent = 'Satellite';
+  } else {
+    map.removeLayer(darkTiles);
+    map.addLayer(satTiles);
+    btn.textContent = 'Dark';
+  }
   usingSatellite = !usingSatellite;
 }
 
