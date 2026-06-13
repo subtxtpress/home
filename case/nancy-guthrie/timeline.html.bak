@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Nancy Guthrie Disappearance | Subtxt Press</title>
+  <meta name="description" content="Timeline of Nancy Guthrie's disappearance in Tucson, Arizona on January 31, 2026. Known facts and investigation timeline.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/nancy-guthrie/timeline">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nancy Guthrie Disappearance | Subtxt Press">
+  <meta property="og:description" content="Timeline of Nancy Guthrie's disappearance in Tucson, Arizona on January 31, 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/nancy-guthrie/timeline">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nancy Guthrie Disappearance | Subtxt Press">
+  <meta name="twitter:description" content="Timeline of Nancy Guthrie's disappearance in Tucson, Arizona on January 31, 2026.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+    :root {
+      --bg: #060B14;
+      --surface: rgba(18,64,60,0.22);
+      --surface2: #12403C;
+      --border: rgba(244,229,196,0.10);
+      --border2: rgba(244,229,196,0.26);
+      --border-subtle: rgba(18,64,60,0.45);
+      /* ── Case Colors — customize per case ── */
+      --c-primary:   #C04E01;
+      --c-secondary: #D8DADB;
+      --c-accent:    #ebe2cd;
+      --c-teal:      #4a8a7c;
+      --c-red:       #E63946;
+      /* ── Borders ── */
+      --c-primary-dim:    rgba(192,78,1,0.10);
+      --c-primary-border: rgba(192,78,1,0.55);
+      /* ── Font colors ── */
+      --text: #F5F5F5;
+      --text2: #D8DADB;
+      --text-label: #ebe2cd;
+      --muted: rgba(216,218,219,0.50);
+      /* ── Cards and gradients ── */
+      --card-bg: rgba(6,11,20,0.45);
+      --grad-g03: linear-gradient(to right, #D8DADB, #C04E01);
+      --grad-teal: linear-gradient(to bottom, #F5F5F5, #12403C);
+      /* ── Fonts ── */
+      --mono: 'IBM Plex Mono', monospace;
+      --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --head: 'Barlow Condensed', sans-serif;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --nav-h: 48px;
+    }
+    html, body { 
+      width: 100%; 
+      height: 100%; 
+      overflow: hidden; 
+    }
+    body {
+      background: var(--bg);
+      color: var(--text2);
+      font-family: var(--body);
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* ── PROGRESS BAR ── */
+    #progress-bar {
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      height: 3px;
+      background: var(--grad-g03); 
+      z-index: 1300;
+      width: 0; 
+      transition: width 0.15s ease-out;
+    }
+    /* ── NAV ── */
+    .nav {
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--nav-h);
+      background: rgba(6,11,20,0.97);
+      border-bottom: 1px solid var(--border);
+      display: flex; 
+      align-items: center;
+      padding: 0 14px; 
+      z-index: 1200; 
+      gap: 10px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-title {
+      font-family: var(--serif); 
+      font-size: 16px; 
+      font-weight: 800;
+      letter-spacing: 0.05em; 
+      color: var(--text);
+      flex: 1; 
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis;
+    }
+    .nav-tag {
+      background: var(--c-primary-dim); 
+      border: 1px solid var(--c-primary-border);
+      color: var(--c-primary); 
+      font-family: var(--mono); 
+      font-size: 10px;
+      padding: 2px 8px; 
+      border-radius: 3px; 
+      letter-spacing: 0.06em;
+      white-space: nowrap; 
+      flex-shrink: 0;
+    }
+    .nav-source-link {
+      margin-left: auto; 
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      text-decoration: none; 
+      letter-spacing: 0.04em;
+      opacity: 0.65; 
+      white-space: nowrap; 
+      transition: opacity 0.15s, color 0.15s;
+    }
+    .nav-source-link:hover { 
+      opacity: 1; 
+      color: var(--text2); 
+    }
+    /* ── MAP ── */
+    #map {
+      position: fixed;
+      top: var(--nav-h); 
+      right: 0;
+      width: 60%; 
+      height: calc(100vh - var(--nav-h));
+      z-index: 1;
+    }
+    /* ── CLOCK OVERLAY ── */
+    #clock {
+      position: fixed;
+      top: calc(var(--nav-h) + 16px); 
+      right: 16px;
+      z-index: 800;
+      background: rgba(6,11,20,0.82);
+      border: 1px solid var(--border2);
+      padding: 10px 18px; 
+      border-radius: 4px;
+      text-align: right;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+    .clock-date {
+      font-family: var(--mono); 
+      font-size: 10px;
+      letter-spacing: 0.12em; 
+      color: var(--muted);
+      text-transform: uppercase; 
+      margin-bottom: 2px;
+    }
+    .clock-time {
+      font-family: var(--mono); 
+      font-size: 26px;
+      font-weight: 500; 
+      color: var(--text);
+      letter-spacing: 0.04em; 
+      transition: color 0.3s;
+    }
+    .clock-time.flash { 
+      color: var(--c-primary); 
+    }
+    /* ── BASEMAP TOGGLE ── */
+    #basemap-toggle {
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      z-index: 800;
+      background: rgba(6,11,20,0.82); 
+      border: 1px solid var(--border2);
+      color: var(--text2); 
+      font-family: var(--mono); 
+      font-size: 10px;
+      padding: 6px 12px; 
+      border-radius: 4px;
+      cursor: pointer; 
+      letter-spacing: 0.06em; 
+      transition: background 0.2s;
+    }
+    #basemap-toggle:hover { 
+      background: var(--surface2); 
+    }
+    /* ── NARRATIVE COLUMN ── */
+    #narrative {
+      position: fixed;
+      top: var(--nav-h); 
+      left: 0;
+      width: 40%;
+      height: calc(100vh - var(--nav-h));
+      overflow-y: auto; 
+      overflow-x: hidden;
+      z-index: 100;
+      background: var(--bg);
+      border-right: 1px solid;
+      border-image: var(--grad-teal) 1;
+    }
+    #narrative::-webkit-scrollbar { 
+      width: 4px; 
+    }
+    #narrative::-webkit-scrollbar-track { 
+      background: transparent; 
+    }
+    #narrative::-webkit-scrollbar-thumb { 
+      background: rgba(216,218,219,0.18); 
+      border-radius: 2px; 
+    }
+    /* ── STEP ── */
+    .step {
+      min-height: 70vh;
+      padding: 48px 36px 48px 40px;
+      border-left: 3px solid transparent;
+      opacity: 0.3;
+      transition: opacity 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+      position: relative;
+    }
+    .step.is-active {
+      opacity: 1;
+      background: var(--surface);
+    }
+    .step:first-child { 
+      padding-top: 60px; 
+    }
+    .step:last-child { 
+      min-height: 90vh; 
+    }
+    .step-time {
+      font-family: var(--mono); 
+      font-size: 11px;
+      letter-spacing: 0.1em; 
+      color: var(--muted);
+      margin-bottom: 10px; 
+      text-transform: uppercase;
+    }
+    .step-title {
+      font-family: var(--head); 
+      font-size: 22px;
+      font-weight: 700; 
+      color: var(--text);
+      letter-spacing: 0.03em; 
+      margin-bottom: 14px; 
+      line-height: 1.3;
+    }
+    .step p {
+      font-size: 14px; 
+      line-height: 1.75;
+      color: var(--text2); 
+      margin-bottom: 12px;
+    }
+    /* Person pills */
+    .person-pill {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px;
+      font-family: var(--mono); 
+      font-size: 10px;
+      letter-spacing: 0.06em; 
+      color: var(--muted);
+      margin: 0 10px 10px 0;
+    }
+    .person-pill .dot {
+      width: 8px; 
+      height: 8px; 
+      border-radius: 50%; 
+      flex-shrink: 0;
+    }
+    /* Figure/image */
+    .step-figure {
+      margin: 18px 0 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: 2px; 
+      overflow: hidden;
+    }
+    .step-figure img {
+      display: block; 
+      width: 100%;
+      max-height: 280px; 
+      object-fit: cover; 
+      cursor: pointer;
+    }
+    .step-figure figcaption {
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      letter-spacing: 0.06em;
+      padding: 8px 12px; 
+      border-top: 1px dashed var(--border);
+      text-transform: uppercase;
+    }
+    /* Image gallery */
+    .step-gallery {
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px; 
+      margin: 18px 0 8px;
+    }
+    .step-gallery img {
+      display: block; 
+      width: 100%;
+      aspect-ratio: 4 / 3; 
+      object-fit: cover;
+      border: 1px solid var(--border);
+      background: var(--card-bg); 
+      border-radius: 2px;
+      cursor: pointer; 
+      transition: opacity 0.2s;
+    }
+    .step-gallery img:hover { 
+      opacity: 0.85; 
+    }
+    .gallery-caption {
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      letter-spacing: 0.06em;
+      margin: -2px 0 12px; 
+      text-transform: uppercase;
+    }
+    /* Embed (click-to-load iframe) */
+    .step-embed {
+      margin: 14px 0 6px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px; 
+      overflow: hidden; 
+      background: #000;
+    }
+    .step-embed iframe {
+      display: block; 
+      width: 100%; 
+      height: 60px; 
+      border: none;
+    }
+    .embed-placeholder {
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 8px; 
+      height: 60px; 
+      cursor: pointer;
+      transition: background 0.2s; 
+      user-select: none;
+    }
+    .embed-placeholder:hover { 
+      background: rgba(255,255,255,0.06); 
+    }
+    .embed-placeholder svg { 
+      width: 12px; 
+      height: 12px; fill: var(--muted); 
+      flex-shrink: 0; 
+    }
+    .embed-placeholder:hover svg { 
+      fill: var(--text); 
+    }
+    .embed-placeholder span {
+      font-family: var(--mono); 
+      font-size: 10px;
+      letter-spacing: 0.06em; 
+      color: var(--muted); 
+      text-transform: uppercase;
+    }
+    .embed-placeholder:hover span { 
+      color: var(--text2); 
+    }
+    .embed-caption {
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      letter-spacing: 0.04em;
+      margin: 4px 0 12px;
+    }
+    /* Callout */
+    .callout {
+      margin: 18px 0 4px; 
+      padding: 14px 18px;
+      background: var(--c-primary-dim);
+      border-left: 3px solid var(--c-primary);
+      font-size: 15px; 
+      font-weight: 600;
+      color: var(--text); 
+      letter-spacing: 0.01em; 
+      line-height: 1.5;
+    }
+    .callout-label {
+      display: block; 
+      font-family: var(--mono);
+      font-size: 9px; 
+      font-weight: 500;
+      letter-spacing: 0.14em; 
+      text-transform: uppercase;
+      color: var(--c-primary); 
+      margin-bottom: 4px;
+    }
+    /* Pulse animation for active markers */
+    @keyframes pulse-ring { 
+      0% { 
+        opacity: 0.6; 
+      } 
+      100% { 
+        opacity: 0; 
+      } 
+    }
+    .pulse-marker { 
+      animation: pulse-ring 2s ease-out infinite; 
+    }
+    /* Leaflet popup */
+    .ev-tip .leaflet-popup-content-wrapper {
+      background: rgba(6,11,20,0.92); 
+      color: var(--text2);
+      border: 1px solid var(--border2); 
+      border-radius: 4px;
+      font-family: var(--body); 
+      font-size: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+    .ev-tip .leaflet-popup-tip { 
+      background: rgba(6,11,20,0.92); 
+    }
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      #map { 
+        width: 100%; 
+        height: 40vh; 
+        top: var(--nav-h); 
+        position: fixed; 
+      }
+      #narrative {
+        width: 100%; 
+        top: calc(var(--nav-h) + 40vh);
+        height: calc(60vh - var(--nav-h));
+        border-right: none; 
+        border-top: 1px solid var(--border2);
+      }
+      #clock { 
+        top: calc(var(--nav-h) + 8px); 
+        right: 8px; 
+        padding: 6px 12px; 
+      }
+      .clock-time { 
+        font-size: 18px; 
+      }
+      .step { 
+        padding: 28px 20px; 
+        min-height: 50vh; 
+      }
+      .step-title { 
+        font-size: 18px; 
+      }
+      .step p { 
+        font-size: 13px; 
+      }
+      #basemap-toggle { 
+        bottom: auto; 
+        top: calc(var(--nav-h) + 40vh - 36px); 
+        right: 8px; 
+        font-size: 9px; 
+        padding: 4px 8px; 
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="progress-bar"></div>
+
+<nav class="nav">
+  <span class="nav-title">Nancy Guthrie</span>
+  <span class="nav-tag">MISSING PERSON</span>
+  <a class="nav-source-link" href="https://www.fbi.gov" target="_blank">FBI &rarr;</a>
+</nav>
+
+<div id="map"></div>
+
+<div id="clock">
+  <div class="clock-date"></div>
+  <div class="clock-time" id="clock-time"></div>
+</div>
+
+<button id="basemap-toggle" onclick="toggleBasemap()">Satellite</button>
+
+<div id="narrative">
+
+  <!--
+    ════════════════════════════════════════════════════════
+    STEPS — one <div class="step"> per narrative beat.
+
+    Attributes:
+      data-step="0"                  sequential number (matches STEP_META)
+      data-border="var(--c-primary)" left border color when active
+
+    Content blocks you can mix inside a step:
+      .step-time        — date/time label
+      .step-title       — headline
+      .person-pill      — colored dot + name
+      p                 — body text
+      .step-figure      — single image with caption
+      .step-gallery     — 2-column image grid
+      .step-embed       — click-to-load iframe (transcripts, audio)
+      .callout          — highlighted callout box
+    ════════════════════════════════════════════════════════
+  -->
+
+  <!-- ── STEP 0: Intro ── -->
+  <!-- ── STEP 0: Suspect in Doorbell Camera Footage ── -->
+  <div class="step" data-step="0" data-border="var(--c-red)">
+    <div class="step-time">Unknown Date</div>
+    <div class="step-title">Suspect in Doorbell Camera Footage</div>
+    <p>A masked suspect was captured on Nancy Guthrie's doorbell camera footage. The suspect's identity and exact date of the incident remain under investigation. This surveillance footage would become central to the investigation into Nancy's disappearance.</p>
+  </div>
+
+  <!-- ── STEP 1: Nancy Guthrie Missing ── -->
+  <div class="step" data-step="1" data-border="var(--c-accent)">
+    <div class="step-time">January 31 - February 1, 2026</div>
+    <div class="step-title">Nancy Guthrie Missing</div>
+    <p>Nancy Guthrie, 84, was reported missing from her home in Tucson, Arizona on February 1, 2026. Authorities believe she was abducted in the early morning hours of February 1 after being last seen the previous evening.</p>
+    <p>The mother of "Today" show co-host Savannah Guthrie, Nancy has limited mobility and relies on daily medication. She has not been located as of March 2026.</p>
+    <div class="callout">
+      <span class="callout-label">Case Status</span>
+      Open investigation — FBI and Pima County Sheriff's Department actively investigating
+    </div>
+  </div>
+
+  <!-- ── STEP 1: Last Seen ── -->
+  <div class="step" data-step="1" data-border="var(--c-primary)">
+    <div class="step-time">Saturday, January 31 &middot; 9:48 PM</div>
+    <div class="step-title">Last Seen at Home</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy Guthrie</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso Cioni (son-in-law)</div>
+    <p>Nancy Guthrie was dropped off at her home by her son-in-law, Tommaso Cioni, after dining at the home of her daughter Annie. The drop-off occurred at 9:48 p.m.</p>
+    <p>Cioni waited until Nancy was inside before driving off. The garage door closed at 9:50 p.m., indicating she was home and, authorities assume, preparing for bed.</p>
+  </div>
+
+  <!-- ── STEP 2: Doorbell Camera Disconnects ── -->
+  <div class="step" data-step="2" data-border="var(--c-red)">
+    <div class="step-time">February 1 &middot; 1:47 AM</div>
+    <div class="step-title">Doorbell Camera Disconnected</div>
+    <p>Nancy's doorbell camera went offline at 1:47 a.m. on February 1st. This marks the first technical anomaly in the hours after she was last seen. Footage captured before the disconnection shows a masked suspect at Nancy's front door.</p>
+    <p>The exact circumstances of the disconnection remain unclear, but investigators noted that video from this time period would have been crucial evidence.</p>
+    <div class="step-embed">
+      <video style="width: 100%; border-radius: 2px;" controls>
+        <source src="https://www.fbi.gov/video-repository/nancy-guthrie-home-footage-013126-02.mp4/@@download/file/nancy-guthrie-home-footage-013126-02.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="embed-caption">FBI doorbell camera footage — suspect at Nancy's home early morning February 1, 2026</div>
+  </div>
+
+  <!-- ── STEP 3: Software Detects Person on Camera ── -->
+  <div class="step" data-step="3" data-border="var(--c-red)">
+    <div class="step-time">February 1 &middot; 2:12 AM</div>
+    <div class="step-title">Software Detects Person on Camera</div>
+    <p>Home security software detected a person on camera at 2:12 a.m., approximately 25 minutes after the doorbell camera went offline. However, no video was available from this detection, indicating the camera had already been disabled.</p>
+    <p>This automated alert provided evidence that suspicious activity was occurring at the home during the early morning hours.</p>
+  </div>
+
+  <!-- ── STEP 4: Pacemaker Disconnects ── -->
+  <div class="step" data-step="4" data-border="var(--c-red)">
+    <div class="step-time">February 1 &middot; 2:28 AM</div>
+    <div class="step-title">Pacemaker App Disconnected</div>
+    <p>Nancy's pacemaker app showed a disconnect from her phone at 2:28 a.m., approximately 40 minutes after the doorbell camera went offline.</p>
+    <p>This technological evidence suggested unusual activity during the early morning hours. Nancy relies on her pacemaker for her health, and investigators would later use a "signal sniffer" device to attempt to track the pacemaker's location.</p>
+  </div>
+
+  <!-- ── STEP 5: Family Checks on Nancy ── -->
+  <div class="step" data-step="5" data-border="var(--c-accent)">
+    <div class="step-time">Sunday, February 1 &middot; 11:56 AM</div>
+    <div class="step-title">Family Checks on Nancy</div>
+    <p>Family members checked on Nancy at her home after she failed to appear for a virtual church service Sunday morning. They found the house empty.</p>
+  </div>
+
+  <!-- ── STEP 6: 911 Call & Police Arrive ── -->
+  <div class="step" data-step="6" data-border="var(--c-accent)">
+    <div class="step-time">Sunday, February 1 &middot; 12:03 PM - 12:15 PM</div>
+    <div class="step-title">911 Call & Police Arrive</div>
+    <p>The family called 911 at approximately 12:03 p.m. to report Nancy missing. According to dispatch audio, Nancy was described as "a white female, 84 years of age, 5 feet 2 inches, medium build, brown over blue," and dispatchers noted she suffers from high blood pressure, has a pacemaker, and has cardiac issues.</p>
+    <p>Patrol arrived at the residence at 12:15 p.m. and immediately determined she was missing under "concerning circumstances." Given her limited mobility and dependence on daily medication, authorities immediately launched an urgent search.</p>
+  </div>
+
+  <!-- ── STEP 7: Missing Person Flyer Released ── -->
+  <div class="step" data-step="7" data-border="var(--c-accent)">
+    <div class="step-time">Sunday, February 1 &middot; 6:00 PM</div>
+    <div class="step-title">Missing Person Flyer Released</div>
+    <p>The Pima County Sheriff's Department released the first missing person's flyer for Nancy Guthrie, distributing it to the public and media outlets as the search continued.</p>
+  </div>
+
+  <!-- ── STEP 8: First News Conference ── -->
+  <div class="step" data-step="8" data-border="var(--c-accent)">
+    <div class="step-time">Sunday, February 1 &middot; 8:30 PM</div>
+    <div class="step-title">First News Conference</div>
+    <p>The Pima County Sheriff's Department held its first news conference regarding Nancy Guthrie's disappearance, providing updates to the media and public on the early stages of the investigation.</p>
+  </div>
+
+  <!-- ── STEP 9: Crime Confirmed ── -->
+  <div class="step" data-step="9" data-border="var(--c-red)">
+    <div class="step-time">Monday, February 2, 2026</div>
+    <div class="step-title">Crime Confirmed</div>
+    <p>Sheriff Chris Nanos confirmed the disappearance was being treated as a crime. "We believe we do in fact have a crime scene," Nanos told reporters, urging neighbors to review home video footage.</p>
+    <p>Nanos stated he believed Guthrie was "abducted" in the middle of the night and "didn't walk from there. She didn't go willingly."</p>
+  </div>
+
+  <!-- ── STEP 10: Ransom Note Received ── -->
+  <div class="step" data-step="10" data-border="var(--c-primary)">
+    <div class="step-time">Tuesday, February 2, 2026</div>
+    <div class="step-title">Ransom Notes Received by Media</div>
+    <p><strong>~5:00 PM:</strong> KOLD News 13 received an alleged ransom note. The station immediately forwarded it to the FBI and Pima County Sheriff's Department.</p>
+    <p><strong>~6:40 PM:</strong> TMZ and other media outlets received what appeared to be the same initial ransom note.</p>
+    <p>The notes contained specific details about items in Nancy's home and included demands for payment in Bitcoin, along with deadlines. The inclusion of non-public information piqued investigators' interest and led some to believe the notes might be genuine.</p>
+  </div>
+
+  <!-- ── STEP 11: Ransom Demand Details Released ── -->
+  <div class="step" data-step="11" data-border="var(--c-primary)">
+    <div class="step-time">Wednesday, February 3, 2026</div>
+    <div class="step-title">Ransom Demand Details Released</div>
+    <p><strong>Morning:</strong> TMZ received an alleged ransom note demanding $6 million to a specific Bitcoin address for Nancy's release. The note included specific non-public details that caught investigators' attention.</p>
+    <p><strong>12:59 PM:</strong> The Pima County Sheriff's Department posted on X stating they are "aware of reports circulating about possible ransom note(s) regarding the investigation into Nancy Guthrie." The department stated they are taking all tips and leads very seriously and anything that comes in "goes directly to our detectives who are coordinating with the FBI."</p>
+  </div>
+
+  <!-- ── STEP 12: Evidence of Crime Confirmed ── -->
+  <div class="step" data-step="12" data-border="var(--c-red)">
+    <div class="step-time">Wednesday, February 3, 2026 (Evening)</div>
+    <div class="step-title">Blood and Evidence Found at Home</div>
+    <p>Authorities discovered blood outside the front door of Nancy's home, later confirmed to be hers. Additional blood was also found inside the house.</p>
+    <p>An apparent ransom note was also discovered at the residence, containing details about what Nancy was wearing on the night of the crime and demanding payment in bitcoin. A Ring doorbell camera that had been mounted near the entrance was also found to be missing, with investigators examining whether the perpetrator removed it.</p>
+  </div>
+
+  <!-- ── STEP 13: Family Demands Proof of Life ── -->
+  <div class="step" data-step="13" data-border="var(--c-accent)">
+    <div class="step-time">Friday, February 4 - Saturday, February 5, 2026</div>
+    <div class="step-title">Family Posts Proof of Life Demand</div>
+    <p>The Guthrie family released video messages demanding proof that Nancy was alive before agreeing to any negotiations. Savannah Guthrie stated: "We need to know without a doubt that she is alive and that you have her. We want to hear from you and we are ready to listen. Please reach out to us."</p>
+    <p>Camron Guthrie posted a separate video: "Whoever is out there holding our mother, we want to hear from you. We haven't heard anything directly. We need you to reach out and we need a way to communicate with you so we can move forward. But first we have to know that you have our mom."</p>
+    <p>The FBI showed the alleged ransom letter to Savannah Guthrie and coordinated with the family on response strategy.</p>
+  </div>
+
+  <!-- ── STEP 14: First Deadline Passes ── -->
+  <div class="step" data-step="14" data-border="var(--c-primary)">
+    <div class="step-time">Monday, February 5, 2026</div>
+    <div class="step-title">First Deadline Passes & FBI Response</div>
+    <p><strong>~4:00 PM:</strong> The deadline set in the first alleged ransom note passed without the family receiving proof of life or direct contact from the alleged kidnappers.</p>
+    <p><strong>FBI Statement:</strong> Heith Janke, special agent in charge of the FBI's Phoenix office, made an official statement confirming the existence of an alleged ransom note. The note included details about an Apple Watch and a floodlight, as well as deadlines and monetary amounts. Janke said decisions about ransom would be made by the Guthrie family, who have been in touch with investigators. "As with every lead, we are taking it seriously," Janke said.</p>
+    <p><strong>Reward Offered:</strong> The FBI announced a $50,000 reward for information regarding Nancy Guthrie's whereabouts or that led to an arrest and conviction in the case.</p>
+    <p><strong>Ransom Impostor Arrested:</strong> A California man was arrested for sending an "imposter" ransom note to the family. Janke warned: "To those impostors who are trying to take advantage and profit from this situation, we will investigate and ensure you are held accountable for your actions."</p>
+  </div>
+
+  <!-- ── STEP 15: Increased Investigation Activity ── -->
+  <div class="step" data-step="15" data-border="var(--c-primary)">
+    <div class="step-time">Friday, February 6, 2026</div>
+    <div class="step-title">Increased Investigation Activity</div>
+    <p>FBI agents canvassed homes near Nancy Guthrie's residence. At least five Pima County Sheriff's vehicles arrived outside the property, with one parked directly in front. Deputies placed orange cones to block traffic in and out of the road.</p>
+    <p><strong>Second Message Received:</strong> Around 11:00-11:45 a.m., KOLD News 13 received a second alleged ransom message through its anonymous online news tip system and immediately forwarded it to the FBI and Pima County Sheriff's Department. TMZ also received a second alleged ransom note.</p>
+    <p>Unlike the first communication, this message made no new demands and provided no proof of life. KOLD declined to call it a ransom note: "We are not calling this a ransom note. We are calling it a message because no further demands were made." The message came from a different IP address than the first, but both appeared to use similar cloaking software.</p>
+    <p><strong>Vehicle Activity:</strong> At 9 p.m. Friday, a blue SUV was towed away from Nancy Guthrie's driveway.</p>
+  </div>
+
+  <!-- ── STEP 16: Family Video Response ── -->
+  <div class="step" data-step="16" data-border="var(--c-accent)">
+    <div class="step-time">Saturday, February 7, 2026</div>
+    <div class="step-title">Family Releases Video Response</div>
+    <p>Nancy Guthrie's family released a video message in response to the second message sent to 13 News on Friday. Savannah Guthrie appeared alongside her sister Annie and brother Cameron.</p>
+    <p>Savannah stated: "We received your message, and we understand. We beg you now to return our mother to us so we can celebrate with her. It is the only way we have peace. This is very valuable to us, and we will pay."</p>
+    <p>The FBI confirmed the video statement was a direct response to the message sent the day before.</p>
+    <p><strong>Investigation Activity:</strong> 13 News confirmed that investigators went to a Circle K on Oracle Road in connection with the case, suggesting law enforcement was pursuing leads in the surrounding area.</p>
+  </div>
+
+  <!-- ── STEP 17: Septic Tank Investigation ── -->
+  <div class="step" data-step="17" data-border="var(--c-primary)">
+    <div class="step-time">Sunday, February 8, 2026</div>
+    <div class="step-title">Septic Tank Investigation</div>
+    <p>Overhead video showed investigators focused on the septic tank in Nancy Guthrie's backyard. The Pima County Sheriff's Department stated it will continue to maintain a presence at Nancy Guthrie's home for security reasons at the family's request.</p>
+  </div>
+
+  <!-- ── STEP 18: Second Deadline Passes ── -->
+  <div class="step" data-step="18" data-border="var(--c-primary)">
+    <div class="step-time">Monday, February 9, 2026</div>
+    <div class="step-title">Second Deadline Passes</div>
+    <p>The second deadline set in the initial ransom note passed without any contact from the alleged kidnappers.</p>
+    <p><strong>Family Statement:</strong> NBC anchor Savannah Guthrie posted a message to social media as the search continued into its second week: "Thank you so much for all of the prayers. We believe our mother is still out there. We need your help. We are at an hour of desperation."</p>
+    <p><strong>Law Enforcement Update:</strong> The FBI stated that investigators are not aware of any continued communication between the Guthrie family and the suspect kidnappers. "For more than a week, FBI agents, analysts, and professional staff have worked around the clock to reunite Nancy Guthrie with her family," the FBI told 13 News.</p>
+    <p>Both the FBI and the Pima County Sheriff's Department confirmed again that there are no suspects or persons of interest in the case.</p>
+  </div>
+
+  <!-- ── STEP 19: Suspect Video Released ── -->
+  <div class="step" data-step="19" data-border="var(--c-primary)">
+    <div class="step-time">February 10, 2026</div>
+    <div class="step-title">Suspect Video Released</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
+    <p>The FBI and Pima County Sheriff's Department released doorbell camera surveillance images of a masked suspect at Nancy's front door.</p>
+    <p>The suspect, described as male, approximately 5'9" to 5'10" with average build, was wearing:</p>
+    <ul style="color:var(--text2);margin-left:16px;margin-bottom:12px;">
+      <li>Black face mask</li>
+      <li>Black gloves</li>
+      <li>Black Ozark Trail Hiker Pack backpack (25-liter capacity, sold exclusively at Walmart)</li>
+    </ul>
+    <p>Images show the suspect appearing to tamper with Nancy's front-door camera, covering the lens with vegetation.</p>
+    <div class="step-gallery">
+      <img src="assets/suspect-approaching-door.png" alt="Suspect approaching Nancy's front door">
+      <img src="assets/image-of-suspect-looking-at-nest-camera-1.png" alt="Suspect facing doorbell camera">
+      <img src="assets/image-of-suspect-tampering-with-nest-camera.png" alt="Suspect tampering with doorbell camera">
+      <img src="assets/suspect-caught-on-nest-prior-to-feb-1.png" alt="Suspect captured on security camera, February 1, 2026">
+    </div>
+    <div class="gallery-caption">FBI surveillance images from doorbell camera — suspect at Nancy Guthrie's home, February 1, 2026</div>
+  </div>
+
+  <!-- ── STEP 20: Man Detained & Gloves Recovered ── -->
+  <div class="step" data-step="20" data-border="var(--c-teal)">
+    <div class="step-time">Tuesday, February 11, 2026</div>
+    <div class="step-title">Man Detained & Gloves Recovered</div>
+    <p><strong>Man Detained:</strong> Within hours of the FBI releasing the suspect video, a man identified only as "Carlos" was detained during a traffic stop south of Tucson in Rio Rico. FBI and Santa Cruz County agents took him in for questioning regarding Nancy Guthrie's disappearance.</p>
+    <p>Carlos told reporters he was shocked by the detention. "I work in Tucson for GLS. I might have delivered a package to her house, but I never kidnapped anybody," he said. He explicitly stated that he does not know Nancy Guthrie.</p>
+    <p>FBI agents showed Carlos's mother-in-law a video of the suspect, saying "my eyes and my eyelashes look the same" — suggesting authorities may have initially suspected a physical resemblance. However, investigators quickly cleared him.</p>
+    <div class="callout">
+      <span class="callout-label">Important Note</span>
+      Carlos is <strong>NOT</strong> the suspect in the doorbell camera footage. He was released without charges and is not facing any criminal accusations related to this case.
+    </div>
+    <p><strong>Gloves Found:</strong> Black gloves were recovered approximately 2 miles from Nancy's home and contained DNA evidence. The gloves appeared to match those worn by the suspect in the doorbell camera footage. However, the DNA profile did not match anyone in the FBI's national database (CoDIS). Later analysis traced the gloves to a local restaurant worker with no connection to the case.</p>
+    <div class="step-figure">
+      <img src="assets/fbi-surveils-area-near-guthrie-home-on-feb-11.png" alt="FBI agent surveilling the area around Nancy Guthrie's home">
+      <p class="caption">A member of the FBI surveys the area around Nancy Guthrie's residence on February 11, 2026 in Tucson, Arizona. Photo: Brandon Bell/Getty Images</p>
+    </div>
+  </div>
+
+  <!-- ── STEP 21: Reward Increased & Suspect Description ── -->
+  <div class="step" data-step="21" data-border="var(--c-primary)">
+    <div class="step-time">Thursday, February 12, 2026</div>
+    <div class="step-title">Reward Increased & Suspect Description</div>
+    <p>The FBI increased the reward to $100,000 and released a more detailed description of the suspect. The man is described as 5-foot-9 to 5-foot-10 with an average build.</p>
+    <p>The FBI also identified that the man seen in the security video was wearing a black, 25-liter Ozark Trail Hiker Pack—a backpack sold by Walmart for less than $11.</p>
+    <p>The FBI reported receiving more than 13,000 tips since February 1.</p>
+    <p><strong>Alleged Informant:</strong> Around 8:00 a.m., TMZ received a second email from a person claiming to know the kidnapper's identity, expressing frustration that he is "not being taken seriously" and indicating the situation "has changed from Wednesday to Thursday."</p>
+  </div>
+
+  <!-- ── STEP 22: DNA Evidence & Search Warrant Operation ── -->
+  <div class="step" data-step="22" data-border="var(--c-primary)">
+    <div class="step-time">Friday, February 13, 2026</div>
+    <div class="step-title">DNA Evidence & Search Warrant Operation</div>
+    <p><strong>New DNA Evidence:</strong> The Pima County Sheriff's Department announced that new DNA samples from the crime scene have been sent for testing. The DNA is not from Nancy Guthrie or anyone in close contact with her.</p>
+    <p>The PCSD confirmed that several gloves have been found during the investigation, with the closest approximately two miles from the crime scene.</p>
+    <p><strong>Major Search Warrant Operation:</strong> Around 9 p.m. Friday, a large police presence was reported near First and Orange Grove, less than two miles from the crime scene. The Pima County SWAT team and FBI executed a federal search warrant at a Tucson-area home.</p>
+    <p>Three people were detained at the home. A fourth person was detained after a traffic stop at a Culver's restaurant parking lot. A gray/silver Range Rover was searched and towed from the parking lot.</p>
+    <p>Multiple agencies were present, including Pima County Sheriff's Department, FBI, Marana Police Department, Oro Valley Police Department, and Sahuarita Police Department. All four people detained were later released.</p>
+  </div>
+
+  <!-- ── STEP 23: Burglary Theory Emerges ── -->
+  <div class="step" data-step="23" data-border="var(--c-primary)">
+    <div class="step-time">Sunday, February 15, 2026</div>
+    <div class="step-title">Burglary Theory Emerges</div>
+    <p>A source close to the investigation said investigators believe Nancy Guthrie's disappearance was the result of "a burglary gone wrong" rather than a planned kidnapping. Multiple experts who reviewed the doorbell camera footage confirmed the incident did not appear to be a planned kidnapping.</p>
+    <p>The inside source also stated that "widespread investigative belief is Nancy Guthrie could be alive."</p>
+    <p><strong>DNA Results Pending:</strong> The FBI announced it is waiting for confirmation of DNA testing on gloves found near the Guthrie home. The bureau received preliminary DNA results on February 14 and is awaiting quality control and official confirmation.</p>
+  </div>
+
+  <!-- ── STEP 24: Backpack Lead & Signal Sniffer Deployed ── -->
+  <div class="step" data-step="24" data-border="var(--c-primary)">
+    <div class="step-time">Sunday, February 16, 2026</div>
+    <div class="step-title">Backpack Lead & Signal Sniffer Deployed</div>
+    <p><strong>Backpack Identified:</strong> Sheriff Nanos announced a major breakthrough in the investigation. The 25-liter "Ozark Trail Hiker Pack" backpack worn by the suspect in the doorbell camera footage was definitively identified and became "one of the most promising leads" in the case.</p>
+    <p>"This backpack is exclusive to Walmart and we are working with Walmart management to develop further leads," Nanos said. Investigators reviewed surveillance video from Walmart locations and obtained company records of all backpack purchases from the past several months to identify potential suspects.</p>
+    <p>The suspect's other clothing "may have been purchased from Walmart but is not exclusively available at Walmart," according to the Pima County Sheriff's Department.</p>
+    <div class="step-figure">
+      <img src="assets/suspect-backpack.png" alt="Ozark Trail Hiker Pack backpack from surveillance footage">
+      <p class="caption">A backpack from new visuals the FBI released regarding the investigation into Nancy Guthrie's disappearance. Photo: FBI/Handout via Reuters</p>
+    </div>
+    <p><strong>Signal Sniffer Deployed:</strong> Investigators deployed a "signal sniffer" device mounted on a helicopter to detect signals from Nancy's pacemaker. The high-tech tracking tool is designed to help detectives pinpoint her location by detecting the low-power electronic signals emitted by her pacemaker.</p>
+    <p>According to sources, the helicopter carrying the device flew slowly and at a low altitude over the area where investigators were still hoping to find Guthrie. Signal sniffers are commonly used in missing person cases because they can detect electronic signals from devices like pacemakers.</p>
+  </div>
+
+  <!-- ── STEP 25: Gun Purchase Investigation ── -->
+  <div class="step" data-step="25" data-border="var(--c-primary)">
+    <div class="step-time">Thursday, February 17, 2026</div>
+    <div class="step-title">Gun Purchase Investigation</div>
+    <p>The FBI continued its broad investigation by visiting local gun stores and showing agents' images to store owners. Investigators were attempting to identify suspects by cross-referencing the doorbell camera footage with gun purchase records in the Tucson area.</p>
+    <p>At Armor Bearer Arms, FBI agents asked the owner, Phillip Martin, to review a packet of roughly 18-24 images and names to check if any had purchased a gun from the store in the past year. Martin searched his point-of-sale system for all the names but found no matches.</p>
+    <p>Martin noted that the pictures didn't look like any of his customers, but they reminded him of the surveillance video from outside Nancy Guthrie's front door. He observed that most of the images appeared to be mugshots, with similar physical characteristics like facial hair. "Not every single person looked exactly the same, but I would say that 80% of them were Hispanic," Martin said.</p>
+    <div class="step-figure">
+      <img src="assets/gun-store-owner.png" alt="Arizona gun store owner during FBI investigation">
+      <p class="caption">Arizona gun store owner says FBI wanted to check gun purchases amid Nancy Guthrie search. Photo: Fox News</p>
+    </div>
+  </div>
+
+  <!-- ── STEP 26: DNA Results Negative ── -->
+  <div class="step" data-step="26" data-border="var(--c-primary)">
+    <div class="step-time">Tuesday, February 17, 2026</div>
+    <div class="step-title">DNA Results Negative; Genealogical Search Planned</div>
+    <p>Sheriff Chris Nanos announced that DNA recovered from a glove found two miles from Nancy Guthrie's home does not match DNA found inside her home. Neither DNA sample produced a hit in the FBI's Combined DNA Index System (CODIS).</p>
+    <p>With no matches in law enforcement databases, the PCSD is now turning to commercial genealogical databases like Ancestry.com to search for familial matches to the glove DNA. This method, made famous by the 2018 arrest of Golden State Killer Joseph James DeAngelo, involves building family trees from relative DNA uploads to identify suspects.</p>
+    <p><strong>Investigation Activity:</strong> The PCSD said investigators returned to Nancy Guthrie's home on Tuesday, though details were not being shared at that time.</p>
+  </div>
+
+  <!-- ── STEP 27: Biological Evidence Analysis ── -->
+  <div class="step" data-step="27" data-border="var(--c-primary)">
+    <div class="step-time">Wednesday, February 18, 2026</div>
+    <div class="step-title">Biological Evidence Analysis & International Inquiry</div>
+    <p>The Pima County Sheriff's Department announced that investigators are currently analyzing biological evidence found at Nancy Guthrie's home. DNA profiles remain under lab analysis, with the number of profiles and other details remaining part of the active investigation.</p>
+    <p><strong>Mexican Authorities Inquiry:</strong> The PCSD received several requests for confirmation about reports that the FBI has reached out to Mexican authorities about the investigation. The department stated it is not confirming or releasing any information about potential international coordination at this time.</p>
+    <p><strong>Reward Increased Again:</strong> An additional donor stepped forward, offering $100,000 for information leading to an arrest in the case. Combined with the 88-CRIME reward of $102,500 and the FBI's $100,000 reward, the total reward now exceeds $300,000.</p>
+  </div>
+
+  <!-- ── STEP 28: Septic Tank & Property Searches ── -->
+  <div class="step" data-step="28" data-border="var(--c-primary)">
+    <div class="step-time">Thursday, February 19, 2026</div>
+    <div class="step-title">Septic Tank & Property Searches</div>
+    <p><strong>Sheriff Expresses Skepticism:</strong> Sheriff Chris Nanos acknowledged an "absolute possibility" that the ransom notes have nothing to do with Nancy Guthrie's disappearance, though authorities are continuing to take them seriously.</p>
+    <p><strong>Property Searches:</strong> Investigators returned to Nancy Guthrie's home and searched a septic tank in her yard. Authorities also returned to Annie Guthrie's home, located approximately 4 miles from her mother's residence, conducting a three-hour search.</p>
+    <p><strong>Volunteer Search Efforts:</strong> A well-known Facebook group joined the search for Nancy Guthrie on Thursday, with volunteers from the community participating in organized search efforts.</p>
+  </div>
+
+  <!-- ── STEP 29: Road Management & Media Presence ── -->
+  <div class="step" data-step="29" data-border="var(--c-accent)">
+    <div class="step-time">Friday, February 20, 2026</div>
+    <div class="step-title">Road Management & Investigation Status</div>
+    <p>The Pima County Sheriff's Department announced the road near Nancy's home was being temporarily converted to one-way traffic due to heavy visitor and media presence in the area.</p>
+    <p>There were no major developments in the Nancy Guthrie investigation on Friday. The DNA recovered from inside Nancy Guthrie's home remains under analysis and does not belong to Nancy or anyone close to her.</p>
+  </div>
+
+  <!-- ── STEP 30: Parking Restrictions ── -->
+  <div class="step" data-step="30" data-border="var(--c-accent)">
+    <div class="step-time">Saturday, February 21, 2026</div>
+    <div class="step-title">Parking Restrictions Implemented</div>
+    <p>North Camino Escalante was converted to a one-way street on February 21 to relieve traffic congestion in the neighborhood. However, the measure has not helped as hoped, with neighbors continuing to complain about "clogged roads, trespassing, noise, and accumulating trash along the road."</p>
+    <p>In response, Pima County created a large temporary no-parking zone to be enforced by the Pima County Sheriff's Department. Tickets for violations can be as high as $250.</p>
+  </div>
+
+  <!-- ── STEP 31: Community Volunteer Search ── -->
+  <div class="step" data-step="31" data-border="var(--c-accent)">
+    <div class="step-time">Sunday, February 22, 2026</div>
+    <div class="step-title">Community Volunteer Search</div>
+    <p>Community volunteers and vloggers took to the desert on Sunday to search for clues in Nancy Guthrie's disappearance. Organizers distributed maps and a list of items for volunteers to look for, including clothing, jewelry, masks, and gloves.</p>
+    <p>Volunteers searched the Pima Wash area and recovered several articles of clothing and a backpack, which they reported to the PCSD. However, the sheriff's department determined the bag appears to have been outside for longer than three weeks and does not appear to be a viable lead for the investigation.</p>
+  </div>
+
+  <!-- ── STEP 32: Suspect Photo Timing Dispute ── -->
+  <div class="step" data-step="32" data-border="var(--c-primary)">
+    <div class="step-time">Monday, February 23, 2026</div>
+    <div class="step-title">Suspect Photo Timing Dispute</div>
+    <p>A law enforcement source told 13 News that a photo of the suspect in the Nancy Guthrie case appears to have been taken on a different day than the other images released by the FBI. The photo in question shows the suspect without the backpack or visible firearm seen in other video and photographic evidence.</p>
+    <p>The PCSD released a statement: "There is no date or time stamp associated with these images. Therefore, any suggestion that the photographs were taken on different days is purely speculative."</p>
+    <p><strong>DNA Complexity:</strong> Nanos acknowledged that some of the biological samples recovered feature DNA from multiple people, possibly including the suspect. He revealed that it could take months to separate the DNA samples so they can be entered into law enforcement databases.</p>
+  </div>
+
+  <!-- ── STEP 33: Family Offers $1 Million Reward ── -->
+  <div class="step" data-step="33" data-border="var(--c-accent)">
+    <div class="step-time">Tuesday, February 24, 2026</div>
+    <div class="step-title">Family Offers $1 Million Reward</div>
+    <p>Savannah Guthrie released a new video announcing the family is offering a $1 million reward for information leading to Nancy Guthrie's recovery.</p>
+    <p>Savannah stated: "Someone out there knows something that can bring her home. Somebody knows." She also thanked supporters: "We feel those prayers. Please keep praying without ceasing."</p>
+    <p>New signs appeared at Nancy Guthrie's home, including a message to the alleged kidnapper: "To Nancy's Kidnapper - Unintentional things happen, and we get that. Life is made up of choices. Please make the right one now."</p>
+  </div>
+
+  <!-- ── STEP 34: FBI Activity with Federal Prosecutors ── -->
+  <div class="step" data-step="34" data-border="var(--c-primary)">
+    <div class="step-time">Wednesday, February 25, 2026</div>
+    <div class="step-title">FBI Activity with Federal Prosecutors</div>
+    <p>Several unmarked vehicles arrived at Nancy Guthrie's home early Wednesday morning. Jon Edward, Assistant Special Agent in Charge of the FBI in Tucson, was present. Approximately 10 agents were observed walking around the home and taking photographs.</p>
+    <p>13 News confirmed that some of the people at the home were from the U.S. Attorney's Office for the District of Arizona. Federal prosecutors were present to assist the FBI with a "routine legal process."</p>
+  </div>
+
+  <!-- ── STEP 35: Crime Scene Release Timeline ── -->
+  <div class="step" data-step="35" data-border="var(--c-accent)">
+    <div class="step-time">Thursday, February 26, 2026</div>
+    <div class="step-title">Crime Scene Release Timeline</div>
+    <p>A law enforcement source told 13 News that Nancy Guthrie's home will be returned by the end of the week or the following week. The home has been treated as a crime scene since her disappearance nearly four weeks prior.</p>
+    <p>Activity at the home diminished on Thursday, with reduced law enforcement presence compared to the previous day's FBI and federal prosecutor activity.</p>
+  </div>
+
+  <!-- ── STEP 36: Investigation Resource Refocus ── -->
+  <div class="step" data-step="36" data-border="var(--c-primary)">
+    <div class="step-time">Friday, February 27, 2026</div>
+    <div class="step-title">Investigation Resource Refocus</div>
+    <p>The Pima County Sheriff's Department announced on Friday that it is "refocusing resources" in the Nancy Guthrie investigation. While the investigation will continue until Guthrie is found or all leads are exhausted, resources will be directed toward "detectives specifically assigned to this case."</p>
+    <p>The PCSD stated it will continue to maintain a patrol presence in Guthrie's neighborhood and is continuing to examine surveillance video of different vehicles in the area, including locations further away from the crime scene.</p>
+  </div>
+
+  <!-- ── STEP 37: Media Presence Diminishes ── -->
+  <div class="step" data-step="37" data-border="var(--c-accent)">
+    <div class="step-time">Saturday, February 28, 2026</div>
+    <div class="step-title">Media Presence Diminishes</div>
+    <p>Most media outlets have departed the neighborhood, with only Fox News and NewsNation remaining present in the area as the investigation entered its final week of February.</p>
+  </div>
+
+  <!-- ── STEP 38: Glove DNA Identified & Eliminated ── -->
+  <div class="step" data-step="38" data-border="var(--c-primary)">
+    <div class="step-time">Wednesday, March 4, 2026</div>
+    <div class="step-title">Glove DNA Identified & Eliminated</div>
+    <p>The Pima County Sheriff's Department announced that the pair of black gloves with DNA evidence found near Nancy Guthrie's home are not connected to her disappearance.</p>
+    <p>The DNA from the gloves, recovered approximately two miles from the crime scene, was traced back to a restaurant worker in the area. The PCSD stated the worker "is not considered part of this investigation."</p>
+    <p>Nearly all of the 16 pairs of gloves found during the investigation were traced back to searchers who discarded them in the area. The PCSD reported that labs continue working on other DNA evidence in the case.</p>
+  </div>
+
+  <!-- ── STEP 39: Sheriff's Interview & Investigation Status ── -->
+  <div class="step" data-step="39" data-border="var(--c-primary)">
+    <div class="step-time">Thursday, March 5, 2026</div>
+    <div class="step-title">Sheriff's Interview & Investigation Status</div>
+    <p>Pima County Sheriff Chris Nanos gave a one-on-one interview to 13 News. Nanos expressed cautious optimism about the case: "I have no way of knowing when we will solve this, but I believe we will solve it."</p>
+    <p>He acknowledged that more than a month into the investigation, law enforcement is in a waiting phase. "The evidence they have right now simply isn't enough to find the suspect or suspects," according to Nanos, who indicated investigators are playing a waiting game as they await further test results and potential leads.</p>
+  </div>
+
+  <!-- ── STEP 40: Technical Investigation Focus ── -->
+  <div class="step" data-step="40" data-border="var(--c-primary)">
+    <div class="step-time">Friday, March 6, 2026</div>
+    <div class="step-title">Technical Investigation Focus</div>
+    <p>13 News confirmed that investigators have been asking neighbors about internet and power outages on the night Nancy Guthrie went missing. Investigators are also requesting permission from homeowners to view security camera video from January 11, 24, and 31, and continuing to search for any video from Sunday, February 1.</p>
+    <p>The Pima County Sheriff's Department announced on March 3 that it is in the process of returning Anne Guthrie's vehicle, which has been held by investigators for several weeks as part of the investigation.</p>
+  </div>
+
+  <!-- ── STEP 41: New Informant Notes with Mexico Location ── -->
+  <div class="step" data-step="41" data-border="var(--c-primary)">
+    <div class="step-time">Monday, April 6, 2026</div>
+    <div class="step-title">New Informant Notes with Mexico Location</div>
+    <p>TMZ received two new notes on Monday morning from the individual who has been offering information on the kidnappers for nearly two months. The person reiterated their demand for 1 Bitcoin to "deliver them on a silver platter."</p>
+    <p>Shortly after the first note, a second message arrived claiming: "I Saw her alive with them in the state of Sonora Mexico." Sonora is a large Mexican state bordering Arizona, approximately 70 miles from Tucson.</p>
+    <p>However, the sender's messages contained contradictory information—the first note states "she is dead," while the second claims to have seen her alive. The sender expressed frustration with law enforcement skepticism and adjusted their demand to half a Bitcoin upfront with the other half transferred after a public arrest.</p>
+  </div>
+
+  <!-- ── STEP 42: DNA Evidence Results ── -->
+  <div class="step" data-step="42" data-border="var(--c-primary)">
+    <div class="step-time">Wednesday, April 16, 2026</div>
+    <div class="step-title">DNA Evidence Results</div>
+    <p>The FBI received DNA evidence recovered from Nancy Guthrie's home, including test results from a hair sample, according to sources familiar with the investigation who spoke with Fox News Digital. Investigators had collected DNA, including hair samples, from the home and shared it with the FBI for more advanced testing.</p>
+    <p>CeCe Moore, a leading investigative genetic genealogist at Parabon Nanolabs, indicated that a hair sample is unlikely to be part of the mixed DNA samples investigators were previously struggling to separate, noting that the lab process for cleaning and preparing samples is well-established but can take time.</p>
+  </div>
+
+  <!-- ── FINAL STEP: Current Status ── -->
+  <div class="step" data-step="44" data-border="var(--c-accent)">
+    <div class="step-time">As of March 2026</div>
+    <div class="step-title">Ongoing Investigation & Call for Information</div>
+    <p>As of late March 2026, Nancy Guthrie has not been found. The FBI and Pima County Sheriff's Department continue active investigation at full speed.</p>
+    <p><strong>Rewards Offered:</strong></p>
+    <ul style="color:var(--text2);margin-left:16px;margin-bottom:12px;">
+      <li>FBI: $100,000 for information leading to Nancy's location or arrest of those involved</li>
+      <li>Guthrie Family: Additional $1 million reward</li>
+    </ul>
+    <p>Savannah Guthrie, in her first interview about her mother's disappearance (March 25), stated: "Someone needs to do the right thing. She needs to come home now."</p>
+    <div class="callout">
+      <span class="callout-label">Report Tips</span>
+      Pima County Sheriff's Department: (520) 882-7463 — Any information, no matter how small, may be critical to the investigation.
+    </div>
+  </div>
+
+</div><!-- /narrative -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+// ═══════════════════════════════════════════════════════════
+// CASE DATA — edit these per case
+// ═══════════════════════════════════════════════════════════
+
+// Map locations (persistent markers)
+var KML_DATA = {
+  locations: [
+    { name: 'Nancy\'s Home', features: [{type:'point', coords:[32.2245, -110.9735]}], desc: '<b>Nancy Guthrie\'s Home</b><br/>Tucson, Arizona<br/>Last seen 9:48 PM, Jan 31' },
+    { name: 'Annie\'s Home', features: [{type:'point', coords:[32.2280, -110.9690]}], desc: '<b>Daughter\'s Home</b><br/>Where Nancy had dinner<br/>Jan 31, 5:32 PM arrival' },
+    { name: 'Gloves Found', features: [{type:'point', coords:[32.2100, -110.9800]}], desc: '<b>Evidence Location</b><br/>Black gloves recovered<br/>~2 miles from home' },
+  ]
+};
+
+// Named map views — reference these in STEP_META.focus
+var FOCUS_POINTS = {
+  'overview': { center: [32.2245, -110.9735], zoom: 13 },
+  'home':     { center: [32.2245, -110.9735], zoom: 15 },
+  'area':     { center: [32.2200, -110.9750], zoom: 14 },
+};
+
+// Per-person marker colors
+var COLORS = {
+  nancy:      '#ebe2cd',  // cream
+  suspect:    '#E63946',  // red
+  family:     '#4a8a7c',  // teal
+};
+
+// Per-step metadata: clock display + map focus
+var STEP_META = {
+  0: { date: 'January 31 - February 1, 2026', time: '', focus: 'overview' },
+  1: { date: 'January 31', time: '9:48 PM', focus: 'home' },
+  2: { date: 'February 1', time: '1:47 AM', focus: 'home' },
+  3: { date: 'February 1', time: '2:12 AM', focus: 'home' },
+  4: { date: 'February 1', time: '2:28 AM', focus: 'home' },
+  5: { date: 'February 1', time: '11:56 AM', focus: 'home' },
+  6: { date: 'February 1', time: '12:03 PM', focus: 'home' },
+  7: { date: 'February 1', time: '6:00 PM', focus: 'home' },
+  8: { date: 'February 1', time: '8:30 PM', focus: 'home' },
+  9: { date: 'February 2', time: '', focus: 'home' },
+  10: { date: 'February 2', time: '', focus: 'home' },
+  11: { date: 'February 3', time: '', focus: 'home' },
+  12: { date: 'February 3', time: '', focus: 'home' },
+  13: { date: 'February 4-5', time: '', focus: 'home' },
+  14: { date: 'February 5', time: '', focus: 'home' },
+  15: { date: 'February 6', time: '', focus: 'area' },
+  16: { date: 'February 7', time: '', focus: 'area' },
+  17: { date: 'February 8', time: '', focus: 'home' },
+  18: { date: 'February 9', time: '', focus: 'area' },
+  19: { date: 'February 10', time: '', focus: 'home' },
+  20: { date: 'February 11', time: '', focus: 'area' },
+  21: { date: 'February 12', time: '', focus: 'area' },
+  22: { date: 'February 16', time: '', focus: 'area' },
+  23: { date: 'February 17', time: '', focus: 'area' },
+  24: { date: 'February 13', time: '', focus: 'area' },
+  25: { date: 'February 15', time: '', focus: 'area' },
+  26: { date: 'February 17', time: '', focus: 'area' },
+  27: { date: 'February 18', time: '', focus: 'area' },
+  28: { date: 'February 19', time: '', focus: 'area' },
+  29: { date: 'February 20', time: '', focus: 'area' },
+  30: { date: 'February 21', time: '', focus: 'area' },
+  31: { date: 'February 22', time: '', focus: 'area' },
+  32: { date: 'February 23', time: '', focus: 'area' },
+  33: { date: 'February 24', time: '', focus: 'home' },
+  34: { date: 'February 25', time: '', focus: 'home' },
+  35: { date: 'February 26', time: '', focus: 'home' },
+  36: { date: 'February 27', time: '', focus: 'area' },
+  37: { date: 'February 28', time: '', focus: 'area' },
+  38: { date: 'March 4', time: '', focus: 'area' },
+  39: { date: 'March 5', time: '', focus: 'area' },
+  40: { date: 'March 6', time: '', focus: 'area' },
+  41: { date: 'April 6', time: '', focus: 'area' },
+  42: { date: 'April 16', time: '', focus: 'area' },
+  44: { date: 'Ongoing', time: '', focus: 'overview' },
+};
+
+// Initial map center and zoom
+var MAP_CENTER = [32.2245, -110.9735];   // [lat, lng] — Tucson, Arizona
+var MAP_ZOOM = 13;
+
+
+// ═══════════════════════════════════════════════════════════
+// ENGINE — no edits needed below this line
+// ═══════════════════════════════════════════════════════════
+
+var satTiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri', maxZoom: 19
+});
+var darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; CartoDB', maxZoom: 19
+});
+
+var map = L.map('map', {
+  center: MAP_CENTER,
+  zoom: MAP_ZOOM,
+  layers: [darkTiles],
+  zoomControl: true,
+  attributionControl: true
+});
+
+var usingSatellite = false;
+function toggleBasemap() {
+  if (usingSatellite) { map.removeLayer(satTiles); map.addLayer(darkTiles); }
+  else { map.removeLayer(darkTiles); map.addLayer(satTiles); }
+  usingSatellite = !usingSatellite;
+}
+
+// Persistent markers from KML_DATA
+KML_DATA.locations.forEach(function(loc) {
+  var coords = loc.features[0].coords;
+  var m = L.circleMarker(coords, {
+    radius: 6, fillColor: '#ebe2cd', color: '#ebe2cd',
+    weight: 1.5, opacity: 0.7, fillOpacity: 0.35
+  }).addTo(map);
+  m.bindPopup(loc.desc, { className: 'ev-tip', closeButton: false, maxWidth: 250 });
+});
+
+// Active markers (per-step highlights)
+var activeMarkers = [];
+function clearActive() {
+  activeMarkers.forEach(function(m) { map.removeLayer(m); });
+  activeMarkers.length = 0;
+}
+
+function makeDot(latlng, color, radius, pulsing) {
+  var m = L.circleMarker(latlng, {
+    radius: radius || 7, fillColor: color, color: color,
+    weight: 2, opacity: 0.9, fillOpacity: 0.55
+  }).addTo(map);
+  if (pulsing) {
+    var ring = L.circleMarker(latlng, {
+      radius: (radius || 7) + 8, fillColor: 'transparent', color: color,
+      weight: 1.5, opacity: 0.6, fillOpacity: 0, className: 'pulse-marker'
+    }).addTo(map);
+    activeMarkers.push(ring);
+  }
+  return m;
+}
+
+function makeLabel(latlng, text, color, pos) {
+  var p = pos || 'above';
+  var transforms = {
+    above: 'translate(-50%,-100%);margin-top:-20px',
+    below: 'translate(-50%,0);margin-top:20px',
+    left:  'translate(-100%,-50%);margin-left:-20px',
+    right: 'translate(0,-50%);margin-left:20px'
+  };
+  var t = transforms[p] || transforms.above;
+  var icon = L.divIcon({
+    className: '',
+    html: '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:' + color + ';' +
+      'letter-spacing:0.06em;white-space:nowrap;' +
+      'text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);' +
+      'padding:2px 4px;transform:' + t + ';pointer-events:none;">' + text + '</div>',
+    iconSize: [0, 0], iconAnchor: [0, 0]
+  });
+  return L.marker(latlng, { icon: icon, interactive: false }).addTo(map);
+}
+
+// Clock
+var clockEl = document.getElementById('clock-time');
+var clockDateEl = document.querySelector('.clock-date');
+
+function setClock(time, dateStr, flash) {
+  clockEl.textContent = time || '';
+  if (dateStr) clockDateEl.textContent = dateStr;
+  if (flash) {
+    clockEl.classList.add('flash');
+    setTimeout(function() { clockEl.classList.remove('flash'); }, 1200);
+  }
+}
+
+// Step activation
+var narrative = document.getElementById('narrative');
+var steps = document.querySelectorAll('.step');
+var progressBar = document.getElementById('progress-bar');
+var currentStep = -1;
+
+function activateStep(stepNum) {
+  if (stepNum === currentStep) return;
+  currentStep = stepNum;
+
+  steps.forEach(function(s) {
+    var sn = parseInt(s.dataset.step, 10);
+    if (sn === stepNum) {
+      s.classList.add('is-active');
+      s.style.borderColor = s.dataset.border || 'transparent';
+    } else {
+      s.classList.remove('is-active');
+      s.style.borderColor = 'transparent';
+    }
+  });
+
+  var meta = STEP_META[stepNum];
+  if (meta) setClock(meta.time || '', meta.date, !!meta.time);
+
+  clearActive();
+  var focusKey = meta && meta.focus ? meta.focus : null;
+  var activeEl = document.querySelector('.step[data-step="' + stepNum + '"][data-map-focus]');
+  if (activeEl && activeEl.dataset.mapFocus) focusKey = activeEl.dataset.mapFocus;
+
+  if (focusKey && FOCUS_POINTS[focusKey]) {
+    var fp = FOCUS_POINTS[focusKey];
+    if (fp.bounds) map.flyToBounds(fp.bounds, { duration: 1.0, padding: [30, 30] });
+    else map.flyTo(fp.center, fp.zoom, { duration: 1.0 });
+  }
+
+  // ── CUSTOM MARKERS PER STEP ──
+  // Add case-specific marker logic here if needed.
+  // Example:
+  // if (focusKey === 'scene') {
+  //   var dot = makeDot([LAT, LNG], COLORS.person1, 9, true);
+  //   activeMarkers.push(dot);
+  //   var lbl = makeLabel([LAT, LNG], 'LOCATION', COLORS.person1);
+  //   activeMarkers.push(lbl);
+  // }
+}
+
+// Progress bar
+narrative.addEventListener('scroll', function() {
+  var pct = narrative.scrollHeight - narrative.clientHeight;
+  progressBar.style.width = (pct > 0 ? (narrative.scrollTop / pct) * 100 : 0) + '%';
+});
+
+// IntersectionObserver
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) activateStep(parseInt(entry.target.dataset.step, 10));
+  });
+}, { root: narrative, rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+steps.forEach(function(step) { observer.observe(step); });
+activateStep(0);
+
+// Click-to-load embeds
+document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
+  ph.addEventListener('click', function() {
+    var iframe = document.createElement('iframe');
+    iframe.src = ph.dataset.src;
+    iframe.allow = 'autoplay';
+    iframe.style.cssText = 'display:block;width:100%;height:' + (ph.dataset.height || '60px') + ';border:none;';
+    ph.parentNode.replaceChild(iframe, ph);
+  });
+});
+
+// Lightbox
+(function() {
+  var ov = document.createElement('div');
+  ov.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,11,20,0.92);backdrop-filter:blur(8px);cursor:zoom-out;align-items:center;justify-content:center;padding:24px;';
+  var img = document.createElement('img');
+  img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 4px 40px rgba(0,0,0,0.6);';
+  var cap = document.createElement('div');
+  cap.style.cssText = 'position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(216,218,219,0.45);';
+  ov.appendChild(img); ov.appendChild(cap); document.body.appendChild(ov);
+  function close() { ov.style.display = 'none'; }
+  ov.addEventListener('click', close);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.step-gallery img, .step-figure img').forEach(function(el) {
+    el.addEventListener('click', function() {
+      img.src = el.src; cap.textContent = el.alt || ''; ov.style.display = 'flex';
+    });
+  });
+})();
+</script>
+</body>
+</html>
