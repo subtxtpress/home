@@ -307,7 +307,7 @@
     .step-figure img {
       display: block;
       width: 100%;
-      height: 280px;
+      height: 100px;
       object-fit: cover;
       cursor: pointer;
     }
@@ -323,14 +323,14 @@
     /* Image gallery */
     .step-gallery {
       display: grid; 
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 6px; 
       margin: 18px 0 8px;
     }
     .step-gallery img {
       display: block; 
       width: 100%;
-      aspect-ratio: 4 / 3; 
+      aspect-ratio: 16 / 9; 
       object-fit: cover;
       border: 1px solid var(--border);
       background: var(--card-bg); 
@@ -483,7 +483,7 @@
         font-size: 13px;
       }
       .step-figure img {
-        height: 200px;
+        height: 100px;
       }
       .step-gallery {
         gap: 4px;
@@ -528,10 +528,10 @@
         font-size: 17px;
       }
       .step-figure img {
-        height: 170px;
+        height: 100px;
       }
       .step-gallery img {
-        aspect-ratio: 4 / 3; object-fit: cover;
+        aspect-ratio: 16 / 9; object-fit: cover;
       }
     }
   </style>
@@ -732,7 +732,8 @@
     <div class="step-gallery">
       <img src="assets/drops-of-blood-observed-on-feb-3.png" alt="Pima County Sheriff releases missing person poster for Nancy">
     </div>
-    <div class="gallery-caption">Drops of blood appear on the front porch of Nancy Guthrie's home in Tucson, Arizona, on Feb. 3, 2026. Photo: Derek Shook for Fox News Digital</div>
+    <div class="gallery-caption">Photo: Derek Shook for Fox News Digital</div>
+
   </div>
 
   <!-- ── STEP 13: Family Demands Proof of Life ── -->
@@ -824,7 +825,6 @@
       <img src="assets/suspect-approaching-door.png" alt="Suspect approaching Nancy's front door">
       <img src="assets/image-of-suspect-looking-at-nest-camera-1.png" alt="Suspect facing doorbell camera">
       <img src="assets/image-of-suspect-tampering-with-nest-camera.png" alt="Suspect tampering with doorbell camera">
-      <img src="assets/suspect-caught-on-nest-prior-to-feb-1.png" alt="Suspect captured on security camera, February 1, 2026">
     </div>
     <div class="gallery-caption">FBI surveillance images from doorbell camera — suspect at Nancy Guthrie's home, February 1, 2026</div>
   </div>
@@ -841,10 +841,10 @@
       Carlos is <strong>NOT</strong> the suspect in the doorbell camera footage. He was released without charges and is not facing any criminal accusations related to this case.
     </div>
     <p><strong>Gloves Found:</strong> Black gloves were recovered approximately 2 miles from Nancy's home and contained DNA evidence. The gloves appeared to match those worn by the suspect in the doorbell camera footage. However, the DNA profile did not match anyone in the FBI's national database (CoDIS). Later analysis traced the gloves to a local restaurant worker with no connection to the case.</p>
-    <div class="step-figure">
+    <div class="step-gallery">
       <img src="assets/fbi-surveils-area-near-guthrie-home-on-feb-11.png" alt="FBI agent surveilling the area around Nancy Guthrie's home">
-      <p class="caption">A member of the FBI surveys the area around Nancy Guthrie's residence on February 11, 2026 in Tucson, Arizona. Photo: Brandon Bell/Getty Images</p>
     </div>
+    <div class="gallery-caption">FBI surveys the area. Photo: Brandon Bell/Getty Images</div>
   </div>
 
   <!-- ── STEP 21: Reward Increased & Suspect Description ── -->
@@ -855,10 +855,10 @@
     <p>The FBI also identified that the man seen in the security video was wearing a black, 25-liter Ozark Trail Hiker Pack—a backpack sold by Walmart for less than $11.</p>
     <p>The FBI reported receiving more than 13,000 tips since February 1.</p>
     <p><strong>Alleged Informant:</strong> Around 8:00 a.m., TMZ received a second email from a person claiming to know the kidnapper's identity, expressing frustration that he is "not being taken seriously" and indicating the situation "has changed from Wednesday to Thursday."</p>
-    <div class="step-figure">
-      <img src="assets/PCSD-request-for-video-on-feb-12.png" alt="Pima County Sheriff's Dept. asks the public for video footage">
-      <p class="caption">Pima County Sheriff's Dept. asks the public for video footage</p>
-    </div>
+      <div class="step-gallery">
+        <img src="assets/PCSD-request-for-video-on-feb-12.png" alt="Pima County Sheriff's Dept. asks the public for video footage">
+      </div>
+      <div class="gallery-caption">Pima County Sheriff's Dept. asks the public for video footage</div>
   </div>
 
   <!-- ── STEP 22: DNA Evidence & Search Warrant Operation ── -->
@@ -870,11 +870,12 @@
     <p><strong>Major Search Warrant Operation:</strong> Around 9:00 p.m. Friday, a large police presence was reported near First and Orange Grove, less than two miles from the crime scene. The Pima County SWAT team and FBI executed a federal search warrant at a Tucson-area home.</p>
     <p>Three people were detained at the home. A fourth person was detained after a traffic stop at a Culver's restaurant parking lot. A gray/silver Range Rover was searched and towed from the parking lot.</p>
     <p>Multiple agencies were present, including Pima County Sheriff's Department, FBI, Marana Police Department, Oro Valley Police Department, and Sahuarita Police Department. All four people detained were later released.</p>
-    <div class="step-figure">
-      <img src="assets/investigators-search-for-silver-range-rover-on-feb-13.png" alt="Gray/silver Range Rover searched and towed from the parking lot">
-      <p class="caption">Gray/silver Range Rover searched and towed from the parking lot.</p>
-    </div>
+    <div class="step-gallery">
+        <img src="assets/investigators-search-for-silver-range-rover-on-feb-13.png" alt="Gray/silver Range Rover searched and towed from the parking lot">
+      </div>
+      <div class="gallery-caption">Gray/silver Range Rover searched and towed from the parking lot.</div>
   </div>
+
 
   <!-- ── STEP 23: Burglary Theory Emerges ── -->
   <div class="step" data-step="25" data-border="var(--c-primary)">
@@ -892,10 +893,10 @@
     <p><strong>Backpack Identified:</strong> Sheriff Nanos announced a major breakthrough in the investigation. The 25-liter "Ozark Trail Hiker Pack" backpack worn by the suspect in the doorbell camera footage was definitively identified and became "one of the most promising leads" in the case.</p>
     <p>"This backpack is exclusive to Walmart and we are working with Walmart management to develop further leads," Nanos said. Investigators reviewed surveillance video from Walmart locations and obtained company records of all backpack purchases from the past several months to identify potential suspects.</p>
     <p>The suspect's other clothing "may have been purchased from Walmart but is not exclusively available at Walmart," according to the Pima County Sheriff's Department.</p>
-    <div class="step-figure">
-      <img src="assets/suspect-backpack.png" alt="Ozark Trail Hiker Pack backpack from surveillance footage">
-      <p class="caption">A backpack from new visuals the FBI released regarding the investigation into Nancy Guthrie's disappearance. Photo: FBI/Handout via Reuters</p>
-    </div>
+    <div class="step-gallery">
+        <img src="assets/suspect-backpack.png" alt="Ozark Trail Hiker Pack backpack from surveillance footage">
+      </div>
+      <div class="gallery-caption">A backpack from new visuals the FBI released / via Reuters</div>
     <p><strong>Signal Sniffer Deployed:</strong> Investigators deployed a "signal sniffer" device mounted on a helicopter to detect signals from Nancy's pacemaker. The high-tech tracking tool is designed to help detectives pinpoint her location by detecting the low-power electronic signals emitted by her pacemaker.</p>
     <p>According to sources, the helicopter carrying the device flew slowly and at a low altitude over the area where investigators were still hoping to find Guthrie. Signal sniffers are commonly used in missing person cases because they can detect electronic signals from devices like pacemakers.</p>
   </div>
@@ -907,10 +908,10 @@
     <p>The FBI continued its broad investigation by visiting local gun stores and showing agents' images to store owners. Investigators were attempting to identify suspects by cross-referencing the doorbell camera footage with gun purchase records in the Tucson area.</p>
     <p>At Armor Bearer Arms, FBI agents asked the owner, Phillip Martin, to review a packet of roughly 18-24 images and names to check if any had purchased a gun from the store in the past year. Martin searched his point-of-sale system for all the names but found no matches.</p>
     <p>Martin noted that the pictures didn't look like any of his customers, but they reminded him of the surveillance video from outside Nancy Guthrie's front door. He observed that most of the images appeared to be mugshots, with similar physical characteristics like facial hair. "Not every single person looked exactly the same, but I would say that 80% of them were Hispanic," Martin said.</p>
-    <div class="step-figure">
-      <img src="assets/gun-store-owner.png" alt="Arizona gun store owner during FBI investigation">
-      <p class="caption">Arizona gun store owner says FBI wanted to check gun purchases amid Nancy Guthrie search. Photo: Fox News</p>
-    </div>
+    <div class="step-gallery">
+        <img src="assets/gun-store-owner.png" alt="Arizona gun store owner during FBI investigation">
+      </div>
+      <div class="gallery-caption">Arizona gun store owner says FBI wanted to check gun purchases amid Nancy Guthrie search. Photo: Fox News</div>
   </div>
 
   <!-- ── STEP 26: DNA Results Negative ── -->
@@ -955,9 +956,9 @@
     <p>North Camino Escalante was converted to a one-way street on February 21 to relieve traffic congestion in the neighborhood. However, the measure has not helped as hoped, with neighbors continuing to complain about "clogged roads, trespassing, noise, and accumulating trash along the road."</p>
     <p>In response, Pima County created a large temporary no-parking zone to be enforced by the Pima County Sheriff's Department. Tickets for violations can be as high as $250.</p>
     <div class="step-gallery">
-      <img src="assets/parking-restrictions-issued-on-feb-21.png" alt="Parking restrictions map">
-    </div>
-    <div class="gallery-caption">Parking restrictions map.</div>
+        <img src="assets/parking-restrictions-issued-on-feb-21.png" alt="Parking restrictions map">
+      </div>
+      <div class="gallery-caption">Parking restrictions map.</div>
   </div>
 
   <!-- ── STEP 31: Community Volunteer Search ── -->
@@ -985,7 +986,7 @@
     <p>Savannah stated: "Someone out there knows something that can bring her home. Somebody knows." She also thanked supporters: "We feel those prayers. Please keep praying without ceasing."</p>
     <p>New signs appeared at Nancy Guthrie's home, including a message to the alleged kidnapper: "To Nancy's Kidnapper - Unintentional things happen, and we get that. Life is made up of choices. Please make the right one now."</p>
     <div class="step-gallery">
-      <img src="assets/no-trespassing-signs-on-feb-24.png" alt="No trespass signs put up">
+      <iimg src="assets/no-trespassing-signs-on-feb-24.png" alt="No trespass signs put up">
     </div>
     <div class="gallery-caption">No trespass signs put up.</div>
   </div>
