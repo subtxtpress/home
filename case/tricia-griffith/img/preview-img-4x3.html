@@ -13,20 +13,20 @@
       padding: 0;
     }
     :root {
-      --surface-page:      #060B14;
-      --surface-card:      rgba(15, 22, 32, 0.90);
-      --surface-elevated:  #0f1620;
-      --text-heading:      #ebe2cd;
-      --text-body:         #b5ad9a;
-      --text-label:        #ebe2cd;
-      --text-muted:        rgba(181, 173, 154, 0.50);
-      --accent:            #ebe2cd;
-      --petitioner:        #d66417;
-      --respondent:        #6fbdac;
-      --disputed:          #d4a843;
-      --accent-border:     rgba(235, 226, 205, 0.22);
-      --border-light:      rgba(235, 226, 205, 0.08);
-      --border-mid:        rgba(235, 226, 205, 0.14);
+      --surface-page:      #f4ede3;
+      --surface-card:      rgba(255, 255, 255, 0.90);
+      --surface-elevated:  #ece5d9;
+      --text-heading:      #393538;
+      --text-body:         #4a3f45;
+      --text-label:        #241620;
+      --text-muted:        rgba(74, 63, 69, 0.50);
+      --accent:            #7A5063;
+      --petitioner:        #a8420a;
+      --respondent:        #377a6d;
+      --disputed:          #8a6d1b;
+      --accent-border:     rgba(62, 36, 54, 0.22);
+      --border-light:      rgba(62, 36, 54, 0.08);
+      --border-mid:        rgba(62, 36, 54, 0.14);
       --grad-accent:       linear-gradient(to right, #4a8a7c, #C04E01);
       --grad-neutral:      linear-gradient(to right, #4a8a7c, #C04E01);
     }
@@ -46,7 +46,7 @@
       right: 0;
       height: 50px;
       background:
-        linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
         var(--grad-neutral) border-box;
       border-bottom: 2px solid transparent;
       display: flex;
@@ -118,7 +118,7 @@
       flex-direction: column;
       position: relative;
       z-index: 5;
-      margin-top: 19%;
+      margin-top: 20%;
       padding: 0 4%;
     }
     .eyebrow-line {
@@ -145,7 +145,7 @@
     .headline {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 48px;
+      font-size: 54px;
       line-height: 1.02;
       color: var(--text-heading);
       letter-spacing: -0.01em;
@@ -153,12 +153,12 @@
     }
     .headline em {
       font-style: italic;
-      font-weight: 400;
-      color: var(--disputed);
+      font-weight: 500;
+      color: #935671;
     }
     .desc {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 400;
       line-height: 1.8;
       color: var(--text-body);
@@ -217,7 +217,7 @@
     }
     .tl-date {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 8px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -233,7 +233,7 @@
     }
     .tl-body {
       font-family: 'Inter', sans-serif;
-      font-size: 10px;
+      font-size: 12px;
       color: var(--text-body);
       line-height: 1.5;
     }
@@ -246,7 +246,7 @@
     .tl-split-side {
       padding: 6px 8px;
       border-radius: 4px;
-      font-size: 10px;
+      font-size: 12px;
       line-height: 1.4;
       color: var(--text-body);
     }
@@ -283,9 +283,9 @@
       border-radius: 2px;
       margin-top: 4px;
     }
-    .tl-tag.exhibit { 
-      background: rgba(235,226,205,0.12); 
-      color: var(--accent); 
+    .tl-tag.exhibit {
+      background: rgba(62,36,54,0.10);
+      color: var(--accent);
     }
     .tl-tag.disputed { 
       background: rgba(212,168,67,0.15); 
@@ -300,7 +300,7 @@
       height: 58px;
       z-index: 10;
       background:
-        linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
         var(--grad-neutral) border-box;
     }
     .stat {
@@ -335,14 +335,14 @@
 <body>
 
   <div class="nav">
-    <span class="nav-brand">Case Title</span>
-    <span class="nav-sub">Nav Subtitle</span>
+    <span class="nav-brand">Tricia Griffith</span>
+    <span class="nav-sub">Property Records</span>
     <div class="nav-links">
       <span class="nav-link">Timeline</span>
-      <span class="nav-link">Filings</span>
-      <span class="nav-link">Exhibits</span>
-      <span class="nav-link">Declarations</span>
-      <span class="nav-cta">View Docket</span>
+      <span class="nav-link">Assessor Records</span>
+      <span class="nav-link">Tax Payments</span>
+      <span class="nav-link">Deeds</span>
+      <span class="nav-cta">View Case Map</span>
     </div>
   </div>
 
@@ -354,11 +354,11 @@
       </div>
 
       <h1 class="headline">
-        Lauren Mattias <em>Stalking</em> Injunction in Seven Acts
+        Tricia Griffith<br><em>Property</em> Records<br>and Dealings
       </h1>
 
       <p class="desc">
-        A civil stalking case in seven acts. Dual-narrative timeline of Matthias v. Reality (Case No. 250404055) — tracks contested events from both sides, color-coded by party, with exhibit references and split-view panels for disputed incidents.
+        36 years of property records: two properties, three default cycles, and four refinances spanning 1990–2026. Pattern of defaults without foreclosure, third-party tax payments, and subprime lending. Extracted from 55 Summit County records.
       </p>
     </div>
 
@@ -366,81 +366,62 @@
       <div class="tl-preview">
         <div class="tl-line"></div>
 
-        <!-- Timeline entry with split view -->
+        <!-- Initial purchase -->
         <div class="tl-entry">
           <div class="tl-dot pet key"></div>
-          <div class="tl-date">Event 1 Date</div>
-          <div class="tl-title">Event 1 Title</div>
-          <div class="tl-split">
-            <div class="tl-split-side pet">
-              <div class="tl-split-label">Petitioner Label</div>
-              Event 1 text from petitioner's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
-            </div>
-            <div class="tl-split-side res">
-              <div class="tl-split-label">Respondent Label</div>
-              Event 1 text from respondent's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
-            </div>
-          </div>
-          <span class="tl-tag disputed">Disputed</span>
+          <div class="tl-date">09-14-1990</div>
+          <div class="tl-title">Lot 90 Purchased</div>
+          <div class="tl-body">Warranty Deed: Arla Development → Joseph Douglas & Patricia Arrington Griffith. Initial acquisition.</div>
         </div>
 
-        <!-- Timeline entry with exhibit tags -->
+        <!-- Bank One mortgage -->
         <div class="tl-entry">
           <div class="tl-dot pet"></div>
-          <div class="tl-date">Event 2 Date</div>
-          <div class="tl-title">Event 2 Title</div>
-          <div class="tl-body">Event 2 text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.</div>
-          <span class="tl-tag exhibit">Exhibit 1</span>
-          <span class="tl-tag exhibit">Exhibit 2</span>
+          <div class="tl-date">07-22-1992</div>
+          <div class="tl-title">Bank One Mortgage</div>
+          <div class="tl-body">First Deed of Trust. $625,000 secured against Lot 90.</div>
+          <span class="tl-tag exhibit">Mortgage</span>
         </div>
 
-        <!-- Timeline entry with split view -->
+        <!-- Subprime refinance warning -->
         <div class="tl-entry">
           <div class="tl-dot dis key"></div>
-          <div class="tl-date">Event 3 Date</div>
-          <div class="tl-title">Event 3 Title</div>
-          <div class="tl-split">
-            <div class="tl-split-side pet">
-              <div class="tl-split-label">Petitioner Label</div>
-              Event 3 text from petitioner's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
-            </div>
-            <div class="tl-split-side res">
-              <div class="tl-split-label">Respondent Label</div>
-              Event 3 text from respondent's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
-            </div>
-          </div>
+          <div class="tl-date">07-17-2003</div>
+          <div class="tl-title">Subprime Refinance Alert</div>
+          <div class="tl-body">Megastar Financial (4th refinance in 3 years, subprime). $300,000. Request for Notice of Default filed days prior.</div>
+          <span class="tl-tag disputed">Subprime</span>
         </div>
 
-        <!-- Simple timeline entry -->
+        <!-- Property sale -->
         <div class="tl-entry">
           <div class="tl-dot res"></div>
-          <div class="tl-date">Event 4 Date</div>
-          <div class="tl-title">Event 4 Title</div>
-          <div class="tl-body">Event 4 text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.</div>
+          <div class="tl-date">03-10-2005</div>
+          <div class="tl-title">Lot 90 Sold</div>
+          <div class="tl-body">Warranty Deed: Griffiths → R. Allan Bradley. Exit after 15 years and aggressive refinancing cycle.</div>
         </div>
       </div>
     </div>
 
     <div class="stats-bar">
       <div class="stat" style="padding-left: 48px;">
-        <div class="stat-value">Stat 1</div>
-        <div class="stat-label">Stat 1 Label</div>
+        <div class="stat-value">55</div>
+        <div class="stat-label">Records</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Stat 2</div>
-        <div class="stat-label">Stat 2 Label</div>
+        <div class="stat-value">2</div>
+        <div class="stat-label">Primary Properties</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Stat 3</div>
-        <div class="stat-label">Stat 3 Label</div>
+        <div class="stat-value">3</div>
+        <div class="stat-label">Default Cycles</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Stat 4</div>
-        <div class="stat-label">Stat 4 Label</div>
+        <div class="stat-value">4+</div>
+        <div class="stat-label">Refinances</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Stat 5</div>
-        <div class="stat-label">Stat 5 Label</div>
+        <div class="stat-value">$2.47M+</div>
+        <div class="stat-label">Total Lending</div>
       </div>
     </div>
   </div>

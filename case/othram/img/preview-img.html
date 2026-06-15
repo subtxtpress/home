@@ -4,77 +4,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1200">
-  <title>OG Preview — Othram Inc. Timeline</title>
+  <title>Timeline Preview — Othram Inc. Timeline</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-  <style>
+<style>
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     :root {
-      --surface-page:      #060B14;
-      --surface-card:      rgba(255,255,255,0.95);
-      --surface-elevated:  #0f1620;
-      --text-heading:      #ebe2cd;
-      --text-body:         #b5ad9a;
-      --text-label:        #E8956A;
-      --text-muted:        rgba(181, 173, 154, 0.50);
-      --accent:            #f5a47b;
-      --accent-border:     rgba(232, 149, 106, 0.40);
-      --border-light:      rgba(235, 226, 205, 0.08);
-      --border-mid:        rgba(235, 226, 205, 0.14);
-      --plum:              #3E2436;
-      --carmine:           #E8956A;
-      --status-open:       #4ade80;
-      --status-closed:     #f87171;
-      --grad-neutral:      linear-gradient(to right, #DDD0BC, #E8956A);
-      /* docket card (light-on-dark) */
-      --dk-heading:        #241620;
-      --dk-body:           #44373C;
-      --dk-muted:          rgba(68, 55, 60, 0.45);
-      --dk-border:         rgba(221, 208, 188, 0.55);
+      --surface-page:      #f4ede3;
+      --surface-card:      rgba(255, 255, 255, 0.90);
+      --surface-elevated:  #ece5d9;
+      --text-heading:      #393538;
+      --text-body:         #4a3f45;
+      --text-label:        #241620;
+      --text-muted:        rgba(74, 63, 69, 0.50);
+      --accent:            #7A5063;
+      --petitioner:        #a8420a;
+      --respondent:        #377a6d;
+      --disputed:          #8a6d1b;
+      --accent-border:     rgba(62, 36, 54, 0.22);
+      --border-light:      rgba(62, 36, 54, 0.08);
+      --border-mid:        rgba(62, 36, 54, 0.14);
+      --grad-accent:       linear-gradient(to right, #4a8a7c, #C04E01);
+      --grad-neutral:      linear-gradient(to right, #4a8a7c, #C04E01);
     }
     body {
       width: 1200px;
       height: 675px;
       overflow: hidden;
-      background:
-        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
-        url('../../../assets/img/landscape.jpg') center/cover no-repeat;
+      background: var(--surface-page);
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
       position: relative;
     }
     .nav {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; 
+      left: 0; 
       right: 0;
       height: 56px;
-      background: none;
-      border-bottom: 2px solid;
-      border-image: var(--grad-neutral) 1;
+      background:
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
+        var(--grad-neutral) border-box;
+      border-bottom: 2px solid transparent;
       display: flex;
       align-items: center;
-      padding: 0 4%;
+      padding: 0 3% 0 2%;
       z-index: 20;
     }
     .nav-brand {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
       font-size: 18px;
-      color: var(--text-heading);
+      color: var(--text-body);
       letter-spacing: 0.01em;
-      margin-left: -10px;
     }
     .nav-sub {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--respondent);
       margin-left: 14px;
       padding-left: 14px;
       border-left: 1px solid var(--accent-border);
@@ -83,12 +76,12 @@
     .nav-links {
       margin-left: auto;
       display: flex;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
     }
     .nav-link {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -96,11 +89,11 @@
     }
     .nav-cta {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: var(--text-heading);
+      color: var(--text-label);
       background: transparent;
       border: 1px solid var(--accent-border);
       padding: 6px 14px;
@@ -121,30 +114,28 @@
     .left {
       grid-row: 1;
       grid-column: 1;
-      padding: 36px 40px 0 48px;
       display: flex;
       flex-direction: column;
       position: relative;
       z-index: 5;
-      padding-top: 9%;
-      margin-left: -15px;
+      padding: 10% 4%;
     }
     .eyebrow-line {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 4%;
+      margin-bottom: 8%;
     }
     .eyebrow-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px rgba(232,149,106,0.5);
+      background: var(--respondent);
+      box-shadow: 0 0 8px rgba(74,138,124,0.6);
     }
     .eyebrow {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -153,24 +144,24 @@
     .headline {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 78px;
+      font-size: 68px;
       line-height: 1.02;
       color: var(--text-heading);
       letter-spacing: -0.01em;
-      margin-bottom: 9%;
+      margin-bottom: 10%;
     }
     .headline em {
       font-style: italic;
-      font-weight: 400;
-      color: var(--carmine);
+      font-weight: 500;
+      color: #935671;
     }
     .desc {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 14px;
       font-weight: 400;
-      line-height: 1.65;
-      color: var(--text-heading);
-      border-left: 2px solid var(--accent);
+      line-height: 1.75;
+      color: var(--text-body);
+      border-left: 2px solid var(--respondent);
       padding-left: 14px;
     }
     /* ─── Right: Timeline preview ─── */
@@ -178,100 +169,145 @@
       grid-row: 1;
       grid-column: 2;
       position: relative;
-      padding: 15px 15px 0 0;
-      margin-top: 10%;
-    }
-    .timeline-preview {
-      position: relative;
-      width: 525px;
-      height: 345px;
       padding: 5% 4%;
-      margin-top: 2%;
-      left: 7%;
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 8px;
-      border-top: 3px solid transparent;
-      background-image: var(--grad-neutral);
-      background-size: 100% 3px;
-      background-repeat: no-repeat;
-      background-position: top left;
-      background-origin: border-box;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
     }
-    .tl-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin: 1% 0;
-      padding: 1% 0;
-      border-bottom: 1px solid var(--dk-border);
+    .tl-preview {
+      position: relative;
+      padding-left: 20px;
+      padding-top: 25px;
+      padding-bottom: 10px;
+    }
+    .tl-line {
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--respondent), var(--petitioner), var(--disputed));
+      border-radius: 2px;
+    }
+    .tl-entry {
+      position: relative;
+      padding: 0 0 18px 5px;
+    }
+    .tl-dot {
+      position: absolute;
+      left: -17px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 1px solid var(--surface-page);
+    }
+    .tl-dot.pet { 
+      background: var(--petitioner); 
+    }
+    .tl-dot.res { 
+      background: var(--respondent); 
+    }
+    .tl-dot.dis { 
+      background: var(--disputed); 
+    }
+    .tl-dot.key { 
+      width: 10px; 
+      height: 10px; 
+      left: -18px; 
+      top: 4px; 
+    }
+    .tl-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-body);
+      margin-bottom: 6px;
     }
     .tl-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--dk-heading);
-    }
-    .tl-subtitle {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--dk-muted);
-      letter-spacing: 0.06em;
-      margin-top: 10px;
-    }
-    .tl-event {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--dk-border);
-    }
-    .tl-event-text {
-      flex: 1;
-      min-width: 0;
-    }
-    .tl-event-title {
       font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--dk-heading);
-      line-height: 1.4;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 8px;
     }
-    .tl-event-note {
-      font-size: 12px;
-      color: var(--dk-muted);
-      margin-top: 2px;
-      line-height: 1.4;
-    }
-    .tl-event-date {
-      font-family: 'IBM Plex Mono', monospace;
+    .tl-body {
+      font-family: 'Inter', sans-serif;
       font-size: 11px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .tl-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .tl-split-side {
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      line-height: 1.4;
+      color: var(--text-body);
+    }
+    .tl-split-side.pet {
+      background: rgba(192, 78, 1, 0.08);
+      border: 1px solid rgba(192, 78, 1, 0.20);
+    }
+    .tl-split-side.res {
+      background: rgba(74, 138, 124, 0.08);
+      border: 1px solid rgba(74, 138, 124, 0.20);
+    }
+    .tl-split-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .tl-split-side.pet .tl-split-label { 
+      color: var(--petitioner); 
+    }
+    .tl-split-side.res .tl-split-label { 
+      color: var(--respondent); 
+    }
+    .tl-tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
       font-weight: 500;
       letter-spacing: 0.06em;
-      color: var(--dk-muted);
-      flex-shrink: 0;
-      text-align: right;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .tl-tag.exhibit {
+      background: rgba(62,36,54,0.10);
+      color: var(--accent);
+    }
+    .tl-tag.disputed { 
+      background: rgba(212,168,67,0.15); 
+      color: var(--disputed); 
     }
     /* ─── Stats bar ─── */
     .stats-bar {
       grid-row: 2;
       grid-column: 1 / -1;
       display: flex;
-      border-top: 3px solid;
-      border-image: var(--grad-neutral) 1;
+      border-top: 3px solid transparent;
       height: 72px;
       z-index: 10;
-      background: none;
+      background:
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
+        var(--grad-neutral) border-box;
     }
     .stat {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 28px;
+      padding: 0 3%;
       border-right: 1px solid var(--border-light);
     }
     .stat:last-child {
@@ -286,19 +322,20 @@
     }
     .stat-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 8px;
+      font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-label);
       margin-top: 4px;
     }
   </style>
 </head>
+</head>
 <body>
 
   <div class="nav">
-    <span class="nav-brand">Othram In.</span>
+    <span class="nav-brand">Othram Inc.</span>
     <span class="nav-sub">Company History</span>
     <div class="nav-links">
       <span class="nav-link">Timeline</span>
@@ -316,7 +353,7 @@
       </div>
 
       <h1 class="headline">
-        The History<br> of <em>Othram Inc.</em><br>2018 to 2026
+        The History of <em>Othram Inc.</em> from 2018 to 2026
       </h1>
 
       <p class="desc">
@@ -325,50 +362,49 @@
     </div>
 
     <div class="right">
-      <div class="timeline-preview">
-        <div class="tl-header">
-          <div>
-            <div class="tl-title">Othram Inc. Timeline</div>
-            <div class="tl-subtitle">2018–2026 Milestones & Cases</div>
-          </div>
+      <div class="tl-preview">
+        <div class="tl-line"></div>
+
+        <div class="tl-entry">
+          <div class="tl-dot pet key"></div>
+          <div class="tl-date">2018</div>
+          <div class="tl-title">Founded by David &amp; Kristen Mittelman</div>
+          <div class="tl-body">Forensic-grade lab established in The Woodlands, Texas.</div>
         </div>
 
-        <!-- Timeline entries -->
-        <div class="tl-event">
-          <div class="tl-event-text">
-            <div class="tl-event-title">Founded by David & Kristen Mittelman</div>
-          </div>
-          <div class="tl-event-date">2018</div>
+        <div class="tl-entry">
+          <div class="tl-dot res"></div>
+          <div class="tl-date">2019</div>
+          <div class="tl-title">DNASolves Platform Launched</div>
+          <div class="tl-body">Oct 2019: Christine Jessop identified (Canada) — first major international ID.</div>
         </div>
 
-        <div class="tl-event">
-          <div class="tl-event-text">
-            <div class="tl-event-title">DNASolves Platform Launched</div>
-          </div>
-          <div class="tl-event-date">2019</div>
+        <div class="tl-entry">
+          <div class="tl-dot scientific key"></div>
+          <div class="tl-date">Aug 22, 2022</div>
+          <div class="tl-title">Carla Davis Joins as Chief Genetic Genealogist</div>
+          <div class="tl-body">Nutrition consultant & volunteer genealogist transitions from major donor to executive.</div>
         </div>
 
-        <div class="tl-event">
-          <div class="tl-event-text">
-            <div class="tl-event-title">First Major Identifications (Delta Dawn)</div>
-          </div>
-          <div class="tl-event-date">2020</div>
+        <div class="tl-entry">
+          <div class="tl-dot invest"></div>
+          <div class="tl-date">2023</div>
+          <div class="tl-title">Websleuths Partnership &amp; USAF SBIR Phase I</div>
+          <div class="tl-body">$74,936 grant for modernizing identification of missing U.S. service members.</div>
         </div>
 
-        <div class="tl-event">
-          <div class="tl-event-text">
-            <div class="tl-event-title">11 Cases Identified</div>
-            <div class="tl-event-note">Beth Doe, Mostly Harmless, Queens John Doe + 8 more</div>
-          </div>
-          <div class="tl-event-date">2021</div>
+        <div class="tl-entry">
+          <div class="tl-dot both key"></div>
+          <div class="tl-date">Jul 12, 2024</div>
+          <div class="tl-title">ISO/IEC 17025 Accreditation by ANAB</div>
+          <div class="tl-body">Forensic DNA lab achieves national accreditation; critical for courtroom admissibility.</div>
         </div>
 
-        <div class="tl-event" style="border-bottom: none;">
-          <div class="tl-event-text">
-            <div class="tl-event-title">USAF $1.25M Contract, 3 Product Launches</div>
-            <div class="tl-event-note">SNPSuite, Othram Maps, Total TreeCall</div>
-          </div>
-          <div class="tl-event-date">2025</div>
+        <div class="tl-entry">
+          <div class="tl-dot pet"></div>
+          <div class="tl-date">Apr 2026</div>
+          <div class="tl-title">Othram Studios Launched</div>
+          <div class="tl-body">Science-driven storytelling platform bringing real forensic investigations to global audiences.</div>
         </div>
       </div>
     </div>
@@ -392,7 +428,7 @@
       </div>
       <div class="stat">
         <div class="stat-value">$1.25M</div>
-        <div class="stat-label">Largest Known Public Contract</div>
+        <div class="stat-label">Largest Known Contract</div>
       </div>
     </div>
   </div>

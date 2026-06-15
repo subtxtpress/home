@@ -13,92 +13,92 @@
       padding: 0;
     }
     :root {
-      --surface-page:      #060B14;
-      --surface-card:      rgba(255,255,255,0.95);
-      --surface-elevated:  #0f1620;
-      --text-heading:      #ebe2cd;
-      --text-body:         #b5ad9a;
-      --text-label:        #f5a47b;
-      --text-muted:        rgba(181, 173, 154, 0.50);
-      --accent:            #f5a47b;
-      --accent-border:     rgba(232, 149, 106, 0.40);
-      --border-light:      rgba(235, 226, 205, 0.08);
-      --border-mid:        rgba(235, 226, 205, 0.14);
-      --plum:              #3E2436;
-      --carmine:           #E8956A;
-      --status-open:       #4ade80;
-      --status-closed:     #f87171;
-      --grad-neutral:      linear-gradient(to right, #DDD0BC, #E8956A);
-      --dk-heading:        #241620;
-      --dk-body:           #44373C;
-      --dk-muted:          rgba(68, 55, 60, 0.45);
-      --dk-border:         rgba(221, 208, 188, 0.55);
+      --surface-page:      #f4ede3;
+      --surface-card:      rgba(255, 255, 255, 0.90);
+      --surface-elevated:  #ece5d9;
+      --text-heading:      #393538;
+      --text-body:         #4a3f45;
+      --text-label:        #241620;
+      --text-muted:        rgba(74, 63, 69, 0.50);
+      --accent:            #7A5063;
+      --petitioner:        #a8420a;
+      --respondent:        #377a6d;
+      --disputed:          #8a6d1b;
+      --accent-border:     rgba(62, 36, 54, 0.22);
+      --border-light:      rgba(62, 36, 54, 0.08);
+      --border-mid:        rgba(62, 36, 54, 0.14);
+      --grad-accent:       linear-gradient(to right, #4a8a7c, #C04E01);
+      --grad-neutral:      linear-gradient(to right, #4a8a7c, #C04E01);
     }
     body {
       width: 900px;
       height: 675px;
       overflow: hidden;
-      background:
-        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
-        url('../../assets/img/landscape.jpg') center/cover no-repeat;
+      background: var(--surface-page);
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
       position: relative;
     }
     .nav {
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 56px;
-      background: none;
-      border-bottom: 2px solid;
-      border-image: var(--grad-neutral) 1;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: 50px;
+      background:
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
+        var(--grad-neutral) border-box;
+      border-bottom: 2px solid transparent;
       display: flex;
       align-items: center;
-      padding: 0 4%;
+      padding: 0 3% 0 2%;
       z-index: 20;
     }
     .nav-brand {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      font-size: 16px;
-      color: var(--text-heading);
-      margin-left: -15px;
+      font-size: 18px;
+      color: var(--text-body);
+      letter-spacing: 0.01em;
     }
     .nav-sub {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-left: 10px;
-      padding-left: 10px;
+      color: var(--respondent);
+      margin-left: 14px;
+      padding-left: 14px;
       border-left: 1px solid var(--accent-border);
       margin-top: 5px;
     }
     .nav-links {
       margin-left: auto;
       display: flex;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
     }
     .nav-link {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-heading);
     }
     .nav-cta {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: var(--text-heading);
+      color: var(--text-label);
       background: transparent;
       border: 1px solid var(--accent-border);
       padding: 6px 14px;
       border-radius: 2px;
-      margin-right: -20px;
+      margin-right: -10px;
     }
     .main {
       position: absolute;
@@ -114,13 +114,12 @@
     .left {
       grid-row: 1;
       grid-column: 1;
-      padding: 36px 40px 0 48px;
       display: flex;
       flex-direction: column;
       position: relative;
       z-index: 5;
-      margin-top: 12%;
-      margin-left: -6%; 
+      margin-top: 5%;
+      padding: 10% 4%;
     }
     .eyebrow-line {
       display: flex;
@@ -132,14 +131,14 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px rgba(232,149,106,0.5);
+      background: var(--respondent);
+      box-shadow: 0 0 8px rgba(74,138,124,0.6);
     }
     .eyebrow {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-label);
     }
@@ -150,141 +149,166 @@
       line-height: 1.02;
       color: var(--text-heading);
       letter-spacing: -0.01em;
-      margin-bottom: 11%;
+      margin-bottom: 10%;
     }
     .headline em {
       font-style: italic;
-      font-weight: 400;
-      color: var(--carmine);
+      font-weight: 500;
+      color: #935671;
     }
     .desc {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
       font-weight: 400;
-      line-height: 1.65;
-      color: var(--text-heading);
-      border-left: 2px solid var(--accent);
-      padding-left: 10px;
+      line-height: 1.8;
+      color: var(--text-body);
+      border-left: 2px solid var(--respondent);
+      padding-left: 14px;
     }
-    /* ─── Right: Docket preview ─── */
+    /* ─── Right: Timeline preview ─── */
     .right {
       grid-row: 1;
       grid-column: 2;
       position: relative;
-      padding: 10px 10px 0 0;
-      margin-top: 15%;
-    }
-    .docket-preview {
-      position: relative;
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 8px;
-      border-top: 3px solid transparent;
-      background-image: var(--grad-neutral);
-      background-size: 100% 3px;
-      background-repeat: no-repeat;
-      background-position: top left;
-      background-origin: border-box;
-      box-shadow: 0 2px 16px rgba(36,22,32,0.06);
-      margin-right: 20px;
-      padding: 5% 4%;
       margin-top: 5%;
-      margin-left: 2%;
-      height: 350px;
-      width: 425px;
+      padding: 0 4%;
     }
-    .dk-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--dk-border);
+    .tl-preview {
+      position: relative;
+      padding-left: 20px;
+      padding-top: 15px;
     }
-    .dk-case-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--dk-heading);
+    .tl-line {
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--respondent), var(--petitioner), var(--disputed));
+      border-radius: 2px;
     }
-    .dk-case-no {
+    .tl-entry {
+      position: relative;
+      padding: 0 0 18px 0;
+    }
+    .tl-dot {
+      position: absolute;
+      left: -17px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 1px solid var(--surface-page);
+    }
+    .tl-dot.pet { 
+      background: var(--petitioner); 
+    }
+    .tl-dot.res { 
+      background: var(--respondent); 
+    }
+    .tl-dot.dis { 
+      background: var(--disputed); 
+    }
+    .tl-dot.key { 
+      width: 10px; 
+      height: 10px; 
+      left: -18px; 
+      top: 4px; 
+    }
+    .tl-date {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
-      color: var(--dk-muted);
-      letter-spacing: 0.06em;
-      margin-top: 8px;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-body);
+      margin-bottom: 8px;
     }
-    .dk-status {
+    .tl-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .tl-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .tl-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .tl-split-side {
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      line-height: 1.4;
+      color: var(--text-body);
+    }
+    .tl-split-side.pet {
+      background: rgba(192, 78, 1, 0.08);
+      border: 1px solid rgba(192, 78, 1, 0.20);
+    }
+    .tl-split-side.res {
+      background: rgba(74, 138, 124, 0.08);
+      border: 1px solid rgba(74, 138, 124, 0.20);
+    }
+    .tl-split-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 7px 2px;
-      border-radius: 3px;
+      margin-bottom: 2px;
     }
-    .dk-status.open {
-      background: rgba(46,125,50,0.10);
-      color: var(--status-open);
-      border: 1px solid rgba(46,125,50,0.25);
+    .tl-split-side.pet .tl-split-label { 
+      color: var(--petitioner); 
     }
-    .dk-status.closed {
-      background: rgba(183,28,28,0.10);
-      color: var(--status-closed);
-      border: 1px solid rgba(183,28,28,0.25);
+    .tl-split-side.res .tl-split-label { 
+      color: var(--respondent); 
     }
-    .dk-filing {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--dk-border);
-    }
-    .dk-filing-text {
-      flex: 1;
-      min-width: 0;
-    }
-    .dk-filing-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--dk-heading);
-      line-height: 1.4;
-    }
-    .dk-filing-note {
-      font-size: 11px;
-      color: var(--dk-muted);
-      margin-top: 2px;
-      line-height: 1.4;
-    }
-    .dk-filing-date {
+    .tl-tag {
+      display: inline-block;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--dk-muted);
-      flex-shrink: 0;
-      text-align: right;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .tl-tag.exhibit {
+      background: rgba(62,36,54,0.10);
+      color: var(--accent);
+    }
+    .tl-tag.disputed { 
+      background: rgba(212,168,67,0.15); 
+      color: var(--disputed); 
     }
     /* ─── Stats bar ─── */
     .stats-bar {
       grid-row: 2;
       grid-column: 1 / -1;
       display: flex;
-      border-top: 3px solid;
-      border-image: var(--grad-neutral) 1;
-      height: 72px;
+      border-top: 3px solid transparent;
+      height: 58px;
       z-index: 10;
-      background: none;
+      background:
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
+        var(--grad-neutral) border-box;
     }
     .stat {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 28px;
+      padding: 0 3%;
       border-right: 1px solid var(--border-light);
     }
     .stat:last-child {
@@ -293,7 +317,7 @@
     .stat-value {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 18px;
       color: var(--text-heading);
       line-height: 1;
     }
@@ -301,7 +325,7 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 8px;
       font-weight: 500;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
       color: var(--text-label);
       margin-top: 4px;
@@ -311,14 +335,13 @@
 <body>
 
   <div class="nav">
-    <span class="nav-brand">Nav Title</span>
-    <span class="nav-sub">Nav Subtitle</span>
+    <span class="nav-brand">Othram In.</span>
+    <span class="nav-sub">Company History</span>
     <div class="nav-links">
-      <span class="nav-link">Docket</span>
-      <span class="nav-link">Filings</span>
-      <span class="nav-link">Orders</span>
-      <span class="nav-link">Parties</span>
-      <span class="nav-cta">View Full Docket</span>
+      <span class="nav-link">Timeline</span>
+      <span class="nav-link">Contracts</span>
+      <span class="nav-link">Casework</span>
+      <span class="nav-cta">View Full Timeline</span>
     </div>
   </div>
 
@@ -326,89 +349,86 @@
     <div class="left">
       <div class="eyebrow-line">
         <span class="eyebrow-dot"></span>
-        <span class="eyebrow">Subtxt Press &middot; Dockets</span>
+        <span class="eyebrow">Subtxt Press &middot; Case Maps</span>
       </div>
 
       <h1 class="headline">
-        Headline Line 1 <em>Headline Emphasis</em> Headline Line 3
+        The History<br> of <em>Othram Inc.</em><br>2018 to 2026
       </h1>
 
       <p class="desc">
-        Defamation and assault case filed by pro se plaintiff against three defendants in Nebraska federal court. Defendants challenging claims with motions to dismiss; discovery disputes ongoing.
+        From founding to federal contracts. Forensic genetic genealogy company spanning lab work, AI platforms, citizen science, and major federal partnerships solving cold cases.
       </p>
     </div>
 
-    <div class="right">
-      <div class="docket-preview">
-        <div class="dk-header">
-          <div>
-            <div class="dk-case-name">Case Name</div>
-            <div class="dk-case-no">Case No. Case Number &middot; Court</div>
-          </div>
-          <span class="dk-status {{STATUS_CLASS}}">Status Text</span>
+     <div class="right">
+      <div class="tl-preview">
+        <div class="tl-line"></div>
+
+        <div class="tl-entry">
+          <div class="tl-dot pet key"></div>
+          <div class="tl-date">2018</div>
+          <div class="tl-title">Founded by David &amp; Kristen Mittelman</div>
+          <div class="tl-body">Forensic-grade lab established in The Woodlands, Texas.</div>
         </div>
 
-        <!-- Filing entries — add/remove as needed -->
-        <div class="dk-filing">
-          <div class="dk-filing-text">
-            <div class="dk-filing-title">Filing Title 1</div>
-            <div class="dk-filing-note">Filing 1 Note</div>
-          </div>
-          <div class="dk-filing-date">Filing Date 1</div>
+        <div class="tl-entry">
+          <div class="tl-dot res"></div>
+          <div class="tl-date">2019</div>
+          <div class="tl-title">DNASolves Platform Launched</div>
+          <div class="tl-body">Oct 2019: Christine Jessop identified (Canada) — first major international ID.</div>
         </div>
 
-        <div class="dk-filing">
-          <div class="dk-filing-text">
-            <div class="dk-filing-title">Filing Title 2</div>
-            <div class="dk-filing-note">Filing 1 Note 2</div>
-          </div>
-          <div class="dk-filing-date">Filing Date 2</div>
+        <div class="tl-entry">
+          <div class="tl-dot scientific key"></div>
+          <div class="tl-date">Aug 22, 2022</div>
+          <div class="tl-title">Carla Davis Joins as Chief Genetic Genealogist</div>
+          <div class="tl-body">Nutrition consultant & volunteer genealogist transitions from major donor to executive.</div>
         </div>
 
-        <div class="dk-filing">
-          <div class="dk-filing-text">
-            <div class="dk-filing-title">Filing Title 3</div>
-            <div class="dk-filing-note">Filing 1 Note 3</div>
-          </div>
-          <div class="dk-filing-date">Filing Date 3</div>
+        <div class="tl-entry">
+          <div class="tl-dot invest"></div>
+          <div class="tl-date">2023</div>
+          <div class="tl-title">Websleuths Partnership &amp; USAF SBIR Phase I</div>
+          <div class="tl-body">$74,936 grant for modernizing identification of missing U.S. service members.</div>
         </div>
 
-        <div class="dk-filing">
-          <div class="dk-filing-text">
-            <div class="dk-filing-title">Filing Title 4</div>
-          </div>
-          <div class="dk-filing-date">Filing Date 4</div>
+        <div class="tl-entry">
+          <div class="tl-dot both key"></div>
+          <div class="tl-date">Jul 12, 2024</div>
+          <div class="tl-title">ISO/IEC 17025 Accreditation by ANAB</div>
+          <div class="tl-body">Forensic DNA lab achieves national accreditation; critical for courtroom admissibility.</div>
         </div>
 
-        <div class="dk-filing" style="border-bottom: none;">
-          <div class="dk-filing-text">
-            <div class="dk-filing-title">Filing Title 5</div>
-          </div>
-          <div class="dk-filing-date">Filing Date 5</div>
+        <div class="tl-entry">
+          <div class="tl-dot pet"></div>
+          <div class="tl-date">Apr 2026</div>
+          <div class="tl-title">Othram Studios Launched</div>
+          <div class="tl-body">Science-driven storytelling platform bringing real forensic investigations to global audiences.</div>
         </div>
       </div>
     </div>
 
     <div class="stats-bar">
       <div class="stat" style="padding-left: 48px;">
-        <div class="stat-value">Value 1 </div>
-        <div class="stat-label">Stat Label 1</div>
+        <div class="stat-value">50+</div>
+        <div class="stat-label">Cases Identified</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Value 2</div>
-        <div class="stat-label">Stat Label 2</div>
+        <div class="stat-value">20+</div>
+        <div class="stat-label">Gov't Contracts</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Value 3</div>
-        <div class="stat-label">Stat Label 3</div>
+        <div class="stat-value">9</div>
+        <div class="stat-label">Product Launches</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Value 4</div>
-        <div class="stat-label">Stat Label 4</div>
+        <div class="stat-value">8</div>
+        <div class="stat-label">Years Operating</div>
       </div>
       <div class="stat">
-        <div class="stat-value">Value 5</div>
-        <div class="stat-label">Stat Label 5</div>
+        <div class="stat-value">$1.25M</div>
+        <div class="stat-label">Largest Known Contract</div>
       </div>
     </div>
   </div>

@@ -13,20 +13,20 @@
       padding: 0;
     }
     :root {
-      --surface-page:      #060B14;
-      --surface-card:      rgba(15, 22, 32, 0.90);
-      --surface-elevated:  #0f1620;
-      --text-heading:      #ebe2cd;
-      --text-body:         #b5ad9a;
-      --text-label:        #ebe2cd;
-      --text-muted:        rgba(181, 173, 154, 0.50);
-      --accent:            #ebe2cd;
-      --petitioner:        #d66417;
-      --respondent:        #6fbdac;
-      --disputed:          #d4a843;
-      --accent-border:     rgba(235, 226, 205, 0.22);
-      --border-light:      rgba(235, 226, 205, 0.08);
-      --border-mid:        rgba(235, 226, 205, 0.14);
+      --surface-page:      #f4ede3;
+      --surface-card:      rgba(255, 255, 255, 0.90);
+      --surface-elevated:  #ece5d9;
+      --text-heading:      #393538;
+      --text-body:         #4a3f45;
+      --text-label:        #241620;
+      --text-muted:        rgba(74, 63, 69, 0.50);
+      --accent:            #7A5063;
+      --petitioner:        #a8420a;
+      --respondent:        #377a6d;
+      --disputed:          #7b611b;
+      --accent-border:     rgba(62, 36, 54, 0.22);
+      --border-light:      rgba(62, 36, 54, 0.08);
+      --border-mid:        rgba(62, 36, 54, 0.14);
       --grad-accent:       linear-gradient(to right, #4a8a7c, #C04E01);
       --grad-neutral:      linear-gradient(to right, #4a8a7c, #C04E01);
     }
@@ -46,7 +46,7 @@
       right: 0;
       height: 56px;
       background:
-        linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
         var(--grad-neutral) border-box;
       border-bottom: 2px solid transparent;
       display: flex;
@@ -152,8 +152,8 @@
     }
     .headline em {
       font-style: italic;
-      font-weight: 400;
-      color: var(--disputed);
+      font-weight: 500;
+      color: #935671;
     }
     .desc {
       font-family: 'IBM Plex Mono', monospace;
@@ -174,7 +174,7 @@
     .tl-preview {
       position: relative;
       padding-left: 20px;
-      padding-top: 25px;
+      padding-top: 35px;
       padding-bottom: 10px;
     }
     .tl-line {
@@ -282,9 +282,9 @@
       border-radius: 2px;
       margin-top: 4px;
     }
-    .tl-tag.exhibit { 
-      background: rgba(235,226,205,0.12); 
-      color: var(--accent); 
+    .tl-tag.exhibit {
+      background: rgba(62,36,54,0.10);
+      color: var(--accent);
     }
     .tl-tag.disputed { 
       background: rgba(212,168,67,0.15); 
@@ -299,7 +299,7 @@
       height: 72px;
       z-index: 10;
       background:
-        linear-gradient(rgba(6,11,20,0.97), rgba(6,11,20,0.97)) padding-box,
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
         var(--grad-neutral) border-box;
     }
     .stat {
