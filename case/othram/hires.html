@@ -614,8 +614,8 @@
 <script>
   // Theme toggle
   const toggle = document.getElementById('theme-toggle');
-  const stored = localStorage.getItem('timeline-theme');
-  if (stored) document.documentElement.setAttribute('data-theme', stored);
+  const stored = localStorage.getItem('timeline-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', stored);
   updateToggleIcon();
 
   toggle.addEventListener('click', () => {

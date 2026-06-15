@@ -27,540 +27,483 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
   <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
   <link rel="manifest" href="../../icons/site.webmanifest">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #F4EDE3;
-            --surface: #ffffff;
-            --border: rgba(62, 36, 54, 0.14);
-            --text: #241620;
-            --text-dim: #7a7063;
-            --accent-primary: #7A5063;
-            --accent-secondary: #E8956A;
-            --trust-color: #3E2436;
-            --griffith-color: #E8956A;
-        }
-
-        [data-theme="dark"] {
-            --bg: #060B14;
-            --surface: #0f1620;
-            --border: rgba(235, 226, 205, 0.10);
-            --text: #ebe2cd;
-            --text-dim: #7a7468;
-            --accent-primary: #4a8a7c;
-            --accent-secondary: #C04E01;
-            --trust-color: #3E2436;
-            --griffith-color: #C04E01;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--trust-color), var(--griffith-color));
-            z-index: 200;
-            pointer-events: none;
-        }
-
-        header {
-            padding: 2.5rem 1.25rem 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            background: linear-gradient(160deg, var(--surface), var(--bg));
-        }
-
-        header h1 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
-        .legend {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.7rem;
-            position: sticky;
-            top: 0;
-            background: var(--bg);
-            z-index: 100;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--text-dim);
-        }
-
-        .legend-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .legend-dot.trust {
-            background: var(--trust-color);
-        }
-
-        .legend-dot.griffith {
-            background: var(--griffith-color);
-        }
-
-        .theme-toggle {
-            position: absolute;
-            right: 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            padding: 0.4rem 0.8rem;
-            cursor: pointer;
-            font-size: 0.9rem;
-            color: var(--text-dim);
-            transition: all 0.25s;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-        }
-
-        .timeline-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: color-mix(in srgb, var(--surface) 50%, transparent);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .stat-card {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-primary);
-        }
-
-        .stat-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-top: 0.25rem;
-        }
-
-        .controls {
-            display: flex;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            background: var(--surface);
-            color: var(--text);
-            transition: all 0.2s;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px rgba(122, 80, 99, 0.1);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            background: var(--surface);
-            color: var(--text-dim);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            cursor: pointer;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 600;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent-primary);
-            color: var(--bg);
-            border-color: var(--accent-primary);
-        }
-
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .transaction {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent-secondary);
-            padding: 1.25rem;
-            border-radius: 8px;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .transaction:hover {
-            background: color-mix(in srgb, var(--surface) 50%, transparent);
-            border-color: var(--accent-primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .transaction.arrington {
-            border-left-color: var(--trust-color);
-        }
-
-        .transaction.griffith {
-            border-left-color: var(--griffith-color);
-        }
-
-        .transaction-date {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 0.25rem;
-        }
-
-        .transaction-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .transaction-description {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text);
-        }
-
-        .source-badge {
-            display: inline-block;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.6rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 3px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
-
-        .source-badge.trust {
-            background: rgba(62, 36, 54, 0.2);
-            color: var(--trust-color);
-        }
-
-        .source-badge.griffith {
-            background: rgba(232, 149, 106, 0.2);
-            color: var(--griffith-color);
-        }
-
-        .transaction-details {
-            display: none;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        .transaction.expanded .transaction-details {
-            display: block;
-        }
-
-        .detail-row {
-            margin-bottom: 0.5rem;
-            display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 1rem;
-        }
-
-        .detail-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .detail-value {
-            color: var(--text);
-            word-break: break-word;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--text-dim);
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 1.4rem; }
-            .timeline-container { padding: 1rem; }
-            .timeline { grid-template-columns: 1fr; }
-            .legend { flex-direction: column; gap: 0.5rem; }
-            .controls { flex-direction: column; }
-            .search-box { min-width: unset; }
-            .filter-buttons { width: 100%; justify-content: flex-start; }
-        }
-
-        .highlight {
-            background: rgba(232, 149, 106, 0.3);
-            padding: 0 3px;
-            border-radius: 2px;
-        }
-
-        #map {
-            width: 100%;
-            height: 500px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            margin: 2rem 0;
-        }
-
-        .map-section {
-            margin: 2rem 0;
-        }
-
-        .map-section h2 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .leaflet-popup-content-wrapper {
-            background: var(--surface);
-            color: var(--text);
-            border-radius: 8px;
-        }
-
-        .leaflet-popup-content {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-        }
-
-        .leaflet-popup-tip {
-            background: var(--surface);
-            border: 1px solid var(--border);
-        }
-
-
-        .analysis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .analysis-section {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.2s;
-        }
-
-        .analysis-section:hover {
-            border-color: var(--accent-primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .analysis-section h3 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 1rem;
-            color: var(--accent-primary);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.75rem;
-        }
-
-        .entity-list, .lender-list, .refinance-list, .default-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .entity-item, .lender-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.5rem 0.75rem;
-            background: color-mix(in srgb, var(--surface) 50%, transparent);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            border-left: 3px solid var(--accent-secondary);
-        }
-
-        .entity-item strong, .lender-item strong {
-            flex: 1;
-            word-break: break-word;
-            line-height: 1.4;
-        }
-
-        .count {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            background: var(--accent-primary);
-            color: var(--bg);
-            padding: 0.3rem 0.5rem;
-            border-radius: 12px;
-            font-weight: 600;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .refinance-item, .default-item {
-            padding: 0.75rem;
-            background: color-mix(in srgb, var(--surface) 50%, transparent);
-            border-radius: 4px;
-            border-left: 3px solid var(--accent-primary);
-            font-size: 0.85rem;
-        }
-
-        .prop-header {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8rem;
-            word-break: break-word;
-            color: var(--text);
-        }
-
-        .event-timeline, .default-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .event, .notice {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 0.75rem;
-            align-items: flex-start;
-            font-size: 0.75rem;
-        }
-
-        .date {
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--text-dim);
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        .type, .notice-type {
-            color: var(--text);
-            font-size: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .notice-type {
-            background: rgba(122, 80, 99, 0.2);
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            display: inline-block;
-        }
-
-        @media (max-width: 768px) {
-            .analysis-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .entity-list, .lender-list, .refinance-list, .default-list {
-                max-height: 250px;
-            }
-
-            .event, .notice {
-                grid-template-columns: 90px 1fr;
-                font-size: 0.7rem;
-            }
-        }
-
-
-        .leaflet-container {
-            background: var(--bg);
-        }
-
-    </style>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F4EDE3;
+      --surface: #ffffff;
+      --border: rgba(62, 36, 54, 0.14);
+      --text: #241620;
+      --text-dim: #7a7063;
+      --accent-primary: #7A5063;
+      --accent-secondary: #E8956A;
+      --trust-color: #3E2436;
+      --griffith-color: #E8956A;
+    }
+    [data-theme="dark"] {
+      --bg: #060B14;
+      --surface: #0f1620;
+      --border: rgba(235, 226, 205, 0.10);
+      --text: #ebe2cd;
+      --text-dim: #7a7468;
+      --accent-primary: #4a8a7c;
+      --accent-secondary: #C04E01;
+      --trust-color: #3E2436;
+      --griffith-color: #C04E01;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--trust-color), var(--griffith-color));
+      z-index: 200;
+      pointer-events: none;
+    }
+    header {
+      padding: 2.5rem 1.25rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(160deg, var(--surface), var(--bg));
+    }
+    header h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+    .legend {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-dim);
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .legend-dot.trust {
+      background: var(--trust-color);
+    }
+    .legend-dot.griffith {
+      background: var(--griffith-color);
+    }
+    .theme-toggle {
+      position: absolute;
+      right: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      transition: all 0.25s;
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+    .timeline-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: color-mix(in srgb, var(--surface) 50%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .stat-card {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.25rem;
+    }
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 200px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: var(--surface);
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(122, 80, 99, 0.1);
+    }
+    .filter-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background: var(--surface);
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-primary);
+      color: var(--bg);
+      border-color: var(--accent-primary);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .transaction {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-secondary);
+      padding: 1.25rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .transaction:hover {
+      background: color-mix(in srgb, var(--surface) 50%, transparent);
+      border-color: var(--accent-primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .transaction.arrington {
+      border-left-color: var(--trust-color);
+    }
+    .transaction.griffith {
+      border-left-color: var(--griffith-color);
+    }
+    .transaction-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+    }
+    .transaction-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .transaction-description {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .source-badge {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    .source-badge.trust {
+      background: rgba(62, 36, 54, 0.2);
+      color: var(--trust-color);
+    }
+    .source-badge.griffith {
+      background: rgba(232, 149, 106, 0.2);
+      color: var(--griffith-color);
+    }
+    .transaction-details {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .transaction.expanded .transaction-details {
+      display: block;
+    }
+    .detail-row {
+      margin-bottom: 0.5rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1rem;
+    }
+    .detail-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .detail-value {
+      color: var(--text);
+      word-break: break-word;
+    }
+    .no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-dim);
+    }
+    @media (max-width: 768px) {
+      header h1 { 
+        font-size: 1.4rem; 
+      }
+      .timeline-container { 
+        padding: 1rem; 
+      }
+      .timeline { 
+        grid-template-columns: 1fr; 
+      }
+      .legend { 
+        flex-direction: column; 
+        gap: 0.5rem; 
+      }
+      .controls { 
+        flex-direction: column; 
+      }
+      .search-box { 
+        min-width: unset; 
+      }
+      .filter-buttons { 
+        width: 100%; 
+        justify-content: flex-start; 
+      }
+    }
+    .highlight {
+      background: rgba(232, 149, 106, 0.3);
+      padding: 0 3px;
+      border-radius: 2px;
+    }
+    #map {
+      width: 100%;
+      height: 500px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    .map-section {
+      margin: 2rem 0;
+    }
+    .map-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .leaflet-popup-content-wrapper {
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 8px;
+    }
+    .leaflet-popup-content {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+    }
+    .leaflet-popup-tip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .analysis-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.2s;
+    }
+    .analysis-section:hover {
+      border-color: var(--accent-primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .analysis-section h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+      color: var(--accent-primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+    .entity-list, .lender-list, .refinance-list, .default-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .entity-item, .lender-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: color-mix(in srgb, var(--surface) 50%, transparent);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      border-left: 3px solid var(--accent-secondary);
+    }
+    .entity-item strong, .lender-item strong {
+      flex: 1;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+    .count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      background: var(--accent-primary);
+      color: var(--bg);
+      padding: 0.3rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .refinance-item, .default-item {
+      padding: 0.75rem;
+      background: color-mix(in srgb, var(--surface) 50%, transparent);
+      border-radius: 4px;
+      border-left: 3px solid var(--accent-primary);
+      font-size: 0.85rem;
+    }
+    .prop-header {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      word-break: break-word;
+      color: var(--text);
+    }
+    .event-timeline, .default-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .event, .notice {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.75rem;
+    }
+    .date {
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .type, .notice-type {
+      color: var(--text);
+      font-size: 0.75rem;
+      line-height: 1.3;
+    }
+    .notice-type {
+      background: rgba(122, 80, 99, 0.2);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      display: inline-block;
+    }
+    @media (max-width: 768px) {
+      .analysis-grid {
+        grid-template-columns: 1fr;
+      }
+      .entity-list, .lender-list, .refinance-list, .default-list {
+        max-height: 250px;
+      }
+      .event, .notice {
+        grid-template-columns: 90px 1fr;
+        font-size: 0.7rem;
+      }
+    }
+    .leaflet-container {
+      background: var(--bg);
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -649,8 +592,8 @@
 
     // Theme toggle
     const toggle = document.getElementById('theme-toggle');
-    const stored = localStorage.getItem('arrington-griffith-theme');
-    if (stored) document.documentElement.setAttribute('data-theme', stored);
+    const stored = localStorage.getItem('arrington-griffith-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', stored);
     updateToggleIcon();
 
     toggle.addEventListener('click', () => {

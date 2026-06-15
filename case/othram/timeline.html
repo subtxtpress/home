@@ -33,7 +33,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ═══════════════════════════════════════════════════════════════
-     THEME: DARK (default)
+     THEME: DARK 
      Subtxt Press case maps palette
      bg #060B14 · teal #4a8a7c · red #C04E01 · accent #ebe2cd
      ═══════════════════════════════════════════════════════════════ */
@@ -57,7 +57,7 @@
     --shadow-hover: 0 8px 28px rgba(0,0,0,0.60);
   }
   /* ═══════════════════════════════════════════════════════════════
-     THEME: LIGHT
+     THEME: LIGHT (default)
      Warm inversion of the dark palette
      ═══════════════════════════════════════════════════════════════ */
   [data-theme="light"] {
@@ -1005,8 +1005,8 @@
 <script>
   // Theme toggle
   const toggle = document.getElementById('theme-toggle');
-  const stored = localStorage.getItem('timeline-theme');
-  if (stored) document.documentElement.setAttribute('data-theme', stored);
+  const stored = localStorage.getItem('timeline-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', stored);
   updateToggleIcon();
 
   toggle.addEventListener('click', () => {
