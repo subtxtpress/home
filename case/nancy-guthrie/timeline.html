@@ -431,6 +431,16 @@
       color: var(--c-primary); 
       margin-bottom: 4px;
     }
+    /* List Items */
+    .demands-list {
+      color:var(--text2);
+      margin-left: 2%;
+      margin-bottom: 12px;
+    }
+    .demands-list li {
+      padding-bottom: 1%;
+      line-height: 1.5;
+    }
     /* Pulse animation for active markers */
     @keyframes pulse-ring { 
       0% { 
@@ -471,7 +481,7 @@
     .tldr-label {
       display: block;
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -480,6 +490,9 @@
     }
     .tldr-link {
       margin: 0;
+    }
+    .tldr p {
+      font-size: 11px;
     }
     .tldr-link a {
       color: rgba(235, 226, 205, 0.7);
@@ -586,8 +599,8 @@
 
 <nav class="nav">
   <span class="nav-title">Nancy Guthrie</span>
-  <span class="nav-tag">TIMELINE</span>
-  <a class="nav-source-link" href="case-map" target="_blank">Case Map &rarr;</a>
+  <span class="nav-tag">Case Map</span>
+  <a class="nav-source-link" href="case-map" target="_blank"> &rarr;</a>
 </nav>
 
 <div id="map"></div>
@@ -624,9 +637,9 @@
   <!-- ── STEP 0: Intro ── -->
   <!-- ── STEP 0: Nancy Guthrie Missing ── -->
   <div class="step" data-step="0" data-border="var(--c-accent)">
-    <div class="step-time">Sunday, Feb. 1, 2026</div>
-    <div class="step-title">Nancy Guthrie Missing</div>
-    <p>Nancy Guthrie, 84, was reported missing from her home in Tucson, Arizona on February 1, 2026. Authorities believe she was abducted in the early morning hours of February 1 after being last seen the previous evening.</p>
+    <div class="step-time">Open Case</div>
+    <div class="step-title">Where's Nancy?</div>
+    <p>Nancy Guthrie, 84, was reported missing from her home in Tucson, Arizona on February 1, 2026. Authorities believe she was abducted in the early morning hours after being last seen by a family member the previous evening around 10:00 PM.</p>
     <div class="callout">
       <span class="callout-label">Case Status</span>
       Open investigation — FBI and Pima County Sheriff's Department actively investigating
@@ -637,50 +650,54 @@
   <!-- ── STEP 1: Suspect in Doorbell Camera Footage ── -->
   <div class="step" data-step="1" data-border="var(--c-red)">
     <div class="step-time">Prior to Jan. 31, 2026</div>
-    <div class="step-title">Suspect caught on Nancy's Nest Cam</div>
+    <div class="step-title">Suspect caught on Doorbell Cam</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
-    <p>A masked suspect was captured on Nancy Guthrie's doorbell camera footage. The suspect's identity and exact date of the incident remain under investigation.</p>
+    <p>A masked suspect was captured on Nancy's Nest doorbell camera footage. His identity and the exact date / time this image was captured remains under investigation.</p>
      <div class="step-gallery">
       <img src="assets/suspect-caught-on-nest-prior-to-jan-31.png" alt="Suspect approaching Nancy's front door">
     </div>
-    <div class="gallery-caption">FBI surveillance images from doorbell camera.</div>
+    <div class="gallery-caption">Image from Nancy's Nest doorbell camera.</div>
     <div class="tldr">
-      <span class="tldr-label">Always recording</span>
-      <p class="tldr-link"><a href="https://apnews.com/article/nancy-guthrie-nest-camera-footage-kidnapper-bd5f1d886543e23f2d105535031c9445" target="_blank">Video in investigation into Nancy Guthrie’s abduction raises questions about surveillance technology</a></p>
+      <span class="tldr-label">Associated Press</span>
+      <p class="tldr-link"><a href="https://apnews.com/article/nancy-guthrie-nest-camera-footage-kidnapper-bd5f1d886543e23f2d105535031c9445" target="_blank">Video in investigation into Nancy Guthrie’s abduction raises questions about surveillance technology.</a></p>
     </div>
   </div>
 
   <!-- ── STEP 2: Nancy Travels to Family Home ── -->
   <div class="step" data-step="2" data-border="var(--c-accent)">
     <div class="step-time">Saturday, Jan. 31 &middot; 5:32 PM</div>
-    <div class="step-title">Nancy Travels to Family's Home</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy Guthrie</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Annie Guthrie</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso Cioni</div>
-    <p><strong>5:32 PM:</strong> Nancy Guthrie took an Uber to her daughter’s home for dinner. Investigators have spoken with the Uber driver, according to the Pima County Sheriff.</p>
+    <div class="step-title">Nancy Goes to Annie and Tommaso's</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Annie</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso</div>
+    <p><strong>5:32 PM:</strong> Nancy took an Uber to Annie and Tommaso's home for dinner.</p>
+    <div class="tldr">
+      <span class="tldr-label">The Sunday Guardian</span>
+      <p class="tldr-link"><a href="https://sundayguardianlive.com/world/nancy-guthrie-update-today-what-investigators-found-in-uber-ride-footage-before-84-year-old-mother-of-savannah-guthrie-disappeared-in-arizona-177132/" target="_blank">“The Uber driver turned over all the video from inside the vehicle. This was looked at by the investigation. They found nothing of substance or anything about Nancy Guthrie in the vehicle, anything she said, her demeanour, nothing was mentioned."</a></p>
+    </div>
   </div>
 
   <!-- ── STEP 3: Last Seen ── -->
   <div class="step" data-step="3" data-border="var(--c-primary)">
     <div class="step-time">Saturday, Jan. 31 &middot; 9:48 PM</div>
-    <div class="step-title">Last Seen at Home</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy Guthrie</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso Cioni</div>
-    <p><strong>9:48 PM:</strong> Nancy Guthrie was dropped off at her home by her son-in-law, Tommaso Cioni, after dining at the home of her daughter Annie.</p>
-    <p><strong>9:50 PM:</strong> Cioni waited until Nancy was inside before driving off. The garage door closed at 9:50 PM, indicating she was home and, authorities assume, preparing for bed.</p>
+    <div class="step-title">Tommaso Drops Nancy Off at Home</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso</div>
+    <p><strong>9:48 PM:</strong> Nancy was dropped off at her home by Tommaso after dining at his and Annie's home approximately 4 miles away.</p>
+    <p><strong>9:50 PM:</strong> Tommaso waited until Nancy was inside before driving off. The garage door closed at 9:50 PM, indicating she was home and, authorities assume, preparing for bed.</p>
   </div>
 
   <!-- ── STEP 4: Doorbell Camera Disconnects ── -->
   <div class="step" data-step="4" data-border="var(--c-red)">
     <div class="step-time">Sunday, Feb. 1 &middot; 1:47 AM</div>
-    <div class="step-title">Doorbell Camera Disconnected</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy Guthrie</div>
+    <div class="step-title">Nest Doorbell Camera Disconnected</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
-    <p><strong>1:47 AM:</strong> Nancy's doorbell camera went offline at 1:47 AM on February 1st. This marks the first technical anomaly in the hours after she was last seen. Footage captured before the disconnection shows a masked suspect at Nancy's front door.</p>
+    <p><strong>1:47 AM:</strong> Nancy's Nest doorbell camera went offline at 1:47 AM. This marks the first technical anomaly in the hours after she was last seen.</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/nancy-guthrie-home-footage-013126-02.mp4"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
-    <div class="embed-caption">Nest camera footage capturing the supspect on the front porch.</div>
+    <div class="embed-caption">Nest doorbell cam footage captured the supspect on Nancy's front porch.</div>
   </div>
 
   <!-- ── STEP 5: Software Detects Person on Camera ── -->
@@ -688,10 +705,10 @@
     <div class="step-time">Sunday, Feb. 1 &middot; 2:12 AM</div>
     <div class="step-title">Software Detects Person on Camera</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
-    <p><strong>2:12 AM:</strong> Home security software detected a person on camera at 2:12 AM, approximately 25 minutes after the doorbell camera went offline. However, no video was available from this detection, indicating the camera had already been disabled.</p>
+    <p><strong>2:12 AM:</strong> Home security software detected a person on camera at 2:12 AM, approximately 25 minutes after the doorbell camera went offline. However, no video was available from this detection, indicating the camera had already been disabled. Footage captured before the disconnection showed a masked suspect at Nancy's front door.</p>
     <div class="tldr">
       <span class="tldr-label">Note</span>
-      <p>The exact circumstances of the disconnection remain unclear, but this automated alert provided evidence that suspicious activity was occurring at the home during the early morning hours.</p>
+      <p>The exact circumstances of the disconnection remain unclear, but this automated alert was part of a series of suspicious activity that occurred in the early morning hours of Nancy's home.</p>
     </div>
   </div>
 
@@ -699,31 +716,32 @@
   <div class="step" data-step="6" data-border="var(--c-red)">
     <div class="step-time">Sunday, Feb. 1 &middot; 2:28 AM</div>
     <div class="step-title">Pacemaker App Disconnected</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy Guthrie</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
-    <p><strong>2:28 PM:</strong> Nancy's pacemaker app showed a disconnect from her Apple Watch at 2:28 AM, approximately 40 minutes after the doorbell camera went offline.</p>
+    <p><strong>2:28 PM:</strong> Nancy's pacemaker app showed a disconnection from her Apple Watch at 2:28 AM, approximately 40 minutes after the Nest doorbell camera went offline.</p>
   </div>
 
   <!-- ── STEP 7: Family Checks on Nancy ── -->
   <div class="step" data-step="7" data-border="var(--c-accent)">
     <div class="step-time">Sunday, Feb. 1 &middot; 11:56 AM</div>
-    <div class="step-title">Family Checks on Nancy</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Annie Guthrie</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso Cioni</div>
-    <p><strong>11:56 AM:</strong> Friends contact Nancy's family after she fails to attend a virtual church service. After Annie and Tomosso drive over to check on Nancy, they found the backdoor open and the house empty.</p>
+    <div class="step-title">Nancy Misses Church</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Neighbors</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Annie</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso</div>
+    <p><strong>11:56 AM:</strong> Friends contact Nancy's family after she failed to arrive at a neighbor's house to watch Savannah's Albany, New York church service via Victory Church's livestream. When Annie and Tommaso drove over to check on Nancy, they found the backdoor open and the house empty.</p>
   </div>
 
   <!-- ── STEP 8: 911 Call & Police Arrive ── -->
   <div class="step" data-step="8" data-border="var(--c-accent)">
     <div class="step-time">Sunday, Feb. 1 &middot; 12:03 PM</div>
-    <div class="step-title">911 Call & Police Arrive</div>
+    <div class="step-title">911 Call & Police Arrival</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
-    <p><strong>12:03 PM:</strong> The family called 911 at approximately 12:03 PM to report Nancy missing. According to dispatch audio, Nancy was described as "a white female, 84 years of age, 5 feet 2 inches, medium build, brown over blue," and dispatchers noted she suffers from high blood pressure, has a pacemaker, and has cardiac issues.</p>
+    <p><strong>12:03 PM:</strong> The family called 911 at approximately 12:03 PM to report Nancy missing. According to dispatch audio, Nancy was described as "a white female, 84 years of age, 5 feet 2 inches, medium build, brown over blue," and dispatchers noted she suffers from high blood pressure, has a pacemaker, and cardiac issues.</p>
     <p><strong>12:15 PM:</strong> Patrol arrived at the residence at 12:15 PM and immediately determined she was missing under "concerning circumstances." Given her limited mobility and dependence on daily medication, authorities immediately launched an urgent search.</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/dispatch-audio.mp4"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
-    <div class="embed-caption">Audio of Pima County Sheriff's Dept. dispatch.</div>
+    <div class="embed-caption">Audio of Pima County Sheriff's Dept. dispatch traffic.</div>
   </div>
 
   <!-- ── STEP 9: Missing Person Flyer Released ── -->
@@ -731,11 +749,11 @@
     <div class="step-time">Sunday, Feb. 1 &middot; 6:00 PM</div>
     <div class="step-title">Missing Person Flyer Released</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
-    <p><strong>6:00 PM:</strong> The Pima County Sheriff's Department released the first missing person's flyer for Nancy Guthrie, distributing it to the public and media outlets as the search continued.</p>
+    <p><strong>6:00 PM:</strong> The Pima County Sheriff's Department released the first missing persons flyer for Nancy Guthrie, distributing it to the public and media outlets as their search efforts continued.</p>
     <div class="step-gallery">
       <img src="assets/pima-county-missing-person-flyer-on-feb-1.png" alt="Pima County Sheriff releases missing person poster for Nancy">
     </div>
-    <div class="gallery-caption">Pima County Sheriff releases missing person poster for Nancy.</div>
+    <div class="gallery-caption">Pima County Sheriff missing person poster for Nancy.</div>
   </div>
 
   <!-- ── STEP 10: First News Conference ── -->
@@ -743,32 +761,26 @@
     <div class="step-time">Sunday, Feb. 1 &middot; 8:30 PM</div>
     <div class="step-title">First News Conference</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
-    <p><strong>8:30 PM:</strong> The Pima County Sheriff's Department held its first news conference regarding Nancy Guthrie's disappearance, providing updates to the media and public on the early stages of the investigation.</p>
+    <p><strong>8:30 PM:</strong> The Pima County Sheriff's Department held its first news conference regarding Nancy Guthrie's disappearance, providing minimal updates to the media and public on the early stages of the investigation.</p>
     <div class="step-embed">
-      <div class="embed-placeholder" data-src="https://www.youtube.com/embed/4yuQTLaBOd4"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+      <div class="embed-placeholder" data-src="assets/first-press-conference.mp4"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
-    <div class="embed-caption">First news conference on Nancy's disappearance.</div>
+    <div class="embed-caption">Sheriff Nanos press conference on Savannah Guthrie's mother.</div>
   </div>
 
-  <!-- ── STEP 11: Crime Confirmed ── -->
-  <div class="step" data-step="11" data-border="var(--c-red)">
-    <div class="step-time">Monday, Feb. 2, 2026</div>
-    <div class="step-title">Crime Confirmed</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
-    <p>Sheriff Chris Nanos confirmed the disappearance was being treated as a crime. "We believe we do in fact have a crime scene," Nanos told reporters, urging neighbors to review home video footage.</p>
-    <p>Nanos stated he believed Guthrie was "abducted" in the middle of the night and "didn't walk from there. She didn't go willingly."</p>
-  </div>
-
-  <!-- ── STEP 12: Ransom Note Received ── -->
-  <div class="step" data-step="12" data-border="var(--c-primary)">
+  <!-- ── STEP 11: Ransom Note Received ── -->
+  <div class="step" data-step="11" data-border="var(--c-primary)">
     <div class="step-time">Monday, Feb. 2, 2026</div>
     <div class="step-title">Ransom Notes Received by Media</div>
-    <p><strong>~5:00 PM:</strong> KOLD News 13 received an alleged ransom note. The station immediately forwarded it to the FBI and Pima County Sheriff's Department and opted while choosing not to report on it.</p>
-    <p><strong>~6:40 PM:</strong> TMZ received what appeared to be the same initial ransom note.</p>
-    <p>The notes contained specific details about items in Nancy's home and included demands for payment in Bitcoin, along with deadlines. The inclusion of non-public information piqued investigators' interest and led some to believe the notes might be genuine.</p>
+    <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> KOLD News 13</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> TMZ</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
+    <p><strong>~6:42 PM:</strong> KOLD News 13 received an alleged ransom note. The station immediately forwarded it to the FBI and Pima County Sheriff's Department, choosing not to report on it.</p>
+    <p><strong>~8:00 PM:</strong> TMZ and KGUN receive what appeared to be the same initial ransom note.</p>
     <p><strong>Demands:</strong> $6 million to a specific Bitcoin address for Nancy's release. The note included specific non-public details that caught investigators' attention.</p>
-    <ul style="color:var(--text2);margin-left:16px;margin-bottom:12px;">
-      <li>Set deadline: Thursday 5 PM local time</li>
+    <ul class="demands-list">
+      <li>Set deadline for Thursday 5:00 PM local time</li>
       <li>Warning that missing the deadline would result in a changed "demand"</li>
       <li>Specified that Nancy Guthrie would be returned to Tucson within a certain time frame</li>
       <li>Apple Watch location (specific, non-obvious placement)</li>
@@ -776,6 +788,28 @@
       <li>Specific phrasing about Bitcoin procedures and next steps suggests local knowledge</li>
       <li>Provided no means for the family to contact the sender</li>
     </ul>
+    <div class="tldr">
+      <span class="tldr-label">KGUN, the Scripps station in Tucson</span>
+      <p class="tldr-link"><a href="https://www.scrippsnews.com/us-news/crime/please-pray-savannah-guthrie-releases-first-statement-since-mom-went-missing" target="_blank">The alleged ransom note "made a specific demand for several million dollars in Bitcoin by Thursday and threatens to kill her if payment is not received by Monday. It also makes specific reference to two pieces of evidence at the crime scene, which we can not authenticate as legitimate. KGUN has forwarded the full contents of the note to investigators and authorities."</a></p>
+    </div>
+  </div>
+
+  <!-- ── STEP 12: Crime Confirmed ── -->
+  <div class="step" data-step="12" data-border="var(--c-red)">
+    <div class="step-time">Monday, Feb. 2, 2026</div>
+    <div class="step-title">Sheriff Confirms Foul Play</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
+    <p>Sheriff Chris Nanos confirmed the disappearance was being treated as a crime. "We believe we do in fact have a crime scene," Nanos told reporters, urging neighbors to review home video footage.</p>
+    <p>Nanos stated he believed Guthrie was "abducted" in the middle of the night and "didn't walk from there. She didn't go willingly."</p>
+    <div class="step-gallery">
+      <img src="assets/law-enforcement-at-nancy-home-on-feb-2.png" alt="Law enforcement officers outside Nancy's home on Feb. 2, 2026. Photo: AP Photo/Sejal Govindarao.">
+    </div>
+    <div class="gallery-caption">Law enforcement officers outside Nancy's home on Feb. 2, 2026. Photo: AP Photo/Sejal Govindarao.</div>
+    <div class="tldr">
+      <span class="tldr-label">CBS News</span>
+      <p class="tldr-link"><a href="https://www.cbsnews.com/news/savannah-guthrie-mother-nancy-guthrie-missing-arizona/" target="_blank">"We saw some things at the home that were concerning to us," Nanos told reporters. "We believe now after we've processed that crime scene that we do in fact have a crime scene, that we do in fact have a crime, and we're asking the community's help."<br>The FBI is assisting in the investigation, two sources told CBS News.</a></p>
+    </div>
   </div>
 
   <!-- ── STEP 13: Ransom Demand Details Released ── -->
@@ -783,6 +817,7 @@
     <div class="step-time">Tuesday, Feb. 3, 2026</div>
     <div class="step-title">Ransom Demand Details Released</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> FBI</div>
     <p><strong>2:50 PM:</strong> The Pima County Sheriff's Department posted on X stating they are "aware of reports circulating about possible ransom note(s) regarding the investigation into Nancy Guthrie." The department stated they are taking all tips and leads very seriously and anything that comes in "goes directly to our detectives who are coordinating with the FBI."</p>
     <div class="step-gallery">
       <img src="assets/we-are-aware.png" alt="Pima Co. Sheriff confirms knowledge of alleged ransom letter">
@@ -793,13 +828,17 @@
   <!-- ── STEP 14: Evidence of Crime Confirmed ── -->
   <div class="step" data-step="14" data-border="var(--c-red)">
     <div class="step-time">Tuesday, Feb. 3, 2026 (Evening)</div>
-    <div class="step-title">Blood and Evidence Found at Home</div>
+    <div class="step-title">Blood Observed on Nancy's Doorstep</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
-    <p>Blood is discovered outside the front door of Nancy's home, later confirmed to be hers. Additional blood was also found inside the house. The doorbell camera that had been mounted near the entrance was also found to be missing.</p>
+    <p>After investigators release the crime scene, media discovers blood outside the front door of Nancy's home, later confirmed to be hers. The doorbell camera that had been mounted near the entrance was also found to be missing.</p>
     <div class="step-gallery">
       <img src="assets/drops-of-blood-observed-on-feb-3.png" alt="Pima County Sheriff releases missing person poster for Nancy">
     </div>
     <div class="gallery-caption">Photo: Derek Shook for Fox News Digital.</div>
+    <div class="tldr">
+      <span class="tldr-label">NewsNation</span>
+      <p class="tldr-link"><a href="https://www.newsnationnow.com/crime/blood-trail-nancy-savannah-guthrie/" target="_blank">NewsNation discovered a blood trail leading from the front door of Nancy Guthrie’s home Tuesday, the first visible evidence in the disappearance of the 84-year-old mother of “Today” show co-host Savannah Guthrie. The blood was visible outside the front entrance of the rural Tucson home after authorities cleared the crime scene and released the property to the family. </a></p>
+    </div>
   </div>
 
   <!-- ── STEP 15: First response from Guthrie Family ── -->
@@ -807,27 +846,33 @@
     <div class="step-time">Wednesday, Feb. 4, 2026 (Evening)</div>
     <div class="step-title">First Response From Guthrie Family</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Guthrie Family</div>
-    <p>Nancy Guthrie’s daughter, Savannah Guthrie, and her siblings released a message to her mother’s kidnapper, saying they are ready to talk but want proof their mom is still alive. However, there’s been no public sign of a response.</p>
-    <p>”We are ready to talk. However, we live in a world where voices and images are easily manipulated,” Savannah Guthrie said while reading from a prepared statement. “We need to know without a doubt that she is alive and that you have her. We want to hear from you and we are ready to listen. Please reach out to us.”</p>
+    <p>Savannah Guthrie said their family has heard media reports about a ransom letter for Nancy Guthrie, who authorities believe was taken from her home in Arizona against her will.</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/bring-her-home.mp4" data-aspect-ratio="9/16"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Bring her home.</div>
+    <div class="tldr">
+      <span class="tldr-label">Associated Press</span>
+      <p class="tldr-link"><a href="https://apnews.com/article/savannah-guthrie-nancy-guthrie-mom-missing-88e8731270d05e6e667730d2ed8633d3" target="_blank">“We are ready to talk. However, we live in a world where voices and images are easily manipulated,” Savannah Guthrie said while reading from a prepared statement. “We need to know without a doubt that she is alive and that you have her. We want to hear from you and we are ready to listen. Please reach out to us.”</a></p>
+    </div>
+    <p>The Guthrie family posted the message after police conducted a search in and around Nancy's home for several hours. Kevin Adger, a spokesperson for the Pima County Sheriff’s Department, said investigators had been at the home earlier in the week for a couple of days and then turned it back over to the family with the understanding they could go back if they needed to.</p>
   </div>
 
   <!-- ── STEP 16: Cameron Guthrie Demands Proof of Life ── -->
   <div class="step" data-step="16" data-border="var(--c-accent)">
     <div class="step-time">Thursday, Feb. 5, 2026</div>
-    <div class="step-title">Cameron Guthrie Proof of Life Demand</div>
+    <div class="step-title">Cameron Guthrie Demands Contact</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Guthrie Family</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
-    <p><strong>Ransom Impostor Arrested:</strong> A California man was arrested for sending an "imposter" ransom note to the family. Janke warned: "To those impostors who are trying to take advantage and profit from this situation, we will investigate and ensure you are held accountable for your actions."</p>
-    <p>Cameron Guthrie pleads: "Whoever is out there holding our mother, we want to hear from you. We haven't heard anything directly. We need you to reach out and we need a way to communicate with you so we can move forward. But first we have to know that you have our mom."</p>
-    <p>The FBI showed the alleged ransom letter to the Guthrie family and coordinated with the family on response strategy.</p>
+    <p><strong>Cameron Guthrie pleads:</strong> "Whoever is out there holding our mother, we want to hear from you. We haven't heard anything directly. We need you to reach out and we need a way to communicate with you so we can move forward. But first we have to know that you have our mom."</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/cameron.mp4" data-aspect-ratio="9/16"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">"We haven't heard anything directly."</div>
+    <div class="tldr">
+      <span class="tldr-label">KRCR</span>
+      <p class="tldr-link"><a href="https://krcrtv.com/news/nation-world/man-arrested-for-sending-nancy-guthries-family-imposter-ransom-demand-court-docs-texts-note-bitcoin-payments-savannah-guthrie-today-show-co-host-blood-crime-scene-investigation-probe" target="_blank"> A 42-year-old California man was arrested for allegedly sending fake ransom texts to Savannah Guthrie’s family in connection to her missing mother, Nancy. A criminal complaint filed on Thursday identified him as Derrick Callella.</a></p>
+    </div>
   </div>
 
   <!-- ── STEP 17: First Deadline Passes ── -->
@@ -835,37 +880,48 @@
     <div class="step-time">Thursday, Feb. 5, 2026</div>
     <div class="step-title">First Deadline Passes & FBI Response</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
-    <p><strong>FBI Statement:</strong> Heith Janke, special agent in charge of the FBI's Phoenix office, made an official statement confirming the existence of an alleged ransom note. The note included details about an Apple Watch and a floodlight, as well as deadlines and monetary amounts. Janke said decisions about ransom would be made by the Guthrie family, who have been in touch with investigators. "As with every lead, we are taking it seriously," Janke said.</p>
-    <p><strong>Reward Offered:</strong> The FBI announced a $50,000 reward for information regarding Nancy Guthrie's whereabouts or that led to an arrest and conviction in the case.</p>
     <p><strong>~4:00 PM:</strong> The deadline set in the first alleged ransom note passed without the family receiving proof of life or direct contact from the alleged kidnappers.</p>
+    <p><strong>FBI Statement:</strong> Heith Janke, special agent in charge of the FBI's Phoenix office, made an official statement confirming the existence of an alleged ransom note. Janke said decisions about ransom would be made by the Guthrie family, who have been in touch with investigators. "As with every lead, we are taking it seriously," Janke said.</p>
+    <p><strong>Reward Offered:</strong> The FBI announced a $50,000 reward for information regarding Nancy Guthrie's whereabouts or that led to an arrest and conviction in the case.</p>
+    <div class="tldr">
+      <span class="tldr-label">NPR</span>
+      <p class="tldr-link"><a href="https://www.npr.org/2026/02/05/nx-s1-5702751/fbi-says-its-taking-ransom-notes-seriously-in-nancy-guthries-disappearance" target="_blank"> So the FBI said that there was a ransom letter sent earlier this week to some news outlets, and they are taking it seriously. But they said there's been no contact with the Guthrie family since the messages were sent to the media. Heith Janke, who's with the FBI's Phoenix office, said that's unusual in kidnapping cases, and there would normally be contact by now.<br><br>Also, Pima County Sheriff Chris Nanos said that blood found on the porch at Nancy Guthrie's house was hers. He said they're hopeful that she can be found and returned home safely.</a></p>
+    </div>
   </div>
 
   <!-- ── STEP 18: Increased Investigation Activity ── -->
   <div class="step" data-step="18" data-border="var(--c-primary)">
     <div class="step-time">Friday, Feb. 6, 2026</div>
-    <div class="step-title">Increased Investigation Activity</div>
+    <div class="step-title">Second Ransome Note</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
-    <p>FBI agents canvassed homes near Nancy Guthrie's residence. At least five Pima County Sheriff's vehicles arrived outside the property, with one parked directly in front. Deputies placed orange cones to block traffic in and out of the road.</p>
-    <p><strong>11:00 to 11:45 AM:</strong> KOLD News 13 received a second alleged ransom message through its anonymous online news tip system and immediately forwarded it to the FBI and Pima County Sheriff's Department. TMZ also received a second alleged ransom note.</p>
-    <p>Unlike the first communication, this message made no new demands and provided no proof of life. KOLD News 13 declined to call it a ransom note: "We are not calling this a ransom note. We are calling it a message because no further demands were made." The message came from a different IP address than the first, but both appeared to use similar cloaking software.</p>
-    <p><strong>9:00 PM:</strong> At approx 9:00 PM on Friday, a blue SUV was towed away from Nancy Guthrie's driveway.</p>
-    <div class="step-gallery">
-      <img src="assets/fbi-canvass-feb-6.png" alt="FBI canvassing the neighborhood">
+    <p><strong>~11:45 AM:</strong> KOLD News 13 received a second alleged ransom message through its anonymous online news tip system and immediately forwarded it to the FBI and Pima County Sheriff's Department. TMZ also received a second alleged ransom note.</p>
+    <div class="tldr">
+      <span class="tldr-label">NewsNation</span>
+      <p class="tldr-link"><a href="https://www.newsnationnow.com/vargasreports/all-ransom-notes-nancy-guthrie-case/" target="_blank"> Unlike the first communication, this message made no new demands and provided no proof of life that the Guthrie family has desperately sought, Bobula said. “We are not calling this a ransom note,” Bobula told NewsNation. “We are calling it a message because no further demands were made.” <br><br>KOLD anchor Mary Coleman reported on social media that the second message came from a different IP address than the first, but both appear to have used similar cloaking software to hide the sender’s identity.</a></p>
     </div>
-    <div class="gallery-caption">FBI agents canvass Nancy's neightborhood.</div>
+    <p>FBI agents canvassed homes near Nancy Guthrie's residence. At least five Pima County Sheriff's vehicles arrived outside the property, with one parked directly in front. Deputies placed orange cones to block traffic in and out of the road.</p>
+    <div class="step-embed">
+      <div class="embed-placeholder" data-src="assets/deputies-block-traffic.mp4"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+    </div>
+    <div class="embed-caption">Wave of police vehicles arrive at Nancy Guthrie's home | NewsNation.</div>
+    <p><strong>9:00 PM:</strong> The FBI removes vehicle from Nancy Guthrie's home during ongoing investigation.</p>
+    <div class="tldr">
+      <span class="tldr-label">NBC4 Los Angeles</span>
+      <p class="tldr-link"><a href="https://www.nbclosangeles.com/news/local/fbi-removes-vehicle-from-nancy-guthries-home-during-ongoing-investigation/3842845/"> NBC4 obtained video Friday night showing a vehicle being towed from the residence of Nancy Guthrie as the FBI continued processing the home as part of an ongoing investigation. The footage shows the car being removed from the property during what authorities described as active crime scene operations. Investigators have not publicly commented on the significance of the vehicle. Photo and video records of the Guthrie residence indicate the car had previously been parked inside the home’s garage and is believed to belong to Guthrie.</a></p>
+    </div>
   </div>
 
   <!-- ── STEP 19: Family Video Response ── -->
   <div class="step" data-step="19" data-border="var(--c-accent)">
     <div class="step-time">Saturday, Feb. 7, 2026</div>
-    <div class="step-title">Family Releases Video Response</div>
+    <div class="step-title">Guthrie Family Releases Another Video Response</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Guthrie Family</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
-    <p>Nancy Guthrie's family released a video message in response to the second message sent to KOLD 13 News on Friday. Savannah Guthrie appeared alongside her sister Annie and brother Cameron.</p>
-    <p>Savannah stated: "We received your message, and we understand. We beg you now to return our mother to us so we can celebrate with her. It is the only way we have peace. This is very valuable to us, and we will pay."</p>
+    <p>Nancy's family released a video message in response to the second message sent to KOLD 13 News on Friday. Savannah appeared alongside her sister Annie and brother Cameron.</p>
+    <p><strong>Savannah stated:</strong> "We received your message, and we understand. We beg you now to return our mother to us so we can celebrate with her. It is the only way we have peace. This is very valuable to us, and we will pay."</p>
     <p>The FBI confirmed the video statement was a direct response to the message sent the day before.</p>
     <p><strong>Investigation Activity:</strong> KOLD 13 News confirmed that investigators went to a Circle K on Oracle Road in connection with the case, suggesting law enforcement was pursuing leads in the surrounding area.</p>
     <div class="step-embed">
@@ -905,9 +961,9 @@
     <div class="step-title">Suspect Video Released</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
-    <p>The FBI and Pima County Sheriff's Department released doorbell camera surveillance images of a masked suspect at Nancy's front door.</p>
+    <p>The FBI and Pima County Sheriff's Department released the Nest doorbell camera surveillance images of the masked suspect at Nancy's front door.</p>
     <p>The suspect, described as male, approximately 5'9" to 5'10" with average build, was wearing:</p>
-    <ul style="color:var(--text2);margin-left:16px;margin-bottom:12px;">
+    <ul class="demands-list">
       <li>Black face mask</li>
       <li>Black gloves</li>
       <li>Black Ozark Trail Hiker Pack backpack (25-liter capacity, sold exclusively at Walmart)</li>
@@ -1119,6 +1175,14 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
     <p>A law enforcement source told 13 News that Nancy Guthrie's home will be returned by the end of the week or the following week. The home has been treated as a crime scene since her disappearance nearly four weeks prior.</p>
     <p>Activity at the home diminished on Thursday, with reduced law enforcement presence compared to the previous day's FBI and federal prosecutor activity.</p>
+    <div class="step-embed">
+      <div class="embed-placeholder" data-src="assets/neighbors-ring-cam.mp4"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+    </div>
+    <div class="embed-caption">Ring camera footage released by Nancy's neighbors.</div>
+    <div class="tldr">
+      <span class="tldr-label">WFMD 930</span>
+      <p class="tldr-link"><a href="https://www.wfmd.com/2026/02/26/nancy-guthrie-neighbors-ring-camera-captures-vehicles-on-possible-route-from-crime-scene/" target="_blank"> A resident in the Catalina Foothills neighborhood has a street-facing Ring camera that caught 12 cars passing by on the morning of Nancy Guthrie’s suspected abduction. The recordings took place between midnight and 6 AM on Feb. 1, and some of the activity occurred near the 2:30 AM mark, which is around the time authorities said the 84-year-old Guthrie’s pacemaker device last synced with her iPhone.</a></p>
+    </div>
   </div>
 
   <!-- ── STEP 40: Investigation Resource Refocus ── -->
@@ -1261,7 +1325,7 @@ var COLORS = {
 
 // Per-step metadata: clock display + map focus
 var STEP_META = {
-  0: { date: 'January 31 - February 1, 2026', time: '', focus: 'home' },
+  0: { date: 'Saturday, Jan. 31, 2026', time: '', focus: 'home' },
   1: { date: 'Unknown Date', time: '', focus: 'home' },
   2: { date: 'January 31', time: '5:32 PM', focus: 'home' },
   3: { date: 'January 31', time: '9:48 PM', focus: 'home' },
