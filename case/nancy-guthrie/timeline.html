@@ -277,6 +277,10 @@
       margin-bottom: 14px; 
       line-height: 1.3;
     }
+    .where-nancy {
+      font-family: var(--serif); 
+      font-size: 42px;
+    }
     .step p {
       font-size: 14px; 
       line-height: 1.75;
@@ -533,6 +537,9 @@
       .step-title {
         font-size: 18px;
       }
+      .where-nancy {
+      font-size: 24px;
+      }
       .step p {
         font-size: 13px;
       }
@@ -637,14 +644,13 @@
   <!-- ── STEP 0: Intro ── -->
   <!-- ── STEP 0: Nancy Guthrie Missing ── -->
   <div class="step" data-step="0" data-border="var(--c-accent)">
-    <div class="step-time">Open Case</div>
-    <div class="step-title">Where's Nancy?</div>
+    <div class="step-time" style="color: var(--c-primary);">&mdash; Active Investigation</div>
+    <div class="step-title"><span class="where-nancy">Where's Nancy?</span></div>
     <p>Nancy Guthrie, 84, was reported missing from her home in Tucson, Arizona on February 1, 2026. Authorities believe she was abducted in the early morning hours after being last seen by a family member the previous evening around 10:00 PM.</p>
     <div class="callout">
       <span class="callout-label">Case Status</span>
       Open investigation — FBI and Pima County Sheriff's Department actively investigating
     </div>
-    <p style="padding-top:1%;"><em>This page is under construction while I continue trying to organize all the events as they unfolded.</em></p>
   </div>
 
   <!-- ── STEP 1: Suspect in Doorbell Camera Footage ── -->
@@ -704,6 +710,7 @@
   <div class="step" data-step="5" data-border="var(--c-red)">
     <div class="step-time">Sunday, Feb. 1 &middot; 2:12 AM</div>
     <div class="step-title">Software Detects Person on Camera</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
     <p><strong>2:12 AM:</strong> Home security software detected a person on camera at 2:12 AM, approximately 25 minutes after the doorbell camera went offline. However, no video was available from this detection, indicating the camera had already been disabled. Footage captured before the disconnection showed a masked suspect at Nancy's front door.</p>
     <div class="tldr">
@@ -731,9 +738,8 @@
   <div class="step" data-step="7" data-border="var(--c-accent)">
     <div class="step-time">Sunday, Feb. 1 &middot; 11:56 AM</div>
     <div class="step-title">Nancy Misses Church</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Neighbors</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Annie</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-accent)"></span> Nancy</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Neighbors</div>
     <p><strong>11:56 AM:</strong> Friends contact Nancy's family after she failed to arrive at a neighbor's house to watch Savannah's Albany, New York church service via Victory Church's livestream. When Annie and Tommaso drove over to check on Nancy, they found the backdoor open and the house empty.</p>
   </div>
 
@@ -741,6 +747,8 @@
   <div class="step" data-step="8" data-border="var(--c-accent)">
     <div class="step-time">Sunday, Feb. 1 &middot; 12:03 PM</div>
     <div class="step-title">911 Call & Police Arrival</div>
+        <div class="person-pill"><span class="dot" style="background:var(--c-peach)"></span> Annie</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-teal)"></span> Tommaso</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <p><strong>12:03 PM:</strong> The family called 911 at approximately 12:03 PM to report Nancy missing. According to dispatch audio, Nancy was described as "a white female, 84 years of age, 5 feet 2 inches, medium build, brown over blue," and dispatchers noted she suffers from high blood pressure, has a pacemaker, and cardiac issues.</p>
     <p><strong>12:15 PM:</strong> Patrol arrived at the residence at 12:15 PM and immediately determined she was missing under "concerning circumstances." Given her limited mobility and dependence on daily medication, authorities immediately launched an urgent search.</p>
@@ -823,7 +831,6 @@
     <div class="step-time">Tuesday, Feb. 3, 2026</div>
     <div class="step-title">Ransom Demand Details Released</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> FBI</div>
     <p><strong>2:50 PM:</strong> The Pima County Sheriff's Department posted on X stating they are "aware of reports circulating about possible ransom note(s) regarding the investigation into Nancy Guthrie." The department stated they are taking all tips and leads very seriously and anything that comes in "goes directly to our detectives who are coordinating with the FBI."</p>
     <div class="step-gallery">
       <img src="assets/02-03-26-we-are-aware.png" alt="Pima Co. Sheriff confirms knowledge of alleged ransom letter.">
@@ -836,6 +843,7 @@
     <div class="step-time">Tuesday, Feb. 3, 2026 (Evening)</div>
     <div class="step-title">Blood Observed on Nancy's Doorstep</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-pink)"></span> NewsNation</div>
     <p>After investigators release the crime scene, media discovers blood outside the front door of Nancy's home, later confirmed to be hers. The doorbell camera that had been mounted near the entrance was also found to be missing.</p>
     <div class="step-gallery">
       <img src="assets/02-03-26-drops-of-blood-observed.png" alt="Blood observed on Nancy's front porch.">
@@ -852,6 +860,7 @@
     <div class="step-time">Wednesday, Feb. 4, 2026 (Evening)</div>
     <div class="step-title">First Response From Guthrie Family</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Guthrie Family</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <p>Savannah Guthrie said their family has heard media reports about a ransom letter for Nancy Guthrie, who authorities believe was taken from her home in Arizona against her will.</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/02-04-26-bring-her-home.mp4" data-aspect-ratio="9/16"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
@@ -861,7 +870,7 @@
       <span class="tldr-label">Associated Press</span>
       <p class="tldr-link"><a href="https://apnews.com/article/savannah-guthrie-nancy-guthrie-mom-missing-88e8731270d05e6e667730d2ed8633d3" target="_blank">“We are ready to talk. However, we live in a world where voices and images are easily manipulated,” Savannah Guthrie said while reading from a prepared statement. “We need to know without a doubt that she is alive and that you have her. We want to hear from you and we are ready to listen. Please reach out to us.”</a></p>
     </div>
-    <p>The Guthrie family posted the message after police conducted a search in and around Nancy's home for several hours. Kevin Adger, a spokesperson for the Pima County Sheriff’s Department, said investigators had been at the home earlier in the week for a couple of days and then turned it back over to the family with the understanding they could go back if they needed to.</p>
+    <p><strong>Nancy's home returned to family:</strong>The Guthrie family posted the message after police conducted a search in and around Nancy's home for several hours. Kevin Adger, a spokesperson for the Pima County Sheriff’s Department, said investigators had been at the home earlier in the week for a couple of days and then turned it back over to the family with the understanding they could go back if they needed to.</p>
   </div>
 
   <!-- ── STEP 16: Cameron Guthrie Demands Proof of Life ── -->
@@ -886,12 +895,13 @@
     <div class="step-time">Thursday, Feb. 5, 2026</div>
     <div class="step-title">First Deadline Passes & FBI Response</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <p><strong>~4:00 PM:</strong> The deadline set in the first alleged ransom note passed without the family receiving proof of life or direct contact from the alleged kidnappers.</p>
     <p><strong>FBI Statement:</strong> Heith Janke, special agent in charge of the FBI's Phoenix office, made an official statement confirming the existence of an alleged ransom note. Janke said decisions about ransom would be made by the Guthrie family, who have been in touch with investigators. "As with every lead, we are taking it seriously," Janke said.</p>
     <p><strong>Reward Offered:</strong> The FBI announced a $50,000 reward for information regarding Nancy Guthrie's whereabouts or that led to an arrest and conviction in the case.</p>
     <div class="tldr">
       <span class="tldr-label">NPR</span>
-      <p class="tldr-link"><a href="https://www.npr.org/2026/02/05/nx-s1-5702751/fbi-says-its-taking-ransom-notes-seriously-in-nancy-guthries-disappearance" target="_blank"> So the FBI said that there was a ransom letter sent earlier this week to some news outlets, and they are taking it seriously. But they said there's been no contact with the Guthrie family since the messages were sent to the media. Heith Janke, who's with the FBI's Phoenix office, said that's unusual in kidnapping cases, and there would normally be contact by now.<br><br>Also, Pima County Sheriff Chris Nanos said that blood found on the porch at Nancy Guthrie's house was hers. He said they're hopeful that she can be found and returned home safely.</a></p>
+      <p class="tldr-link"><a href="https://www.npr.org/2026/02/05/nx-s1-5702751/fbi-says-its-taking-ransom-notes-seriously-in-nancy-guthries-disappearance" target="_blank">"So the FBI said that there was a ransom letter sent earlier this week to some news outlets, and they are taking it seriously. But they said there's been no contact with the Guthrie family since the messages were sent to the media. Heith Janke, who's with the FBI's Phoenix office, said that's unusual in kidnapping cases, and there would normally be contact by now.<br><br>Also, Pima County Sheriff Chris Nanos said that blood found on the porch at Nancy Guthrie's house was hers. He said they're hopeful that she can be found and returned home safely."</a></p>
     </div>
   </div>
 
@@ -901,13 +911,13 @@
     <div class="step-title">Second Ransome Note</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> KOLD</div>
     <p><strong>~11:45 AM:</strong> KOLD News 13 received a second alleged ransom message through its anonymous online news tip system and immediately forwarded it to the FBI and Pima County Sheriff's Department. TMZ also received a second alleged ransom note.</p>
     <div class="tldr">
       <span class="tldr-label">NewsNation</span>
       <p class="tldr-link"><a href="https://www.newsnationnow.com/vargasreports/all-ransom-notes-nancy-guthrie-case/" target="_blank"> Unlike the first communication, this message made no new demands and provided no proof of life that the Guthrie family has desperately sought, Bobula said. “We are not calling this a ransom note,” Bobula told NewsNation. “We are calling it a message because no further demands were made.” <br><br>KOLD anchor Mary Coleman reported on social media that the second message came from a different IP address than the first, but both appear to have used similar cloaking software to hide the sender’s identity.</a></p>
     </div>
-    <p>FBI agents canvassed homes near Nancy Guthrie's residence. At least five Pima County Sheriff's vehicles arrived outside the property, with one parked directly in front. Deputies placed orange cones to block traffic in and out of the road.</p>
+    <p><strong>Afternoon:</strong> FBI agents canvassed homes near Nancy Guthrie's residence. At least five Pima County Sheriff's vehicles arrived outside the property, with one parked directly in front. Deputies placed orange cones to block traffic in and out of the road.</p>
     <div class="step-gallery">
       <img src="assets/02-06-26-fbi-canvass.png" alt="FBI agents canvassed homes near Nancy Guthrie's residence">
     </div>
@@ -938,6 +948,10 @@
     <div class="embed-caption">"This is very valuable to us and we will pay." | CBS News</div>
     <p>The FBI confirmed the video statement was a direct response to the message sent the day before.</p>
     <p><strong>Investigation Activity:</strong> KOLD 13 News confirmed that investigators went to a Circle K on Oracle Road in connection with the case, suggesting law enforcement was pursuing leads in the surrounding area.</p>
+    <div class="tldr">
+      <span class="tldr-label">NewsNation</span>
+      <p class="tldr-link"><a href="https://www.newsnationnow.com/missing/police-seen-leaving-annie-guthries-home-with-gloves-brown-bags/"> Police were seen at daughter Annie Guthrie’s home late Saturday night, after the family issued another video message to their mother Nancy Guthrie’s supposed abductor.  The carefully worded message announced the family’s intention to pay the ransom.<br><br>Sheriff’s deputies were back at Nancy Guthrie’s house not long after that video release, and a new law enforcement presence was also spotted at the home of Annie Guthrie several miles away, with unmarked cars there for several hours. </a></p>
+    </div>
   </div>
 
   <!-- ── STEP 20: Septic Tank Investigation ── -->
@@ -978,8 +992,9 @@
     <div class="step-time">Tuesday, Feb. 10, 2026</div>
     <div class="step-title">Suspect Video Released</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
-    <p>The FBI and Pima County Sheriff's Department released the Nest doorbell camera surveillance images of the masked suspect at Nancy's front door.</p>
+    <p>The FBI and Pima County Sheriff's Department released Nest doorbell camera surveillance images of the masked suspect at Nancy's front door.</p>
     <p>The suspect, described as male, approximately 5'9" to 5'10" with average build, was wearing:</p>
     <ul class="demands-list">
       <li>Black face mask</li>
@@ -1010,7 +1025,7 @@
       <span class="tldr-label">KPTV</span>
       <p class="tldr-link"><a href="https://www.kptv.com/2026/02/11/man-who-said-he-was-released-after-questioning-nancy-guthrie-case-wants-an-apology/" target="_blank">Carlos was released without charges and is not facing any criminal accusations related to this case. Carlos told reporters he was shocked by the detention. "I work in Tucson for GLS. I might have delivered a package to her house, but I never kidnapped anybody," he said. He explicitly stated that he does not know Nancy Guthrie.</a></p>
     </div>
-    <p><strong>Gloves Found:</strong> Black gloves were recovered approximately 2 miles from Nancy's home and contained DNA evidence. The gloves appeared to match those worn by the suspect in the doorbell camera footage. However, the DNA profile did not match anyone in the FBI's national database (CoDIS). Later analysis traced the gloves to a local restaurant worker with no connection to the case.</p>
+    <p><strong>Gloves Found:</strong> Black gloves were recovered approximately 2 miles from Nancy's home and contained DNA evidence. The gloves appeared to match those worn by the suspect in the doorbell camera footage.</p>
     <div class="step-gallery">
       <img src="assets/02-11-26-fbi-surveils-area-near-guthrie-home.png" alt="FBI agent surveilling the area around Nancy Guthrie's home.">
     </div>
@@ -1032,18 +1047,17 @@
     <div class="step-gallery">
       <img src="assets/02-11-26-gloves-3.png" alt="FBI officers examine glove on the ground 1.5 miles from Nancy Guthrie’s home.">
     </div>
-    <div class="gallery-caption">FBI officers examine glove on the ground 1.5 miles from Nancy Guthrie’s home. | Georgia Worrell/NY Post</div>
+    <div class="gallery-caption">FBI officers examine glove on the ground 1.5 miles from Nancy's home. | Georgia Worrell/NY Post</div>
   </div>
 
   <!-- ── STEP 51: Reward Increased & Suspect Description ── -->
   <div class="step" data-step="25" data-border="var(--c-primary)">
     <div class="step-time">Thursday, Feb. 12, 2026</div>
-    <div class="step-title">Reward Increased & Suspect Description</div>
+    <div class="step-title">New Message Sent to Media & Request for Footage</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
-    <p>The FBI increased the reward to $100,000 and released a more detailed description of the suspect. The man is described as 5-foot-9 to 5-foot-10 with an average build.</p>
-    <p>The FBI also identified that the man seen in the security video was wearing a black, 25-liter Ozark Trail Hiker Pack—a backpack sold by Walmart for less than $11.</p>
-    <p>The FBI reported receiving more than 13,000 tips since February 1.</p>
+    <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
     <p><strong>8:00 AM:</strong> TMZ received a second email from a person claiming to know the kidnapper's identity, expressing frustration that he is "not being taken seriously" and indicating the situation "has changed from Wednesday to Thursday."</p>
+    <p><strong>Call for footage:</strong> Pima County Sheriff's Dept. asks the public for footage near and around East Skyline Drive and North Campbell Avenue that includes vehicles, vehicle traffic, people/pedestrians, and anything they deem out of the ordinary from Jan. 1 and Feb. 2, 2026.</p>
     <div class="step-gallery">
       <img src="assets/02-12-26-PCSD-request-for-video.png" alt="Pima County Sheriff's Dept. asks the public for video footage.">
     </div>
@@ -1056,6 +1070,18 @@
         <img src="assets/02-12-26-tent-in-front-of-home.png" alt="A view of a tent outside of Nancy Guthrie's residence. ">
       </div>
       <div class="gallery-caption">A view of a tent outside of Nancy Guthrie's residence. | Danielle Joe Main/Anadolu/Getty Images</div>
+    <p><strong>Reward Increased:</strong> FBI increased the reward to $100,000 and released a more detailed description of the suspect.
+      <ul class="demands-list">
+        <li>5-foot-9 to 5-foot-10 with an average build</li>
+        <li>Wearing a black, 25-liter Ozark Trail Hiker Pack</li>
+        <li>Backpack sold by Walmart for less than $11</li>
+      </ul>
+    <p><strong>Backpack Lead:</strong> Sheriff Nanos said the backback became "one of the most promising leads" in the case. "This backpack is exclusive to Walmart and we are working with Walmart management to develop further leads," Nanos said. Investigators reviewed surveillance video from Walmart locations and obtained company records of all backpack purchases from the past several months to identify potential suspects.</p>
+    <p>The suspect's other clothing "may have been purchased from Walmart but is not exclusively available at Walmart," according to the Pima County Sheriff's Department.</p>
+    <div class="step-gallery">
+        <img src="assets/02-12-26-suspect-backpack.png" alt="Ozark Trail Hiker Pack backpack from surveillance footage">
+      </div>
+      <div class="gallery-caption">Image of Ozark backpack released by the FBI. | FBI Phoenix</div>
   </div>
 
   <!-- ── STEP 26: DNA Evidence & Search Warrant Operation ── -->
@@ -1063,7 +1089,9 @@
     <div class="step-time">Friday, Feb. 13, 2026</div>
     <div class="step-title">DNA Evidence & Search Warrant Operation</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
-    <p><strong>New DNA Evidence:</strong> The Pima County Sheriff's Department announced that new DNA samples from the crime scene have been sent for testing. The DNA is not from Nancy Guthrie or anyone in close contact with her. The PCSD confirmed that several gloves have been found during the investigation, with the closest approximately two miles from the crime scene.</p>
+    <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-orange)"></span> POI</div>
+    <p><strong>New DNA Evidence:</strong> The Pima County Sheriff's Department announced that new DNA samples from the crime scene have been sent for testing. The DNA is not from Nancy or anyone in close contact with her. The PCSD confirmed that several gloves have been found during the investigation, with the closest approximately two miles from the crime scene.</p>
     <p><strong>~9:00 PM:</strong> A large police presence was reported near First and Orange Grove, less than two miles from the crime scene. The Pima County SWAT team and FBI executed a federal search warrant at a Tucson-area home.</p>
     <div class="step-gallery">
         <img src="assets/02-13-26-investigators-search-for-silver-range-rover.png" alt="Gray/silver Range Rover searched and towed from the parking lot">
@@ -1090,26 +1118,24 @@
   <!-- ── STEP 28: Backpack Lead & Signal Sniffer Deployed ── -->
   <div class="step" data-step="28" data-border="var(--c-primary)">
     <div class="step-time">Monday, Feb. 16, 2026</div>
-    <div class="step-title">Backpack Lead & Signal Sniffer Deployed</div>
+    <div class="step-title">Family Cleared & Signal Sniffer Deployed</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
-    <p>In a statement, Sheriff Nanos said that all the Guthrie family members, including siblings and spouses, had been cleared of suspicion. “The family has been nothing but cooperative and gracious and are victims in this case,” he said.</p>
-    <p><strong>Backpack Identified:</strong> Sheriff Nanos announced a major breakthrough in the investigation. The 25-liter "Ozark Trail Hiker Pack" backpack worn by the suspect in the doorbell camera footage was definitively identified and became "one of the most promising leads" in the case.</p>
-    <p>"This backpack is exclusive to Walmart and we are working with Walmart management to develop further leads," Nanos said. Investigators reviewed surveillance video from Walmart locations and obtained company records of all backpack purchases from the past several months to identify potential suspects.</p>
-    <p>The suspect's other clothing "may have been purchased from Walmart but is not exclusively available at Walmart," according to the Pima County Sheriff's Department.</p>
-    <div class="step-gallery">
-        <img src="assets/02-16-26-suspect-backpack.png" alt="Ozark Trail Hiker Pack backpack from surveillance footage">
-      </div>
-      <div class="gallery-caption">Image of Ozark backpack released by the FBI. | FBI Phoenix</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Guthrie Family</div>
+    <p><strong>Family Cleared:</strong> In a statement, Sheriff Nanos said that all the Guthrie family members, including siblings and spouses, had been cleared of suspicion. “The family has been nothing but cooperative and gracious and are victims in this case,” he said.</p>
     <div class="tldr">
-      <span class="tldr-label">CBS News</span>
-      <p class="tldr-link"><a href="https://www.cbsnews.com/news/signal-sniffer-detect-nancy-guthrie-pacemaker-deployed-law-enforcement-sources/" target="_blank">A device that could detect signals emitted from Nancy Guthrie's pacemaker is among the tools investigators are using as their search for her continues into its third week, law enforcement sources told CBS News. The high-tech tracking tool, called a "signal sniffer," has been mounted on a helicopter and may help detectives pinpoint her location, the sources said.</a></p>
+      <span class="tldr-label">ABC News</span>
+      <p class="tldr-link"><a href="https://abc7news.com/live-updates/nancy-guthrie-live-updates/18612498/entry/18608925/" target="_blank">Pima County Sheriff Chris Nanos said Monday that members of the Guthrie family are "cleared" as suspects in Nancy Guthrie's disappearance. "To be clear...the Guthrie family&mdash;to include all siblings and spouses&mdash;has been cleared as possible suspects in this case," the sheriff said in a statement. "The family has been nothing but cooperative and gracious and are victims in this case."<br><br>"The Guthrie family are victims plain and simple," the statement said.</a></p>
     </div>
-    <p>Savannah posts another video on directly addressing the individuals believed to have kidnapped her 84-year-old mother, urging them to safely return her.</p>
+    <p><strong>Message From Savannah:</strong> Savannah posts another video on directly addressing the individuals believed to have kidnapped her 84-year-old mother, urging them to safely return her.</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/02-16-26-never-too-late.mp4" data-aspect-ratio="9/16"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">"It's never too late to do the right thing." | Savannah Guthrie Instagram</div>
+    <div class="tldr">
+      <span class="tldr-label">CBS News</span>
+      <p class="tldr-link"><a href="https://www.cbsnews.com/news/signal-sniffer-detect-nancy-guthrie-pacemaker-deployed-law-enforcement-sources/" target="_blank">A device that could detect signals emitted from Nancy Guthrie's pacemaker is among the tools investigators are using as their search for her continues into its third week, law enforcement sources told CBS News. The high-tech tracking tool, called a "signal sniffer," has been mounted on a helicopter and may help detectives pinpoint her location, the sources said.</a></p>
+    </div>
   </div>
 
   <!-- ── STEP 29: Gun Purchase Investigation ── -->
@@ -1131,15 +1157,12 @@
     <div class="step-time">Tuesday, Feb. 17, 2026</div>
     <div class="step-title">DNA Results Negative; Genealogical Search Planned</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
     <p>Sheriff Chris Nanos announced that DNA recovered from a glove found two miles from Nancy Guthrie's home does not match DNA found inside her home. Neither DNA sample produced a hit in the FBI's Combined DNA Index System (CODIS).</p>
-    <div class="tldr">
-      <span class="tldr-label">ABC News</span>
-      <p class="tldr-link"><a href="https://abc7news.com/live-updates/nancy-guthrie-live-updates/18612498/entry/18612611/" target="_blank">The FBI ran DNA from a glove found during a roadside search through the national database known as CODIS, and did not get a match to any of the roughly 22 million samples in the database, according to the Pima County Sheriff's Department. That glove&mdash;which was found about 2 miles from Nancy Guthrie's house&mdash;also did not match DNA found at Guthrie's property, law enforcement sources told ABC News. The DNA found at the property is being analyzed and further testing needs to be done on it, the sources said.</a></p>
-    </div>
     <p>With no matches in law enforcement databases, the PCSD is now turning to commercial genealogical databases like Ancestry.com to search for familial matches to the glove DNA. This method, made famous by the 2018 arrest of Golden State Killer Joseph James DeAngelo, involves building family trees from relative DNA uploads to identify suspects.</p>
     <div class="tldr">
       <span class="tldr-label">ABC News</span>
-      <p class="tldr-link"><a href="https://abc7news.com/live-updates/nancy-guthrie-live-updates/18612498/entry/18608925/" target="_blank">Pima County Sheriff Chris Nanos said Monday that members of the Guthrie family are "cleared" as suspects in Nancy Guthrie's disappearance. "To be clear...the Guthrie family&mdash;to include all siblings and spouses&mdash;has been cleared as possible suspects in this case," the sheriff said in a statement. "The family has been nothing but cooperative and gracious and are victims in this case."<br><br>"The Guthrie family are victims plain and simple," the statement said.</a></p>
+      <p class="tldr-link"><a href="https://abc7news.com/live-updates/nancy-guthrie-live-updates/18612498/entry/18612611/" target="_blank">The FBI ran DNA from a glove found during a roadside search through the national database known as CODIS, and did not get a match to any of the roughly 22 million samples in the database, according to the Pima County Sheriff's Department. That glove&mdash;which was found about 2 miles from Nancy Guthrie's house&mdash;also did not match DNA found at Guthrie's property, law enforcement sources told ABC News. The DNA found at the property is being analyzed and further testing needs to be done on it, the sources said.</a></p>
     </div>
     <p><strong>Investigation Activity:</strong> The PCSD said investigators returned to Nancy Guthrie's home on Tuesday, though details were not being shared at that time.</p>
 
@@ -1150,6 +1173,7 @@
     <div class="step-time">Wednesday, Feb. 18, 2026</div>
     <div class="step-title">Biological Evidence Analysis & International Inquiry</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-orange)"></span> Mexico</div>
     <p>The Pima County Sheriff's Department announced that investigators are currently analyzing biological evidence found at Nancy Guthrie's home. DNA profiles remain under lab analysis, with the number of profiles and other details remaining part of the active investigation.</p>
     <p><strong>Reward Increased Again:</strong> An additional donor stepped forward, offering $100,000 for information leading to an arrest in the case. Combined with the 88-CRIME reward of $102,500 and the FBI's $100,000 reward, the total reward now exceeds $300,000.</p>
@@ -1159,14 +1183,21 @@
     </div>
   </div>
 
-  <!-- ── STEP 32: Septic Tank & Property Searches ── -->
+  <!-- ── STEP 32: IGG & Stepped-Up Volunteer Search Efforts ── -->
   <div class="step" data-step="32" data-border="var(--c-primary)">
     <div class="step-time">Thursday, Feb. 19, 2026</div>
-    <div class="step-title">Septic Tank & Property Searches</div>
+    <div class="step-title">IGG & Stepped-Up Volunteer Search Efforts</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
-    <p><strong>Sheriff Expresses Skepticism:</strong> Sheriff Chris Nanos acknowledged an "absolute possibility" that the ransom notes have nothing to do with Nancy Guthrie's disappearance, though authorities are continuing to take them seriously.</p>
-    <p><strong>Property Searches:</strong> Investigators returned to Nancy Guthrie's home and searched a septic tank in her yard. Authorities also returned to Annie Guthrie's home, located approximately 4 miles from her mother's residence, conducting a three-hour search.</p>
-    <p><strong>Volunteer Search Efforts:</strong> A well-known Facebook group joined the search for Nancy Guthrie on Thursday, with volunteers from the community participating in organized search efforts.</p>
+    <div class="person-pill"><span class="dot" style="background:var(--c-yellow)"></span> Searchers</div>
+    <div class="tldr">
+      <span class="tldr-label">NBC News</span>
+      <p class="tldr-link"><a href="https://www.nbcnews.com/news/us-news/arizona-authorities-turn-genetic-genealogy-ongoing-search-nancy-guthri-rcna259566" target="_blank">Pima County Sheriff Chris Nanos on Tuesday told NBC News that investigators are analyzing some partial DNA that was found at Guthrie’s home. Investigators are also exploring “investigative genetic genealogy options” to identify possible DNA matches, the department said. “We believe that we may have some DNA there that may be our suspect, but we won’t know that until that DNA is separated, sorted out, maybe admitted to CODIS, maybe through genetic genealogy,” Nanos said.<br><br>Investigators are now turning to genetic genealogy, which has previously successfully identified other high-profile criminals like the Golden State Killer and University of Idaho murderer Bryan Kohberger. “If I was the kidnapper, I would be extremely concerned right now, because using investigative genetic genealogy, he will be identified,” DNA expert CeCe Moore told “TODAY” Thursday.</a></p>
+    </div>
+    <p><strong>Volunteer Search Efforts:</strong> Madres Buscadoras de Sonora (Searching Mothers of Sonora) joined the search for Nancy Guthrie on Thursday, with volunteers from the community participating in organized search efforts.</p>
+    <div class="step-embed">
+      <div class="embed-placeholder" data-src="assets/02-19-26-searching-mothers.mp4"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+    </div>
+    <div class="embed-caption">Searching Mothers of Sonora join effort to find Nancy Guthrie. | KOLD News13</div>
   </div>
 
   <!-- ── STEP 33: Road Management & Media Presence ── -->
@@ -1174,6 +1205,7 @@
     <div class="step-time">Friday, Feb. 20, 2026</div>
     <div class="step-title">Road Management & Investigation Status</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
     <p>The Pima County Sheriff's Department announced the road near Nancy's home was being temporarily converted to one-way traffic due to heavy visitor and media presence in the area.</p>
     <p>There were no major developments in the Nancy Guthrie investigation on Friday. The DNA recovered from inside Nancy Guthrie's home remains under analysis and does not belong to Nancy or anyone close to her.</p>
     <div class="tldr">
@@ -1201,8 +1233,7 @@
     <div class="step-time">Sunday, Feb. 22, 2026</div>
     <div class="step-title">Community Volunteer Search</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-yellow)"></span> Searchers</div>
-    <p>Volunteer searchers took to the desert on Sunday to search for clues in Nancy Guthrie's disappearance. Organizers distributed maps and a list of items for volunteers to look for, including clothing, jewelry, masks, and gloves.</p>
-    <p>Volunteers searched the Pima Wash area and recovered several articles of clothing and a backpack, which they reported to the PCSD. However, the sheriff's department determined the bag appears to have been outside for longer than three weeks and does not appear to be a viable lead for the investigation.</p>
+    <p><strong>Pima Wash:</strong> Volunteers distributed maps and a list of items for volunteers to look for, including clothing, jewelry, masks, and gloves. Searchers recovered several articles of clothing and a backpack, which they reported to the PCSD. However, the sheriff's department determined the bag appears to have been outside for longer than three weeks and does not appear to be a viable lead for the investigation.</p>
     <div class="step-gallery">
       <img src="assets/02-22-26-volunteer-searchers-1.png" alt="Volunteers search Pima area washes.">
     </div>
@@ -1212,15 +1243,16 @@
     </div>
     <div class="gallery-caption">Aerial view of volunteers searchers near Nancy's home. | Joe Raedle/Getty Images</div>
     <div class="step-gallery">
-      <img src="assets/02-22-26-no-parking-signs.png" alt="No parking signs stand along one side of the road that Nancy Guthrie lives on.">
+      <img src="assets/02-22-26-no-parking-signs.png" alt="No parking signs put up along one side of the road that Nancy lives on.">
     </div>
-    <div class="gallery-caption">VNo parking signs stand along one side of the road that Nancy Guthrie lives on. | AP Photo/Felicia Fonseca</div>
+    <div class="gallery-caption">No parking signs put up along one side of the road that Nancy lives on. | AP Photo/Felicia Fonseca</div>
   </div>
 
   <!-- ── STEP 36: Suspect Photo Timing Dispute ── -->
   <div class="step" data-step="36" data-border="var(--c-primary)">
     <div class="step-time">Monday, Feb. 23, 2026</div>
     <div class="step-title">Suspect Photo Timing Dispute</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-red)"></span> Unknown Male Suspect</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
     <p>A law enforcement source told 13 News that a photo of the suspect in the Nancy Guthrie case appears to have been taken on a different day than the other images released by the FBI. The photo in question shows the suspect without the backpack or visible firearm seen in other video and photographic evidence.</p>
     <div class="step-gallery">
@@ -1235,14 +1267,17 @@
   <div class="step" data-step="37" data-border="var(--c-accent)">
     <div class="step-time">Tuesday, Feb. 24, 2026</div>
     <div class="step-title">Family Offers $1 Million Reward</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-pink)"></span> Guthrie Family</div>
-    <p>Savannah Guthrie released a new video announcing the family is offering a $1 million reward for information leading to Nancy Guthrie's recovery.</p>
-    <p>Savannah stated: "Someone out there knows something that can bring her home. Somebody knows." She also thanked supporters: "We feel those prayers. Please keep praying without ceasing."</p>
-    <p>New signs appeared at Nancy Guthrie's home, including a message to the alleged kidnapper: "To Nancy's Kidnapper - Unintentional things happen, and we get that. Life is made up of choices. Please make the right one now."</p>
+    <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Guthrie Family</div>
+    <p>Savannah Guthrie released a new video announcing the family is offering a $1 million reward for information leading to Nancy Guthrie's recovery. She stated, "Someone out there knows something that can bring her home. Somebody knows." She also thanked supporters: "We feel those prayers. Please keep praying without ceasing."</p>
+    <p>New signs appeared at Nancy's home&madah;a "No Trespassing" sign as well as one addressed to the alleged kidnapper: "To Nancy's Kidnapper - Unintentional things happen, and we get that. Life is made up of choices. Please make the right one now."</p>
     <div class="step-gallery">
-      <img src="assets/02-24-26-no-trespassing-signs.png" alt="No trespass signs put up">
+      <img src="assets/02-24-26-no-trespassing-signs.png" alt="No trespass signs are put up around Nancy's home.">
     </div>
     <div class="gallery-caption">No trespass signs are put up around Nancy's home. | NBC 4 KVOA</div>
+    <div class="step-gallery">
+      <img src="assets/02-24-26-message-to-the-kidnapper.png" alt="Message to the kidnapper appears at Nancy's home.">
+    </div>
+    <div class="gallery-caption">Message to the kidnapper appears at Nancy's home. | The Australian</div>
   </div>
 
   <!-- ── STEP 38: FBI Activity with Federal Prosecutors ── -->
@@ -1263,6 +1298,8 @@
     <div class="step-time">Thursday, Feb. 26, 2026</div>
     <div class="step-title">Crime Scene Release Timeline</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-purple)"></span> FBI</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-green)"></span> Neighbors</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
     <p>A law enforcement source told 13 News that Nancy Guthrie's home will be returned by the end of the week or the following week. The home has been treated as a crime scene since her disappearance nearly four weeks prior.</p>
     <p>Activity at the home diminished on Thursday, with reduced law enforcement presence compared to the previous day's FBI and federal prosecutor activity.</p>
     <div class="step-embed">
@@ -1321,6 +1358,7 @@
     <div class="step-time">Thursday, March 5, 2026</div>
     <div class="step-title">Sheriff's Interview & Investigation Status</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-blue)"></span> PCSD</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-gray)"></span> Media</div>
     <p>Pima County Sheriff Chris Nanos gave a one-on-one interview to KOLD 13 News. Nanos expressed cautious optimism about the case: "I have no way of knowing when we will solve this, but I believe we will solve it."</p>
     <p>He acknowledged that more than a month into the investigation, law enforcement is in a waiting phase. "The evidence they have right now simply isn't enough to find the suspect or suspects," according to Nanos, who indicated investigators are playing a waiting game as they await further test results and potential leads.</p>
     <div class="step-embed">
@@ -1454,6 +1492,8 @@ var FOCUS_POINTS = {
   'orange-grove': { bounds: [[32.30, -110.975], [32.335, -110.930]] },
   'armor-bearer': { bounds: [[32.16, -110.955], [32.325, -110.910]] },
   'pima-wash':    { bounds: [[32.305, -110.955], [32.332, -110.887]] },
+  'search-radius': { bounds: [[32.27, -110.99], [32.35, -110.89]] },
+  'sonora':        { bounds: [[29.15, -111.05], [32.40, -110.25]] },
 };
 
 // Per-person marker colors
@@ -1505,13 +1545,13 @@ var STEP_META = {
   37: { date: 'February 27', time: '', focus: 'home' },
   38: { date: 'February 28', time: '', focus: 'home' },
   39: { date: 'March 4', time: '', focus: 'home' },
-  40: { date: 'March 5', time: '', focus: 'home' },
+  40: { date: 'March 5', time: '', focus: 'search-radius' },
   41: { date: 'March 6', time: '', focus: 'home' },
-  42: { date: 'April 6', time: '', focus: 'home' },
+  42: { date: 'April 6', time: '', focus: 'gloves' },
   43: { date: 'April 16', time: '', focus: 'home' },
   44: { date: 'Ongoing', time: '', focus: 'home' },
   45: { date: 'March 7', time: '', focus: 'home' },
-  46: { date: 'April 6', time: '', focus: 'home' },
+  46: { date: 'April 6', time: '', focus: 'sonora' },
   47: { date: 'April 16', time: '', focus: 'home' },
   48: { date: 'June 11', time: '', focus: 'nogales' },
   49: { date: 'June 2026', time: '', focus: 'home' },
@@ -1556,9 +1596,10 @@ function toggleBasemap() {
   usingSatellite = !usingSatellite;
 }
 
-// Persistent markers from KML_DATA (skip Annie's home)
+// Persistent markers from KML_DATA (skip Annie's home and Mariposa)
 KML_DATA.locations.forEach(function(loc) {
-  if (loc.name === 'Annie\'s Home') return; // Skip Annie's home
+  if (loc.name === 'Annie\'s Home') return;
+  if (loc.name === 'Mariposa, Mexico') return;
   var coords = loc.features[0].coords;
   var m = L.circleMarker(coords, {
     radius: 6, fillColor: '#ebe2cd', color: '#ebe2cd',
@@ -1692,7 +1733,7 @@ function activateStep(stepNum) {
     activeMarkers.push(makeLabel([nancyHome[0] + 0.000040, nancyHome[1]], '~10 ft connection range', '#E63946', 'above', 5));
   }
 
-  // Step 19: Circle K marker + dotted line to Nancy's home
+  // Step 19: Circle K + Annie's home markers + dotted lines to Nancy's home
   if (stepNum === 19) {
     var circleK = [32.2499, -110.9776];
     activeMarkers.push(makeDot(circleK, '#fcb54a', 8, true));
@@ -1703,6 +1744,16 @@ function activateStep(stepNum) {
     activeMarkers.push(circleKLine);
     var circleKMid = [(nancyHome[0] + circleK[0]) / 2, (nancyHome[1] + circleK[1]) / 2];
     activeMarkers.push(makeLabel(circleKMid, '~6.7 miles', '#ebe2cd', 'right', 15));
+
+    var anniesHome19 = [32.3099, -110.9860];
+    activeMarkers.push(makeDot(anniesHome19, '#fcb54a', 8, true));
+    activeMarkers.push(makeLabel(anniesHome19, "Annie's home", '#fcb54a', 'below', 15));
+    var anniesLine19 = L.polyline([nancyHome, anniesHome19], {
+      color: '#ebe2cd', weight: 1.5, opacity: 0.55, dashArray: '6, 9'
+    }).addTo(map);
+    activeMarkers.push(anniesLine19);
+    var anniesMid19 = [(nancyHome[0] + anniesHome19[0]) / 2, (nancyHome[1] + anniesHome19[1]) / 2];
+    activeMarkers.push(makeLabel(anniesMid19, '~4 miles', '#ebe2cd', 'above', 15));
   }
 
   // Step 24: Gloves Found marker + dotted line to Nancy's home
@@ -1728,7 +1779,7 @@ function activateStep(stepNum) {
     }).addTo(map);
     activeMarkers.push(orangeGroveLine);
     var orangeGroveMid = [(nancyHome[0] + orangeGrove[0]) / 2, (nancyHome[1] + orangeGrove[1]) / 2];
-    activeMarkers.push(makeLabel(orangeGroveMid, '~2 miles', '#ebe2cd', 'right', 15));
+    activeMarkers.push(makeLabel(orangeGroveMid, '~2 miles', '#ebe2cd', 'above', 15));
   }
 
   // Step 29: Armor Bearer Arms marker + dotted line to Nancy's home
@@ -1754,7 +1805,49 @@ function activateStep(stepNum) {
     }).addTo(map);
     activeMarkers.push(pimaWashLine);
     var pimaWashMid = [(nancyHome[0] + pimaWash[0]) / 2, (nancyHome[1] + pimaWash[1]) / 2];
-    activeMarkers.push(makeLabel(pimaWashMid, '~3 miles', '#ebe2cd', 'right', 15));
+    activeMarkers.push(makeLabel(pimaWashMid, '~3 miles', '#ebe2cd', 'below', 15));
+  }
+
+  // Step 40: 2-mile search radius circle around Nancy's home
+  if (stepNum === 40) {
+    var searchRadius = L.circle(nancyHome, {
+      radius: 3219,
+      color: '#ebe2cd',
+      weight: 2,
+      opacity: 0.7,
+      fillColor: '#ebe2cd',
+      fillOpacity: 0.05,
+      dashArray: '6 6'
+    }).addTo(map);
+    activeMarkers.push(searchRadius);
+    var labelLat = nancyHome[0] + 0.0290;
+    activeMarkers.push(makeLabel([labelLat, nancyHome[1]], '~2 mile radius', '#ebe2cd', 'above', 8));
+  }
+
+  // Step 42: Gloves Found marker + dotted line to Nancy's home
+  if (stepNum === 42) {
+    var gloves42 = [32.282350, -110.925083];
+    activeMarkers.push(makeDot(gloves42, '#fcb54a', 8, true));
+    activeMarkers.push(makeLabel(gloves42, 'Gloves Found', '#fcb54a', 'below'));
+    var gloves42Line = L.polyline([nancyHome, gloves42], {
+      color: '#ebe2cd', weight: 1.5, opacity: 0.55, dashArray: '6, 9'
+    }).addTo(map);
+    activeMarkers.push(gloves42Line);
+    var gloves42Mid = [(nancyHome[0] + gloves42[0]) / 2, (nancyHome[1] + gloves42[1]) / 2];
+    activeMarkers.push(makeLabel(gloves42Mid, '~1.5 miles', '#ebe2cd', 'right'));
+  }
+
+  // Step 46: Sonora, Mexico marker + dotted line to Nancy's home
+  if (stepNum === 46) {
+    var sonora = [29.2972, -110.3309];
+    activeMarkers.push(makeDot(sonora, '#fcb54a', 8, true));
+    activeMarkers.push(makeLabel(sonora, 'Sonora, Mexico', '#fcb54a', 'below'));
+    var sonoraLine = L.polyline([nancyHome, sonora], {
+      color: '#ebe2cd', weight: 1.5, opacity: 0.55, dashArray: '6, 9'
+    }).addTo(map);
+    activeMarkers.push(sonoraLine);
+    var sonoraMid = [(nancyHome[0] + sonora[0]) / 2, (nancyHome[1] + sonora[1]) / 2];
+    activeMarkers.push(makeLabel(sonoraMid, '~270 miles', '#ebe2cd', 'right'));
   }
 
   // Step 48: Nogales, Sonora marker + dotted line to Nancy's home
