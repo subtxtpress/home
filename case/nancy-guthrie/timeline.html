@@ -1201,12 +1201,16 @@
     <div class="step-time">Sunday, Feb. 22, 2026</div>
     <div class="step-title">Community Volunteer Search</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-yellow)"></span> Searchers</div>
-    <p>Community volunteers and vloggers took to the desert on Sunday to search for clues in Nancy Guthrie's disappearance. Organizers distributed maps and a list of items for volunteers to look for, including clothing, jewelry, masks, and gloves.</p>
+    <p>Volunteer searchers took to the desert on Sunday to search for clues in Nancy Guthrie's disappearance. Organizers distributed maps and a list of items for volunteers to look for, including clothing, jewelry, masks, and gloves.</p>
     <p>Volunteers searched the Pima Wash area and recovered several articles of clothing and a backpack, which they reported to the PCSD. However, the sheriff's department determined the bag appears to have been outside for longer than three weeks and does not appear to be a viable lead for the investigation.</p>
     <div class="step-gallery">
-      <img src="assets/02-22-26-volunteer-searchers.png" alt="No trespass signs put up">
+      <img src="assets/02-22-26-volunteer-searchers-1.png" alt="Volunteers search Pima area washes.">
     </div>
-    <div class="gallery-caption">Volunteers search Pima washes. | NBC 12 News</div>
+    <div class="gallery-caption">Volunteers search Pima area washes. | NBC 12 News</div>
+    <div class="step-gallery">
+      <img src="assets/02-22-26-volunteer-searchers-2.png" alt="Aerial view of volunteers searchers near Nancy's home.">
+    </div>
+    <div class="gallery-caption">Aerial view of volunteers searchers near Nancy's home. | Joe Raedle/Getty Images</div>
     <div class="step-gallery">
       <img src="assets/02-22-26-no-parking-signs.png" alt="No parking signs stand along one side of the road that Nancy Guthrie lives on.">
     </div>
@@ -1446,6 +1450,10 @@ var FOCUS_POINTS = {
   'nogales':      { bounds: [[31.15, -111.15], [32.50, -110.75]] },
   'gloves':       { bounds: [[32.26, -110.97], [32.34, -110.90]] },
   'annies-house': { bounds: [[32.28, -111.03], [32.34, -110.91]] },
+  'circle-k':     { bounds: [[32.23, -111.00], [32.33, -110.92]] },
+  'orange-grove': { bounds: [[32.30, -110.975], [32.335, -110.930]] },
+  'armor-bearer': { bounds: [[32.16, -110.955], [32.325, -110.910]] },
+  'pima-wash':    { bounds: [[32.305, -110.955], [32.332, -110.887]] },
 };
 
 // Per-person marker colors
@@ -1476,23 +1484,23 @@ var STEP_META = {
   16: { date: 'February 5', time: '', focus: 'home' },
   17: { date: 'February 6', time: '', focus: 'home' },
   18: { date: 'February 7', time: '', focus: 'home' },
-  19: { date: 'February 8', time: '', focus: 'home' },
+  19: { date: 'February 8', time: '', focus: 'circle-k' },
   20: { date: 'February 8', time: '', focus: 'home' },
   21: { date: 'February 10', time: '', focus: 'home' },
   22: { date: 'February 11', time: '', focus: 'home' },
   23: { date: 'February 12', time: '', focus: 'home' },
   24: { date: 'February 13', time: '', focus: 'gloves' },
   25: { date: 'February 15', time: '', focus: 'home' },
-  26: { date: 'February 16', time: '', focus: 'home' },
+  26: { date: 'February 16', time: '', focus: 'orange-grove' },
   27: { date: 'February 17', time: '', focus: 'home' },
   28: { date: 'February 17', time: '', focus: 'home' },
-  29: { date: 'February 18', time: '', focus: 'home' },
+  29: { date: 'February 18', time: '', focus: 'armor-bearer' },
   30: { date: 'February 20', time: '', focus: 'home' },
   31: { date: 'February 21', time: '', focus: 'home' },
   32: { date: 'February 22', time: '', focus: 'home' },
   33: { date: 'February 23', time: '', focus: 'home' },
   34: { date: 'February 24', time: '', focus: 'home' },
-  35: { date: 'February 25', time: '', focus: 'home' },
+  35: { date: 'February 25', time: '', focus: 'pima-wash' },
   36: { date: 'February 26', time: '', focus: 'home' },
   37: { date: 'February 27', time: '', focus: 'home' },
   38: { date: 'February 28', time: '', focus: 'home' },
@@ -1684,6 +1692,19 @@ function activateStep(stepNum) {
     activeMarkers.push(makeLabel([nancyHome[0] + 0.000040, nancyHome[1]], '~10 ft connection range', '#E63946', 'above', 5));
   }
 
+  // Step 19: Circle K marker + dotted line to Nancy's home
+  if (stepNum === 19) {
+    var circleK = [32.2499, -110.9776];
+    activeMarkers.push(makeDot(circleK, '#fcb54a', 8, true));
+    activeMarkers.push(makeLabel(circleK, 'Circle K', '#fcb54a', 'below', 15));
+    var circleKLine = L.polyline([nancyHome, circleK], {
+      color: '#ebe2cd', weight: 1.5, opacity: 0.55, dashArray: '6, 9'
+    }).addTo(map);
+    activeMarkers.push(circleKLine);
+    var circleKMid = [(nancyHome[0] + circleK[0]) / 2, (nancyHome[1] + circleK[1]) / 2];
+    activeMarkers.push(makeLabel(circleKMid, '~6.7 miles', '#ebe2cd', 'right', 15));
+  }
+
   // Step 24: Gloves Found marker + dotted line to Nancy's home
   if (stepNum === 24) {
     var gloves = [32.282350, -110.925083];
@@ -1695,6 +1716,45 @@ function activateStep(stepNum) {
     activeMarkers.push(glovesLine);
     var glovesMid = [(nancyHome[0] + gloves[0]) / 2, (nancyHome[1] + gloves[1]) / 2];
     activeMarkers.push(makeLabel(glovesMid, '~1.5 miles', '#ebe2cd', 'right', 15));
+  }
+
+  // Step 26: 1st Ave & Orange Grove Rd marker + dotted line to Nancy's home
+  if (stepNum === 26) {
+    var orangeGrove = [32.3229, -110.9610];
+    activeMarkers.push(makeDot(orangeGrove, '#fcb54a', 8, true));
+    activeMarkers.push(makeLabel(orangeGrove, '1st Ave & Orange Grove Rd', '#fcb54a', 'above', 15));
+    var orangeGroveLine = L.polyline([nancyHome, orangeGrove], {
+      color: '#ebe2cd', weight: 1.5, opacity: 0.55, dashArray: '6, 9'
+    }).addTo(map);
+    activeMarkers.push(orangeGroveLine);
+    var orangeGroveMid = [(nancyHome[0] + orangeGrove[0]) / 2, (nancyHome[1] + orangeGrove[1]) / 2];
+    activeMarkers.push(makeLabel(orangeGroveMid, '~2 miles', '#ebe2cd', 'right', 15));
+  }
+
+  // Step 29: Armor Bearer Arms marker + dotted line to Nancy's home
+  if (stepNum === 29) {
+    var armorBearer = [32.1776, -110.9246];
+    activeMarkers.push(makeDot(armorBearer, '#fcb54a', 8, true));
+    activeMarkers.push(makeLabel(armorBearer, 'Armor Bearer Arms', '#fcb54a', 'below', 15));
+    var armorBearerLine = L.polyline([nancyHome, armorBearer], {
+      color: '#ebe2cd', weight: 1.5, opacity: 0.55, dashArray: '6, 9'
+    }).addTo(map);
+    activeMarkers.push(armorBearerLine);
+    var armorBearerMid = [(nancyHome[0] + armorBearer[0]) / 2, (nancyHome[1] + armorBearer[1]) / 2];
+    activeMarkers.push(makeLabel(armorBearerMid, '~12 miles', '#ebe2cd', 'right', 15));
+  }
+
+  // Step 35: Pima Wash marker + dotted line to Nancy's home
+  if (stepNum === 35) {
+    var pimaWash = [32.32500, -110.90000];
+    activeMarkers.push(makeDot(pimaWash, '#fcb54a', 8, true));
+    activeMarkers.push(makeLabel(pimaWash, 'Pima Wash', '#fcb54a', 'below', 15));
+    var pimaWashLine = L.polyline([nancyHome, pimaWash], {
+      color: '#ebe2cd', weight: 1.5, opacity: 0.55, dashArray: '6, 9'
+    }).addTo(map);
+    activeMarkers.push(pimaWashLine);
+    var pimaWashMid = [(nancyHome[0] + pimaWash[0]) / 2, (nancyHome[1] + pimaWash[1]) / 2];
+    activeMarkers.push(makeLabel(pimaWashMid, '~3 miles', '#ebe2cd', 'right', 15));
   }
 
   // Step 48: Nogales, Sonora marker + dotted line to Nancy's home
