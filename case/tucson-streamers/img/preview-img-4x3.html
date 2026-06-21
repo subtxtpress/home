@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200">
+  <title>Timeline Preview — {Case Title}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --surface-page:      #f4ede3;
+      --surface-card:      rgba(255, 255, 255, 0.90);
+      --surface-elevated:  #ece5d9;
+      --text-heading:      #393538;
+      --text-body:         #4a3f45;
+      --text-label:        #241620;
+      --text-muted:        rgba(74, 63, 69, 0.50);
+      --accent:            #7A5063;
+      --petitioner:        #a8420a;
+      --respondent:        #377a6d;
+      --disputed:          #8a6d1b;
+      --accent-border:     rgba(62, 36, 54, 0.22);
+      --border-light:      rgba(62, 36, 54, 0.08);
+      --border-mid:        rgba(62, 36, 54, 0.14);
+      --grad-accent:       linear-gradient(to right, #4a8a7c, #C04E01);
+      --grad-neutral:      linear-gradient(to right, #4a8a7c, #C04E01);
+    }
+    body {
+      width: 900px;
+      height: 675px;
+      overflow: hidden;
+      background: var(--surface-page);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+    .nav {
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: 50px;
+      background:
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
+        var(--grad-neutral) border-box;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      padding: 0 3% 0 2%;
+      z-index: 20;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text-body);
+      letter-spacing: 0.01em;
+    }
+    .nav-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--respondent);
+      margin-left: 14px;
+      padding-left: 14px;
+      border-left: 1px solid var(--accent-border);
+      margin-top: 5px;
+    }
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .nav-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-heading);
+    }
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      background: transparent;
+      border: 1px solid var(--accent-border);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-right: -10px;
+    }
+    .main {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      z-index: 1;
+    }
+    .left {
+      grid-row: 1;
+      grid-column: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 5;
+      margin-top: 5%;
+      padding: 10% 4%;
+    }
+    .eyebrow-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15%;
+    }
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--respondent);
+      box-shadow: 0 0 8px rgba(74,138,124,0.6);
+    }
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 1.02;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      margin-bottom: 10%;
+    }
+    .headline em {
+      font-style: italic;
+      font-weight: 500;
+      color: #935671;
+    }
+    .desc {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--text-body);
+      border-left: 2px solid var(--respondent);
+      padding-left: 14px;
+    }
+    /* ─── Right: Timeline preview ─── */
+    .right {
+      grid-row: 1;
+      grid-column: 2;
+      position: relative;
+      margin-top: 5%;
+      padding: 0 4%;
+    }
+    .tl-preview {
+      position: relative;
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+    .tl-line {
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--respondent), var(--petitioner), var(--disputed));
+      border-radius: 2px;
+    }
+    .tl-entry {
+      position: relative;
+      padding: 0 0 18px 0;
+    }
+    .tl-dot {
+      position: absolute;
+      left: -17px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 1px solid var(--surface-page);
+    }
+    .tl-dot.pet { 
+      background: var(--petitioner); 
+    }
+    .tl-dot.res { 
+      background: var(--respondent); 
+    }
+    .tl-dot.dis { 
+      background: var(--disputed); 
+    }
+    .tl-dot.key { 
+      width: 10px; 
+      height: 10px; 
+      left: -18px; 
+      top: 4px; 
+    }
+    .tl-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-body);
+      margin-bottom: 8px;
+    }
+    .tl-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .tl-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .tl-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .tl-split-side {
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      line-height: 1.4;
+      color: var(--text-body);
+    }
+    .tl-split-side.pet {
+      background: rgba(192, 78, 1, 0.08);
+      border: 1px solid rgba(192, 78, 1, 0.20);
+    }
+    .tl-split-side.res {
+      background: rgba(74, 138, 124, 0.08);
+      border: 1px solid rgba(74, 138, 124, 0.20);
+    }
+    .tl-split-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .tl-split-side.pet .tl-split-label { 
+      color: var(--petitioner); 
+    }
+    .tl-split-side.res .tl-split-label { 
+      color: var(--respondent); 
+    }
+    .tl-tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .tl-tag.exhibit {
+      background: rgba(62,36,54,0.10);
+      color: var(--accent);
+    }
+    .tl-tag.disputed { 
+      background: rgba(212,168,67,0.15); 
+      color: var(--disputed); 
+    }
+    /* ─── Stats bar ─── */
+    .stats-bar {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      display: flex;
+      border-top: 3px solid transparent;
+      height: 58px;
+      z-index: 10;
+      background:
+        linear-gradient(rgba(244,237,227,0.97), rgba(244,237,227,0.97)) padding-box,
+        var(--grad-neutral) border-box;
+    }
+    .stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 3%;
+      border-right: 1px solid var(--border-light);
+    }
+    .stat:last-child {
+      border-right: none;
+    }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-heading);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <span class="nav-brand">Case Title</span>
+    <span class="nav-sub">Nav Subtitle</span>
+    <div class="nav-links">
+      <span class="nav-link">Timeline</span>
+      <span class="nav-link">Filings</span>
+      <span class="nav-link">Exhibits</span>
+      <span class="nav-link">Declarations</span>
+      <span class="nav-cta">View Docket</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="left">
+      <div class="eyebrow-line">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow">Subtxt Press &middot; Case Maps</span>
+      </div>
+
+      <h1 class="headline">
+        Lauren Mattias<br><em>Stalking</em> Injunction<br>in Seven Acts
+      </h1>
+
+      <p class="desc">
+        A civil stalking case in seven acts. Dual-narrative timeline of Matthias v. Reality (Case No. 250404055) — tracks contested events from both sides, color-coded by party, with exhibit references and split-view panels for disputed incidents.
+      </p>
+    </div>
+
+    <div class="right">
+      <div class="tl-preview">
+        <div class="tl-line"></div>
+
+        <!-- Timeline entry with split view -->
+        <div class="tl-entry">
+          <div class="tl-dot pet key"></div>
+          <div class="tl-date">Event 1 Date</div>
+          <div class="tl-title">Event 1 Title</div>
+          <div class="tl-split">
+            <div class="tl-split-side pet">
+              <div class="tl-split-label">Petitioner Label</div>
+              Event 1 text from petitioner's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
+            </div>
+            <div class="tl-split-side res">
+              <div class="tl-split-label">Respondent Label</div>
+              Event 1 text from respondent's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
+            </div>
+          </div>
+          <span class="tl-tag disputed">Disputed</span>
+        </div>
+
+        <!-- Timeline entry with exhibit tags -->
+        <div class="tl-entry">
+          <div class="tl-dot pet"></div>
+          <div class="tl-date">Event 2 Date</div>
+          <div class="tl-title">Event 2 Title</div>
+          <div class="tl-body">Event 2 text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.</div>
+          <span class="tl-tag exhibit">Exhibit 1</span>
+          <span class="tl-tag exhibit">Exhibit 2</span>
+        </div>
+
+        <!-- Timeline entry with split view -->
+        <div class="tl-entry">
+          <div class="tl-dot dis key"></div>
+          <div class="tl-date">Event 3 Date</div>
+          <div class="tl-title">Event 3 Title</div>
+          <div class="tl-split">
+            <div class="tl-split-side pet">
+              <div class="tl-split-label">Petitioner Label</div>
+              Event 3 text from petitioner's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
+            </div>
+            <div class="tl-split-side res">
+              <div class="tl-split-label">Respondent Label</div>
+              Event 3 text from respondent's perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.
+            </div>
+          </div>
+        </div>
+
+        <!-- Simple timeline entry -->
+        <div class="tl-entry">
+          <div class="tl-dot res"></div>
+          <div class="tl-date">Event 4 Date</div>
+          <div class="tl-title">Event 4 Title</div>
+          <div class="tl-body">Event 4 text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat" style="padding-left: 48px;">
+        <div class="stat-value">Stat 1</div>
+        <div class="stat-label">Stat 1 Label</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">Stat 2</div>
+        <div class="stat-label">Stat 2 Label</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">Stat 3</div>
+        <div class="stat-label">Stat 3 Label</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">Stat 4</div>
+        <div class="stat-label">Stat 4 Label</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">Stat 5</div>
+        <div class="stat-label">Stat 5 Label</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
