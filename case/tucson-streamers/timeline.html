@@ -416,7 +416,7 @@
       padding: 14px 18px;
       background: var(--c-primary-dim);
       border-left: 3px solid var(--c-primary);
-      font-size: 15px; 
+      font-size: 9px; 
       font-weight: 600;
       color: var(--text); 
       letter-spacing: 0.01em; 
@@ -425,9 +425,9 @@
     .callout-label {
       display: block; 
       font-family: var(--mono);
-      font-size: 9px; 
-      font-weight: 500;
-      letter-spacing: 0.14em; 
+      font-size: 10px; 
+      font-weight: 600;
+      letter-spacing: 0.05em; 
       text-transform: uppercase;
       color: var(--c-primary); 
       margin-bottom: 4px;
@@ -440,7 +440,7 @@
       border-left: 2px solid rgba(235, 226, 205, 0.3);
       font-size: 9px;
       font-weight: 400;
-      letter-spacing: 0.005em;
+      letter-spacing: 0.01em;
       line-height: 1.5;
       color: rgba(235, 226, 205, 0.65);
     }
@@ -846,7 +846,7 @@
     <p>While in the patrol vehicle, Bradshaw again requested clarification regarding the charge. Mahtapene read the applicable statutory language to him. Bradshaw stated he had never heard of the statute before.</p>
     <p>Bradshaw was transported to the Pima County Adult Detention Center and booked. Deputy Medina ensured all property belonging to Enderle and Bradshaw was no longer on the roadside and photographed Bradshaw's belongings to document no damage.</p>
     <div class="callout">
-      <span class="callout-label">Notable Detail</span>
+      <span class="callout-label">Note</span>
       Mahtapene was aware that Bradshaw had been cited and released in the same area just four days earlier (June 4) for <strong>ARS 13-2906(A)(1.1) Obstructing a Roadway</strong>.
     </div>
   </div>
@@ -1073,9 +1073,9 @@ function initMap() {
     },
     pointToLayer: function(feature, latlng) {
       var arrowIcon = L.divIcon({
-        html: '<div style="color: #C04E01; font-size: 28px; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); padding: 0px; line-height: 1;">↗</div>',
-        iconSize: [40, 40],
-        iconAnchor: [10, 30],
+        html: '<svg width="40" height="40" viewBox="0 0 40 40" style="filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.8));"><path d="M8 32 L32 8 M32 8 L32 24 M32 8 L16 8" stroke="#C04E01" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        iconSize: [20, 20],
+        iconAnchor: [20, 40],
         className: 'arrow-marker'
       });
       return L.marker(latlng, {icon: arrowIcon});
