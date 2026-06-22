@@ -1005,6 +1005,7 @@
     <h3>Data Layers</h3>
     <label class="lyr"><input type="checkbox" data-layer="routes"> Major Routes <span class="cnt" id="cnt-routes">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="cameras"> Traffic Cameras <span class="cnt" id="cnt-cameras">-</span></label>
+    <label class="lyr"><input type="checkbox" data-layer="flockCams"> ALPR Cameras (Flock) <span class="cnt" id="cnt-flock">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="mines"> Mines &amp; Shafts <span class="cnt" id="cnt-mines">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="towers"> Cell Towers <span class="cnt" id="cnt-towers">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="trailheads"> Trailheads <span class="cnt" id="cnt-trailheads">-</span></label>
@@ -1654,6 +1655,7 @@ tiles.streets.addTo(map);
 const ly = {
   routes:     L.layerGroup(),
   cameras:    L.layerGroup(),
+  flockCams:  L.layerGroup(),
   mines:      L.layerGroup(),
   towers:     L.layerGroup(),
   trailheads: L.layerGroup(),
@@ -1708,6 +1710,7 @@ const ICO = {
   }),
   cam:   dot('#e74c3c',11),       // OSM/Overpass cameras (smaller)
   adot:  diamond('#ff6b35',13),   // ADOT highway cameras (diamond, orange)
+  flock: dot('#06b6d4',12),        // Flock Safety ALPR cameras (cyan)
   trail: dot('#2ecc71',11),
   water: L.divIcon({
     html:`<div style="width:12px;height:14px;background:#0ea5e9;border:2px solid #fff;box-shadow:0 0 5px rgba(14,165,233,.6);border-radius:50% 50% 50% 0;transform:rotate(-45deg);"></div>`,
@@ -2991,6 +2994,36 @@ async function loadCameras() {
   const total = adotCount + osmCount;
   document.getElementById('cnt-cameras').textContent = `${adotCount} ADOT + ${osmCount} OSM`;
   setStatus('cameras','loaded',`(${adotCount} ADOT + ${osmCount} OSM)`);
+}
+
+// =============================================================
+// LOAD: FLOCK SAFETY ALPR CAMERAS (from embedded geojson)
+// =============================================================
+async function loadFlockCameras() {
+  setStatus('flockCams','loading');
+  let flockCount = 0;
+
+  try {
+    const response = await fetch('data/flock-alpr-cameras.geojson');
+    const data = await response.json();
+
+    data.features.forEach(feature => {
+      const [lon, lat] = feature.geometry.coordinates;
+      const props = feature.properties || {};
+      const osmId = props.osmId || 'unknown';
+      const popup = `<b>Flock Safety ALPR</b><br><small style="color:#7d8998;">OSM Node #${osmId}</small><br><small>${lat.toFixed(5)}, ${lon.toFixed(5)}</small>`;
+
+      L.marker([lat, lon], { icon: ICO.flock })
+        .bindPopup(popup)
+        .addTo(ly.flockCams);
+      flockCount++;
+    });
+  } catch(e) {
+    console.warn('Flock Safety cameras failed to load:', e.message);
+  }
+
+  document.getElementById('cnt-flock').textContent = `${flockCount}`;
+  setStatus('flockCams','loaded',`(${flockCount})`);
 }
 
 // =============================================================
@@ -4583,6 +4616,7 @@ loadAnnotations();
 loadPointData();
 loadRoutes();
 loadCameras();
+loadFlockCameras();
 loadWater();
 loadWatersheds();
 
