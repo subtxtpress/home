@@ -3043,7 +3043,8 @@ async function loadGenemates() {
 
     data.features.forEach((feature, idx) => {
       if (feature.geometry.type === 'LineString') {
-        L.polyline(feature.geometry.coordinates, corridorStyle)
+        const latLngCoords = feature.geometry.coordinates.map(([lon, lat]) => [lat, lon]);
+        L.polyline(latLngCoords, corridorStyle)
           .bindPopup(`<b>Route Corridor ${idx + 1}</b><br><small>5830 Genemates Dr analysis</small>`)
           .addTo(ly.genCorridors);
         corridorCount++;
