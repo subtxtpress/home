@@ -137,9 +137,12 @@
   .user-guide-links a:hover {
     color:var(--text);
   }
+  . bi {
+    margin-right: 3%;
+  }
   .bi-info-circle {
     font-size:11px;
-    margin-right:3px;
+    margin-right:3%;;
   }
   .timeline-links {
     margin-top:4px;
@@ -196,6 +199,7 @@
     width:7px; height:7px; 
     border-radius:50%; 
     margin-left:4px; 
+    margin-right: 2%;
     vertical-align:middle; 
   }
   .dot.ok { 
@@ -279,7 +283,7 @@
   .link {
     display:block; 
     padding:4px 0; 
-    color:var(--link); 
+    color:var(--text); 
     text-decoration:none; 
     font-size:11px;
     transition:color .15s; 
@@ -288,6 +292,7 @@
   .link:hover { 
     text-decoration:underline; 
     opacity:1; 
+    color:var(--link);
   }
   #toggle-btn {
     position:absolute; 
@@ -1051,12 +1056,12 @@
 
   <div class="sec">
     <h3>Tools</h3>
-    <button class="btn" id="btn-measure" onclick="toggleMeasure()"><i class="bi bi-rulers"></i> Measure Distance</button>
-    <button class="btn" onclick="addDistanceRings()"><i class="bi bi-circle"></i> Distance Rings from Center</button>
-    <button class="btn" id="btn-grid" onclick="toggleGrid()"><i class="bi bi-grid-3x3"></i> Search Grid Overlay</button>
-    <button class="btn" onclick="dropMarker()"><i class="bi bi-pin-fill"></i> Drop Note Marker</button>
-    <button class="btn" onclick="clearAnnotations()"><i class="bi bi-trash"></i> Clear All Annotations</button>
-    <button class="btn" onclick="exportData()"><i class="bi bi-download"></i> Export Notes as GeoJSON</button>
+    <button class="btn" id="btn-measure" onclick="toggleMeasure()"><i style="margin-right:2%;" class="bi bi-rulers"></i> Measure Distance</button>
+    <button class="btn" onclick="addDistanceRings()"><i style="margin-right:2%;" class="bi bi-circle"></i> Distance Rings from Center</button>
+    <button class="btn" id="btn-grid" onclick="toggleGrid()"><i style="margin-right:2%;" class="bi bi-grid-3x3"></i> Search Grid Overlay</button>
+    <button class="btn" onclick="dropMarker()"><i style="margin-right:2%;" class="bi bi-pin-fill"></i> Drop Note Marker</button>
+    <button class="btn" onclick="clearAnnotations()"><i style="margin-right:2%;" class="bi bi-trash"></i> Clear All Annotations</button>
+    <button class="btn" onclick="exportData()"><i style="margin-right:2%;" class="bi bi-download"></i> Export Notes as GeoJSON</button>
   </div>
 
   <div class="sec sec-dt">
@@ -1074,7 +1079,7 @@
     <button class="btn" onclick="runDriveTime()" id="btn-drivetime">Calculate Drive-Time Radius</button>
     <button class="btn" onclick="clearDriveTime()">Clear Drive-Time Layers</button>
     <label class="lyr" style="margin-top:6px;"><input type="checkbox" data-layer="maxReach"> Max Road-Reach Circle</label>
-    <label class="lyr"><input type="checkbox" data-layer="camOnRoute"><i class="bi bi-camera-video" style="margin-right:6px;"></i>Cameras on Routes <span class="cnt" id="cnt-cam-route">-</span></label>
+    <label class="lyr"><input type="checkbox" data-layer="camOnRoute"><i class="bi bi-camera-video" style="margin-right:1%;"></i>Cameras on Routes <span class="cnt" id="cnt-cam-route">-</span></label>
     <div id="dt-status" style="font-size:11px;color:var(--dim);margin-top:6px;"></div>
     <div id="dt-results" style="font-size:11px;margin-top:6px;max-height:250px;overflow-y:auto;line-height:1.6;"></div>
   </div>
@@ -1119,12 +1124,12 @@
       </select>
     </div>
     <label class="lyr" style="margin-bottom:6px;"><input type="checkbox" id="rsg-stealth"><i class="bi bi-eye-slash" style="margin-right:6px;"></i>Stealth Mode (fewest cameras)</label>
-    <button class="btn" onclick="generateScenario()"><i class="bi bi-shuffle"></i> Generate Route</button>
-    <button class="btn" onclick="batchGenerateScenarios()"><i class="bi bi-fire"></i> Batch Generate (heatmap)</button>
-    <button class="btn" onclick="clearScenarios()"><i class="bi bi-trash"></i> Clear Scenarios</button>
+    <button class="btn" onclick="generateScenario()"><i style="margin-right:3%;" class="bi bi-shuffle"></i> Generate Route</button>
+    <button class="btn" onclick="batchGenerateScenarios()"><i style="margin-right:3%;" class="bi bi-fire"></i> Batch Generate (heatmap)</button>
+    <button class="btn" onclick="clearScenarios()"><i style="margin-right:3%;" class="bi bi-trash"></i> Clear Scenarios</button>
     <label class="lyr" style="margin-top:6px;"><input type="checkbox" data-layer="rsgRoutes"> Scenario Routes <span class="cnt" id="cnt-rsg-routes">-</span></label>
-    <label class="lyr"><input type="checkbox" data-layer="rsgCams"><i class="bi bi-camera-video" style="margin-right:6px;"></i>Cameras on Scenarios <span class="cnt" id="cnt-rsg-cams">-</span></label>
-    <label class="lyr"><input type="checkbox" data-layer="rsgPOI"><i class="bi bi-geo-alt" style="margin-right:6px;"></i>Points of Interest <span class="cnt" id="cnt-rsg-poi">-</span></label>
+    <label class="lyr"><input type="checkbox" data-layer="rsgCams"><i style="margin-right:3%;" class="bi bi-camera-video" style="margin-right:1%;"></i>Cameras on Scenarios <span class="cnt" id="cnt-rsg-cams">-</span></label>
+    <label class="lyr"><input type="checkbox" data-layer="rsgPOI"><i style="margin-right:3%;" class="bi bi-geo-alt" style="margin-right:1%;"></i>Points of Interest <span class="cnt" id="cnt-rsg-poi">-</span></label>
     <div id="rsg-status" style="font-size:11px;color:var(--dim);margin-top:6px;"></div>
     <div id="rsg-results" style="font-size:11px;margin-top:6px;max-height:350px;overflow-y:auto;line-height:1.6;"></div>
   </div>
@@ -1152,7 +1157,7 @@
         <option value="0">All time</option>
       </select>
     </div>
-    <button class="btn" onclick="loadCrimeIntel()"><i class="bi bi-exclamation-octagon-fill"></i> Load Crime Data</button>
+    <button class="btn" onclick="loadCrimeIntel()"><i style="margin-right:2%;" class="bi bi-exclamation-octagon-fill"></i> Load Crime Data</button>
     <div id="crime-status" style="font-size:11px;color:var(--dim);margin-top:6px;"></div>
     <div id="crime-results" style="font-size:11px;margin-top:6px;max-height:300px;overflow-y:auto;line-height:1.6;"></div>
   </div>
@@ -1165,18 +1170,18 @@
   <div class="sec">
     <h3>News &amp; Media Search</h3>
     <p style="font-size:10px;color:var(--dim);margin:0 0 6px;">Pre-built searches — last 2 years. Opens in new tab.</p>
-    <a href="https://www.google.com/search?q=%22kidnapping%22+OR+%22abduction%22+OR+%22kidnapped%22+Tucson+Arizona&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i class="bi bi-search"></i> Kidnapping / Abduction — Tucson</a>
-    <a href="https://www.google.com/search?q=%22elder+abuse%22+OR+%22elderly+victim%22+OR+%22senior+abuse%22+Tucson+Arizona&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i class="bi bi-search"></i> Elder Abuse — Tucson</a>
-    <a href="https://www.google.com/search?q=%22missing+person%22+OR+%22missing+woman%22+OR+%22missing+elderly%22+Tucson+Arizona&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i class="bi bi-search"></i> Missing Person — Tucson</a>
-    <a href="https://www.google.com/search?q=%22Catalina+Foothills%22+crime+OR+arrest+OR+kidnap+OR+missing&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i class="bi bi-search"></i> Catalina Foothills — Crime</a>
-    <a href="https://www.google.com/search?q=%22exploitation%22+OR+%22conservatorship%22+OR+%22guardianship%22+elderly+Tucson+Pima&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i class="bi bi-search"></i> Elder Exploitation / Guardianship</a>
-    <a href="https://www.google.com/search?q=site%3Atucson.com+OR+site%3Akvoa.com+OR+site%3Akgun9.com+OR+site%3Akold.com+kidnapping+OR+%22elder+abuse%22+OR+missing&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i class="bi bi-search"></i> Local TV Stations — Kidnap/Abuse</a>
+    <a href="https://www.google.com/search?q=%22kidnapping%22+OR+%22abduction%22+OR+%22kidnapped%22+Tucson+Arizona&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i style="margin-right:1%;" class="bi bi-search"></i> Kidnapping / Abduction — Tucson</a>
+    <a href="https://www.google.com/search?q=%22elder+abuse%22+OR+%22elderly+victim%22+OR+%22senior+abuse%22+Tucson+Arizona&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i style="margin-right:1%;" class="bi bi-search"></i> Elder Abuse — Tucson</a>
+    <a href="https://www.google.com/search?q=%22missing+person%22+OR+%22missing+woman%22+OR+%22missing+elderly%22+Tucson+Arizona&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i style="margin-right:1%;" class="bi bi-search"></i> Missing Person — Tucson</a>
+    <a href="https://www.google.com/search?q=%22Catalina+Foothills%22+crime+OR+arrest+OR+kidnap+OR+missing&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i style="margin-right:1%;" class="bi bi-search"></i> Catalina Foothills — Crime</a>
+    <a href="https://www.google.com/search?q=%22exploitation%22+OR+%22conservatorship%22+OR+%22guardianship%22+elderly+Tucson+Pima&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i style="margin-right:1%;" class="bi bi-search"></i> Elder Exploitation / Guardianship</a>
+    <a href="https://www.google.com/search?q=site%3Atucson.com+OR+site%3Akvoa.com+OR+site%3Akgun9.com+OR+site%3Akold.com+kidnapping+OR+%22elder+abuse%22+OR+missing&tbs=qdr:y2&tbm=nws" target="_blank" rel="noopener" class="link"><i style="margin-right:1%;" class="bi bi-search"></i> Local TV Stations — Kidnap/Abuse</a>
     <a href="https://tucson.com/search/?q=kidnapping+OR+%22elder+abuse%22&t=article&o=date" target="_blank" rel="noopener" class="link"><i class="bi bi-search"></i> Arizona Daily Star Archive</a>
     <div style="margin-top:8px;padding:6px 8px;background:var(--section);border-radius:4px;border:1px solid var(--border);">
       <div style="font-size:10px;color:var(--dim);margin-bottom:4px;">Set up Google Alerts (real-time email notifications):</div>
-      <a href="https://www.google.com/alerts#1:0&q=%22kidnapping%22+OR+%22abduction%22+Tucson+Arizona" target="_blank" rel="noopener" class="link" style="font-size:11px;"><i class="bi bi-bell-fill"></i> Create Alert: Kidnapping Tucson</a>
-      <a href="https://www.google.com/alerts#1:0&q=%22elder+abuse%22+OR+%22elderly%22+Tucson+Arizona" target="_blank" rel="noopener" class="link" style="font-size:11px;"><i class="bi bi-bell-fill"></i> Create Alert: Elder Abuse Tucson</a>
-      <a href="https://www.google.com/alerts#1:0&q=%22missing+person%22+Tucson+%22Catalina+Foothills%22" target="_blank" rel="noopener" class="link" style="font-size:11px;"><i class="bi bi-bell-fill"></i> Create Alert: Missing Person</a>
+      <a href="https://www.google.com/alerts#1:0&q=%22kidnapping%22+OR+%22abduction%22+Tucson+Arizona" target="_blank" rel="noopener" class="link" style="font-size:11px;"><i style="margin-right:1%;" class="bi bi-bell-fill"></i> Create Alert: Kidnapping Tucson</a>
+      <a href="https://www.google.com/alerts#1:0&q=%22elder+abuse%22+OR+%22elderly%22+Tucson+Arizona" target="_blank" rel="noopener" class="link" style="font-size:11px;"><i style="margin-right:1%;" class="bi bi-bell-fill"></i> Create Alert: Elder Abuse Tucson</a>
+      <a href="https://www.google.com/alerts#1:0&q=%22missing+person%22+Tucson+%22Catalina+Foothills%22" target="_blank" rel="noopener" class="link" style="font-size:11px;"><i style="margin-right:1%;" class="bi bi-bell-fill"></i> Create Alert: Missing Person</a>
     </div>
   </div>
 
@@ -4099,7 +4104,7 @@ async function runDriveTime() {
   // 4b. Highlight cameras near any route trace (within 400m)
   const camCount = highlightCamerasOnRoutes(traceResults, 400);
   if (camCount > 0) {
-    html += `<div style="margin-top:8px;padding-top:6px;border-top:1px solid var(--border);"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ffeb3b;border:2px solid #f44336;margin-right:4px;"></span><b>${camCount} cameras on routes</b></div>`;
+    html += `<div style="margin-top:8px;padding-top:6px;border-top:1px solid var(--border);"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ffeb3b;border:2px solid #f44336;margin-right:0;"></span><b>${camCount} cameras on routes</b></div>`;
   }
 
   // 5. Max-Reach Circle — based on furthest actual road distance
