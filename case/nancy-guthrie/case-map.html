@@ -1006,6 +1006,7 @@
     <label class="lyr"><input type="checkbox" data-layer="routes"> Major Routes <span class="cnt" id="cnt-routes">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="cameras"> Traffic Cameras <span class="cnt" id="cnt-cameras">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="flockCams"> ALPR Cameras (Flock) <span class="cnt" id="cnt-flock">-</span></label>
+    <label class="lyr"><input type="checkbox" data-layer="genCorridors"> Genemates Corridors <span class="cnt" id="cnt-gen">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="mines"> Mines &amp; Shafts <span class="cnt" id="cnt-mines">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="towers"> Cell Towers <span class="cnt" id="cnt-towers">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="trailheads"> Trailheads <span class="cnt" id="cnt-trailheads">-</span></label>
@@ -1656,6 +1657,7 @@ const ly = {
   routes:     L.layerGroup(),
   cameras:    L.layerGroup(),
   flockCams:  L.layerGroup(),
+  genCorridors: L.layerGroup(),
   mines:      L.layerGroup(),
   towers:     L.layerGroup(),
   trailheads: L.layerGroup(),
@@ -1711,6 +1713,7 @@ const ICO = {
   cam:   dot('#e74c3c',11),       // OSM/Overpass cameras (smaller)
   adot:  diamond('#ff6b35',13),   // ADOT highway cameras (diamond, orange)
   flock: dot('#06b6d4',12),        // Flock Safety ALPR cameras (cyan)
+  corridor: function(color) { return { color: color, weight: 2.5, opacity: 0.7, dashArray: '5,5' }; },
   trail: dot('#2ecc71',11),
   water: L.divIcon({
     html:`<div style="width:12px;height:14px;background:#0ea5e9;border:2px solid #fff;box-shadow:0 0 5px rgba(14,165,233,.6);border-radius:50% 50% 50% 0;transform:rotate(-45deg);"></div>`,
@@ -3024,6 +3027,34 @@ async function loadFlockCameras() {
 
   document.getElementById('cnt-flock').textContent = `${flockCount}`;
   setStatus('flockCams','loaded',`(${flockCount})`);
+}
+
+// =============================================================
+// LOAD: GENEMATES DRIVE CORRIDORS (route analysis from 5830 Genemates Dr)
+// =============================================================
+async function loadGenemates() {
+  setStatus('genCorridors','loading');
+  let corridorCount = 0;
+  const corridorStyle = ICO.corridor('#a855f7'); // purple dashed lines
+
+  try {
+    const response = await fetch('data/genemates-corridors.geojson');
+    const data = await response.json();
+
+    data.features.forEach((feature, idx) => {
+      if (feature.geometry.type === 'LineString') {
+        L.polyline(feature.geometry.coordinates, corridorStyle)
+          .bindPopup(`<b>Route Corridor ${idx + 1}</b><br><small>5830 Genemates Dr analysis</small>`)
+          .addTo(ly.genCorridors);
+        corridorCount++;
+      }
+    });
+  } catch(e) {
+    console.warn('Genemates corridors failed to load:', e.message);
+  }
+
+  document.getElementById('cnt-gen').textContent = `${corridorCount}`;
+  setStatus('genCorridors','loaded',`(${corridorCount} routes)`);
 }
 
 // =============================================================
@@ -4617,6 +4648,7 @@ loadPointData();
 loadRoutes();
 loadCameras();
 loadFlockCameras();
+loadGenemates();
 loadWater();
 loadWatersheds();
 
