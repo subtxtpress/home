@@ -3559,9 +3559,9 @@ const JAMMER_CONFIG = {
     }).addTo(ly.jammerZone);
   });
 
-  // Center pin — color matches the innermost zone
+  // Center pin — peach color to match MAP button
   L.circleMarker(center, {
-    radius: 5, color: '#fff', fillColor: JAMMER_CONFIG.zones[0].color, fillOpacity: 1, weight: 2,
+    radius: 5, color: '#fff', fillColor: '#E8956A', fillOpacity: 1, weight: 2,
   }).bindPopup(
     `<b>\u{1F4F5} Jammer Origin</b><br>5820 N Camino Escalante<br>`
     + `<small>${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}</small><br>`
