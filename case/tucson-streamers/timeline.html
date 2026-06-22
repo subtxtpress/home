@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tucson Streamers Shit Show | Subtxt Press</title>
-  <meta name="description" content="Timeline of Super Easily Avoidable Dumb Shit">
+  <meta name="description" content="Timeline of events in the Tucson streamers parasocial personal problems with Nancy Guthrie's neighbors leading up to their misdemeanor cases filed in Pima County Justice Court, June 2026.">
   <link rel="canonical" href="https://subtxtpress.github.io/home/case/tucson-streamers/timeline">
   <!-- Open Graph -->
   <meta property="og:title" content="Tucson Streamer Shit Show | Subtxt Press">
-  <meta property="og:description" content="Timeline of Super Easily Avoidable Dumb Shit">
+  <meta property="og:description" content="Timeline of events in the Tucson streamers parasocial personal problems with Nancy Guthrie's neighbors leading up to their misdemeanor cases filed in Pima County Justice Court, June 2026.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/case/tucson-streamers/timeline">
   <meta property="og:image" content="https://subtxtpress.github.io/home/case/tucson-streamers/img/tucson-streamers.png">
@@ -19,7 +19,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tucson Streamers Shit Show | Subtxt Press">
-  <meta name="twitter:description" content="Timeline of Super Easily Avoidable Dumb Shit">
+  <meta name="twitter:description" content="Timeline of events in the Tucson streamers parasocial personal problems with Nancy Guthrie's neighbors leading up to their misdemeanor cases filed in Pima County Justice Court, June 2026.">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/case/tucson-streamers/img/tucson-streamers.png">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Favicons -->
@@ -153,21 +153,24 @@
     /* ── MAP ── */
     #map {
       position: fixed;
-      top: var(--nav-h); 
+      top: var(--nav-h);
       right: 0;
-      width: 60%; 
+      width: 60%;
       height: calc(100vh - var(--nav-h));
-      z-index: 1;
+      z-index: 110;
+      display: block !important;
+      visibility: visible !important;
+      pointer-events: auto;
     }
     /* ── CLOCK OVERLAY ── */
     #clock {
       position: fixed;
-      top: calc(var(--nav-h) + 16px); 
+      top: calc(var(--nav-h) + 16px);
       right: 16px;
       z-index: 800;
       background: rgba(6,11,20,0.82);
       border: 1px solid var(--border2);
-      padding: 10px 18px; 
+      padding: 10px 18px;
       border-radius: 4px;
       text-align: right;
       backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
@@ -193,32 +196,32 @@
     }
     /* ── BASEMAP TOGGLE ── */
     #basemap-toggle {
-      position: fixed; 
-      bottom: 20px; 
-      right: 20px; 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       z-index: 800;
-      background: rgba(6,11,20,0.82); 
+      background: rgba(6,11,20,0.82);
       border: 1px solid var(--border2);
-      color: var(--text2); 
-      font-family: var(--mono); 
+      color: var(--text2);
+      font-family: var(--mono);
       font-size: 10px;
-      padding: 6px 12px; 
+      padding: 6px 12px;
       border-radius: 4px;
-      cursor: pointer; 
-      letter-spacing: 0.06em; 
+      cursor: pointer;
+      letter-spacing: 0.06em;
       transition: background 0.2s;
     }
-    #basemap-toggle:hover { 
-      background: var(--surface2); 
+    #basemap-toggle:hover {
+      background: var(--surface2);
     }
     /* ── NARRATIVE COLUMN ── */
     #narrative {
       position: fixed;
-      top: var(--nav-h); 
+      top: var(--nav-h);
       left: 0;
       width: 40%;
       height: calc(100vh - var(--nav-h));
-      overflow-y: auto; 
+      overflow-y: auto;
       overflow-x: hidden;
       z-index: 100;
       background: var(--bg);
@@ -488,6 +491,17 @@
       padding-bottom: 1%;
       line-height: 1.5;
     }
+    .demands-list p {
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .demands-list a {
+      color: rgba(235, 226, 205, 0.7);
+    }
+    .demands-list a:hover {
+      color: rgba(222, 210, 182, 0.9);
+      text-decoration: underline;
+    }
     /* Pulse animation for active markers */
     @keyframes pulse-ring { 
       0% { 
@@ -515,18 +529,20 @@
     }
     /* ── MOBILE ── */
     @media (max-width: 768px) {
-      #map { 
-        width: 100%; 
-        height: 40vh; 
-        top: var(--nav-h); 
-        position: fixed; 
+      #map {
+        width: 100%;
+        height: 40vh;
+        top: var(--nav-h);
+        position: fixed;
+        z-index: 110;
       }
       #narrative {
-        width: 100%; 
+        width: 100%;
         top: calc(var(--nav-h) + 40vh);
         height: calc(60vh - var(--nav-h));
-        border-right: none; 
+        border-right: none;
         border-top: 1px solid var(--border2);
+        z-index: 100;
       }
       #clock { 
         top: calc(var(--nav-h) + 8px); 
@@ -570,8 +586,8 @@
 
 <nav class="nav">
   <span class="nav-title">Timeline of Super Easily Avoidable Dumb Shit</span>
-  <span class="nav-tag">Docs</span>
-  <a class="nav-source-link" href="https://drive.google.com/drive/folders/1-PMd6z5-LJi_K5BbBb08gPz6by8uKJXe?usp=drive_link" target="_blank"> &rarr;</a>
+  <span class="nav-tag">Dockets</span>
+  <a class="nav-source-link" href="../../dockets/tucson-streamers/dockets" target="_blank"> &rarr;</a>
 </nav>
 
 <div id="map"></div>
@@ -609,21 +625,15 @@
   <!-- ── STEP 0: Intro ── -->
   <div class="step" data-step="0" data-border="var(--c-accent)">
     <div class="step-title"><span class="step-headline">Tucson Streamer Shit Show</span></div>
-    <p>Beginning in ealry February 2026, major media outlets, independent journalists, content creators and YouTube streamers descended on the residential neighborhood of Nancy Guthrie in Tucson's Catalina Foothills, drawn by reports of her kidnapping.</p>
+    <p>After news broke that Nancy Guthrie was missing, major media outlets, independent journalists, content creators and YouTube streamers descended on her residential neighborhood in Tucson's Catalina Foothills in full force.</p>
     <p>What followed was a cascade of traffic obstructions, harassment complaints and law enforcement responses that illuminate tensions between media access, streamer culture and privacy rights.</p>
     <p style="color:gray;font-size:10px;"><em>under construction blah blah blah...</em></p>
   </div>
 
-  <!-- ── STEP 1: Road made one-way ── -->
+  <!-- ── STEP 1: Early February ── -->
   <div class="step" data-step="1" data-border="var(--c-primary)">
-    <div class="step-time">Friday, Feb. 20, 2026</div>
-    <div class="step-title">Pima County Announces Solution</div>
-    <p>After three weeks of sustained media presence outside Nancy Guthrie's home, Pima County officials announced that traffic on Camino Escalante would shift to one-way beginning Feb. 21, 2026. The temporary restriction was requested by the Catalina Foothills Estates Neighborhood Association, which cited parking and traffic congestion caused by media outlets.</p>
-    <p>North Camino Escalante from the intersection at North Camino Miraval to East Camino La Zorrela would become northbound only. Do Not Enter signs would be placed at the southern intersection. Parking would be restricted to the west side only.</p>
-    <div class="tldr">
-      <span class="tldr-label">AZPM News</span>
-        <p class="tldr-link"><a href="https://news.azpm.org/s/102778-pima-co-officials-make-road-near-nancy-guthries-home-one-way-amid-media-congestion/" target="_blank">County Administrator Jan Lesher said: "We believe making the road one-way is the best possible solution for everyone. It allows for continued media access to the area while ensuring neighbors can enter and exit without obstruction."</a></p>
-    </div>
+    <div class="step-time">Feb. 2, 2026</div>
+    <div class="step-title">The Media Storm</div>
     <div class="step-gallery">
       <img src="assets/02-11-26-media-presence-1.png" alt="A motorist slowly rolls through a crowd of media personnel staging outside Nancy's home on Wednesday, Feb. 11, 2026.">
     </div>
@@ -634,8 +644,20 @@
     <div class="gallery-caption">The media closely follows FBI investigators searching around Nancy Guthrie's Tucson-area home on Wednesday, Feb. 11, 2026. | Katya Mendoza, AZPM News</div>
   </div>
 
-  <!-- ── STEP 2: Parking restrictions imposed ── -->
-  <div class="step" data-step="2" data-border="var(--c-secondary)">
+  <!-- ── STEP 2: Road made one-way ── -->
+  <div class="step" data-step="2" data-border="var(--c-primary)">
+    <div class="step-time">Friday, Feb. 20, 2026</div>
+    <div class="step-title">Pima County Announces Solution</div>
+    <p>Pima County officials announced that traffic on Camino Escalante would shift to one-way beginning Feb. 21, 2026. The temporary restriction was requested by the Catalina Foothills Estates Neighborhood Association, which cited parking and traffic congestion caused by media outlets.</p>
+    <p>North Camino Escalante from the intersection at North Camino Miraval to East Camino La Zorrela would become northbound only. Do Not Enter signs would be placed at the southern intersection. Parking would be restricted to the west side only.</p>
+    <div class="tldr">
+      <span class="tldr-label">AZPM News</span>
+        <p class="tldr-link"><a href="https://news.azpm.org/s/102778-pima-co-officials-make-road-near-nancy-guthries-home-one-way-amid-media-congestion/" target="_blank">County Administrator Jan Lesher said: "We believe making the road one-way is the best possible solution for everyone. It allows for continued media access to the area while ensuring neighbors can enter and exit without obstruction."</a></p>
+    </div>
+  </div>
+
+  <!-- ── STEP 3: Parking restrictions imposed ── -->
+  <div class="step" data-step="3" data-border="var(--c-secondary)">
     <div class="step-time">Saturday, Feb. 21, 2026</div>
     <div class="step-title">Parking Restrictions Enforced</div>
     <p>Since the Sheriff’s Department began investigating the case Feb. 1, media and other members of the public have been parking on the narrow easements of the quiet neighborhood road in the Catalina Foothills. There often are so many media members gathered in the area and vehicles parking on the sides of the road, that vehicles travelling in opposite directions have been unable to get past each other.</p>
@@ -646,8 +668,8 @@
     </div>
   </div>
 
-  <!-- ── STEP 3: Streamers return after media leaves ── -->
-  <div class="step" data-step="3" data-border="var(--c-primary)">
+  <!-- ── STEP 4: Streamers return after media leaves ── -->
+  <div class="step" data-step="4" data-border="var(--c-primary)">
     <div class="step-time">Sunday, Feb. 22, 2026 onwards</div>
     <div class="step-title">YouTubers Fill Vacuum</div>
     <p>After Nancy's home was swept one last time before being released back to Nancy's family, and the forensic examination portion of the investigation was able to begin making progress, most news outlets departed and the driving restrictions were lifted&mdash;although parking restrictions remained.</p>
@@ -655,8 +677,8 @@
     <p>The neighbors, predictably, began lodging repeated complaints about the streamers as the situation devolved from media storm to main-character-syndrome streamer tourism.</p>
   </div>
 
-  <!-- ── STEP 4: Parking restrictions imposed ── -->
-  <div class="step" data-step="4" data-border="var(--c-secondary)">
+  <!-- ── STEP 5: Parking restrictions imposed ── -->
+  <div class="step" data-step="5" data-border="var(--c-secondary)">
     <div class="step-time">Thursday, Feb. 26, 2026</div>
     <div class="step-title">Parking Restrictions Expanded</div>
     <p>Despite the one-way street conversion, the situation did not improve as expected. Neighbors continued to report "clogged roads, trespassing, noise, and accumulating trash along the road."</p>
@@ -671,8 +693,8 @@
     <div class="gallery-caption">Catalina Foothills Estates No Parking Zone Map. | Pima.gov</div>
   </div>
 
-  <!-- ── STEP 5: Alex Zabel incident, May 26 ── -->
-  <div class="step" data-step="5" data-border="var(--c-primary)">
+  <!-- ── STEP 6: Alex Zabel incident, May 26 ── -->
+  <div class="step" data-step="6" data-border="var(--c-primary)">
     <div class="step-time">Tuesday, May 26, 2026 &middot; 16:26 hours</div>
     <div class="step-title">Three Complaints Called in to PCSD</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Alex Zabel (Streamer)</div>
@@ -705,8 +727,8 @@
     <div class="gallery-caption"><p class="live-link">Zabel showing chat his pee tent. | <a href="https://www.youtube.com/live/6RRv7pUBCiQ?si=tcgT8zaMqkyCR9T2" target="_blank">Criminal Network Live Min Mark 0:00</a></p></div>
   </div>
 
-  <!-- ── STEP 6: Deputy makes contact ── -->
-  <div class="step" data-step="6" data-border="var(--c-secondary)">
+  <!-- ── STEP 7: Deputy makes contact ── -->
+  <div class="step" data-step="7" data-border="var(--c-secondary)">
     <div class="step-time">Tuesday, May 26, 2026 &middot; 16:44 hours</div>
     <div class="step-title">Deputy Duarte Contacts Zabel</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Alex Zabel (Streamer)</div>
@@ -747,8 +769,8 @@
     <div class="gallery-caption"><p class="live-link">Zabel streaming setup. | <a href="https://drive.google.com/file/d/1_xAhEusEh5EHNxQUGKuu9AAeVgg4uG0d/view?usp=drive_link" target="_blank">Criminal Network Live Min Mark 22:00</a></p></div>
   </div>
 
-  <!-- ── STEP 7: Troy Bradshaw citation ── -->
-  <div class="step" data-step="7" data-border="var(--c-primary)">
+  <!-- ── STEP 8: Troy Bradshaw citation ── -->
+  <div class="step" data-step="8" data-border="var(--c-primary)">
     <div class="step-time">Thursday, June 4, 2026</div>
     <div class="step-title">Streamer Cited for Obstruction</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Troy Bradsahw (Daa Juice Channel)</div>
@@ -756,34 +778,34 @@
     <p>Pima Justice Court #8 Citation #260604237, Case Number CR26-008324-MI, filed June 10, 2026.</p>
   </div>
 
-  <!-- ── STEP 8: Zabel's Patriot Pee Tent Simulation ── -->
-  <div class="step" data-step="8" data-border="var(--c-primary)">
+  <!-- ── STEP 9: Zabel's Patriot Pee Tent Simulation ── -->
+  <div class="step" data-step="9" data-border="var(--c-primary)">
     <div class="step-time">Friday, June 5, 2026</div>
     <div class="step-title">Zabel's Patriot Pee Tent Simulation</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Alex Zabel (Criminal Network channel)</div>
-    <p>Alex Zabel set up his portable pee tent on the asphalt of the roadway at North Camino Escalante and North Cerrada Chica, in a very such brave excercise of his right to........be a hall monitor pest surveilling, auditing, judging, and reporting on every move complete strangers are making in real time.</p>
-    <p>During this very such brave excercise demonstration, a car is seen driving by. It's safe to assume the driver was not tuning into Alex's Patriot Act livestream to know he was not actually peeing into a pringles can inside the patriot pee tent excercising its full right to exist in the middle of any public easement of any neighboorhood Alex has determined that someone is hiding something sinister.</p>
+    <p>Alex Zabel set up his portable pee tent on the asphalt of the roadway at North Camino Escalante and North Cerrada Chica in a very such brave excercise of his right to........be a hall monitor pest surveilling, auditing, judging, and reporting on every move complete strangers of zero public interest are making in real time.</p>
+    <p>During this very such brave excercise demonstration, a car is seen driving by. It's safe to assume the driver was not tuning into Alex's Patriot Act livestream to know he was not actually peeing into a pringles can inside the patriot pee tent excercising its full right to stant tall in the middle of any public easement of any neighboorhood Alex et al. has determined that someone is hiding something sinister.</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/06-05-26-pee-tent.mp4" data-aspect-ratio="9/16"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
-    <div class="embed-caption">Zabel's Patriot Pee Tent Simulation | Min Mark 1:28:00</div>
+    <div class="embed-caption"><p class="live-link">Zabel's Patriot Pee Tent Simulation | <a href="https://www.youtube.com/live/hD0KcPMZN1A?si=zbbefYb_C4_7J05E" target="_blank">Criminal Network Live Min Mark 1:28:00</a></p></div>
   </div>
 
-  <!-- ── STEP 9: Zabel's Patriot Pee Tent Simulation ── -->
-  <div class="step" data-step="9" data-border="var(--c-primary)">
+  <!-- ── STEP 10: Zabel's Patriot Pee Tent Simulation ── -->
+  <div class="step" data-step="10" data-border="var(--c-primary)">
     <div class="step-time">Sunday, June 7, 2026</div>
-    <div class="step-title">A local, deputy, and neighbor.. </div>
+    <div class="step-title">A local, deputy, and neighbor...</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Alex Zabel (Criminal Network channel)</div>
-    <p>Alex Zabel set up his portable pee tent on the asphalt of the roadway at North Camino Escalante and North Cerrada Chica, in a very such brave excercise of his right to........be a hall monitor pest surveilling, auditing, judging, and reporting on every move complete strangers are making in real time.</p>
-    <p>During this very such brave excercise demonstration, a car is seen driving by. It's safe to assume the driver was not tuning into Alex's Patriot Act livestream to know he was not actually peeing into a pringles can inside the patriot pee tent excercising its full right to exist in the middle of any public easement of any neighboorhood Alex has determined that someone is hiding something sinister.</p>
+    <p>After a local pulls up to chat with Zabel, a Pima County Sheriff's Deputy pulls up to make sure all is well. After offering Alex water, the deputy leaves and then moments later, Sue Ellen rolls up.</p>
+    <p>Despite Sue Ellen *not* saying she lined the rocks with dog shit, and speculated&mdash;reasonably so&mdash;that it was the javalinas, Alex and his tens of thousands of supporters have been running around since June 7th declaring that Sue Ellen ADMITTED to putting dog shit out by the rocks bc who gives a shit about getting facts straight when the first amendment is under imaginary attack.</p>
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/06-07-26-encounter.mp4" data-aspect-ratio="9/16"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
     </div>
     <div class="embed-caption">Zabel's Patriot Pee Tent Simulation | Min Mark 1:28:00</div>
   </div>
 
-  <!-- ── STEP 10: Sheriff Conducts Briefing ── -->
-  <div class="step" data-step="10" data-border="var(--c-secondary)">
+  <!-- ── STEP 11: Sheriff Conducts Briefing ── -->
+  <div class="step" data-step="11" data-border="var(--c-secondary)">
     <div class="step-time">Monday, June 8, 2026 &middot; 16:47 hours</div>
     <div class="step-title">Sheriff's Department Organizes Response</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-secondary)"></span> Sgt. Morales #6321</div>
@@ -792,8 +814,8 @@
     <p>The deputies were ordered to locate anyone in front of the house live streaming and to cite them for either <strong>ARS 13-2917(A)(1) Public Nuisance</strong> or <strong>ARS 13-2906 Obstructing a Roadway</strong> if blocking the roadway.</p>
   </div>
 
-  <!-- ── STEP 11: Enderle & Bradshaw Cited ── -->
-  <div class="step" data-step="11" data-border="var(--c-primary)">
+  <!-- ── STEP 12: Enderle & Bradshaw Cited ── -->
+  <div class="step" data-step="12" data-border="var(--c-primary)">
     <div class="step-time">Monday, June 8, 2026 &middot; 17:42 hours</div>
     <div class="step-title">Two Streamers Cited for Public Nuisance</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Damian Enderle (857Tucson)</div>
@@ -804,8 +826,8 @@
     <p>Bradshaw asked what law he had violated and requested clarification multiple times, asking if he could speak to a supervisor. He was bewildered, stating he had never been told he was prohibited from returning. Bradshaw asked if he could simply leave or arrange transportation instead of being arrested, but was informed the decision to proceed with booking had already been made.</p>
   </div>
 
-  <!-- ── STEP 12: Bradshaw Arrested ── -->
-  <div class="step" data-step="12" data-border="var(--c-primary)">
+  <!-- ── STEP 13: Bradshaw Arrested ── -->
+  <div class="step" data-step="13" data-border="var(--c-primary)">
     <div class="step-time">Monday, June 8, 2026 &middot; 17:52 hours</div>
     <div class="step-title">Troy Bradshaw Arrested & Booked</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Troy Bradshaw (Daa Juice)</div>
@@ -818,8 +840,8 @@
     </div>
   </div>
 
-  <!-- ── STEP 13: Zabel Arrested ── -->
-  <div class="step" data-step="13" data-border="var(--c-primary)">
+  <!-- ── STEP 14: Zabel Arrested ── -->
+  <div class="step" data-step="14" data-border="var(--c-primary)">
     <div class="step-time">Monday, June 8, 2026</div>
     <div class="step-title">Alex Zabel Arrested</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Alex Zabel (Criminal Network channel)</div>
@@ -831,8 +853,8 @@
     <div class="gallery-caption">Alex Zabel Citation #844032 | Pima.gov</div>
   </div>
 
-  <!-- ── STEP 14: June 9 Arraignment Hearings ── -->
-  <div class="step" data-step="14" data-border="var(--c-secondary)">
+  <!-- ── STEP 15: June 9 Arraignment Hearings ── -->
+  <div class="step" data-step="15" data-border="var(--c-secondary)">
     <div class="step-time">Tuesday, June 9, 2026 &middot; 9:00 AM</div>
     <div class="step-title">Concurrent Arraignment Hearings</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Troy Bradshaw (Daa Juice)</div>
@@ -841,13 +863,17 @@
     <p><strong>Alexander Zabel — Initial Hearing</strong> for ARS 13-2906(A)(1.1) Obstruct Highway-Public Thoroughfare and ARS 13-2917(A)(2) Public Nuisance-Waterway Public Area. Pima Justice Court #8 | Case Number: CR26-008263-MI | Filed on June 9, 2026</p>
   </div>
 
-  <!-- ── STEP 15: Zabel Arrested Again ── -->
-  <div class="step" data-step="15" data-border="var(--c-primary)">
+  <!-- ── STEP 16: Zabel Arrested Again ── -->
+  <div class="step" data-step="16" data-border="var(--c-primary)">
     <div class="step-time">Wednesday, June 11, 2026 &middot; 17:32 hours</div>
     <div class="step-title">Zabel Returns & Gets Arrested Again</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Alex Zabel (Criminal Network)</div>
     <p>Alexander Zabel Jr. returned to the area of the Guthrie residence after being arrested on June 9th for Public Nuisance.</p>
-    <p>Deputies responded to a report of an unwanted person. An additional caller stated that Zabel was urinating in front of a camera during a live stream. Upon arrival, deputies told Zabel he was under arrest. While attempting to place Zabel in custody, Zabel actively resisted arrest.</p>
+    <p>Deputies responded to a report of an unwanted person. An additional caller stated that Zabel was urinating in front of a camera during a live stream. Upon arrival, deputies told Zabel he was under arrest.</p>
+    <div class="step-embed">
+      <div class="embed-placeholder" data-src="assets/06-11-26-zabel-arrested.mp4" data-aspect-ratio="9/16"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg><span>Tap to play</span></div>
+    </div>
+    <div class="embed-caption">Zabel re-arrested | Edited by Subtxt Press to highlight how the deputy fell trying to leg-sweep Zabel.</div>
     <p><strong>Charges:</strong></p>
     <ul class="demands-list">
       <li>ARS 13-2917 — Public Nuisance (M2)</li>
@@ -857,52 +883,62 @@
     <div class="step-gallery">
       <img src="assets/06-11-26-zabel-interim-complaint.png" alt="Alex Zabel Interim Complaint">
     </div>
-    <div class="gallery-caption">Alex Zabel Interim Complaint | Pima.gov</div>
+    <div class="gallery-caption">Alex Zabel Interim Complaint | Pima Justice Court</div>
   </div>
 
-  <!-- ── STEP 16: Bradshaw Arraignment (Obstruction) ── -->
-  <div class="step" data-step="16" data-border="var(--c-secondary)">
+  <!-- ── STEP 17: Bradshaw Arraignment (Obstruction) ── -->
+  <div class="step" data-step="17" data-border="var(--c-secondary)">
     <div class="step-time">Tuesday, June 16, 2026 &middot; 9:00 AM</div>
     <div class="step-title">Bradshaw Arraignment on Obstruction Charge</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Troy Bradshaw (Daa Juice)</div>
-    <p><strong>Criminal Arraignment Hearing</strong> for Public Obstruction charge. Pima Justice Court #8 Docket | Citation #260604237 | Case Number: CR26-008324-MI | Filed on June 10, 2026</p>
+    <div class="step-gallery">
+      <img src="assets/06-08-26-bradshaw-citation.png" alt="Troy Bradshaw Arraignment Hearing.">
+    </div>
+    <div class="gallery-caption">Troy Bradshaw Arraignment Hearing. | Pima Justice Court</div>
   </div>
 
-  <!-- ── STEP 17: Enderle Arraignment ── -->
-  <div class="step" data-step="17" data-border="var(--c-secondary)">
+  <!-- ── STEP 18: Enderle Arraignment ── -->
+  <div class="step" data-step="18" data-border="var(--c-secondary)">
     <div class="step-time">Tuesday, June 30, 2026 &middot; 9:00 AM</div>
     <div class="step-title">Enderle Arraignment Hearing</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Damian Enderle (857Tucson)</div>
-    <p><strong>Criminal Arraignment Hearing</strong> for Public Nuisance charge. Pima Justice Court #8 Docket | Citation #260608245 | Case Number: CR26-008838-MI | Filed on June 18, 2026</p>
+    <div class="step-gallery">
+      <img src="assets//06-08-26-enderle-citation.png" alt="Damian Enderle Arraignment Hearing.">
+    </div>
+    <div class="gallery-caption">Damian Enderle Arraignment Hearing. | Pima Justice Court</div>
   </div>
 
-  <!-- ── STEP 18: Bradshaw Case Management Conference ── -->
-  <div class="step" data-step="18" data-border="var(--c-secondary)">
+  <!-- ── STEP 19: Bradshaw Case Management Conference ── -->
+  <div class="step" data-step="19" data-border="var(--c-secondary)">
     <div class="step-time">Monday, July 13, 2026 &middot; 1:00 PM</div>
     <div class="step-title">Bradshaw Case Management Conference</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Troy Bradshaw (Daa Juice)</div>
-    <p><strong>Case Management Conference Hearing</strong> for Public Obstruction charge. Pima Justice Court #8 Docket | Citation #260604237 | Case Number: CR26-008324-MI | Filed on June 10, 2026</p>
+    <div class="step-gallery">
+      <img src="assets/06-10-26-bradshaw-citation.png" alt="Troy Bradshaw Arraignment Hearing.">
+    </div>
+    <div class="gallery-caption">Troy Bradshaw Arraignment Hearing. | Pima Justice Court</div>
   </div>
 
-  <!-- ── STEP 19: Zabel Show Cause Hearing ── -->
-  <div class="step" data-step="19" data-border="var(--c-secondary)">
+  <!-- ── STEP 20: Zabel Show Cause Hearing ── -->
+  <div class="step" data-step="20" data-border="var(--c-secondary)">
     <div class="step-time">Monday, July 21, 2026 &middot; 9:00 AM</div>
     <div class="step-title">Zabel Show Cause Hearing</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-primary)"></span> Alex Zabel (Criminal Network)</div>
-    <p><strong>Show Cause Hearing</strong> for ARS 13-2906(A)(1.1) Obstruct Highway-Public Thoroughfare and ARS 13-2917(A)(2) Public Nuisance-Waterway Public Area. Pima Justice Court #8 | Case Number: CR26-008263-MI | Filed on June 9, 2026</p>
+    <div class="step-gallery">
+      <img src="assets/05-26-26-zabel-citation.png" alt="Alex Zabel Arraignment Hearing.">
+    </div>
+    <div class="gallery-caption">Alex Zabel Arraignment Hearing. | Pima Justice Court</div>
   </div>
 
   <!-- ── FINAL STEP: Sources ── -->
-  <div class="step" data-step="20" data-border="var(--c-accent)">
+  <div class="step" data-step="21" data-border="var(--c-accent)">
     <div class="step-title">Source Documents</div>
     <p>This timeline draws from multiple incident reports, citations, and official records:</p>
     <ul class="demands-list">
-      <li>PCSD Incident Report 260608245</li>
-      <li>PCSD Incident Report 260526197 (Alex Zabel, May 26, 2026)</li>
-      <li>Pima Justice Court Citation #260604237 (Troy Bradshaw obstruction)</li>
-      <li>Interim Complaint filed 06-11-2026</li>
-      <li>Pima County transportation and ordinance records</li>
-      <li>YouTube livestream evidence (CriminalNetwork channel)</li>
+      <p class="list-link"><a href="https://drive.google.com/file/d/1RBTIIovyzDKVqGdF_vvuD8s-U5fFzwEM/view?usp=drive_link" target="_blank">Report 260608245 for Enderle and Bradshaw's incidents</a></p>
+      <p class="list-link"><a href="https://drive.google.com/file/d/1_xAhEusEh5EHNxQUGKuu9AAeVgg4uG0d/view?usp=drive_link" target="_blank">Report 260526197 for Zabel's June 9 incident</a></p>
+      <p class="list-link"><a href="https://drive.google.com/file/d/1LVObsKSGeB4FrLvU54QmkBd_mxSgUJV1/view?usp=drive_link" target="_blank">Citation #844032 for Alex Zabel</a></p>
+      <p class="list-link"><a href="https://drive.google.com/file/d/1lWdKW1VBZtLqdDUnjsKpK66xHjvHJpl0/view?usp=drive_link" target="_blank">Interim Complaint filed 06-11-2026</a></p>
     </ul>
   </div>
 
@@ -918,14 +954,17 @@
 // Map locations (persistent markers)
 var KML_DATA = {
   locations: [
-    { name: 'Nancy Guthrie residence', features: [{type:'point', coords:[32.3515, -110.9432]}], desc: '<b>Catalina Foothills</b><br/>North Camino Escalante<br/>Tucson, AZ' },
+    { name: 'Sue Ellen\'s easement', features: [{type:'point', coords:[32.31224, -110.94084]}], desc: '<b>Sue Ellen\'s easement</b><br/>Incident location' },
+    { name: 'Island easement', features: [{type:'point', coords:[32.31272, -110.9412]}], desc: '<b>Island easement</b><br/>Incident location' },
   ]
 };
 
 // Named map views — reference these in STEP_META.focus
 var FOCUS_POINTS = {
   'overview': { center: [32.35, -110.94], zoom: 14 },
-  'neighborhood': { center: [32.3515, -110.9432], zoom: 16 },
+  'neighborhood': { center: [32.31224, -110.94084], zoom: 15.5 },
+  'one-way-street': { bounds: [[32.3109421, -110.9430315], [32.3170328, -110.9359426]] },
+  'no-parking-zone': { bounds: [[32.3084, -110.9446], [32.3210, -110.9309]] },
 };
 
 // Per-person marker colors
@@ -937,78 +976,271 @@ var COLORS = {
 
 // Per-step metadata: clock display + map focus
 var STEP_META = {
-  0: { date: 'January–June 2026', time: '', focus: 'overview' },
+  0: { date: 'January–June 2026', time: '', focus: 'neighborhood' },
   1: { date: '02-20-2026', time: '', focus: 'neighborhood' },
-  2: { date: '02-21-2026', time: '', focus: 'neighborhood' },
-  3: { date: '02-22-2026', time: '', focus: 'neighborhood' },
-  4: { date: '02-26-2026', time: '', focus: 'neighborhood' },
-  5: { date: '05-26-2026', time: '16:26', focus: 'neighborhood' },
-  6: { date: '05-26-2026', time: '16:44', focus: 'neighborhood' },
-  7: { date: '06-04-2026', time: '', focus: 'neighborhood' },
-  8: { date: '06-06-2026', time: '', focus: 'neighborhood' },
-  9: { date: '06-08-2026', time: '16:47', focus: 'neighborhood' },
-  10: { date: '06-08-2026', time: '17:42', focus: 'neighborhood' },
-  11: { date: '06-08-2026', time: '17:52', focus: 'neighborhood' },
-  12: { date: '06-08-2026', time: '', focus: 'neighborhood' },
-  13: { date: '06-09-2026', time: '09:00', focus: 'neighborhood' },
-  14: { date: '06-11-2026', time: '17:32', focus: 'neighborhood' },
-  15: { date: '06-16-2026', time: '09:00', focus: 'neighborhood' },
-  16: { date: '06-30-2026', time: '09:00', focus: 'neighborhood' },
-  17: { date: '07-13-2026', time: '13:00', focus: 'neighborhood' },
-  18: { date: '07-21-2026', time: '09:00', focus: 'neighborhood' },
-  19: { date: '07-21-2026', time: '09:00', focus: 'neighborhood' },
-  20: { date: '', time: '', focus: 'overview' },
+  2: { date: '02-21-2026', time: '', focus: 'one-way-street' },
+  3: { date: '02-22-2026', time: '', focus: 'one-way-street' },
+  4: { date: '02-26-2026', time: '', focus: 'one-way-street' },
+  5: { date: '05-26-2026', time: '16:26', focus: 'no-parking-zone' },
+  6: { date: '05-26-2026', time: '16:44', focus: 'no-parking-zone' },
+  7: { date: '06-04-2026', time: '', focus: 'no-parking-zone' },
+  8: { date: '06-06-2026', time: '', focus: 'no-parking-zone' },
+  9: { date: '06-08-2026', time: '16:47', focus: 'no-parking-zone' },
+  10: { date: '06-08-2026', time: '17:42', focus: 'no-parking-zone' },
+  11: { date: '06-08-2026', time: '17:52', focus: 'no-parking-zone' },
+  12: { date: '06-08-2026', time: '', focus: 'no-parking-zone' },
+  13: { date: '06-09-2026', time: '09:00', focus: 'no-parking-zone' },
+  14: { date: '06-11-2026', time: '17:32', focus: 'no-parking-zone' },
+  15: { date: '06-16-2026', time: '09:00', focus: 'no-parking-zone' },
+  16: { date: '06-30-2026', time: '09:00', focus: 'no-parking-zone' },
+  17: { date: '07-13-2026', time: '13:00', focus: 'no-parking-zone' },
+  18: { date: '07-21-2026', time: '09:00', focus: 'no-parking-zone' },
+  19: { date: '07-21-2026', time: '09:00', focus: 'no-parking-zone' },
+  20: { date: '07-21-2026', time: '09:00', focus: 'neighborhood' },
+  21: { date: '', time: '', focus: 'overview' },
 };
 
 // Initial map center and zoom
-var MAP_CENTER = [32.35, -110.94];   // [lat, lng] - Catalina Foothills, Tucson
-var MAP_ZOOM = 14;
+var MAP_CENTER = [32.31224, -110.94084];   // [lat, lng] - Centered on Sue Ellen's easement
+var MAP_ZOOM = window.innerWidth > 768 ? 15.4 : 14.4;  // Zoom in on desktop, out on mobile
 
 
 // ═══════════════════════════════════════════════════════════
 // ENGINE — no edits needed below this line
 // ═══════════════════════════════════════════════════════════
 
-var satTiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Tiles &copy; Esri', maxZoom: 19
-});
-var darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; CartoDB', maxZoom: 19
-});
+var satTiles, darkTiles, map;
+var nancyHouseLayer, oneWayLayer, noParkingLayer;
 
-var map = L.map('map', {
-  center: MAP_CENTER,
-  zoom: MAP_ZOOM,
-  layers: [darkTiles],
-  zoomControl: true,
-  attributionControl: true
-});
+function initMap() {
+  if (map) return;
+
+  satTiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri', maxZoom: 19
+  });
+  darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; CartoDB', maxZoom: 19
+  });
+
+  map = L.map('map', {
+    center: MAP_CENTER,
+    zoom: MAP_ZOOM,
+    layers: [darkTiles],
+    zoomControl: true,
+    attributionControl: true
+  });
+
+  map.invalidateSize(false);
+
+  // Nancy's house marker (steps 0-1)
+  nancyHouseLayer = L.featureGroup();
+  var nancyCoords = [32.3120139, -110.9405472];
+  var nancyMarker = L.circleMarker(nancyCoords, {
+    radius: 8, fillColor: '#C04E01', color: '#C04E01',
+    weight: 2, opacity: 0.9, fillOpacity: 0.6
+  });
+  nancyMarker.bindPopup('<b>Nancy Guthrie</b><br/>Residence', { className: 'ev-tip', closeButton: false });
+  nancyHouseLayer.addLayer(nancyMarker);
+
+  // One-way street overlay (steps 2-4)
+  oneWayLayer = L.featureGroup();
+  var oneWayGeoJSON = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"stroke": "rgba(229, 26, 80, 1)", "stroke-opacity": 1, "stroke-width": 2},
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [[-110.9430315, 32.3109421], [-110.942993, 32.310942], [-110.9429592, 32.3109415], [-110.9429353, 32.3109417], [-110.9428983, 32.3109445], [-110.9428771, 32.310946], [-110.9428461, 32.3109504], [-110.942815, 32.310955], [-110.9427769, 32.3109604], [-110.9427244, 32.3109719], [-110.9426706, 32.3109845], [-110.9426162, 32.3109999], [-110.9425341, 32.3110287], [-110.9424966, 32.3110441], [-110.9424654, 32.3110562], [-110.9424437, 32.3110654], [-110.9424171, 32.3110788], [-110.9423795, 32.3110979], [-110.9423403, 32.3111224], [-110.9422966, 32.3111511], [-110.9422747, 32.3111682], [-110.9422555, 32.3111828], [-110.9422324, 32.3112045], [-110.9421997, 32.3112358], [-110.9421573, 32.3112762], [-110.9421081, 32.3113223], [-110.9419938, 32.311431], [-110.9419777, 32.3114463], [-110.9419555, 32.3114644], [-110.9419249, 32.3114886], [-110.9418733, 32.3115281], [-110.9418028, 32.311576], [-110.9416842, 32.3116505], [-110.9415696, 32.3117278], [-110.9414482, 32.3118089], [-110.9413822, 32.3118533], [-110.9413164, 32.3118981], [-110.9412147, 32.3119662], [-110.9411387, 32.3120168], [-110.9410735, 32.3120611], [-110.9409489, 32.3121445], [-110.9408044, 32.3122422], [-110.9405583, 32.3124055], [-110.9403074, 32.3125714], [-110.9400875, 32.3127172], [-110.9399972, 32.3127772], [-110.9399403, 32.3128114], [-110.9399025, 32.3128332], [-110.9398739, 32.312849], [-110.9398338, 32.3128694], [-110.9397933, 32.3128895], [-110.9397367, 32.3129139], [-110.9396998, 32.3129301], [-110.9396455, 32.3129538], [-110.9395996, 32.3129748], [-110.9391838, 32.3131568], [-110.9388989, 32.313283], [-110.9387262, 32.3133588], [-110.9385871, 32.313422], [-110.9385166, 32.3134579], [-110.938469, 32.3134824], [-110.9384005, 32.3135225], [-110.9383202, 32.3135737], [-110.9382102, 32.3136452], [-110.9381462, 32.3136905], [-110.9380849, 32.3137322], [-110.9378571, 32.3138893], [-110.937709, 32.3139942], [-110.9376478, 32.3140384], [-110.9376062, 32.3140689], [-110.9375227, 32.3141281], [-110.937316, 32.3142768], [-110.93714, 32.3143991], [-110.9370511, 32.3144625], [-110.9370373, 32.3144722], [-110.9370328, 32.3144752], [-110.9370302, 32.3144771], [-110.937028, 32.3144796], [-110.937026, 32.314482], [-110.9370235, 32.3144861], [-110.9370184, 32.3144941], [-110.937016, 32.3144976], [-110.937011, 32.3145055], [-110.9370027, 32.314518], [-110.9369757, 32.3145591], [-110.936861, 32.3147327], [-110.936793, 32.3148357], [-110.9367192, 32.3149482], [-110.9365499, 32.3152062], [-110.9365436, 32.3152153], [-110.9365407, 32.3152199], [-110.9365382, 32.3152243], [-110.9365361, 32.31523], [-110.9365349, 32.3152359], [-110.9365329, 32.3152443], [-110.9365305, 32.31525], [-110.9365257, 32.3152664], [-110.9365172, 32.3152951], [-110.9365062, 32.3153315], [-110.9364729, 32.315443], [-110.9363994, 32.3156869], [-110.9363618, 32.3158122], [-110.9363421, 32.3158781], [-110.9363313, 32.3159022], [-110.936321, 32.3159252], [-110.9363107, 32.3159495], [-110.9362174, 32.3162176], [-110.9361459, 32.3164221], [-110.9360432, 32.3167168], [-110.9359862, 32.3168801], [-110.935964, 32.3169712], [-110.9359426, 32.3170328]]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"marker-symbol": "arrow", "marker-color": "rgba(241, 8, 28, 1)", "marker-size": "large"},
+        "geometry": {"type": "Point", "coordinates": [-110.9430123, 32.3109376]}
+      }
+    ]
+  };
+
+  L.geoJSON(oneWayGeoJSON, {
+    style: function(feature) {
+      return {color: '#C04E01', weight: 3, opacity: 0.8};
+    },
+    pointToLayer: function(feature, latlng) {
+      var arrowIcon = L.divIcon({
+        html: '<div style="color: #C04E01; font-size: 28px; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); padding: 0px; line-height: 1;">↗</div>',
+        iconSize: [40, 40],
+        iconAnchor: [10, 30],
+        className: 'arrow-marker'
+      });
+      return L.marker(latlng, {icon: arrowIcon});
+    }
+  }).addTo(oneWayLayer);
+
+  // No-parking zone (steps 5-20)
+  noParkingLayer = L.featureGroup();
+
+  // No-parking zone boundary polygon
+  var noParkingZone = L.polygon([
+    [32.3163779, -110.9308867],
+    [32.3151187, -110.931876],
+    [32.313897, -110.9328313],
+    [32.3134136, -110.9330324],
+    [32.3129409, -110.9331833],
+    [32.3120963, -110.9334095],
+    [32.3113153, -110.9337547],
+    [32.3086701, -110.9350311],
+    [32.3081487, -110.9352744],
+    [32.3076281, -110.9356453],
+    [32.3073678, -110.9359595],
+    [32.3070969, -110.9362801],
+    [32.3069974, -110.9363851],
+    [32.306843, -110.9365299],
+    [32.3067668, -110.9365916],
+    [32.3066504, -110.9366604],
+    [32.3065882, -110.936696],
+    [32.306516, -110.9367292],
+    [32.3063797, -110.9367771],
+    [32.3064839, -110.936912],
+    [32.3065762, -110.9370378],
+    [32.3066303, -110.9371659],
+    [32.3066665, -110.9372822],
+    [32.3066705, -110.937465],
+    [32.3066666, -110.9376633],
+    [32.3066825, -110.9378833],
+    [32.3067062, -110.93805],
+    [32.3067143, -110.9381686],
+    [32.3067143, -110.9382873],
+    [32.3066802, -110.9385057],
+    [32.3066661, -110.9386552],
+    [32.3066641, -110.9387596],
+    [32.3066701, -110.9388664],
+    [32.3066862, -110.9390943],
+    [32.3067383, -110.9392604],
+    [32.3067903, -110.939386],
+    [32.3068545, -110.9395023],
+    [32.3069269, -110.9396235],
+    [32.307007, -110.9397681],
+    [32.3071099, -110.9399291],
+    [32.3071961, -110.9400929],
+    [32.3072222, -110.9401902],
+    [32.3072302, -110.9402543],
+    [32.3072322, -110.9403445],
+    [32.3072262, -110.9404062],
+    [32.3072162, -110.9404679],
+    [32.3071961, -110.9405771],
+    [32.3071119, -110.940926],
+    [32.3070935, -110.9410673],
+    [32.3070898, -110.9411776],
+    [32.3070935, -110.9412904],
+    [32.3071016, -110.9414518],
+    [32.3071119, -110.9416143],
+    [32.3072042, -110.9424188],
+    [32.3072324, -110.9426945],
+    [32.3072565, -110.9429366],
+    [32.3072622, -110.9430999],
+    [32.3076247, -110.9430085],
+    [32.3079709, -110.9429183],
+    [32.3081952, -110.9428695],
+    [32.3083697, -110.9428417],
+    [32.3085141, -110.9428417],
+    [32.3088262, -110.9429071],
+    [32.3091333, -110.9429756],
+    [32.3093914, -110.9430493],
+    [32.309658, -110.943112],
+    [32.3098182, -110.9431752],
+    [32.310152, -110.9432857],
+    [32.310312, -110.9433225],
+    [32.3104545, -110.9432804],
+    [32.3106948, -110.9431803],
+    [32.3109523, -110.9430503],
+    [32.3112018, -110.9429576],
+    [32.3114022, -110.942901],
+    [32.3115572, -110.9428936],
+    [32.3116729, -110.9429094],
+    [32.3118598, -110.942999],
+    [32.3121802, -110.9431043],
+    [32.3126921, -110.9432623],
+    [32.3128389, -110.9433096],
+    [32.3130935, -110.9433832],
+    [32.314095, -110.9437533],
+    [32.3142948, -110.9438298],
+    [32.3144877, -110.9438932],
+    [32.3147255, -110.9439697],
+    [32.3151232, -110.9441219],
+    [32.3153419, -110.9441952],
+    [32.3159223, -110.9443932],
+    [32.316263, -110.9444835],
+    [32.3170076, -110.9446941],
+    [32.3172289, -110.9447595],
+    [32.3177327, -110.943135],
+    [32.3179285, -110.9430824],
+    [32.3182534, -110.9431296],
+    [32.3184759, -110.9431244],
+    [32.3189209, -110.9430822],
+    [32.3190888, -110.9430174],
+    [32.3192324, -110.9428821],
+    [32.3194505, -110.9425872],
+    [32.319605, -110.9423591],
+    [32.3197074, -110.9421696],
+    [32.3198498, -110.9419695],
+    [32.3199788, -110.9418115],
+    [32.3201079, -110.9416851],
+    [32.3203349, -110.9414955],
+    [32.3206241, -110.941227],
+    [32.3208715, -110.940916],
+    [32.3210241, -110.9406055],
+    [32.3208625, -110.9404815],
+    [32.3189081, -110.9388496],
+    [32.317628, -110.9369008],
+    [32.3166578, -110.9344991],
+    [32.3164861, -110.9336402],
+    [32.3165485, -110.9328736],
+    [32.3165418, -110.9319617],
+    [32.316535, -110.9317171],
+    [32.316535, -110.9317197],
+    [32.3165259, -110.9314213],
+    [32.3165146, -110.9313299],
+    [32.3164875, -110.9312562],
+    [32.3163779, -110.9308867]
+  ], {
+    color: '#E63946',
+    fillColor: '#E63946',
+    weight: 2.5,
+    opacity: 0.7,
+    fillOpacity: 0.15
+  })
+    .bindPopup('<b>No-Parking Zone</b><br>Catalina Foothills Estates<br>Temporary restriction Feb 26, 2026 - ongoing', {
+      className: 'ev-tip',
+      closeButton: false
+    });
+  noParkingZone.addTo(noParkingLayer);
+
+  // Show Nancy's house on initial load (step 0)
+  nancyHouseLayer.addTo(map);
+}
 
 var usingSatellite = false;
+var satTiles, darkTiles;
+
 function toggleBasemap() {
+  if (!map) initMap();
   if (usingSatellite) { map.removeLayer(satTiles); map.addLayer(darkTiles); }
   else { map.removeLayer(darkTiles); map.addLayer(satTiles); }
   usingSatellite = !usingSatellite;
 }
 
-// Persistent markers from KML_DATA
-KML_DATA.locations.forEach(function(loc) {
-  var coords = loc.features[0].coords;
-  var m = L.circleMarker(coords, {
-    radius: 6, fillColor: '#ebe2cd', color: '#ebe2cd',
-    weight: 1.5, opacity: 0.7, fillOpacity: 0.35
-  }).addTo(map);
-  m.bindPopup(loc.desc, { className: 'ev-tip', closeButton: false, maxWidth: 250 });
-});
-
 // Active markers (per-step highlights)
 var activeMarkers = [];
 function clearActive() {
+  if (!map) return;
   activeMarkers.forEach(function(m) { map.removeLayer(m); });
   activeMarkers.length = 0;
 }
 
 function makeDot(latlng, color, radius, pulsing) {
+  if (!map) return null;
   var m = L.circleMarker(latlng, {
     radius: radius || 7, fillColor: color, color: color,
     weight: 2, opacity: 0.9, fillOpacity: 0.55
@@ -1024,6 +1256,7 @@ function makeDot(latlng, color, radius, pulsing) {
 }
 
 function makeLabel(latlng, text, color, pos) {
+  if (!map) return null;
   var p = pos || 'above';
   var transforms = {
     above: 'translate(-50%,-100%);margin-top:-20px',
@@ -1085,24 +1318,35 @@ function activateStep(stepNum) {
   var activeEl = document.querySelector('.step[data-step="' + stepNum + '"][data-map-focus]');
   if (activeEl && activeEl.dataset.mapFocus) focusKey = activeEl.dataset.mapFocus;
 
-  if (focusKey && FOCUS_POINTS[focusKey]) {
+  if (map && focusKey && FOCUS_POINTS[focusKey]) {
     var fp = FOCUS_POINTS[focusKey];
     if (fp.bounds) map.flyToBounds(fp.bounds, { duration: 1.0, padding: [30, 30] });
     else map.flyTo(fp.center, fp.zoom, { duration: 1.0 });
   }
 
-  // ── CUSTOM MARKERS PER STEP ──
-  // Highlight the Guthrie residence and relevant parties for each step
-  if (stepNum >= 1 && stepNum <= 7) {
-    var lat = 32.3515, lng = -110.9432;
-    var dot = makeDot([lat, lng], COLORS.streamer, 9, true);
-    activeMarkers.push(dot);
-    var lbl = makeLabel([lat, lng], 'INCIDENT LOCATION', COLORS.streamer);
-    activeMarkers.push(lbl);
+  // Show/hide overlays based on step
+  if (map) {
+    // Remove all overlay layers
+    if (map.hasLayer(nancyHouseLayer)) map.removeLayer(nancyHouseLayer);
+    if (map.hasLayer(oneWayLayer)) map.removeLayer(oneWayLayer);
+    if (map.hasLayer(noParkingLayer)) map.removeLayer(noParkingLayer);
+
+    // Add appropriate layer for this step
+    if (stepNum >= 0 && stepNum <= 1) {
+      map.addLayer(nancyHouseLayer);
+    } else if (stepNum >= 2 && stepNum <= 4) {
+      map.addLayer(oneWayLayer);
+    } else if (stepNum >= 5 && stepNum <= 20) {
+      map.addLayer(noParkingLayer);
+    }
   }
+
 }
 
 // Progress bar
+// Initialize map after DOM is ready
+setTimeout(initMap, 10);
+
 narrative.addEventListener('scroll', function() {
   var pct = narrative.scrollHeight - narrative.clientHeight;
   progressBar.style.width = (pct > 0 ? (narrative.scrollTop / pct) * 100 : 0) + '%';
@@ -1121,10 +1365,13 @@ activateStep(0);
 // Click-to-load embeds
 document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
   ph.addEventListener('click', function() {
+    var container = ph.parentNode;
+    var height = ph.dataset.height || '500px';
     var iframe = document.createElement('iframe');
     iframe.src = ph.dataset.src;
     iframe.allow = 'autoplay';
-    iframe.style.cssText = 'display:block;width:100%;height:' + (ph.dataset.height || '60px') + ';border:none;';
+    iframe.style.cssText = 'display:block;width:100%;height:' + height + ';border:none;border-radius:4px;';
+    container.style.cssText = 'min-height:' + height + ';';
     ph.parentNode.replaceChild(iframe, ph);
   });
 });
