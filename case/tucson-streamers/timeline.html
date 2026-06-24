@@ -1424,7 +1424,7 @@ function activateStep(stepNum) {
       if (islandLabel) activeMarkers.push(islandLabel);
       drawDistanceLine(NANCY_COORDS, ISLAND_COORDS, '~308 ft', 'below', 20);
       // Zoom out to see both
-      map.fitBounds([NANCY_COORDS, ISLAND_COORDS], { padding: [50, 50], maxZoom: 15 });
+      map.fitBounds([NANCY_COORDS, ISLAND_COORDS], { padding: [80, 80], maxZoom: 15 });
     } else if (stepNum >= 10 && stepNum <= 11) {
       // Easement marker for steps 10-11
       var easementMarker = L.circleMarker(EASEMENT_COORDS, {
