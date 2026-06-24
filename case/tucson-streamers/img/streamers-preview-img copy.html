@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200">
+  <title>OG Preview — Page Title Docket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --surface-page:      #060B14;
+      --surface-card:      rgba(255,255,255,0.95);
+      --surface-elevated:  #0f1620;
+      --text-heading:      #ebe2cd;
+      --text-body:         #b5ad9a;
+      --text-label:        #E8956A;
+      --text-muted:        rgba(181, 173, 154, 0.50);
+      --accent:            #f5a47b;
+      --accent-border:     rgba(232, 149, 106, 0.40);
+      --border-light:      rgba(235, 226, 205, 0.08);
+      --border-mid:        rgba(235, 226, 205, 0.14);
+      --plum:              #3E2436;
+      --carmine:           #E8956A;
+      --status-open:       #4ade80;
+      --status-closed:     #f87171;
+      --grad-neutral:      linear-gradient(to right, #DDD0BC, #E8956A);
+      /* docket card (light-on-dark) */
+      --dk-heading:        #241620;
+      --dk-body:           #44373C;
+      --dk-muted:          rgba(68, 55, 60, 0.45);
+      --dk-border:         rgba(221, 208, 188, 0.55);
+    }
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+        url('../../../assets/img/landscape.jpg') center/cover no-repeat;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+    .nav {
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: 56px;
+      background: none;
+      border-bottom: 2px solid;
+      border-image: var(--grad-neutral) 1;
+      display: flex;
+      align-items: center;
+      padding: 0 4%;
+      z-index: 20;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--text-heading);
+      letter-spacing: 0.01em;
+      margin-left: -10px;
+    }
+    .nav-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-left: 14px;
+      padding-left: 14px;
+      border-left: 1px solid var(--accent-border);
+      margin-top: 1px;
+    }
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .nav-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-heading);
+    }
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-heading);
+      background: transparent;
+      border: 2px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-right: -15px;
+    }
+    .main {
+      position: absolute;
+      top: 26px;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      z-index: 1;
+    }
+    .left {
+      grid-row: 1;
+      grid-column: 1;
+      padding: 36px 20px 0 48px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 5;
+      margin-left: -15px;
+    }
+    .eyebrow-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 7% 0 10% 0;
+    }
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(232,149,106,0.5);
+    }
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 68px;
+      line-height: 1.02;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      margin-bottom: 10%;
+    }
+    .headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--carmine);
+    }
+    .desc {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--text-heading);
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+    }
+    /* ─── Right: Docket preview ─── */
+    .right {
+      grid-row: 1;
+      grid-column: 2;
+      position: relative;
+      padding: 0 0 0 0;
+      margin-top: 1%;
+    }
+    /* ─── Box frame (map screenshot) ─── */
+    .box-frame {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 550px;
+      height: 400px;
+      border: 1px solid var(--accent-border);
+      overflow: hidden;
+    }
+    .corner {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      z-index: 3;
+    }
+    .corner-tl { top: -1px; left: -1px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+    .corner-tr { top: -1px; right: -1px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+    .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+    .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+    .tick-h {
+      position: absolute;
+      width: 8px; 
+      height: 1px;
+      background: rgba(232, 149, 106, 0.30);
+      z-index: 3;
+    }
+    .tick-v {
+      position: absolute;
+      width: 1px; height: 8px;
+      background: rgba(232, 149, 106, 0.30);
+      z-index: 3;
+    }
+    .tick-label {
+      position: absolute;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      z-index: 3;
+    }
+    .box-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(6,11,20,0.5) 100%),
+        linear-gradient(180deg, rgba(6,11,20,0.25) 0%, transparent 25%, transparent 75%, rgba(6,11,20,0.3) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    /* ─── Stats bar ─── */
+    .stats-bar {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      display: flex;
+      border-top: 3px solid;
+      border-image: var(--grad-neutral) 1;
+      height: 68px;
+      z-index: 10;
+      background: none;
+    }
+    .stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 28px;
+      border-right: 1px solid var(--border-light);
+    }
+    .stat:last-child {
+      border-right: none;
+    }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--text-heading);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <span class="nav-brand">Tucson Streamers</span>
+    <span class="nav-sub">Dockets &middot; Law Enforcement Response</span>
+    <div class="nav-links">
+      <span class="nav-link">Dockets</span>
+      <span class="nav-link">Timeline</span>
+      <span class="nav-link">Sources</span>
+      <span class="nav-cta">Evidence</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="left">
+      <div class="eyebrow-line">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow">Subtxt Press &middot; Dockets & Timeline</span>
+      </div>
+
+      <h1 class="headline">
+        Streamer <em>Chaos</em> in<br>Catalina Foothills
+      </h1>
+
+      <p class="desc">
+        Timeline of YouTube streamer presence at Nancy Guthrie's Tucson home that devolved into a parasocial nightmare for residents, and criminal charges against multiple YouTube streamers for public nuisance and obstruction violations in Pima County Justice Court.
+      </p>
+    </div>
+
+    <div class="right">
+      <div class="box-frame">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="tick-h" style="top:0; left:25%;"></div>
+        <div class="tick-h" style="top:0; left:50%;"></div>
+        <div class="tick-h" style="top:0; left:75%;"></div>
+        <div class="tick-h" style="bottom:0; left:25%;"></div>
+        <div class="tick-h" style="bottom:0; left:50%;"></div>
+        <div class="tick-h" style="bottom:0; left:75%;"></div>
+        <div class="tick-v" style="left:0; top:25%;"></div>
+        <div class="tick-v" style="left:0; top:50%;"></div>
+        <div class="tick-v" style="left:0; top:75%;"></div>
+        <div class="tick-v" style="right:0; top:25%;"></div>
+        <div class="tick-v" style="right:0; top:50%;"></div>
+        <div class="tick-v" style="right:0; top:75%;"></div>
+
+        <span class="tick-label" style="top: 6px; right: 8px;">110.95°W</span>
+        <span class="tick-label" style="top: 6px; left: 8px;">32.45°N</span>
+        <span class="tick-label" style="bottom: 6px; left: 8px;">32.38°N</span>
+        <span class="tick-label" style="bottom: 6px; right: 8px;">110.88°W</span>
+
+        <img src="box-screenshot.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center center; z-index:1;" />
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat" style="padding-left: 48px;">
+        <div class="stat-value">160 Days</div>
+        <div class="stat-label">of Media Presence</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Streamers Charged</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1 Felony</div>
+        <div class="stat-label">Resisting Arrest</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4</div>
+        <div class="stat-label">Road Restrictions</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">6+</div>
+        <div class="stat-label">Incident Reports</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
