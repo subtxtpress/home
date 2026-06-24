@@ -1031,6 +1031,11 @@ var MAP_ZOOM = window.innerWidth > 768 ? 15 : 14;  // Zoom in on desktop, out on
 var satTiles, darkTiles, map;
 var nancyHouseLayer, oneWayLayer, noParkingLayer;
 
+// Coordinate data
+var NANCY_COORDS = [32.31202, -110.93943];
+var EASEMENT_COORDS = [32.31221, -110.94088];
+var ISLAND_COORDS = [32.31268, -110.94108];
+
 function initMap() {
   if (map) return;
 
@@ -1051,15 +1056,28 @@ function initMap() {
 
   map.invalidateSize(false);
 
-  // Nancy's house marker (steps 0-1)
+  // Nancy's house marker (persistent for steps 0-21)
   nancyHouseLayer = L.featureGroup();
-  var nancyCoords = [32.3120139, -110.9405472];
-  var nancyMarker = L.circleMarker(nancyCoords, {
-    radius: 8, fillColor: '#C04E01', color: '#C04E01',
+  var nancyMarker = L.circleMarker(NANCY_COORDS, {
+    radius: 5, fillColor: '#C04E01', color: '#C04E01',
     weight: 2, opacity: 0.9, fillOpacity: 0.6
   });
   nancyMarker.bindPopup('<b>Nancy Guthrie</b><br/>Residence', { className: 'ev-tip', closeButton: false });
   nancyHouseLayer.addLayer(nancyMarker);
+
+  // Add label to Nancy's home
+  var nancyLabel = L.marker(NANCY_COORDS, {
+    icon: L.divIcon({
+      className: '',
+      html: '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;color:#ebe2cd;' +
+        'letter-spacing:0.06em;white-space:nowrap;' +
+        'text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);' +
+        'padding:2px 4px;transform:translate(0,0);margin-left:10px;margin-top:-10px;pointer-events:none;">Nancy\'s Home</div>',
+      iconSize: [0, 0], iconAnchor: [0, 0]
+    }),
+    interactive: false
+  });
+  nancyHouseLayer.addLayer(nancyLabel);
 
   // One-way street overlay (steps 2-4)
   oneWayLayer = L.featureGroup();
@@ -1236,8 +1254,7 @@ function initMap() {
     });
   noParkingZone.addTo(noParkingLayer);
 
-  // Show Nancy's house on initial load (step 0)
-  nancyHouseLayer.addTo(map);
+  // Nancy's house is shown for all steps (added in activateStep)
 }
 
 var usingSatellite = false;
@@ -1274,14 +1291,15 @@ function makeDot(latlng, color, radius, pulsing) {
   return m;
 }
 
-function makeLabel(latlng, text, color, pos) {
+function makeLabel(latlng, text, color, pos, offset) {
   if (!map) return null;
   var p = pos || 'above';
+  var off = offset !== undefined ? offset : 20;
   var transforms = {
-    above: 'translate(-50%,-100%);margin-top:-20px',
-    below: 'translate(-50%,0);margin-top:20px',
-    left:  'translate(-100%,-50%);margin-left:-20px',
-    right: 'translate(0,-50%);margin-left:20px'
+    above: 'translate(-50%,-100%);margin-top:-' + off + 'px',
+    below: 'translate(-50%,0);margin-top:' + off + 'px',
+    left:  'translate(-100%,-50%);margin-left:-' + off + 'px',
+    right: 'translate(0,-50%);margin-left:' + off + 'px'
   };
   var t = transforms[p] || transforms.above;
   var icon = L.divIcon({
@@ -1306,6 +1324,20 @@ function setClock(time, dateStr, flash) {
     clockEl.classList.add('flash');
     setTimeout(function() { clockEl.classList.remove('flash'); }, 1200);
   }
+}
+
+// Helper to draw dotted line with distance label
+function drawDistanceLine(from, to, distanceLabel, pos, offset) {
+  var line = L.polyline([from, to], {
+    color: '#ebe2cd', weight: 2, opacity: 0.6, dashArray: '5, 5'
+  }).addTo(map);
+  activeMarkers.push(line);
+
+  var mid = [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
+  var p = pos || 'below';
+  var off = offset !== undefined ? offset : 20;
+  var label = makeLabel(mid, distanceLabel, '#ebe2cd', p, off);
+  if (label) activeMarkers.push(label);
 }
 
 // Step activation
@@ -1333,15 +1365,6 @@ function activateStep(stepNum) {
   if (meta) setClock(meta.time || '', meta.date, !!meta.time);
 
   clearActive();
-  var focusKey = meta && meta.focus ? meta.focus : null;
-  var activeEl = document.querySelector('.step[data-step="' + stepNum + '"][data-map-focus]');
-  if (activeEl && activeEl.dataset.mapFocus) focusKey = activeEl.dataset.mapFocus;
-
-  if (map && focusKey && FOCUS_POINTS[focusKey]) {
-    var fp = FOCUS_POINTS[focusKey];
-    if (fp.bounds) map.flyToBounds(fp.bounds, { duration: 1.0, padding: [30, 30] });
-    else map.flyTo(fp.center, fp.zoom, { duration: 1.0 });
-  }
 
   // Show/hide overlays based on step
   if (map) {
@@ -1350,13 +1373,82 @@ function activateStep(stepNum) {
     if (map.hasLayer(oneWayLayer)) map.removeLayer(oneWayLayer);
     if (map.hasLayer(noParkingLayer)) map.removeLayer(noParkingLayer);
 
-    // Add appropriate layer for this step
-    if (stepNum >= 0 && stepNum <= 1) {
+    // Always show Nancy's house for steps 0-21
+    if (stepNum >= 0 && stepNum <= 21) {
       map.addLayer(nancyHouseLayer);
-    } else if (stepNum >= 2 && stepNum <= 4) {
+    }
+
+    // Add background overlays
+    if (stepNum >= 2 && stepNum <= 4) {
       map.addLayer(oneWayLayer);
     } else if (stepNum >= 5 && stepNum <= 20) {
       map.addLayer(noParkingLayer);
+    }
+
+    // Step-specific markers with distance lines
+    if (stepNum === 4) {
+      // Easement marker with ~150 feet line (step 4)
+      var easementMarker = L.circleMarker(EASEMENT_COORDS, {
+        radius: 5, fillColor: '#ebe2cd', color: '#ebe2cd',
+        weight: 2, opacity: 0.9, fillOpacity: 0.6
+      }).addTo(map);
+      easementMarker.bindPopup('<b>Easement</b>', { className: 'ev-tip', closeButton: false });
+      activeMarkers.push(easementMarker);
+      var easementLabel = makeLabel(EASEMENT_COORDS, 'Easement', '#ebe2cd', 'above', 10);
+      if (easementLabel) activeMarkers.push(easementLabel);
+      drawDistanceLine(NANCY_COORDS, EASEMENT_COORDS, '~150 ft', 'below', 10);
+      // Zoom out to see both
+      map.fitBounds([NANCY_COORDS, EASEMENT_COORDS], { padding: [100, 100], maxZoom: 14 });
+    } else if (stepNum >= 6 && stepNum <= 8) {
+      // Easement marker for steps 6-8
+      var easementMarker = L.circleMarker(EASEMENT_COORDS, {
+        radius: 5, fillColor: '#ebe2cd', color: '#ebe2cd',
+        weight: 2, opacity: 0.9, fillOpacity: 0.6
+      }).addTo(map);
+      easementMarker.bindPopup('<b>Easement</b>', { className: 'ev-tip', closeButton: false });
+      activeMarkers.push(easementMarker);
+      var easementLabel = makeLabel(EASEMENT_COORDS, 'Easement', '#ebe2cd', 'above', 10);
+      if (easementLabel) activeMarkers.push(easementLabel);
+      drawDistanceLine(NANCY_COORDS, EASEMENT_COORDS, '~150 ft', 'below', 10);
+      // Zoom out to see both
+      map.fitBounds([NANCY_COORDS, EASEMENT_COORDS], { padding: [100, 100], maxZoom: 14 });
+    } else if (stepNum === 9) {
+      // Island marker with ~308 feet line (step 9)
+      var islandMarker = L.circleMarker(ISLAND_COORDS, {
+        radius: 5, fillColor: '#ebe2cd', color: '#ebe2cd',
+        weight: 2, opacity: 0.9, fillOpacity: 0.6
+      }).addTo(map);
+      islandMarker.bindPopup('<b>Island</b>', { className: 'ev-tip', closeButton: false });
+      activeMarkers.push(islandMarker);
+      var islandLabel = makeLabel(ISLAND_COORDS, 'Island', '#ebe2cd', 'above', 10);
+      if (islandLabel) activeMarkers.push(islandLabel);
+      drawDistanceLine(NANCY_COORDS, ISLAND_COORDS, '~308 ft', 'below', 20);
+      // Zoom out to see both
+      map.fitBounds([NANCY_COORDS, ISLAND_COORDS], { padding: [50, 50], maxZoom: 15 });
+    } else if (stepNum >= 10 && stepNum <= 11) {
+      // Easement marker for steps 10-11
+      var easementMarker = L.circleMarker(EASEMENT_COORDS, {
+        radius: 5, fillColor: '#ebe2cd', color: '#ebe2cd',
+        weight: 2, opacity: 0.9, fillOpacity: 0.6
+      }).addTo(map);
+      easementMarker.bindPopup('<b>Easement</b>', { className: 'ev-tip', closeButton: false });
+      activeMarkers.push(easementMarker);
+      var easementLabel = makeLabel(EASEMENT_COORDS, 'Easement', '#ebe2cd', 'above', 10);
+      if (easementLabel) activeMarkers.push(easementLabel);
+      drawDistanceLine(NANCY_COORDS, EASEMENT_COORDS, '~150 ft', 'below', 10);
+      // Zoom out to see both
+      map.fitBounds([NANCY_COORDS, EASEMENT_COORDS], { padding: [100, 100], maxZoom: 14 });
+    } else {
+      // For other steps, use the focus point from STEP_META
+      var focusKey = meta && meta.focus ? meta.focus : null;
+      var activeEl = document.querySelector('.step[data-step="' + stepNum + '"][data-map-focus]');
+      if (activeEl && activeEl.dataset.mapFocus) focusKey = activeEl.dataset.mapFocus;
+
+      if (focusKey && FOCUS_POINTS[focusKey]) {
+        var fp = FOCUS_POINTS[focusKey];
+        if (fp.bounds) map.flyToBounds(fp.bounds, { duration: 1.0, padding: [30, 30] });
+        else map.flyTo(fp.center, fp.zoom, { duration: 1.0 });
+      }
     }
   }
 
