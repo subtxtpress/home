@@ -472,7 +472,9 @@
       color: var(--c-green); 
       font-weight: 700; 
       flex-shrink: 0; 
-      font-family: var(--mono); 
+      font-family: var(--mono);
+      font-size: 28px; 
+      margin-top:-1%;
     }
     .confirmed-list strong {
       color: var(--text-heading);
@@ -597,6 +599,11 @@
       .q-item { 
         padding: 10px 12px; 
       }
+      /* confirmed list check mark */
+      .confirmed-list li::before { 
+      font-size: 24px; 
+      margin-top:-2.5%;
+    }
     }
   </style>
 </head>
