@@ -1,97 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin Chain Map — Nancy Guthrie Case | Subtxt Press</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bitcoin Chain Map | Nancy Guthrie Case</title>
   <meta name="description" content="On-chain trace of the FBI's $152 Bitcoin test deposit to the Nancy Guthrie ransom wallet.">
-  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/nancy-guthrie/btc-chain">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bitcoin Chain Map | Nancy Guthrie Case">
+  <meta property="og:description" content="On-chain trace of the FBI's $152 Bitcoin test deposit to the Nancy Guthrie ransom wallet.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/nancy-guthrie/btc-chain">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/case/nancy-guthrie/img/btc-chain.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Case Maps | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bitcoin Chain Map | Nancy Guthrie Case">
+  <meta name="twitter:description" content="On-chain trace of the FBI's $152 Bitcoin test deposit to the Nancy Guthrie ransom wallet.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/case/nancy-guthrie/img/btc-chain.png">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
   <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
     :root {
       /* ── SURFACE SCALE ───────────────────────────────────────────── */
       --surface-page:     #090909;
       --surface-card:     #111111;
       --surface-card-alt: rgba(18, 18, 18, 0.50);
       --surface-elevated: #1a1a1a;
-
       /* ── TEXT SCALE ─────────────────────────────────────────────── */
       --text-heading: #ebe2cd;
       --text-body:    #C4BAA0;
-      --text-label:   rgba(235, 226, 205, 0.42);
+      --text-label:   rgba(249, 244, 230, 0.42);
       --text-muted:   rgba(235, 226, 205, 0.20);
-
       /* ── ACCENT ─────────────────────────────────────────────────── */
       --accent:        #C04E01;
       --accent-subtle: rgba(192, 78, 1, 0.10);
       --accent-border: rgba(192, 78, 1, 0.38);
-
       /* ── BORDERS ────────────────────────────────────────────────── */
       --border-light:  rgba(235, 226, 205, 0.07);
       --border-mid:    rgba(235, 226, 205, 0.13);
       --border-strong: rgba(235, 226, 205, 0.28);
-
       /* ── GRADIENTS ──────────────────────────────────────────────── */
       --grad-header:   linear-gradient(160deg, #111111 0%, #090909 100%);
       --grad-accent:   linear-gradient(180deg, rgba(235,226,205,0.42) 0%, #C04E01 100%);
       --grad-neutral:  linear-gradient(to right, rgba(235,226,205,0.42), #C04E01);
       --grad-timeline: linear-gradient(to bottom, #ebe2cd, rgba(235,226,205,0.42), #C04E01);
-
       /* ── STATUS COLORS ──────────────────────────────────────────── */
       --c-green:  #72a880;
       --c-red:    #c45a50;
       --c-yellow: #b89642;
       --c-purple: #9278b8;
       --c-blue:   #6890c8;
-
       /* ── TYPE ───────────────────────────────────────────────────── */
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', sans-serif;
       --head: 'Barlow Condensed', sans-serif;
     }
-
     html, body {
       background: var(--surface-page);
       color: var(--text-body);
       font-family: var(--body);
-      font-size: 14px; line-height: 1.5;
+      font-size: 14px; 
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      padding: 0 1%;
     }
-
     /* ── ENTRANCE ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
     }
-    .animate { animation: fadeUp 0.5s ease forwards; opacity: 0; }
-    .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.12s; }
-    .d3 { animation-delay: 0.22s; } .d4 { animation-delay: 0.32s; }
-    .d5 { animation-delay: 0.42s; } .d6 { animation-delay: 0.52s; }
-
+    .animate { 
+      animation: fadeUp 0.5s ease forwards; 
+      opacity: 0; 
+    }
+    .d1 { 
+      animation-delay: 0.05s; 
+    } 
+    .d2 { 
+      animation-delay: 0.12s; 
+    }
+    .d3 { 
+      animation-delay: 0.22s; 
+    } .d4 { 
+      animation-delay: 0.32s; 
+    }
+    .d5 { 
+      animation-delay: 0.42s; 
+    } 
+    .d6 { 
+      animation-delay: 0.52s; 
+    }
     /* ── NAV ── */
     nav {
-      position: sticky; top: 0; z-index: 100;
+      position: sticky; 
+      top: 0; 
+      z-index: 100;
       background: rgba(9,9,9,0.97);
       border-bottom: 1px solid var(--border-mid);
       backdrop-filter: blur(8px);
-      display: flex; align-items: center; gap: 10px;
-      padding: 0 16px; height: 48px;
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+      padding: 0 16px; 
+      height: 48px;
     }
-    .nav-back { color: var(--text-label); text-decoration: none; font-size: 12px; font-family: var(--mono); white-space: nowrap; transition: color 0.15s; }
-    .nav-back:hover { color: var(--text-heading); }
-    .nav-title { font-family: var(--head); font-size: 17px; font-weight: 700; color: var(--text-heading); letter-spacing: 0.04em; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .nav-tag { background: var(--accent-subtle); border: 1px solid var(--accent-border); color: var(--text-heading); font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
-
+    .nav-back { 
+      color: var(--text-label); 
+      text-decoration: none; 
+      font-size: 12px; 
+      font-family: var(--mono); 
+      white-space: nowrap; 
+      transition: color 0.15s; 
+    }
+    .nav-back:hover { 
+      color: var(--text-heading); 
+    }
+    .nav-title { 
+      font-family: var(--head); 
+      font-size: 17px; 
+      font-weight: 700; 
+      color: var(--text-heading); 
+      letter-spacing: 0.04em; flex: 1; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      white-space: nowrap; 
+    }
+    .nav-tag { 
+      background: var(--accent-subtle); 
+      border: 1px solid var(--accent-border); 
+      color: var(--text-heading); 
+      font-family: var(--mono); 
+      font-size: 10px; 
+      padding: 2px 8px; 
+      border-radius: 3px; 
+      white-space: nowrap; 
+    }=
     /* ── LAYOUT ── */
-    main { max-width: 860px; margin: 0 auto; padding: 24px 16px 60px; overflow-x: clip; }
-
+    main { 
+      max-width: 860px; 
+      margin: 0 auto; 
+      padding: 24px 16px 60px;
+      overflow-x: clip; 
+    }
     .page-title { 
       font-family: var(--head); 
       font-size: clamp(22px, 5vw, 32px); 
@@ -100,14 +174,24 @@
       letter-spacing: 0.03em; 
       margin-bottom: 4px; 
     }
-    .page-sub { font-size: 12px; font-family: var(--mono); color: var(--text-label); margin-bottom: 24px; }
-
+    .page-sub { 
+      font-size: 12px; 
+      font-family: var(--mono); 
+      color: var(--text-label); 
+      margin-bottom: 24px; 
+    }
     /* ── SECTION HEADERS ── */
     .section-label {
-      font-family: var(--mono); font-size: 10px; text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--text-label);
+      font-family: var(--mono); 
+      font-size: 10px; 
+      text-transform: uppercase;
+      letter-spacing: 0.12em; 
+      color: var(--text-label);
       margin-bottom: 14px;
-      display: flex; align-items: center; gap: 0.75rem;
+      display: flex; 
+      align-items: center; 
+      gap: 0.75rem;
+      padding-left: 0.5%;
     }
     .section-label::after {
       content: '';
@@ -115,7 +199,6 @@
       height: 1px;
       background: var(--border-mid);
     }
-
     /* ── NOTE BOX ── */
     .note-box {
       position: relative;
@@ -124,34 +207,48 @@
       border-left: 3px solid transparent;
       border-radius: 6px;
       padding: 12px 16px;
-      font-size: 12px; line-height: 1.6;
+      font-size: 12px; 
+      line-height: 1.6;
       color: var(--text-body);
       margin-bottom: 24px;
     }
     .note-box::before {
       content: '';
       position: absolute;
-      left: -3px; top: -1px; bottom: -1px;
+      left: -3px; 
+      top: -1px; 
+      bottom: -1px;
       width: 3px;
       background: var(--grad-accent);
       border-radius: 6px 0 0 6px;
       pointer-events: none;
     }
-    .note-box strong { color: var(--text-heading); }
-
-    /* ── CHAIN FLOW ── */
-    .chain { position: relative; padding-left: 28px; margin-bottom: 28px; }
-    .chain::before {
-      content: ''; position: absolute; left: 11px; top: 10px; bottom: 10px;
-      width: 2px; background: var(--grad-timeline);
+    .note-box strong { 
+      color: var(--text-heading); 
     }
-
+    /* ── CHAIN FLOW ── */
+    .chain { 
+      position: relative; 
+      padding-left: 28px; 
+      margin-bottom: 28px; 
+    }
+    .chain::before {
+      content: ''; 
+      position: absolute; 
+      left: 11px; 
+      top: 10px; 
+      bottom: 10px;
+      width: 2px; 
+      background: var(--grad-timeline);
+    }
     .node {
-      position: relative; margin-bottom: 8px;
+      position: relative; 
+      margin-bottom: 8px;
       background: var(--surface-card);
       border: 1px solid var(--border-mid);
       border-top: 3px solid var(--border-strong);
-      border-radius: 8px; padding: 12px 14px;
+      border-radius: 8px; 
+      padding: 12px 14px;
       transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
     }
     .node:hover {
@@ -160,62 +257,140 @@
       box-shadow: 0 8px 28px rgba(0,0,0,0.55), 0 0 0 1px var(--accent-border);
     }
     .node::before {
-      content: ''; position: absolute; left: -22px; top: 50%; transform: translateY(-50%);
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--border-mid); border: 2px solid var(--surface-page);
+      content: ''; 
+      position: absolute; 
+      left: -22px; top: 50%; 
+      transform: translateY(-50%);
+      width: 10px; 
+      height: 10px; 
+      border-radius: 50%;
+      background: var(--border-mid); 
+      border: 2px solid var(--surface-page);
     }
-
-    .node.gn { border-color: var(--c-green); border-top-color: var(--c-green); }
-    .node.gn::before { background: var(--c-green); }
-    .node.rd { border-color: var(--c-red);    border-top-color: var(--c-red); }
-    .node.rd::before { background: var(--c-red); }
-    .node.yw { border-color: var(--c-yellow); border-top-color: var(--c-yellow); }
-    .node.yw::before { background: var(--c-yellow); }
-    .node.pp { border-color: var(--c-purple); border-top-color: var(--c-purple); }
-    .node.pp::before { background: var(--c-purple); }
-
-    .node-role { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-label); margin-bottom: 4px; }
-    .node-name { font-size: 13px; font-weight: 600; color: var(--text-heading); margin-bottom: 4px; }
-    .node-addr { font-family: var(--mono); font-size: 10px; color: var(--c-blue); word-break: break-all; margin-bottom: 5px; }
-    .node-detail { font-size: 12px; color: var(--text-body); line-height: 1.5; }
-    .node-detail + .node-detail { margin-top: 3px; }
-    .node-badges { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 5px; }
-
+    .node.gn { 
+      border-color: var(--c-green); 
+      border-top-color: var(--c-green); 
+    }
+    .node.gn::before { 
+      background: var(--c-green); 
+    }
+    .node.rd { 
+      border-color: var(--c-red);    
+      border-top-color: var(--c-red); 
+    }
+    .node.rd::before { 
+      background: var(--c-red); 
+    }
+    .node.yw { 
+      border-color: var(--c-yellow); 
+      border-top-color: var(--c-yellow); 
+    }
+    .node.yw::before { 
+      background: var(--c-yellow); 
+    }
+    .node.pp { 
+      border-color: var(--c-purple); 
+      border-top-color: var(--c-purple); 
+    }
+    .node.pp::before { 
+      background: var(--c-purple); 
+    }
+    .node-role { 
+      font-family: var(--mono); 
+      font-size: 10px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.08em; 
+      color: var(--text-label); 
+      margin-bottom: 4px; 
+    }
+    .node-name { 
+      font-size: 13px; 
+      font-weight: 600; 
+      color: var(--text-heading); 
+      margin-bottom: 4px; 
+    }
+    .node-addr { 
+      font-family: var(--mono); 
+      font-size: 10px; 
+      color: var(--c-blue); 
+      word-break: break-all; 
+      margin-bottom: 5px; 
+    }
+    .node-detail { 
+      font-size: 12px; 
+      color: var(--text-body); 
+      line-height: 1.5; 
+    }
+    .node-detail + .node-detail { 
+      margin-top: 3px; 
+    }
+    .node-badges { 
+      margin-top: 7px; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 5px; 
+    }
     .arrow {
-      text-align: center; font-family: var(--mono); font-size: 10px;
-      color: var(--text-label); padding: 2px 0;
-      word-break: break-all; overflow-wrap: anywhere;
+      text-align: center; 
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--text-label); 
+      padding: 2px 0;
+      word-break: break-all; 
+      overflow-wrap: anywhere;
+      margin: 0.5% 0;
     }
-
     /* split for the 3-way output */
-    .split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .split { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 8px; 
+    }
     /* nodes inside the split are not on the chain spine — no connector dots */
-    .split .node::before { display: none; }
+    .split .node::before { 
+      display: none; 
+    }
     /* arrow trailing from the center column on desktop — resets on mobile */
     .arrow-split-tail {
-      text-align: left;
-      padding-left: calc(33% + 8px);
-      /* don't break mid-word here — the truncated hash fits without it */
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .arrow-split-tail .arrow {
+      grid-column: 2;
+      white-space: nowrap;
       word-break: normal;
       overflow-wrap: normal;
+      overflow: visible;
     }
-
     @media (max-width: 600px) {
-      .split { grid-template-columns: 1fr; }
-      .arrow-split-tail { text-align: center; padding-left: 0; }
+      .split {
+        grid-template-columns: 1fr;
+      }
+      .arrow-split-tail {
+        display: block;
+      }
+      .arrow-split-tail .arrow {
+        white-space: normal;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+      }
     }
-
     /* ── BADGES ── */
     .badge {
-      display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 600;
-      padding: 2px 7px; border-radius: 3px; white-space: nowrap;
+      display: inline-block; 
+      font-family: var(--mono); 
+      font-size: 10px; 
+      font-weight: 600;
+      padding: 2px 7px; 
+      border-radius: 3px; 
+      white-space: nowrap;
     }
     .badge-green  { background: rgba(46,160,67,0.18);   color: var(--c-green); }
     .badge-red    { background: rgba(248,81,73,0.18);   color: var(--c-red); }
     .badge-yellow { background: rgba(210,153,34,0.18);  color: var(--c-yellow); }
     .badge-purple { background: rgba(163,113,247,0.18); color: var(--c-purple); }
     .badge-blue   { background: rgba(88,166,255,0.15);  color: var(--c-blue); }
-
     /* ── TABLES ── */
     .data-table-wrap {
       background-color: var(--surface-card);
@@ -230,19 +405,58 @@
       overflow-x: auto;
       box-shadow: 0 2px 12px rgba(0,0,0,0.35);
     }
-    .data-table { width: 100%; border-collapse: collapse; }
-    .data-table th { text-align: left; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-label); padding: 8px 10px; border-bottom: 1px solid var(--border-strong); }
-    .data-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); font-size: 12px; vertical-align: top; line-height: 1.5; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table td.mono { font-family: var(--mono); font-size: 10px; color: var(--c-blue); word-break: break-all; }
-    .data-table td.dim  { color: var(--text-label); font-size: 11px; white-space: nowrap; }
-    .data-table td.note { color: var(--text-body); }
-    .data-table tr:hover td { background: rgba(255,255,255,0.025); }
-
+    .data-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+    }
+    .data-table th { 
+      text-align: left; 
+      font-family: var(--mono); 
+      font-size: 10px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.06em; 
+      color: var(--text-label); 
+      padding: 8px 10px; 
+      border-bottom: 1px solid var(--border-strong); 
+    }
+    .data-table td { 
+      padding: 8px 10px; 
+      border-bottom: 1px solid var(--border-light); 
+      font-size: 12px; 
+      vertical-align: top; 
+      line-height: 1.5; 
+    }
+    .data-table tr:last-child td { 
+      border-bottom: none; 
+    }
+    .data-table td.mono { 
+      font-family: var(--mono); 
+      font-size: 10px; color: var(--c-blue); 
+      word-break: break-all; 
+    }
+    .data-table td.dim  { 
+      color: var(--text-label); 
+      font-size: 11px; 
+      white-space: nowrap; 
+    }
+    .data-table td.note { 
+      color: var(--text-body); 
+    }
+    .data-table tr:hover td { 
+      background: rgba(255,255,255,0.025); 
+    }
     /* ── CONFIRMED LIST ── */
-    .confirmed-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .confirmed-list { 
+      list-style: none; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 5px; 
+    }
     .confirmed-list li {
-      display: flex; gap: 10px; font-size: 12px; color: var(--text-body);
+      display: flex; 
+      gap: 10px; 
+      font-size: 12px; 
+      color: var(--text-body);
       align-items: flex-start;
       background: var(--surface-card);
       border: 1px solid var(--border-light);
@@ -250,11 +464,27 @@
       padding: 8px 12px;
       transition: background 0.15s ease;
     }
-    .confirmed-list li:hover { background: var(--surface-elevated); }
-    .confirmed-list li::before { content: '✓'; color: var(--c-green); font-weight: 700; flex-shrink: 0; font-family: var(--mono); }
-
+    .confirmed-list li:hover { 
+      background: var(--surface-elevated); 
+    }
+    .confirmed-list li::before { 
+      content: '✓'; 
+      color: var(--c-green); 
+      font-weight: 700; 
+      flex-shrink: 0; 
+      font-family: var(--mono); 
+    }
+    .confirmed-list strong {
+      color: var(--text-heading);
+      display: block;
+      margin-bottom: 3px;
+    }
     /* ── OPEN QUESTIONS ── */
-    .questions { display: flex; flex-direction: column; gap: 8px; }
+    .questions { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 8px; 
+    }
     .q-item {
       position: relative;
       background: var(--surface-card);
@@ -277,37 +507,78 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 0 1px var(--accent-border);
     }
-    .q-num   { font-family: var(--mono); font-size: 10px; color: var(--text-label); margin-bottom: 3px; }
-    .q-title { font-size: 13px; font-weight: 600; color: var(--text-heading); margin-bottom: 4px; }
-    .q-where { font-size: 11px; color: var(--text-body); margin-bottom: 3px; }
-    .q-why   { font-size: 11px; color: var(--text-label); }
+    .q-num   { 
+      font-family: var(--mono); 
+      font-size: 10px; 
+      color: var(--text-label); 
+      margin-bottom: 3px; 
+    }
+    .q-title { 
+      font-size: 13px; 
+      font-weight: 600; 
+      color: var(--text-heading); 
+      margin-bottom: 4px; 
+    }
+    .q-where { 
+      font-size: 11px; 
+      color: var(--text-body); 
+      margin-bottom: 3px; 
+    }
+    .q-why   { 
+      font-size: 11px; 
+      color: var(--text-label); 
+    }
     /* hex hashes and addresses must break so they don't blow out the card width */
     .q-where code, .q-why code, .node-detail code {
       word-break: break-all;
       overflow-wrap: anywhere;
     }
-
     /* ── FOOTER ── */
-    footer { text-align: center; font-family: var(--mono); font-size: 10px; color: var(--text-label); padding: 24px 16px; border-top: 1px solid var(--border-mid); margin-top: 40px; }
-    footer a { color: var(--text-label); }
-
+    footer { 
+      text-align: center; 
+      font-family: var(--mono); 
+      font-size: 10px; 
+      color: var(--text-label); 
+      padding: 24px 16px; 
+      border-top: 1px solid var(--border-mid); 
+      margin-top: 40px; 
+    }
+    footer a { 
+      color: var(--text-label); 
+    }
     /* section spacing */
-    .section { margin-bottom: 32px; }
-
+    .section { 
+      margin-bottom: 32px; 
+    }
     /* ── MOBILE ── */
     @media (max-width: 520px) {
-      main { padding: 16px 12px 40px; }
-
+      main { 
+        padding: 16px 12px 40px; 
+      }
       /* tighten the chain spine so nodes use more of the viewport width */
-      .chain { padding-left: 20px; }
-      .chain::before { left: 8px; }
-      .node::before { left: -16px; } /* keeps dot centered on spine: 20-16+5=9, spine center=9 */
+      .chain { 
+        padding-left: 20px; 
+      }
+      .chain::before { 
+        left: 8px; 
+      }
+      .node::before { 
+        left: -16px; 
+      } /* keeps dot centered on spine: 20-16+5=9, spine center=9 */
 
-      .node { padding: 10px 12px; }
-      .node-role { font-size: 9px; letter-spacing: 0.06em; }
-      .node-addr { font-size: 9px; }
-      .arrow { font-size: 9px; }
-
+      .node { 
+        padding: 10px 12px; 
+      }
+      .node-role { 
+        font-size: 9px; 
+        letter-spacing: 0.06em; 
+      }
+      .node-addr { 
+        font-size: 9px; 
+      }
+      .arrow { 
+        font-size: 9px; 
+      }
       /* remove the card treatment from confirmed list on mobile — too noisy */
       .confirmed-list li {
         background: none;
@@ -316,11 +587,16 @@
         padding: 4px 0;
         border-bottom: 1px solid var(--border-light);
       }
-      .confirmed-list li:last-child { border-bottom: none; }
-      .confirmed-list li:hover { background: none; }
-
+      .confirmed-list li:last-child { 
+        border-bottom: none; 
+      }
+      .confirmed-list li:hover { 
+        background: none; 
+      }
       /* q-items: reduce padding */
-      .q-item { padding: 10px 12px; }
+      .q-item { 
+        padding: 10px 12px; 
+      }
     }
   </style>
 </head>
@@ -329,7 +605,7 @@
 <nav>
   <a class="nav-back" href="timeline.html">← Timeline</a>
   <span class="nav-title"></span>
-  <span class="nav-tag">BTC chain</span>
+  <span class="nav-tag">Are these transactions for the kidnapper's BTC address, or the informant's?</span>
 </nav>
 
 <main>
@@ -337,7 +613,7 @@
   <p class="page-sub">Nancy Guthrie Case · FBI $152 Ransom Deposit · All times UTC</p>
 
   <div class="note-box animate d1">
-    <strong>Context:</strong> On Feb. 10–11, 2026, the FBI sent a $152 test deposit in Bitcoin to the wallet address specified in the Guthrie ransom notes. Hidden inside that transaction was a text message embedded directly in the blockchain — "We are ready to pay. Contact us." — readable only through blockchain analysis tools. The kidnappers' wallet has never been touched. This page traces every address that deposit moved through, from origin to endpoint.
+    <strong>After the ransom deadline passed:</strong> The FBI sent a $152 test deposit in Bitcoin to a wallet address specified in one of Guthrie ransom notes. <strong>Embedded message:</strong> Hidden inside that transaction ID was an embedded message: 6a = OP_RETURN instruction &rarr; 3e = 62 bytes follow &rarr; ASCII text spells out the full message &rarr; "We are ready to pay. Contact us. https://pastes.io/private-ne" &rarr; <strong>Chain trace:</strong> The wallet the FBI sent funds to has never been touched. This page traces every address that deposit moved through on the chain from origin to endpoint.
   </div>
 
   <!-- ══ CHAIN FLOW ══════════════════════════════════════════ -->
@@ -347,68 +623,75 @@
 
       <!-- NODE: Origin -->
       <div class="node yw">
-        <div class="node-role">Origin wallet · Feb 10, time unconfirmed</div>
-        <div class="node-name">25-Address Distribution</div>
+        <div class="node-role">FBI · Funding wallet · Feb 10, 2026</div>
+        <div class="node-name">FBI Funding Wallet</div>
         <div class="node-addr">bc1q34zcc3lr9e9sq8cuna7g8xeazm7j9ds622ktpv</div>
-        <div class="node-detail">Held $66,379 in Bitcoin. In a single transaction, it distributed funds to 25 different wallet addresses — one of which was a staging wallet used to fund the FBI's deposit below.</div>
+        <div class="node-detail">The FBI held $66,379 in Bitcoin here. On Feb 10, the FBI sent funds to 25 different addresses in one transaction — one of which went to the relay wallet below to stage the ransom deposit.</div>
         <div class="node-badges"><span class="badge badge-yellow">INVESTIGATE</span></div>
       </div>
-      <div class="arrow">↓ &nbsp;TX 52a3-94e2 · output #20 of 25 · 0.00435221 BTC</div>
+      <div class="arrow">↓ &nbsp;FBI sent 0.00435221 BTC to relay wallet</div>
 
       <!-- NODE: Pre-loader -->
       <div class="node rd">
-        <div class="node-role">Pre-loader · [7590e4fdc7] Unidentified · Feb 10, time unconfirmed</div>
-        <div class="node-name">Intermediary / Staging Wallet</div>
+        <div class="node-role">FBI · Relay wallet · Feb 10, 2026 · 22:16 & 22:43 UTC</div>
+        <div class="node-name">FBI Relay Wallet</div>
         <div class="node-addr">bc1qhcra7uqesgelwtm534anxvgarldd0hhpaa9hpy</div>
-        <div class="node-detail">Received a small amount from the origin wallet, then sent it in two separate transfers to the FBI's operation wallet over about 90 minutes. Appears to have been used purely as a staging step. Now empty.</div>
+        <div class="node-detail">The FBI received funds here from the funding wallet, then forwarded them to the sending wallet in two transfers about 90 minutes apart. Now empty.</div>
         <div class="node-badges"><span class="badge badge-red">UNIDENTIFIED</span><span class="badge badge-red">NOW EMPTY</span></div>
       </div>
-      <div class="arrow">↓ &nbsp;TX 57879624… (22:16 UTC) +0.00032129 BTC &nbsp;·&nbsp; TX 9eb03733… (22:43 UTC) +0.00402513 BTC</div>
+      <div class="arrow">↓ &nbsp;FBI forwarded funds to sending wallet in two transfers</div>
 
       <!-- NODE: FBI Sending Wallet -->
       <div class="node gn">
-        <div class="node-role">FBI / Guthrie sending wallet · [babe626d29] Unidentified cluster · Feb 10, 22:16–Feb 11, 00:12 UTC</div>
-        <div class="node-name">FBI Operation Wallet</div>
+        <div class="node-role">FBI · Sending wallet · Feb 11, 2026 · 00:12:31 UTC</div>
+        <div class="node-name">FBI Sending Wallet</div>
         <div class="node-addr">bc1qgrq5zg4gxajyr3dldj8sl0gax0krz09speyet9</div>
-        <div class="node-detail">Received two incoming transfers about 90 minutes before making the ransom deposit. The entire balance was spent in the transaction that sent money to the ransom address and embedded the hidden message. No exchange or service name found for this wallet through blockchain analysis tools. Now empty.</div>
+        <div class="node-detail">The FBI received two transfers here, then used this wallet to send the ransom deposit on Feb 11 at 00:12 UTC. The entire balance was spent in that one transaction — split across the ransom address, a second FBI-controlled address ($148), and the hidden message. Not identified as a known exchange or service. Now empty.</div>
         <div class="node-badges"><span class="badge badge-yellow">UNIDENTIFIED</span><span class="badge badge-red">NOW EMPTY</span></div>
       </div>
-      <div class="arrow">↓ &nbsp;TX 5004328866affcf4078446ab62877ededbd560208dde71d26b7cc8c18c9d2913 · Feb 11, 00:12:31 UTC · 3 outputs</div>
+      <div class="arrow">↓ &nbsp;FBI sent ransom deposit · 3 outputs below</div>
+
+      <!-- Transaction note -->
+      <div class="note-box" style="margin-bottom:10px;margin-top:-2px;">
+        <strong>About this transaction:</strong> Under the hood, Bitcoin requires every transaction to account for 100% of the sending wallet's balance — any amount not sent to the intended recipient must be explicitly directed somewhere in the same transaction. Wallet apps hide this from users, but it's visible on the blockchain. The FBI's sending wallet held ~$300; they sent $152 to the ransom address, and the remaining $148 was automatically routed to a second address by their wallet software — the FBI almost certainly did not specify that address manually. If they used a custodial exchange (Coinbase, Kraken, etc.), the exchange manages that second address on their behalf and folds the balance back into their account — they would never see a separate address at all. If they used non-custodial wallet software, the software auto-generated the address and the FBI retains access through their wallet. Which type the FBI used is unconfirmed. Why their sending wallet held more than the $152 they intended to send is also unknown — as is why they chose $152 specifically. Both figures are millions less than the $4 million the kidnapper demanded.
+      </div>
 
       <!-- 3-way split -->
       <div class="split">
         <div class="node rd">
-          <div class="node-role">Output 1 · Ransom wallet · [16c4dcb8c6]</div>
-          <div class="node-name">Kidnapper Wallet</div>
+          <div class="node-role">Kidnapper · Ransom wallet · received Feb 11, 2026</div>
+          <div class="node-name">Kidnapper's Ransom Wallet</div>
           <div class="node-addr">bc1qud56tc0gpc6c50v3t0pc980z2e75jvr48plyrt</div>
           <div class="node-detail">
-            <strong style="color:var(--text)">1 transaction in its entire history</strong> — the FBI's deposit on Feb 11, 2026. Nothing before it, nothing after it. Searched from Bitcoin's genesis block (Jan 3, 2009) through Jun 27, 2026.<br><br>
-            Balance as of Jun 27, 2026: <strong style="color:var(--text)">0.0022 BTC ($132.94)</strong> — still sitting there, untouched, 4+ months after the deposit.<br><br>
-            The address was generated fresh for this crime. No prior blockchain history exists.
+            The FBI deposited $152 here on Feb 11, 2026. The kidnapper(s) never responded and never touched the money — the only transaction in this wallet's entire history. Searched from Bitcoin's genesis block (Jan 3, 2009) through Jun 27, 2026.<br><br>
+            Balance as of Jun 27, 2026: <strong style="color:var(--text)">$132.94</strong> — still sitting there, untouched, 4+ months later.<br><br>
+            The address was created fresh for this crime, with no prior blockchain history.
           </div>
           <div class="node-badges"><span class="badge badge-red">⚠ NEVER TOUCHED</span><span class="badge badge-red">ZERO PRIOR HISTORY</span><span class="badge badge-red">$132.94 STILL HELD</span></div>
         </div>
         <div class="node gn">
-          <div class="node-role">Output 2 · Change wallet · [9573eda609]</div>
-          <div class="node-name">FBI Change Address</div>
+          <div class="node-role">FBI · Second output · Feb 11–Mar 2, 2026</div>
+          <div class="node-name">FBI Second Address</div>
           <div class="node-addr">bc1qz8sqz2pw38clqpj06n809eunarxg6p6k5x72u3</div>
-          <div class="node-detail">Leftover Bitcoin from the ransom transaction ($148). Transferred out on Mar 2, 2026. Now empty.</div>
+          <div class="node-detail">In the same transaction as the ransom deposit, the FBI sent $148 to this second address they control. On Mar 2, 2026, the FBI transferred it to a cryptocurrency exchange deposit address. Now empty.</div>
           <div class="node-badges"><span class="badge badge-yellow">UNIDENTIFIED</span><span class="badge badge-red">NOW EMPTY</span></div>
         </div>
         <div class="node pp">
-          <div class="node-role">Output 3 · OP_RETURN · [42f36d3e21]</div>
+          <div class="node-role">FBI · Hidden message · Feb 11, 2026</div>
           <div class="node-name">Embedded Message</div>
           <div class="node-addr" style="color:var(--c-purple)">0.00000000 BTC · data only</div>
           <div class="node-detail">"We are ready to pay. Contact us. https://pastes.io/private-ne"</div>
-          <div class="node-badges"><span class="badge badge-purple">404 DEAD</span></div>
+          <div class="node-badges"><span class="badge badge-purple">404 DEAD OR EXPIRED</span></div>
         </div>
       </div>
-      <div class="arrow arrow-split-tail">↓ &nbsp;TX 4cfbb7b0… · Mar 2, 17:49 UTC · Change wallet swept to exchange</div>
+      <div class="arrow-split-tail">
+        <div class="arrow">↓ &nbsp;FBI transferred $148 from second address to exchange</div>
+      </div>
 
       <!-- NODE: Exchange deposit addr -->
       <div class="node rd">
-        <div class="node-role">Exchange deposit address · [000000030a] Unidentified · first used Jun 29, 2022</div>
-        <div class="node-name">Likely Major Exchange Deposit Address</div>
+        <div class="node-role">Exchange · Deposit address · FBI funds received Mar 2, 2026 · 17:49 UTC</div>
+        <div class="node-name">Exchange Deposit Address</div>
         <div class="node-addr">3548M6Zb9Pixppji32BW7beCQBF8Fwikrm</div>
         <div class="node-detail">
           4 transactions total, across two separate events — four years apart. Both times, money arrived here and was swept out within 17–18 minutes, pooled with hundreds of other incoming deposits. That pattern is consistent with how large cryptocurrency exchanges process customer funds.<br><br>
@@ -419,22 +702,22 @@
         </div>
         <div class="node-badges"><span class="badge badge-yellow">LIKELY MAJOR EXCHANGE</span><span class="badge badge-red">NOW EMPTY</span><span class="badge badge-blue">FIRST USED: JUN 2022</span><span class="badge badge-blue">NOT SANCTIONED</span></div>
       </div>
-      <div class="arrow">↓ &nbsp;TX b2cd1845a2e253b83cfa792ff8f1b916010ce71391afe0f7c42323d0d97e97d2 · Mar 2, 18:06 UTC · swept with 171 other P2SH addresses</div>
+      <div class="arrow">↓ &nbsp;Exchange pooled FBI's deposit with 171 others into internal wallet</div>
 
       <!-- NODE: Consolidation destination -->
       <div class="node gn">
-        <div class="node-role">Consolidation destination · [35766ae037] · Mar 2, 18:06–21:47 UTC</div>
-        <div class="node-name">Exchange Hot-Wallet Routing Address</div>
+        <div class="node-role">Exchange · Internal wallet · Mar 2, 2026 · 18:06–21:47 UTC</div>
+        <div class="node-name">Exchange Internal Wallet</div>
         <div class="node-addr">bc1qs6fkx8u2aal3yuq2zmdec5wtcr4wtwt40qpmpn</div>
-        <div class="node-detail">Two transactions, ever. Received the pooled funds from 172 incoming deposits at 18:06, then sent everything back out 3.5 hours later. Consistent with how exchanges move funds between their own internal wallets — money from customer deposits gets collected and redistributed.</div>
+        <div class="node-detail">Two transactions, ever. The exchange pooled 172 customer deposits here at 18:06 — including the FBI's $148 — then sent everything out to 24 wallets 3.5 hours later.</div>
         <div class="node-badges"><span class="badge badge-green">TRAIL EXTENDED</span><span class="badge badge-red">NOW EMPTY</span></div>
       </div>
-      <div class="arrow">↓ &nbsp;TX 4a30ffd02d53ee83792908f6fde54654ab20b6c44b870301ad9cab1a1f680135 · Mar 2, 21:47:28 UTC · 24 outputs · fee 0.00004374 BTC</div>
+      <div class="arrow">↓ &nbsp;Exchange sent to 24 wallets</div>
 
       <!-- NODE: Fan-out -->
       <div class="node rd">
-        <div class="node-role">Fan-out · 24 outputs · Mar 2, 21:47 UTC</div>
-        <div class="node-name">3.41 BTC Distributed to 24 Addresses</div>
+        <div class="node-role">Exchange · Outgoing distribution · Mar 2, 21:47 UTC</div>
+        <div class="node-name">Exchange Sent to 24 Wallets</div>
         <div class="node-addr" style="color:var(--muted)">bc1qs6fkx… → 24 recipients (see TX detail)</div>
         <div class="node-detail">
           <strong style="color:var(--text)">Largest share (output 7):</strong> bc1qvjy2cw3ugcuz964c8fuwcvg6peh25atvdc38ca → <strong style="color:var(--text)">3.2580724 BTC (~95% of total)</strong> — sent straight back to the same exchange cluster the money came from<br><br>
@@ -458,58 +741,43 @@
     <div class="data-table-wrap">
       <table class="data-table">
         <thead>
-          <tr><th>Date (UTC)</th><th>Transaction ID</th><th>What happened</th></tr>
+          <tr><th>Who</th><th>When (UTC)</th><th>What</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td class="dim">Jun 29, 2022 · 18:33</td>
-            <td class="mono">05910f6494a568955cdcab674f3073b48226f1cc517280115488b1d58c8fb7a5</td>
-            <td class="note">Someone sent 0.07788993 BTC ($1,580) to 3548M6Zb… — event predates Guthrie case by 4 years</td>
+            <td class="dim">FBI</td>
+            <td class="dim">Feb 10, est.</td>
+            <td class="note">Funded sending wallet from 25-address distribution · ~$300 total</td>
           </tr>
           <tr>
-            <td class="dim">Jun 29, 2022 · 18:51</td>
-            <td class="mono">513bd28d9600d449cbd7847831390c3e43bce37693cb1b281f2f9d7d9428b4d4</td>
-            <td class="note">3548M6Zb… swept 18 min later, pooled with other deposits → 6.9376526 BTC total → bc1qse7x… · unidentified routing address</td>
+            <td class="dim">FBI</td>
+            <td class="dim">Feb 10, 22:16 &amp; 22:43</td>
+            <td class="note">Relay wallet forwarded funds to sending wallet in two transfers</td>
           </tr>
           <tr>
-            <td class="dim">Jun 29, 2022 · 19:21</td>
-            <td class="mono">75bb61143eecb33bbca5a8274ff61d2eb1b6e378fffe1a73c872e2ed2aff10d9</td>
-            <td class="note">Routing address distributed to ~50 wallets 30 min later · 6.00090514 BTC (87%) to unidentified cluster · 0.18136453 BTC returned to exchange cluster [000000030a]</td>
-          </tr>
-          <tr>
-            <td class="dim">Feb 10, est. (unconfirmed)</td>
-            <td class="mono">52a3-94e2…</td>
-            <td class="note">Origin wallet distributed 1.10381290 BTC to 25 addresses</td>
-          </tr>
-          <tr>
-            <td class="dim">Feb 10, 22:16</td>
-            <td class="mono">57879624de9d9e22bd281571bd2d6b04bbc0693525e91f1d2ba79b6bcce325db</td>
-            <td class="note">Staging wallet → FBI operation wallet +0.00032129 BTC</td>
-          </tr>
-          <tr>
-            <td class="dim">Feb 10, 22:43</td>
-            <td class="mono">9eb03733e6296381506294abad7a4fdfff3ed77fdb387de1f6d7c59f52fc36cc</td>
-            <td class="note">Staging wallet → FBI operation wallet +0.00402513 BTC</td>
-          </tr>
-          <tr>
+            <td class="dim">FBI</td>
             <td class="dim">Feb 11, 00:12</td>
-            <td class="mono">5004328866affcf4078446ab62877ededbd560208dde71d26b7cc8c18c9d2913</td>
-            <td class="note"><strong>The FBI deposit</strong> — OP_RETURN + ransom wallet ($132) + change · Block 935,968 · MARA Pool</td>
+            <td class="note"><strong>Ransom deposit sent</strong> — $152 to kidnapper's wallet · $148 to FBI second address · hidden message embedded · Block 935,968</td>
           </tr>
           <tr>
+            <td class="dim">Kidnapper</td>
+            <td class="dim">Feb 11 – present</td>
+            <td class="note">Received $152. Never responded. Never touched the money. $132.94 still held as of Jun 27, 2026.</td>
+          </tr>
+          <tr>
+            <td class="dim">FBI</td>
             <td class="dim">Mar 2, 17:49</td>
-            <td class="mono">4cfbb7b0740899bb0997608d7e944d521d6ecbe48b6f2e7f3791ac769e42f83d</td>
-            <td class="note">Leftover change from FBI deposit transferred to exchange deposit address 3548M6Zb…</td>
+            <td class="note">Transferred $148 from second address to exchange deposit address</td>
           </tr>
           <tr>
+            <td class="dim">Exchange</td>
             <td class="dim">Mar 2, 18:06</td>
-            <td class="mono">b2cd1845a2e253b83cfa792ff8f1b916010ce71391afe0f7c42323d0d97e97d2</td>
-            <td class="note">Exchange swept 172 deposits at once (including FBI's change) → bc1qs6fkx… · 3.41630863 BTC</td>
+            <td class="note">Pooled FBI's $148 with 171 other incoming deposits into internal wallet · $3,416 total</td>
           </tr>
           <tr>
+            <td class="dim">Exchange</td>
             <td class="dim">Mar 2, 21:47</td>
-            <td class="mono">4a30ffd02d53ee83792908f6fde54654ab20b6c44b870301ad9cab1a1f680135</td>
-            <td class="note">Routing address distributed to 24 wallets · 3.258 BTC (95%) returned to exchange cluster · 2 outputs still unspent · Block 939052</td>
+            <td class="note">Distributed to 24 wallets — 95% looped back internally · 2 outputs still unspent</td>
           </tr>
         </tbody>
       </table>
@@ -520,22 +788,15 @@
   <div class="section animate d4">
     <p class="section-label">Confirmed</p>
     <ul class="confirmed-list">
-      <li>Ransom wallet has never been touched — 1 transaction in its entire history (the FBI's deposit), $132.94 still held as of Jun 27, 2026</li>
-      <li>Ransom wallet had zero blockchain history before Feb 11, 2026 — address was generated fresh for this crime, confirmed by searching from Bitcoin's genesis block (Jan 3, 2009)</li>
-      <li>All times are UTC (confirmed by WalletExplorer footer)</li>
-      <li>The exchange deposit address belongs to a cluster with 60M+ total transactions — the scale of a major global cryptocurrency exchange</li>
-      <li>All 172 deposits swept together in the Mar 2 transaction use the same Bitcoin address format ("3xxx") — consistent with exchange customer deposit addresses</li>
-      <li>This deposit address (3548M6Zb…ikrm) was first used Jun 29, 2022 — four years before the Guthrie case. It behaved identically both times: money arrived, then was swept out in 17–18 minutes</li>
-      <li>The 2022 sweep sent 6.9376526 BTC ($140,764) to bc1qse7x4e7eukgyp4y58vpuujwycfj0m42fn45d5a — an address not previously in the trace, still unidentified</li>
-      <li>Total traced through this deposit address across both events: 10.35396123 BTC ($625,068 USD)</li>
-      <li>pastes.io/private-ne is dead (404 — paste not found or expired)</li>
-      <li>The routing addresses in both 2022 and 2026 had exactly 2 transactions each: money came in, then was distributed out about 30 minutes later. Single-use, throwaway infrastructure</li>
-      <li>In both 2022 and 2026, the majority of funds cycled back to the same exchange cluster they started from — 87% in 2022, 95% in 2026. Exchanges routinely move funds between their own internal wallets this way</li>
-      <li>Hidden message verified via three independent sources: mempool.space, Blockchair, and CyberChef hex decoder — full text: "We are ready to pay. Contact us.&nbsp;https://pastes.io/private-ne"</li>
-      <li>The 2022 routing address was checked on WalletExplorer — no exchange or service name found. (The colored icons on WalletExplorer are visual cluster tags, not identification indicators)</li>
-      <li>The largest 2022 destination received 6.00090514 BTC (~$121,800) — 87% of the total 2022 sweep. Not yet identified</li>
-      <li>The exchange deposit address (3548M6Zb…ikrm) is not flagged on any government sanctions list — OFAC, OFSI, or cryptocurrency blacklists</li>
-      <li>Blockchain monitoring tool MistTrack shows only one known counterparty for this deposit address — the FBI's change wallet — consistent with it being dedicated to this operation</li>
+      <li><div><strong>Kidnapper's Ransom Wallet</strong>Never touched. The FBI deposited $152 on Feb 11, 2026. The kidnapper never responded and never moved the money. $132.94 still held as of Jun 27, 2026.</div></li>
+      <li><div><strong>Kidnapper's Ransom Wallet</strong>Created fresh for this crime. No blockchain history before the FBI's deposit on Feb 11, 2026.</div></li>
+      <li><div>All timestamps on this page are UTC.</div></li>
+      <li><div><strong>Exchange Deposit Address (3548M6Zb…)</strong>Where the FBI's $148 landed on Mar 2, 2026. Belongs to a cluster of wallets with 60M+ total transactions — the scale of a major global cryptocurrency exchange. Not flagged on any government sanctions list.</div></li>
+      <li><div><strong>Exchange Deposit Address (3548M6Zb…)</strong>First used Jun 29, 2022 — four years before the Guthrie case. The same address the FBI's money reached in 2026 had already been used by someone in 2022, and behaved identically: money arrived, then the exchange swept it out within 17–18 minutes.</div></li>
+      <li><div><strong>Exchange Deposit Address (3548M6Zb…)</strong>Blockchain monitoring tool MistTrack shows only one known counterparty for this address: the FBI's second address. Consistent with it being a dedicated account tied to this FBI operation.</div></li>
+      <li><div><strong>Exchange Internal Wallets</strong>In both 2022 and 2026, most of the money the exchange distributed looped back into its own wallets (87% in 2022, 95% in 2026). Exchanges routinely move funds between their own accounts.</div></li>
+      <li><div><strong>2022 Exchange Sweep Destination (bc1qse7x…)</strong>The address that received the 2022 exchange payout. Checked on WalletExplorer — no exchange or service name found. Still unidentified.</div></li>
+      <li><div><strong>Embedded Message</strong>Verified via three independent sources (mempool.space, Blockchair, CyberChef). Full text: "We are ready to pay. Contact us.&nbsp;https://pastes.io/private-ne" — the link is dead (not found or expired).</div></li>
     </ul>
   </div>
 
@@ -546,53 +807,53 @@
 
       <div class="q-item">
         <div class="q-num">01 · HIGHEST PRIORITY</div>
-        <div class="q-title">Which exchange is [000000030a]?</div>
-        <div class="q-where"><strong>Where:</strong> Blockchain explorer Blockchair shows activity for <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">3548M6Zb9Pixppji32BW7beCQBF8Fwikrm</code> but no exchange name. Try: Arkham Intelligence (intel.arkm.com), Breadcrumbs.app, or Crystal Blockchain — each maintains its own database of exchange attributions.</div>
-        <div class="q-why"><strong>Why:</strong> The exchange behind this deposit address holds account records — name, email, ID — for whoever controls it. That exchange was likely already subpoenaed by the FBI, or could be.</div>
+        <div class="q-title">Which exchange received the FBI's $148?</div>
+        <div class="q-where"><strong>Where:</strong> Blockchain explorer Blockchair shows transaction history for the Exchange Deposit Address (<code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">3548M6Zb9Pixppji32BW7beCQBF8Fwikrm</code>) but no exchange name. Try: Arkham Intelligence (intel.arkm.com), Breadcrumbs.app, or Crystal Blockchain — each maintains its own database of named exchanges.</div>
+        <div class="q-why"><strong>&rarr;</strong> Whichever exchange operates this deposit address holds account records — name, email, and ID — for whoever opened it. That exchange was likely already subpoenaed by the FBI, or could be.</div>
       </div>
 
       <div class="q-item">
         <div class="q-num">02 · NEW</div>
-        <div class="q-title">Who owns the two unspent outputs from the fan-out?</div>
-        <div class="q-where"><strong>Unspent 1:</strong> bc1qkm8jf9khsg55n6c4v0mj8lwrxklr75852xfcx0 — 0.07202283 BTC (~$4,330 at time of TX)<br>
-        <strong>Unspent 2:</strong> 3GdMC6FYtqiwcJPqW4rjgmAhGLLWwq9TZg — 0.00749139 BTC<br>
-        <strong>Where to check:</strong> WalletExplorer → paste each address to see cluster size and any exchange name</div>
-        <div class="q-why"><strong>Why:</strong> Every other wallet that received money in this distribution has since spent it. These two haven't. That's unusual and may point to offline storage or a dormant account.</div>
+        <div class="q-title">Who owns the two wallets from the March 2nd exchange payout that still haven't moved their money?</div>
+        <div class="q-where"><strong>Address 1:</strong> bc1qkm8jf9khsg55n6c4v0mj8lwrxklr75852xfcx0 — received ~$4,330<br>
+        <strong>Address 2:</strong> 3GdMC6FYtqiwcJPqW4rjgmAhGLLWwq9TZg — received a smaller amount<br>
+        <strong>Where to check:</strong> WalletExplorer → paste each address to see whether it's connected to a known exchange or service</div>
+        <div class="q-why"><strong>&rarr;</strong> When the exchange distributed funds on Mar 2, 2026, every other recipient wallet quickly moved the money out. These two still haven't — which is unusual and could indicate cold storage, a locked account, or a wallet under active scrutiny.</div>
       </div>
 
       <div class="q-item">
         <div class="q-num">03</div>
-        <div class="q-title">What is the origin wallet bc1q34…ktpv?</div>
+        <div class="q-title">What is the FBI Funding Wallet?</div>
         <div class="q-where"><strong>Where:</strong> WalletExplorer → paste <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">bc1q34zcc3lr9e9sq8cuna7g8xeazm7j9ds622ktpv</code></div>
-        <div class="q-why"><strong>Why:</strong> This is the first wallet in the chain — the one that held the FBI's funds before the operation began. Identifying it likely reveals the exchange where the FBI originally purchased the Bitcoin.</div>
+        <div class="q-why"><strong>&rarr;</strong> This is the first wallet in the chain — where the FBI's funds originated before the operation began. Identifying it likely reveals which exchange the FBI used to purchase the Bitcoin.</div>
       </div>
 
       <div class="q-item">
         <div class="q-num">04 · CHECKED — NO NAME FOUND</div>
-        <div class="q-title">What exchange is behind [692de964b8]?</div>
-        <div class="q-where"><strong>Checked:</strong> WalletExplorer shows no name for this cluster. Try Arkham Intelligence or Breadcrumbs.app with the actual address: <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">bc1qse7x4e7eukgyp4y58vpuujwycfj0m42fn45d5a</code></div>
-        <div class="q-why"><strong>Why:</strong> This address played the same role in 2022 that the 2026 routing address played — a temporary hop connected to the exchange cluster. Attributing it would almost certainly name the exchange behind [000000030a].</div>
+        <div class="q-title">Who owns the 2022 Exchange Sweep Destination?</div>
+        <div class="q-where"><strong>Checked:</strong> WalletExplorer shows no name for this address. Try Arkham Intelligence or Breadcrumbs.app: <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">bc1qse7x4e7eukgyp4y58vpuujwycfj0m42fn45d5a</code></div>
+        <div class="q-why"><strong>&rarr;</strong> In 2022, the exchange swept deposits — including $140,764 — into this address before distributing them. It played the same role in 2022 that the Exchange Internal Wallet played in 2026. Identifying it would almost certainly name the exchange that received the FBI's $148.</div>
       </div>
 
       <div class="q-item">
         <div class="q-num">04b</div>
-        <div class="q-title">What is [0000016660f71ce6] — the dominant 2022 destination?</div>
+        <div class="q-title">Who received 87% of the 2022 exchange payout?</div>
         <div class="q-where"><strong>Where:</strong> WalletExplorer → click <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">[0000016660]</code> from the TX 75bb6114 output list</div>
-        <div class="q-why"><strong>Why:</strong> This was the largest single destination in the 2022 chain — 87% of the money went here. Identifying it could confirm which exchange is behind [000000030a] and show where withdrawal funds were directed.</div>
+        <div class="q-why"><strong>&rarr;</strong> When the exchange distributed the 2022 deposit, one address received ~$121,800 — 87% of the total. Identifying it could confirm which exchange is behind the deposit address and show where the bulk of those funds ended up.</div>
       </div>
 
       <div class="q-item">
         <div class="q-num">05b</div>
-        <div class="q-title">Who funded 3548M6Zb… in June 2022?</div>
-        <div class="q-where"><strong>Where:</strong> WalletExplorer or Blockchair → TX <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">05910f6494a568955cdcab674f3073b48226f1cc517280115488b1d58c8fb7a5</code> → look at the input address(es)</div>
-        <div class="q-why"><strong>Why:</strong> Someone sent $1,580 to this same deposit address four years before the Guthrie case. That person is either an ordinary exchange customer who happened to use the same address — or, potentially, the FBI using the same account for an earlier operation.</div>
+        <div class="q-title">Who deposited $1,580 into the Exchange Deposit Address in June 2022?</div>
+        <div class="q-where"><strong>Where:</strong> WalletExplorer or Blockchair → TX <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">05910f6494a568955cdcab674f3073b48226f1cc517280115488b1d58c8fb7a5</code> → look at the sending address</div>
+        <div class="q-why"><strong>&rarr;</strong> The Exchange Deposit Address (3548M6Zb…) was used once in 2022 — four years before the Guthrie case — by someone who sent $1,580 to it. That person is either an ordinary exchange customer who happened to use the same deposit account, or the FBI using the same exchange account for an earlier unrelated operation.</div>
       </div>
 
       <div class="q-item">
         <div class="q-num">05</div>
-        <div class="q-title">What entity is wallet cluster [babe626d29]?</div>
-        <div class="q-where"><strong>Where:</strong> WalletExplorer → click <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">babe626d29</code> directly. Also try Arkham Intelligence, Breadcrumbs.app, or Crystal Blockchain.</div>
-        <div class="q-why"><strong>Why:</strong> This is the FBI's sending wallet — the one used to make the actual ransom deposit. Identifying which exchange or service it belongs to would confirm where the FBI acquired the Bitcoin for this operation.</div>
+        <div class="q-title">What is the FBI Sending Wallet?</div>
+        <div class="q-where"><strong>Where:</strong> WalletExplorer → paste <code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">babe626d29</code> directly. Also try Arkham Intelligence, Breadcrumbs.app, or Crystal Blockchain.</div>
+        <div class="q-why"><strong>&rarr;</strong> This is the wallet the FBI used to make the actual ransom deposit on Feb 11, 2026. Identifying which exchange or service it belongs to would confirm where the FBI purchased the Bitcoin for this operation.</div>
       </div>
 
     </div>
@@ -601,7 +862,7 @@
 </main>
 
 <footer>
-  <p>Subtxt Press · Nancy Guthrie Case · <a href="timeline.html">← Back to Timeline</a></p>
+  <p><strong>Subtxt Press · <a href="timeline.html">← Back to Nancy Guthrie Timeline</a></strong></p>
   <!-- UPDATE LOG — add entries here as new findings come in -->
   <!-- 2026-06-27: Initial trace complete through block 939052 -->
   <!-- 2026-06-27: Extended trail — TX 4a30ffd0 fan-out added; 95% looped to [000000030a]; 2 unspent outputs flagged; AML data added for 3548M6Zb -->
