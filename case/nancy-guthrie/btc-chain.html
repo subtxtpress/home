@@ -812,6 +812,45 @@
     </ul>
   </div>
 
+  <!-- ══ OP_RETURN DEADLINE SEARCH ══════════════════════════ -->
+  <div class="section animate d5">
+    <p class="section-label">OP_RETURN Deadline Search</p>
+
+    <div class="note-box" style="margin-bottom:16px;">
+      <strong>The theory:</strong> The Feb&nbsp;11 message ("We are ready to pay…") arrived <em>after</em> both ransom deadlines, paired with a wallet the kidnapper never touched. That pattern fits an informant channel, not direct contact with the actual kidnappers. The question was whether the FBI sent a separate OP_RETURN message near either deadline — Feb&nbsp;6 or Feb&nbsp;9 at 5&nbsp;PM Tucson time — to reach the actual kidnappers. Every transaction in blocks around those two deadlines was scanned.
+    </div>
+
+    <div class="questions" style="margin-bottom:16px;">
+
+      <div class="q-item">
+        <div class="q-num">Feb 6 Deadline · 5 PM Tucson · midnight UTC · Block 935,326</div>
+        <div class="q-title">25 blocks scanned · ~75,000 transactions · 0 relevant hits</div>
+        <div class="q-where">
+          <strong>Window:</strong> Blocks 935,314 – 935,338 · approx. 10:36 PM UTC Feb 6 – 2:17 AM UTC Feb 7<br>
+          <strong>Only readable message found:</strong> <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"fuck trump"</span> — Block 935,320 · 11:10 PM UTC · unrelated graffiti.
+        </div>
+        <div class="q-why"><strong>&rarr; No messages in this window that could plausibly be FBI communications to kidnappers.</strong></div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-num">Feb 9 Deadline · 5 PM Tucson · midnight UTC · Block 935,824</div>
+        <div class="q-title">25 blocks scanned · ~75,000 transactions · 0 relevant hits</div>
+        <div class="q-where">
+          <strong>Window:</strong> Blocks 935,812 – 935,836 · approx. 10:15 PM UTC Feb 9 – 1:41 AM UTC Feb 10<br>
+          <strong>Two readable messages found:</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Tour exp"</span> — Block 935,817 · 10:57 PM UTC · truncated label, unrelated.<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"LE BITCOIN EST UNE DEVISE"</span> — Block 935,824 · midnight UTC · French political statement.
+        </div>
+        <div class="q-why"><strong>&rarr; No messages in this window that could plausibly be FBI communications to kidnappers.</strong></div>
+      </div>
+
+    </div>
+
+    <div class="note-box">
+      <strong>Finding:</strong> Both deadline windows came up empty. If the FBI sent a plain-text OP_RETURN message to the actual kidnappers near either deadline, it would have appeared here — every transaction in both windows was checked. The Feb&nbsp;11 "We are ready to pay" message remains the only readable FBI OP_RETURN in the investigation window. Its timing — after both deadlines — and the untouched ransom wallet it was paired with continue to point toward the informant channel, not the actual kidnappers.
+    </div>
+  </div>
+
   <!-- ══ OPEN QUESTIONS ═══════════════════════════════════════ -->
   <div class="section animate d5">
     <p class="section-label">Open — prioritized next steps</p>
@@ -875,6 +914,7 @@
 
 <footer>
   <p><strong>Subtxt Press · <a href="timeline.html">← Back to Nancy Guthrie Timeline</a></strong></p>
+  <p style="margin-top:1%;">This is a work in progress. Updated as more information becomes available.</p>
   <!-- UPDATE LOG — add entries here as new findings come in -->
   <!-- 2026-06-27: Initial trace complete through block 939052 -->
   <!-- 2026-06-27: Extended trail — TX 4a30ffd0 fan-out added; 95% looped to [000000030a]; 2 unspent outputs flagged; AML data added for 3548M6Zb -->
