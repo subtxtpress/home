@@ -1022,6 +1022,7 @@
     <label class="lyr"><input type="checkbox" data-layer="stormDrains"> Storm Drains <span class="cnt" id="cnt-stormDrains">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="wells"><i class="bi bi-water" style="color:#8AAFCC;margin-right:6px;"></i>Registered Wells (ADWR) <span class="cnt" id="cnt-wells">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="wellsCA"><i class="bi bi-droplet-fill" style="color:#5BC4A0;margin-right:6px;"></i>CA Wells &amp; Pump Sites (DWR) <span class="cnt" id="cnt-wellsCA">-</span></label>
+    <label class="lyr"><input type="checkbox" data-layer="parcelsCA"><i class="bi bi-map" style="color:#C4956D;margin-right:6px;"></i>SBC Parcels (Assessor) <span class="cnt" id="cnt-parcelsCA">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="railroads"><i class="bi bi-train-front" style="color:#C4956D;margin-right:6px;"></i>Railroads <span class="cnt" id="cnt-railroads">-</span></label>
     <label class="lyr"><input type="checkbox" data-layer="hillshade"><i class="bi bi-brightness-high" style="color:#D4A85C;margin-right:6px;"></i>Terrain Hillshade</label>
     <label class="lyr" style="margin-top:6px;border-top:1px solid var(--border);padding-top:6px;"><input type="checkbox" data-layer="escapeRoute"><i class="bi bi-exclamation-triangle-fill" style="color:#E8784A;margin-right:6px;"></i>WB I-10 Escape Corridor</label>
@@ -1691,6 +1692,7 @@ const ly = {
   territories:  L.layerGroup(),
   quarries:     L.layerGroup(),
   wellsCA:      L.layerGroup(),
+  parcelsCA:    L.layerGroup(),
   rsgRoutes:  L.layerGroup(),
   rsgCams:    L.layerGroup(),
   rsgPOI:     L.layerGroup(),
@@ -2541,6 +2543,63 @@ async function loadWells() {
   }
 }
 
+// Convert Esri rings → GeoJSON geometry
+function esriToGeoJSON(feature) {
+  const g = feature.geometry;
+  if (!g || !g.rings) return null;
+  return {
+    type: 'Feature',
+    properties: feature.attributes || {},
+    geometry: { type: 'Polygon', coordinates: g.rings },
+  };
+}
+
+// SBC COUNTY BOUNDARY — Census TIGER, loads once on startup
+(async function loadSBCBoundary() {
+  try {
+    const params = new URLSearchParams({
+      where: "STATE='06' AND COUNTY='071'",
+      outFields: 'NAME', returnGeometry: 'true', outSR: '4326', f: 'json',
+    });
+    const r = await fetch(`https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/1/query?${params}`);
+    if (!r.ok) return;
+    const data = await r.json();
+    const features = (data.features || []).map(esriToGeoJSON).filter(Boolean);
+    L.geoJSON({ type: 'FeatureCollection', features }, {
+      style: { color: '#FF4444', weight: 2.5, fillOpacity: 0, opacity: 0.85, dashArray: '6,4' },
+      interactive: false,
+    }).addTo(map);
+  } catch(e) { console.warn('SBC boundary error:', e); }
+})();
+
+// SBC ASSESSOR PARCELS — click-anywhere lookup (parcel API is not public)
+let parcelsCAActive = false;
+let parcelsCAClickHandler = null;
+
+function loadParcelsCA() {
+  if (parcelsCAClickHandler) return;
+  setStatus('parcelsCA', 'loaded', '(click map)');
+  document.getElementById('cnt-parcelsCA').textContent = '—';
+  parcelsCAClickHandler = function(e) {
+    if (!parcelsCAActive) return;
+    const { lat, lng } = e.latlng;
+    const parcelViewerUrl = `https://sbcounty.maps.arcgis.com/apps/webappviewer/index.html?id=87e70bb9b6994559ba7512792588d57a&center=${lng},${lat}&level=17`;
+    const regridUrl = `https://app.regrid.com/us/ca/san-bernardino?lat=${lat}&lon=${lng}&zoom=17`;
+    const assessorUrl = `https://arcpropertyinfo.sbcounty.gov/`;
+    L.popup()
+      .setLatLng(e.latlng)
+      .setContent(
+        `<b style="color:#C4956D;">&#x1f4cd; SBC Parcel Lookup</b><br>`
+        + `<small style="color:var(--dim);">${lat.toFixed(5)}, ${lng.toFixed(5)}</small><br><br>`
+        + `<a href="${parcelViewerUrl}" target="_blank" style="color:#C4956D;">&#x2197; SBC Parcel Viewer</a><br>`
+        + `<a href="${regridUrl}" target="_blank" style="color:#C4956D;">&#x2197; Regrid Parcel Map</a><br>`
+        + `<a href="${assessorUrl}" target="_blank" style="color:#C4956D;">&#x2197; Assessor Property Info</a>`
+      )
+      .openOn(map);
+  };
+  map.on('click', parcelsCAClickHandler);
+}
+
 // CA DWR WELLS — Well Completion Reports (viewport-filtered, re-fetches on pan/zoom)
 const WELLS_CA_API = 'https://gis.water.ca.gov/arcgis/rest/services/Environment/i07_WellCompletionReports/FeatureServer/0/query';
 let wellsCAActive = false;
@@ -3206,7 +3265,8 @@ document.querySelectorAll('[data-layer]').forEach(cb => {
       if (cb.dataset.layer === 'territories' && !territoriesLoaded) loadTerritories();
       if (cb.dataset.layer === 'quarries' && !quarriesLoaded) loadQuarries();
       if (cb.dataset.layer === 'wells') { wellsActive = true; loadWells(); }
-      if (cb.dataset.layer === 'wellsCA') { wellsCAActive = true; map.setView([34.84, -116.18], 9); loadWellsCA(); }
+      if (cb.dataset.layer === 'wellsCA') { wellsCAActive = true; map.setView([34.44, -116.96], 12); loadWellsCA(); }
+      if (cb.dataset.layer === 'parcelsCA') { parcelsCAActive = true; loadParcelsCA(); }
       if (cb.dataset.layer === 'territories') {
         document.getElementById('legend-territories').style.display = '';
         if (map.getZoom() > 10) map.setView([32.2, -111.5], 8);
@@ -3223,11 +3283,17 @@ document.querySelectorAll('[data-layer]').forEach(cb => {
       if (cb.dataset.layer === 'territories') document.getElementById('legend-territories').style.display = 'none';
       if (cb.dataset.layer === 'wells') { wellsActive = false; document.getElementById('cnt-wells').textContent = '-'; }
       if (cb.dataset.layer === 'wellsCA') { wellsCAActive = false; document.getElementById('cnt-wellsCA').textContent = '-'; }
+      if (cb.dataset.layer === 'parcelsCA') {
+        parcelsCAActive = false;
+        if (parcelsCAClickHandler) { map.off('click', parcelsCAClickHandler); parcelsCAClickHandler = null; }
+        document.getElementById('cnt-parcelsCA').textContent = '-';
+        setStatus('parcelsCA', '');
+      }
     }
   });
 });
 
-map.on('moveend zoomend', () => { if (wellsActive) loadWells(); if (wellsCAActive) loadWellsCA(); });
+map.on('moveend zoomend', () => { if (wellsActive) loadWells(); if (wellsCAActive) loadWellsCA(); if (parcelsCAActive) loadParcelsCA(); });
 
 // =============================================================
 // COORDINATE DISPLAY
