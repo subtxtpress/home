@@ -81,6 +81,8 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       padding: 0 1%;
+      max-width: 860px; 
+      margin: 0 auto;
     }
     /* ── ENTRANCE ANIMATIONS ── */
     @keyframes fadeUp {
@@ -137,7 +139,7 @@
       transition: color 0.15s; 
     }
     .nav-back:hover { 
-      color: var(--text-heading); 
+      color: var(--accent); 
     }
     .nav-title { 
       font-family: var(--head); 
@@ -187,7 +189,7 @@
       font-size: 10px; 
       text-transform: uppercase;
       letter-spacing: 0.12em; 
-      color: var(--text-label);
+      color: var(--text-body);
       margin-bottom: 14px;
       display: flex; 
       align-items: center; 
@@ -336,7 +338,7 @@
       font-family: var(--mono); 
       font-size: 10px;
       color: var(--text-label); 
-      padding: 2px 0;
+      padding: 1% 0;
       word-break: break-all; 
       overflow-wrap: anywhere;
       margin: 0.5% 0;
@@ -542,9 +544,9 @@
       font-family: var(--mono); 
       font-size: 10px; 
       color: var(--text-label); 
-      padding: 24px 16px; 
+      padding: 3% 0 5% 0; 
       border-top: 1px solid var(--border-mid); 
-      margin-top: 40px; 
+      margin-top: 20px; 
     }
     footer a { 
       color: var(--text-label); 
@@ -697,7 +699,7 @@
         </div>
       </div>
       <div class="arrow-split-tail">
-        <div class="arrow">↓ &nbsp;FBI transferred $148 from second address to exchange</div>
+        <div class="arrow" style="padding-bottom:3%;">↓ &nbsp;FBI transferred $148 from second address to exchange</div>
       </div>
 
       <!-- NODE: Exchange deposit addr -->
@@ -833,13 +835,11 @@
       </div>
 
       <div class="q-item">
-        <div class="q-num">Feb 9 Deadline · 5 PM Tucson · midnight UTC · Block 935,824</div>
-        <div class="q-title">25 blocks scanned · ~75,000 transactions · 0 relevant hits</div>
+        <div class="q-num">Feb 9 Deadline · 2 PM Arizona · 21:00 UTC · Block 935,808</div>
+        <div class="q-title">26 blocks scanned · ~75,000 transactions · 0 relevant hits</div>
         <div class="q-where">
-          <strong>Window:</strong> Blocks 935,812 – 935,836 · approx. 10:15 PM UTC Feb 9 – 1:41 AM UTC Feb 10<br>
-          <strong>Two readable messages found:</strong><br>
-          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Tour exp"</span> — Block 935,817 · 10:57 PM UTC · truncated label, unrelated.<br>
-          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"LE BITCOIN EST UNE DEVISE"</span> — Block 935,824 · midnight UTC · French political statement.
+          <strong>Window:</strong> Blocks 935,786 – 935,811 · approx. 7:12 PM – 10:08 PM UTC Feb 9<br>
+          <strong>One readable message found:</strong> <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Tour exp"</span> — Block 935,809 · 9:24 PM UTC · truncated label, unrelated.
         </div>
         <div class="q-why"><strong>&rarr; No messages in this window that could plausibly be FBI communications to kidnappers.</strong></div>
       </div>
@@ -853,7 +853,7 @@
 
   <!-- ══ OPEN QUESTIONS ═══════════════════════════════════════ -->
   <div class="section animate d5">
-    <p class="section-label">Open — prioritized next steps</p>
+    <p class="section-label">ELI5 &amp; To-Do List</p>
     <div class="questions">
 
       <div class="q-item">
@@ -909,12 +909,11 @@
 
     </div>
   </div>
-
 </main>
 
 <footer>
-  <p><strong>Subtxt Press · <a href="timeline.html">← Back to Nancy Guthrie Timeline</a></strong></p>
-  <p style="margin-top:1%;">This is a work in progress. Updated as more information becomes available.</p>
+  <p><strong>Subtxt Press · <a class="nav-back" href="timeline.html" style="font-size:9px;">← Back to Nancy Guthrie Timeline</a></strong></p>
+  <p style="margin-top:1%">Work in progress, updated as more info becomes available.</p>
   <!-- UPDATE LOG — add entries here as new findings come in -->
   <!-- 2026-06-27: Initial trace complete through block 939052 -->
   <!-- 2026-06-27: Extended trail — TX 4a30ffd0 fan-out added; 95% looped to [000000030a]; 2 unspent outputs flagged; AML data added for 3548M6Zb -->
