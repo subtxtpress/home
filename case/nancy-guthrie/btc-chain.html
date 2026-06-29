@@ -512,17 +512,20 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 0 1px var(--accent-border);
     }
-    .q-num   { 
-      font-family: var(--mono); 
-      font-size: 10px; 
-      color: var(--text-label); 
-      margin-bottom: 3px; 
+    .q-num   {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-label);
+      margin-bottom: 3px;
+      word-break: break-all;
+      overflow-wrap: anywhere;
     }
     .q-title { 
       font-size: 13px; 
       font-weight: 600; 
       color: var(--text-heading); 
       margin-bottom: 4px; 
+      
     }
     .q-where { 
       font-size: 11px; 
@@ -537,6 +540,54 @@
     .q-where code, .q-why code, .node-detail code {
       word-break: break-all;
       overflow-wrap: anywhere;
+    }
+    /* ── EXPANDABLE ── */
+    details { 
+      margin-top: 10px; 
+    }
+    details summary {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-label);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    details summary::-webkit-details-marker { 
+      display: none; 
+    }
+    details summary::before {
+      content: '+';
+      font-size: 14px;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    details[open] summary::before { 
+      content: '−'; 
+    }
+    details summary:hover {
+      background: var(--surface-elevated);
+      color: var(--text-body);
+    }
+    details[open] summary {
+      border-radius: 6px 6px 0 0;
+      border-bottom-color: transparent;
+    }
+    .details-body {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      overflow-x: auto;
     }
     /* ── FOOTER ── */
     footer { 
@@ -607,10 +658,31 @@
         padding: 10px 12px; 
       }
       /* confirmed list check mark */
-      .confirmed-list li::before { 
-      font-size: 24px; 
+      .confirmed-list li::before {
+      font-size: 24px;
       margin-top:-2.5%;
     }
+      /* expandable message table: keep Block column from wrapping */
+      .details-body .data-table th:nth-child(2),
+      .details-body .data-table td:nth-child(2) {
+        white-space: nowrap;
+      }
+      /* expandable message table: hide Date + Type, keep Block / Time / Message */
+      .details-body .data-table th:nth-child(1),
+      .details-body .data-table td:nth-child(1),
+      .details-body .data-table th:nth-child(5),
+      .details-body .data-table td:nth-child(5) {
+        display: none;
+      }
+      .details-body .data-table td:nth-child(4) {
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+      /* tint Feb 9 rows (rows 13–27) so date context isn't totally lost */
+      .details-body .data-table tbody tr:nth-child(n+13) {
+        background: rgba(104, 144, 200, 0.04);
+      }
     }
   </style>
 </head>
@@ -804,7 +876,6 @@
     <ul class="confirmed-list">
       <li><div><strong>Kidnapper's Ransom Wallet</strong>Never touched. The FBI deposited $152 on Feb 11, 2026. The kidnapper never responded and never moved the money. $132.94 still held as of Jun 27, 2026.</div></li>
       <li><div><strong>Kidnapper's Ransom Wallet</strong>Created fresh for this crime. No blockchain history before the FBI's deposit on Feb 11, 2026.</div></li>
-      <li><div>All timestamps on this page are UTC.</div></li>
       <li><div><strong>Exchange Deposit Address (3548M6Zb…)</strong>Where the FBI's $148 landed on Mar 2, 2026. Belongs to a cluster of wallets with 60M+ total transactions — the scale of a major global cryptocurrency exchange. Not flagged on any government sanctions list.</div></li>
       <li><div><strong>Exchange Deposit Address (3548M6Zb…)</strong>First used Jun 29, 2022 — four years before the Guthrie case. The same address the FBI's money reached in 2026 had already been used by someone in 2022, and behaved identically: money arrived, then the exchange swept it out within 17–18 minutes.</div></li>
       <li><div><strong>Exchange Deposit Address (3548M6Zb…)</strong>Blockchain monitoring tool MistTrack shows only one known counterparty for this address: the FBI's second address. Consistent with it being a dedicated account tied to this FBI operation.</div></li>
@@ -819,32 +890,99 @@
     <p class="section-label">OP_RETURN Deadline Search</p>
 
     <div class="note-box" style="margin-bottom:16px;">
-      <strong>The theory:</strong> The Feb&nbsp;11 message ("We are ready to pay…") arrived <em>after</em> both ransom deadlines, paired with a wallet the kidnapper never touched. That pattern fits an informant channel, not direct contact with the actual kidnappers. The question was whether the FBI sent a separate OP_RETURN message near either deadline — Feb&nbsp;6 or Feb&nbsp;9 at 5&nbsp;PM Tucson time — to reach the actual kidnappers. Every transaction in blocks around those two deadlines was scanned.
+      <strong>The theory:</strong> The Feb&nbsp;11 message ("We are ready to pay…") arrived <em>after</em> both ransom deadlines, paired with a wallet the kidnapper never touched. That pattern fits an informant channel, not direct contact with the actual kidnappers. The question was whether the FBI sent a separate OP_RETURN message near either deadline — Feb&nbsp;6 at 5&nbsp;PM or Feb&nbsp;9 at 2&nbsp;PM Tucson time — to reach the actual kidnappers. Every transaction in blocks around those two deadlines was scanned.
     </div>
 
     <div class="questions" style="margin-bottom:16px;">
 
       <div class="q-item">
-        <div class="q-num">Feb 6 Deadline · 5 PM Tucson · midnight UTC · Block 935,326</div>
-        <div class="q-title">25 blocks scanned · ~75,000 transactions · 0 relevant hits</div>
+        <div class="q-num">Feb 6 · Full day · midnight – 5 PM Arizona · Blocks 935,220 – 935,338</div>
+        <div class="q-title">119 blocks scanned · ~350,000 transactions · 12 readable messages</div>
         <div class="q-where">
-          <strong>Window:</strong> Blocks 935,314 – 935,338 · approx. 10:36 PM UTC Feb 6 – 2:17 AM UTC Feb 7<br>
-          <strong>Only readable message found:</strong> <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"fuck trump"</span> — Block 935,320 · 11:10 PM UTC · unrelated graffiti.
+          <strong>What was found:</strong> Automated wallet-management labels, BIP39 word groups (seed phrase backups stored on chain), DeFi withdrawal receipts, a sports-stats record, a mempool.space verification badge, and political graffiti.<br><br>
+          <strong>Closest to deadline:</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"ChangeNow to my USDT (Eth)"</span> — Block 935,309 · 3:05 PM AZ · exchange transaction note<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"fuck trump"</span> — Block 935,310 · 3:11 PM AZ · political graffiti<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"BERNSTEIN 2.1 REG 2cce508c…"</span> — Block 935,313 · 3:31 PM AZ · regulatory filing identifier, unidentified
         </div>
         <div class="q-why"><strong>&rarr; No messages in this window that could plausibly be FBI communications to kidnappers.</strong></div>
       </div>
 
       <div class="q-item">
-        <div class="q-num">Feb 9 Deadline · 2 PM Arizona · 21:00 UTC · Block 935,808</div>
-        <div class="q-title">26 blocks scanned · ~75,000 transactions · 0 relevant hits</div>
+        <div class="q-num">Feb 9 · Full day · midnight – 2 PM Arizona · Blocks 935,705 – 935,811</div>
+        <div class="q-title">107 blocks scanned · ~300,000 transactions · 15 readable messages</div>
         <div class="q-where">
-          <strong>Window:</strong> Blocks 935,786 – 935,811 · approx. 7:12 PM – 10:08 PM UTC Feb 9<br>
-          <strong>One readable message found:</strong> <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Tour exp"</span> — Block 935,809 · 9:24 PM UTC · truncated label, unrelated.
+          <strong>What was found:</strong> An Italian-language memorial inscription repeated across three consecutive blocks, BIP39 word groups, DeFi deposits/withdrawals, YouTube links, a personal tribute, and a Croatian-language comment about EU AI policy.<br><br>
+          <strong>Notable coincidence:</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Use this $2400 as networking fees to finish the $4.4 m withdrawal"</span> — Block 935,744 · 6:12 AM AZ · 8 hours before deadline. The $4.4 million figure is close to the reported ransom demand. On-chain trace documented below — the TX connects to a Feb 2 predecessor with identical scripted language, and downstream the funds flow through a multi-step burner chain to a high-volume exchange wallet.<br><br>
+          <strong>Closest to deadline:</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Tour exp"</span> — Block 935,809 · 2:24 PM AZ · truncated label, unrelated
         </div>
         <div class="q-why"><strong>&rarr; No messages in this window that could plausibly be FBI communications to kidnappers.</strong></div>
       </div>
 
+      <!-- TX reference card -->
+      <div class="q-item">
+        <div class="q-num">TX Reference · ab177e00f0d0c3ff03d0685a13ffc29833421d85e710b97acf0dea9aa9fad0e2</div>
+        <div class="q-title">"Use this $2400 as networking fees to finish the $4.4 m withdrawal"</div>
+        <div class="q-where">
+          <strong>Block 935,744 · Feb 9, 2026 · 6:12 AM AZ · 1,440 sat fee · Miner: Foundry USA</strong><br><br>
+          <strong>Inputs (2):</strong><br>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--c-blue)">bc1qh5639g…qgzzk8zn</span> — 0.03477549 BTC ($2,402) · new funds<br>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--c-blue)">bc1q52pjzrfw…js97c7kh</span> — 0.00057809 BTC ($44) · dust from Feb&nbsp;2 TX <span style="font-family:var(--mono);font-size:10px;color:var(--c-blue)">4fbec348…</span>, which carried "Manage this $700 as networking fees for the $4.4m withdrawal" — same sender entity, same scripted language, seven days earlier<br><br>
+          <strong>Outputs (3):</strong><br>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--c-blue)">bc1qa5u3cfuqm9t3glm3rd60d23uj3m6wz83wvq7nm</span> — 0.03481370 BTC ($2,448) · payment recipient · 215 total TXs · active since May 2025<br>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--c-blue)">bc1qlg54wdfyxad8vuefdy48x6mgtge886eex3es73</span> — 0.00052548 BTC ($36.96) · change back to sender (identified by privacy analysis)<br>
+          OP_RETURN — $0.00 · the message<br><br>
+          <strong>Submission:</strong> Not broadcast to the public mempool — submitted directly to Foundry USA's private mining infrastructure. Fee paid 5× above market rate. RBF + SegWit enabled.<br><br>
+          <strong>Downstream chain:</strong><br>
+          Feb 27, block 938,549 — bc1qa5u3… (18 days later) split off exactly 0.003 BTC to a fresh 2-TX burner: <span style="font-family:var(--mono);font-size:10px;color:var(--c-blue)">18oWrUrE6SyhdH4HpGn2A9javBfpEeqRFF</span><br>
+          Feb 28, block 938,697 — that burner combined with three other 2-TX burner addresses, all consolidating into a single output: <span style="font-family:var(--mono);font-size:10px;color:var(--c-blue)">1PM46U2c5LhkcQXnHwfwQU6V1y4F4L7Ct4</span> — 18,547 transactions, ~18,272 BTC received (~$1.77&nbsp;billion) — exchange hot wallet
+        </div>
+        <div class="q-why"><strong>&rarr; No connection to any known Guthrie case address. The recipient wallet predates the kidnapping by 8 months. The downstream cash-out pattern — dust split to 2-TX burners, burners consolidate at an exchange — is inconsistent with a kidnapper holding ransom.</strong></div>
+      </div>
+
     </div>
+
+    <details style="margin-bottom:16px;">
+      <summary>All 27 readable OP_RETURN messages across both scan windows</summary>
+      <div class="details-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Date</th><th>Block</th><th>Time AZ</th><th>Message</th><th>Type</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,227</td><td class="dim">1:51 AM</td><td class="note">UTXO Consolidation - Primary Account (1186 UTXOs)</td><td class="dim">wallet mgmt</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,230</td><td class="dim">2:02 AM</td><td class="note">UTXO Consolidation - Primary Account (1400 UTXOs)</td><td class="dim">wallet mgmt</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,256</td><td class="dim">5:32 AM</td><td class="note">·::_transcend.tc·withdraw·37146</td><td class="dim">DeFi withdrawal</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,259</td><td class="dim">6:39 AM</td><td class="note">brick evil leaf bottom upgrade marriage</td><td class="dim">BIP39 seed backup</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,260</td><td class="dim">6:42 AM</td><td class="note">TechNemesis hunt</td><td class="dim">unknown</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,265</td><td class="dim">7:26 AM</td><td class="note">badge apart milk motor unusual merit</td><td class="dim">BIP39 seed backup</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,265</td><td class="dim">7:26 AM</td><td class="note">stackingsats.mempool.space verified 100%</td><td class="dim">mempool badge</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,276</td><td class="dim">10:16 AM</td><td class="note">https://youtu.be/uE-1RPDqJAY</td><td class="dim">YouTube link</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,286</td><td class="dim">11:13 AM</td><td class="note">SportzCube WIJA 33D 55.28 132444 by@Shasta_C (Go Coogs!)</td><td class="dim">sports stats</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,309</td><td class="dim">3:05 PM</td><td class="note">ChangeNow to my USDT (Eth)</td><td class="dim">exchange note</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,310</td><td class="dim">3:11 PM</td><td class="note">fuck trump</td><td class="dim">political graffiti</td></tr>
+            <tr><td class="dim">Feb 6</td><td class="mono">935,313</td><td class="dim">3:31 PM</td><td class="note">BERNSTEIN 2.1 REG 2cce508c…</td><td class="dim">regulatory ID, unidentified</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,715</td><td class="dim">2:22 AM</td><td class="note">b.forjasz@gmail.com</td><td class="dim">email address</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,723</td><td class="dim">3:53 AM</td><td class="note">Sempre con te, blocco dopo blocco</td><td class="dim">Italian memorial</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,724</td><td class="dim">4:07 AM</td><td class="note">Sempre con te, blocco dopo blocco</td><td class="dim">Italian memorial (repeat)</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,724</td><td class="dim">4:07 AM</td><td class="note">Sempre con te, blocco dopo blocco</td><td class="dim">Italian memorial (repeat)</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,725</td><td class="dim">4:11 AM</td><td class="note">·::_transcend.tc·withdraw·37203</td><td class="dim">DeFi withdrawal</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,737</td><td class="dim">5:20 AM</td><td class="note">symbol fan child will never fruit</td><td class="dim">BIP39 seed backup</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,743</td><td class="dim">6:08 AM</td><td class="note">surface music panda age upper trophy</td><td class="dim">BIP39 seed backup</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,744</td><td class="dim">6:12 AM</td><td class="note" style="color:var(--c-yellow)">Use this $2400 as networking fees to finish the $4.4 m withdrawal</td><td class="dim" style="color:var(--c-yellow)">⚑ traced above</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,749</td><td class="dim">6:47 AM</td><td class="note">https://youtu.be/uE-1RPDqJAY</td><td class="dim">YouTube link</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,750</td><td class="dim">6:54 AM</td><td class="note">https://youtu.be/KaqC5FnvAEc</td><td class="dim">YouTube link</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,751</td><td class="dim">7:07 AM</td><td class="note">·ordx:f:pearl_amm.tc··deposit·VgAGNDkwMDAw</td><td class="dim">DeFi deposit</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,756</td><td class="dim">8:14 AM</td><td class="note">Born of strength, loved beyond measure &amp; destined to change the world Kar</td><td class="dim">personal tribute</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,758</td><td class="dim">8:24 AM</td><td class="note">As above so below</td><td class="dim">occult phrase</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,758</td><td class="dim">8:24 AM</td><td class="note">znate ljudi, iman dojam de ce EU uvest poreze na AI kad budemo poceli koristit AI vise unutar firmi</td><td class="dim">Croatian, EU AI policy</td></tr>
+            <tr><td class="dim">Feb 9</td><td class="mono">935,773</td><td class="dim">10:31 AM</td><td class="note">Credit my uba</td><td class="dim">partial/unclear</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
     <div class="note-box">
       <strong>Finding:</strong> Both deadline windows came up empty. If the FBI sent a plain-text OP_RETURN message to the actual kidnappers near either deadline, it would have appeared here — every transaction in both windows was checked. The Feb&nbsp;11 "We are ready to pay" message remains the only readable FBI OP_RETURN in the investigation window. Its timing — after both deadlines — and the untouched ransom wallet it was paired with continue to point toward the informant channel, not the actual kidnappers.
@@ -857,14 +995,14 @@
     <div class="questions">
 
       <div class="q-item">
-        <div class="q-num">01 · HIGHEST PRIORITY</div>
+        <div class="q-num">01</div>
         <div class="q-title">Which exchange received the FBI's $148?</div>
         <div class="q-where"><strong>Where:</strong> Blockchain explorer Blockchair shows transaction history for the Exchange Deposit Address (<code style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">3548M6Zb9Pixppji32BW7beCQBF8Fwikrm</code>) but no exchange name. Try: Arkham Intelligence (intel.arkm.com), Breadcrumbs.app, or Crystal Blockchain — each maintains its own database of named exchanges.</div>
         <div class="q-why"><strong>&rarr;</strong> Whichever exchange operates this deposit address holds account records — name, email, and ID — for whoever opened it. That exchange was likely already subpoenaed by the FBI, or could be.</div>
       </div>
 
       <div class="q-item">
-        <div class="q-num">02 · NEW</div>
+        <div class="q-num">02</div>
         <div class="q-title">Who owns the two wallets from the March 2nd exchange payout that still haven't moved their money?</div>
         <div class="q-where"><strong>Address 1:</strong> bc1qkm8jf9khsg55n6c4v0mj8lwrxklr75852xfcx0 — received ~$4,330<br>
         <strong>Address 2:</strong> 3GdMC6FYtqiwcJPqW4rjgmAhGLLWwq9TZg — received a smaller amount<br>
