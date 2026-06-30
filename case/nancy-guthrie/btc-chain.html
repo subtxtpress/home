@@ -911,10 +911,24 @@
     <p class="section-label">OP_RETURN Deadline Search</p>
 
     <div class="note-box" style="margin-bottom:16px;">
-      <strong>The theory:</strong> The Feb. 11 message ("We are ready to pay") arrived <em>after</em> both ransom deadlines, paired with a wallet that was never touched. That pattern fits an informant channel, not direct contact with the actual kidnappers. The question was whether the FBI sent a separate OP_RETURN message near either deadline — Feb. 6 at 5:00 PM or Feb. 9 at 2:00 PM Tucson time — to reach the actual kidnappers. Every transaction in blocks around those two deadlines was scanned.
+      <strong>The theory:</strong> The Feb. 11 message ("We are ready to pay") arrived <em>after</em> both ransom deadlines, paired with a wallet that was never touched. That pattern fits an informant channel, not direct contact with the actual kidnappers. The question was whether the FBI sent a separate OP_RETURN message near either deadline — Feb. 5 at 5:00 PM or Feb. 9 at 2:00 PM Tucson time — to reach the actual kidnappers. Every transaction in blocks around those two deadlines was scanned.
     </div>
 
     <div class="questions" style="margin-bottom:16px;">
+
+      <div class="q-item">
+        <div class="q-num">Feb. 5 · Partial scan · Midnight – 5:00 PM Arizona · Blocks 935,060 – 935,179</div>
+        <div class="q-title">~92 blocks scanned · ~281,000 transactions · 5 notable messages · evening scan in progress</div>
+        <div class="q-where">
+          <strong>What was found:</strong> Two-word phrases, an order number embedded on-chain, exchange labels, and two personal messages timed close to the 5:00 PM ransom deadline.<br><br>
+          <strong>Morning:</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"nickel chrome"</span> — Block 935,128 · 7:23 AM AZ · two-word phrase, no obvious context<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Order# 675081770310470"</span> — Block 935,147 · 10:20 AM AZ · order reference<br><br>
+          <strong>Closest to deadline (2:00 PM – 5:00 PM window):</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Love you"</span> — Block 935,170 · 2:58 PM AZ · personal message, ~2 hours before deadline<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Kik"</span> — Block 935,179 · 4:32 PM AZ · messaging app reference, 28 minutes before deadline
+        </div>
+      </div>
 
       <div class="q-item">
         <div class="q-num">Feb. 6 · Full day · Midnight – Midnight Arizona · Blocks 935,220 – 935,368</div>
@@ -972,13 +986,15 @@
     </div>
 
     <details style="margin-bottom:16px;">
-      <summary>All 36 readable OP_RETURN messages across all days scanned</summary>
+      <summary>All 38 readable OP_RETURN messages across all days scanned</summary>
       <div class="details-body">
         <table class="data-table">
           <thead>
             <tr><th>Date</th><th>Block</th><th>Time AZ</th><th>Message</th><th>Type</th></tr>
           </thead>
           <tbody>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,128</td><td class="dim">7:23 AM</td><td class="note">nickel chrome<br><a href="https://mempool.space/tx/fd798ee36b2e7c3a02e343e7e5ec358db70343dc44b77e1cf01efe8bb198eb11" target="_blank" class="tx-link">fd798ee3…</a></td><td class="dim">two-word phrase</td></tr>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,147</td><td class="dim">10:20 AM</td><td class="note">Order# 675081770310470<br><a href="https://mempool.space/tx/56609bfb7d7b2031b03d8d0903b45ff7fdbadba0ee141d816a0a722afa44e9eb" target="_blank" class="tx-link">56609bfb…</a></td><td class="dim">order reference</td></tr>
             <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,168</td><td class="dim">2:28 PM</td><td class="note">consolidate<br><a href="https://mempool.space/tx/6250b7e7319d67b782ca6189b853edd92555120c84a9a4b0b39983f2da195e11" target="_blank" class="tx-link">6250b7e7…</a></td><td class="dim">UTXO operation</td></tr>
             <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,170</td><td class="dim">2:58 PM</td><td class="note">Love you<br><a href="https://mempool.space/tx/5cf9d5fdabe6d5ffa36c3f378cdee72e8c6e63af64fca68fc8534224f9e4a445" target="_blank" class="tx-link">5cf9d5fd…</a></td><td class="dim">personal message</td></tr>
             <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,179</td><td class="dim">4:32 PM</td><td class="note">Kik<br><a href="https://mempool.space/tx/cdb7ce9ab6d61ba54d4e2a08a75059e8dbd6dc076c84fed9cdab473bbe9cb5d1" target="_blank" class="tx-link">cdb7ce9a…</a></td><td class="dim">messaging app ref</td></tr>
@@ -1013,7 +1029,7 @@
             <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,758</td><td class="dim">8:24 AM</td><td class="note">znate ljudi, iman dojam de ce EU uvest poreze na AI kad budemo poceli koristit AI vise unutar firmi ("You know, people, I have the impression that the EU will introduce taxes on AI when we start using AI more within companies.")<br><a href="https://mempool.space/tx/f1e2879dae2acd385e500184333d2319acd43b03fa07fc896ceab9a35befdf26" target="_blank" class="tx-link">f1e2879d…</a></td><td class="dim">Croatian, EU AI policy</td></tr>
             <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,773</td><td class="dim">10:31 AM</td><td class="note">Credit my uba<br><a href="https://mempool.space/tx/30eac852e8f8673af15fca5aa23a562c6578e451496b3c5dde8b8e29314279c1" target="_blank" class="tx-link">30eac852…</a></td><td class="dim">partial/unclear</td></tr>
             <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,817</td><td class="dim">3:57 PM</td><td class="note">Tour exp<br><a href="https://mempool.space/tx/b8d8c6dcdc00ab0af82154405d6c8e46e1ff8d00ac395314238be471a1a9d223" target="_blank" class="tx-link">b8d8c6dc…</a></td><td class="dim">truncated label (repeat)</td></tr>
-            <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,824</td><td class="dim">5:07 PM</td><td class="note">LE BITCOIN EST UNE DEVISE<br><a href="https://mempool.space/tx/efc26079f7552a09fa64fbe9f01c8b3a0ca803e5112ff42a3843adf75979f42f" target="_blank" class="tx-link">efc26079…</a></td><td class="dim">French: "Bitcoin is a currency"</td></tr>
+            <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,824</td><td class="dim">5:07 PM</td><td class="note">LE BITCOIN EST UNE DEVISE ("Bitcoin is a currency")<br><a href="https://mempool.space/tx/efc26079f7552a09fa64fbe9f01c8b3a0ca803e5112ff42a3843adf75979f42f" target="_blank" class="tx-link">efc26079…</a></td><td class="dim">French: "Bitcoin is a currency"</td></tr>
             <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,829</td><td class="dim">5:45 PM</td><td class="note">ORDER 1480<br><a href="https://mempool.space/tx/83865a4a322eed217fd98c1b7732dfb0058b6fabb65b29ab047feaa40165f483" target="_blank" class="tx-link">83865a4a…</a></td><td class="dim">order ref, unidentified</td></tr>
           </tbody>
         </table>
