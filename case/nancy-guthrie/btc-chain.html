@@ -692,6 +692,7 @@
         overflow-wrap: anywhere;
       }
       /* show date as stacked micro-label above block number */
+      .details-body .data-table tbody tr[data-date="Feb. 5"] { --row-date: "Feb. 5"; }
       .details-body .data-table tbody tr[data-date="Feb. 6"] { --row-date: "Feb. 6"; }
       .details-body .data-table tbody tr[data-date="Feb. 9"] { --row-date: "Feb. 9"; }
       .details-body .data-table tbody tr[data-date] td:nth-child(2)::before {
@@ -971,13 +972,16 @@
     </div>
 
     <details style="margin-bottom:16px;">
-      <summary>All 33 readable OP_RETURN messages across both full days</summary>
+      <summary>All 36 readable OP_RETURN messages across all days scanned</summary>
       <div class="details-body">
         <table class="data-table">
           <thead>
             <tr><th>Date</th><th>Block</th><th>Time AZ</th><th>Message</th><th>Type</th></tr>
           </thead>
           <tbody>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,168</td><td class="dim">2:28 PM</td><td class="note">consolidate<br><a href="https://mempool.space/tx/6250b7e7319d67b782ca6189b853edd92555120c84a9a4b0b39983f2da195e11" target="_blank" class="tx-link">6250b7e7…</a></td><td class="dim">UTXO operation</td></tr>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,170</td><td class="dim">2:58 PM</td><td class="note">Love you<br><a href="https://mempool.space/tx/5cf9d5fdabe6d5ffa36c3f378cdee72e8c6e63af64fca68fc8534224f9e4a445" target="_blank" class="tx-link">5cf9d5fd…</a></td><td class="dim">personal message</td></tr>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,179</td><td class="dim">4:32 PM</td><td class="note">Kik<br><a href="https://mempool.space/tx/cdb7ce9ab6d61ba54d4e2a08a75059e8dbd6dc076c84fed9cdab473bbe9cb5d1" target="_blank" class="tx-link">cdb7ce9a…</a></td><td class="dim">messaging app ref</td></tr>
             <tr data-date="Feb. 6"><td class="dim">Feb. 6</td><td class="mono">935,227</td><td class="dim">1:51 AM</td><td class="note">UTXO Consolidation - Primary Account (1186 UTXOs)<br><a href="https://mempool.space/tx/bf387bf8dcce44dc3dc5b6b8f4ee86c34b93cf4c709bee9f485a2d052d3ad737" target="_blank" class="tx-link">bf387bf8…</a></td><td class="dim">wallet mgmt</td></tr>
             <tr data-date="Feb. 6"><td class="dim">Feb. 6</td><td class="mono">935,230</td><td class="dim">2:02 AM</td><td class="note">UTXO Consolidation - Primary Account (1400 UTXOs)<br><a href="https://mempool.space/tx/f65e6def176acc6dce5934955a0677e8f8d7008d2033cab8170106dc2727bd89" target="_blank" class="tx-link">f65e6def…</a></td><td class="dim">wallet mgmt</td></tr>
             <tr data-date="Feb. 6"><td class="dim">Feb. 6</td><td class="mono">935,256</td><td class="dim">5:32 AM</td><td class="note">transcend.tc · withdraw · 37146<br><a href="https://mempool.space/tx/db871f9f82cafc60d27a8c770411a84d85634a9c955973aa07b3fdf73e602d2e" target="_blank" class="tx-link">db871f9f…</a></td><td class="dim">DeFi withdrawal</td></tr>

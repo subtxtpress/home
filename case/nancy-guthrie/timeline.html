@@ -123,11 +123,17 @@
       font-size: 16px; 
       font-weight: 800;
       letter-spacing: 0.05em; 
-      color: var(--text);
+      color: var(--accent);
       flex: 1; 
       white-space: nowrap; 
       overflow: hidden; 
       text-overflow: ellipsis;
+    }
+    .nav-title-link {
+      color: var(--accent);
+    }
+    .nav-title-link:hover {
+      color: var(--c-primary);
     }
     .nav-tag {
       background: var(--c-primary-dim); 
@@ -610,13 +616,13 @@
     }
   </style>
 </head>
-
 <body>
 
 <div id="progress-bar"></div>
 
 <nav class="nav">
-  <span class="nav-title">Nancy Guthrie</span>
+  <span class="nav-title "><a class="nav-title-link" href="case-map" target="_blank">Case Map &rarr;</a></span>
+  
   <span class="nav-tag">Bitcoin chain map trace</span>
   <a class="nav-source-link" href="btc-chain" target="_blank"> &rarr;</a>
 </nav>
