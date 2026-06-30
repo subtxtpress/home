@@ -695,6 +695,7 @@
       .details-body .data-table tbody tr[data-date="Feb. 5"] { --row-date: "Feb. 5"; }
       .details-body .data-table tbody tr[data-date="Feb. 6"] { --row-date: "Feb. 6"; }
       .details-body .data-table tbody tr[data-date="Feb. 9"] { --row-date: "Feb. 9"; }
+      .details-body .data-table tbody tr[data-date="Feb. 10"] { --row-date: "Feb. 10"; }
       .details-body .data-table tbody tr[data-date] td:nth-child(2)::before {
         content: var(--row-date);
         display: block;
@@ -967,6 +968,19 @@
         </div>
       </div>
 
+      <div class="q-item">
+        <div class="q-num">Feb. 10 · Full day · Midnight – Midnight Arizona · Blocks 935,870 – 936,018</div>
+        <div class="q-title">149 blocks scanned · ~453,000 transactions · 3 notable messages</div>
+        <div class="q-where">
+          <strong>What was found:</strong> The day the FBI sent the "We are ready to pay" message. No readable response appeared on-chain — but two messages landed in or just after the FBI's transaction block.<br><br>
+          <strong>Early morning:</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"[LCA] | ENGINE:V1.052 | MODE:OPERATIONAL | STATUS:ACTIVE | ID:A018"</span> — Block 935,887 · 2:30 AM AZ · structured beacon, same format as the SENTINEL|SESSION tags seen on Feb. 5<br><br>
+          <strong>At and just after the FBI message (5:12 PM AZ · Block 935,968):</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"I love you"</span> — Block 935,968 · 5:12 PM AZ · different transaction, same block as the FBI's "We are ready to pay" — coincidence likely, but noted<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"#PardonSamourai"</span> — Block 935,973 · 5:41 PM AZ · Bitcoin community advocacy graffiti, 17 minutes after FBI message · not case-related
+        </div>
+      </div>
+
       <!-- TX reference card -->
       <div class="q-item">
         <div class="q-num">TX Reference · ab177e00f0d0c3ff03d0685a13ffc29833421d85e710b97acf0dea9aa9fad0e2</div>
@@ -991,7 +1005,7 @@
     </div>
 
     <details style="margin-bottom:16px;">
-      <summary>All 46 readable OP_RETURN messages across all days scanned</summary>
+      <summary>All 45 readable OP_RETURN messages across all days scanned</summary>
       <div class="details-body">
         <table class="data-table">
           <thead>
@@ -1040,6 +1054,9 @@
             <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,817</td><td class="dim">3:57 PM</td><td class="note">Tour exp<br><a href="https://mempool.space/tx/b8d8c6dcdc00ab0af82154405d6c8e46e1ff8d00ac395314238be471a1a9d223" target="_blank" class="tx-link">b8d8c6dc…</a></td><td class="dim">truncated label (repeat)</td></tr>
             <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,824</td><td class="dim">5:07 PM</td><td class="note">LE BITCOIN EST UNE DEVISE ("Bitcoin is a currency")<br><a href="https://mempool.space/tx/efc26079f7552a09fa64fbe9f01c8b3a0ca803e5112ff42a3843adf75979f42f" target="_blank" class="tx-link">efc26079…</a></td><td class="dim">French: "Bitcoin is a currency"</td></tr>
             <tr data-date="Feb. 9"><td class="dim">Feb. 9</td><td class="mono">935,829</td><td class="dim">5:45 PM</td><td class="note">ORDER 1480<br><a href="https://mempool.space/tx/83865a4a322eed217fd98c1b7732dfb0058b6fabb65b29ab047feaa40165f483" target="_blank" class="tx-link">83865a4a…</a></td><td class="dim">order ref, unidentified</td></tr>
+            <tr data-date="Feb. 10"><td class="dim">Feb. 10</td><td class="mono">935,887</td><td class="dim">2:30 AM</td><td class="note">[LCA] | ENGINE:V1.052 | MODE:OPERATIONAL | STATUS:ACTIVE | ID:A018<br><a href="https://mempool.space/tx/2d94bef3b3435cc7d751d72924c708d8628321e7de2b8da7469ffbd491a20ee0" target="_blank" class="tx-link">2d94bef3…</a></td><td class="dim">structured beacon</td></tr>
+            <tr data-date="Feb. 10"><td class="dim">Feb. 10</td><td class="mono">935,968</td><td class="dim">5:12 PM</td><td class="note">I love you<br><a href="https://mempool.space/tx/3c7a2300d4727a14551b4c738b60f3b27f97334edc6d72220f0dda96de8a9f14" target="_blank" class="tx-link">3c7a2300…</a></td><td class="dim">same block as FBI message</td></tr>
+            <tr data-date="Feb. 10"><td class="dim">Feb. 10</td><td class="mono">935,973</td><td class="dim">5:41 PM</td><td class="note">#PardonSamourai<br><a href="https://mempool.space/tx/9d0ae12b8054f2af62fb8810d4f80060addbe5329fc8a757cbb71059bbad7e60" target="_blank" class="tx-link">9d0ae12b…</a></td><td class="dim">advocacy graffiti</td></tr>
             <tr data-date="Feb. 10"><td class="dim">Feb. 10</td><td class="mono"></td><td class="dim">2:30 AM</td><td class="note">[LCA] | ENGINE:V1.052 | MODE:OPERATIONAL | STATUS:ACTIVE | ID:A018 <br><a href="" target="_blank" class="tx-link"></a></td><td class="dim">structured beacon?</td></tr>
             <tr data-date="Feb. 10"><td class="dim">Feb. 10</td><td class="mono"></td><td class="dim">10:53 AM</td><td class="note">Credit me fast <br><a href="" target="_blank" class="tx-link"></a></td><td class="dim"></td></tr>
             <tr data-date="Feb. 10"><td class="dim">Feb. 10</td><td class="mono">935,968</td><td class="dim">5:12 PM</td><td class="note">I love you<br><a href="" target="_blank" class="tx-link"></a></td><td class="dim"></td></tr>
@@ -1050,7 +1067,7 @@
     </details>
 
     <div class="note-box">
-      <strong>WELP:</strong> All three full days came up empty of anything case-relevant. Every transaction across Feb. 5, Feb. 6, and Feb. 9 was checked — 474 blocks, ~1,333,000 transactions total. The 42 readable messages found are standard blockchain activity: wallet labels, seed backups, DeFi receipts, political graffiti, personal inscriptions, and a recurring unidentified "SENTINEL|SESSION" tag. The Feb. 10 "We are ready to pay" message remains the only readable FBI OP_RETURN in the investigation window. Its timing — after both deadlines — continues to point toward the informant channel, not the actual kidnappers.
+      <strong>WELP:</strong> All four full days came up empty of anything case-relevant. Every transaction across Feb. 5, Feb. 6, Feb. 9, and Feb. 10 was checked — 594 blocks, ~1,748,000 transactions total. The 45 readable messages found are standard blockchain activity: wallet labels, seed backups, DeFi receipts, political graffiti, personal inscriptions, and recurring automated beacons. The FBI's "We are ready to pay" message on Feb. 10 produced no readable on-chain response.
     </div>
   </div>
 
