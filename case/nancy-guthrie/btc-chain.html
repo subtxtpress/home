@@ -917,16 +917,21 @@
     <div class="questions" style="margin-bottom:16px;">
 
       <div class="q-item">
-        <div class="q-num">Feb. 5 · Partial scan · Midnight – 5:00 PM Arizona · Blocks 935,060 – 935,179</div>
-        <div class="q-title">~92 blocks scanned · ~281,000 transactions · 5 notable messages · evening scan in progress</div>
+        <div class="q-num">Feb. 5 · Full day · Midnight – Midnight Arizona · Blocks 935,060 – 935,219</div>
+        <div class="q-title">~160 blocks scanned · ~423,000 transactions · 9 notable messages</div>
         <div class="q-where">
-          <strong>What was found:</strong> Two-word phrases, an order number embedded on-chain, exchange labels, and two personal messages timed close to the 5:00 PM ransom deadline.<br><br>
+          <strong>What was found:</strong> Two-word phrases, an order number embedded on-chain, two personal messages timed close to the 5:00 PM ransom deadline, a self-referential block-height tag, and a recurring "SENTINEL|SESSION" string posted three separate times overnight.<br><br>
           <strong>Morning:</strong><br>
           <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"nickel chrome"</span> — Block 935,128 · 7:23 AM AZ · two-word phrase, no obvious context<br>
           <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Order# 675081770310470"</span> — Block 935,147 · 10:20 AM AZ · order reference<br><br>
           <strong>Closest to deadline (2:00 PM – 5:00 PM window):</strong><br>
           <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Love you"</span> — Block 935,170 · 2:58 PM AZ · personal message, ~2 hours before deadline<br>
-          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Kik"</span> — Block 935,179 · 4:32 PM AZ · messaging app reference, 28 minutes before deadline
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"Kik"</span> — Block 935,179 · 4:32 PM AZ · messaging app reference, 28 minutes before deadline<br><br>
+          <strong>Evening (after deadline):</strong><br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"SENTINEL|SESSION|bf83ca15...|e0bd2094"</span> — Block 935,198 · 8:30 PM AZ · first of three<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"block 935k"</span> — Block 935,208 · 10:04 PM AZ · self-referential tag<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"SENTINEL|SESSION|aa9be850...|2ef888ba"</span> — Block 935,213 · 10:26 PM AZ · second instance<br>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--c-blue)">"SENTINEL|SESSION|d2b656ca...|6f89827b"</span> — Block 935,214 · 11:13 PM AZ · third instance, each with a unique hex tag — pattern unclear, possibly an automated session beacon, flagged for reference
         </div>
       </div>
 
@@ -986,7 +991,7 @@
     </div>
 
     <details style="margin-bottom:16px;">
-      <summary>All 38 readable OP_RETURN messages across all days scanned</summary>
+      <summary>All 42 readable OP_RETURN messages across all days scanned</summary>
       <div class="details-body">
         <table class="data-table">
           <thead>
@@ -998,6 +1003,10 @@
             <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,168</td><td class="dim">2:28 PM</td><td class="note">consolidate<br><a href="https://mempool.space/tx/6250b7e7319d67b782ca6189b853edd92555120c84a9a4b0b39983f2da195e11" target="_blank" class="tx-link">6250b7e7…</a></td><td class="dim">UTXO operation</td></tr>
             <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,170</td><td class="dim">2:58 PM</td><td class="note">Love you<br><a href="https://mempool.space/tx/5cf9d5fdabe6d5ffa36c3f378cdee72e8c6e63af64fca68fc8534224f9e4a445" target="_blank" class="tx-link">5cf9d5fd…</a></td><td class="dim">personal message</td></tr>
             <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,179</td><td class="dim">4:32 PM</td><td class="note">Kik<br><a href="https://mempool.space/tx/cdb7ce9ab6d61ba54d4e2a08a75059e8dbd6dc076c84fed9cdab473bbe9cb5d1" target="_blank" class="tx-link">cdb7ce9a…</a></td><td class="dim">messaging app ref</td></tr>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,198</td><td class="dim">8:30 PM</td><td class="note">SENTINEL|SESSION|bf83ca15…|e0bd2094<br><a href="https://mempool.space/tx/e1317e515da208ceca224b32866a0fa317da2e6138f3e5829ee90565330408aa" target="_blank" class="tx-link">e1317e51…</a></td><td class="dim">recurring tag (1 of 3)</td></tr>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,208</td><td class="dim">10:04 PM</td><td class="note">block 935k<br><a href="https://mempool.space/tx/38d019747cfb40621952635e517143572b33d1523dbe0febda7f964e6db1b09c" target="_blank" class="tx-link">38d01974…</a></td><td class="dim">self-referential tag</td></tr>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,213</td><td class="dim">10:26 PM</td><td class="note">SENTINEL|SESSION|aa9be850…|2ef888ba<br><a href="https://mempool.space/tx/b531a252006da46553dddfc778cfd0d44ef55888f1164fa451d87daeae83a2ff" target="_blank" class="tx-link">b531a252…</a></td><td class="dim">recurring tag (2 of 3)</td></tr>
+            <tr data-date="Feb. 5"><td class="dim">Feb. 5</td><td class="mono">935,214</td><td class="dim">11:13 PM</td><td class="note">SENTINEL|SESSION|d2b656ca…|6f89827b<br><a href="https://mempool.space/tx/28935fd2bef7de631bf60c9d64aad0703032dd87ceef6d1ff76ca0b409a8276d" target="_blank" class="tx-link">28935fd2…</a></td><td class="dim">recurring tag (3 of 3)</td></tr>
             <tr data-date="Feb. 6"><td class="dim">Feb. 6</td><td class="mono">935,227</td><td class="dim">1:51 AM</td><td class="note">UTXO Consolidation - Primary Account (1186 UTXOs)<br><a href="https://mempool.space/tx/bf387bf8dcce44dc3dc5b6b8f4ee86c34b93cf4c709bee9f485a2d052d3ad737" target="_blank" class="tx-link">bf387bf8…</a></td><td class="dim">wallet mgmt</td></tr>
             <tr data-date="Feb. 6"><td class="dim">Feb. 6</td><td class="mono">935,230</td><td class="dim">2:02 AM</td><td class="note">UTXO Consolidation - Primary Account (1400 UTXOs)<br><a href="https://mempool.space/tx/f65e6def176acc6dce5934955a0677e8f8d7008d2033cab8170106dc2727bd89" target="_blank" class="tx-link">f65e6def…</a></td><td class="dim">wallet mgmt</td></tr>
             <tr data-date="Feb. 6"><td class="dim">Feb. 6</td><td class="mono">935,256</td><td class="dim">5:32 AM</td><td class="note">transcend.tc · withdraw · 37146<br><a href="https://mempool.space/tx/db871f9f82cafc60d27a8c770411a84d85634a9c955973aa07b3fdf73e602d2e" target="_blank" class="tx-link">db871f9f…</a></td><td class="dim">DeFi withdrawal</td></tr>
@@ -1037,7 +1046,7 @@
     </details>
 
     <div class="note-box">
-      <strong>WELP:</strong> Both full days came up empty of anything case-relevant. Every transaction across both complete days was checked — 314 blocks, ~910,000 transactions total. The 33 readable messages found are standard blockchain activity: wallet labels, seed backups, DeFi receipts, political graffiti, and personal inscriptions. The Feb. 11 "We are ready to pay" message remains the only readable FBI OP_RETURN in the investigation window. Its timing — after both deadlines — continues to point toward the informant channel, not the actual kidnappers.
+      <strong>WELP:</strong> All three full days came up empty of anything case-relevant. Every transaction across Feb. 5, Feb. 6, and Feb. 9 was checked — 474 blocks, ~1,333,000 transactions total. The 42 readable messages found are standard blockchain activity: wallet labels, seed backups, DeFi receipts, political graffiti, personal inscriptions, and a recurring unidentified "SENTINEL|SESSION" tag. The Feb. 11 "We are ready to pay" message remains the only readable FBI OP_RETURN in the investigation window. Its timing — after both deadlines — continues to point toward the informant channel, not the actual kidnappers.
     </div>
   </div>
 
