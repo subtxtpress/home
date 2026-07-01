@@ -721,7 +721,11 @@
   <p class="page-sub">Nancy Guthrie Case · FBI $152 Payment · All times Arizona (MST)</p>
 
   <div class="note-box animate d1">
-    <strong>After the ransom deadlines passed:</strong> The FBI sent $152 in Bitcoin to a wallet address specified in one of Guthrie ransom notes. <strong>Embedded message:</strong> Hidden inside that transaction ID was an embedded message: 6a = OP_RETURN instruction &rarr; 3e = 62 bytes follow &rarr; ASCII text spells out the full message &rarr; "We are ready to pay. Contact us. https://pastes.io/private-ne" &rarr; <strong>Chain trace:</strong> The wallet the FBI sent funds to has never been touched. This page traces every address that deposit moved through on the chain from origin to endpoint.
+    After both ransom deadlines passed, the FBI sent $152 in Bitcoin to a wallet address from the ransom notes — with a hidden message embedded in the transaction: <em>"We are ready to pay. Contact us."</em> The informant never responded. The money has never been touched. This page traces what happened to that $152 and the FBI's leftover funds on the chain.
+    <details style="margin-top:8px;">
+      <summary style="font-family:var(--mono);font-size:11px;color:var(--text-label);cursor:pointer;">How the message was hidden in the transaction ↓</summary>
+      <div style="margin-top:6px;font-size:11px;color:var(--text-label);line-height:1.6;">Bitcoin transactions can carry up to 80 bytes of arbitrary data using an instruction called OP_RETURN. The FBI used this: <code style="font-family:var(--mono);">6a</code> = OP_RETURN opcode · <code style="font-family:var(--mono);">3e</code> = 62 bytes follow · ASCII decode → <em>"We are ready to pay. Contact us. https://pastes.io/private-ne"</em>. The link returns 404 — dead or expired. Verified via mempool.space, Blockchair, and CyberChef.</div>
+    </details>
   </div>
 
   <!-- ══ CHAIN FLOW ══════════════════════════════════════════ -->
@@ -757,14 +761,23 @@
         <div class="node-detail">The FBI received two transfers here, then used this wallet to send the $152 USD on Feb. 10 at 5:12 PM AZ. The entire balance was spent in that one transaction — split across the ransom address, a second FBI-controlled address ($148), and the hidden message. Not identified as a known exchange or service. Now empty.</div>
         <div class="node-badges"><span class="badge badge-yellow">UNIDENTIFIED</span><span class="badge badge-red">NOW EMPTY</span></div>
       </div>
-      <div class="arrow">↓ &nbsp;FBI sent ransom deposit · 3 outputs below</div>
+      <div class="arrow">↓ &nbsp;FBI sent the ransom deposit · Feb. 10 · 5:12 PM AZ</div>
 
       <!-- Transaction note -->
       <div class="note-box" style="margin-bottom:10px;margin-top:-2px;">
-        <strong>About this transaction:</strong> Under the hood, Bitcoin requires every transaction to account for 100% of the sending wallet's balance — any amount not sent to the intended recipient must be explicitly directed somewhere in the same transaction. Wallet apps hide this artifact from users, but it's visible on the blockchain. The FBI's sending wallet held ~$300; they sent $152 to the ransom address, and the remaining $148 was automatically routed to a second address by their wallet software — the FBI almost certainly did not specify that address manually. If they used a custodial exchange (Coinbase, Kraken, etc.), the exchange manages that second address on their behalf and folds the balance back into their account — they would never see a separate address at all. If they used non-custodial wallet software, the software auto-generated the address and the FBI retains access through their wallet. Which type the FBI used is unconfirmed. Why their sending wallet held more than the $152 they intended to send is also unknown — as is why they chose $152 specifically. Both figures are millions less than the $4 million demanded by the kidnappers as well, as the sole Bitcoin demanded by the informant.
+        <strong>Why three outputs?</strong> Bitcoin transactions must account for 100% of the sending wallet's balance — any leftover must go somewhere. The FBI's wallet held ~$300; they sent $152 to the informant's ransom address and routed the remaining $148 to a second address under their control. A third output carried the hidden message — no money, just text embedded permanently in the transaction.
       </div>
 
-      <!-- 3-way split -->
+      <!-- Embedded message callout — OP_RETURN output, 0 BTC, part of same TX -->
+      <div style="border-left:3px solid var(--c-purple);background:rgba(146,120,184,0.08);padding:10px 14px;margin:0 0 12px;border-radius:0 6px 6px 0;line-height:1.6;">
+        <strong style="color:var(--c-purple);font-size:11px;font-family:var(--mono);letter-spacing:.05em;">EMBEDDED MESSAGE · OP_RETURN · 0 BTC · same transaction</strong><br>
+        <span style="font-family:var(--mono);font-size:12px;color:var(--text);">"We are ready to pay. Contact us. https://pastes.io/private-ne"</span>
+        <span class="badge badge-purple" style="margin-left:8px;vertical-align:middle;">LINK 404 DEAD</span>
+      </div>
+
+      <div class="arrow">↓ &nbsp;2 money outputs in the same transaction</div>
+
+      <!-- 2-way split: where the money actually went -->
       <div class="split">
         <div class="node rd">
           <div class="node-role">Informant · Ransom Wallet · received Feb. 10, 2026</div>
@@ -781,64 +794,62 @@
           <div class="node-role">FBI · Second output · Feb. 10–Mar. 2, 2026</div>
           <div class="node-name">FBI Second Address</div>
           <div class="node-addr">bc1qz8sqz2pw38clqpj06n809eunarxg6p6k5x72u3</div>
-          <div class="node-detail">In the same transaction as the $152 transaction, the remaining $148 was routed to this second address under the FBI's control. On Mar. 2, 2026, the FBI transferred it to a cryptocurrency exchange deposit address. Now empty.</div>
+          <div class="node-detail">In the same transaction as the $152 deposit, the remaining $148 was routed to this second address under the FBI's control. On Mar. 2, 2026, the FBI transferred it to a cryptocurrency exchange deposit address. Now empty.</div>
           <div class="node-badges"><span class="badge badge-yellow">UNIDENTIFIED</span><span class="badge badge-red">NOW EMPTY</span></div>
         </div>
-        <div class="node pp">
-          <div class="node-role">FBI · Hidden message · Feb. 10, 2026</div>
-          <div class="node-name">Embedded Message</div>
-          <div class="node-addr" style="color:var(--c-purple)">0.00000000 BTC · data only</div>
-          <div class="node-detail">"We are ready to pay. Contact us. https://pastes.io/private-ne"</div>
-          <div class="node-badges"><span class="badge badge-purple">404 DEAD OR EXPIRED</span></div>
-        </div>
       </div>
-      <div class="arrow-split-tail">
-        <div class="arrow" style="padding-bottom:3%;">↓ &nbsp;FBI transferred $148 from second address to exchange</div>
-      </div>
+      <details style="margin-top:8px;">
+        <summary style="font-family:var(--mono);font-size:11px;color:var(--text-label);cursor:pointer;padding:8px 4px;display:block;list-style:none;border-top:1px solid rgba(255,255,255,0.08);">&#9660;&nbsp; FBI's leftover $148 — where it went on-chain (expand)</summary>
 
-      <!-- NODE: Exchange deposit addr -->
-      <div class="node rd">
-        <div class="node-role">Exchange · Deposit address · FBI funds received Mar. 2, 2026 · 10:49 AM AZ</div>
-        <div class="node-name">Exchange Deposit Address</div>
-        <div class="node-addr">3548M6Zb9Pixppji32BW7beCQBF8Fwikrm</div>
-        <div class="node-detail">
-          4 transactions total, across two separate events — four years apart. Both times, money arrived here and was swept out within 17–18 minutes, pooled with hundreds of other incoming deposits. That pattern is consistent with how large cryptocurrency exchanges process customer funds.<br><br>
-          <strong style="color:var(--text)">Jun. 29, 2022:</strong> Someone sent $1,580 here. Eighteen minutes later it was swept — combined with other deposits totaling $140,764 — into a temporary routing address, then distributed to about 50 wallets. This predates the Guthrie case by four years.<br><br>
-          <strong style="color:var(--text)">Mar. 2, 2026:</strong> The FBI's leftover $148 arrived here. Seventeen minutes later it was swept alongside 171 other incoming deposits into another routing address.<br><br>
-          The group of addresses this belongs to has over <strong style="color:var(--text)">60 million total transactions</strong> — the scale of a major global cryptocurrency exchange. This address is not flagged on any government sanctions list. Blockchain monitoring tool MistTrack shows only one known counterparty for this specific address — the FBI's change wallet — consistent with it being a dedicated deposit address for this operation.<br><br>
-          <strong style="color:var(--c-yellow)">Total traced through this address infrastructure: 10.35396123 BTC ($625,068 USD)</strong>
+        <div class="arrow-split-tail">
+          <div class="arrow" style="padding-bottom:3%;">↓ &nbsp;FBI transferred $148 from second address to exchange</div>
         </div>
-        <div class="node-badges"><span class="badge badge-yellow">LIKELY MAJOR EXCHANGE</span><span class="badge badge-red">NOW EMPTY</span><span class="badge badge-blue">FIRST USED: JUN. 2022</span><span class="badge badge-blue">NOT SANCTIONED</span></div>
-      </div>
-      <div class="arrow">↓ &nbsp;Exchange pooled FBI's deposit with 171 others into internal wallet</div>
 
-      <!-- NODE: Consolidation destination -->
-      <div class="node gn">
-        <div class="node-role">Exchange · Internal wallet · Mar. 2, 2026 · 11:06 AM–2:47 PM AZ</div>
-        <div class="node-name">Exchange Internal Wallet</div>
-        <div class="node-addr">bc1qs6fkx8u2aal3yuq2zmdec5wtcr4wtwt40qpmpn</div>
-        <div class="node-detail">Two transactions, ever. The exchange pooled 172 customer deposits here at 18:06 — including the FBI's wallet holding the remaining $148 — then sent everything out to 24 wallets 3.5 hours later.</div>
-        <div class="node-badges"><span class="badge badge-green">TRAIL EXTENDED</span><span class="badge badge-red">NOW EMPTY</span></div>
-      </div>
-      <div class="arrow">↓ &nbsp;Exchange sent to 24 wallets</div>
+        <!-- NODE: Exchange deposit addr -->
+        <div class="node rd">
+          <div class="node-role">Exchange · Deposit address · FBI funds received Mar. 2, 2026 · 10:49 AM AZ</div>
+          <div class="node-name">Exchange Deposit Address</div>
+          <div class="node-addr">3548M6Zb9Pixppji32BW7beCQBF8Fwikrm</div>
+          <div class="node-detail">
+            4 transactions total, across two separate events — four years apart. Both times, money arrived here and was swept out within 17–18 minutes, pooled with hundreds of other incoming deposits. That pattern is consistent with how large cryptocurrency exchanges process customer funds.<br><br>
+            <strong style="color:var(--text)">Jun. 29, 2022:</strong> Someone sent $1,580 here. Eighteen minutes later it was swept — combined with other deposits totaling $140,764 — into a temporary routing address, then distributed to about 50 wallets. This predates the Guthrie case by four years.<br><br>
+            <strong style="color:var(--text)">Mar. 2, 2026:</strong> The FBI's leftover $148 arrived here. Seventeen minutes later it was swept alongside 171 other incoming deposits into another routing address.<br><br>
+            The group of addresses this belongs to has over <strong style="color:var(--text)">60 million total transactions</strong> — the scale of a major global cryptocurrency exchange. This address is not flagged on any government sanctions list. Blockchain monitoring tool MistTrack shows only one known counterparty for this specific address — the FBI's change wallet — consistent with it being a dedicated deposit address for this operation.<br><br>
+            <strong style="color:var(--c-yellow)">Total traced through this address infrastructure: 10.35396123 BTC ($625,068 USD)</strong>
+          </div>
+          <div class="node-badges"><span class="badge badge-yellow">LIKELY MAJOR EXCHANGE</span><span class="badge badge-red">NOW EMPTY</span><span class="badge badge-blue">FIRST USED: JUN. 2022</span><span class="badge badge-blue">NOT SANCTIONED</span></div>
+        </div>
+        <div class="arrow">↓ &nbsp;Exchange pooled FBI's deposit with 171 others into internal wallet</div>
 
-      <!-- NODE: Fan-out -->
-      <div class="node rd">
-        <div class="node-role">Exchange · Outgoing distribution · Mar. 2, 2:47 PM AZ</div>
-        <div class="node-name">Exchange Sent to 24 Wallets</div>
-        <div class="node-addr" style="color:var(--muted)">bc1qs6fkx… → 24 recipients (see TX detail)</div>
-        <div class="node-detail">
-          <strong style="color:var(--text)">Largest share (output 7):</strong> bc1qvjy2cw3ugcuz964c8fuwcvg6peh25atvdc38ca → <strong style="color:var(--text)">3.2580724 BTC (~95% of total)</strong> — sent straight back to the same exchange cluster the money came from<br><br>
-          <strong style="color:var(--text)">Output 19:</strong> 3FDQCHaYh8HttswhM4fG7VyRUr82ghU6bh → 0.00028813 BTC — second small output to the same exchange cluster in the same transaction<br><br>
-          <strong style="color:var(--c-yellow)">⚑ Output 22 (UNSPENT):</strong> bc1qkm8jf9khsg55n6c4v0mj8lwrxklr75852xfcx0 → 0.07202283 BTC — still sitting, never moved<br>
-          <strong style="color:var(--c-yellow)">⚑ Output 8 (UNSPENT):</strong> 3GdMC6FYtqiwcJPqW4rjgmAhGLLWwq9TZg → 0.00749139 BTC — still sitting, never moved<br><br>
-          The remaining 20 outputs were small amounts distributed to various wallets, all since spent.
+        <!-- NODE: Consolidation destination -->
+        <div class="node gn">
+          <div class="node-role">Exchange · Internal wallet · Mar. 2, 2026 · 11:06 AM–2:47 PM AZ</div>
+          <div class="node-name">Exchange Internal Wallet</div>
+          <div class="node-addr">bc1qs6fkx8u2aal3yuq2zmdec5wtcr4wtwt40qpmpn</div>
+          <div class="node-detail">Two transactions, ever. The exchange pooled 172 customer deposits here at 18:06 — including the FBI's wallet holding the remaining $148 — then sent everything out to 24 wallets 3.5 hours later.</div>
+          <div class="node-badges"><span class="badge badge-green">TRAIL EXTENDED</span><span class="badge badge-red">NOW EMPTY</span></div>
         </div>
-        <div class="node-badges">
-          <span class="badge badge-yellow">95% LOOPS BACK TO EXCHANGE</span>
-          <span class="badge badge-yellow">2 OUTPUTS UNSPENT</span>
+        <div class="arrow">↓ &nbsp;Exchange sent to 24 wallets</div>
+
+        <!-- NODE: Fan-out -->
+        <div class="node rd">
+          <div class="node-role">Exchange · Outgoing distribution · Mar. 2, 2:47 PM AZ</div>
+          <div class="node-name">Exchange Sent to 24 Wallets</div>
+          <div class="node-addr" style="color:var(--muted)">bc1qs6fkx… → 24 recipients (see TX detail)</div>
+          <div class="node-detail">
+            <strong style="color:var(--text)">Largest share (output 7):</strong> bc1qvjy2cw3ugcuz964c8fuwcvg6peh25atvdc38ca → <strong style="color:var(--text)">3.2580724 BTC (~95% of total)</strong> — sent straight back to the same exchange cluster the money came from<br><br>
+            <strong style="color:var(--text)">Output 19:</strong> 3FDQCHaYh8HttswhM4fG7VyRUr82ghU6bh → 0.00028813 BTC — second small output to the same exchange cluster in the same transaction<br><br>
+            <strong style="color:var(--c-yellow)">⚑ Output 22 (UNSPENT):</strong> bc1qkm8jf9khsg55n6c4v0mj8lwrxklr75852xfcx0 → 0.07202283 BTC — still sitting, never moved<br>
+            <strong style="color:var(--c-yellow)">⚑ Output 8 (UNSPENT):</strong> 3GdMC6FYtqiwcJPqW4rjgmAhGLLWwq9TZg → 0.00749139 BTC — still sitting, never moved<br><br>
+            The remaining 20 outputs were small amounts distributed to various wallets, all since spent.
+          </div>
+          <div class="node-badges">
+            <span class="badge badge-yellow">95% LOOPS BACK TO EXCHANGE</span>
+            <span class="badge badge-yellow">2 OUTPUTS UNSPENT</span>
+          </div>
         </div>
-      </div>
+
+      </details>
 
     </div>
   </div>
