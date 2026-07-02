@@ -1178,11 +1178,6 @@ const KML_DATA = {
       "features": [{"type":"point","coords":[47.5971,-120.6622]}],
       "desc": "<b>Medical</b><br/>Magnolia was transported here for evaluation on Dec 25, 2025"
     },
-    {
-      "name": "LEAVENWORTH",
-      "features": [{"type":"point","coords":[47.5962,-120.6615]}],
-      "desc": "<b>Town Center</b><br/>Leavenworth, Washington"
-    }
   ]
 };
 
@@ -1193,7 +1188,6 @@ const FOCUS_POINTS = {
   'hotel':                 { center: [47.5595, -120.6981], zoom: 13 },
   'hospital':              { center: [47.5971, -120.6622], zoom: 14 },
   'hospital-hotel':        { bounds: [[47.54, -120.72], [47.62, -120.64]] },
-  'overview':              { center: [47.58, -120.68], zoom: 13 },
   'charlotte':             { center: [35.2271, -80.8409], zoom: 11 },
   'seattle':               { center: [47.4484, -122.3086], zoom: 11 },
   'warminster-hotel':      { bounds: [[36, -126], [50, -72]] },
@@ -1330,7 +1324,6 @@ function makeDistanceLine(coordA, labelA, colorA, coordB, labelB, colorB, distTe
 // Place persistent markers for the key locations
 const HOTEL_COORDS      = [47.5595, -120.6981];
 const HOSPITAL_COORDS   = [47.5971, -120.6622];
-const TOWN_COORDS       = [47.5962, -120.6615];
 const CHARLOTTE_COORDS  = [35.2271, -80.8409];
 const SEATTLE_COORDS    = [47.4484, -122.3086];
 const WARMINSTER_COORDS = [40.205517, -75.107681];
@@ -1407,7 +1400,7 @@ const STEP_META = {
   10: { date: 'December 25, 2025',     time: '9:40 AM',   focus: 'hotel' },
   11: { date: 'December 25, 2025',     time: '10:21 AM',  focus: 'hospital-hotel' },
   12: { date: 'December 25, 2025',     time: '10:11 AM',  focus: 'hospital-hotel' },
-  13: { date: 'December 25, 2025',     time: '11:34 AM',  focus: 'washingtondc-hospital' },
+  13: { date: 'December 25, 2025',     time: '11:34 AM',  focus: 'hotel' },
   14: { date: 'December 25, 2025',     time: '11:45 AM',  focus: null },
   15: { date: 'December 25, 2025',     time: '12:01 PM',  focus: 'hospital' },
   16: { date: 'December 25, 2025',     time: '1:53 PM',   focus: 'hotel' },
@@ -1474,7 +1467,7 @@ function activateStep(stepNum) {
     }
 
     // Add highlight marker at focus point
-    var LOCAL_KEYS = ['hotel', 'hospital', 'hospital-hotel', 'overview', 'route'];
+    var LOCAL_KEYS = ['hotel', 'hospital', 'hospital-hotel'];
     setPersistentMarkersVisible(LOCAL_KEYS.indexOf(focusKey) !== -1);
 
     if (focusKey === 'charlotte') {
