@@ -710,7 +710,7 @@
 
   <!-- STEP 0: Title -->
   <div class="step title-card" data-step="0">
-    <div class="dateline">Charlotte &middot; Port Richey &middot; Leavenworth</div>
+    <div class="dateline">Port Richey &middot; Charlotte &middot; Leavenworth</div>
     <div class="step-title">The Magnolia Timeline</div>
     <p>Over the course of 2025, Magnolia endured a pattern of escalating abuse at the hands of her boyfriend Jonathan Lee Riches &mdash; in Charlotte, in their shared home in Port Richey, and again on Christmas Eve in Leavenworth, Washington, where she was assaulted and left without her phone or a way home.</p>
     <p>This timeline reconstructs that pattern using Chelan County Sheriff's Office records, dispatch logs, phone records, and text messages.</p>
@@ -719,21 +719,8 @@
   </div>
 
   <!-- STEP 1: Act I — Prior History -->
+  <!-- STEP 1: Port Richey incident -->
   <div class="step" data-step="1" data-border="var(--amber)">
-    <div class="act-label">Act I &mdash; Prior History</div>
-    <div class="step-time">August 2025</div>
-    <div class="step-title">Charlotte, North Carolina</div>
-    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
-    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
-    <p>Magnolia was on a work trip with Jonathan in Charlotte. She first discovered his infidelity and confronted him. Magnolia stated there is a long history of assaults in their almost 3-year dating relationship.</p>
-    <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Magnolia</span> <span class="where">Charlotte, NC</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--red)"></span><span class="who">JLR</span> <span class="where">Charlotte, NC</span></div>
-    </div>
-  </div>
-
-  <!-- STEP 2: Port Richey incident -->
-  <div class="step" data-step="2" data-border="var(--amber)">
     <div class="act-label">Port Richey incident</div>
     <div class="step-time">September 2025</div>
     <div class="step-title">Port Richey, Florida</div>
@@ -749,6 +736,20 @@
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Magnolia</span> <span class="where">Port Richey, FL</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--red)"></span><span class="who">JLR</span> <span class="where">Port Richey, FL</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Charlotte incident -->
+  <div class="step" data-step="2" data-border="var(--amber)">
+    <div class="act-label">Act I &mdash; Prior History</div>
+    <div class="step-time">November 2025</div>
+    <div class="step-title">Charlotte, North Carolina</div>
+    <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
+    <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
+    <p>Magnolia was on a work trip with Jonathan in Charlotte. She first discovered his infidelity and confronted him. Magnolia stated there is a long history of assaults in their almost 3-year dating relationship.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Magnolia</span> <span class="where">Charlotte, NC</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--red)"></span><span class="who">JLR</span> <span class="where">Charlotte, NC</span></div>
     </div>
   </div>
 
@@ -788,9 +789,9 @@
 
   <!-- STEP 4: Magnolia wants to leave JLR -->
   <div class="step" data-step="4" data-border="var(--amber)">
-    <div class="act-label">Magnolia Attmept to Leave JLR</div>
+    <div class="act-label"></div>
     <div class="step-time">November 21, 2025</div>
-    <div class="step-title">Charlotte / Port Richey, Florida</div>
+    <div class="step-title">Magnolia Attmept to Leave JLR</div>
     <div class="person-pill"><span class="dot" style="background:var(--amber)"></span> Magnolia</div>
     <div class="person-pill"><span class="dot" style="background:var(--red)"></span> Jonathan Lee Riches</div>
     <p>In messages from November 21, 2025, Magnolia tells JLR that someone will be arriving at their home to pick up her car and belongings. </p>
@@ -798,6 +799,7 @@
       <li>"Someone named Rob with Bay Area Movers will be there today at noon to pick up and remove my belongings from house. He will remove my vehicle tomorrow or Sunday at the latest."</li>
       <li>"I will be sendirg you a separation agreement via email."</li>
     </ul>
+    <p>In the messages, JLR begs, pleads, and bargains for Magnolia to stay.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--amber)"></span><span class="who">Magnolia</span> <span class="where">Charlotte</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--red)"></span><span class="who">JLR</span> <span class="where">Port Richey, FL</span></div>
@@ -1304,7 +1306,7 @@ const FOCUS_POINTS = {
   'hotel':                 { center: [47.5595, -120.6981], zoom: 13 },
   'hospital':              { center: [47.5971, -120.6622], zoom: 14 },
   'hospital-hotel':        { bounds: [[47.54, -120.72], [47.62, -120.64]] },
-  'charlotte':             { center: [35.2271, -80.8409], zoom: 10 },
+  'charlotte':             { center: [35.112114, -80.883222], zoom: 10 },
   'portrichey':            { center: [28.297114, -82.677483], zoom: 10 },
   'charlotte-portrichey':  { bounds: [[27.5, -84], [36, -79]] },
   'seattle':               { center: [47.4484, -122.3086], zoom: 11 },
@@ -1442,7 +1444,7 @@ function makeDistanceLine(coordA, labelA, colorA, coordB, labelB, colorB, distTe
 // Place persistent markers for the key locations
 const HOTEL_COORDS      = [47.5595, -120.6981];
 const HOSPITAL_COORDS   = [47.5971, -120.6622];
-const CHARLOTTE_COORDS  = [35.2271, -80.8409];
+const CHARLOTTE_COORDS  = [35.112114, -80.883222];
 const SEATTLE_COORDS    = [47.4484, -122.3086];
 const WARMINSTER_COORDS = [40.205517, -75.107681];
 const WASHDC_COORDS     = [38.907286, -77.036928];
@@ -1507,8 +1509,8 @@ const progressBar = document.getElementById('progress-bar');
 // Step metadata for clock and map
 const STEP_META = {
   0:  { date: 'August 2025 - December 2025',  time: '',          focus: 'hotel' },
-  1:  { date: 'August 2025',             time: '',          focus: 'charlotte' },
-  2:  { date: 'September 6-7, 2025',    time: '',          focus: 'portrichey' },
+  1:  { date: 'September 6-7, 2025',    time: '',          focus: 'portrichey' },
+  2:  { date: 'November 2025',          time: '',          focus: 'charlotte' },
   3:  { date: 'November 2025',          time: '',          focus: 'charlotte-portrichey' },
   4:  { date: 'November 21, 2025',      time: '',          focus: 'charlotte-portrichey' },
   5:  { date: 'December 22, 2025',     time: '',          focus: 'seattle' },
