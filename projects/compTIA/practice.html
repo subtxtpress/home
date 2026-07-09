@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Operation Vantage Point — CompTIA SY0-701</title>
+  <meta name="description" content="lorem ipsum">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/projects/compTIA/practice">
+  <!-- Open Graph -->
+  <meta property="og:title" content="CompTIA Practice | Subtxt Press">
+  <meta property="og:description" content="lorem ipsum">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/projects/compTIA/practice">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/projects/compTIA/img/operation-vantage.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Projects & Tools | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CompTIA Practice | Subtxt Press">
+  <meta name="twitter:description" content="lorem ipsum">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/projects/compTIA/img/operation-vantage.png">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Styles -->
+<style>
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*,*::before,*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --bg:#060b14;
+  --surface:#0d1520;
+  --surface2:#131e2e;
+  --surface-elevated:#192438;
+  --border:rgba(235,226,205,.09);
+  --border-mid:rgba(235,226,205,.15);
+  --amber:#65bba8;
+  --amber-dim:#569989;
+  --red:#c04e01;
+  --green:#4caf7d;
+  --blue:#4a7ac4;
+  --yellow: #d7be58;
+  --text:#ebe2cd;
+  --text-dim:#c8bfa8;
+  --text-faint:#a09a8a;
+  --grad-accent: linear-gradient(to right, rgba(74,138,124,0) 0%, #4a8a7c 60%, #7ec4b4 100%);
+  --grad-red: linear-gradient(to right, #7a2e00, #c04e01);
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Barlow Condensed', 'Helvetica Neue', Arial, sans-serif;
+  --radius: 8px;
+  --shadow: 0 4px 24px rgba(0,0,0,.5);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.6);
+}
+@keyframes fadeUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(18px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+.fade-up {
+  animation: fadeUp .45s ease both;
+}
+html {
+  scroll-behavior: smooth;
+}
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  max-width: 1000px;
+  margin: auto;
+}
+/* ── Typography ───────────────────────────────────────────────── */
+h1,h2,h3,h4 {
+  font-family: var(--font-display);
+  letter-spacing: .02em;
+}
+.mono {
+  font-family: var(--font-mono);
+}
+.amber {
+  color: var(--amber);
+}
+.red {
+  color: var(--red);
+}
+.dim {
+  color: var(--text-dim);
+}
+/* ── Layout ───────────────────────────────────────────────────── */
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 16px;
+}
+.screen.active {
+  display: block;
+}
+/* ── Header bar ───────────────────────────────────────────────── */
+.topbar{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(8,9,14,.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+}
+.topbar-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-faint);
+  letter-spacing: .12em;
+  flex: 1;
+}
+.back-btn {
+  background: none;
+  border: 1px solid var(--amber);
+  color: var(--text-dim);
+  font-weight: 500;
+  padding: 1px 12px 6px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  transition: all .2s;
+  margin-left: -2%;
+}
+.back-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: rgba(74,138,124,.06);
+}
+/* ── HUB Screen ───────────────────────────────────────────────── */
+.hub-header {
+  text-align: center;
+  padding: 36px 16px 28px;
+}
+.op-stamp{
+  display: inline-block;
+  border: 1px solid var(--amber);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .22em;
+  padding: 3px 12px;
+  margin-bottom: 18px;
+  margin-top: 1%;
+  opacity: .9;
+}
+.hub-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: .02em;
+}
+.hub-sub {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+/* overall progress bar */
+.overall-progress{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: .1em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.progress-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-mid);
+}
+.progress-track {
+  height: 5px;
+  background: var(--surface2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--grad-accent);
+  border-radius: 3px;
+  transition: width .5s ease;
+}
+.progress-pct {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--amber);
+  margin-top: 8px;
+}
+/* case file cards */
+.case-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.case-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  cursor: pointer;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  position: relative;
+  overflow: hidden;
+}
+.case-card-inner {
+  padding: 16px;
+}
+.case-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-accent);
+  opacity: .45;
+  transition: opacity .2s;
+}
+.case-card:hover {
+  border-color: rgba(74,138,124,.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.5), 0 0 0 1px rgba(74,138,124,.12);
+}
+.case-card:hover::before {
+  opacity: 1;
+}
+.case-card.completed::before {
+  background: linear-gradient(to right, #2a7a52, #4caf7d);
+}
+.case-card.completed {
+  border-color: rgba(76,175,125,.22);
+}
+.case-card.locked {
+  opacity: .38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.case-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.case-id {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: .12em;
+}
+.case-weight {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  background: var(--surface2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.case-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  margin-bottom: 4px;
+}
+.case-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.case-footer {
+  display:flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+.badge-locked {
+  background: rgba(255,255,255,.06);
+  color: var(--text-faint);
+}
+.badge-open {
+  background:rgba(74,138,124,.12);
+  color:var(--amber);
+}
+.badge-done {
+  background: rgba(76,175,125,.12);
+  color: var(--green);
+}
+.score-mini {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.final-card {
+  background: linear-gradient(135deg,rgba(74,138,124,.08),rgba(74,138,124,.04));
+  border: 1px solid var(--amber-dim);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  cursor: pointer;
+  transition: all .15s;
+  margin-top: 8px;
+}
+.final-card:hover {
+  border-color: var(--amber);
+  transform: translateY(-1px);
+}
+.final-card.locked {
+  opacity: .35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.final-title {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.final-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+/* ── CASE FILE Screen ─────────────────────────────────────────── */
+.case-screen-header{
+  padding: 20px 0 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.case-screen-id {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: .12em;
+  margin-bottom: 6px;
+}
+.case-screen-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  margin-bottom: 4px;
+}
+.case-screen-domain {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+/* tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+.tab {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  padding: 10px 16px;
+  cursor: pointer;
+  color: var(--text-dim);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all .15s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.tab.active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+}
+/* ── Field Briefing ───────────────────────────────────────────── */
+.briefing-stamp {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .15em;
+  color: var(--text);
+  border: 1px solid currentColor;
+  display: inline-block;
+  padding: 2px 8px;
+  margin-bottom: 14px;
+  opacity: .8;
+}
+.briefing-body {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.briefing-body p {
+  margin-bottom: 12px;
+}
+.briefing-body p:last-child {
+  margin-bottom: 0;
+}
+.briefing-body strong {
+  color: var(--amber);
+}
+.briefing-body em { 
+  color: var(--text-dim);
+  font-style: normal;
+}
+.field-note {
+  background: rgba(74,138,124,.07);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 10px 14px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.field-note strong {
+  color: var(--amber);
+}
+.briefing-next {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--amber);
+  color: #0a0a0e;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.briefing-next:hover {
+  opacity: .85;
+}
+/* ── Evidence Locker (flip cards) ────────────────────────────── */
+.evidence-intro {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.flip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (min-width:680px) {
+  .flip-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.flip-card {
+  perspective: 600px;
+  height: 220px;
+  cursor: pointer;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+}
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-front,.flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+.flip-front {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: box-shadow .2s;
+}
+.flip-card:hover:not(.flipped) .flip-front {
+  box-shadow: 0 4px 16px rgba(0,0,0,.4), 0 0 0 1px rgba(74,138,124,.1);
+}
+.flip-back {
+  background: linear-gradient(135deg, rgba(74,138,124,.18), rgba(74,138,124,.06));
+  border: 1px solid rgba(74,138,124,.3);
+  transform: rotateY(180deg);
+}
+.flip-term {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--amber);
+  font-weight: bold;
+  line-height: 1.3;
+}
+.flip-hint {
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-top: 6px;
+}
+.flip-def {
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.45;
+}
+.evidence-progress {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: right;
+  margin-bottom: 10px;
+}
+.evidence-next {
+  display: none;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--amber);
+  color: #0a0a0e;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.evidence-next:hover {
+  opacity: .85;
+}
+.evidence-next.visible {
+  display: block;
+}
+/* ── Interview Room ───────────────────────────────────────────── */
+.interview-intro{
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.q-counter{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.q-block {
+  display: none;
+}
+.q-block.active {
+  display: block;
+}
+.q-scenario {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius);
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.q-stem {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.q-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.q-opt {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .15s;
+  text-align: left;
+  color: var(--text);
+  line-height: 1.5;
+}
+.q-opt:hover:not(:disabled) {
+  border-color: var(--amber);
+  background: rgba(74,138,124,.05);
+}
+.q-opt.correct {
+  border-color: var(--green);
+  background: rgba(76,175,125,.1);
+  color: var(--text);
+}
+.q-opt.wrong {
+  border-color: var(--red);
+  background: rgba(192,78,1,.1);
+  color: var(--text);
+}
+.q-opt:disabled {
+  cursor: default;
+}
+.q-explanation {
+  display: none;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  border-radius: var(--radius);
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.q-explanation.show {
+  display: block;
+}
+.q-explanation.show.wrong-exp {
+  border-left-color: var(--red);
+}
+.exp-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  margin-bottom: 6px;
+}
+.exp-label.correct-label {
+  color: var(--green);
+}
+.exp-label.wrong-label {
+  color: var(--red);
+}
+.q-next {
+  display: none;
+  width: 100%;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all .15s;
+}
+.q-next:hover {
+  border-color: var(--amber);
+  background: rgba(74,138,124,.05);
+}
+.q-next.show {
+  display: block;
+}
+.domain-complete {
+  display: none;
+  text-align: center;
+  padding: 32px 16px;
+}
+.domain-complete.show {
+  display: block;
+}
+.complete-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+.complete-title {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.complete-score {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.complete-back {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: var(--amber);
+  color: #0a0a0e;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.complete-back:hover {
+  opacity: .85;
+}
+/* ── FINAL REPORT Screen ──────────────────────────────────────── */
+.report-header {
+  text-align: center;
+  padding: 24px 0 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.report-stamp {
+  display: inline-block;
+  border: 2px solid var(--amber);
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  padding: 3px 12px;
+  margin-bottom: 12px;
+}
+.report-title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  margin-bottom: 4px;
+}
+.report-sub {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.total-score-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.total-score-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.total-score-pct {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: .02em;
+}
+.total-score-fraction {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+.pass-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  border-radius: 12px;
+}
+.pass-badge.pass {
+  background: rgba(76,175,125,.15);
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+.pass-badge.fail {
+  background: rgba(192,78,1,.1);
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+.domain-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.domain-score-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.ds-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.ds-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+.ds-pct {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--amber);
+}
+.ds-track {
+  height: 5px;
+  background: var(--surface2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.ds-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width .6s ease .2s;
+}
+.ds-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+}
+.narrative-section {
+  margin-bottom: 24px;
+}
+.narrative-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--text-faint);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.narrative-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-mid);
+}
+.narrative-body {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.narrative-body p {
+  margin-bottom: 12px;
+}
+.narrative-body p:last-child {
+  margin-bottom: 0;
+}
+.narrative-body strong {
+  color: var(--amber);
+}
+.restart-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all .15s;
+  margin-bottom: 40px;
+}
+.restart-btn:hover {
+  background: rgba(74,138,124,.08);
+}
+/* ── Scroll-snap for tab content ──────────────────────────────── */
+@media (max-width:400px) {
+  .flip-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!--  HUB SCREEN                                                    -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div id="hub" class="screen active">
+  <div class="topbar">
+    <span class="topbar-title">CASE CONTROL — SY0-701</span>
+    <button class="back-btn" onclick="resetConfirm()" title="Reset progress"><span style="font-size:16px;">↺</span> RESET</button>
+  </div>
+  <div style="max-width:1000px;margin:0 auto;padding:16px 0">
+    <div class="hub-header fade-up">
+      
+      <h1 class="hub-title">Operation Vantage Point</h1>
+      <div class="op-stamp">Five case files. One breach. Your investigation begins now</div>
+    </div>
+
+    <div class="overall-progress fade-up" style="animation-delay:.1s">
+      <div class="progress-label">OVERALL PROGRESS</div>
+      <div class="progress-track"><div class="progress-fill" id="overallBar" style="width:0%"></div></div>
+      <div class="progress-pct" id="overallPct">0%</div>
+    </div>
+
+    <div class="case-grid" id="caseGrid"></div>
+
+    <div class="final-card locked" id="finalCard" onclick="openFinal()">
+      <div class="final-title"><i class="bi bi-file-earmark-text"></i> FINAL INCIDENT REPORT</div>
+      <p class="final-desc">Complete all five case files to unlock the full post-breach analysis and your domain scores.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!--  CASE FILE SCREEN                                              -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div id="caseScreen" class="screen">
+  <div class="topbar">
+    <button class="back-btn" onclick="goHub()"><span style="font-size:20px;">←</span> HUB</button>
+    <span class="topbar-title" id="caseTopbarTitle"></span>
+  </div>
+  <div style="max-width:1000px;margin:0 auto;padding:16px 0">
+    <div class="case-screen-header">
+      <div class="case-screen-id" id="csId"></div>
+      <div class="case-screen-title" id="csTitle"></div>
+      <div class="case-screen-domain" id="csDomain"></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab(0)" id="tab0"><i class="bi bi-file-text"></i> BRIEFING</button>
+      <button class="tab" onclick="switchTab(1)" id="tab1"><i class="bi bi-lock"></i> EVIDENCE</button>
+      <button class="tab" onclick="switchTab(2)" id="tab2"><i class="bi bi-mic"></i> INTERVIEW</button>
+    </div>
+
+    <!-- Briefing -->
+    <div class="tab-panel active" id="panel0">
+      <div class="briefing-stamp">FIELD BRIEFING — EYES ONLY</div>
+      <div class="briefing-body" id="briefingBody"></div>
+      <button class="briefing-next" onclick="switchTab(1)">OPEN EVIDENCE LOCKER →</button>
+    </div>
+
+    <!-- Evidence Locker -->
+    <div class="tab-panel" id="panel1">
+      <p class="evidence-intro">Tap each card to reveal the definition. Get through the whole locker before moving to interrogation.</p>
+      <div class="evidence-progress" id="evidenceProgress"></div>
+      <div class="flip-grid" id="flipGrid"></div>
+      <button class="evidence-next" id="evidenceNext" onclick="switchTab(2)">ENTER INTERVIEW ROOM →</button>
+    </div>
+
+    <!-- Interview Room -->
+    <div class="tab-panel" id="panel2">
+      <p class="interview-intro">Scenario-based questions drawn directly from the Vantage Point breach. Answer, then read the field explanation.</p>
+      <div class="q-counter" id="qCounter"></div>
+      <div id="questionContainer"></div>
+      <div class="domain-complete" id="domainComplete">
+        <div class="complete-icon">🗂️</div>
+        <div class="complete-title">CASE FILE CLOSED</div>
+        <div class="complete-score" id="completeScore"></div>
+        <div class="dim" id="completeDetail" style="font-size:13px;margin-top:4px"></div>
+        <button class="complete-back" onclick="goHub()">← RETURN TO HUB</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!--  FINAL REPORT SCREEN                                           -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div id="finalScreen" class="screen">
+  <div class="topbar">
+    <button class="back-btn" onclick="goHub()">← HUB</button>
+    <span class="topbar-title">FINAL INCIDENT REPORT</span>
+  </div>
+  <div style="max-width:1000px;margin:0 auto;padding:16px 0">
+    <div class="report-header">
+      <div class="report-stamp">OPERATION VANTAGE POINT — CASE CLOSED</div>
+      <h2 class="report-title">Incident Report: Meridian Analytics Breach</h2>
+      <p class="report-sub">Comprehensive post-breach assessment — <span class="mono" id="reportDate"></span></p>
+    </div>
+
+    <div class="total-score-box">
+      <div class="total-score-label">WEIGHTED OVERALL SCORE</div>
+      <div class="total-score-pct" id="totalPct">—</div>
+      <div class="total-score-fraction" id="totalFraction"></div>
+      <div id="passBadge"></div>
+    </div>
+
+    <div class="domain-scores" id="domainScores"></div>
+
+    <div class="narrative-section">
+      <div class="narrative-title">// INCIDENT NARRATIVE — HOW VANTAGE POINT UNFOLDED</div>
+      <div class="narrative-body">
+        <p>On <strong>March 4th</strong>, Meridian Analytics' SOC flagged an anomalous outbound connection from a finance workstation. What followed was the unraveling of an eight-month infiltration by a sophisticated threat actor the FBI would later designate as <strong>APT-VANTAGE</strong>.</p>
+        <p>The breach began with a <strong>spear-phishing email</strong> sent to a senior analyst, spoofing a trusted vendor. The email carried a weaponized PDF that exploited a <strong>zero-day vulnerability</strong> in the document reader. Once executed, a custom implant established persistence via a scheduled task—a method that evaded both the endpoint AV and the weekly vulnerability scans.</p>
+        <p>APT-VANTAGE moved laterally through <strong>flat network segments</strong> with minimal resistance—no microsegmentation, and service accounts with excessive privileges. They reached the satellite imagery database within 72 hours of initial compromise. Data was exfiltrated in small, encrypted bursts to cloud storage buckets controlled by the actor, staying under the SIEM's volume-alert threshold for months.</p>
+        <p>Detection finally came from a <strong>threat-hunting exercise</strong> that correlated anomalous beacon intervals against baselines—not from automated alerting. By then, an estimated <strong>40 GB of classified imagery analysis data</strong> had left the network.</p>
+        <p>The post-breach review found compounding governance failures: an expired third-party risk assessment for the vendor whose identity was spoofed, a missing MFA requirement for remote access, and an incident response plan that hadn't been tested in 22 months. The breach was entirely preventable.</p>
+      </div>
+    </div>
+
+    <button class="restart-btn" onclick="resetConfirm()">↺ RESTART INVESTIGATION</button>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   DATA
+════════════════════════════════════════════════════════════════ */
+const CASES = [
+  {
+    id: 'ALPHA',
+    name: 'Initial Access & Security Foundations',
+    domain: 'Domain 1 — General Security Concepts',
+    weight: 12,
+    color: '#4a7ac4',
+    locked: false,
+    briefing: `
+      <p>You've been called in at 0200 hours. Meridian Analytics—a mid-tier defense contractor managing classified satellite imagery—has flagged a <strong>suspected breach</strong>. The CEO wants answers before the board meeting in six hours.</p>
+      <p>Your first task: get the lay of the land. Before you can understand what was compromised, you need to speak the language of what <em>should</em> have been protecting it.</p>
+      <p>The forensic lead drops a folder on your table. Three things stand out: the network had no <strong>zero-trust architecture</strong>, MFA was optional, and the last penetration test was 18 months ago. You note that down.</p>
+      <div class="field-note"><strong>FIELD NOTE:</strong> Every breach investigation starts the same way—reconstruct what the controls were supposed to do, then figure out where they failed. Lock in these fundamentals before you touch a single log file.</div>
+    `,
+    terms: [
+      { term: 'CIA Triad', def: 'Confidentiality (no unauthorized access), Integrity (data not tampered with), Availability (systems accessible when needed)—the three core goals of information security.' },
+      { term: 'Authentication vs Authorization', def: 'Authentication confirms identity (who are you?). Authorization determines permissions (what can you do?). Both failed at Meridian—stolen creds bypassed auth; over-permissioned accounts bypassed authz.' },
+      { term: 'Non-repudiation', def: 'Proof that an action occurred and cannot be denied. Digital signatures on emails and logs provide this—critical for pinning the attacker\'s actions in court.' },
+      { term: 'Zero Trust', def: '"Never trust, always verify." No implicit trust based on network location. Every request is authenticated and authorized explicitly. Meridian had none of this.' },
+      { term: 'Defense in Depth', def: 'Layered security so that when one control fails, others remain. Also called "security in layers." Meridian\'s single-layer perimeter made lateral movement trivial once inside.' },
+      { term: 'Symmetric Encryption', def: 'Same key encrypts and decrypts (e.g., AES). Fast—used for bulk data. APT-VANTAGE encrypted exfiltrated data with AES-256 before sending it out.' },
+      { term: 'Asymmetric Encryption', def: 'Public key encrypts, private key decrypts (e.g., RSA, ECC). Slower but enables secure key exchange without sharing secrets. Used in TLS and PKI.' },
+      { term: 'PKI', def: 'Public Key Infrastructure—the ecosystem of CAs, digital certificates, and key management that makes asymmetric encryption scalable across an organization.' },
+      { term: 'Hashing', def: 'One-way function producing a fixed-length digest (SHA-256, etc.). Used to verify file integrity. Can\'t reverse a hash to get the original. Meridian logs used hashing for integrity verification.' },
+      { term: 'Digital Signature', def: 'Hash of data encrypted with sender\'s private key. Recipient decrypts with public key to verify authenticity and integrity. Proves a document wasn\'t altered and who signed it.' },
+    ],
+    questions: [
+      {
+        scenario: 'The attacker accessed the satellite imagery database using legitimate credentials stolen via phishing. They read files but did not modify them.',
+        stem: 'Which component of the CIA Triad was primarily violated in this access?',
+        options: ['Integrity — data was read without authorization','Confidentiality — unauthorized access to data','Availability — systems became unreachable','Non-repudiation — logs were deleted'],
+        correct: 1,
+        explanation: 'Confidentiality means only authorized parties can access information. Reading files without authorization is a confidentiality breach. Integrity would be compromised if data was altered; Availability if systems went down. Non-repudiation is about proof of action, not a CIA Triad component.'
+      },
+      {
+        scenario: 'Meridian\'s VPN required only a username and password. The attacker used stolen credentials to authenticate remotely for 6 weeks undetected.',
+        stem: 'Which security control, if implemented, would most directly have prevented the attacker from using stolen credentials alone?',
+        options: ['Data Loss Prevention (DLP)','Multi-Factor Authentication (MFA)','Intrusion Detection System (IDS)','File Integrity Monitoring'],
+        correct: 1,
+        explanation: 'MFA requires a second factor (OTP, hardware token, biometric) in addition to the password. Even with valid stolen credentials, the attacker cannot authenticate without the second factor. DLP and IDS detect problems but don\'t block authentication. FIM monitors file changes, not login attempts.'
+      },
+      {
+        scenario: 'APT-VANTAGE encrypted all exfiltrated data before transmission using a symmetric algorithm. The same key was embedded in their implant\'s configuration.',
+        stem: 'Why is symmetric encryption appropriate for encrypting bulk data in transit, and what is its primary operational risk in this context?',
+        options: ['It\'s slower but more secure; risk is key length','It\'s fast for bulk data; risk is secure key distribution—one key discovery exposes all data','It uses public/private key pairs; risk is certificate expiration','It provides non-repudiation; risk is performance overhead'],
+        correct: 1,
+        explanation: 'Symmetric encryption (AES) is fast and efficient for bulk data—that\'s why it\'s used for data-at-rest and data-in-transit encryption. The core risk is key management: a single shared key means anyone who obtains it can decrypt everything. Here, the key embedded in the implant is recoverable by defenders once the malware is analyzed.'
+      },
+      {
+        scenario: 'Investigators are reviewing Meridian\'s system logs to build a timeline of the attacker\'s actions. They want to verify that log files haven\'t been tampered with after the fact.',
+        stem: 'Which cryptographic mechanism provides the best assurance that log files have not been altered since they were written?',
+        options: ['Encrypting logs with AES-256','Storing logs in a read-only file system','Generating SHA-256 hashes of logs at write time and comparing later','Signing logs with the admin\'s password'],
+        correct: 2,
+        explanation: 'Hashing creates a deterministic fingerprint of the log file at a point in time. Any modification to the file—even a single character—produces a completely different hash (avalanche effect). Comparing current hashes to baseline hashes detects tampering. Encryption protects confidentiality but doesn\'t verify integrity. Read-only file systems can be bypassed with root access.'
+      },
+    ]
+  },
+  {
+    id: 'BRAVO',
+    name: 'The Attack Vector — Threats & Vulnerabilities',
+    domain: 'Domain 2 — Threats, Vulnerabilities, and Mitigations',
+    weight: 22,
+    color: '#c0392b',
+    locked: true,
+    briefing: `
+      <p>The how is starting to take shape. Your forensic team pulled the initial phishing email from backup—a masterclass in social engineering. It spoofed a legitimate vendor the analyst had corresponded with for two years.</p>
+      <p>The weaponized PDF exploited <strong>CVE-2024-XXXX</strong>—a zero-day at the time—in the document reader. The implant it dropped communicated over port 443 using a <strong>domain-generated algorithm (DGA)</strong>, blending into normal HTTPS traffic. Classic APT behavior.</p>
+      <p>Now you need to map the full attack chain. Understanding the threat actor's <strong>TTPs</strong>—tactics, techniques, and procedures—is how you figure out what else they may have left behind.</p>
+      <div class="field-note"><strong>FIELD NOTE:</strong> This domain is the heaviest on the real exam at 22%. APT-VANTAGE used textbook techniques. Every term in your evidence locker appeared in this breach.</div>
+    `,
+    terms: [
+      { term: 'Threat Actor Types', def: 'Nation-state (most sophisticated, APT-VANTAGE), Cybercriminal (financial), Hacktivist (ideological), Insider Threat (employee), Script Kiddie (low-skill). Knowing the actor informs the TTPs.' },
+      { term: 'APT', def: 'Advanced Persistent Threat—a sustained, targeted attack by a sophisticated actor, often nation-state. Low-and-slow exfiltration, custom tools, long dwell time. Meridian\'s attacker dwell time: 8 months.' },
+      { term: 'Spear Phishing', def: 'Targeted phishing against a specific individual using personalized context (job title, colleagues, vendors). More effective than bulk phishing. Used in the Meridian initial access.' },
+      { term: 'Zero-Day Vulnerability', def: 'A vulnerability unknown to the vendor—no patch exists. Exploited before detection. The PDF reader flaw used here was a zero-day, which is why AV didn\'t catch it.' },
+      { term: 'CVE / CVSS', def: 'CVE = Common Vulnerabilities and Exposures, a unique identifier for known vulnerabilities. CVSS = score (0-10) rating severity. Critical (9-10) = patch immediately.' },
+      { term: 'Malware Types', def: 'Virus (self-replicates), Worm (spreads without user action), Trojan (disguised as legitimate), Ransomware (encrypts for payment), Rootkit (hides attacker\'s presence), RAT (remote access control).' },
+      { term: 'RAT', def: 'Remote Access Trojan—gives the attacker full interactive control of a compromised host. APT-VANTAGE\'s implant functioned as a RAT, enabling file access, command execution, and data staging.' },
+      { term: 'Indicators of Compromise (IOC)', def: 'Artifacts that indicate a breach: unusual outbound connections, hashes of known malware, suspicious registry keys, unexpected scheduled tasks, unusual login times. IOCs are used to detect and hunt threats.' },
+      { term: 'MITRE ATT&CK', def: 'Framework mapping real-world adversary TTPs across tactics (Reconnaissance, Initial Access, Execution, Persistence, Lateral Movement, Exfiltration, etc.). Standard reference for threat analysis.' },
+      { term: 'SQL Injection', def: 'Attacker inserts malicious SQL into input fields to manipulate database queries. Can dump entire databases, bypass authentication, or modify records. Prevented with parameterized queries.' },
+      { term: 'Buffer Overflow', def: 'Writing more data than a buffer can hold, overwriting adjacent memory. Can allow arbitrary code execution. Used in low-level exploits. The PDF reader zero-day leveraged this class of vulnerability.' },
+      { term: 'Social Engineering', def: 'Manipulating people rather than systems. Types: phishing, spear phishing, vishing (voice), smishing (SMS), pretexting (fabricated scenario), baiting, tailgating. Humans are always the weakest link.' },
+    ],
+    questions: [
+      {
+        scenario: 'The initial phishing email referenced a specific contract renewal that only the targeted analyst and their vendor contact would know about. The analyst opened the attachment without questioning it.',
+        stem: 'This technique is best classified as:',
+        options: ['Bulk phishing — sent to many recipients','Spear phishing — targeted using specific intelligence','Vishing — conducted over voice calls','Whaling — targeting C-level executives'],
+        correct: 1,
+        explanation: 'Spear phishing is targeted phishing that uses personalized information to appear credible. The attacker gathered OSINT (open-source intelligence) about the analyst\'s vendor relationships before crafting the email. Whaling is spear phishing specifically targeting high-value executives. Bulk phishing casts a wide net with generic lures. Vishing uses voice calls.'
+      },
+      {
+        scenario: 'The vulnerability exploited in the PDF reader had no available patch at the time of the attack. The vendor was unaware of the flaw.',
+        stem: 'What type of vulnerability was exploited, and what is the PRIMARY mitigation when no patch exists?',
+        options: ['Known vulnerability — apply the patch immediately','Zero-day vulnerability — implement compensating controls (application sandboxing, least privilege, network segmentation)','Misconfiguration — harden the application settings','Legacy vulnerability — upgrade to a newer version'],
+        correct: 1,
+        explanation: 'A zero-day is a vulnerability with no existing patch. When you can\'t patch, you compensate: sandbox the application so exploited code can\'t reach sensitive areas, enforce least privilege so even a compromised process has minimal permissions, and segment the network so lateral movement is limited. These layers don\'t prevent exploitation but contain the blast radius.'
+      },
+      {
+        scenario: 'APT-VANTAGE\'s implant survived reboots by creating a scheduled task that ran on system startup. It also deleted its dropper after execution and renamed the persistent binary to "svchost32.exe."',
+        stem: 'Which MITRE ATT&CK tactic does this behavior primarily represent?',
+        options: ['Initial Access — gaining first entry into the network','Persistence — maintaining foothold across restarts and cleanup','Exfiltration — moving data out of the network','Defense Evasion — disguising malicious activity'],
+        correct: 1,
+        explanation: 'Creating a scheduled task that survives reboots is a textbook Persistence technique (T1053 in MITRE ATT&CK). Renaming to "svchost32.exe" and deleting the dropper are Defense Evasion tactics (T1036 - Masquerading). The question asks for the PRIMARY tactic—the scheduled task is the persistence mechanism. Investigators hunt persistence first when trying to fully eradicate an attacker.'
+      },
+      {
+        scenario: 'During threat hunting, analysts found recurring outbound connections to a rotating set of domains at 4-hour intervals. All connections used HTTPS on port 443.',
+        stem: 'What technique is the attacker most likely using, and which IOC type should analysts pivot on to find other infected hosts?',
+        options: ['DNS tunneling; pivot on DNS query volume','Command-and-control beaconing with a DGA; pivot on beacon interval and domain generation patterns','SQL injection; pivot on database error logs','Port scanning; pivot on inbound connection logs'],
+        correct: 1,
+        explanation: 'Regular outbound connections at fixed intervals = C2 beaconing. Rotating domains = Domain Generation Algorithm (DGA), which programmatically generates many domains so blacklisting one doesn\'t stop communication. Analysts should pivot on the beacon interval (time delta between connections) and DGA patterns to find other hosts exhibiting the same behavior—this is threat hunting, not just alert-triaging.'
+      },
+      {
+        scenario: 'The forensic team recovered the implant binary. They need to share indicators with other organizations so they can check if the same malware has targeted them.',
+        stem: 'Which of the following best describes what they should share as IOCs?',
+        options: ['The full source code of the implant','SHA-256 hash of the binary, C2 domain list, and suspicious scheduled task name','The employee\'s email address that was phished','The CVSS score of the zero-day'],
+        correct: 1,
+        explanation: 'IOCs are specific, actionable artifacts that indicate compromise. SHA-256 hashes identify the exact malware file; C2 domains enable network-level blocking; scheduled task names help defenders search their environments. Source code is rarely available and too sensitive to share widely. The CVSS score describes vulnerability severity, not compromise indicators. Employee PII shouldn\'t be shared externally.'
+      },
+    ]
+  },
+  {
+    id: 'CHARLIE',
+    name: 'The Architecture Failures',
+    domain: 'Domain 3 — Security Architecture',
+    weight: 18,
+    color: '#7a5c9a',
+    locked: true,
+    briefing: `
+      <p>You've traced the initial access. Now the question is: why could they go anywhere once inside?</p>
+      <p>The network diagram on your table is sobering. <strong>Flat network</strong>—no segmentation. The finance workstation compromised in the phishing attack sat in the same broadcast domain as the classified satellite imagery servers. No VLANs. No firewall rules between internal segments.</p>
+      <p>The cloud storage the attacker used for staging was an S3 bucket that was <strong>publicly writable</strong>—not Meridian's, but one they could have detected outbound connections to. Their cloud posture at home wasn't much better.</p>
+      <div class="field-note"><strong>FIELD NOTE:</strong> Architecture is the force multiplier for every other control. Good segmentation would have turned an 8-month siege into a contained incident. This domain shows up heavily in the PBQs (performance-based questions) on the real exam.</div>
+    `,
+    terms: [
+      { term: 'Network Segmentation', def: 'Dividing a network into isolated segments so that compromise of one doesn\'t grant access to others. A flat network (no segmentation) lets attackers move freely after initial access.' },
+      { term: 'VLAN', def: 'Virtual Local Area Network—logical network segment at Layer 2. Separates traffic by function (HR, Finance, IT, Servers) without physical separation. Cheap defense against lateral movement.' },
+      { term: 'DMZ', def: 'Demilitarized Zone—a network segment hosting public-facing services (web, email, DNS), separated from the internal network by firewalls. Compromise of DMZ systems doesn\'t mean instant internal access.' },
+      { term: 'Firewall Types', def: 'Packet filter (Layer 3-4, IP/port), Stateful (tracks connections), Application-layer/NGFW (Layer 7, inspects traffic content, identifies apps). NGFW would have seen the HTTPS C2 traffic.' },
+      { term: 'Zero Trust Architecture', def: 'Assume breach. Verify every request regardless of network location. Micro-perimeters around every resource. "Never trust, always verify." Required for modern distributed environments.' },
+      { term: 'Microsegmentation', def: 'Fine-grained network segmentation down to individual workloads. Limits blast radius of any single compromise. Software-defined, unlike traditional VLANs. Would have stopped Meridian lateral movement cold.' },
+      { term: 'VPN Types', def: 'Site-to-site (connects offices), Remote access (user to corporate network), SSL/TLS VPN (browser-based), IPSec VPN (tunnel mode encrypts entire packet). Meridian used remote access VPN without MFA.' },
+      { term: 'Cloud Security Concepts', def: 'Shared Responsibility Model (provider secures infrastructure, customer secures data/config), CASB (Cloud Access Security Broker), CSPM (Cloud Security Posture Management), misconfigured S3 buckets are top breach vector.' },
+      { term: 'IAM', def: 'Identity and Access Management—managing who has access to what. Includes: least privilege, role-based access control (RBAC), just-in-time access, privileged access workstations (PAW). Over-privileged service accounts enabled Meridian lateral movement.' },
+      { term: 'Honeypot / Honeynet', def: 'Decoy systems designed to lure and detect attackers. A honeypot in the satellite imagery segment would have triggered immediately when APT-VANTAGE moved laterally—they should be touching no legitimate production data first.' },
+    ],
+    questions: [
+      {
+        scenario: 'APT-VANTAGE used a compromised finance workstation to directly connect to the satellite imagery database server. No firewall rules blocked internal east-west traffic.',
+        stem: 'Which architectural control would have most directly prevented this lateral movement?',
+        options: ['Installing endpoint antivirus on the finance workstation','Implementing network segmentation with microsegmentation between workstations and servers','Adding a web application firewall (WAF) to the perimeter','Enabling full disk encryption on the database server'],
+        correct: 1,
+        explanation: 'Microsegmentation creates logical barriers between workloads so that a compromised finance workstation cannot directly reach production database servers—that traffic would be dropped by policy. AV on the endpoint was already bypassed by the zero-day. A perimeter WAF only inspects north-south (external) traffic. Full disk encryption protects data at rest, not in-transit access over the network.'
+      },
+      {
+        scenario: 'Meridian\'s public-facing web application was hosted in the same network segment as internal employee workstations and the database servers.',
+        stem: 'What network architecture change should have been in place to reduce the risk of a web compromise affecting internal systems?',
+        options: ['Move all servers to the cloud','Place the web application in a DMZ separated by firewalls from the internal network','Use a content delivery network (CDN) for web traffic','Enable HTTPS on the web application'],
+        correct: 1,
+        explanation: 'A DMZ hosts public-facing services in an isolated segment. If the web server is compromised, firewall rules prevent the attacker from pivoting directly to internal systems—they\'d need to breach a second firewall first. Moving to cloud doesn\'t fix the segmentation problem. CDNs and HTTPS improve performance and encryption but don\'t isolate the server from internal networks.'
+      },
+      {
+        scenario: 'Service accounts used by Meridian\'s backup and monitoring systems had domain admin privileges. APT-VANTAGE discovered and leveraged these accounts for full domain access.',
+        stem: 'Which IAM principle, if applied, would have most limited the damage from these compromised service accounts?',
+        options: ['Principle of Least Privilege — accounts should have only the permissions needed for their specific function','Separation of Duties — no single person should handle an entire transaction','Account Lockout Policy — lock accounts after failed login attempts','Password Complexity Requirements — require long complex passwords'],
+        correct: 0,
+        explanation: 'Least privilege means each service account gets only the permissions its function requires—a backup service needs read access to files, not domain admin. Domain admin granted all service accounts effectively gives attackers the keys to the kingdom once any service is compromised. Account lockout and password policies help against brute force but don\'t limit what a legitimately authenticated over-privileged account can do.'
+      },
+      {
+        scenario: 'The cloud infrastructure team discovers that several S3 buckets used for inter-system file transfer are publicly readable. One contains internal network diagrams.',
+        stem: 'What does this represent under the cloud shared responsibility model, and who is responsible for remediating it?',
+        options: ['A cloud provider failure — the provider must patch the storage service','A customer misconfiguration — the customer is responsible for configuring access controls on their data and storage','A physical security failure — requires on-premises remediation','An encryption failure — the provider should encrypt all data by default'],
+        correct: 1,
+        explanation: 'Under the shared responsibility model, cloud providers secure the underlying infrastructure (hardware, hypervisor, global network). Customers are responsible for securing their data, access controls, and configurations. Misconfigured S3 bucket permissions are consistently the #1 cloud breach vector—and 100% the customer\'s fault. AWS offers CSPM tooling (like AWS Config, Macie) to detect misconfigurations, but only if the customer uses them.'
+      },
+    ]
+  },
+  {
+    id: 'DELTA',
+    name: 'The Response — Security Operations',
+    domain: 'Domain 4 — Security Operations',
+    weight: 28,
+    color: '#4a8a7c',
+    locked: true,
+    briefing: `
+      <p>Here's what should have happened: a <strong>SIEM alert</strong> fires on the anomalous outbound connection within hours. The SOC runs the playbook. Containment in 48 hours. Instead, it took eight months and a threat-hunting exercise to find them.</p>
+      <p>The logs were there—every outbound connection to the DGA domains was recorded. But nobody was hunting and the SIEM rules were never tuned. <strong>Alert fatigue</strong> had the team ignoring hundreds of daily false positives.</p>
+      <p>Now you're in the response phase. IR plan in hand (untested, 22 months old), you have to work the <strong>incident response lifecycle</strong>—contain the attacker, eradicate the implant, recover systems, and document everything for the congressional inquiry that's already being scheduled.</p>
+      <div class="field-note"><strong>FIELD NOTE:</strong> Domain 4 is the heaviest domain at 28% of the exam—more than one in four questions. Incident response, SIEM, forensics, vulnerability management. These are the day-to-day operations of a security team.</div>
+    `,
+    terms: [
+      { term: 'SIEM', def: 'Security Information and Event Management—aggregates logs from across the environment, correlates events, generates alerts. Only as good as its rules and the team monitoring it. Meridian had one; nobody tuned it.' },
+      { term: 'IR Lifecycle (NIST)', def: 'Preparation → Identification → Containment → Eradication → Recovery → Lessons Learned. Meridian\'s IR plan covered all phases but hadn\'t been tested, causing delays in Containment.' },
+      { term: 'Containment Strategies', def: 'Short-term (isolate infected host, block C2 at firewall) and long-term (rebuild systems, reset credentials, patch). Don\'t jump to eradication before containing—attacker may have other footholds.' },
+      { term: 'Digital Forensics', def: 'Preservation (don\'t alter evidence), Collection (bit-for-bit disk images), Analysis (timeline reconstruction, artifact recovery), Reporting (chain of custody). Volatile data (RAM) must be captured first.' },
+      { term: 'Chain of Custody', def: 'Documented record of who handled evidence, when, and how. Required for evidence to be admissible in legal proceedings. Every drive image and log export needs a documented custodian.' },
+      { term: 'Threat Hunting', def: 'Proactive search for threats that evade automated detection. Uses hypotheses, behavioral baselines, and adversary TTPs to look for anomalies. This is what finally found APT-VANTAGE.' },
+      { term: 'Vulnerability Scanning vs Pen Testing', def: 'Scanning: automated, non-exploitative, finds known vulnerabilities. Pen testing: manual, exploitative, finds real attack paths. Meridian ran scans; a pen test would have found the over-privileged service accounts.' },
+      { term: 'Log Sources', def: 'Firewall (connection logs), IDS/IPS (alert logs), DNS (query logs), Auth (login events), Endpoint (process/file events), Network flows (NetFlow). Correlating all sources is how you reconstruct an attack timeline.' },
+      { term: 'EDR', def: 'Endpoint Detection and Response—records endpoint telemetry (process trees, file writes, network connections) and enables real-time detection and remote isolation. Modern EDR would have caught the DGA beaconing.' },
+      { term: 'IOC vs TTP-based Detection', def: 'IOC-based: match known bad hashes/IPs/domains (brittle—attacker changes infrastructure). TTP-based: detect behavioral patterns (durable—attackers can\'t easily change how they operate). MITRE ATT&CK enables TTP detection.' },
+      { term: 'Mean Time to Detect (MTTD)', def: 'Average time between breach and detection. Industry average: 200+ days. Meridian: 240 days. The longer MTTD, the more data exfiltrated. MTTD and MTTR (Mean Time to Respond) are key SOC metrics.' },
+    ],
+    questions: [
+      {
+        scenario: 'The SOC receives 1,200 alerts per day. Most are false positives from a poorly tuned SIEM rule on outbound DNS traffic. The APT-VANTAGE C2 beaconing alert fired three times over eight months but was dismissed as noise.',
+        stem: 'What operational problem does this scenario illustrate, and what is the best corrective action?',
+        options: ['Insufficient log sources — add more log collectors','Alert fatigue from excessive false positives — tune SIEM rules, implement risk-based alerting, and establish alert SLAs','Lack of encryption — encrypt all network traffic','Understaffed SOC — hire more analysts immediately'],
+        correct: 1,
+        explanation: 'Alert fatigue occurs when analysts are overwhelmed by low-fidelity alerts, causing them to dismiss real threats. The fix is tuning (reduce false positives by improving rule logic), risk-based alerting (prioritize by asset criticality and threat intelligence), and SLAs (require investigation of every alert within a time window). More analysts without fixing the alert volume just burns more people out. Log sources weren\'t the problem—the data was there.'
+      },
+      {
+        scenario: 'Meridian\'s incident responders have confirmed APT-VANTAGE is active on 12 hosts. They want to begin eradicating the malware immediately.',
+        stem: 'According to the NIST incident response lifecycle, what should happen BEFORE eradication begins?',
+        options: ['Conduct a lessons-learned review','Contain the incident to prevent further spread and gather forensic evidence','Notify law enforcement and regulators','Begin recovery by restoring from backup'],
+        correct: 1,
+        explanation: 'The NIST IR lifecycle is: Preparation → Identification → Containment → Eradication → Recovery → Lessons Learned. Containment must precede eradication—if you start wiping hosts before containing the attacker, they may pivot to other systems and cover tracks. Containment isolates affected hosts, preserves evidence, and stops the bleeding. Lessons learned comes last. Notification is part of the response but doesn\'t replace the lifecycle order.'
+      },
+      {
+        scenario: 'Forensic analysts are imaging a compromised server\'s hard drive for evidence. They also need to capture the contents of RAM before powering down the system.',
+        stem: 'Why must RAM be captured before disk imaging, and what category of evidence does RAM contain?',
+        options: ['RAM is faster to image than disk; it contains archived log files','RAM is volatile memory—it\'s lost on power-off; it contains active processes, network connections, decryption keys, and running malware that may not exist on disk','RAM is encrypted by default; it must be decrypted before disk imaging','RAM contains the bootloader; imaging it first ensures system integrity'],
+        correct: 1,
+        explanation: 'RAM is volatile—its contents are permanently lost when power is removed. It contains artifacts that may never appear on disk: running processes, active network connections, decryption keys loaded in memory, injected code in legitimate processes (process hollowing), and credentials cached by the OS. APT-VANTAGE\'s fileless attack components may only exist in RAM. Disk imaging is non-volatile and can be done after RAM capture.'
+      },
+      {
+        scenario: 'A threat hunter hypothesizes that additional hosts may be infected based on the same beacon interval observed on the confirmed compromised hosts. They search SIEM logs across all endpoints for connections at exactly 4-hour intervals to external IPs.',
+        stem: 'This threat-hunting approach is best described as:',
+        options: ['IOC-based hunting — matching known malware hashes','TTP-based hunting — searching for adversary behavioral patterns regardless of specific indicators','Vulnerability scanning — checking for unpatched systems','Penetration testing — actively exploiting potential footholds'],
+        correct: 1,
+        explanation: 'TTP-based threat hunting searches for adversary behaviors (tactics, techniques, procedures) rather than specific artifacts. The beacon interval is a behavioral pattern—it will remain constant even if the attacker changes their C2 domain or malware hash. This approach is more durable than IOC-based hunting (which the attacker can evade by rotating infrastructure). Vulnerability scanning and pen testing are proactive security activities, not threat hunting.'
+      },
+      {
+        scenario: 'Six months after the breach, Meridian receives a subpoena requesting all evidence related to the incident, including disk images, logs, and chain of custody documentation.',
+        stem: 'The forensic team can produce disk images but cannot show who accessed them after imaging. What evidence handling requirement did they fail to maintain?',
+        options: ['Data classification — evidence wasn\'t properly labeled','Chain of custody — no documented record of who handled evidence and when','Bit-for-bit imaging — copies weren\'t forensically sound','Evidence encryption — drives weren\'t encrypted at rest'],
+        correct: 1,
+        explanation: 'Chain of custody is the documented record of every person who handled evidence, when they accessed it, and for what purpose. Without it, opposing counsel can argue evidence was tampered with after collection—making it inadmissible. Every drive image, export, and analysis session needs to be logged with timestamps and signatures. This is a foundational forensics requirement, especially when a breach may result in criminal prosecution.'
+      },
+    ]
+  },
+  {
+    id: 'ECHO',
+    name: 'The Governance Failures',
+    domain: 'Domain 5 — Security Program Management & Oversight',
+    weight: 20,
+    color: '#4caf7d',
+    locked: true,
+    briefing: `
+      <p>Every technical failure in this breach has a governance root cause. The expired third-party risk assessment. The untested IR plan. The missing MFA policy. The security awareness training that hadn't run in 18 months. None of these are surprises—they're symptoms of a <strong>security program that wasn't being managed</strong>.</p>
+      <p>Your final task: document the program-level failures for the board report. The lawyers need the <strong>compliance gap analysis</strong>. The executives need to understand what <strong>risk acceptance</strong> decisions led here. And the policy team needs a roadmap to ensure this never happens again.</p>
+      <p>This is where most incidents end—not with a zero-day, but with someone asking "why didn't we have a policy for this?"</p>
+      <div class="field-note"><strong>FIELD NOTE:</strong> At 20%, this domain tests your understanding of the program that makes everything else work. Frameworks, risk management, compliance, policy—the organizational layer above the technical controls.</div>
+    `,
+    terms: [
+      { term: 'Risk Management', def: 'Identify → Assess → Treat → Monitor. Treat options: Accept (live with it), Avoid (eliminate activity), Mitigate (reduce likelihood/impact), Transfer (insurance/vendor). Meridian implicitly accepted MFA risk without formal documentation.' },
+      { term: 'NIST CSF', def: 'NIST Cybersecurity Framework—Identify, Protect, Detect, Respond, Recover. Voluntary framework widely adopted. Meridian\'s "Detect" function was severely underdeveloped.' },
+      { term: 'ISO 27001', def: 'International standard for Information Security Management Systems (ISMS). Provides a structured framework for managing security risks across an organization. Certification requires third-party audit.' },
+      { term: 'Third-Party Risk Management', def: 'Assessing security posture of vendors and partners who have access to your systems or data. The spoofed vendor had an expired risk assessment—a key governance gap.' },
+      { term: 'Security Policy vs Procedure', def: 'Policy: high-level "what and why" (we require MFA for all remote access). Procedure: step-by-step "how" (here is the enrollment process). Meridian had a password policy; no MFA policy.' },
+      { term: 'BCP / DRP', def: 'Business Continuity Plan: keep operations running during disruption. Disaster Recovery Plan: restore IT systems after an incident. Both need to be tested (tabletop exercises, simulations) to be effective.' },
+      { term: 'Security Awareness Training', def: 'Regular training for all employees on phishing, social engineering, data handling, and incident reporting. The most cost-effective control per dollar. Meridian\'s last run was 18 months before the breach.' },
+      { term: 'Data Classification', def: 'Labeling data by sensitivity (Public, Internal, Confidential, Restricted/Classified). Dictates handling, access controls, and encryption requirements. Classified imagery had the same controls as finance reports at Meridian.' },
+      { term: 'Audit / Assessment Types', def: 'Internal audit (self-assessment), External audit (third-party), Penetration test (active exploitation), Vulnerability assessment (passive scanning), Compliance audit (regulatory check). Meridian needed pen testing, not just scans.' },
+      { term: 'Due Diligence vs Due Care', def: 'Due Diligence: researching risks before taking action. Due Care: taking reasonable protective actions. Both are legal standards. Failure to exercise either can create liability in a breach.' },
+    ],
+    questions: [
+      {
+        scenario: 'Meridian\'s CISO documented the risk of not implementing MFA in a risk register 14 months before the breach. The risk was marked "Accept" because the cost of MFA rollout exceeded the security budget. The board was not informed.',
+        stem: 'What risk treatment decision was made, and what governance failure is most apparent?',
+        options: ['Risk was mitigated — the CISO reduced the likelihood. Failure: inadequate technical controls','Risk was accepted — the organization decided to live with it. Failure: risk acceptance without board-level awareness and formal sign-off','Risk was transferred — insurance was purchased. Failure: underinsurance for the breach costs','Risk was avoided — the activity was eliminated. Failure: incomplete remediation'],
+        correct: 1,
+        explanation: 'Risk acceptance means deliberately choosing to live with an identified risk rather than treating it. That\'s a legitimate business decision—but only if it\'s made at the right level and documented properly. Significant risks (especially those tied to compliance obligations or material business impact) require board or executive sign-off, not just CISO discretion. The governance failure here is informal, undocumented risk acceptance without appropriate oversight.'
+      },
+      {
+        scenario: 'Meridian\'s incident response plan was written in April 2022 and never tested. When the breach was confirmed, the IR team discovered the plan referenced a SIEM product they no longer used and a team lead who had left the company.',
+        stem: 'Which NIST CSF function was most deficient, and what practice would have caught these issues before a real incident?',
+        options: ['Protect function — MFA should have been enforced per the plan','Respond function — tested via tabletop exercises or simulated incidents to validate plan accuracy','Identify function — asset inventory was incomplete','Recover function — backup restoration procedures were untested'],
+        correct: 1,
+        explanation: 'The NIST CSF Respond function covers incident management, analysis, containment, and improvements. An untested IR plan is the most common Respond gap. Tabletop exercises (walk through a scenario with key stakeholders) and simulations (actively test runbooks) validate that plans match the current environment. They catch stale references, personnel changes, and procedural gaps before a real incident forces you to discover them under pressure.'
+      },
+      {
+        scenario: 'The spoofed vendor email was so convincing partly because the vendor\'s email domain had no SPF or DMARC records, making spoofing trivial. Meridian\'s third-party assessment of this vendor had expired 18 months ago.',
+        stem: 'Which security program area failed here, and what should the remediation program include?',
+        options: ['Data classification — vendor data wasn\'t labeled correctly','Third-party risk management — vendor assessments must be conducted regularly, with security controls (like email authentication) as part of the criteria','Vulnerability management — vendor systems should have been scanned','Business continuity planning — vendor failure should be in the BCP'],
+        correct: 1,
+        explanation: 'Third-party risk management (TPRM) requires ongoing assessment—not a one-time review. Vendors change, and their security posture degrades without attention. A current TPRM program would have assessed this vendor\'s email security controls (SPF, DKIM, DMARC), potentially flagging the spoofing risk. Remediation should include: annual or risk-tiered reassessments, contractual security requirements for vendors, and vendor monitoring tools.'
+      },
+      {
+        scenario: 'Post-breach analysis shows that a phishing simulation conducted 6 months before the breach had a 34% click rate among employees. No follow-up training was mandated for those who clicked.',
+        stem: 'What does this indicate about Meridian\'s security awareness program, and what should have happened after a 34% click rate?',
+        options: ['The simulation was successful — 66% didn\'t click, which is above industry average','The 34% click rate is a critical metric indicating program failure — clickers should have received immediate targeted training and the simulation should have been repeated to measure improvement','Phishing simulations are not effective — the program should switch to policy enforcement only','The click rate is acceptable for a first simulation — no action needed until a second baseline is established'],
+        correct: 1,
+        explanation: 'A 34% phishing simulation click rate is a significant finding. Industry benchmarks put well-trained organizations under 10%. The purpose of a simulation isn\'t just to measure—it\'s to improve. Clickers should be automatically enrolled in targeted training. The simulation should be repeated to measure the impact of training. Results should be reported to leadership. Security awareness programs that don\'t close the loop on high click rates are measuring failure, not fixing it.'
+      },
+    ]
+  },
+];
+
+/* ════════════════════════════════════════════════════════════════
+   STATE & LOCALSTORAGE
+════════════════════════════════════════════════════════════════ */
+const STORAGE_KEY = 'vantage_point_v1';
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return defaultState();
+    return JSON.parse(raw);
+  } catch(e) { return defaultState(); }
+}
+
+function defaultState() {
+  return {
+    caseProgress: {
+      ALPHA: { briefingDone: false, evidenceFlipped: [], interviewAnswers: [], score: null },
+      BRAVO: { briefingDone: false, evidenceFlipped: [], interviewAnswers: [], score: null },
+      CHARLIE: { briefingDone: false, evidenceFlipped: [], interviewAnswers: [], score: null },
+      DELTA: { briefingDone: false, evidenceFlipped: [], interviewAnswers: [], score: null },
+      ECHO: { briefingDone: false, evidenceFlipped: [], interviewAnswers: [], score: null },
+    }
+  };
+}
+
+function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE)); }
+
+let STATE = loadState();
+
+// Ensure all case keys exist (upgrade safety)
+CASES.forEach(c => {
+  if (!STATE.caseProgress[c.id]) {
+    STATE.caseProgress[c.id] = { briefingDone: false, evidenceFlipped: [], interviewAnswers: [], score: null };
+  }
+});
+
+/* ════════════════════════════════════════════════════════════════
+   SCREEN NAVIGATION
+════════════════════════════════════════════════════════════════ */
+let currentCaseIdx = 0;
+let currentTab = 0;
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function goHub() { renderHub(); showScreen('hub'); }
+
+function openCase(idx) {
+  currentCaseIdx = idx;
+  currentTab = 0;
+  renderCaseScreen(idx);
+  showScreen('caseScreen');
+}
+
+function openFinal() {
+  if (!allCasesComplete()) return;
+  renderFinalReport();
+  showScreen('finalScreen');
+}
+
+function switchTab(n) {
+  currentTab = n;
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', i===n));
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===n));
+  window.scrollTo(0,0);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   HELPERS
+════════════════════════════════════════════════════════════════ */
+function allCasesComplete() {
+  return CASES.every(c => STATE.caseProgress[c.id].score !== null);
+}
+
+function isCaseLocked(idx) {
+  if (idx === 0) return false;
+  return STATE.caseProgress[CASES[idx-1].id].score === null;
+}
+
+function caseStatus(id) {
+  const p = STATE.caseProgress[id];
+  if (p.score !== null) return 'completed';
+  if (p.briefingDone || p.evidenceFlipped.length > 0 || p.interviewAnswers.length > 0) return 'open';
+  return 'locked'; // won't show as locked if accessible
+}
+
+function overallPct() {
+  const done = CASES.filter(c => STATE.caseProgress[c.id].score !== null).length;
+  return Math.round((done / CASES.length) * 100);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   HUB RENDER
+════════════════════════════════════════════════════════════════ */
+function renderHub() {
+  const pct = overallPct();
+  document.getElementById('overallBar').style.width = pct + '%';
+  document.getElementById('overallPct').textContent = pct + '% complete';
+
+  const grid = document.getElementById('caseGrid');
+  grid.innerHTML = '';
+
+  CASES.forEach((c, idx) => {
+    const locked = isCaseLocked(idx);
+    const cp = STATE.caseProgress[c.id];
+    const done = cp.score !== null;
+    const div = document.createElement('div');
+    div.className = 'case-card' + (done ? ' completed' : '') + (locked ? ' locked' : '');
+    div.onclick = locked ? null : () => openCase(idx);
+    div.style.setProperty('--case-color', c.color);
+
+    let badgeHTML = '';
+    if (locked) badgeHTML = '<span class="badge badge-locked">🔒 LOCKED</span>';
+    else if (done) badgeHTML = '<span class="badge badge-done">✓ COMPLETE</span>';
+    else badgeHTML = '<span class="badge badge-open">● OPEN</span>';
+
+    let scoreHTML = done ? `<span class="score-mini">${Math.round(cp.score)}% scored</span>` : '';
+
+    div.innerHTML = `
+      <div class="case-card-inner">
+        <div class="case-header">
+          <div class="case-id">CASE FILE ${c.id}</div>
+          <div class="case-weight">${c.weight}% OF EXAM</div>
+        </div>
+        <div class="case-name">${c.name}</div>
+        <div class="case-desc">${c.domain}</div>
+        <div class="case-footer">${badgeHTML}${scoreHTML}</div>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+
+  const fc = document.getElementById('finalCard');
+  if (allCasesComplete()) {
+    fc.classList.remove('locked');
+    fc.querySelector('.final-title').innerHTML = '<i class="bi bi-file-earmark-text"></i> FINAL INCIDENT REPORT';
+  } else {
+    fc.classList.add('locked');
+    fc.querySelector('.final-title').innerHTML = '<i class="bi bi-file-earmark-text"></i> FINAL INCIDENT REPORT';
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   CASE SCREEN RENDER
+════════════════════════════════════════════════════════════════ */
+function renderCaseScreen(idx) {
+  const c = CASES[idx];
+  const cp = STATE.caseProgress[c.id];
+
+  document.getElementById('caseTopbarTitle').textContent = `CASE FILE ${c.id}`;
+  document.getElementById('csId').textContent = `CASE FILE ${c.id} — ${c.weight}% OF EXAM`;
+  document.getElementById('csTitle').textContent = c.name;
+  document.getElementById('csDomain').textContent = c.domain;
+
+  // Reset tabs
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', i===0));
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===0));
+
+  // Briefing
+  document.getElementById('briefingBody').innerHTML = c.briefing;
+
+  // Evidence Locker
+  renderFlipCards(c, cp);
+
+  // Interview Room
+  renderQuestions(c, cp);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   FLIP CARDS
+──────────────────────────────────────────────────────────────── */
+function renderFlipCards(c, cp) {
+  const grid = document.getElementById('flipGrid');
+  grid.innerHTML = '';
+  const flipped = new Set(cp.evidenceFlipped);
+
+  c.terms.forEach((term, i) => {
+    const card = document.createElement('div');
+    card.className = 'flip-card' + (flipped.has(i) ? ' flipped' : '');
+    card.onclick = () => flipCard(card, c.id, i, c.terms.length);
+    card.innerHTML = `
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="flip-term">${term.term}</div>
+          <div class="flip-hint">tap to reveal</div>
+        </div>
+        <div class="flip-back">
+          <div class="flip-def">${term.def}</div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  updateEvidenceProgress(c.id, c.terms.length);
+}
+
+function flipCard(card, caseId, idx, total) {
+  card.classList.toggle('flipped');
+  const cp = STATE.caseProgress[caseId];
+  const set = new Set(cp.evidenceFlipped);
+  if (card.classList.contains('flipped')) set.add(idx);
+  else set.delete(idx);
+  cp.evidenceFlipped = Array.from(set);
+  saveState();
+  updateEvidenceProgress(caseId, total);
+}
+
+function updateEvidenceProgress(caseId, total) {
+  const cp = STATE.caseProgress[caseId];
+  const count = cp.evidenceFlipped.length;
+  document.getElementById('evidenceProgress').textContent = `${count} / ${total} revealed`;
+  const btn = document.getElementById('evidenceNext');
+  if (count >= total) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+}
+
+/* ────────────────────────────────────────────────────────────────
+   QUESTIONS
+──────────────────────────────────────────────────────────────── */
+function renderQuestions(c, cp) {
+  const container = document.getElementById('questionContainer');
+  container.innerHTML = '';
+
+  // If already completed
+  if (cp.score !== null) {
+    showDomainComplete(c, cp);
+    return;
+  }
+
+  const answered = cp.interviewAnswers.length;
+  document.getElementById('qCounter').textContent = `Q${answered + 1} of ${c.questions.length}`;
+
+  c.questions.forEach((q, qi) => {
+    const block = document.createElement('div');
+    block.className = 'q-block' + (qi === answered ? ' active' : '');
+    block.id = `qblock-${qi}`;
+
+    const isAnswered = qi < answered;
+    const userAnswer = isAnswered ? cp.interviewAnswers[qi] : null;
+
+    let optHTML = q.options.map((opt, oi) => {
+      let cls = '';
+      if (isAnswered) {
+        if (oi === q.correct) cls = ' correct';
+        else if (oi === userAnswer) cls = ' wrong';
+      }
+      return `<button class="q-opt${cls}" ${isAnswered ? 'disabled' : ''} onclick="answerQ(${qi}, ${oi}, ${q.correct}, this)">${opt}</button>`;
+    }).join('');
+
+    const expCls = isAnswered ? (userAnswer === q.correct ? 'show' : 'show wrong-exp') : '';
+    const expLabel = isAnswered ? (userAnswer === q.correct ? '<div class="exp-label correct-label">✓ CORRECT</div>' : '<div class="exp-label wrong-label">✗ INCORRECT</div>') : '';
+    const nextShow = isAnswered ? 'show' : '';
+
+    block.innerHTML = `
+      ${q.scenario ? `<div class="q-scenario">${q.scenario}</div>` : ''}
+      <div class="q-stem">${q.stem}</div>
+      <div class="q-options">${optHTML}</div>
+      <div class="q-explanation ${expCls}" id="exp-${qi}">${expLabel}${q.explanation}</div>
+      <button class="q-next ${nextShow}" onclick="nextQ(${qi}, ${c.questions.length})" id="qnext-${qi}">
+        ${qi < c.questions.length - 1 ? 'NEXT QUESTION →' : 'CLOSE CASE FILE ✓'}
+      </button>
+    `;
+    container.appendChild(block);
+  });
+
+  document.getElementById('domainComplete').classList.remove('show');
+  document.getElementById('domainComplete').style.display = '';
+}
+
+function answerQ(qi, selected, correct, btn) {
+  // disable all options
+  const block = document.getElementById(`qblock-${qi}`);
+  block.querySelectorAll('.q-opt').forEach((b, oi) => {
+    b.disabled = true;
+    if (oi === correct) b.classList.add('correct');
+    else if (oi === selected) b.classList.add('wrong');
+  });
+
+  // show explanation
+  const exp = document.getElementById(`exp-${qi}`);
+  const correct_ans = selected === correct;
+  exp.classList.add('show');
+  if (!correct_ans) exp.classList.add('wrong-exp');
+  exp.innerHTML = `<div class="exp-label ${correct_ans ? 'correct-label' : 'wrong-label'}">${correct_ans ? '✓ CORRECT' : '✗ INCORRECT'}</div>${CASES[currentCaseIdx].questions[qi].explanation}`;
+
+  // show next button
+  document.getElementById(`qnext-${qi}`).classList.add('show');
+
+  // save answer
+  const c = CASES[currentCaseIdx];
+  const cp = STATE.caseProgress[c.id];
+  if (cp.interviewAnswers.length === qi) {
+    cp.interviewAnswers.push(selected);
+    saveState();
+  }
+
+  document.getElementById('qCounter').textContent = `Q${qi + 1} of ${c.questions.length}`;
+}
+
+function nextQ(qi, total) {
+  const c = CASES[currentCaseIdx];
+  if (qi + 1 >= total) {
+    finalizeDomain(c);
+    return;
+  }
+  document.getElementById(`qblock-${qi}`).classList.remove('active');
+  const next = document.getElementById(`qblock-${qi+1}`);
+  if (next) {
+    next.classList.add('active');
+    document.getElementById('qCounter').textContent = `Q${qi + 2} of ${total}`;
+    window.scrollTo(0,0);
+  }
+}
+
+function finalizeDomain(c) {
+  const cp = STATE.caseProgress[c.id];
+  const answers = cp.interviewAnswers;
+  const correct = answers.filter((a, i) => a === c.questions[i].correct).length;
+  const score = Math.round((correct / c.questions.length) * 100);
+  cp.score = score;
+  saveState();
+  showDomainComplete(c, cp);
+
+  // Unlock next case
+  const idx = CASES.findIndex(x => x.id === c.id);
+  if (idx + 1 < CASES.length) CASES[idx + 1].locked = false;
+}
+
+function showDomainComplete(c, cp) {
+  document.getElementById('questionContainer').innerHTML = '';
+  document.getElementById('qCounter').textContent = '';
+  const dc = document.getElementById('domainComplete');
+  dc.classList.add('show');
+  dc.style.display = '';
+  const correct = cp.interviewAnswers.filter((a, i) => a === c.questions[i].correct).length;
+  document.getElementById('completeScore').textContent = `${cp.score}%`;
+  document.getElementById('completeDetail').textContent = `${correct} of ${c.questions.length} correct`;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   FINAL REPORT
+════════════════════════════════════════════════════════════════ */
+function renderFinalReport() {
+  document.getElementById('reportDate').textContent = new Date().toLocaleDateString('en-US', { month:'2-digit', day:'2-digit', year:'numeric' }).replace(/\//g, '-');
+
+  // Weighted score
+  let totalWeightedScore = 0;
+  let totalWeightedCorrect = 0;
+  let totalWeightedPossible = 0;
+
+  CASES.forEach(c => {
+    const cp = STATE.caseProgress[c.id];
+    if (cp.score === null) return;
+    const correct = cp.interviewAnswers.filter((a, i) => a === c.questions[i].correct).length;
+    totalWeightedCorrect += correct * c.weight;
+    totalWeightedPossible += c.questions.length * c.weight;
+  });
+
+  const weightedPct = totalWeightedPossible > 0 ? Math.round((totalWeightedCorrect / totalWeightedPossible) * 100) : 0;
+  const totalCorrect = CASES.reduce((sum, c) => {
+    const cp = STATE.caseProgress[c.id];
+    if (!cp.interviewAnswers) return sum;
+    return sum + cp.interviewAnswers.filter((a, i) => a === c.questions[i].correct).length;
+  }, 0);
+  const totalQ = CASES.reduce((sum, c) => sum + c.questions.length, 0);
+
+  document.getElementById('totalPct').textContent = weightedPct + '%';
+  document.getElementById('totalFraction').textContent = `${totalCorrect} of ${totalQ} questions correct`;
+
+  const passBadge = document.getElementById('passBadge');
+  const passing = weightedPct >= 75;
+  passBadge.innerHTML = `<span class="pass-badge ${passing ? 'pass' : 'fail'}">${passing ? '✓ PASSING — READY FOR THE EXAM' : '↻ KEEP STUDYING — REVIEW WEAK DOMAINS'}</span>`;
+
+  // Domain scores
+  const ds = document.getElementById('domainScores');
+  ds.innerHTML = '';
+  CASES.forEach(c => {
+    const cp = STATE.caseProgress[c.id];
+    const pct = cp.score !== null ? cp.score : 0;
+    const color = pct >= 75 ? 'var(--green)' : pct >= 50 ? 'var(--amber)' : 'var(--red)';
+    const correct = cp.interviewAnswers ? cp.interviewAnswers.filter((a, i) => a === c.questions[i].correct).length : 0;
+    const row = document.createElement('div');
+    row.className = 'domain-score-row';
+    row.innerHTML = `
+      <div class="ds-header">
+        <div class="ds-name">${c.domain}</div>
+        <div class="ds-pct" style="color:${color}">${pct}%</div>
+      </div>
+      <div class="ds-track"><div class="ds-fill" style="width:${pct}%;background:${color}"></div></div>
+      <div class="ds-meta">${correct}/${c.questions.length} correct — ${c.weight}% of exam weight</div>
+    `;
+    ds.appendChild(row);
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RESET
+════════════════════════════════════════════════════════════════ */
+function resetConfirm() {
+  if (!confirm('Reset all progress and start over?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  STATE = defaultState();
+  CASES.forEach((c, i) => { c.locked = i > 0; });
+  goHub();
+}
+
+/* ════════════════════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════════════════════ */
+// Re-derive lock states from saved progress
+CASES.forEach((c, i) => {
+  if (i === 0) { c.locked = false; return; }
+  c.locked = STATE.caseProgress[CASES[i-1].id].score === null;
+});
+
+renderHub();
+</script>
+</body>
+</html>
