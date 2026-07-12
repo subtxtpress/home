@@ -1468,7 +1468,7 @@
   </div>
 
   <!-- STEP 52: Afternoon Judy at corn crib -->
-  <div class="step" data-step="52" data-border="var(--c-other)" data-focus="corn-crib,austin-home,adams-home" data-clock="">
+  <div class="step" data-step="52" data-border="var(--c-other)" data-clock="">
     <div class="step-time">Afternoon</div>
     <div class="step-title">Judy feeds the horses</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> Judy Evans</div>
@@ -1480,7 +1480,7 @@
   </div>
 
   <!-- STEP 53: Gooch Road evidence -->
-  <div class="step" data-step="53" data-border="var(--c-evid)" data-focus="underwear-find,paper-find,austin-home" data-max-zoom="17" data-clock="">
+  <div class="step" data-step="53" data-border="var(--c-evid)" data-clock="">
     <div class="step-time">Late afternoon</div>
     <div class="step-title">A trail on Gooch Road</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> Gerald Stephens</div>
@@ -1497,7 +1497,7 @@
   </div>
 
   <!-- STEP 54: Clint's handwritten statement -->
-  <div class="step" data-step="54" data-border="var(--c-evid)" data-focus="bobo-home" data-clock="|APRIL 13, 2011">
+  <div class="step" data-step="54" data-border="var(--c-evid)" data-clock="|APRIL 13, 2011">
     <div class="step-time">April 13, 2011</div>
     <div class="step-title">Clint's handwritten statement</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
@@ -1505,7 +1505,7 @@
   </div>
 
   <!-- STEP 55: TBI lab personnel clear the scene -->
-  <div class="step" data-step="55" data-border="var(--c-evid)" data-focus="bobo-home" data-clock="2:00 AM|APRIL 14, 2011">
+  <div class="step" data-step="55" data-border="var(--c-evid)" data-clock="2:00 AM|APRIL 14, 2011">
     <div class="step-time">~2:00 AM on April 14, 2011</div>
     <div class="step-title">TBI lab personnel clear the scene</div>
     <p><strong>2:00 AM: </strong>Eighteen hours after Clint's 911 call, TBI lab personnel finish processing the carport. They take the blood, the surrounding evidence, and leave.</p>
@@ -2680,7 +2680,36 @@ const STEPS = {
       pendingTimeouts.push(t2);
     }
   },
-  // 52–55: data-focus steps
+  52: {
+    bounds: [[35.800, -88.135], [35.828, -88.075]],
+    action() {
+      drawPOI('corn-crib', { pos: 'above', gap: 10 });
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+      drawPOI('adams-home', { pos: 'right', gap: 10 });
+    }
+  },
+  53: {
+    center: [35.807, -88.121], zoom: 16,
+    action() {
+      drawPOI('underwear-find', { pos: 'above', gap: 10 });
+      drawPOI('paper-find', { pos: 'above', gap: 10 });
+      drawPOI('austin-home', { pos: 'right', gap: 10 });
+    }
+  },
+  54: {
+    center: BOBO_HOME, zoom: 15,
+    action() {
+      setClock('', 'APRIL 13, 2011');
+      drawPOI('bobo-home', { pos: 'right', gap: 10 });
+    }
+  },
+  55: {
+    center: BOBO_HOME, zoom: 15,
+    action() {
+      setClock('2:00 AM', 'APRIL 14, 2011');
+      drawPOI('bobo-home', { pos: 'right', gap: 10 });
+    }
+  },
   56: {
     center: [35.78, -88.08], zoom: 10,
     action() {
@@ -2703,7 +2732,7 @@ const STEPS = {
       setClock('', '2011 – 2014');
       const evidItems = KML_DATA.evidence.filter(e => e.name && e.name !== 'Untitled placemark');
       const evidConfig = {
-        0: { pos: 'left',  label: "HOLLY'S HOME" },
+        0: { pos: 'left',  label: "HOLLY'S HOME", gap: 10 },
         1: { pos: 'right', label: 'LUNCHBOX · GRAVES PROPERTY' },
         2: { offset: [-0.025, 0.04], label: 'NURSING PAPERS · YELLOW SPRINGS' },
         3: { offset: [-0.04, 0.04],  label: 'RECEIPT' },
@@ -2742,7 +2771,7 @@ const STEPS = {
       setClock('', 'SEPTEMBER 7, 2014');
       const m = makeDot(REMAINS_SITE, COLORS.evid, 10, true);
       activeMarkers.push(m);
-      const lb = makeLabel(REMAINS_SITE, 'REMAINS FOUND', COLORS.evid, 'above', 10);
+      const lb = makeLabel(REMAINS_SITE, 'REMAINS FOUND', COLORS.evid, 'above', 16);
       activeMarkers.push(lb);
       const austinD = makeDot(AUSTIN_HOME, COLORS.other, 5, false);
       activeMarkers.push(austinD);
@@ -2818,7 +2847,7 @@ const STEPS = {
       setClock('', 'MARCH — APRIL 2011');
       const m = makeDot(BRITT_HOME, COLORS.britt, 9, false);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT RESIDENCE', COLORS.britt, 'above');
+      const lb = makeLabel(BRITT_HOME, 'BRITT RESIDENCE', COLORS.britt, 'above', 10);
       activeMarkers.push(lb);
       const purchases = [
         { text: 'MAR 11–12: NEW PHONES', delay: 600 },
@@ -2831,7 +2860,7 @@ const STEPS = {
           const color = i === 3 ? '#ff4444' : COLORS.britt;
           const note = makeLabel(
             [BRITT_HOME[0] - 0.006 - (i * 0.005), BRITT_HOME[1]],
-            p.text, color, 'below'
+            p.text, color, 'below', 10
           );
           activeMarkers.push(note);
         }, p.delay);
@@ -2846,11 +2875,11 @@ const STEPS = {
       setClock('', 'INVESTIGATION');
       const m = makeDot(BRITT_HOME, COLORS.britt, 8, false);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT', COLORS.britt, 'right');
+      const lb = makeLabel(BRITT_HOME, 'BRITT', COLORS.britt, 'right', 10);
       activeMarkers.push(lb);
       const bm = makeDot(BOBO_HOME, COLORS.holly, 7, false);
       activeMarkers.push(bm);
-      const bml = makeLabel(BOBO_HOME, 'CLINT: 80% SURE — BRITT\'S VOICE', COLORS.holly, 'below');
+      const bml = makeLabel(BOBO_HOME, 'CLINT: 80% SURE — BRITT\'S VOICE', COLORS.holly, 'below', 10);
       activeMarkers.push(bml);
       const line = L.polyline([BRITT_HOME, BOBO_HOME], {
         color: COLORS.britt, weight: 1.5, opacity: 0.4, dashArray: '6,4'
@@ -2858,7 +2887,7 @@ const STEPS = {
       activeMarkers.push(line);
       const midLat = (BRITT_HOME[0] + BOBO_HOME[0]) / 2;
       const midLng = (BRITT_HOME[1] + BOBO_HOME[1]) / 2;
-      const distLabel = makeLabel([midLat, midLng], '~6 MILES', COLORS.britt, 'right');
+      const distLabel = makeLabel([midLat, midLng], '~6 MILES', COLORS.britt, 'right', 10);
       activeMarkers.push(distLabel);
     }
   },
@@ -2869,7 +2898,7 @@ const STEPS = {
       setClock('', 'GEOGRAPHIC CENTER');
       const m = makeDot(BRITT_HOME, COLORS.britt, 10, true);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'TERRY BRITT', COLORS.britt, 'right');
+      const lb = makeLabel(BRITT_HOME, 'TERRY BRITT', COLORS.britt, 'right', 10);
       activeMarkers.push(lb);
       KML_DATA.evidence.forEach(item => {
         if (item.features && item.features[0]) {
@@ -2884,7 +2913,7 @@ const STEPS = {
       });
       const ab = makeDot(BOBO_HOME, COLORS.holly, 6, false);
       activeMarkers.push(ab);
-      const abl = makeLabel(BOBO_HOME, 'ABDUCTION', COLORS.holly, 'below');
+      const abl = makeLabel(BOBO_HOME, 'ABDUCTION', COLORS.holly, 'below', 10);
       activeMarkers.push(abl);
       const abLine = L.polyline([BRITT_HOME, BOBO_HOME], {
         color: COLORS.britt, weight: 1, opacity: 0.2, dashArray: '3,5'
@@ -2892,7 +2921,7 @@ const STEPS = {
       activeMarkers.push(abLine);
       const rm = makeDot(REMAINS_SITE, COLORS.evid, 6, false);
       activeMarkers.push(rm);
-      const rml = makeLabel(REMAINS_SITE, 'REMAINS', COLORS.evid, 'above');
+      const rml = makeLabel(REMAINS_SITE, 'REMAINS', COLORS.evid, 'above', 10);
       activeMarkers.push(rml);
       const rmLine = L.polyline([BRITT_HOME, REMAINS_SITE], {
         color: COLORS.britt, weight: 1, opacity: 0.2, dashArray: '3,5'
@@ -2901,7 +2930,7 @@ const STEPS = {
       const za = makeDot(ADAMS_HOME, COLORS.zach, 5, false);
       za.setStyle({ opacity: 0.5, fillOpacity: 0.3 });
       activeMarkers.push(za);
-      const zal = makeLabel(ADAMS_HOME, 'ZACH ADAMS', COLORS.zach, 'right');
+      const zal = makeLabel(ADAMS_HOME, 'ZACH ADAMS', COLORS.zach, 'right', 10 );
       activeMarkers.push(zal);
     }
   },
