@@ -1357,7 +1357,7 @@
   </div>
 
   <!-- STEP 44: 11:04-11:07 AM Am Farm surveillance -->
-  <div class="step" data-step="44" data-border="var(--c-zach)" data-focus="bobo-home" data-clock="11:04 AM">
+  <div class="step" data-step="44" data-border="var(--c-zach)" data-clock="11:04 AM">
     <div class="step-time">11:04 – 11:07 AM</div>
     <div class="step-title">AM Farm surveillance</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
@@ -1377,7 +1377,7 @@
     <div class="step-time">11:12 AM</div>
     <div class="step-title">ATM video</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
-    <p><strong>11:12 AM: </strong>Adams' phone pings a tower near the CB;S Bank ATM. Surveillance footage from that ATM is later introduced at trial.</p>
+    <p><strong>11:12 AM: </strong>Adams' phone pings a tower near the CB&amp;S Bank ATM. Surveillance footage from that ATM is later introduced at trial.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">CB'S Bank ATM</span></div>
       <div class="loc-pill"><span class="dot" style="background:#a17ec2"></span><span class="who">Shayne</span> <span class="where">home/on home tower</span></div>
@@ -1386,7 +1386,7 @@
   </div>
 
   <!-- STEP 46: ~Noon Shayne's house -->
-  <div class="step" data-step="46" data-border="var(--c-zach)" data-focus="austin-home,adams-home" data-clock="12:00 PM">
+  <div class="step" data-step="46" data-border="var(--c-zach)" data-clock="12:00 PM">
     <div class="step-time">~12:00 PM</div>
     <div class="step-title">Noon at Shayne's</div>
     <div class="person-pill"><span class="dot" style="background:#a17ec2"></span> Shayne Austin</div>
@@ -1437,7 +1437,7 @@
   </div>
 
   <!-- STEP 50: ~2:30 PM AT Dottie's -->
-  <div class="step" data-step="50" data-border="var(--c-zach)" data-focus="dottie,adams-home,austin-home" data-clock="2:30 PM">
+  <div class="step" data-step="50" data-border="var(--c-zach)" data-clock="2:30 PM">
     <div class="step-time">2:30 – 3:00 PM</div>
     <div class="step-title">At Dottie's</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
@@ -1672,7 +1672,10 @@ const POI = {
   'autry-residence': { coord: [36.022526, -88.069439],      color: '#4A8FB8', label: "AUTRY (WITH GIRLFRIEND)", pos: 'below' },
   'autry-home':      { coord: [35.8166, -88.127187],         color: '#57B0DC', label: 'JASON AUTRY', pos: 'left' },
   'holiday-tower':   { coord: [35.8449259, -88.0894732],    color: '#FFD23F', label: 'HOLIDAY/YELLOW SPRINGS TOWER', coverage: 3500, pos: 'above' },
-  'shiloh-tower':    { coord: [35.815967, -88.205831],      color: '#B8C0CC', label: 'SHILOH RD SECTOR TOWER', coverage: 3500, pos: 'left' }
+  'shiloh-tower':    { coord: [35.815967, -88.205831],      color: '#B8C0CC', label: 'SHILOH RD SECTOR TOWER', coverage: 3500, pos: 'left' },
+  'birdsong-tower':  { coord: [35.8670476, -87.9716572],    color: '#FFD23F', label: 'BIRDSONG TOWER', pos: 'above', gap: 10 },
+  'am-farm':         { coord: [35.6771, -88.1700],           color: '#E63946', label: 'AM FARM RD CAMERA', pos: 'left', gap: 10 },
+  'densmore':        { coord: [35.81870, -88.13937],         color: '#8E9AAF', label: 'VICTOR DENSMORE', pos: 'below' }
 };
 
 // Timeline coordinates extracted from KML_DATA
@@ -2534,27 +2537,26 @@ const STEPS = {
       setClock('9:42 AM');
       const za = makeDot(TIMELINE.za_0942, COLORS.zach, 8, false);
       activeMarkers.push(za);
-      const zl = makeLabel(TIMELINE.za_0942, 'ZA 9:42 AM', COLORS.zach, 'above', 10);
+      const zl = makeLabel(TIMELINE.za_0942, 'ZACK ADAMS', COLORS.zach, 'above', 10);
       activeMarkers.push(zl);
       const ja = makeDot(TIMELINE.ja_0942, COLORS.autry, 8, false);
       activeMarkers.push(ja);
-      const jl = makeLabel(TIMELINE.ja_0942, 'JA 9:42 AM', COLORS.autry, 'below', 10);
+      const jl = makeLabel(TIMELINE.ja_0942, 'JASON AUTRY', COLORS.autry, 'below', 10);
       activeMarkers.push(jl);
       showBrittGhost();
     }
   },
   41: {
-    center: [35.82, -88.05], zoom: 11,
+    center: [35.868, -87.960], zoom: 13,
     action() {
       setClock('9:42 AM');
-      const tower = L.circleMarker([35.872, -87.945], {
-        radius: 10, fillColor: COLORS.tower, color: COLORS.tower,
-        weight: 1.5, opacity: 0.4, fillOpacity: 0.12
-      }).addTo(map);
-      activeMarkers.push(tower);
+      const bt = makeDot(POI['birdsong-tower'].coord, '#FFD23F', 8, false);
+      activeMarkers.push(bt);
+      const bl = makeLabel(POI['birdsong-tower'].coord, 'BIRDSONG TOWER', '#FFD23F', 'left', 55);
+      activeMarkers.push(bl);
       const za = makeDot(TIMELINE.za_0950, COLORS.zach, 8, true);
       activeMarkers.push(za);
-      const zl = makeLabel(TIMELINE.za_0950, 'ZACH ADAMS · BIRDSONG EAST', COLORS.zach, 'above', 10);
+      const zl = makeLabel(TIMELINE.za_0950, 'ZACH ADAMS · EAST', COLORS.zach, 'above', 15);
       activeMarkers.push(zl);
       const ja = makeDot(TIMELINE.ja_0942, COLORS.autry, 8, false);
       activeMarkers.push(ja);
@@ -2564,17 +2566,16 @@ const STEPS = {
     }
   },
   42: {
-    center: [35.82, -88.05], zoom: 11,
+    center: [35.868, -87.968], zoom: 13,
     action() {
       setClock('10:35 AM');
-      const tower = L.circleMarker([35.875, -87.96], {
-        radius: 10, fillColor: COLORS.tower, color: COLORS.tower,
-        weight: 1.5, opacity: 0.4, fillOpacity: 0.12
-      }).addTo(map);
-      activeMarkers.push(tower);
+      const bt = makeDot(POI['birdsong-tower'].coord, '#FFD23F', 8, false);
+      activeMarkers.push(bt);
+      const bl = makeLabel(POI['birdsong-tower'].coord, 'BIRDSONG TOWER', '#FFD23F', 'left', 55);
+      activeMarkers.push(bl);
       const za = makeDot(TIMELINE.za_1035, COLORS.zach, 8, true);
       activeMarkers.push(za);
-      const zl = makeLabel(TIMELINE.za_1035, 'ZACH ADAMS · BIRDSONG WEST', COLORS.zach, 'above', 10);
+      const zl = makeLabel(TIMELINE.za_1035, 'ZACH ADAMS · WEST', COLORS.zach, 'above', 15);
       activeMarkers.push(zl);
       const ja = makeDot(TIMELINE.ja_1037, COLORS.autry, 8, false);
       ja.setStyle({ opacity: 0.5, fillOpacity: 0.3 });
@@ -2585,106 +2586,95 @@ const STEPS = {
     }
   },
   43: {
-    center: [35.80, -88.13], zoom: 11,
+    bounds: [[35.810, -88.100], [35.880, -87.960]],
     action() {
       setClock('10:38 AM');
-      const birdsong = [35.87, -87.95];
-      const line = L.polyline([birdsong, TIMELINE.za_1038], {
-        color: COLORS.zach, weight: 1.5, opacity: 0.3, dashArray: '6,4'
-      }).addTo(map);
-      activeMarkers.push(line);
-      const m = makeDot(TIMELINE.za_1038, COLORS.zach, 8, true);
-      activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.za_1038, 'ZA HOME TOWER', COLORS.zach, 'right', 20);
-      activeMarkers.push(lb);
+      const towerCoord = drawPOI('birdsong-tower', { pos: 'left', gap: 55});
+      const homeCoord = drawPOI('adams-home', { pos: 'right', gap: 10 });
+      drawLine(towerCoord, homeCoord, '~7 MI', [0, 0.005]);
       showBrittGhost();
     }
   },
-  // 44: data-focus (bobo-home,atm)
+  44: {
+    bounds: [[35.660, -88.200], [35.840, -88.065]],
+    action() {
+      setClock('11:04 AM');
+      const camCoord = drawPOI('am-farm', { pos: 'below', gap: 10 });
+      const homeCoord = drawPOI('adams-home', { pos: 'right', gap: 10 });
+      drawLine(camCoord, homeCoord, '~11 MI', [0, 0.005]);
+      showBrittGhost();
+    }
+  },
   45: {
-    center: [35.73, -88.14], zoom: 11,
+    bounds: [[35.645, -88.190], [35.695, -88.110]],
     action() {
       setClock('11:12 AM');
-      const m = makeDot(TIMELINE.za_1112, COLORS.zach, 8, true);
-      activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.za_1112, 'CB&S BANK ATM', COLORS.zach, 'right', 10);
-      activeMarkers.push(lb);
+      const camCoord = drawPOI('am-farm', { pos: 'above', gap: 10 });
+      const towerCoord = drawPOI('atm', { label: 'CR 1257 TOWER (ATM AREA)', pos: 'right', gap: 10 });
+      drawLine(camCoord, towerCoord, '~3 MI', [0, 0.005]);
       showBrittGhost();
     }
   },
-  // 46: data-focus (austin-home,adams-home)
+  46: {
+    bounds: [[35.795, -88.135], [35.860, -88.075]],
+    action() {
+      setClock('12:00 PM');
+      const homeCoord = drawPOI('austin-home', { pos: 'below', gap: 10 });
+      const towerCoord = drawPOI('holiday-tower', { pos: 'right', gap: 10 });
+      drawLine(homeCoord, towerCoord, '~3 MI', [0, 0.005]);
+      showBrittGhost();
+    }
+  },
   47: {
-    bounds: [BRITT_HOME, TIMELINE.hb_0925, REMAINS_SITE],
+    center: BRITT_HOME, zoom: 14,
     action() {
       setClock('12:17 PM', 'APRIL 13, 2011');
-      const m = makeDot(BRITT_HOME, COLORS.britt, 9, true);
-      activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT RESIDENCE', COLORS.britt, 'above', 10);
-      activeMarkers.push(lb);
-      const t1 = setTimeout(() => {
-        const call1 = makeLabel([BRITT_HOME[0] - 0.008, BRITT_HOME[1] + 0.005],
-          '12:17 PM — EX-WIFE CALLS', COLORS.britt, 'below');
-        activeMarkers.push(call1);
-      }, 800);
-      pendingTimeouts.push(t1);
-      const t2 = setTimeout(() => {
-        const call2 = makeLabel([BRITT_HOME[0] - 0.014, BRITT_HOME[1] + 0.005],
-          '12:20 PM — CALLS JANET (2:56)', COLORS.britt, 'below');
-        activeMarkers.push(call2);
-      }, 1600);
-      pendingTimeouts.push(t2);
+      drawPOI('britt-home', { pos: 'above', gap: 10 });
     }
   },
   48: {
-    center: [35.73, -88.14], zoom: 11,
+    bounds: [[35.648, -88.135], [35.840, -88.070]],
     action() {
       setClock('12:35 PM');
-      const m = makeDot(TIMELINE.za_1235, COLORS.zach, 8, true);
-      activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.za_1235, 'ZA 12:35 PM — LAST', COLORS.zach, 'right', 10);
-      activeMarkers.push(lb);
+      const towerCoord = drawPOI('atm', { label: 'CR 1257 TOWER', pos: 'right', gap: 10 });
+      const homeCoord = drawPOI('adams-home', { pos: 'right', gap: 10 });
+      drawLine(towerCoord, homeCoord, '~11 MI', [0, 0.005]);
       showBrittGhost();
     }
   },
   49: {
-    bounds: [BRITT_HOME, TIMELINE.hb_0925, REMAINS_SITE],
+    center: BRITT_HOME, zoom: 14,
     action() {
       setClock('1:45 PM');
-      const m = makeDot(BRITT_HOME, COLORS.britt, 9, false);
-      activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT — NO ONE HOME', COLORS.britt, 'right', 10);
-      activeMarkers.push(lb);
-      const ring = L.circleMarker(BRITT_HOME, {
-        radius: 18, fillColor: 'transparent', color: '#ff4444',
-        weight: 1.5, opacity: 0.5, fillOpacity: 0
-      }).addTo(map);
-      activeMarkers.push(ring);
-      const t1 = setTimeout(() => {
-        const note = makeLabel([BRITT_HOME[0] - 0.004, BRITT_HOME[1]],
-          '3 VEHICLES MISSING', '#ff4444', 'below');
-        activeMarkers.push(note);
-      }, 800);
-      pendingTimeouts.push(t1);
+      drawPOI('britt-home', { pos: 'right', gap: 10, label: 'BRITT — NO ONE HOME' });
     }
   },
-  // 50: data-focus (dottie,adams-home,austin-home)
+  50: {
+    bounds: [POI['dottie'].coord, ADAMS_HOME, AUSTIN_HOME],
+    action() {
+      setClock('2:30 PM');
+      drawPOI('dottie', { pos: 'left', gap: 35 });
+      drawPOI('adams-home', { pos: 'right', gap: 10 });
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+    }
+  },
   51: {
     bounds: [BRITT_HOME, TIMELINE.hb_0925, REMAINS_SITE],
     action() {
       setClock('3:00 – 3:30 PM');
       const m = makeDot(BRITT_HOME, COLORS.britt, 9, true);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT — RETURNS HOME', COLORS.britt, 'right', 10);
+      const lb = makeLabel(BRITT_HOME, 'BRITT — RETURNS HOME', COLORS.britt, 'right', 20);
       activeMarkers.push(lb);
       const t1 = setTimeout(() => {
         const note = makeLabel([BRITT_HOME[0] - 0.004, BRITT_HOME[1]],
-          'UNLOADS BATHTUB', '#ff4444', 'below');
+          'UNLOADS BATHTUB', '#ff4444', 'below', 5);
         activeMarkers.push(note);
       }, 700);
       pendingTimeouts.push(t1);
       const t2 = setTimeout(() => {
         const note = makeLabel([BRITT_HOME[0] - 0.007, BRITT_HOME[1]],
-          'HANDWRITTEN RECEIPT — NO STORE COPY', COLORS.britt, 'below');
+          'HANDWRITTEN RECEIPT — NO STORE COPY', COLORS.britt, 'below', 10);
         activeMarkers.push(note);
       }, 1800);
       pendingTimeouts.push(t2);
@@ -2752,15 +2742,15 @@ const STEPS = {
       setClock('', 'SEPTEMBER 7, 2014');
       const m = makeDot(REMAINS_SITE, COLORS.evid, 10, true);
       activeMarkers.push(m);
-      const lb = makeLabel(REMAINS_SITE, 'REMAINS FOUND', COLORS.evid, 'above');
+      const lb = makeLabel(REMAINS_SITE, 'REMAINS FOUND', COLORS.evid, 'above', 10);
       activeMarkers.push(lb);
       const austinD = makeDot(AUSTIN_HOME, COLORS.other, 5, false);
       activeMarkers.push(austinD);
-      const al = makeLabel(AUSTIN_HOME, 'AUSTIN (~3 mi)', COLORS.other, 'right');
+      const al = makeLabel(AUSTIN_HOME, 'AUSTIN (~3 mi)', COLORS.other, 'right', 10);
       activeMarkers.push(al);
       const adamsD = makeDot(ADAMS_HOME, COLORS.zach, 5, false);
       activeMarkers.push(adamsD);
-      const adl = makeLabel(ADAMS_HOME, 'ADAMS (~5 mi)', COLORS.zach, 'right');
+      const adl = makeLabel(ADAMS_HOME, 'ADAMS (~5 mi)', COLORS.zach, 'right', 10);
       activeMarkers.push(adl);
       const line1 = L.polyline([REMAINS_SITE, AUSTIN_HOME], {
         color: COLORS.other, weight: 1, opacity: 0.3, dashArray: '4,6'
