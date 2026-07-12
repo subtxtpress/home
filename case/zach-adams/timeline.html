@@ -2213,78 +2213,97 @@ const STEPS = {
       activeMarkers.push(L.marker(mid, { icon: distIcon, interactive: false }).addTo(map));
     }
   },
-  // 11: data-focus (bobo-home,barnes-home)
-  12: {
-    center: BOBO_HOME, zoom: 15,
+  11: {
+    bounds: [BOBO_HOME, BARNES_HOME],
     action() {
-      setClock('7:05 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 8, false);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly, 'above', 10);
-      activeMarkers.push(lb);
+      const a = drawPOI('bobo-home', { pos: 'right', gap: 10});
+      const b = drawPOI('barnes-home', { pos: 'right', gap: 10});
+      drawLine(a, b, '~750 FT');
     }
   },
-  // 13: data-focus (adams-home,austin-home,dick-adams)
-  // 14: data-focus (bobo-home,bath-springs)
+  12: {
+    bounds: [BOBO_HOME, POI['bath-springs'].coord],
+    action() {
+      setClock('7:05 AM');
+      const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
+      const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      drawLine(a, b, '~15 MI');
+    }
+  },
+  13: {
+    bounds: [BOBO_HOME, ADAMS_HOME],
+    action() {
+      setClock('7:15 AM');
+      const a = drawPOI('bobo-home', { pos: 'below', gap: 10});
+      const b = drawPOI('dick-adams', { pos: 'above', gap: 10});
+      drawLine(a, b, '~15 MI');
+    }
+  },
+  14: {
+    bounds: [BOBO_HOME, POI['bath-springs'].coord, SCOTTS_HILL_ELEM],
+    action() {
+      setClock('7:18 AM');
+      const a = drawPOI('bobo-home', { pos: 'right', gap: 10});
+      const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      const s = drawPOI('scotts-hill', { pos: 'left', gap: 95});
+      drawLine(a, b, '~15 MI');
+      drawLine(s, b, '~7 MI');
+    }
+  },
   15: {
-    center: BOBO_HOME, zoom: 14,
+    bounds: [BOBO_HOME, POI['bath-springs'].coord],
     action() {
       setClock('7:33 AM', null, true);
-      const m = makeDot(BOBO_HOME, COLORS.holly, 10, true);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly, 'above', 10);
-      activeMarkers.push(lb);
+      const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
+      const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      drawLine(a, b, '~15 MI');
     }
   },
   16: {
-    center: BOBO_HOME, zoom: 15,
+    bounds: [SCOTTS_HILL_ELEM, POI['bath-springs'].coord],
     action() {
       setClock('7:33 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 8, false);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly, 'above', 10);
-      activeMarkers.push(lb);
+      const a = drawPOI('scotts-hill', { pos: 'above', gap: 10});
+      const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      drawLine(a, b, '~7 MI');
     }
   },
   17: {
-    center: BOBO_HOME, zoom: 15,
+    bounds: [BOBO_HOME, POI['bath-springs'].coord],
     action() {
       setClock('7:33 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 10, true);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'LAST CALL', COLORS.holly, 'below', 10);
-      activeMarkers.push(lb);
+      const a = drawPOI('bobo-home', { label: 'LAST CALL', pos: 'above', gap: 10});
+      const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      drawLine(a, b, '~15 MI');
     }
   },
   18: {
-    center: [35.678, -88.1747], zoom: 15,
+    bounds: [BOBO_HOME, POI['bath-springs'].coord, BARNES_HOME],
     action() {
       setClock('7:40 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 8, true);
-      activeMarkers.push(m);
-      const lbHome = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly);
-      activeMarkers.push(lbHome);
-      const b = makeDot(BARNES_HOME, COLORS.other, 7, false);
-      activeMarkers.push(b);
-      const lb = makeLabel(BARNES_HOME, 'BARNES/WISE', COLORS.other, 'below');
-      activeMarkers.push(lb);
-      const proxLine = L.polyline([BOBO_HOME, BARNES_HOME], {
-        color: '#ffffff', weight: 1, opacity: 0.35, dashArray: '3,5'
-      }).addTo(map);
-      activeMarkers.push(proxLine);
+      const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
+      const bs = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      const bn = drawPOI('barnes-home', { pos: 'left', gap: 50});
+      drawLine(a, bs, '~15 MI');
+      drawLine(a, bn, '~750 FT');
     }
   },
   19: {
-    center: BOBO_HOME, zoom: 14,
+    bounds: [BOBO_HOME, POI['bath-springs'].coord],
     action() {
       setClock('7:41 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 8, false);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly);
-      activeMarkers.push(lb);
+      const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
+      const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      drawLine(a, b, '~15 MI');
     }
   },
-  // 20: data-focus (bobo-home,scotts-hill,barnes-home)
+  20: {
+    center: SCOTTS_HILL_ELEM, zoom: 14,
+    action() {
+      setClock('7:45 AM');
+      drawPOI('scotts-hill', { pos: 'below', gap: 10});
+    }
+  },
   21: {
     center: [35.796, -88.130], zoom: 13,
     action() {
@@ -2292,7 +2311,7 @@ const STEPS = {
       const foodGiant = [35.7955, -88.1287];
       const m = makeDot(foodGiant, COLORS.drew, 8, false);
       activeMarkers.push(m);
-      const lb = makeLabel(foodGiant, 'FOOD GIANT · PARSONS', COLORS.drew, 'right');
+      const lb = makeLabel(foodGiant, 'FOOD GIANT · PARSONS', COLORS.drew, 'right', 10);
       activeMarkers.push(lb);
     }
   },
