@@ -318,13 +318,56 @@
       margin: -2px 0 12px; 
       text-transform: uppercase;
     }
-    .step .person-pill {
-      display: inline-flex; 
-      align-items: center; 
-      gap: 5px;
-      font-family: var(--mono); 
+    /* Embed (click-to-load iframe) */
+    .step-embed {
+      margin: 14px 0 6px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #000;
+    }
+    .step-embed iframe { display:block; width:100%; height:420px; border:none; }
+    .embed-placeholder {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; height: 48px; cursor: pointer;
+      transition: background 0.2s; user-select: none;
+    }
+    .embed-placeholder:hover { background: rgba(255,255,255,0.06); }
+    .embed-placeholder svg { width:12px; height:12px; fill:var(--muted); flex-shrink:0; }
+    .embed-placeholder:hover svg { fill:var(--text); }
+    .embed-placeholder span {
+      font-family: var(--mono); font-size:10px;
+      letter-spacing:0.06em; color:var(--muted); text-transform:uppercase;
+    }
+    .embed-placeholder:hover span { color:var(--text2); }
+    .embed-caption {
+      font-family: var(--mono); font-size:10px;
+      color:var(--muted); letter-spacing:0.04em;
+      margin: 4px 0 10px;
+    }
+    .stmt-excerpt {
+      border-left: 2px solid var(--c-evid, #4a8a7c);
+      padding: 6px 10px;
+      margin: 10px 0;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--text2);
+    }
+    .stmt-note {
+      font-family: var(--mono);
       font-size: 10px;
-      letter-spacing: 0.06em; 
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin: -6px 0 10px 12px;
+    }
+    .step .person-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
       padding: 3px 10px;
       border-radius: 12px; 
       margin-bottom: 12px;
@@ -938,7 +981,7 @@
   </div>
 
   <!-- STEP 20: ~7:45 AM A message at the school -->
-  <div class="step" data-step="20" data-border="var(--c-holly)" data-clock="7:45 AM">
+  <div class="step" data-step="20" data-border="var(--c-holly)" data-clock="7:41 AM">
     <div class="step-time">~7:41 AM - 7:47 AM</div>
     <div class="step-title">A message at the school</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-Kathy)"></span> Kathy Wise</div>
@@ -995,20 +1038,6 @@
     </div>
   </div>
 
-  <!-- STEP 23: 7:59 AM -->
-  <div class="step" data-step="23" data-border="var(--c-holly)" data-clock="7:59 AM">
-    <div class="step-time">7:59 AM</div>
-    <div class="step-title">911 — en route</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
-    <p><strong>7:59 AM: </strong>While in the car, Karen uses Brumley's phone to call 911 and initially reaches the wrong county's dispatcher before getting routed to Decatur County.</p>
-    <p>Fellow teacher Terry Brumley drives Karen out of the school parking lot and heads toward the Bobo home.</p>
-    <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">home/on phone</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ en route home/on phone</span></div>
-    </div>
-  </div>
-
   <!-- STEP 24: ~7:55 AM Wider and heavier than Drew -->
   <div class="step" data-step="24" data-border="var(--c-holly)" data-clock="7:56 AM">
     <div class="step-time">~7:56 – 7:59 AM</div>
@@ -1037,6 +1066,20 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">carport window</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ en route home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">home sector (phone)</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 23: 7:59 AM -->
+  <div class="step" data-step="23" data-border="var(--c-holly)" data-clock="7:59 AM">
+    <div class="step-time">7:59 AM</div>
+    <div class="step-title">911 — en route</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
+    <p><strong>7:59 AM: </strong>While in the car, Karen uses Brumley's phone to call 911 and initially reaches the wrong county's dispatcher before getting routed to Decatur County.</p>
+    <p>Fellow teacher Terry Brumley drives Karen out of the school parking lot and heads toward the Bobo home.</p>
+    <div class="loc-strip">
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">home/on phone</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ en route home/on phone</span></div>
     </div>
   </div>
 
@@ -1465,7 +1508,27 @@
     <div class="step-time">April 13, 2011</div>
     <div class="step-title">Clint's handwritten statement</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
-    <p>Statement excerpts</p>
+    <p>Clint wrote this statement the same day Holly disappeared. Four passages define what the investigation had to work with.</p>
+
+    <div class="stmt-excerpt">"I lifted the blinds slightly and could see the partial shoulders and arms of two individuals kneeled down facing each other."</div>
+    <div class="stmt-note">What he saw — partial, from behind glass</div>
+
+    <div class="stmt-excerpt">"His voice sounded the same as Drew's voice sounds when him and Holly are in Holly's room and I am in my room at night."</div>
+    <div class="stmt-note">Why he did not call 911 immediately</div>
+
+    <div class="stmt-excerpt">"I walked toward the back door and saw two people walking toward the woods together. They both seemed to be holding hands. The male had on full camo and the female had on a pink T-shirt and blue jeans."</div>
+    <div class="stmt-note">The only physical description of the male</div>
+
+    <div class="stmt-excerpt">"My neighbor Cathy got out of the truck and stated that her husband heard screams about 15 or 20 minutes ago. I immediately called 911 at that point."</div>
+    <div class="stmt-note">What finally triggered the 911 call</div>
+
+    <div class="step-embed">
+      <div class="embed-placeholder" data-src="assets/2011-04-13-clint-bobo-handwritten-statement.pdf" data-height="420px">
+        <svg viewBox="0 0 16 16"><path d="M4 0h8l4 4v12H0V0h4zm7 1v3h3L11 1zM2 14h12V5h-4V1H2v13zm2-5h8v1H4v-1zm0 2h6v1H4v-1zm0-4h3v1H4V7z"/></svg>
+        <span>View handwritten statement — PDF</span>
+      </div>
+    </div>
+    <div class="embed-caption">Clint Bobo — handwritten statement — 04-13-2011</div>
   </div>
 
   <!-- STEP 55: TBI lab personnel clear the scene -->
@@ -2256,7 +2319,7 @@ const STEPS = {
   20: {
     bounds: [SCOTTS_HILL_ELEM, BOBO_HOME, BARNES_HOME, POI['scott-home'].coord],
     action() {
-      setClock('7:45 AM');
+      setClock('7:41 AM');
       const k = drawPOI('scotts-hill', { pos: 'below', gap: 10 });
       const a = drawPOI('bobo-home', { pos: 'right', gap: 10 });
       const bn = drawPOI('barnes-home', { pos: 'left', gap: 10 });
@@ -2279,7 +2342,7 @@ const STEPS = {
   22: {
     bounds: [BOBO_HOME, SCOTTS_HILL_ELEM, POI['scott-home'].coord],
     action() {
-      setClock('8:00 AM');
+      setClock('7:51 AM');
       const a = drawPOI('bobo-home', { pos: 'right', gap: 10 });
       const s = drawPOI('scotts-hill', { label: 'KAREN · SCOTTS HILL', color: '#E6C567', pos: 'below', gap: 10 });
       drawPOI('scott-home', { label: 'DREW · SCOTT HOME', color: '#5DA39E', pos: 'below', gap: 10 });
@@ -2289,7 +2352,7 @@ const STEPS = {
   23: {
     bounds: [BOBO_HOME, SCOTTS_HILL_ELEM, POI['scott-home'].coord],
     action() {
-      setClock('8:02 AM');
+      setClock('7:59 AM');
       const a = drawPOI('bobo-home', { pos: 'right', gap: 10 });
       const s = drawPOI('scotts-hill', { label: 'KAREN · EN ROUTE', color: '#E6C567', pos: 'below', gap: 10 });
       drawPOI('scott-home', { label: 'DREW · SCOTT HOME', color: '#5DA39E', pos: 'below', gap: 10 });
@@ -2299,7 +2362,7 @@ const STEPS = {
   24: {
     center: BOBO_HOME, zoom: 15,
     action() {
-      setClock('8:03 AM');
+      setClock('7:56 AM');
       drawPOI('bobo-home', { pos: 'above', gap: 10});
     }
   },
@@ -2521,7 +2584,7 @@ const STEPS = {
   41: {
     center: [35.868, -87.960], zoom: 13,
     action() {
-      setClock('9:42 AM');
+      setClock('9:50 AM');
       const bt = makeDot(POI['birdsong-tower'].coord, '#FFD23F', 8, false);
       activeMarkers.push(bt);
       const bl = makeLabel(POI['birdsong-tower'].coord, 'BIRDSONG TOWER', '#FFD23F', 'left', 55);
@@ -2655,6 +2718,7 @@ const STEPS = {
   52: {
     bounds: [[35.800, -88.135], [35.828, -88.075]],
     action() {
+      setClock('', 'APRIL 13, 2011');
       drawPOI('corn-crib', { pos: 'above', gap: 10 });
       drawPOI('austin-home', { pos: 'below', gap: 10 });
       drawPOI('adams-home', { pos: 'right', gap: 10 });
@@ -2663,6 +2727,7 @@ const STEPS = {
   53: {
     center: [35.807, -88.121], zoom: 16,
     action() {
+      setClock('', 'APRIL 13, 2011');
       drawPOI('underwear-find', { pos: 'above', gap: 10 });
       drawPOI('paper-find', { pos: 'above', gap: 10 });
       drawPOI('austin-home', { pos: 'right', gap: 10 });
@@ -3096,6 +3161,17 @@ setTimeout(() => {
     currentStep = 0;
   }
 }, 300);
+
+// Click-to-load embeds
+document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
+  ph.addEventListener('click', function() {
+    var iframe = document.createElement('iframe');
+    iframe.src = ph.dataset.src;
+    iframe.allow = 'autoplay';
+    iframe.style.cssText = 'display:block;width:100%;height:' + (ph.dataset.height || '60px') + ';border:none;';
+    ph.parentNode.replaceChild(iframe, ph);
+  });
+});
 </script>
 </body>
 </html>
