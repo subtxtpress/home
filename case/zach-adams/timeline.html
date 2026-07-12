@@ -2090,12 +2090,12 @@ function drawPOI(key, overrides = {}) {
 }
 
 // drawLine(coordA, coordB, label) — dotted white line + optional midpoint label.
-function drawLine(a, b, label) {
+function drawLine(a, b, label, labelOffset = [0, 0]) {
   activeMarkers.push(L.polyline([a, b], {
     color: '#ffffff', weight: 1, opacity: 0.45, dashArray: '3,6'
   }).addTo(map));
   if (label) {
-    const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+    const mid = [(a[0] + b[0]) / 2 + labelOffset[0], (a[1] + b[1]) / 2 + labelOffset[1]];
     const icon = L.divIcon({
       className: '',
       html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;letter-spacing:0.08em;white-space:nowrap;padding:2px 4px;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000,0 0 6px rgba(0,0,0,0.9);transform:translate(-50%,-50%);pointer-events:none;">${label}</div>`,
@@ -2136,7 +2136,7 @@ const STEPS = {
     action() {
       const a = drawPOI('bobo-home', { pos: 'below', gap: 10 });
       const b = drawPOI('home-tower', { pos: 'below', gap: 10});
-      drawLine(a, b, '3.1 MI');
+      drawLine(a, b, '3.1 MI', [0.001, 0]);
     }
   },
   4: {
@@ -2144,7 +2144,7 @@ const STEPS = {
     action() {
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   5: {
@@ -2152,7 +2152,7 @@ const STEPS = {
     action() {
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   6: {
@@ -2162,7 +2162,7 @@ const STEPS = {
       const b = drawPOI('adams-home', { pos: 'above', gap: 10});
       drawPOI('austin-home', { pos: 'left', gap: 45});
       drawPOI('dick-adams', { pos: 'right', gap: 15});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   7: {
@@ -2170,7 +2170,7 @@ const STEPS = {
     action() {
       const a = drawPOI('bobo-home', { pos: 'below', gap: 10});
       const b = drawPOI('mckenzie-tree', { pos: 'below', gap: 10});
-      drawLine(a, b, '4.9 MI');
+      drawLine(a, b, '4.9 MI', [0.001, 0]);
     }
   },
   8: {
@@ -2178,7 +2178,7 @@ const STEPS = {
     action() {
       const a = drawPOI('camden-tower', { pos: 'right', gap: 10});
       const b = drawPOI('holiday-tower', { pos: 'right', gap: 10});
-      drawLine(a, b, '~14 MI');
+      drawLine(a, b, '~14 MI', [0, 0.005]);
     }
   },
   9: {
@@ -2192,25 +2192,9 @@ const STEPS = {
     bounds: [BOBO_HOME, SCOTTS_HILL_ELEM],
     action() {
       setClock('7:01 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 7, false);
-      activeMarkers.push(m);
-      const lbHome = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly, 'above', 10);
-      activeMarkers.push(lbHome);
-      const s = makeDot(SCOTTS_HILL_ELEM, COLORS.karen, 8, true);
-      activeMarkers.push(s);
-      const slb = makeLabel(SCOTTS_HILL_ELEM, 'KAREN → SCOTTS HILL', COLORS.karen, 'below', 15);
-      activeMarkers.push(slb);
-      const refLine = L.polyline([BOBO_HOME, SCOTTS_HILL_ELEM], {
-        color: '#ffffff', weight: 1, opacity: 0.45, dashArray: '3,6'
-      }).addTo(map);
-      activeMarkers.push(refLine);
-      const mid = [(BOBO_HOME[0]+SCOTTS_HILL_ELEM[0])/2, (BOBO_HOME[1]+SCOTTS_HILL_ELEM[1])/2];
-      const distIcon = L.divIcon({
-        className: '',
-        html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;letter-spacing:0.08em;white-space:nowrap;padding:2px 4px;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000,0 0 6px rgba(0,0,0,0.9);transform:translate(-50%,-50%);pointer-events:none;">12 MI</div>`,
-        iconSize: [0,0], iconAnchor: [0,0]
-      });
-      activeMarkers.push(L.marker(mid, { icon: distIcon, interactive: false }).addTo(map));
+      const a = drawPOI('bobo-home', { pos: 'above', gap: 10 });
+      const b = drawPOI('scotts-hill', { label: 'KAREN → SCOTTS HILL', color: '#5DA39E', pos: 'below', gap: 15 });
+      drawLine(a, b, '~12 MI', [0, 0.005]);
     }
   },
   11: {
@@ -2218,7 +2202,7 @@ const STEPS = {
     action() {
       const a = drawPOI('bobo-home', { pos: 'right', gap: 10});
       const b = drawPOI('barnes-home', { pos: 'right', gap: 10});
-      drawLine(a, b, '~750 FT');
+      drawLine(a, b, '~750 FT', [0, 0.00005]);
     }
   },
   12: {
@@ -2227,7 +2211,7 @@ const STEPS = {
       setClock('7:05 AM');
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   13: {
@@ -2236,7 +2220,7 @@ const STEPS = {
       setClock('7:15 AM');
       const a = drawPOI('bobo-home', { pos: 'below', gap: 10});
       const b = drawPOI('dick-adams', { pos: 'above', gap: 10});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   14: {
@@ -2246,8 +2230,8 @@ const STEPS = {
       const a = drawPOI('bobo-home', { pos: 'right', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
       const s = drawPOI('scotts-hill', { pos: 'left', gap: 95});
-      drawLine(a, b, '~15 MI');
-      drawLine(s, b, '~7 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
+      drawLine(s, b, '~7 MI', [0.005, 0]);
     }
   },
   15: {
@@ -2256,7 +2240,7 @@ const STEPS = {
       setClock('7:33 AM', null, true);
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   16: {
@@ -2265,7 +2249,7 @@ const STEPS = {
       setClock('7:33 AM');
       const a = drawPOI('scotts-hill', { pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      drawLine(a, b, '~7 MI');
+      drawLine(a, b, '~7 MI', [0.002, 0]);
     }
   },
   17: {
@@ -2274,7 +2258,7 @@ const STEPS = {
       setClock('7:33 AM');
       const a = drawPOI('bobo-home', { label: 'LAST CALL', pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   18: {
@@ -2283,9 +2267,9 @@ const STEPS = {
       setClock('7:40 AM');
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const bs = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      const bn = drawPOI('barnes-home', { pos: 'left', gap: 50});
-      drawLine(a, bs, '~15 MI');
-      drawLine(a, bn, '~750 FT');
+      const bn = drawPOI('barnes-home', { pos: 'left', gap: 45});
+      drawLine(a, bs, '~15 MI', [0, 0.005]);
+      drawLine(a, bn, '~750 FT', [0, 0.01]);
     }
   },
   19: {
@@ -2294,7 +2278,7 @@ const STEPS = {
       setClock('7:41 AM');
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
-      drawLine(a, b, '~15 MI');
+      drawLine(a, b, '~15 MI', [0, 0.005]);
     }
   },
   20: {
@@ -3011,9 +2995,10 @@ function handleStepEnter(response) {
   }
 
   // Execute action after a brief delay to let fly start
-  setTimeout(() => {
+  const tid = setTimeout(() => {
     if (cfg.action) cfg.action();
   }, 400);
+  pendingTimeouts.push(tid);
 }
 
 // Init scrollama
