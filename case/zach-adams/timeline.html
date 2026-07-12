@@ -1670,7 +1670,9 @@ const POI = {
   'bath-springs':    { coord: [35.4685833, -88.1248667],    color: '#5DA39E', label: 'BATH SPRINGS' },
   'camden-tower':    { coord: [36.0160773, -88.0379963],    color: '#7B8FA1', label: 'CAMDEN TOWER', coverage: 3500, pos: 'right' },
   'autry-residence': { coord: [36.022526, -88.069439],      color: '#4A8FB8', label: "AUTRY (WITH GIRLFRIEND)", pos: 'below' },
-  'holiday-tower':   { coord: [35.8449259, -88.0894732],    color: '#FFD23F', label: 'HOLIDAY/YELLOW SPRINGS TOWER', coverage: 3500, pos: 'above' }
+  'autry-home':      { coord: [35.8166, -88.127187],         color: '#57B0DC', label: 'JASON AUTRY', pos: 'left' },
+  'holiday-tower':   { coord: [35.8449259, -88.0894732],    color: '#FFD23F', label: 'HOLIDAY/YELLOW SPRINGS TOWER', coverage: 3500, pos: 'above' },
+  'shiloh-tower':    { coord: [35.815967, -88.205831],      color: '#B8C0CC', label: 'SHILOH RD SECTOR TOWER', coverage: 3500, pos: 'left' }
 };
 
 // Timeline coordinates extracted from KML_DATA
@@ -1859,7 +1861,7 @@ function showRefAnchors() {
     weight: 1, opacity: 0.3, fillOpacity: 0
   }).addTo(map);
   refMarkers.push(hpRing);
-  const hpl = makeLabel(TIMELINE.hb_0925, 'HOLLY — LAST PING', COLORS.holly, 'right');
+  const hpl = makeLabel(TIMELINE.hb_0925, 'HOLLY — LAST PING', COLORS.holly, 'right', 10);
   refMarkers.push(hpl);
   // Remains site — bold and visible
   const rm = L.circleMarker(REMAINS_SITE, {
@@ -1872,7 +1874,7 @@ function showRefAnchors() {
     weight: 1, opacity: 0.3, fillOpacity: 0
   }).addTo(map);
   refMarkers.push(rmRing);
-  const rml = makeLabel(REMAINS_SITE, 'REMAINS FOUND', COLORS.evid, 'right');
+  const rml = makeLabel(REMAINS_SITE, 'REMAINS FOUND', COLORS.evid, 'right', 10);
   refMarkers.push(rml);
 }
 
@@ -2299,25 +2301,59 @@ const STEPS = {
       activeMarkers.push(lb);
     }
   },
-  // 22–26: data-focus steps
+  22: {
+    bounds: [BOBO_HOME, SCOTTS_HILL_ELEM, POI['bath-springs'].coord],
+    action() {
+      setClock('8:00 AM');
+      const a = drawPOI('bobo-home', { pos: 'right', gap: 10 });
+      const s = drawPOI('scotts-hill', { label: 'KAREN · SCOTTS HILL', color: '#E6C567', pos: 'below', gap: 10 });
+      drawPOI('bath-springs', { label: 'DREW · BATH SPRINGS', color: '#5DA39E', pos: 'below', gap: 10 });
+      drawLine(a, s, '~12 MI', [0, 0.005]);
+    }
+  },
+  23: {
+    bounds: [BOBO_HOME, SCOTTS_HILL_ELEM, POI['bath-springs'].coord],
+    action() {
+      setClock('8:02 AM');
+      const a = drawPOI('bobo-home', { pos: 'right', gap: 10 });
+      const s = drawPOI('scotts-hill', { label: 'KAREN · EN ROUTE', color: '#E6C567', pos: 'below', gap: 10 });
+      drawPOI('bath-springs', { label: 'DREW · BATH SPRINGS', color: '#5DA39E', pos: 'below', gap: 10 });
+      drawLine(a, s, '~12 MI', [0, 0.005]);
+    }
+  },
+  24: {
+    center: BOBO_HOME, zoom: 15,
+    action() {
+      setClock('8:03 AM');
+      drawPOI('bobo-home', { pos: 'above', gap: 10});
+    }
+  },
+  25: {
+    center: BOBO_HOME, zoom: 15,
+    action() {
+      drawPOI('bobo-home', { pos: 'above', gap: 10});
+    }
+  },
+  26: {
+    center: BOBO_HOME, zoom: 15,
+    action() {
+      drawPOI('bobo-home', { pos: 'above', gap: 10});
+    }
+  },
   27: {
-    center: BOBO_HOME, zoom: 13,
+    bounds: [BOBO_HOME, POI['bath-springs'].coord],
     action() {
       setClock('8:06 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 7, false);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly, 'below');
-      activeMarkers.push(lb);
+      const a = drawPOI('bobo-home', { pos: 'right', gap: 10 });
+      drawPOI('bath-springs', { label: 'DREW · BATH SPRINGS', color: '#5DA39E', pos: 'below', gap: 10 });
+      drawLine(a, POI['bath-springs'].coord, '~15 MI', [0, 0.005]);
     }
   },
   28: {
-    center: BOBO_HOME, zoom: 13,
+    center: BOBO_HOME, zoom: 14,
     action() {
       setClock('8:07 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 7, false);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'BOBO HOME', COLORS.holly, 'below');
-      activeMarkers.push(lb);
+      drawPOI('bobo-home', { pos: 'above', gap: 10});
     }
   },
   29: {
@@ -2331,7 +2367,7 @@ const STEPS = {
         opacity: 0.3, fillOpacity: 0.05, fillColor: COLORS.holly
       }).addTo(map);
       activeMarkers.push(circ);
-      const lb = makeLabel(BOBO_HOME, '911 CALLED', COLORS.holly);
+      const lb = makeLabel(BOBO_HOME, '911 CALLED', COLORS.holly, 'above', 20);
       activeMarkers.push(lb);
     }
   },
@@ -2339,10 +2375,7 @@ const STEPS = {
     center: BOBO_HOME, zoom: 14,
     action() {
       setClock('8:09 AM');
-      const m = makeDot(BOBO_HOME, COLORS.holly, 8, false);
-      activeMarkers.push(m);
-      const lb = makeLabel(BOBO_HOME, 'DEPUTY WEBER ON SCENE', COLORS.holly);
-      activeMarkers.push(lb);
+      drawPOI('bobo-home', { label: 'DEPUTY WEBER ON SCENE', gap: 10});
     }
   },
   31: {
@@ -2355,7 +2388,7 @@ const STEPS = {
       showTrail([TIMELINE.hb_0800, TIMELINE.hb_0811], COLORS.holly);
       const m = makeDot(TIMELINE.hb_0811, COLORS.holly, 8, false);
       activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.hb_0811, 'HB 8:11 AM', COLORS.holly);
+      const lb = makeLabel(TIMELINE.hb_0811, 'HB 8:11 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
       showBrittGhost();
     }
@@ -2373,12 +2406,21 @@ const STEPS = {
       showTrail(trail, COLORS.holly);
       const m = makeDot(TIMELINE.hb_0816, COLORS.holly, 8, false);
       activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.hb_0816, 'HB 8:16 AM', COLORS.holly);
+      const lb = makeLabel(TIMELINE.hb_0816, 'HB 8:16 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
       showBrittGhost();
     }
   },
-  // 33: data-focus (holiday-tower,adams-home)
+  33: {
+    center: [35.833, -88.097], zoom: 12,
+    action() {
+      setClock('8:19 AM');
+      const a = drawPOI('autry-home', { pos: 'below', gap: 10 });
+      const b = drawPOI('adams-home', { pos: 'right', gap: 10 });
+      drawPOI('holiday-tower', { pos: 'right', gap: 10 });
+      drawLine(a, b, '~2.3 MI', [0.005, 0]);
+    }
+  },
   34: {
     bounds: [TIMELINE.hb_0800, TIMELINE.hb_0826],
     action() {
@@ -2392,13 +2434,13 @@ const STEPS = {
       showTrail(trail, COLORS.holly);
       const m = makeDot(TIMELINE.hb_0826, COLORS.holly, 8, false);
       activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.hb_0826, 'HB 8:26 AM', COLORS.holly);
+      const lb = makeLabel(TIMELINE.hb_0826, 'HB 8:26 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
       showBrittGhost();
     }
   },
   35: {
-    bounds: [TIMELINE.hb_0800, TIMELINE.hb_0826],
+    bounds: [TIMELINE.hb_0800, TIMELINE.hb_0826, POI['shiloh-tower'].coord],
     action() {
       setClock('8:26 AM');
       const trail = [TIMELINE.hb_0800, TIMELINE.hb_0811, TIMELINE.hb_0816, TIMELINE.hb_0826];
@@ -2408,42 +2450,36 @@ const STEPS = {
         activeMarkers.push(d);
       });
       showTrail(trail, COLORS.holly);
-      const hlb = makeLabel(TIMELINE.hb_0826, 'HOLLY 8:26 AM', COLORS.holly, 'above');
-      activeMarkers.push(hlb);
+      activeMarkers.push(makeLabel(TIMELINE.hb_0826, 'HOLLY 8:26 AM', COLORS.holly, 'below', 10));
       const drewPin = [TIMELINE.hb_0826[0] + 0.004, TIMELINE.hb_0826[1] - 0.005];
-      const dm = makeDot(drewPin, COLORS.drew, 8, true);
-      activeMarkers.push(dm);
-      const dlb = makeLabel(drewPin, 'DREW 8:26 AM · SAME SECTOR', COLORS.drew, 'below');
-      activeMarkers.push(dlb);
+      activeMarkers.push(makeDot(drewPin, COLORS.drew, 8, true));
+      activeMarkers.push(makeLabel(drewPin, 'DREW 8:26 AM', COLORS.drew, 'right', 15));
+      const tower = drawPOI('shiloh-tower', { pos: 'left', gap: 85});
+      drawLine(drewPin, tower, '~1.4 MI', [0.015, 0]);
       showBrittGhost();
     }
   },
-  // 36: data-focus (holiday-tower,adams-home)
+  36: {
+    center: [35.833, -88.097], zoom: 12,
+    action() {
+      setClock('8:30 AM');
+      const a = drawPOI('autry-home', { pos: 'below', gap: 10 });
+      const b = drawPOI('adams-home', { pos: 'right', gap: 10 });
+      drawPOI('holiday-tower', { pos: 'right', gap: 10 });
+      drawLine(a, b, '~2.3 MI', [0.005, 0]);
+    }
+  },
   37: {
-    bounds: [[35.7600, -88.1620], [35.8550, -88.0420]],
+    center: [35.833, -88.097], zoom: 11,
     action() {
       setClock('8:57 – 9:12 AM');
-      const towerCenter = [(ADAMS_HOME[0] + TIMELINE.hb_0902[0]) / 2,
-                           (ADAMS_HOME[1] + TIMELINE.hb_0902[1]) / 2];
-      const circ = L.circle(towerCenter, {
-        radius: 4500, color: COLORS.tower, weight: 1,
-        opacity: 0.35, fillOpacity: 0.06, fillColor: COLORS.tower,
-        dashArray: '4,6'
-      }).addTo(map);
-      activeMarkers.push(circ);
-      const zd = makeDot(ADAMS_HOME, COLORS.zach, 8, false);
-      activeMarkers.push(zd);
-      const zl = makeLabel(ADAMS_HOME, 'ZACH', COLORS.zach, 'right');
-      activeMarkers.push(zl);
-      const jasonPin = [ADAMS_HOME[0] + 0.004, ADAMS_HOME[1] - 0.006];
-      const jd = makeDot(jasonPin, COLORS.autry, 8, false);
-      activeMarkers.push(jd);
-      const jl = makeLabel(jasonPin, 'JASON', COLORS.autry, 'left');
-      activeMarkers.push(jl);
-      const hd = makeDot(TIMELINE.hb_0902, COLORS.holly, 8, true);
-      activeMarkers.push(hd);
-      const hl = makeLabel(TIMELINE.hb_0902, 'HOLLY (per prosecution)', COLORS.holly, 'below');
-      activeMarkers.push(hl);
+      drawPOI('holiday-tower', { pos: 'above', gap: 10 });
+      activeMarkers.push(makeDot(ADAMS_HOME, COLORS.zach, 8, false));
+      activeMarkers.push(makeLabel(ADAMS_HOME, 'ZACH', COLORS.zach, 'right', 10));
+      activeMarkers.push(makeDot(POI['autry-home'].coord, COLORS.autry, 8, false));
+      activeMarkers.push(makeLabel(POI['autry-home'].coord, 'JASON', COLORS.autry, 'left', 25));
+      activeMarkers.push(makeDot(TIMELINE.hb_0902, COLORS.holly, 8, true));
+      activeMarkers.push(makeLabel(TIMELINE.hb_0902, 'HOLLY (per prosecution)', COLORS.holly, 'below', 15));
       showBrittGhost();
     }
   },
@@ -2463,7 +2499,7 @@ const STEPS = {
         const m = makeDot(c, COLORS.holly, 7, false);
         activeMarkers.push(m);
       });
-      const lb = makeLabel(TIMELINE.hb_0910, 'HB 9:10 AM', COLORS.holly);
+      const lb = makeLabel(TIMELINE.hb_0910, 'HB 9:10 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
       showBrittGhost();
     }
@@ -2483,11 +2519,11 @@ const STEPS = {
       const cr1257 = [35.6675014, -88.121126];
       const tm = makeDot(cr1257, '#FFD23F', 6, false);
       activeMarkers.push(tm);
-      const tl = makeLabel(cr1257, 'CR 1257 TOWER', '#FFD23F', 'right');
+      const tl = makeLabel(cr1257, 'CR 1257 TOWER', '#FFD23F', 'right', 10);
       activeMarkers.push(tl);
       const m = makeDot(TIMELINE.hb_0925, COLORS.holly, 12, true);
       activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.hb_0925, 'FINAL PING 9:25 AM', COLORS.holly);
+      const lb = makeLabel(TIMELINE.hb_0925, 'FINAL PING 9:25 AM', COLORS.holly, 'below', 20);
       activeMarkers.push(lb);
       showBrittGhost();
     }
@@ -2498,11 +2534,11 @@ const STEPS = {
       setClock('9:42 AM');
       const za = makeDot(TIMELINE.za_0942, COLORS.zach, 8, false);
       activeMarkers.push(za);
-      const zl = makeLabel(TIMELINE.za_0942, 'ZA 9:42 AM', COLORS.zach, 'above');
+      const zl = makeLabel(TIMELINE.za_0942, 'ZA 9:42 AM', COLORS.zach, 'above', 10);
       activeMarkers.push(zl);
       const ja = makeDot(TIMELINE.ja_0942, COLORS.autry, 8, false);
       activeMarkers.push(ja);
-      const jl = makeLabel(TIMELINE.ja_0942, 'JA 9:42 AM', COLORS.autry, 'below');
+      const jl = makeLabel(TIMELINE.ja_0942, 'JA 9:42 AM', COLORS.autry, 'below', 10);
       activeMarkers.push(jl);
       showBrittGhost();
     }
@@ -2518,11 +2554,11 @@ const STEPS = {
       activeMarkers.push(tower);
       const za = makeDot(TIMELINE.za_0950, COLORS.zach, 8, true);
       activeMarkers.push(za);
-      const zl = makeLabel(TIMELINE.za_0950, 'ZACH ADAMS · BIRDSONG EAST', COLORS.zach, 'above');
+      const zl = makeLabel(TIMELINE.za_0950, 'ZACH ADAMS · BIRDSONG EAST', COLORS.zach, 'above', 10);
       activeMarkers.push(zl);
       const ja = makeDot(TIMELINE.ja_0942, COLORS.autry, 8, false);
       activeMarkers.push(ja);
-      const jl = makeLabel(TIMELINE.ja_0942, 'JASON AUTRY', COLORS.autry, 'below');
+      const jl = makeLabel(TIMELINE.ja_0942, 'JASON AUTRY', COLORS.autry, 'below', 10);
       activeMarkers.push(jl);
       showBrittGhost();
     }
@@ -2538,12 +2574,12 @@ const STEPS = {
       activeMarkers.push(tower);
       const za = makeDot(TIMELINE.za_1035, COLORS.zach, 8, true);
       activeMarkers.push(za);
-      const zl = makeLabel(TIMELINE.za_1035, 'ZACH ADAMS · BIRDSONG WEST', COLORS.zach, 'above');
+      const zl = makeLabel(TIMELINE.za_1035, 'ZACH ADAMS · BIRDSONG WEST', COLORS.zach, 'above', 10);
       activeMarkers.push(zl);
       const ja = makeDot(TIMELINE.ja_1037, COLORS.autry, 8, false);
       ja.setStyle({ opacity: 0.5, fillOpacity: 0.3 });
       activeMarkers.push(ja);
-      const jl = makeLabel(TIMELINE.ja_1037, 'AUTRY · LAST PING', COLORS.autry, 'below');
+      const jl = makeLabel(TIMELINE.ja_1037, 'AUTRY · LAST PING', COLORS.autry, 'below', 10);
       activeMarkers.push(jl);
       showBrittGhost();
     }
@@ -2559,7 +2595,7 @@ const STEPS = {
       activeMarkers.push(line);
       const m = makeDot(TIMELINE.za_1038, COLORS.zach, 8, true);
       activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.za_1038, 'ZA HOME TOWER', COLORS.zach, 'right');
+      const lb = makeLabel(TIMELINE.za_1038, 'ZA HOME TOWER', COLORS.zach, 'right', 20);
       activeMarkers.push(lb);
       showBrittGhost();
     }
@@ -2571,7 +2607,7 @@ const STEPS = {
       setClock('11:12 AM');
       const m = makeDot(TIMELINE.za_1112, COLORS.zach, 8, true);
       activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.za_1112, 'CB&S BANK ATM', COLORS.zach, 'right');
+      const lb = makeLabel(TIMELINE.za_1112, 'CB&S BANK ATM', COLORS.zach, 'right', 10);
       activeMarkers.push(lb);
       showBrittGhost();
     }
@@ -2583,7 +2619,7 @@ const STEPS = {
       setClock('12:17 PM', 'APRIL 13, 2011');
       const m = makeDot(BRITT_HOME, COLORS.britt, 9, true);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT RESIDENCE', COLORS.britt, 'above');
+      const lb = makeLabel(BRITT_HOME, 'BRITT RESIDENCE', COLORS.britt, 'above', 10);
       activeMarkers.push(lb);
       const t1 = setTimeout(() => {
         const call1 = makeLabel([BRITT_HOME[0] - 0.008, BRITT_HOME[1] + 0.005],
@@ -2605,7 +2641,7 @@ const STEPS = {
       setClock('12:35 PM');
       const m = makeDot(TIMELINE.za_1235, COLORS.zach, 8, true);
       activeMarkers.push(m);
-      const lb = makeLabel(TIMELINE.za_1235, 'ZA 12:35 PM — LAST', COLORS.zach, 'right');
+      const lb = makeLabel(TIMELINE.za_1235, 'ZA 12:35 PM — LAST', COLORS.zach, 'right', 10);
       activeMarkers.push(lb);
       showBrittGhost();
     }
@@ -2616,7 +2652,7 @@ const STEPS = {
       setClock('1:45 PM');
       const m = makeDot(BRITT_HOME, COLORS.britt, 9, false);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT — NO ONE HOME', COLORS.britt, 'right');
+      const lb = makeLabel(BRITT_HOME, 'BRITT — NO ONE HOME', COLORS.britt, 'right', 10);
       activeMarkers.push(lb);
       const ring = L.circleMarker(BRITT_HOME, {
         radius: 18, fillColor: 'transparent', color: '#ff4444',
@@ -2638,7 +2674,7 @@ const STEPS = {
       setClock('3:00 – 3:30 PM');
       const m = makeDot(BRITT_HOME, COLORS.britt, 9, true);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'BRITT — RETURNS HOME', COLORS.britt, 'right');
+      const lb = makeLabel(BRITT_HOME, 'BRITT — RETURNS HOME', COLORS.britt, 'right', 10);
       activeMarkers.push(lb);
       const t1 = setTimeout(() => {
         const note = makeLabel([BRITT_HOME[0] - 0.004, BRITT_HOME[1]],
