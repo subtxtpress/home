@@ -46,22 +46,23 @@
       --text:     #F5F5F5;
       --text2:    #D8DADB;
       --muted:    rgba(216,218,219,1);
-      --c-holly:  #F4A261;
-      --c-zach:   #E63946;
-      --c-autry:  #57B0DC;
+      --c-holly:  #e1985d;
+      --c-zach:   #c65f5f;
+      --c-autry:  #69b2d7;
       --c-evid:   #EBE2CD;
-      --c-tower:  #9D4EDD;
+      --c-tower:  #9373ad;
       --c-route:  #4A8A7C;
-      --c-britt:  #D4A017;
+      --c-britt:  #dcc862;
       --c-other:  #8E9AAF;
-      --c-karen:  #E6C567;
-      --c-clint:  #7FB7D8;
+      --c-karen:  #bf8dca;
+      --c-clint:  #8ab0cf;
       --c-dana:   #8BB174;
       --c-drew:   #5DA39E;
       --c-barnes: #A8A29E;
-      --c-boo:    #7EB8B4;
+      --c-boo:    #85b1e1;
       --c-brasher:#9DB89A;
-      --c-Kathy:  #A992C2;
+      --c-Kathy:  #f7bf70;
+      --c-orange: #e4a572;
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --head: 'Barlow Condensed', sans-serif;
@@ -102,6 +103,7 @@
       font-size: 16px; 
       font-weight: 800;
       letter-spacing: 0.05em; 
+      margin-left: 1.5%;
       color: var(--text);
       flex: 1; 
       white-space: nowrap; 
@@ -109,9 +111,10 @@
       text-overflow: ellipsis;
     }
     .nav-tag {
-      background: rgba(230,57,70,0.14); 
-      border: 1px solid rgba(230,57,70,0.35);
-      color: #e07070; 
+      background: rgba(6,11,20,0.97);
+      /*border: 1px solid rgba(224, 112, 112, 0.35);
+      color: #e07070;*/
+      color: rgba(6,11,20,0.97);
       font-family: var(--mono); 
       font-size: 10px;
       padding: 2px 8px; 
@@ -128,6 +131,7 @@
       text-decoration: none; 
       letter-spacing: 0.04em;
       opacity: 0.65; 
+      margin-right: 1%;
       white-space: nowrap; 
       transition: opacity 0.15s, color 0.15s;
     }
@@ -259,7 +263,7 @@
       text-transform: uppercase;
     }
     .step-title {
-      font-family: var(--head);
+      font-family: var(--head); 
       font-size: 22px;
       font-weight: 700; 
       color: var(--text);
@@ -326,23 +330,49 @@
       overflow: hidden;
       background: #000;
     }
-    .step-embed iframe { display:block; width:100%; height:420px; border:none; }
+    .step-embed iframe { 
+      display: block; 
+      width: 100%; 
+      height: 420px; 
+      border: none; 
+    }
     .embed-placeholder {
-      display: flex; align-items: center; justify-content: center;
-      gap: 8px; height: 48px; cursor: pointer;
-      transition: background 0.2s; user-select: none;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 8px; 
+      height: 48px; 
+      cursor: pointer;
+      transition: background 0.2s; 
+      user-select: none;
     }
-    .embed-placeholder:hover { background: rgba(255,255,255,0.06); }
-    .embed-placeholder svg { width:12px; height:12px; fill:var(--muted); flex-shrink:0; }
-    .embed-placeholder:hover svg { fill:var(--text); }
+    .embed-placeholder:hover { 
+      background: rgba(255,255,255,0.06); 
+    }
+    .embed-placeholder svg { 
+      width: 12px; 
+      height: 12px; 
+      fill: var(--muted); 
+      flex-shrink: 0; 
+    }
+    .embed-placeholder:hover svg { 
+      fill: var(--text); 
+    }
     .embed-placeholder span {
-      font-family: var(--mono); font-size:10px;
-      letter-spacing:0.06em; color:var(--muted); text-transform:uppercase;
+      font-family: var(--mono); 
+      font-size: 10px;
+      letter-spacing: 0.06em; 
+      color: var(--muted); 
+      text-transform: uppercase;
     }
-    .embed-placeholder:hover span { color:var(--text2); }
+    .embed-placeholder:hover span { 
+      color: var(--text2); 
+    }
     .embed-caption {
-      font-family: var(--mono); font-size:10px;
-      color:var(--muted); letter-spacing:0.04em;
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: var(--muted); 
+      letter-spacing: 0.04em;
       margin: 4px 0 10px;
     }
     .stmt-excerpt {
@@ -448,20 +478,18 @@
     .title-card .dateline {
       font-family: var(--mono);
       font-size: 12px;
-      letter-spacing: 0.14em; 
-      color: var(--c-holly);
+      letter-spacing: 0.1em; 
+      color: var(--c-orange);
       margin-bottom: 8px; 
       text-transform: uppercase;
     }
     /* Act headers */
     .act-label {
-      font-family: var(--mono); 
-      font-size: 9px;
-      letter-spacing: 0.16em; 
-      color: var(--muted);
-      text-transform: uppercase; 
-      margin-bottom: 6px;
-      padding-top: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--c-holly);
+      margin-bottom: 8px; 
+      text-transform: uppercase;
     }
     /* ── LEAFLET OVERRIDES ── */
     .leaflet-control-attribution { 
@@ -592,7 +620,7 @@
         padding: 2px 8px; 
       }
       .act-label { 
-        font-size: 8.5px; 
+        font-size: 9.5px; 
       }
       .step-time { 
         font-size: 10px; 
@@ -669,20 +697,17 @@
 
 <!-- Basemap toggle -->
 <button id="basemap-toggle" onclick="toggleBasemap()">SATELLITE/DARK</button>
-<button id="coverage-toggle" onclick="toggleCoverage()" style="position:fixed;bottom:20px;right:180px;z-index:800;
-  font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9D4EDD;
-  background:rgba(6,11,20,0.85);border:1px solid rgba(157,78,221,0.3);
-  padding:6px 14px;border-radius:3px;cursor:pointer;letter-spacing:0.06em;
-  transition:background 0.2s;">TOWER COVERAGE</button>
+<button id="coverage-toggle" onclick="toggleCoverage()" style="position:fixed;bottom:20px;right:180px;z-index:800;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9373ad;background:rgba(6,11,20,0.85);border:1px solid rgba(147,115,173,0.3);padding:6px 14px;border-radius:3px;cursor:pointer;letter-spacing:0.06em;transition:background 0.2s;">TOWER COVERAGE</button>
 
 <!-- Narrative -->
 <div id="narrative">
 
   <!-- STEP 0: Title -->
-  <div class="step title-card" data-step="0" data-clock="|April 13, 2011">
-    <div class="dateline">April 13, 2011 &mdash; Parsons, Tennessee</div>
-    <div class="step-title">The Disappearance of Holly Bobo</div>
-    <p>On the morning of April 13, 2011, a 20-year-old nursing student was taken from her home in rural Decatur County, Tennessee, and was never seen alive again. This is the geographic story of that morning — told through cell tower pings, phone records, and physical evidence introduced at the trial of Zachary Adams.</p>
+  <div class="step title-card" data-step="0" data-clock="April 13, 2011">
+    <div class="dateline">Apr. 13, 2011&mdash;Parsons, TN</div>
+    <div class="step-title" style="font-family:var(--serif);font-size:40px;">Who Took Holly Bobo?</div>
+    <p>On the morning of April 13, 2011, a 20-year-old nursing student was taken from her home in rural Decatur County, Tennessee, and was never seen alive again.</p>
+    <p>This is the geographic story of that morning — told through cell tower pings, phone records, and physical evidence introduced at the trial of Zachary Adams.</p>
     <p style="opacity:0.7;font-size:10px;font-style:italic;">As of now, this is a <strong>living</strong> document being updated as I round up details. I will clean up the overlapping labels after sorting/mapping the last of the known info.</p>
     <div class="scroll-hint">&darr; Scroll to begin</div>
   </div>
@@ -692,10 +717,9 @@
   <!-- STEP 1: Holly is awake -->
   <div class="step" data-step="1" data-border="var(--c-holly)">
     <div class="act-label">Act I – The Morning</div>
-    <div class="step-time">~4:00 – 4:30 AM</div>
     <div class="step-title">Holly is awake</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
-    <p><strong>4:00 AM: </strong>Holly Bobo, 20, a nursing student at UT Martin &mdash; Parsons campus, is up.</p>
+    <p><strong>4:00 AM: </strong>Holly Bobo, 20, a nursing student at UT Martin&mdash;Parsons campus, is up.</p>
     <p>The Bobos live at 681 Swan Johnson Road in an unincorporated area south of Parsons — surrounded by woods, farms and quiet two-lane roads.</p>
     <figure class="step-figure">
       <img src="photos/Bobo-home/holly-room.webp" alt="Holly's bedroom" loading="lazy" />
@@ -899,11 +923,11 @@
       <li><strong>7:18:56 AM: </strong>(Drew → Holly, 0s)</li>
       <li><strong>7:19:24 AM: </strong>(Holly → Drew, 0s)</li>
       <li><strong>7:21:22 AM: </strong>(Drew → Holly, 0s)</li>
-      <li><strong>~7:21 AM: </strong>(Holly → Karen) &mdash; Holly calls Karen about the Bath Springs hunting property dispute. Karen, still in the school parking lot, works the phones to try to sort out the permission issue. The dispute had actually resolved at 5:40 AM when Brasher's presence caused Drew and "Boo" to leave — but Drew would later present it to Karen as a current, in-progress situation.</li>
+      <li><strong>~7:21 AM: </strong>(Holly → Karen)&mdash;Holly calls Karen about the Bath Springs hunting property dispute. Karen, still in the school parking lot, works the phones to try to sort out the permission issue. The dispute had actually resolved at 5:40 AM when Brasher's presence caused Drew and "Boo" to leave — but Drew would later present it to Karen as a current, in-progress situation.</li>
       <li><strong>7:25:56 AM: </strong>(Holly → Drew, 1s)</li>
       <li><strong>7:28:42 AM: </strong>(Drew → Holly, 0s)</li>
       <li><strong>7:29:30 AM: </strong>(Holly → Drew, 0s)</li>
-      <li><strong>~7:31 AM: </strong>(Karen → Drew, 94 seconds) &mdash; Drew's phone was still on Holly's home sector. Karen told him the permission issue was cleared. She then went inside the school — a few minutes late to her class — believing she had resolved an active problem and that Drew was in Bath Springs.</li>
+      <li><strong>~7:31 AM: </strong>(Karen → Drew, 94 seconds)&mdash;Drew's phone was still on Holly's home sector. Karen told him the permission issue was cleared. She then went inside the school — a few minutes late to her class — believing she had resolved an active problem and that Drew was in Bath Springs.</li>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill</span></div>
@@ -915,8 +939,7 @@
   <!-- ACT 2: THE ALARM -->
   <!-- STEP 15: 7:33 AM convergence -->
   <div class="step" data-step="15" data-border="var(--c-holly)">
-    <div class="act-label">Act II &mdash; The Alarm</div>
-    <div class="step-time">~7:33 AM</div>
+    <div class="act-label">Act II&mdash;The Alarm</div>
     <div class="step-title">A lot of things at once</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
@@ -1021,9 +1044,9 @@
     <div class="step-title">"Call me ASAP"</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
-    <p><strong>7:51 AM: </strong>Clint calls Karen &mdash; no answer.</p>
-    <p><strong>7:52 AM: </strong>Clint calls Karen &mdash; no answer.</p>
-    <p><strong>7:53 AM: </strong>The Scott household phone calls Drew (41 seconds) &mdash; Per Richie Pratt, Drew is already at work at this point.</p>
+    <p><strong>7:51 AM: </strong>Clint calls Karen&mdash;no answer.</p>
+    <p><strong>7:52 AM: </strong>Clint calls Karen&mdash;no answer.</p>
+    <p><strong>7:53 AM: </strong>The Scott household phone calls Drew (41 seconds)&mdash;Per Richie Pratt, Drew is already at work at this point.</p>
     <p><strong>7:53 AM: </strong>Clint texts Karen <em>"Call me ASAP."</em></p>
     <p><strong>7:54 AM: </strong>Drew calls Holly (0 seconds).</p>
     <p><strong>7:56 AM: </strong>Karen calls back, already alarmed by a message she'd received from Kathy Wise about screaming at the house.</p>
@@ -1170,8 +1193,7 @@
   <!-- ACT 3: HOLLY'S PHONE IS ON THE MOVE -->
   <!-- STEP 31: 8:11 AM CR 1253 -->
   <div class="step" data-step="31" data-border="var(--c-holly)">
-    <div class="act-label">Act III &mdash; Holly's Phone Is On The Move</div>
-    <div class="step-time">~8:11 AM</div>
+    <div class="act-label">Act III&mdash;Holly's Phone Is On The Move</div>
     <div class="step-title">CR 1253</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <p><strong>8:11 AM: </strong>Holly's phone hits a new tower on CR 1253. It is already moving — away from the house, headed northeast.</p>
@@ -1285,9 +1307,9 @@
   <div class="step" data-step="39" data-border="var(--c-holly)">
     <div class="step-time">9:25 AM</div>
     <div class="step-title">Final Ping</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo &mdash; LAST SIGNAL</div>
-    <p><strong>9:25 AM: </strong>Holly's phone pings the CR 1257 tower, Sector 3 &mdash; placing it in the rural wooded area off W Natchez Trace Road, near where her lunchbox and notebook would later be recovered. It is the final recorded signal her phone will ever produce.</p>
-    <p>After this, the line goes dead &mdash; permanently. The phone is either powered down or has its battery removed.</p>
+    <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo&mdash;LAST SIGNAL</div>
+    <p><strong>9:25 AM: </strong>Holly's phone pings the CR 1257 tower, Sector 3&mdash;placing it in the rural wooded area off W Natchez Trace Road, near where her lunchbox and notebook would later be recovered. It is the final recorded signal her phone will ever produce.</p>
+    <p>After this, the line goes dead&mdash;permanently. The phone is either powered down or has its battery removed.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone last ping/CR 1257 S3</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo home</span></div>
@@ -1298,8 +1320,7 @@
   <!-- ACT 4: ZACH & JASON -->
   <!-- STEP 40 9:42 AM Two phones at Birdsong -->
   <div class="step" data-step="40" data-border="var(--c-zach)">
-    <div class="act-label">Act IV &mdash; Zach &amp; Jason Appear</div>
-    <div class="step-time">9:42 AM</div>
+    <div class="act-label">Act IV&mdash;Zach &amp; Jason Appear</div>
     <div class="step-title">Two phones at Birdsong</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
@@ -1425,7 +1446,7 @@
     <div class="step-time">1:45 PM</div>
     <div class="step-title">Nobody home</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
-    <p><strong>1:45 PM: </strong>Decatur County deputies arrive at the Britt residence. No one is home. Three vehicles are gone.</p>
+    <p><strong>1:45 PM: </strong>Decatur County deputies arrive at the Britt home. No one is home. Three vehicles are gone.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-britt)"></span><span class="who">Terry Britt</span> <span class="where">whereabouts unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-britt)"></span><span class="who">Janet Britt</span> <span class="where">whereabouts unknown</span></div>
@@ -1531,7 +1552,7 @@
   <!-- ACT 5: THE SILENCE -->
   <!-- STEP 56: April 14, 2011 – September 7, 2014 -->
   <div class="step" data-step="56" data-border="var(--c-other)">
-    <div class="act-label">Act V &mdash; The Silence</div>
+    <div class="act-label">Act V&mdash;The Silence</div>
     <div class="step-time">April 14, 2011 – September 7, 2014</div>
     <div class="step-title">The gap</div>
     <p>By the early hours of April 14, the lab has cleared the carport and the searchers have gone home. No new evidence surfaces.</p>
@@ -1541,10 +1562,9 @@
   <!-- ACT 6: EVIDENCE -->
   <!-- STEP 57: 2011 – 2014 -->
   <div class="step" data-step="57" data-border="var(--c-evid)">
-    <div class="act-label">Act VI &mdash; Evidence Recovery</div>
-    <div class="step-time">2011 – 2014</div>
+    <div class="act-label">Act VI&mdash;Evidence Recovery</div>
     <div class="step-title">Evidence sites</div>
-    <p>Over the next three years, pieces of evidence surfaced across the region — Holly's lunchbox, her cell phone, a SIM card, nursing papers, and, finally, her remains.</p>
+    <p><strong>2011 – 2014: </strong>Over the next three years, pieces of evidence surfaced across the region — Holly's lunchbox, her cell phone, a SIM card, nursing papers, and, finally, her remains.</p>
     <div class="step-gallery">
       <img src="photos/evidence%20found/evidence-map.webp" alt="Map of evidence find sites" loading="lazy" />
       <img src="photos/evidence%20found/lunchbox.webp" alt="Holly's lunchbox" loading="lazy" />
@@ -1578,17 +1598,15 @@
   <!-- ACT 7: PEOPLE & PLACES -->
   <!-- STEP 59: Key locations -->
   <div class="step" data-step="59" data-border="var(--c-other)">
-    <div class="act-label">Act VII &mdash; People &amp; Places</div>
-    <div class="step-time">Key locations</div>
-    <div class="step-title">residences</div>
-    <p>The proximity of the defendants' homes to the evidence sites and tower coverage areas became one of the central pillars of the case.</p>
+    <div class="act-label">Act VII&mdash;People &amp; Places</div>
+    <div class="step-title">Residences</div>
+    <p><strong>Key locations: </strong>The proximity of the defendants' homes to the evidence sites and tower coverage areas became one of the central pillars of the case.</p>
   </div>
 
   <!-- ACT 8: THE INFORMANT -->
   <!-- STEP 60: March – April 2011 Purchases -->
   <div class="step" data-step="60" data-border="var(--c-britt)">
-    <div class="act-label">Act VIII &mdash; The Informant</div>
-    <div class="step-time">March – April 2011</div>
+    <div class="act-label">Act VIII&mdash;The Informant</div>
     <div class="step-title">Purchases</div>
     <p>In the weeks surrounding Holly's disappearance, Britt makes a striking sequence of purchases:</p>
     <p><strong>March 11–12, 2011: </strong>New phones.<br/>
@@ -1643,10 +1661,10 @@ const KML_DATA = {"major":[{"name":"Abduction Site Site","features":[{"type":"po
 
 // ═══════════════════════════════ CONFIG ═══════════════════════════════
 const COLORS = {
-  holly: '#F4A261', zach: '#E63946', autry: '#57B0DC',
-  evid: '#EBE2CD', tower: '#9D4EDD', route: '#4A8A7C', other: '#8E9AAF',
-  britt: '#D4A017',
-  karen: '#E6C567', clint: '#7FB7D8', cathy: '#A992C2',
+  holly: '#e1985d', zach: '#c65f5f', autry: '#69b2d7',
+  evid: '#EBE2CD', tower: '#9373ad', route: '#4A8A7C', other: '#8E9AAF',
+  britt: '#dcc862', boo: '#85b1e1',
+  karen: '#bf8dca', clint: '#57B0DC', cathy: '#f7bf70',
   barnes: '#A8A29E', drew: '#5DA39E', dana: '#8BB174', shayne: '#a17ec2'
 };
 
@@ -1662,13 +1680,13 @@ const MCKENZIE_TREE = [35.6790194, -88.1179278];
 
 // POI registry — sub-steps reference these via data-focus="key1,key2"
 const POI = {
-  'bobo-home':       { coord: BOBO_HOME,                    color: '#F4A261', label: 'Bobo home' },
+  'bobo-home':       { coord: BOBO_HOME,                    color: '#e1985d', label: 'Bobo home' },
   'home-tower':      { coord: [35.6674972, -88.1211444],    color: '#F4A261', label: 'Home sector tower', coverage: 5500, pos: 'right', gap: 14 },
   'barnes-home':     { coord: BARNES_HOME,                  color: '#A8A29E', label: 'Barnes/Wise home', pos: 'below' },
   'scotts-hill':     { coord: SCOTTS_HILL_ELEM,             color: '#E6C567', label: 'Scotts Hill Middle School' },
-  'adams-home':      { coord: ADAMS_HOME,                   color: '#E63946', label: 'Zach Adams home' },
+  'adams-home':      { coord: ADAMS_HOME,                   color: '#b05c5c', label: 'Zach Adams home' },
   'austin-home':     { coord: AUSTIN_HOME,                  color: '#a17ec2', label: 'Shayne Austin home', pos: 'below' },
-  'britt-home':      { coord: BRITT_HOME,                   color: '#D4A017', label: 'Terry Britt residence' },
+  'britt-home':      { coord: BRITT_HOME,                   color: '#D4A017', label: 'Terry Britt home' },
   'mckenzie-tree':   { coord: MCKENZIE_TREE,                color: '#8BB174', label: 'McKenzie Tree Service', pos: 'below' },
   'remains':         { coord: REMAINS_SITE,                 color: '#EBE2CD', label: 'Remains' },
   'atm':             { coord: ATM_LOC,                      color: '#E63946', label: 'CB&S Bank ATM' },
@@ -1720,6 +1738,34 @@ const TIMELINE = {
   za_1235: [35.6575014, -88.121126]
 };
 
+// ── Persistent marker config — nudge coord / label / pos / gap / radius here ──
+const PERSISTENT = {
+  'holly-last-ping': {
+    coord:  TIMELINE.hb_0925,
+    color:  COLORS.holly,
+    label:  'Holly — last ping',
+    pos:    'right',
+    gap:    10,
+    radius: 8
+  },
+  'remains-site': {
+    coord:  REMAINS_SITE,
+    color:  COLORS.evid,
+    label:  'Remains found',
+    pos:    'right',
+    gap:    10,
+    radius: 8
+  },
+  'britt-ghost': {
+    coord:  BRITT_HOME,
+    color:  COLORS.britt,
+    label:  'Britt — Silent',
+    pos:    'right',
+    gap:    12,
+    radius: 4
+  }
+};
+
 // ═══════════════════════════════ MAP INIT ═══════════════════════════════
 const satTiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri', maxZoom: 19
@@ -1768,30 +1814,30 @@ const TOWER_LABELS = {
   'ATT 084458 - 39079':    'ATT-39079'
 };
 
-// Color palette per tower group
+// Color palette per tower group — shades drawn from COLORS character palette
 const TOWER_COLORS = {
-  'Adams home':         { A: '#00ffff', B: '#0088ff', C: '#ff00ff' },
-  'ATT 083012 - 12571': { A: '#00cc44', B: '#00cc44', C: '#00cc44' },
-  'ATT 083012 - 12572': { A: '#006622', B: '#006622', C: '#006622' },
-  'ATT 083012 - 12573': { A: '#44ff88', B: '#44ff88', C: '#44ff88' },
-  'CR 1096 - Shiloh Rd.': { A: '#00dddd', B: '#ff00ff', C: '#00bbff' },
-  'Camden area':        { A: '#0000cc', B: '#000088', C: '#4400aa' },
-  'Rocky Point':        { A: '#00aaff', B: '#0066cc', C: '#00ccee' },
-  'Chesterfield':       { A: '#ff4444', B: '#cc0000', C: '#ff8800' },
-  'ATT 084458 - 39077': { A: '#4444ff', B: '#4444ff', C: '#4444ff' },
-  'ATT 084458 - 39078': { A: '#8800cc', B: '#8800cc', C: '#8800cc' },
-  'ATT 084458 - 39079': { A: '#cc44ff', B: '#cc44ff', C: '#cc44ff' }
+  'Adams home':           { A: '#c65f5f', B: '#b05050', C: '#d97070' }, // Zach — home tower
+  'ATT 083012 - 12571':  { A: '#4A8A7C', B: '#4A8A7C', C: '#4A8A7C' }, // Route teal
+  'ATT 083012 - 12572':  { A: '#3a7068', B: '#3a7068', C: '#3a7068' }, // Route dark
+  'ATT 083012 - 12573':  { A: '#5da394', B: '#5da394', C: '#5da394' }, // Route light
+  'CR 1096 - Shiloh Rd.':{ A: '#9373ad', B: '#7d5f95', C: '#a888c0' }, // Tower purple
+  'Camden area':          { A: '#85b1e1', B: '#6d9cd4', C: '#9bc4eb' }, // Boo blue
+  'Rocky Point':          { A: '#dcc862', B: '#c8b450', C: '#e8d875' }, // Britt gold
+  'Chesterfield':         { A: '#bf8dca', B: '#a878b5', C: '#d4a5dc' }, // Karen lavender
+  'ATT 084458 - 39077':  { A: '#69b2d7', B: '#55a0c5', C: '#7fc4e5' }, // Autry blue
+  'ATT 084458 - 39078':  { A: '#57B0DC', B: '#4098c5', C: '#6ec2e8' }, // Clint blue
+  'ATT 084458 - 39079':  { A: '#85b1e1', B: '#70a0d4', C: '#9bc4eb' }, // Boo steel
 };
 
 function buildCoverage() {
+  // coords[0] is the apex (tower location) shared by all sectors — use it as the label anchor.
   const towerApex = {};
   KML_DATA.towers.forEach(item => {
     if (!item.name || !item.features || !item.features[0]) return;
     const f = item.features[0];
     if (f.type === 'polygon' && f.coords) {
-      // Determine tower base and sector
-      const base = item.name.replace(/ - SECTOR.*/, '').replace(/ - Wedge/, '').trim();
-      const sectorMatch = item.name.match(/SECTOR\s+([ABC])/);
+      const base = item.name.replace(/ - [Ss]ector.*/, '').trim();
+      const sectorMatch = item.name.match(/[Ss]ector\s+([ABC])/);
       const sector = sectorMatch ? sectorMatch[1] : 'A';
       const colors = TOWER_COLORS[base] || { A: '#888', B: '#888', C: '#888' };
       const color = colors[sector] || '#888';
@@ -1804,23 +1850,33 @@ function buildCoverage() {
         interactive: false
       });
       coverageLayers.push(poly);
-      // Apex of a wedge is its first vertex; record once per tower base.
       if (!towerApex[base]) towerApex[base] = { coord: f.coords[0], color: colors.A || '#888' };
     }
   });
-  // One persistent label per tower base, anchored at the apex.
+  // One persistent label per tower base, centered inside the coverage polygon.
   Object.entries(towerApex).forEach(([base, info]) => {
     const text = TOWER_LABELS[base] || base;
     const icon = L.divIcon({
       className: '',
       html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.10em;
-        color:${info.color};white-space:nowrap;
+        color:var(--c-text, #ebe2cd);white-space:nowrap;text-align:center;
         text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);
-        padding:2px 4px;transform:translate(-50%,-160%);pointer-events:none;">${text}</div>`,
+        padding:2px 4px;transform:translate(-50%,-50%);pointer-events:none;">${text}</div>`,
       iconSize: [0, 0], iconAnchor: [0, 0]
     });
     const lbl = L.marker(info.coord, { icon: icon, interactive: false });
     towerLabelLayers.push(lbl);
+  });
+}
+
+const TOWER_LABEL_MIN_ZOOM = 11;
+
+function syncTowerLabels() {
+  if (!coverageVisible) return;
+  const zoomed = map.getZoom() >= TOWER_LABEL_MIN_ZOOM;
+  towerLabelLayers.forEach(l => {
+    if (zoomed) { if (!map.hasLayer(l)) l.addTo(map); }
+    else        { if (map.hasLayer(l))  map.removeLayer(l); }
   });
 }
 
@@ -1830,22 +1886,31 @@ function toggleCoverage() {
   const btn = document.getElementById('coverage-toggle');
   if (coverageVisible) {
     coverageLayers.forEach(l => l.addTo(map));
-    towerLabelLayers.forEach(l => l.addTo(map));
+    syncTowerLabels();
     btn.style.color = '#fff';
-    btn.style.borderColor = 'rgba(157,78,221,0.7)';
-    btn.style.background = 'rgba(157,78,221,0.3)';
+    btn.style.borderColor = 'rgba(147,115,173,0.7)';
+    btn.style.background = 'rgba(147,115,173,0.3)';
   } else {
     coverageLayers.forEach(l => map.removeLayer(l));
     towerLabelLayers.forEach(l => map.removeLayer(l));
-    btn.style.color = '#9D4EDD';
-    btn.style.borderColor = 'rgba(157,78,221,0.3)';
+    btn.style.color = COLORS.tower;
+    btn.style.borderColor = 'rgba(147,115,173,0.3)';
     btn.style.background = 'rgba(6,11,20,0.85)';
   }
 }
 
+map.on('zoomend', syncTowerLabels);
+
 // ═══════════════════════════════ MARKER HELPERS ═══════════════════════════════
 const activeMarkers = [];
 const persistentMarkers = [];
+
+// ── Responsive label scale ────────────────────────────────────────────────────
+// Adjust breakpoints or scale values here to tune mobile label sizing.
+// font-size, gap offsets, and dot radius all multiply by this factor.
+const LABEL_SCALE = window.innerWidth < 480 ? 0.65
+                  : window.innerWidth < 768 ? 0.80
+                  : 1.0;
 let pendingTimeouts = [];
 
 function clearActive() {
@@ -1870,32 +1935,19 @@ let refVisible = false;
 function showRefAnchors() {
   if (refVisible) return;
   refVisible = true;
-  // Holly's last ping — bold and visible
-  const hp = L.circleMarker(TIMELINE.hb_0925, {
-    radius: 8, fillColor: COLORS.holly, color: COLORS.holly,
-    weight: 2, opacity: 0.8, fillOpacity: 0.5
-  }).addTo(map);
-  refMarkers.push(hp);
-  const hpRing = L.circleMarker(TIMELINE.hb_0925, {
-    radius: 14, fillColor: 'transparent', color: COLORS.holly,
-    weight: 1, opacity: 0.3, fillOpacity: 0
-  }).addTo(map);
-  refMarkers.push(hpRing);
-  const hpl = makeLabel(TIMELINE.hb_0925, 'Holly — Last ping', COLORS.holly, 'right', 10);
-  refMarkers.push(hpl);
-  // Remains site — bold and visible
-  const rm = L.circleMarker(REMAINS_SITE, {
-    radius: 8, fillColor: COLORS.evid, color: COLORS.evid,
-    weight: 2, opacity: 0.8, fillOpacity: 0.5
-  }).addTo(map);
-  refMarkers.push(rm);
-  const rmRing = L.circleMarker(REMAINS_SITE, {
-    radius: 14, fillColor: 'transparent', color: COLORS.evid,
-    weight: 1, opacity: 0.3, fillOpacity: 0
-  }).addTo(map);
-  refMarkers.push(rmRing);
-  const rml = makeLabel(REMAINS_SITE, 'Remains found', COLORS.evid, 'right', 10);
-  refMarkers.push(rml);
+  Object.values(PERSISTENT).forEach(function(p) {
+    const dot = L.circleMarker(p.coord, {
+      radius: p.radius || 8, fillColor: p.color, color: p.color,
+      weight: 2, opacity: 0.8, fillOpacity: 0.5
+    }).addTo(map);
+    refMarkers.push(dot);
+    const ring = L.circleMarker(p.coord, {
+      radius: (p.radius || 8) + 6, fillColor: 'transparent', color: p.color,
+      weight: 1, opacity: 0.3, fillOpacity: 0
+    }).addTo(map);
+    refMarkers.push(ring);
+    refMarkers.push(makeLabel(p.coord, p.label, p.color, p.pos, p.gap));
+  });
 }
 
 function hideRefAnchors() {
@@ -1905,8 +1957,9 @@ function hideRefAnchors() {
 }
 
 function makeDot(latlng, color, radius, pulsing) {
+  const r = Math.max(3, Math.round((radius || 7) * LABEL_SCALE));
   const m = L.circleMarker(latlng, {
-    radius: radius || 7,
+    radius: r,
     fillColor: color,
     color: color,
     weight: 2,
@@ -1916,7 +1969,7 @@ function makeDot(latlng, color, radius, pulsing) {
   if (pulsing) {
     // Add a pulsing ring
     const ring = L.circleMarker(latlng, {
-      radius: radius ? radius + 8 : 15,
+      radius: r + 8,
       fillColor: 'transparent',
       color: color,
       weight: 1.5,
@@ -1934,7 +1987,8 @@ function makeDot(latlng, color, radius, pulsing) {
 // Set per-POI via  pos: 'right'  and  gap: 12  in the POI data object.
 function makeLabel(latlng, text, color, pos, gap) {
   const p   = pos || 'above';
-  const g   = (gap != null) ? gap : 20;
+  const g   = ((gap != null) ? gap : 20) * LABEL_SCALE;
+  const fs  = Math.round(10 * LABEL_SCALE);
   const transforms = {
     above:       `translate(-50%,-100%);margin-top:-${g}px`,
     below:       `translate(-50%,0);margin-top:${g}px`,
@@ -1945,7 +1999,7 @@ function makeLabel(latlng, text, color, pos, gap) {
   const t = transforms[p] || transforms.above;
   const icon = L.divIcon({
     className: '',
-    html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:${color};
+    html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:${fs}px;color:${color};
       letter-spacing:0.06em;white-space:nowrap;
       text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);
       padding:2px 4px;transform:${t};pointer-events:none;">${text}</div>`,
@@ -2042,22 +2096,53 @@ function renderFocus(el) {
   return true;
 }
 
-// Ghost marker for Britt's silent phone — used on steps 8-18
-function showBrittGhost() {
-  const bg = makeDot(BRITT_HOME, COLORS.britt, 4, false);
-  bg.setStyle({ opacity: 0.25, fillOpacity: 0.12 });
-  activeMarkers.push(bg);
+// Draw a single PERSISTENT entry to activeMarkers, with optional per-call overrides.
+// Overrides merge on top of PERSISTENT[key]: { coord, label, pos, gap, radius, color }
+function showPersistent(key, overrides) {
+  const p = Object.assign({}, PERSISTENT[key], overrides);
+  const isBritt = key === 'britt-ghost';
+  const g  = (p.gap != null ? p.gap : 12) * LABEL_SCALE;
+  const fs = Math.round((isBritt ? 9 : 10) * LABEL_SCALE);
+  const transforms = {
+    above: `translate(-50%,-100%);margin-top:-${g}px`,
+    below: `translate(-50%,0);margin-top:${g}px`,
+    left:  `translate(-100%,-50%);margin-left:-${g}px`,
+    right: `translate(0,-50%);margin-left:${g}px`
+  };
+  const t = transforms[p.pos] || transforms.right;
+  const dot = makeDot(p.coord, p.color, p.radius, false);
+  if (isBritt) dot.setStyle({ opacity: 0.25, fillOpacity: 0.12 });
+  activeMarkers.push(dot);
+  const labelOpacity = isBritt ? ';opacity:0.3' : '';
   const icon = L.divIcon({
     className: '',
-    html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:${COLORS.britt};
-      letter-spacing:0.05em;white-space:nowrap;opacity:0.3;
+    html: `<div style="font-family:'IBM Plex Mono',monospace;font-size:${fs}px;color:${p.color};
+      letter-spacing:0.05em;white-space:nowrap${labelOpacity};
       text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 6px rgba(0,0,0,0.9);
-      padding:2px 4px;transform:translate(0,-50%);margin-left:12px;pointer-events:none;">Britt — Silent</div>`,
+      padding:2px 4px;transform:${t};pointer-events:none;">${p.label}</div>`,
     iconSize: [0, 0], iconAnchor: [0, 0]
   });
-  const lbl = L.marker(BRITT_HOME, { icon, interactive: false }).addTo(map);
-  activeMarkers.push(lbl);
+  activeMarkers.push(L.marker(p.coord, { icon, interactive: false }).addTo(map));
+  if (key === 'holly-last-ping') {
+    const ring = L.circleMarker(p.coord, {
+      radius: (p.radius || 8) + 6, fillColor: 'transparent', color: p.color,
+      weight: 1, opacity: 0.3, fillOpacity: 0
+    }).addTo(map);
+    activeMarkers.push(ring);
+  }
 }
+
+// Draw all three reference ghost markers. Pass per-key overrides as named properties:
+//   showRefGhosts({ 'britt-ghost': { pos: 'above', gap: 8 }, 'holly-last-ping': { pos: 'left' } })
+function showRefGhosts(overrides) {
+  var ov = overrides || {};
+  showPersistent('holly-last-ping', ov['holly-last-ping']);
+  showPersistent('remains-site',    ov['remains-site']);
+  showPersistent('britt-ghost',     ov['britt-ghost']);
+}
+
+// Legacy alias — kept so any future direct calls still work
+function showBrittGhost(overrides) { showRefGhosts(overrides ? { 'britt-ghost': overrides } : undefined); }
 
 function showTrail(coords, color) {
   const line = L.polyline(coords, {
@@ -2251,7 +2336,7 @@ const STEPS = {
       setClock('7:18 AM');
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const b = drawPOI('scott-home', { pos: 'below', gap: 10});
-      const s = drawPOI('scotts-hill', { pos: 'below', gap: 10});
+      const s = drawPOI('scotts-hill', { label: 'Karen → Scotts Hill Middle School', pos: 'below', gap: 10});
       drawLine(a, b, '~6 mi', [0, 0.008]);
       drawLine(s, b, '~12 mi', [0, 0.007]);
       drawLine(s, a, '~12 mi', [0, 0.005]);
@@ -2309,7 +2394,7 @@ const STEPS = {
     bounds: [SCOTTS_HILL_ELEM, BOBO_HOME, BARNES_HOME, POI['scott-home'].coord],
     action() {
       setClock('7:41 AM');
-      const k = drawPOI('scotts-hill', { pos: 'below', gap: 10 });
+      const k = drawPOI('scotts-hill', { label: 'Karen → Scotts Hill Middle School', pos: 'below', gap: 10});
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10 });
       const bn = drawPOI('barnes-home', { pos: 'left', gap: 63 });
       const d = drawPOI('scott-home', { label: 'Drew Scott home', color: '#5DA39E', pos: 'below', gap: 10 });
@@ -2417,7 +2502,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0811, 'HB 8:11 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   32: {
@@ -2435,7 +2520,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0816, 'HB 8:16 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   33: {
@@ -2463,7 +2548,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0826, 'HB 8:26 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   35: {
@@ -2483,7 +2568,7 @@ const STEPS = {
       activeMarkers.push(makeLabel(drewPin, 'Drew cell phone', COLORS.drew, 'above', 15));
       const tower = drawPOI('shiloh-tower', { pos: 'left', gap: 62});
       drawLine(drewPin, tower, '', [0.003, 0]);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   36: {
@@ -2507,7 +2592,7 @@ const STEPS = {
       activeMarkers.push(makeLabel(POI['autry-home'].coord, 'Jason cell phone', COLORS.autry, 'left', 62));
       activeMarkers.push(makeDot(TIMELINE.hb_0902, COLORS.holly, 8, true));
       activeMarkers.push(makeLabel(TIMELINE.hb_0902, 'Holly (per prosecution)', COLORS.holly, 'below', 15));
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   38: {
@@ -2528,7 +2613,7 @@ const STEPS = {
       });
       const lb = makeLabel(TIMELINE.hb_0910, 'HB 9:10 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   39: {
@@ -2552,7 +2637,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0925, 'Final ping @ 9:25 AM', COLORS.holly, 'below', 20);
       activeMarkers.push(lb);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   40: {
@@ -2567,7 +2652,7 @@ const STEPS = {
       activeMarkers.push(ja);
       const jl = makeLabel(TIMELINE.ja_0942, 'Jason cell phone', COLORS.autry, 'below', 10);
       activeMarkers.push(jl);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   41: {
@@ -2586,7 +2671,7 @@ const STEPS = {
       activeMarkers.push(ja);
       const jl = makeLabel(TIMELINE.ja_0942, 'Jason cell phone', COLORS.autry, 'below', 10);
       activeMarkers.push(jl);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   42: {
@@ -2606,7 +2691,7 @@ const STEPS = {
       activeMarkers.push(ja);
       const jl = makeLabel(TIMELINE.ja_1037, 'Jason cell phone', COLORS.autry, 'below', 10);
       activeMarkers.push(jl);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   43: {
@@ -2616,7 +2701,7 @@ const STEPS = {
       const towerCoord = drawPOI('birdsong-tower', { pos: 'above', gap: 15});
       const homeCoord = drawPOI('adams-home', { pos: 'below', gap: 15 });
       drawLine(towerCoord, homeCoord, '~7 MI', [0, 0.005]);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   44: {
@@ -2626,7 +2711,7 @@ const STEPS = {
       const camCoord = drawPOI('am-farm', { pos: 'below', gap: 15 });
       const homeCoord = drawPOI('adams-home', { pos: 'above', gap: 15 });
       drawLine(camCoord, homeCoord, '~11 MI', [0, 0.005]);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   45: {
@@ -2636,7 +2721,7 @@ const STEPS = {
       const camCoord = drawPOI('am-farm', { pos: 'above', gap: 10 });
       const towerCoord = drawPOI('atm', { label: 'CR 1257 Tower near ATM', pos: 'below', gap: 15 });
       drawLine(camCoord, towerCoord, '~3 MI', [0, 0.003]);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   46: {
@@ -2646,7 +2731,7 @@ const STEPS = {
       const homeCoord = drawPOI('austin-home', { pos: 'below', gap: 10 });
       const towerCoord = drawPOI('holiday-tower', { pos: 'right', gap: 10 });
       drawLine(homeCoord, towerCoord, '~3 MI', [0, 0.003]);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   47: {
@@ -2663,13 +2748,14 @@ const STEPS = {
       const towerCoord = drawPOI('atm', { label: 'CR 1257 Tower near ATM', pos: 'below', gap: 15 });
       const homeCoord = drawPOI('adams-home', { pos: 'above', gap: 15 });
       drawLine(towerCoord, homeCoord, '~11 mi', [0, 0.005]);
-      showBrittGhost();
+      showRefGhosts();
     }
   },
   49: {
     center: BRITT_HOME, zoom: 14,
     action() {
       setClock('1:45 PM');
+      showRefGhosts();
       drawPOI('britt-home', { pos: 'right', gap: 10, label: 'Britt — No one home' });
     }
   },
@@ -2677,6 +2763,7 @@ const STEPS = {
     bounds: [POI['dottie'].coord, ADAMS_HOME, AUSTIN_HOME],
     action() {
       setClock('2:30 PM');
+      showRefGhosts();
       drawPOI('dottie', { pos: 'above', gap: 15 });
       drawPOI('adams-home', { pos: 'above', gap: 15 });
       drawPOI('austin-home', { pos: 'above', gap: 15 });
@@ -2686,6 +2773,7 @@ const STEPS = {
     bounds: [BRITT_HOME, TIMELINE.hb_0925, REMAINS_SITE],
     action() {
       setClock('3:00 – 3:30 PM');
+      showRefGhosts();
       const m = makeDot(BRITT_HOME, COLORS.britt, 9, true);
       activeMarkers.push(m);
       const lb = makeLabel(BRITT_HOME, 'Britt — Returns home', COLORS.britt, 'right', 20);
@@ -2708,6 +2796,7 @@ const STEPS = {
     bounds: [[35.800, -88.135], [35.828, -88.075]],
     action() {
       setClock('', 'April 13, 2011');
+      showRefGhosts();
       drawPOI('corn-crib', { pos: 'above', gap: 15 });
       drawPOI('austin-home', { pos: 'above', gap: 15 });
       drawPOI('adams-home', { pos: 'above', gap: 15 });
@@ -2717,6 +2806,7 @@ const STEPS = {
     center: [35.807, -88.121], zoom: 16,
     action() {
       setClock('', 'April 13, 2011');
+      showRefGhosts();
       drawPOI('underwear-find', { pos: 'above', gap: 10 });
       drawPOI('paper-find', { pos: 'above', gap: 10 });
       drawPOI('austin-home', { pos: 'right', gap: 10 });
@@ -2726,6 +2816,7 @@ const STEPS = {
     center: BOBO_HOME, zoom: 15,
     action() {
       setClock('', 'April 13, 2011');
+      showRefGhosts();
       drawPOI('bobo-home', { pos: 'above', gap: 15 });
     }
   },
@@ -2733,6 +2824,7 @@ const STEPS = {
     center: BOBO_HOME, zoom: 15,
     action() {
       setClock('2:00 AM', 'April 14, 2011');
+      showRefGhosts();
       drawPOI('bobo-home', { pos: 'above', gap: 15 });
     }
   },
@@ -2740,6 +2832,7 @@ const STEPS = {
     center: [35.78, -88.08], zoom: 10,
     action() {
       setClock('', 'April 13, 2011 → September 7, 2014');
+      showRefGhosts();
       const hbTrail = [TIMELINE.hb_0800, TIMELINE.hb_0811, TIMELINE.hb_0816, TIMELINE.hb_0826,
         TIMELINE.hb_0900, TIMELINE.hb_0902, TIMELINE.hb_0906, TIMELINE.hb_0910, TIMELINE.hb_0925];
       showTrail(hbTrail, COLORS.holly);
@@ -2827,16 +2920,16 @@ const STEPS = {
         p.name && p.name !== 'Untitled placemark' && p.name !== '"Rip Rap" Location'
       );
       const pplConfig = {
-        0:  { pos: 'above',           label: 'Zachary Adams', gap: 10 },
-        1:  { pos: 'below',           label: 'Shayne Austin', gap: 10 },
+        0:  { pos: 'above',           label: 'Zachary Adams',               gap: 1 },
+        1:  { pos: 'below',           label: 'Shayne Austin',               gap: 1 },
         2:  { offset: [0.02, -0.03],  label: "Brendda O'Bryant" },
-        3:  { pos: 'right',           label: 'Angela Scott' },
+        3:  { pos: 'right',           label: 'Angela Scott',                gap: 1 },
         4:  { offset: [-0.02, 0.02],  label: 'Dottie Cooley' },
         5:  { offset: [-0.015, -0.03],label: 'Victor Dinsmore' },
         7:  { offset: [0.015, 0.02],  label: 'Juanita Hickerson' },
-        8:  { pos: 'right',           label: 'Terry Britt', gap: 10 },
+        8:  { pos: 'right',           label: 'Terry Britt',                 gap: 1 },
         9:  { offset: [-0.015, 0.02], label: 'Dick Adams' },
-        10: { offset: [0.02, 0.02],   label: "Shayne Austin's parents" },
+        10: { pos: 'right',           label: "Shayne Austin parents' house", gap: 10 },
         11: { offset: [0.02, -0.01],  label: 'Brian Vitt' }
       };
       people.forEach((item, i) => {
@@ -2856,7 +2949,7 @@ const STEPS = {
               const parts = makeOffsetLabel(c, labelText, color, cfg.offset);
               parts.forEach(p => activeMarkers.push(p));
             } else {
-              const lb = makeLabel(c, labelText, color, cfg.pos);
+              const lb = makeLabel(c, labelText, color, cfg.pos, cfg.gap);
               activeMarkers.push(lb);
             }
           }
@@ -2870,17 +2963,11 @@ const STEPS = {
   60: {
     bounds: [BRITT_HOME, TIMELINE.hb_0925, REMAINS_SITE],
     action() {
-      setClock('', 'MARCH — April 2011');
+      setClock('', 'March — April 2011');
       const m = makeDot(BRITT_HOME, COLORS.britt, 9, false);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'Britt residence', COLORS.britt, 'above', 10);
+      const lb = makeLabel(BRITT_HOME, 'Britt home', COLORS.britt, 'above', 10);
       activeMarkers.push(lb);
-      const purchases = [
-        { text: 'Mar. 11–12: New phone', delay: 600 },
-        { text: 'Apr. 11: 2,000 prepaid minutes', delay: 1400 },
-        { text: 'Apr. 29: Chainsaw', delay: 2200 },
-        { text: 'Decomp dogs alert: axe, shovel, hammer', delay: 3000 }
-      ];
       purchases.forEach((p, i) => {
         const t = setTimeout(() => {
           const color = i === 3 ? '#ff4444' : COLORS.britt;
@@ -2901,19 +2988,19 @@ const STEPS = {
       setClock('', 'Investigation');
       const m = makeDot(BRITT_HOME, COLORS.britt, 8, false);
       activeMarkers.push(m);
-      const lb = makeLabel(BRITT_HOME, 'Terry Britt', COLORS.britt, 'above', 15);
+      const lb = makeLabel(BRITT_HOME, 'Terry Britt', COLORS.britt, 'above', 10);
       activeMarkers.push(lb);
       const bm = makeDot(BOBO_HOME, COLORS.holly, 7, false);
       activeMarkers.push(bm);
-      const bml = makeLabel(BOBO_HOME, "Clint: 80% sure — Terry Britt's voice", COLORS.holly, 'below', 15);
+      const bml = makeLabel(BOBO_HOME, "Clint: 80% sure it was Terry's voice", COLORS.holly, 'below', 15);
       activeMarkers.push(bml);
-      const line = L.polyline([BRITT_HOME, BOBO_HOME], {
+      const line = L.polyline([BRITT_HOME, BOBO_HOME], { 
         color: COLORS.britt, weight: 1.5, opacity: 0.4, dashArray: '6,4'
       }).addTo(map);
       activeMarkers.push(line);
       const midLat = (BRITT_HOME[0] + BOBO_HOME[0]) / 2;
       const midLng = (BRITT_HOME[1] + BOBO_HOME[1]) / 2;
-      const distLabel = makeLabel([midLat, midLng], '~6 MILES', COLORS.britt, 'right', 5);
+      const distLabel = makeLabel([midLat, midLng], '~6 MILES', COLORS.text, 'right', 5);
       activeMarkers.push(distLabel);
     }
   },
@@ -3040,16 +3127,6 @@ function handleStepEnter(response) {
 
   // Clear previous markers
   clearActive();
-
-  // Show reference anchors (Holly last ping + remains) from Final Ping onward.
-  // Hide on steps that explicitly show those same locations and on any sub-step
-  // that uses data-focus (since data-focus draws its own targeted view).
-  const refExclude = [39, 57, 58, 59, 61, 62, 63];
-  if (stepIndex >= 39 && !refExclude.includes(stepIndex) && !focus) {
-    showRefAnchors();
-  } else {
-    hideRefAnchors();
-  }
 
   // Set clock from data-clock if present (used by data-focus steps that bypass STEPS action).
   const clockOverride = response.element.dataset.clock;
