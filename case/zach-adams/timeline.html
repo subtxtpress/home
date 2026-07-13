@@ -262,6 +262,15 @@
       margin-bottom: 10px; 
       text-transform: uppercase;
     }
+    .first-title {
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 700; 
+      color: var(--text);
+      letter-spacing: 0.02em; 
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
     .step-title {
       font-family: var(--head); 
       font-size: 22px;
@@ -507,12 +516,13 @@
     /* List Items */
     .list-of-things {
       color:var(--text);
-      margin-left: 2%;
+      margin-left: 5%;
       margin-bottom: 12px;
     }
     .list-of-things  li {
       padding-bottom: 1%;
       line-height: 1.5;
+      font-size: 13px;
     }
     /* Marker pulse animation */
     @keyframes markerPulse {
@@ -586,6 +596,9 @@
         justify-content: flex-start; 
         padding-top: 28px; 
       }
+      .first-title {
+        font-size: 22px;
+      }
       .step-title { 
         font-size: 19px; 
         margin-bottom: 12px; 
@@ -637,18 +650,20 @@
       }
     }
     @media (max-width: 480px) {
-      .nav-tag { 
-        display: none; 
+      .step-embed iframe { height: 280px; }
+      .nav-tag {
+        display: none;
       }
-      .nav-title { 
-        font-size: 13px; 
+      .nav-title {
+        font-size: 13px;
       }
       .nav-source-link { 
-        font-size: 0; 
+        font-size: 9px; 
+        margin-top: 1px;
       }
       .nav-source-link::after { 
-        content: '↗'; 
-        font-size: 12px; 
+        /*content: '↗';
+        font-size: 12px;*/ 
       }
       #clock { 
         padding: 5px 10px; 
@@ -659,11 +674,20 @@
       .step { 
         padding: 20px 16px; 
       }
+      .act-label { 
+        font-size: 9px; 
+      }
+      .first-title {
+        font-size: 26px;
+      }
       .step-title { 
         font-size: 18px; 
       }
       .title-card .step-title { 
         font-size: 20px; 
+      }
+      .step-title p {
+        font-size: 12px;
       }
       .step-figure img { 
         max-height: 170px; 
@@ -681,7 +705,7 @@
 
 <!-- Nav -->
 <nav class="nav">
-  <div class="nav-title"><em>State v. <span style="color:var(--c-zach);">Zachary Adams</span></em></div>
+  <div class="nav-title"><em>Tennessee v. <span style="color:var(--c-zach);">Zachary Adams</span></em></div>
   <span class="nav-tag">CASE MAP</span>
   <a class="nav-source-link" href="case-map.html?view=full" target="_blank" rel="noopener">View toggle map &rarr;</a>
 </nav>
@@ -705,9 +729,9 @@
   <!-- STEP 0: Title -->
   <div class="step title-card" data-step="0" data-clock="April 13, 2011">
     <div class="dateline">Apr. 13, 2011 &mdash; Parsons, TN</div>
-    <div class="step-title" style="font-family:var(--serif);font-size:40px;">Who Took Holly Bobo?</div>
+    <div class="first-title">Who Took Holly Bobo?</div>
     <p>On the morning of April 13, 2011, a 20-year-old nursing student was taken from her home in rural Decatur County, Tennessee, and was never seen alive again.</p>
-    <p>This is the geographic story of that morning — told through cell tower pings, phone records, and physical evidence introduced at the trial of Zachary Adams.</p>
+    <p>This is the geographic story of that morning, told through cell tower pings, phone records, and physical evidence introduced at the trial of Zachary Adams.</p>
     <p style="opacity:0.7;font-size:10px;font-style:italic;">As of now, this is a <strong>living</strong> document being updated as I round up details. I will clean up the overlapping labels after sorting/mapping the last of the known info.</p>
     <div class="scroll-hint">&darr; Scroll to begin</div>
   </div>
@@ -719,8 +743,8 @@
     <div class="act-label">Act I – The Morning</div>
     <div class="step-title">Holly is awake</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
-    <p><strong>4:00 AM: </strong>Holly Bobo, 20, a nursing student at UT Martin&mdash;Parsons campus, is up.</p>
-    <p>The Bobos live at 681 Swan Johnson Road in an unincorporated area south of Parsons — surrounded by woods, farms and quiet two-lane roads.</p>
+    <p><strong>~4:00 AM: </strong>Holly Bobo, 20, a nursing student at UT Martin, Parsons campus, is up.</p>
+    <p>The Bobos live at 681 Swan Johnson Road in an unincorporated area south of Parsons surrounded by woods, farms and quiet two-lane roads.</p>
     <figure class="step-figure">
       <img src="photos/Bobo-home/holly-room.webp" alt="Holly's bedroom" loading="lazy" />
       <figcaption>Holly's bedroom</figcaption>
@@ -742,7 +766,7 @@
     <div class="step-title">Holly is studying, Karen is baking</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
-    <p><strong>4:30 AM: </strong>Holly is studying for a test. Her mother Karen makes strawberry muffins and packs her lunch.</p>
+    <p><strong>~4:30 AM: </strong>Holly is in the kitchen studying for a test while her mother, Karen Bobo, makes strawberry muffins and packs her lunch.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home/baking</span></div>
@@ -755,7 +779,7 @@
     <div class="step-title">Holly texts Drew</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-    <p><strong>5:03 AM: </strong>Holly texts Drew <em>"No i swear 2 god."</em> Her phone registers on the home tower sector.</p>
+    <p><strong>~5:03 AM: </strong>Holly texts her boyfriend, Drew Scott, <em>"No i swear 2 god."</em> Her phone registers on the home tower sector.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">where?</span></div>
@@ -767,7 +791,8 @@
     <div class="step-time">~5:20 AM</div>
     <div class="step-title">Drew and "Boo" head to Bath Springs</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-    <p><strong>5:20 AM: </strong>Drew texts Holly <em>"Me n dad headed huntn."</em> His phone is on his home sector in the Parsons area, moving toward Bath Springs.</p>
+    <p><strong>~5:20 AM: </strong>Drew texts Holly <em>"Me n dad headed huntn."</em></p>
+    <p>His phone is on his home sector in the Parsons area, moving toward Bath Springs.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">Bath Springs</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">"Boo" Scott</span> <span class="where">Bath Springs</span></div>
@@ -777,14 +802,15 @@
 
   <!-- STEP 5: 5:40 AM Drew texts Holly / 5:40 AM Bass Springs -->
   <div class="step" data-step="5" data-border="var(--c-drew)" data-clock="5:40 AM">
-    <div class="act-label">Last confirmed location — Drew Scott</div>
+    <div class="act-label">Drew's last confirmed location</div>
     <div class="step-time">~5:40 AM</div>
     <div class="step-title">Drew and "Boo" Run Into Bo Brasher</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-boo)"></span> "Boo" Scott</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-brasher)"></span> Bo Brasher</div>
-    <p><strong>5:40 AM: </strong>Hunter Bo Brasher is moving through the pre-dawn woods on Donna Goth's Bath Springs property when he comes across two men in camouflage still sitting in their truck. He recognizes one as Harold "Boo" Scott, who had umpired some of his high school baseball games. The other introduces himself as "Boo's" son, Drew, and explains he's dating the landowner's granddaughter and has permission to hunt there. Brasher accepts that and moves on.</p>
-    <p>When Brasher circles back later, the truck is gone. This is the last confirmed placement of Drew Scott in Bath Springs.</p>
+    <p><strong>~5:40 AM: </strong>Hunter Bo Brasher is moving through the pre-dawn woods on Holly's grandmother's Bath Springs property when he comes across two men in camouflage still sitting in their truck.</p>
+    <p>He recognizes one as Harold "Boo" Scott, who had umpired some of his high school baseball games. The other introduces himself as "Boo's" son, Drew, and explains he's dating the landowner's granddaughter and has permission to hunt there.</p>
+    <p>When Brasher circles back later, the "Boo" and Drew's truck is gone. This is the last confirmed placement of Drew Scott in Bath Springs.</p>
     <p>Per TBI report 98 (Walker), Drew and "Boo" were "essentially run off" the property. The record does not establish where they went next.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">Bath Springs (last confirmed)</span></div>
@@ -799,7 +825,7 @@
     <div class="step-time">~5:54 AM</div>
     <div class="step-title">Fifteen miles northeast of the Bobo's</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
-    <p><strong>5:54 AM: </strong>Zach's phone is active. He lives next door to Dick Adams with his girlfriend Rebecca Earp.</p>
+    <p><strong>~5:54 AM: </strong>Zach Adams' phone is active. He lives with his girlfriend, Rebecca Earp, next door to his grandfather, John "Dick" Adams.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">home (phone active)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">Bath Springs (last confirmed)</span></div>
@@ -814,7 +840,7 @@
     <div class="step-time">~6:00 AM</div>
     <div class="step-title">Dana leaves for work</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-dana)"></span> Dana Bobo</div>
-    <p><strong>6:00 AM: </strong>Holly's father Dana gets up early and is out the door before 6:00 AM, headed to a job site in Lynen, Perry County for McKenzie Tree Service.</p>
+    <p><strong>~6:00 AM: </strong>Holly's father, Dana Bobo, gets up early and is out the door before 6:00 AM to head out for a job site in Lynen, Perry County for McKenzie Tree Service.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home/kitchen</span></div>
@@ -828,10 +854,11 @@
     <div class="step-time">~6:50 AM</div>
     <div class="step-title">Jason's one text</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
-    <p><strong>6:50 AM: </strong>Jason Autry's phone sends a single text to his girlfriend in Camden — pinging the cell tower near her home. After that, his phone goes quiet for ninety minutes.</p>
+    <p><strong>~6:50 AM: </strong>Jason Autry's phone sends a single text to his girlfriend Angela Smith Scott in Camden, pinging the cell tower near her home.</p>
+    <p><strong>~6:51 AM: </strong>Jason's phone pings off a <em>different</em> tower — one ping, then silence. His phone goes dark for the next ninety minutes, until 8:19 AM.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">phone active &middot; texts Camden</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">home/phone on Holiday tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">home/phone on Holladay tower</span></div>
     </div>
   </div>
 
@@ -840,7 +867,7 @@
     <div class="step-time">~7:00 AM</div>
     <div class="step-title">Karen leaves for work</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
-    <p><strong>7:00 AM: </strong>Karen leaves for Scotts Hill Middle School, where she teaches. As she walks to her car, she hears a loud truck engine somewhere nearby.</p>
+    <p><strong>~7:00 AM: </strong>Karen leaves for Scotts Hill Middle School, where she teaches. As she walks to her car, she hears a loud truck engine somewhere nearby.</p>
     <figure class="step-figure">
       <img src="photos/Bobo-home/garage-closed.webp" alt="The Bobo garage from the front" loading="lazy" />
       <figcaption>The Bobo garage from the front</figcaption>
@@ -858,7 +885,7 @@
     <div class="step-time">7:01 AM</div>
     <div class="step-title">Karen calls Tina — 14 minutes</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
-    <p><strong>7:01 AM: </strong>Karen places a 14-minute call to Tina while driving to Scotts Hill Middle School. She is mobile and en route. The call runs until roughly 7:15 AM.</p>
+    <p><strong>~7:01 AM: </strong>Karen places a call to Tina while driving to Scotts Hill Middle School. She is mobile and en route. The call runs until roughly 7:15 AM.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ Scotts Hill / on phone</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home</span></div>
@@ -870,7 +897,7 @@
     <div class="step-time">7:04 AM</div>
     <div class="step-title">Bobo Neighborhood</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-barnes)"></span> James Barnes</div>
-    <p><strong>7:04 AM: </strong>Two doors down from the Bobo residence, neighbor James Barnes gets a text from his friend Keith Clark. Clark is already at Barnes' house; the two are working on Barnes' pickup.</p>
+    <p><strong>~7:04 AM: </strong>Two doors down from the Bobo residence, neighbor James Barnes gets a text from his friend Keith Clark. Clark has arrived at the Barnes' house to work on Barnes' pickup.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill</span></div>
@@ -885,7 +912,7 @@
     <div class="step-time">7:05 AM</div>
     <div class="step-title">Holly's last text before the missed calls</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
-    <p><strong>7:05 AM: </strong>Holly texts Drew <em>"Let me tell u sumthin, i have studied till i cant possibly study anymore for this test!"</em></p>
+    <p><strong>~7:05 AM: </strong>Holly texts Drew <em>"Let me tell u sumthin, i have studied till i cant possibly study anymore for this test!"</em></p>
     <p>This is Holly's last outgoing text that appears in both carrier records and the SIM card extraction.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home / home sector</span></div>
@@ -898,8 +925,8 @@
     <div class="step-time">~7:15 AM</div>
     <div class="step-title">John "Dick" Adams leaves for work</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> John "Dick" Adams</div>
-    <p><strong>7:15 AM: </strong> Karen's phone call with Tina ends around this time.</p>
-    <p>John "Dick" Adams — Zach and Dylan's grandfather — leaves the house for work. Dylan is still in bed.</p>
+    <p><strong>~7:15 AM: </strong>Karen's phone call with Tina ends around this time.</p>
+    <p>When Dick Adams leaves the house for work, Zach's brother, Dylan Adams, is still in bed.</p>
     <p>Dick has worked the day shift with his neighbor Billy Bell for years.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">home (phone active)</span></div>
@@ -912,22 +939,25 @@
   <!-- STEP 14 7:18 AM Missed calls — and a tower problem-->
   <div class="step" data-step="14" data-border="var(--c-holly)" data-clock="7:18 AM">
     <div class="step-time">7:18 AM &ndash; 7:31 AM</div>
-    <div class="step-title">Missed calls — and a tower problem</div>
+    <div class="step-title">Seven missed calls&mdash;where is Drew?</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-    <p><strong>Between 7:18 and 7:29 AM: </strong>Holly and Drew trade six failed call attempts — neither connecting.</p>
-    <p>During all six attempts, both phones register on the same Sector 3 Pleasanty/Decaturville tower: Holly's home sector, northwest of Parsons.</p>
-    <p>Drew's phone is <em>not</em> on the Bath Springs tower. It had left Bath Springs at some point after the 5:40 AM Brasher encounter.</p>
+    <p>Holly and Drew trade seven failed call attempts. During all seven attempts, both phones register on the same tower: CR1257 Parsons, Sector 3, Holly's home sector.</p>
+    <p>Drew's phone is <em>not</em> on the Bath Springs tower at this time. It had left Bath Springs at some point after the 5:40 AM Brasher encounter.</p>
     <p>The exact sequence from carrier records:</p>
     <ul class="list-of-things">
       <li><strong>7:18:56 AM: </strong>(Drew → Holly, 0s)</li>
       <li><strong>7:19:24 AM: </strong>(Holly → Drew, 0s)</li>
       <li><strong>7:21:22 AM: </strong>(Drew → Holly, 0s)</li>
-      <li><strong>~7:21 AM: </strong>(Holly → Karen)&mdash;Holly calls Karen about the Bath Springs hunting property dispute. Karen, still in the school parking lot, works the phones to try to sort out the permission issue. The dispute had actually resolved at 5:40 AM when Brasher's presence caused Drew and "Boo" to leave — but Drew would later present it to Karen as a current, in-progress situation.</li>
+      <li><strong>~7:21 AM: </strong>(Holly → Karen, 41s)&mdash;Holly calls Karen about the Bath Springs hunting property dispute. Karen, still in the school parking lot, works the phones to try to sort out the permission issue. The dispute had actually resolved at 5:40 AM when Brasher's presence caused Drew and his father to leave.</li>
+      <li><strong>~7:22 AM: </strong>(Holly → Drew, 0s)</li>
+      <li><strong>~7:23 AM: </strong>(Karen → Holly, 1m 22s)&mdash;Karen calls Holly back after working out the permission issue with Holly's grandmother, Donna Goff.</li> 
       <li><strong>7:25:56 AM: </strong>(Holly → Drew, 1s)</li>
-      <li><strong>7:28:42 AM: </strong>(Drew → Holly, 0s)</li>
+      <li><strong>7:28:42 AM: </strong>(Drew → Holly, 0s)</li> 
       <li><strong>7:29:30 AM: </strong>(Holly → Drew, 0s)</li>
-      <li><strong>~7:31 AM: </strong>(Karen → Drew, 94 seconds)&mdash;Drew's phone was still on Holly's home sector. Karen told him the permission issue was cleared. She then went inside the school — a few minutes late to her class — believing she had resolved an active problem and that Drew was in Bath Springs.</li>
+      <li><strong>~7:30 AM: </strong>(Karen → Holly, 1m 10s)</li>
+      <li><strong>~7:31 AM: </strong>(Karen → Drew, 1m 34s)&mdash;Karen tells Drew the permission issue was cleared. She then went inside the school, a few minutes late to her class, believing she had resolved an active problem and that Drew was in Bath Springs, although his phone appears to be in Holly's home sector.</li>
+    </ul>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill</span></div>
@@ -943,8 +973,8 @@
     <div class="step-title">A lot of things at once</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-      <p><strong>~7:33 AM: </strong>Holly places a final 0-second call to Drew — and her phone goes silent for six minutes. This is her last outgoing call.</p>
-      <p><strong>7:33:18 AM: </strong>The family dog Rascal is barking. Clint's phone rings — it's his friend Chad Marshall, a call that wasn't unusual for that hour. Clint silences it and stays in bed, assuming the barking will stop. He lies there for about ten minutes before giving up and getting up.</p>
+      <p><strong>~7:33 AM: </strong>Holly places a final 0-second call to Drew and then her phone goes silent for six minutes. This is her last outgoing call.</p>
+      <p><strong>~7:33 AM: </strong>The family dog Rascal is barking. Clint's phone rings&mdash;it's his friend Chad Marshall, a call that wasn't unusual for that hour. Clint silences it and stays in bed, assuming the barking will stop. He lies there for about ten minutes before giving up and getting up.</p>
     <p>During the next six minutes of cell phone inactivity re: Holly and Drew, two neighbors independently report hearing a woman screaming from the direction of the Bobo property.</p>
     <ul class="list-of-things">
       <li>Ed Barnes hears <em>"Stop. I said stop"</em> and a cut-off scream.</li>
@@ -970,9 +1000,12 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
-    <p><strong>7:40 AM: </strong>The six-minute silence ends when Drew's phone dials Holly — 0 seconds.</p>
-    <p>Clint moves through the dark house without turning on any lights. He checks the front sidelights first — nothing. Then he hears voices coming from the carport. He lifts the venetian blinds slightly: through the gap he can see the partial shoulders and arms of two people kneeling, facing each other. One male, one female.</p>
-    <p>He recognizes Holly's voice. The male is in full camouflage, including a face covering, speaking calmly — a few words at a time, measured. Holly answers in single words. She sounds upset, like maybe they're breaking up. The male voice sounds like Drew's — specifically, the way Drew's voice came through Clint's bedroom wall at night when Drew and Holly would talk in her room. Clint assumes it's Drew.</p>
+    <p><strong>~7:40 AM: </strong>The six-minute silence ends when Drew's phone dials Holly&mdash;0 seconds.</p>
+    <p>Clint moves through the dark house without turning on any lights. He checks the front side lights first&mdash;nothing.</p>
+    <p>Then he hears voices coming from the carport. He lifts the venetian blinds slightly: through the gap he can see the partial shoulders and arms of two people kneeling, facing each other&mdash;one male, one female.</p>
+    <p>He recognizes Holly's voice. The male is in full camouflage, including a face covering, speaking calmly, a few words at a time&mdash;measured.</p>
+    <p>Holly answers in single words. She sounds upset, like maybe they're breaking up.</p>
+    <p>The male voice sounds like Drew's, specifically, the way Drew's voice came through Clint's bedroom wall at night when Drew and Holly would talk in her room. Clint assumes it's Drew.</p>
     <figure class="step-figure">
       <img src="photos/Bobo-home/carport.jpeg" alt="View from inside the house toward the carport, where Clint heard voices" loading="lazy" />
       <figcaption>The carport, from Clint's vantage point inside the house</figcaption>
@@ -993,8 +1026,9 @@
     <div class="step-title">Drew texts Holly</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-    <p><strong>7:41 AM: </strong>A text appears in carrier records as sent from Holly's number to Drew <em>"well your still gonna hunt there"</em> (exact as sent).</p>
-    <p>The message at 7:41 AM does not appear in the SIM card extraction from Holly's phone, which contains no data after 5:20 AM. That discrepancy was apparently never noticed or investigated.</p>
+    <p><strong>~7:41 AM: </strong>A text appears in carrier records as sent from Holly's number to Drew <em>"well your still gonna hunt there"</em> (exact as sent).</p>
+    <p>The message at 7:41 AM does not appear in the SIM card extraction from Holly's phone, which contains no data after 5:20 AM.</p>
+    <p>That discrepancy was apparently never noticed or investigated.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill</span></div>
@@ -1008,10 +1042,10 @@
     <div class="step-time">~7:41 AM - 7:47 AM</div>
     <div class="step-title">A message at the school</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-Kathy)"></span> Kathy Wise</div>
-    
-    <p><strong>~7:41 AM: </strong>James Barnes and his girlfriend get in the truck and drive to the Bobo home, pulling into the driveway — engine off, watching the house. There are no cars in front. After a few minutes of silence, they leave for work. On his way to work, Barnes calls his mother, Kathy Wise, who lives on the same property.</p>
-    <p><strong>7:42 AM: </strong>Drew calls Holly again — 0 seconds. These are Drew's attempts, not Holly's.</p>
-    <p><strong>7:45 AM: </strong>Kathy Wise calls Scotts Hill Middle School first — to relay the message about the screams. Karen is in class; Kathy has to leave it with the school secretary. She does not drive over to the Bobo house yet.</p>
+    <p><strong>~7:41 AM: </strong>James Barnes and his girlfriend get in the truck and drive to the Bobo home, pulling into the driveway&mdash;engine off, watching the house. There are no cars in front.</p>
+    <p>After a few minutes of silence, they leave for work. On his way to work, Barnes calls his mother, Kathy Wise, who lives on the same property.</p>
+    <p><strong>~7:42 AM: </strong>Drew calls Holly again&mdash;0 seconds.</p>
+    <p><strong>~7:45 AM: </strong>Kathy Wise calls Scotts Hill Middle School first to relay the message about the screams. Karen is in class; Kathy has to leave it with the school secretary. She does not drive over to the Bobo house yet.</p>
     <p style="opacity:0.7;font-size:12px;">The call itself is a bit unusual: Kathy and Karen had a long-running animosity. That she picks up the phone at all signals how alarmed she is. (Did Kathy call Karen after leaving a message with the school secretary?) This is also when Holly normally leaves for nursing school to arrive by 7:55.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport (last seen)</span></div>
@@ -1026,10 +1060,10 @@
   <!-- STEP 21: ~7:50 AM "Boo" at Food Giant -->
   <div class="step" data-step="21" data-border="var(--c-drew)">
     <div class="step-time">~7:50 AM</div>
-    <div class="step-title">"Boo" arrives at work — already knowing</div>
+    <div class="step-title">"Boo" arrives at work already knowing Holly is missing?</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> "Boo" Scott</div>
     <p>Drew's brother, Derek Scott, worked with "Boo" at the Food Giant in Parsons.</p>
-    <p><strong>~7:50 AM: </strong>Per Derek, "Boo" arrived at Appoxly 7:50 AM — still wearing his hunting camouflage — and immediately told Derek that someone had taken Holly.</p>
+    <p><strong>~7:50 AM: </strong>Per Derek, when "Boo" arrived, he was still wearing his hunting camouflage, and immediately told Derek that someone had taken Holly.</p>
     <p>Clint had not yet reached Karen. Karen had not yet called 911. No documented account explains how "Boo" would know that Holly had been taken at that hour.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">"Boo" Scott</span> <span class="where">Food Giant / still in camo</span></div>
@@ -1044,14 +1078,14 @@
     <div class="step-title">"Call me ASAP"</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
-    <p><strong>7:51 AM: </strong>Clint calls Karen&mdash;no answer.</p>
-    <p><strong>7:52 AM: </strong>Clint calls Karen&mdash;no answer.</p>
-    <p><strong>7:53 AM: </strong>The Scott household phone calls Drew (41 seconds)&mdash;Per Richie Pratt, Drew is already at work at this point.</p>
-    <p><strong>7:53 AM: </strong>Clint texts Karen <em>"Call me ASAP."</em></p>
-    <p><strong>7:54 AM: </strong>Drew calls Holly (0 seconds).</p>
+    <p><strong>~7:51 AM: </strong>Clint calls Karen&mdash;no answer.</p>
+    <p><strong>~7:52 AM: </strong>Clint calls Karen&mdash;no answer.</p>
+    <p><strong>~7:53 AM: </strong>The Scott household phone calls Drew (41 seconds)&mdash;Per Richie Pratt, Drew is already at work at this point.</p>
+    <p><strong>~7:53 AM: </strong>Clint texts Karen <em>"Call me ASAP."</em></p>
+    <p><strong>~7:54 AM: </strong>Drew calls Holly (0 seconds).</p>
     <p><strong>7:56 AM: </strong>Karen calls back, already alarmed by a message she'd received from Kathy Wise about screaming at the house.</p>
     <p>Clint tells Karen that Holly's car is still in the carport and that he thinks he can see Drew with Holly in the carport.</p>
-    <p>Karen says <em>"That's not Drew"</em> — she had just spoken to Drew less than half an hour earlier and believed him to be miles away in Bath Springs. She tells Clint to call all the neighbors and to get a gun and shoot him.</p>
+    <p>Karen says <em>"That's not Drew."</em> She had just spoken to Drew less than half an hour earlier and believed him to be miles away in Bath Springs. She tells Clint to call all the neighbors and to get a gun and shoot him.</p>
     <p>Clint protests that it's Holly and Drew.</p>
     <p>Karen hangs up.</p>
     <div class="loc-strip">
@@ -1068,7 +1102,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
     <p>After the voices go quiet, Clint catches a glimpse through the back window and observes:</p>
     <ul class="list-of-things">
-      <li>Holly and the man in camo are walking together toward the tree line — possibly holding hands.</li>
+      <li>Holly and the man in camo are walking together toward the tree line&mdash;possibly holding hands.</li>
       <li>Holly is not being dragged. She appears to walk voluntarily.</li>
       <li>The family's retriever, Champ, is walking calmly behind them, tail wagging.</li>
       <li>Neither figure looks back.</li>
@@ -1079,7 +1113,7 @@
       <li>Clint thinks maybe it's his cousin Richie Pratt, who hunted the property sometimes and was built more like an older, heavier man.</li>
       <li>The object in the male's right hand looks like a bird call, roughly 6 to 8 inches long.</li>
     </ul>
-    <p>Clint notes that despite Holly having a purse, a lunchbox, and nursing notebooks with her that morning, he sees none of them. He's studying the figures closely enough to describe what's in the man's hand — he would have noticed if she were carrying anything.</p>
+    <p>Clint notes that despite Holly having a purse, a lunchbox, and nursing notebooks with her that morning, he sees none of them. He's studying the figures closely enough to describe what's in the man's hand&mdash;he would have noticed if she were carrying anything.</p>
     <figure class="step-figure">
       <img src="photos/Bobo-home/backyard.webp" alt="The wooded trail behind the Bobo home" loading="lazy" />
       <figcaption>The wooded trail behind the Bobo home</figcaption>
@@ -1097,7 +1131,7 @@
     <div class="step-time">7:59 AM</div>
     <div class="step-title">911 — en route</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
-    <p><strong>7:59 AM: </strong>While in the car, Karen uses Brumley's phone to call 911 and initially reaches the wrong county's dispatcher before getting routed to Decatur County.</p>
+    <p><strong>~7:59 AM: </strong>While in the car, Karen uses Brumley's phone to call 911 and initially reaches the wrong county's dispatcher before getting routed to Decatur County.</p>
     <p>Fellow teacher Terry Brumley drives Karen out of the school parking lot and heads toward the Bobo home.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport</span></div>
@@ -1111,9 +1145,9 @@
     <div class="step-time">~8:00 AM</div>
     <div class="step-title">Blood by the car</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
-    <p>Clint steps outside toward the carport — the cold hits harder than expected. He goes back in and changes: green sweatpants, a Drake waterfowl jacket, socks.</p>
+    <p>When Clint steps outside toward the carport, the cold hits harder than expected. He goes back in and changes: green sweatpants, a Drake waterfowl jacket, socks.</p>
     <p>He gets a Colt revolver from his parents' bedroom nightstand and walks out through the open garage.</p>
-    <p>Near the passenger side of Holly's car, where the two figures had been kneeling, Clint finds blood — a small pool of low-velocity splatter, four or five drops.</p>
+    <p>Near the passenger side of Holly's car, where the two figures had been kneeling, Clint finds blood&mdash;a small pool of low-velocity splatter, four or five drops.</p>
     <p>He reaches for an explanation: maybe Drew brought a turkey up for Holly to see. Then he thinks: where is the turkey? He walks toward the trail. No one. No birds. No wind.</p>
     <p>The blood was not there when Dana or Karen left.</p>
     <figure class="step-figure">
@@ -1148,10 +1182,12 @@
     <div class="step-title">Scott household calls Richie Pratt — before 911</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Sheila Scott</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> Richie Pratt</div>
-    <p><strong>8:06 AM: </strong>Two minutes before Clint dials 911, the Scott household places a call to Richie Pratt (1 min 11 sec).</p>
-    <p>Per Richie's own TBI statement (Report 358, SA Brent Booth), Sheila Scott called to tell him that Clint had seen somebody take Holly and to ask whether it would be a good idea to tell Drew.</p>
-    <p>Richie Pratt is Drew's alibi — the only person in the reviewed materials who places Drew at work before 8 AM. He is in a committed relationship with Lisa Douglas, Drew's maternal aunt, who lives next door to the Scotts. He is the person who got Drew his job with the city of Parsons.</p>
-    <p>The question the timing raises is direct: how did the Scott household know Holly had been taken at 8:06 AM — before Clint called 911, before law enforcement was notified, and before Karen had reached anyone at the house?</p>
+    <p><strong>~8:06 AM: </strong>Two minutes before Clint dials 911, the Scott household places a call to Richie Pratt (1 min 11 sec).</p>
+    <p>Per Richie's TBI statement (Report 358, SA Brent Booth): Sheila Scott called to tell him that Clint had seen somebody take Holly and to ask whether it would be a good idea to tell Drew.</p>
+    <p>Richie Pratt is Drew's alibi&mdash;the only person in the reviewed materials who places Drew at work before 8:00 AM.</p>
+    <p>Richie is in a committed relationship with Lisa Douglas, Drew's maternal aunt, who lives next door to the Scotts. He is the person who got Drew his job with the city of Parsons.</p>
+    <p>The question the timing raises is direct: how did the Scott household know Holly had been taken at 8:06 AM&mdash;before Clint called 911, before law enforcement was notified, and before Karen had reached anyone at the house?</p>
+    <p>Per Drew Scott's own account at trial: his boss told him about the abduction, he left work, went to his father's workplace, and the two of them went together to the Bobo residence.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Sheila Scott</span> <span class="where">Scott home / calls Richie</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway / hasn't called 911</span></div>
@@ -1164,7 +1200,7 @@
     <div class="step-time">~8:08 AM</div>
     <div class="step-title">Clint calls 911</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
-    <p><strong>8:08 AM: </strong>Clint calls 911 from the yard, gun in hand, scanning the tree line.</p>
+    <p><strong>~8:08 AM: </strong>Clint calls 911 from the yard, gun in hand, scanning the tree line.</p>
     <p>The search for Holly Bobo begins.</p>
     <figure class="step-figure">
       <img src="photos/evidence%20found/blood-in-garage-2.jpg" alt="Additional blood evidence on the carport floor" loading="lazy" />
@@ -1181,8 +1217,8 @@
   <div class="step" data-step="30" data-border="var(--c-holly)">
     <div class="step-time">~8:09 AM</div>
     <div class="step-title">First deputy on scene</div>
-    <p><strong>8:09 AM: </strong>Deputy Tony Weber arrives at the Bobo residence — one minute after Clint's 911 call.</p>
-    <p>Investigators will later conclude that Holly was taken as she stepped out to her car for nursing school — she is never seen again.</p>
+    <p><strong>~8:09 AM: </strong>Deputy Tony Weber arrives at the Bobo residence&mdash;one minute after Clint's 911 call.</p>
+    <p>Investigators will later conclude that Holly was taken as she stepped out to her car for nursing school.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ home</span></div>
@@ -1196,7 +1232,7 @@
     <div class="act-label">Act III&mdash;Holly's Phone Is On The Move</div>
     <div class="step-title">CR 1253</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
-    <p><strong>8:11 AM: </strong>Holly's phone hits a new tower on CR 1253. It is already moving — away from the house, headed northeast.</p>
+    <p><strong>~8:11 AM: </strong>Holly's phone hits a new tower on CR 1253. It is already moving&mdash;away from the house, headed northeast.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone NE/CR 1253</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo home</span></div>
@@ -1209,7 +1245,7 @@
     <div class="step-time">~8:16 AM</div>
     <div class="step-title">CR 1096 Sector 2</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
-    <p><strong>8:16 AM: </strong>The phone hits the Shiloh Rd. Tower near Natchez Trace State Park, still tracking northeast.</p>
+    <p><strong>~8:16 AM: </strong>The phone hits the Shiloh Rd. Tower near Natchez Trace State Park, still tracking northeast.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone NE/Shiloh Rd</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo home</span></div>
@@ -1222,10 +1258,10 @@
     <div class="step-title">Jason texts Zach</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
-    <p><strong>8:19 AM: </strong>After ninety silent minutes, Jason Autry's phone wakes up — a text to Zach Adams. Both phones are on the same tower: Holiday/Yellow Springs, near Zach's residence.</p>
+    <p><strong>~8:19 AM: </strong>After ninety silent minutes, Jason Autry's phone wakes up&mdash;a text to Zach Adams. Both phones are on the same tower: Holladay/Yellow Springs, near Zach's residence.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">→ Zach &middot; Holiday tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Holiday tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">→ Zach &middot; Holladay tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Holladay tower</span></div>
     </div>
   </div>
 
@@ -1234,7 +1270,7 @@
     <div class="step-time">~8:26 AM</div>
     <div class="step-title">CR 1096 Sector 1</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
-    <p><strong>8:26 AM: </strong>Holly's phone hits on the same tower but different sector. Her phone is still in the Shiloh Rd. area.</p>
+    <p><strong>~8:26 AM: </strong>Holly's phone hits on the same tower but different sector. Her phone is still in the Shiloh Rd. area.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone Shiloh Rd</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo home</span></div>
@@ -1247,7 +1283,7 @@
     <div class="step-time">~8:26 AM</div>
     <div class="step-title">Drew's phone — same sector as Holly's</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-    <p><strong>8:26 AM: </strong>Drew's phone registers on the Shiloh Rd. sector — the same tower sector where Holly's phone stopped moving between 8:26 and 8:56 AM that morning, and where her skeletal remains were ultimately discovered by deer hunters in September 2014.</p>
+    <p><strong>~8:26 AM: </strong>Drew's phone registers on the Shiloh Rd. sector&mdash;the same tower sector where Holly's phone stopped moving between 8:26 and 8:56 AM that morning, and where her skeletal remains were ultimately discovered by deer hunters in September 2014.</p>
     <p>This is not noted anywhere in the existing public record of the case. Drew's phone and Holly's phone are on the same sector at the same time, in a rural area miles from the Bobo home, during the window in which Holly's phone goes permanently silent.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">phone / Shiloh Rd sector</span></div>
@@ -1261,12 +1297,12 @@
     <div class="step-title">Texts become calls</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
-    <p><strong>8:30 AM: </strong>Zach texts Jason back. Same tower the whole time.</p>
-    <p><strong>8:53 AM: </strong>Zach and Jason call each other. Same tower the whole time.</p>
-    <p><strong>8:55 AM: </strong>Zach and Jason call each other. Same tower the whole time.</p>
+    <p><strong>~8:30 AM: </strong>Zach texts Jason back. Same tower the whole time. Zach's phone is also texting with Shayne Austin's phone that morning.</p>
+    <p><strong>~8:53 AM: </strong>Zach and Jason call each other. Same tower the whole time.</p>
+    <p><strong>~8:55 AM: </strong>Zach and Jason call each other. Same tower the whole time.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Holiday tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Holiday tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Holladay tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Holladay tower</span></div>
     </div>
   </div>
 
@@ -1281,8 +1317,8 @@
     <p>This is the forensic question at the heart of the case.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">same tower (per prosecution)</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Holiday tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Holiday tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Holladay tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Holladay tower</span></div>
     </div>
   </div>
 
@@ -1293,7 +1329,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <p><stong>Between 9:00 and 9:10 AM: </stong>Holly's phone moves through multiple sectors of the CR 3152 tower, drifting further from the abduction site.</p>
     <p>Four pings in rapid succession — the kind of pattern a phone leaves behind when it's in a moving vehicle.</p>
-    <p style="opacity:0.7;font-size:12px;">At <strong>9:15 AM</strong>, TBI Special Agent Brent Booth arrives at the Bobo home. By then, 100–200 people are already on the property. Terry Dicus is securing the scene; a K-9 unit is dispatched into the woods.</p>
+    <p style="opacity:0.7;font-size:12px;">At <strong>9:15 AM</strong>, TBI Special Agent Brent Booth arrives at the Bobo home. By then, 100–200 people are already on the property. Terry Dicus is securing the scene; a K-9 unit is dispatched into the woods. In order to trigger an Amber Alert, Karen Bobo told Booth that Holly was 17 — she was 20.</p>
     <p style="opacity:0.7;font-size:12px;">Around the same time, Dick Adams later says he saw <strong>Zach, Dylan, and Shayne driving south on Highway 641</strong>, in Dylan's pickup.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone CR 3152</span></div>
@@ -1308,7 +1344,7 @@
     <div class="step-time">9:25 AM</div>
     <div class="step-title">Final Ping</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo&mdash;LAST SIGNAL</div>
-    <p><strong>9:25 AM: </strong>Holly's phone pings the CR 1257 tower, Sector 3&mdash;placing it in the rural wooded area off W Natchez Trace Road, near where her lunchbox and notebook would later be recovered. It is the final recorded signal her phone will ever produce.</p>
+    <p><strong>~9:25 AM: </strong>Holly's phone pings the CR 1257 tower, Sector 3&mdash;placing it in the rural wooded area off W Natchez Trace Road, near where her lunchbox and notebook would later be recovered. It is the final recorded signal her phone will ever produce.</p>
     <p>After this, the line goes dead&mdash;permanently. The phone is either powered down or has its battery removed.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone last ping/CR 1257 S3</span></div>
@@ -1365,7 +1401,7 @@
     <div class="step-time">10:38 AM</div>
     <div class="step-title">Zach heads home</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
-    <p><strong>10:38 AM: </strong>Adams' phone pings the tower closest to his home in Holladay. He has left the Birdsong area.</p>
+    <p><strong>~10:38 AM: </strong>Adams' phone pings the tower closest to his home in Holladay. He has left the Birdsong area.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">→ Holladay</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">phone off-grid</span></div>
@@ -1379,9 +1415,9 @@
     <div class="step-title">AM Farm surveillance</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <p>A parking-lot camera near the abduction area captures three vehicles passing within minutes:</p>
-    <p><strong>11:04 AM: </strong> A black SUV.<br/>
-    <strong>11:05 AM: </strong> Two more black SUVs.<br/>
-    <strong>11:07 AM: </strong> An extended-cab pickup truck like Zach Adams' dark Chevy Silverado with Georgia plates.</p>
+    <p><strong>~11:04 AM: </strong> A black SUV.</p>
+    <p><strong>~11:05 AM: </strong> Two more black SUVs.</p> 
+    <p><strong>~11:07 AM: </strong> An extended-cab pickup truck like Zach Adams' dark Chevy Silverado with Georgia plates.</p>
     <p>Investigators later note that a TBI special agent was throwing a retirement party that morning — many of the SUVs are likely officers heading to the Bobo home. The pickup truck is something else.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach (likely)</span> <span class="where">Am Farm road</span></div>
@@ -1394,9 +1430,9 @@
     <div class="step-time">11:12 AM</div>
     <div class="step-title">ATM video</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
-    <p><strong>11:12 AM: </strong>Adams' phone pings a tower near the CB&amp;S Bank ATM. Surveillance footage from that ATM is later introduced at trial.</p>
+    <p><strong>~11:12 AM: </strong>Adams' phone pings a tower near the CB&amp;S Bank ATM. Surveillance footage from that ATM is later introduced at trial.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">CB'S Bank ATM</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">CB&S Bank ATM</span></div>
       <div class="loc-pill"><span class="dot" style="background:#a17ec2"></span><span class="who">Shayne</span> <span class="where">home/on home tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo home</span></div>
     </div>
@@ -1420,8 +1456,8 @@
     <div class="step-time">12:17 PM &ndash; 12:21 PM</div>
     <div class="step-title">Britt breaks silence</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
-    <p><strong>12:17 PM: </strong> More than four hours after the abduction — Terry Britt, a confidential informant in Parsons, gets a phone call from his ex-wife Brenda Seagraves, who tells him about Holly's disappearance. Per his later trial testimony, this is how he first hears of it.</p>
-    <p><strong>12:20 PM: </strong> Britt calls his wife Janet. The call runs 2 minutes 56 seconds.</p>
+    <p><strong>~12:17 PM: </strong> More than four hours after the abduction — Terry Britt, a confidential informant in Parsons, gets a phone call from his ex-wife Brenda Seagraves, who tells him about Holly's disappearance. Per his later trial testimony, this is how he first hears of it.</p>
+    <p><strong>~12:20 PM: </strong> Britt calls his wife Janet. The call runs 2 minutes 56 seconds.</p>
     <p>Janet would later tell investigators the two had been "together all day." You don't call someone standing next to you.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-britt)"></span><span class="who">Terry Britt</span> <span class="where">on phone</span></div>
@@ -1434,7 +1470,7 @@
     <div class="step-time">12:35 PM</div>
     <div class="step-title">Parsons area</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
-    <p><strong>12:35 PM: </strong>Adams' phone pings a tower in the Parsons area — more than four hours after the abduction. It is his last event in the phone timeline (of record).</p>
+    <p><strong>~12:35 PM: </strong>Adams' phone pings a tower in the Parsons area — more than four hours after the abduction. It is his last event in the phone timeline (of record).</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Parsons area</span></div>
       <div class="loc-pill"><span class="dot" style="background:#a17ec2"></span><span class="who">Shayne</span> <span class="where">home/satellite tech leaves</span></div>
@@ -1446,7 +1482,7 @@
     <div class="step-time">1:45 PM</div>
     <div class="step-title">Nobody home</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
-    <p><strong>1:45 PM: </strong>Decatur County deputies arrive at the Britt home. No one is home. Three vehicles are gone.</p>
+    <p><strong>~1:45 PM: </strong>Decatur County deputies arrive at the Britt home. No one is home. Three vehicles are gone.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-britt)"></span><span class="who">Terry Britt</span> <span class="where">whereabouts unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-britt)"></span><span class="who">Janet Britt</span> <span class="where">whereabouts unknown</span></div>
@@ -1462,7 +1498,19 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
     <p>Dottie's house sits between Zach Adams' home and Shayne Austin's. Inside, Victor Dinsmore is remodeling and Debbie Dorris is cleaning — both there most of the day.</p>
     <p><strong>Between 2:30 and 3:00 PM: </strong>>Three men pull up in a black pickup. Victor identifies the truck as Dylan Adams'. Debbie identifies one of the men as Jason Autry — she knew his mother. The third is Shayne Austin.</p>
-    <p>Zach asks Victor for a joint and the men smoke it together. Then Zach and Shayne start fighting. Jason breaks it up. They drive away.</p>
+    <p>Zach asks Victor for a joint and the men smoke it together. Then Zach and Shayne start fighting. During the altercation, Dinsmore testifies he heard both men say things about <em>"who was going to hit it first."</em> Jason breaks it up and they drive away.</p>
+    <p>In the days and weeks after the abduction, Dinsmore notices he doesn't see Zach or Dylan at all — an absence he finds unusual, given how regularly they were in contact. He later tells law enforcement he blocked out much of this period because he believes someone also attempted to abduct his daughter around this time; his wife identified the would-be abductor as one of the "Pearcy brothers," described as an associate of Zach's.</p>
+    <details>
+      <summary>Contradictions with Autry's testimony</summary>
+      <div class="detail-body">
+        <ul class="list-of-things">
+          <li>Autry testified the group bought a morphine pill from Dinsmore at Dottie's that afternoon. Dinsmore says no morphine was sold there that day.</li>
+          <li>Autry testified Dinsmore made a statement about his wife or putting a car in his shop. Dinsmore denies any such statement was made.</li>
+          <li>Autry described the visit as a drug purchase. Dinsmore says they only asked for a joint — not pills.</li>
+        </ul>
+      </div>
+    </details>
+    <p style="opacity:0.7;font-size:12px;">SA Brent Booth admitted at trial — in a recorded conversation — that he told Victor Dinsmore specific facts Jason Autry was going to testify to before Autry took the stand, including that Zach's truck had been stored on Dinsmore's property. Dinsmore had previously told Booth that Zach did not hide his truck at his residence — which he later acknowledged was factually false, adding that Booth "didn't ask" where it was hidden. Separately, Dinsmore initially told law enforcement that Zach was not with the group on the day Holly disappeared, but later said he had the days mixed up.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Dottie's</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Dottie's</span></div>
@@ -1545,7 +1593,7 @@
   <div class="step" data-step="55" data-border="var(--c-evid)" data-clock="2:00 AM|April 14, 2011">
     <div class="step-time">~2:00 AM on April 14, 2011</div>
     <div class="step-title">TBI lab personnel clear the scene</div>
-    <p><strong>2:00 AM: </strong>Eighteen hours after Clint's 911 call, TBI lab personnel finish processing the carport. They take the blood, the surrounding evidence, and leave.</p>
+    <p><strong>~2:00 AM: </strong>Eighteen hours after Clint's 911 call, TBI lab personnel finish processing the carport. They take the blood, the surrounding evidence, and leave.</p>
     <p>Holly has been gone for one day.</p>
   </div>
 
@@ -1557,6 +1605,7 @@
     <div class="step-title">The gap</div>
     <p>By the early hours of April 14, the lab has cleared the carport and the searchers have gone home. No new evidence surfaces.</p>
     <p>Holly Bobo's remains would not be found for another three years.</p>
+    <p style="opacity:0.7;font-size:12px;">On <strong>February 25, 2014</strong>, SA Brent Booth was called in and became focused on Zach Adams, Dylan Adams, Jason Autry, and Shayne Austin. He discovered that their alibis had never been investigated — despite SA Terry Dicus testifying that they had been.</p>
   </div>
 
   <!-- ACT 6: EVIDENCE -->
@@ -1565,6 +1614,8 @@
     <div class="act-label">Act VI&mdash;Evidence Recovery</div>
     <div class="step-title">Evidence sites</div>
     <p><strong>2011 – 2014: </strong>Over the next three years, pieces of evidence surfaced across the region — Holly's lunchbox, her cell phone, a SIM card, nursing papers, and, finally, her remains.</p>
+    <p>During the search of the Adams residence, investigators found <strong>nail polish</strong> they said matched material recovered at the crime scene. Hundreds of items and four vehicles were seized.</p>
+    <p>A palm print was recovered from Holly's vehicle. All four defendants — Zach Adams, Dylan Adams, Jason Autry, and Shayne Austin — were <strong>excluded</strong> from it. Per scrapyard records, Zach Adams was <strong>not</strong> at the scrapyard on the day of the abduction.</p>
     <div class="step-gallery">
       <img src="photos/evidence%20found/evidence-map.webp" alt="Map of evidence find sites" loading="lazy" />
       <img src="photos/evidence%20found/lunchbox.webp" alt="Holly's lunchbox" loading="lazy" />
@@ -1578,21 +1629,32 @@
       <img src="photos/evidence%20found/hwy-69.webp" alt="Highway 69 area" loading="lazy" />
     </div>
     <p class="gallery-caption">Items recovered between 2011 and 2014</p>
+    <p><strong>Summer 2011 (approx.): </strong>A few months after the abduction, Shayne Austin and Jason Autry brought Victor Dinsmore a pistol in exchange for pills. Dinsmore bought it for his wife's protection — but later told her to get rid of it <em>"because he thought it had killed somebody."</em> Dinsmore and his wife eventually gave TBI information about the gun; investigators flew them to Decatur County and searched a creek off Yellow Springs Road for it. In his trial testimony, Dinsmore described the gun as a .38 or .357, American-made. In an earlier statement he said it was a .22 caliber rifle. The gun was not recovered.</p>
+    <p><strong>December 2011: </strong>In a statement to law enforcement, Victor Dinsmore named <strong>Michael Alexander</strong> as someone involved in hiding Holly's body. Alexander does not appear in any other reviewed source material — no corroboration, no follow-up, and no public record of investigation into the name.</p>
   </div>
 
   <!-- STEP 58: September 7, 2014 Remains found -->
   <div class="step" data-step="58" data-border="var(--c-evid)">
-    <div class="step-time">September 7, 2014</div>
+    <div class="step-time">September 7–9, 2014</div>
     <div class="step-title">Remains found</div>
-    <p>A ginseng hunter named Larry Stone found Holly's skull beneath an upside-down bucket in the woods near a cell tower — roughly three miles from Shayne Austin's home, five from Zachary Adams'.</p>
-    <figure class="step-figure">
+    <p><strong>September 7:</strong> A ginseng hunter named Larry Stone found Holly's skull beneath an upside-down bucket in the woods near a cell tower — roughly 200–250 yards from the interstate, three miles from Shayne Austin's home, five from Zachary Adams'.</p>
+    <p><strong>September 8–9:</strong> TBI SA Laura Hodge's violent crime response team arrived. The skull and initial bones had already been removed and taken to a West Tennessee forensics center before her team got there. Her team conducted a line search with metal detectors and cadaver dogs.</p>
+    <p>Six of Holly's personal items were found parallel to a ditch:</p>
+    <ul class="list-of-things">
+      <li><strong>Marker 1</strong> — inhaler</li>
+      <li><strong>Marker 2</strong> — cloth purse strap</li>
+      <li><strong>Marker 3</strong> — small purse containing pencils, pens, highlighters, a lipstick tube, and a thumb drive</li>
+      <li><strong>Marker 4</strong> — larger purse (under leaves and twigs) containing keys, a camera, a lipstick tube, and a compact mirror</li>
+      <li><strong>Marker 11</strong> — pack of gum near the larger purse</li>
+      <li><strong>Marker 31</strong> — wallet with Holly's driver's license and other cards</li>
+    </ul>
+    <p>Additional items recovered across the scene included rib bones (markers 5, 7, 8, 9, 12, 38), teeth (markers 6, 25, 26, 29, 30, 32), a skull (marker 17), a black hair tie (34), a piece of pink fabric (35), a ring (36), earrings (25, 37), a lotion bottle (28), a black flip flop sole (33), and cloth/plastic material.</p>
+    <p>Weapons-related evidence: a <strong>.380 auto cartridge case</strong> (marker 13) and a <strong>.410 shot shell</strong> were found at the scene. A separate <strong>.32 caliber long revolver</strong> — manufactured in Germany, five chambers loaded, two empty, no matching shell casing — was recovered from a drainage area and examined by SA Cervinia Braswell. Gun materials and personal belongings were sent to the TBI Crime Laboratory; remains went to the Memphis forensic center.</p>
+    <p style="opacity:0.7;font-size:12px;">A hand-drawn map used at trial labeled items under three columns: <strong>"Holly Bobo," "Zach Adams,"</strong> and <strong>"Jason Autry."</strong> Some remains showed teeth marks consistent with coyote activity; investigators also searched nearby coyote dens.</p>
+    <div class="step-gallery">
       <img src="photos/remains-found/remains-1.jpg" alt="Site where Holly Bobo's remains were discovered" loading="lazy" />
-      <figcaption>Discovery site, September 7, 2014</figcaption>
-    </figure>
-    <figure class="step-figure">
       <img src="photos/remains-found/remains-2.jpg" alt="Recovery of Holly Bobo's remains" loading="lazy" />
-      <figcaption>Recovery</figcaption>
-    </figure>
+    </div>
   </div>
 
   <!-- ACT 7: PEOPLE & PLACES -->
@@ -1620,8 +1682,16 @@
     <div class="step-time">Investigation</div>
     <div class="step-title">"I didn't rape nobody"</div>
     <p>When investigators first approach Britt, his unprompted opening line is: <em>"I didn't rape nobody."</em> No one had mentioned rape.</p>
+    <p style="opacity:0.7;font-size:12px;">Wiretapping Britt was described by SA Booth as unprecedented in the state of Tennessee.</p>
     <p>Clint Bobo — the only person to hear the voice of his sister's abductor that morning — later says he is <strong>80% sure</strong> it was Britt's.</p>
-    <p>Britt's vehicle matches surveillance footage from the Am Farm near the abduction site. He has a documented history of stalking blonde, blue-eyed women in the area. Before his devices are seized, his computer holds searches for <em>"rape," "abduction,"</em> and <em>"kidnapping."</em></p>
+    <p>Britt's vehicle matches surveillance footage from the Am Farm near the abduction site. He has a documented history of stalking blonde, blue-eyed women in the area. Before his devices are seized, his computer holds searches across multiple sites including <em>video.xnxx.com</em> and <em>nudevista.com</em> — conducted in January 2011, three months before the abduction:</p>
+    <ul class="list-of-things">
+      <li><em>"abducted"</em></li>
+      <li><em>"kidnapped"</em> (multiple searches)</li>
+      <li><em>"kidnapped and raped"</em></li>
+      <li><em>"rape scene"</em></li>
+      <li><em>"anal rape"</em></li>
+    </ul>
     <p>At one point, Britt offers to plead guilty in exchange for a 20-year sentence. At trial, he denies it.</p>
   </div>
 
@@ -1703,10 +1773,11 @@ const POI = {
   'cell-phone':      { coord: [35.6849778, -88.1146431],    color: '#EBE2CD', label: 'Cell phone' },
   'bath-springs':    { coord: [35.4685833, -88.1248667],    color: '#5DA39E', label: 'Bath Springs' },
   'scott-home':      { coord: [35.63488, -88.09210],           color: '#5DA39E', label: 'Drew Scott home', pos: 'below', gap: 10 },
+  'drew-work':       { coord: [35.64284, -88.12314],           color: COLORS.drew, label: 'Drew — City of Parsons', pos: 'right', gap: 10 },
   'camden-tower':    { coord: [36.0160773, -88.0379963],    color: '#7B8FA1', label: 'Camden Tower', coverage: 3500, pos: 'right' },
   'autry-residence': { coord: [36.022526, -88.069439],      color: '#4A8FB8', label: "Autry home w/ GF)", pos: 'below' },
   'autry-home':      { coord: [35.8166, -88.127187],         color: '#57B0DC', label: 'Jason Autry home', pos: 'left' },
-  'holiday-tower':   { coord: [35.8449259, -88.0894732],    color: '#FFD23F', label: 'Holiday/Yellow Springs Tower', coverage: 3500, pos: 'above' },
+  'holiday-tower':   { coord: [35.8449259, -88.0894732],    color: '#FFD23F', label: 'Holladay/Yellow Springs Tower', coverage: 3500, pos: 'above' },
   'shiloh-tower':    { coord: [35.815967, -88.205831],      color: '#B8C0CC', label: 'Shiloh Rd. Tower', coverage: 3500, pos: 'left' },
   'birdsong-tower':  { coord: [35.8670476, -87.9716572],    color: '#FFD23F', label: 'Birdsong Tower', pos: 'above', gap: 10 },
   'am-farm':         { coord: [35.6771, -88.1700],           color: '#E63946', label: 'AM Farm Rd. camera', pos: 'left', gap: 10 },
@@ -1801,7 +1872,7 @@ let coverageVisible = false;
 
 // Friendly labels for each tower base name (matches keys in TOWER_COLORS).
 const TOWER_LABELS = {
-  'Adams home':            'Holiday \u00B7 Yellow Springs',
+  'Adams home':            'Holladay \u00B7 Yellow Springs',
   'ATT 083012 - 12571':    'ATT-12571',
   'ATT 083012 - 12572':    'ATT-12572',
   'ATT 083012 - 12573':    'CR 1257 \u00B7 ATT-12573',
@@ -2141,11 +2212,10 @@ function showRefGhosts(overrides) {
   showPersistent('britt-ghost',     ov['britt-ghost']);
 }
 
-// Steps 31–38: remains + britt only — holly-last-ping not yet revealed
+// Steps 31–38: britt-ghost only — holly-last-ping and remains-site not yet revealed
 function showRefAnchors(overrides) {
   var ov = overrides || {};
-  showPersistent('remains-site', ov['remains-site']);
-  showPersistent('britt-ghost',  ov['britt-ghost']);
+  showPersistent('britt-ghost', ov['britt-ghost']);
 }
 
 function showBrittGhost(overrides) { showRefAnchors(overrides ? { 'britt-ghost': overrides } : undefined); }
@@ -2253,10 +2323,11 @@ const STEPS = {
     }
   },
   4: {
-    bounds: [BOBO_HOME, POI['bath-springs'].coord],
+    bounds: [BOBO_HOME, POI['bath-springs'].coord, POI['home-tower'].coord],
     action() {
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10});
       const b = drawPOI('bath-springs', { pos: 'below', gap: 10});
+      drawPOI('home-tower', { pos: 'right', gap: 14 });
       drawLine(a, b, '~15 mi', [0, 0.005]);
     }
   },
@@ -2459,11 +2530,12 @@ const STEPS = {
     }
   },
   27: {
-    bounds: [BOBO_HOME, POI['scott-home'].coord],
+    bounds: [BOBO_HOME, POI['scott-home'].coord, POI['drew-work'].coord],
     action() {
       setClock('8:06 AM');
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10 });
       const b = drawPOI('scott-home', { label: 'Drew Scott home', color: '#5DA39E', pos: 'below', gap: 10 });
+      drawPOI('drew-work', { pos: 'right', gap: 10 });
       drawLine(a, b, '~6 mi', [0, 0.002]);
     }
   },
