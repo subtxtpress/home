@@ -2141,8 +2141,14 @@ function showRefGhosts(overrides) {
   showPersistent('britt-ghost',     ov['britt-ghost']);
 }
 
-// Legacy alias — kept so any future direct calls still work
-function showBrittGhost(overrides) { showRefGhosts(overrides ? { 'britt-ghost': overrides } : undefined); }
+// Steps 31–38: remains + britt only — holly-last-ping not yet revealed
+function showRefAnchors(overrides) {
+  var ov = overrides || {};
+  showPersistent('remains-site', ov['remains-site']);
+  showPersistent('britt-ghost',  ov['britt-ghost']);
+}
+
+function showBrittGhost(overrides) { showRefAnchors(overrides ? { 'britt-ghost': overrides } : undefined); }
 
 function showTrail(coords, color) {
   const line = L.polyline(coords, {
@@ -2502,7 +2508,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0811, 'HB 8:11 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showRefGhosts();
+      showRefAnchors();
     }
   },
   32: {
@@ -2520,7 +2526,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0816, 'HB 8:16 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showRefGhosts();
+      showRefAnchors();
     }
   },
   33: {
@@ -2548,7 +2554,7 @@ const STEPS = {
       activeMarkers.push(m);
       const lb = makeLabel(TIMELINE.hb_0826, 'HB 8:26 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showRefGhosts();
+      showRefAnchors();
     }
   },
   35: {
@@ -2568,7 +2574,7 @@ const STEPS = {
       activeMarkers.push(makeLabel(drewPin, 'Drew cell phone', COLORS.drew, 'above', 15));
       const tower = drawPOI('shiloh-tower', { pos: 'left', gap: 62});
       drawLine(drewPin, tower, '', [0.003, 0]);
-      showRefGhosts();
+      showRefAnchors();
     }
   },
   36: {
@@ -2592,7 +2598,7 @@ const STEPS = {
       activeMarkers.push(makeLabel(POI['autry-home'].coord, 'Jason cell phone', COLORS.autry, 'left', 62));
       activeMarkers.push(makeDot(TIMELINE.hb_0902, COLORS.holly, 8, true));
       activeMarkers.push(makeLabel(TIMELINE.hb_0902, 'Holly (per prosecution)', COLORS.holly, 'below', 15));
-      showRefGhosts();
+      showRefAnchors();
     }
   },
   38: {
@@ -2613,7 +2619,7 @@ const STEPS = {
       });
       const lb = makeLabel(TIMELINE.hb_0910, 'HB 9:10 AM', COLORS.holly, 'above', 10);
       activeMarkers.push(lb);
-      showRefGhosts();
+      showRefAnchors();
     }
   },
   39: {
