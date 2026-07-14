@@ -354,7 +354,7 @@
       gap: 10px 40px;
     }
     .case-meta-item {
-      font-size: 13px;
+      font-size: clamp(10px, 2.2vw, 11px);
       line-height: 1.6;
     }
     .case-meta-item strong {
@@ -388,12 +388,12 @@
       gap: 24px;
       padding: 16px 28px;
       border-bottom: 1px solid var(--border-light);
-      font-size: 14px;
+      font-size: clamp(10px, 2.2vw, 11px);
       line-height: 1.7;
     }
     .filing-date {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
+      font-size: clamp(10px, 2.5vw, 12px);
       color: var(--text-label);
       font-weight: 500;
       flex-shrink: 0;
@@ -424,7 +424,7 @@
       background: var(--surface-elevated);
       border-left: 3px solid var(--accent);
       border-radius: 0 6px 6px 0;
-      font-size: 13px;
+      font-size: clamp(11px, 2.8vw, 13px);
       line-height: 1.75;
       color: var(--text-body);
     }
@@ -453,7 +453,7 @@
     .docket-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13px;
+      font-size: clamp(10px, 2.2vw, 11px);
     }
     .docket-table thead {
       background: var(--surface-elevated);
@@ -530,7 +530,7 @@
       margin-bottom: 4px;
     }
     .drive-card-desc {
-      font-size: 13px;
+      font-size: clamp(12px, 3vw, 13px);
       line-height: 1.6;
       color: var(--text-body);
     }
@@ -707,7 +707,6 @@
         gap: 4px;
       }
       .case-meta-item {
-        font-size: 11px;
         line-height: 1.4;
       }
       .filings {
@@ -722,16 +721,13 @@
       .filing {
         padding: 10px 14px;
         gap: 12px;
-        font-size: 12px;
       }
       .filing-date {
-        font-size: 10px;
         min-width: 60px;
       }
       .filing-note {
         margin-top: 6px;
         padding: 10px 12px;
-        font-size: 11px;
       }
       .docket-table-wrap {
         margin: 12px 14px 14px 14px;
@@ -742,16 +738,41 @@
       .docket-table-header h2 {
         font-size: 0.95rem;
       }
-      .docket-table {
-        font-size: 11px;
+      .docket-table thead {
+        display: none;
       }
-      .docket-table th {
-        padding: 8px 10px;
-        font-size: 8px;
+      .docket-table,
+      .docket-table tbody,
+      .docket-table tr,
+      .docket-table td {
+        display: block;
+        width: 100%;
+      }
+      .docket-table tr {
+        border-bottom: 1px solid var(--border-light);
+        padding: 10px 14px;
+      }
+      .docket-table tbody tr:last-child {
+        border-bottom: none;
       }
       .docket-table td {
-        padding: 8px 10px;
-        font-size: 11px;
+        padding: 2px 0;
+        border: none;
+        white-space: normal;
+        word-break: break-word;
+      }
+      .docket-table td::before {
+        content: attr(data-label) ": ";
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-label);
+        margin-right: 4px;
+      }
+      .docket-table td:empty {
+        display: none;
       }
     }
   </style>
@@ -815,14 +836,14 @@
             </thead>
             <tbody>
               <tr>
-                <td data-label="Citation">26052197</td>
+                <td data-label="Citation">260526197</td>
                 <td data-label="Count">001: Filed</td>
                 <td class="wrap" data-label="Violation">13-2906A.1.1: Obst Hwy-Public Thoroughfare - 1st Off</td>
                 <td data-label="DV">N</td>
                 <td data-label="Class">M2</td>
               </tr>
               <tr>
-                <td data-label="Citation">26052197</td>
+                <td data-label="Citation">260526197</td>
                 <td data-label="Count">002: Filed</td>
                 <td class="wrap" data-label="Violation">13-2917A.2: Pub Nuisance-Waterway Pub Area</td>
                 <td data-label="DV">N</td>
@@ -945,22 +966,18 @@
       </summary>
       <div class="case-details-body">
         <div class="case-meta">
-          <div class="case-meta-item"><strong>Defendant:</strong> Troy Lewis Bradshaw</div>
-          <div class="case-meta-item"><strong>Judge:</strong> Honorable Victoria Steele</div>
-          <div class="case-meta-item"><strong>Case Status:</strong> Open</div>
-          <div class="case-meta-item"><strong>Case Number:</strong> CR26-008264-MI</div>
-          <div class="case-meta-item"><strong>Filed Date:</strong> June 8, 2026</div>
-          <div class="case-meta-item"><strong>Next Court Date:</strong> Tuesday, July 17, 2026 at 09:00 AM</div>
-          <div class="case-meta-item"><strong>Case Number:</strong> CR26-008324-MI</div>
-          <div class="case-meta-item"><strong>Filed Date:</strong> June 10, 2026</div>
-          <div class="case-meta-item"><strong>Next Court Date:</strong> Monday, July 13, 2026 at 01:00 PM</div>
-          <div class="case-meta-item"><strong>Source:</strong> <a class="filing-link" href="https://www.jp.pima.gov/CaseSearch/" target="_blank">Pima Justice Court Case Search</a></div>
+          <div class="case-meta-item"><strong>Defendant: </strong>Troy Lewis Bradshaw</div>
+          <div class="case-meta-item"><strong>Case No.: </strong>CR26-008324-MI</div>
+          <div class="case-meta-item"><strong>Charge: </strong>13-2906A.1.1: Obst Hwy-Public Thoroughfare</div>
+          <div class="case-meta-item"><strong>Judge: </strong>Honorable Victoria Steele</div>
+          <div class="case-meta-item"><strong>Next Court Date: </strong>Thursday, August 13, 2026 at 10:00 AM</div>
+          <div class="case-meta-item"><strong>Source: </strong><a class="filing-link" href="https://www.jp.pima.gov/CaseSearch/" target="_blank">Pima Justice Court Case Search</a></div>
         </div>
 
         <!-- Case 1: Public Nuisance -->
         <div class="docket-table-wrap" data-aos="fade-up">
           <div class="docket-table-header">
-            <h2>Case 1: Public Nuisance (CR26-008264-MI)</h2>
+            <h2>Case 1: Public Nuisance (CR26-008264-MI) &mdash; Closed</h2>
           </div>
           <table class="docket-table">
             <thead>
@@ -969,14 +986,16 @@
                 <th>Filed</th>
                 <th>Violation/Description</th>
                 <th>Class</th>
+                <th>Disposition</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td data-label="Citation">26060845</td>
+                <td data-label="Citation">260608245</td>
                 <td data-label="Filed">06-08-2026</td>
-                <td class="wrap" data-label="Violation">13-2917A2: Pub Nuisance-Waterway Pub Area</td>
+                <td class="wrap" data-label="Violation">13-2917A2: Public Nuisance Waterway Public Area</td>
                 <td data-label="Class">M2</td>
+                <td class="wrap" data-label="Disposition">Dismissed on motion/request of prosecutor</td>
               </tr>
             </tbody>
           </table>
@@ -994,12 +1013,24 @@
                 <td data-label="Date">07-17-2026</td>
                 <td data-label="Time">09:00 AM</td>
                 <td class="wrap" data-label="Event">Case Management Conference</td>
+                <td data-label="Result">Vacated</td>
+              </tr>
+              <tr>
+                <td data-label="Date">07-13-2026</td>
+                <td data-label="Time"></td>
+                <td class="wrap" data-label="Event">Bond Exoneration</td>
                 <td data-label="Result"></td>
+              </tr>
+              <tr>
+                <td data-label="Date">07-09-2026</td>
+                <td data-label="Time"></td>
+                <td class="wrap" data-label="Event">Application and Order Dismissing Complaint</td>
+                <td data-label="Result">Granted</td>
               </tr>
               <tr>
                 <td data-label="Date">06-17-2026</td>
                 <td data-label="Time"></td>
-                <td class="wrap" data-label="Event">Fingerprinting Compliance</td>
+                <td class="wrap" data-label="Event">Process Control Number (PCN) Generated</td>
                 <td data-label="Result">Completed</td>
               </tr>
               <tr>
@@ -1011,7 +1042,7 @@
               <tr>
                 <td data-label="Date">06-09-2026</td>
                 <td data-label="Time">09:00 AM</td>
-                <td class="wrap" data-label="Event">Initial Appearance AM</td>
+                <td class="wrap" data-label="Event">Initial Appearance</td>
                 <td data-label="Result">Vacated</td>
               </tr>
             </tbody>
@@ -1021,7 +1052,7 @@
         <!-- Case 2: Obstruction -->
         <div class="docket-table-wrap" data-aos="fade-up">
           <div class="docket-table-header">
-            <h2>Case 2: Obstruction (CR26-008324-MI)</h2>
+            <h2>Case 2: Obstruction (CR26-008324-MI) &mdash; Open</h2>
           </div>
           <table class="docket-table">
             <thead>
@@ -1034,7 +1065,7 @@
             </thead>
             <tbody>
               <tr>
-                <td data-label="Citation">26060237</td>
+                <td data-label="Citation">260604237</td>
                 <td data-label="Filed">06-10-2026</td>
                 <td class="wrap" data-label="Violation">13-2906A.1.1: Obst Hwy-Public Thoroughfare - 1st Off</td>
                 <td data-label="Class">M2</td>
@@ -1052,10 +1083,16 @@
             </thead>
             <tbody>
               <tr>
+                <td data-label="Date">08-13-2026</td>
+                <td data-label="Time">10:00 AM</td>
+                <td class="wrap" data-label="Event">Case Management Conference</td>
+                <td data-label="Result"></td>
+              </tr>
+              <tr>
                 <td data-label="Date">07-13-2026</td>
                 <td data-label="Time">01:00 PM</td>
                 <td class="wrap" data-label="Event">Case Management Conference</td>
-                <td data-label="Result"></td>
+                <td data-label="Result">Completed</td>
               </tr>
               <tr>
                 <td data-label="Date">06-16-2026</td>
@@ -1083,7 +1120,6 @@
               <tr>
                 <td data-label="Case"><a class="filing-link" href="https://drive.google.com/file/d/1RBTIIovyzDKVqGdF_vvuD8s-U5fFzwEM/view?usp=drive_link" target="_blank">Incident Report #260608245</a></td>
                 <td data-label="Date">06-08-2026</td>
-              </tr>
               </tr>
             </tbody>
           </table>
