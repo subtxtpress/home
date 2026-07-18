@@ -2873,14 +2873,14 @@ const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x
 const map = L.map('map', {
   center: [35.75, -88.10],
   zoom: 11,
-  layers: [satTiles],
+  layers: [darkTiles],
   zoomControl: true,
   attributionControl: true
 });
 
 L.control.scale({ imperial: true, metric: false, maxWidth: 80 }).addTo(map);
 
-let usingSatellite = true;
+let usingSatellite = false;
 function toggleBasemap() {
   if (usingSatellite) {
     map.removeLayer(satTiles);
