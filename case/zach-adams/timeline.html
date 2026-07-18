@@ -367,43 +367,48 @@
       border: none; 
     }
     .embed-placeholder {
-      display: flex; 
-      align-items: center; 
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 8px; 
-      height: 48px; 
+      gap: 8px;
+      height: 60px;
       cursor: pointer;
-      transition: background 0.2s; 
+      transition: background 0.2s;
       user-select: none;
+      -webkit-user-select: none;
     }
-    .embed-placeholder:hover { 
-      background: rgba(255,255,255,0.06); 
+    .embed-placeholder:hover {
+      background: rgba(255,255,255,0.06);
     }
-    .embed-placeholder svg { 
-      width: 12px; 
-      height: 12px; 
-      fill: var(--muted); 
-      flex-shrink: 0; 
+    .embed-placeholder:active {
+      background: rgba(255,255,255,0.10);
     }
-    .embed-placeholder:hover svg { 
-      fill: var(--text); 
+    .embed-placeholder svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--muted);
+      flex-shrink: 0;
+    }
+    .embed-placeholder:hover svg {
+      fill: var(--text);
     }
     .embed-placeholder span {
-      font-family: var(--mono); 
+      font-family: var(--mono);
       font-size: 10px;
-      letter-spacing: 0.06em; 
-      color: var(--muted); 
+      letter-spacing: 0.06em;
+      color: var(--muted);
       text-transform: uppercase;
     }
-    .embed-placeholder:hover span { 
-      color: var(--text2); 
+    .embed-placeholder:hover span {
+      color: var(--text2);
     }
-    .embed-caption {
-      font-family: var(--mono); 
+    .step-embed + .embed-caption {
+      font-family: var(--mono);
       font-size: 10px;
-      color: var(--muted); 
-      letter-spacing: 0.04em;
-      margin: 4px 0 10px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin: -2px 0 12px;
+      text-transform: uppercase;
     }
     .stmt-excerpt {
       border-left: 2px solid var(--c-evid, #4a8a7c);
@@ -519,7 +524,7 @@
     .scroll-hint {
       font-family: var(--mono); 
       font-size: 11px;
-      color: var(--muted); 
+      color: var(--c-zach); 
       margin-top: 20px;
       letter-spacing: 0.08em; 
       animation: pulse 2s infinite;
@@ -547,7 +552,7 @@
     .title-card .dateline {
       font-family: var(--mono);
       font-size: 12px;
-      letter-spacing: 0.1em; 
+      letter-spacing: 0.08em; 
       color: var(--c-orange);
       margin-bottom: 8px; 
       text-transform: uppercase;
@@ -801,7 +806,7 @@
 
   <!-- STEP 0: Title -->
   <div class="step title-card" data-step="0" data-clock="April 13, 2011">
-    <div class="dateline">Apr. 13, 2011 &mdash; Parsons, TN</div>
+    <div class="dateline" style="color:var(--c-zach);">Apr. 13, 2011 &mdash; Parsons, TN</div>
     <div class="first-title">Who Took Holly Bobo?</div>
     <p>On the morning of April 13, 2011, a 20-year-old nursing student was taken from her home in rural Decatur County, Tennessee, and was never seen alive again.</p>
     <p>This is the geographic story of that morning, told through cell tower pings, phone records, testimony, and physical evidence introduced at the trial of Zachary Adams.</p>
@@ -809,24 +814,29 @@
     <details>
       <summary>Zach's Apr. 4th Natchez Trace arrest</summary>
       <div class="detail-body">
-        <p></p>
-        <p><strong>Apr. 4, 2011 traffic stop:</strong> A state park officer pulled Zach over after he drove the wrong way down a road at high speed past cars already stopped for downed power lines.</p>
-        <p>During the stop, the officer found a camo fanny pack in the car. Zach grabbed the bag and ran into the woods, throwing items as he fled. The officer caught him, pushed him to the ground, and arrested him, during which Zach attempted to scratch the officer with his fingernails. Zach was alleged to have attempted to run over officers with his truck.</p>
-        <p>His truck was impounded by the Henderson County Sheriff's Department and later retrieved by his grandfather, Dick Adams.</p>
-        <p>Bail bondsman Kristie Gutgsell bailed him out. At the time of bail, Gutgsell observed <strong>scratches all over him</strong> and what she described as <strong>"old scars"</strong> on his arms.</p>
-        <p>The officer testified at trial that, at the time of the Apr. 4th arrest, Zach <strong>did not have long, linear scratches on his left arm</strong>. No injury report was filed for Zach.</p>
-        <p>Rebecca Earp, Zach's girlfriend, testified at trial that the scratches came from the state park officer chase. She also placed the timing. She confirmed Zach had never made any comments about Holly before her disappearance.</p>
+        <p style="opacity:0.7;font-size:12px;margin-top:10px;"><strong>Apr. 4, 2011 traffic stop:</strong> A state park officer pulled Zach over after he drove the wrong way down a road at high speed past cars already stopped for downed power lines.</p>
+        <p style="opacity:0.7;font-size:12px;">During the stop, the officer found a camo fanny pack in the car. Zach grabbed the bag and ran into the woods, throwing items as he fled. The officer caught him, pushed him to the ground, and arrested him, during which Zach attempted to scratch the officer with his fingernails. Zach was alleged to have attempted to run over officers with his truck.</p>
+        <p style="opacity:0.7;font-size:12px;">His truck was impounded by the Henderson County Sheriff's Department and later retrieved by his grandfather, Dick Adams.</p>
+        <p style="opacity:0.7;font-size:12px;">Bail bondsman Kristie Gutgsell bailed him out. At the time of bail, Gutgsell observed <strong>scratches all over him</strong> and what she described as <strong>"old scars"</strong> on his arms.</p>
+        <p style="opacity:0.7;font-size:12px;">The officer testified at trial that, at the time of the Apr. 4th arrest, Zach <strong>did not have long, linear scratches on his left arm</strong>. No injury report was filed for Zach.</p>
+        <p style="opacity:0.7;font-size:12px;">Rebecca Earp, Zach's girlfriend, testified at trial that the scratches came from the state park officer chase. She also placed the timing. She confirmed Zach had never made any comments about Holly before her disappearance.</p>
         <p style="opacity:0.7;font-size:11px;">The two observations&mdash;no scratches on Apr. 4th, and scratches visible at the Natchez Trace bail&mdash;bracket the abduction date.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2011-04-04-Natchez-Trace-arrest.pdf" data-height="500px">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg>
+            <span>Click to view arrest report</span>
+          </div>
+        </div>
+        <div class="embed-caption">Natchez Trace arrest report &mdash; Apr. 04, 2011</div>
       </div>
     </details>
     <details>
       <summary> Shayne's Apr. 12th whereabouts &amp; appearance</summary>
       <div class="detail-body">
-        <p></p>
-        <p><strong>Night before the abduction: </strong>Shayne spent the evening drinking and playing cards.</p>
-        <p>His parents drove him (as was their regular routine) because Shayne had no working transportation after he totaled his truck. His mother Rita took his keys away and later produced them to an FBI agent.</p>
-        <p><strong>Physical appearance (Coon Hunt): </strong>At the time of the Coon Hunt, Shayne had significant facial scarring from a prior motorcycle accident&mdash;a large, raised scar and a hanging eyelid. He also had a goatee. Rita Austin confirmed she did not personally see Shayne at the Coon Hunt.</p>
-        <p><strong>Family relationships: </strong> Holly Bobo, Jason Autry, and Shayne Austin are all related. Some of the Austin family visited Jason Autry in prison regularly.</p>
+        <p style="opacity:0.7;font-size:12px;margin-top:10px;"><strong>Night before the abduction: </strong>Shayne spent the evening drinking and playing cards.</p>
+        <p style="opacity:0.7;font-size:12px;">His parents drove him (as was their regular routine) because Shayne had no working transportation after he totaled his truck. His mother Rita took his keys away and later produced them to an FBI agent.</p>
+        <p style="opacity:0.7;font-size:12px;"><strong>Physical appearance (Coon Hunt): </strong>At the time of the Coon Hunt, Shayne had significant facial scarring from a prior motorcycle accident&mdash;a large, raised scar and a hanging eyelid. He also had a goatee. Rita Austin confirmed she did not personally see Shayne at the Coon Hunt.</p>
+        <p style="opacity:0.7;font-size:12px;"><strong>Family relationships: </strong> Holly Bobo, Jason Autry, and Shayne Austin are all related. Some of the Austin family visited Jason Autry in prison regularly.</p>
       </div>
     </details>
     <div class="scroll-hint">&darr; Scroll to begin</div>
@@ -893,7 +903,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-boo)"></span> "Boo" Scott</div>
     <p><strong>~5:20 AM: </strong>Drew texts Holly <em>"Me n dad headed huntn."</em></p>
-    <p>His phone is on his home sector — Cell 10513 in Decaturville.</p>
+    <p>His phone is on his home sector&mdash;Cell 10513 in Decaturville.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home/baking</span></div>
@@ -914,9 +924,11 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-boo)"></span> "Boo" Scott</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-brasher)"></span> Bo Brasher</div>
     <p><strong>~5:40 AM: </strong>Hunter Bo Brasher is moving through the pre-dawn woods on Holly's grandmother's Bath Springs property when he comes across two men in camouflage still sitting in their truck.</p>
-    <p>He recognizes one as Harold "Boo" Scott, who had umpired some of his high school baseball games. The other introduces himself as "Boo's" son, Drew, and explains he's dating the landowner's granddaughter and has permission to hunt there.</p>
-    <p>When Brasher circles back later, the "Boo" and Drew's truck is gone. This is the last confirmed placement of Drew Scott in Bath Springs.</p>
-    <p>Per TBI report 98 (Walker), Drew and "Boo" were "essentially run off" the property. The record does not establish where they went next.</p>
+    <ul class="list-of-things">
+      <li>He recognizes one as Harold "Boo" Scott, who had umpired some of his high school baseball games. The other introduces himself as "Boo's" son, Drew, and explains he's dating the landowner's granddaughter and has permission to hunt there.</li>
+      <li>When Brasher circles back later, the "Boo" and Drew's truck is gone. This is the last confirmed placement of Drew Scott in Bath Springs.</li>
+      <li>Per TBI report 98 (Walker), Drew and "Boo" were "essentially run off" the property. The record does not establish where they went next.</li>
+    </ul>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home/baking</span></div>
@@ -934,8 +946,10 @@
     <div class="step-title">Fifteen miles northeast of the Bobo's</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <p><strong>~5:54 AM: </strong>Zach Adam's phone is active. He lives with his girlfriend, Rebecca Earp, next door to his grandfather, John "Dick" Adams.</p>
-    <p>Zach had talked Rebecca into spending the night the night before.</p>
-    <p>Sometime between 6:00 and 7:30 AM, he wakes her to say he is heading out to haul scrap. She later recalls hearing his white Nissan pickup pulling a trailer full of scrap around the house before goingb ack to sleep.</p>
+    <ul class="list-of-things">
+      <li>Zach had talked Rebecca into spending the night the night before.</li> 
+      <li>Sometime between 6:00 and 7:30 AM, he wakes her to say he is heading out to haul scrap. She later recalls hearing his white Nissan pickup pulling a trailer full of scrap around the house before goingb ack to sleep.</li>
+    </ul>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home/baking</span></div>
@@ -1065,7 +1079,7 @@
     <div class="step-title">Bobo Neighborhood</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-barnes)"></span> James Barnes</div>
     <p><strong>~7:04 AM: </strong>Two doors down from the Bobo residence, neighbor James Barnes gets a text from his friend Keith Clark.</p>
-    <p>Clark has arrived at the Barnes' house to work on Barnes' pickup.</p>
+    <p style="opacity:0.7;font-size:12px;">Clark has arrived at the Barnes' house to work on Barnes' pickup.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ Scotts Hill/on phone</span></div>
@@ -1088,7 +1102,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
     <p><strong>~7:05 AM: </strong>Holly texts Drew <em>"Let me tell u sumthin, i have studied till i cant possibly study anymore for this test!"</em></p>
-    <p>This is Holly's last outgoing text that appears in both carrier records and the SIM card extraction.</p>
+    <p style="opacity:0.7;font-size:12px;">This is Holly's last outgoing text that appears in both carrier records and the SIM card extraction.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ Scotts Hill/on phone</span></div>
@@ -1111,8 +1125,8 @@
     <div class="step-title">John "Dick" Adams leaves for work</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> John "Dick" Adams</div>
     <p><strong>~7:15 AM: </strong>Karen's phone call with Tina ends around this time.</p>
-    <p>When Dick Adams leaves the house for work, Zach's brother, Dylan Adams, is still in bed.</p>
-    <p>Dick has worked the day shift with his neighbor Billy Bell for years.</p>
+    <p style="opacity:0.7;font-size:12px;">When Dick Adams leaves the house for work, Zach's brother, Dylan Adams, is still in bed.</p>
+    <p style="opacity:0.7;font-size:12px;">Dick has worked the day shift with his neighbor Billy Bell for years.</li>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill/parking lot</span></div>
@@ -1139,7 +1153,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
     <p>Holly and Drew trade seven failed call attempts. During all seven attempts, both phones register on the CR1257 Parsons Sector 3 Tower&mdash;Holly's home sector.</p>
-    <p>Drew's phone is <em>not</em> on the Bath Springs tower at this time. His home sector is Cell Tower 10513 in Decaturville, roughly ~4 miles south. The data does not establish where his phone was between Bath Springs and the Parsons tower.</p>
+    <p style="opacity:0.7;font-size:12px;">Drew's phone is <em>not</em> on the Bath Springs tower at this time. His home sector is Cell Tower 10513 in Decaturville, roughly ~4 miles south. The data does not establish where his phone was between Bath Springs and the Parsons tower.</p>
     <p>The exact sequence from carrier records:</p>
     <ul class="list-of-things">
       <li><strong>7:18:56 AM: </strong>(Drew → Holly, 0s)</li>
@@ -1191,7 +1205,7 @@
       <li>His friend, who owns cats, tells him it doesn't sound like cats to him. Babb later testifies that it is possible the sounds were screaming, though he did not think so at the time.</li>
     </ul>
     <p style="opacity:0.7;font-size:12px;"><strong>Approx ~7:30 AM: </strong>Babb had arrived at his property to go fishing. While standing at the levee of one of his lakes, approx 150 to 200 yards from Swan-Johnson Rd., he heard a motor revving loudly, then saw a <strong>white truck speeding extremely fast, heading south</strong>, right off a gravel segment of the road.</p>
-    <p style="opacity:0.7;font-size:12px;"><strong>He told his friend: </strong><em>"Man, that white truck was flying."</em> He thought it was an extended-cab truck, possibly a Ford, but could not be certain at that distance.</p>
+    <p style="opacity:0.7;font-size:12px;"><strong>Babb told his friend: </strong><em>"Man, that white truck was flying."</em> He thought it was an extended-cab truck, possibly a Ford, but could not be certain at that distance.</p>
     <figure class="step-figure">
       <img src="photos/Bobo-home/living-room.webp" alt="The Bobo living room" loading="lazy" />
       <figcaption>The Bobo living room</figcaption>
@@ -1223,13 +1237,15 @@
     <div class="step-title">Drew calls Holly, 2 silhouettes in the carport, screaming heard</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div> 
     <p><strong>~7:40 AM: </strong>Drew's phone dials Holly&mdash;0 seconds.</p>
-    <p>Clint moves through the dark house without turning on any lights. He checks the front side lights first&mdash;nothing.</p>
-    <p>Then he hears voices coming from the carport. He lifts the venetian blinds slightly: through the gap he can see the partial shoulders and arms of two people kneeling, facing each other&mdash;one male, one female.</p>
-    <p>He recognizes Holly's voice. The male is in full camouflage, including a face covering, speaking calmly, a few words at a time&mdash;measured.</p>
-    <p>Holly answers in single words. She sounds upset, like maybe they're breaking up.</p>
-    <p>The male voice sounds like Drew's, specifically, the way Drew's voice came through Clint's bedroom wall at night when Drew and Holly would talk in her room. Clint assumes it's Drew.</p>
+    <ul class="list-of-things">
+      <li>Clint moves through the dark house without turning on any lights. He checks the front side lights first&mdash;nothing.</li>
+      <li>Then he hears voices coming from the carport. He lifts the venetian blinds slightly: through the gap he can see the partial shoulders and arms of two people kneeling, facing each other&mdash;one male, one female.</li>
+      <li>He recognizes Holly's voice. The male is in full camouflage, including a face covering, speaking calmly, a few words at a time&mdash;measured.</li>
+      <li>Holly answers in single words. She sounds upset, like maybe they're breaking up.</li>
+      <li>The male voice sounds like Drew's, specifically, the way Drew's voice came through Clint's bedroom wall at night when Drew and Holly would talk in her room. Clint assumes it's Drew.</li>
+    </ul>
     <figure class="step-figure">
       <img src="photos/Bobo-home/carport.jpeg" alt="View from inside the house toward the carport, where Clint heard voices" loading="lazy" />
       <figcaption>The carport, from Clint's vantage point inside the house</figcaption>
@@ -1262,8 +1278,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
     <p><strong>~7:41 AM: </strong>A text appears in carrier records as sent from Holly's number to Drew <em>"well your still gonna hunt there"</em> (exact as sent).</p>
-    <p>The message at 7:41 AM does not appear in the SIM card extraction from Holly's phone, which contains no data after 5:20 AM.</p>
-    <p>That discrepancy was apparently never noticed or investigated.</p>
+    <p style="opacity:0.7;font-size:12px;"">The message at 7:41 AM does not appear in the SIM card extraction from Holly's phone, which contains no data after 5:20 AM. That discrepancy was apparently never noticed or investigated.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport/kneeling</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill/parking lot</span></div>
@@ -1323,9 +1338,8 @@
     <div class="step-time">~7:50 AM</div>
     <div class="step-title">"Boo" arrives at work already knowing Holly is missing?</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> "Boo" Scott</div>
-    <p>Drew's brother, Derek Scott, worked with "Boo" at the Food Giant in Parsons.</p>
-    <p><strong>~7:50 AM: </strong>Per Derek, when "Boo" arrived, he was still wearing his hunting camouflage, and immediately told Derek that someone had taken Holly.</p>
-    <p>Clint had not yet reached Karen. Karen had not yet called 911. No documented account explains how "Boo" would know that Holly had been taken at that hour.</p>
+    <p><strong>~7:50 AM: </strong>Drew's brother, Derek Scott, worked with "Boo" at the Food Giant in Parsons. Per Derek, when "Boo" arrived, he was still wearing his hunting camouflage, and immediately told Derek that someone had taken Holly.</p>
+    <p style="opacity:0.7;font-size:12px;">Clint had not yet reached Karen. Karen had not yet called 911. No documented account explains how "Boo" would know that Holly had been taken at that hour.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport/kneeling</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill/parking lot</span></div>
@@ -1359,11 +1373,13 @@
     <p><strong>~7:53 AM: </strong>The Scott household phone calls Drew (41 seconds)&mdash;Per Richie Pratt, Drew is already at work at this point.</p>
     <p><strong>~7:53 AM: </strong>Clint texts Karen <em>"Call me ASAP."</em></p>
     <p><strong>~7:54 AM: </strong>Drew calls Holly (0 seconds).</p>
-    <p><strong>7:56 AM: </strong>Karen calls back, already alarmed by a message she'd received from Kathy Wise about screaming at the house.</p>
-    <p>Clint tells Karen that Holly's car is still in the carport and that he thinks he can see Drew with Holly in the carport.</p>
-    <p>Karen says <em>"That's not Drew."</em> She had just spoken to Drew less than half an hour earlier and believed him to be miles away in Bath Springs. She tells Clint to call all the neighbors and to get a gun and shoot him.</p>
-    <p>Clint protests that it's Holly and Drew.</p>
-    <p>Karen hangs up.</p>
+    <p><strong>7:56 AM: </strong>Karen calls back, already alarmed by a message she'd received from Kathy Wise about screaming at the house.</li>
+    <ul class="list-of-things">
+      <li>Clint tells Karen that Holly's car is still in the carport and that he thinks he can see Drew with Holly in the carport.</li>
+      <li>Karen says <em>"That's not Drew."</em> She had just spoken to Drew less than half an hour earlier and believed him to be miles away in Bath Springs. She tells Clint to call all the neighbors and to get a gun and shoot him.</li>
+      <li>Clint protests that it's Holly and Drew.</li>
+      <li>Karen hangs up.</li>
+    </ul>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">carport/kneeling</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill/parking lot</span></div>
@@ -1404,7 +1420,7 @@
       <li>Clint thinks maybe it's his cousin Richie Pratt, who hunted the property sometimes and was built more like an older, heavier man.</li>
       <li>The object in the male's right hand looks like a bird call, roughly 6 to 8 inches long.</li>
     </ul>
-    <p>Clint notes that despite Holly having a purse, a lunchbox, and nursing notebooks with her that morning, he sees none of them. He's studying the figures closely enough to describe what's in the man's hand&mdash;he would have noticed if she were carrying anything.</p>
+    <p style="opacity:0.7;font-size:12px;">Clint notes that despite Holly having a purse, a lunchbox, and nursing notebooks with her that morning, he sees none of them. He's studying the figures closely enough to describe what's in the man's hand&mdash;he would have noticed if she were carrying anything.</p>
     <figure class="step-figure">
       <img src="photos/Bobo-home/backyard.webp" alt="The wooded trail behind the Bobo home" loading="lazy" />
       <figcaption>The wooded trail behind the Bobo home</figcaption>
@@ -1437,7 +1453,7 @@
     <div class="step-title">911 — en route</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-karen)"></span> Karen Bobo</div>
     <p><strong>~7:59 AM: </strong>While in the car, Karen uses Brumley's phone to call 911 and initially reaches the wrong county's dispatcher before getting routed to Decatur County.</p>
-    <p>Fellow teacher Terry Brumley drives Karen out of the school parking lot and heads toward the Bobo home.</p>
+    <p style="opacity:0.7;font-size:12px;">Fellow teacher Terry Brumley drives Karen out of the school parking lot and heads toward the Bobo home.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">disappeared into tree line</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ en route home/calls 911</span></div>
@@ -1465,12 +1481,15 @@
     <div class="step-time">~8:00 AM</div>
     <div class="step-title">Blood by the car</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
-    <p>When Clint steps outside toward the carport, the cold hits harder than expected. He goes back in and changes: green sweatpants, a Drake waterfowl jacket, socks.</p>
-    <p>He gets a Colt revolver from his parents' bedroom nightstand and walks out through the open garage.</p>
-    <p>Near the passenger side of Holly's car, where the two figures had been kneeling, Clint finds blood&mdash;a small pool of low-velocity splatter, four or five drops.</p>
-    <p>He reaches for an explanation: maybe Drew brought a turkey up for Holly to see. Then he thinks: where is the turkey? He walks toward the trail. No one. No birds. No wind.</p>
-    <p>The blood was not there when Dana or Karen left.</p>
-    <p>Rebecca wakes up and after getting ready, she goes to the bank and stops to eat at Sonic.</p>
+    <p><strong>~8:00 AM: </strong>When Clint steps outside toward the carport, the cold hits harder than expected. He goes back in and changes:</p>
+    <ul class="list-of-things"> 
+      <li>He puts on green sweatpants, a Drake waterfowl jacket, socks.</li>
+      <li>He gets a Colt revolver from his parents' bedroom nightstand and walks out through the open garage.</li>
+      <li>Near the passenger side of Holly's car, where the two figures had been kneeling, Clint finds blood&mdash;a small pool of low-velocity splatter, four or five drops.</li>
+      <li>He reaches for an explanation: maybe Drew brought a turkey up for Holly to see. Then he thinks: where is the turkey? He walks toward the trail. No one. No birds. No wind.</li>
+      <li>The blood was not there when Dana or Karen left.</li>
+    </ul>
+    <p><strong>~8:00 AM: </strong>Rebecca wakes up and after getting ready, she goes to the bank and stops to eat at Sonic.</p>
     <figure class="step-figure">
       <img src="photos/evidence%20found/blood-in-garage-1.jpg" alt="Pool of blood on the carport floor near Holly's car" loading="lazy" />
       <figcaption>Carport floor, near Holly's car</figcaption>
@@ -1499,10 +1518,10 @@
   <!-- STEP 26: ~8:00 – 8:05 AM Kathy Wise arrives -->
   <div class="step" data-step="26" data-border="var(--c-holly)" data-clock="8:00 AM">
     <div class="step-time">~8:00 – 8:05 AM</div>
-    <div class="step-title">Kathy Wise arrives</div>
+    <div class="step-title">Kathy Wise arrives</div> 
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-kathy)"></span> Kathy Wise</div>
-    <p>Fifteen minutes after her phone call to the school, Kathy Wise pulls into the Bobo driveway in person to check on things. She tells Clint the screams she heard were 15 to 20 minutes earlier.</p>
+    <p><strong>~8:00 AM: </strong>Fifteen minutes after her phone call to the school, Kathy Wise pulls into the Bobo driveway in person to check on things. She tells Clint the screams she heard were 15 to 20 minutes earlier.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">woods (gone)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ en route home</span></div>
@@ -1530,12 +1549,14 @@
     <div class="step-title">Scott household calls Richie Pratt — before 911</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Sheila Scott</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> Richie Pratt</div>
-    <p><strong>~8:06 AM: </strong>Two minutes before Clint dials 911, the Scott household places a call to Richie Pratt (1 min 11 sec).</p>
-    <p>Per Richie's TBI statement (Report 358, SA Brent Booth): Sheila Scott called to tell him that Clint had seen somebody take Holly and to ask whether it would be a good idea to tell Drew.</p>
-    <p>Richie Pratt is Drew's alibi&mdash;the only person in the reviewed materials who places Drew at work before 8:00 AM.</p>
-    <p>Richie is in a committed relationship with Lisa Douglas, Drew's maternal aunt, who lives next door to the Scotts. He is the person who got Drew his job with the city of Parsons.</p>
-    <p>The question the timing raises is direct: how did the Scott household know Holly had been taken at 8:06 AM&mdash;before Clint called 911, before law enforcement was notified, and before Karen had reached anyone at the house?</p>
-    <p>Per Drew Scott's own account at trial: his boss told him about the abduction, he left work, went to his father's workplace, and the two of them went together to the Bobo residence.</p>
+    <p><strong>~8:06 AM: </strong>Two minutes before Clint dials 911, the Scott household places a call to Richie Pratt (1 min 11 sec).</li>
+    <ul class="list-of-things">
+      <li>Per Richie's TBI statement (Report 358, SA Brent Booth): Sheila Scott called to tell him that Clint had seen somebody take Holly and to ask whether it would be a good idea to tell Drew.</li>
+      <li>Richie Pratt is Drew's alibi&mdash;the only person in the reviewed materials who places Drew at work before 8:00 AM.</li>
+      <li>Richie is in a committed relationship with Lisa Douglas, Drew's maternal aunt, who lives next door to the Scotts. He is the person who got Drew his job with the city of Parsons.</li>
+      <li>The question the timing raises is direct: how did the Scott household know Holly had been taken at 8:06 AM&mdash;before Clint called 911, before law enforcement was notified, and before Karen had reached anyone at the house?</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">Per Drew Scott's own account at trial: his boss told him about the abduction, he left work, went to his father's workplace, and the two of them went together to the Bobo residence.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">woods (gone)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ en route home</span></div>
@@ -1597,14 +1618,31 @@
   <div class="step" data-step="30" data-border="var(--c-holly)">
     <div class="step-time">~8:09 AM</div>
     <div class="step-title">First deputy on scene</div>
-    <p><strong>~8:09 AM: </strong>Deputy Tony Weber of the Decatur County Sheriff's Department arrives at the Bobo residence one minute after Clint's 911 call, the first officer on scene. He finds Clint and Kathy Wise standing outside. Weber and Clint walk toward that area together. Weber sees blood in the carport and asks Clint to write out a statement. He does not enter the residence. </p>
-    <p>Clint tells Weber that someone in camouflage took his sister into the woods.</p>
-    <p>Deputy Jeremy Pratt and Investigator Ricky Inman arrive at some point after Weber.</p>
-    <p style="opacity:0.7;font-size:12px;">Weber's report states Clint told him he was asleep and heard a scream. Clint's own testimony states he was woken by the dog barking&mdash;not a scream.</p>
-    <p>After Weber walks into the woods looking for Holly, blood, or any disturbance, <head></head> exits onto Swan-Johnson Road and finds nothing&mdash;no photos taken, no effort made to avoid leaving footprints. He never sees Karen run into the woods. Dana Bobo is not at the residence when Weber arrives; Weber is the first to put crime scene tape around the carport.</p>
+    <p><strong>~8:09 AM: </strong>Deputy Tony Weber of the Decatur County Sheriff's Department arrives at the Bobo residence one minute after Clint's 911 call, the first officer on scene.</p>
+    <ul class="list-of-things">
+      <li>He finds Clint and Kathy Wise standing outside.</li>
+      <li>He never sees Karen run into the woods.</li>
+      <li>Clint tells Weber that someone in camouflage took his sister into the woods.</li>
+      <li>He and Clint walk toward that area together.</li>
+      <li>After looking for Holly, blood, or any disturbance, he exits onto Swan-Johnson Road and finds nothing—no photos taken, no effort made to avoid leaving footprints.</li>
+      <li>He sees blood in the carport and asks Clint to write out a statement.</li>
+      <li>Weber is the first to put crime scene tape around the carport.</li>
+      <li>He does not enter the residence.</li>
+    </ul>
     <p style="opacity:0.7;font-size:12px;">This contradicts Dana Bobo's testimony that he was the first to block off the carport area.</p>
-    <p>When Karen arrives, Weber speaks with her and learns Holly had her phone. He contacts 911 and requests they reach AT&T to track it. To do so, he needs a supervisor's signature on an exigent circumstances form. He leaves the scene to get it signed, then faxes it to AT&T.</p>
-    <p>AT&T begins emailing Weber pings of Holly's phone. He relays them to TBI and a helicopter from the Jackson Police Department. The closest address to Holly's phone at that time comes back as within <strong>Holiday Circle</strong>; her phone is registering near <strong>I-840</strong>. When the pings stop coming, Weber is assigned to interview local sex offenders.</p>
+    <p><strong>After 8:09 AM: </strong>Deputy Jeremy Pratt and Investigator Ricky Inman arrive at some point after Weber.</p>
+    <p><strong>After 8:09 AM: </strong>When Karen arrives, Weber speaks with her and learns Holly had her phone.</p>
+    <ul class="list-of-things">
+      <li>He contacts 911 and requests they reach AT&T to track it.</li> 
+      <li>To do so, he needs a supervisor's signature on an exigent circumstances form.</li>
+      <li>He leaves the scene to get it signed, then faxes it to AT&T.</li>
+    </ul>
+    <p><strong>After 8:09 AM: </strong>AT&T begins emailing Weber pings of Holly's phone.</p>
+    <ul class="list-of-things">
+      <li>He relays them to TBI and a helicopter from the Jackson Police Department.</li>
+      <li>The closest address to Holly's phone at that time comes back as within Holiday Circle; her phone is registering near <strong>I-840</strong>.</li>
+      <li>When the pings stop coming, Weber is assigned to interview local sex offenders.</li>
+    </ul>
     <p style="opacity:0.7;font-size:12px;">At trial, it was noted that Weber requested one ping every fifteen minutes despite AT&T being capable of providing one every minute.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">woods (gone)</span></div>
@@ -1702,7 +1740,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-shayne)"></span> Shayne Austin</div>
     <p><strong>~8:19 AM: </strong>After ninety silent minutes, Jason's phone wakes up&mdash;a text to Zach. Both phones are on the same tower: Holladay/Yellow Springs, near Zach's residence.</p>
-    <p>At trial (in testimony he later recanted), Autry said he "started a volley of exchanges" between Shayne Austin and Zach Adams around 8:00 AM, when he "came out of the river"&mdash;consistent with the Camden Bottom/Tennessee River area where he said he had spent the silent window.</p>
+    <p style="opacity:0.7;font-size:12px;">At trial (in testimony he later recanted), Autry said he "started a volley of exchanges" between Shayne Austin and Zach Adams around 8:00 AM, when he "came out of the river"&mdash;consistent with the Camden Bottom/Tennessee River area where he said he had spent the silent window.</p>
     <p style="opacity:0.7;font-size:12px;">Autry testified that cell signal is difficult to get near the river&mdash;which he offered as an explanation for the ninety-minute gap in his phone data.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone CR 1096 Secor 2</span></div>
@@ -1734,8 +1772,16 @@
   <div class="step" data-step="34" data-border="var(--c-holly)">
     <div class="step-time">~8:26 AM</div>
     <div class="step-title">CR 1096 Sector 1</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div> 
     <p><strong>~8:26 AM: </strong>Holly's phone hits on the same tower but different sector. Her phone is still in the Shiloh Rd. area.</p>
+    <p style="opacity:0.7;font-size:12px;">Holly's phone stopped moving between 8:26 and 8:56 AM near the location her skeletal remains were ultimately discovered by deer hunters in September 2014.</p>
+    <p><strong>Morning of April 13:</strong> Camden Police Officer Brian Vitt lives on Yellow Springs Road and returned home from his night shift at approximately 6:00 AM on the day of the abduction.</p>
+    <ul class="list-of-things">
+      <li>He told a TBI agent he may have been outside mowing his lawn from 7:00 to 9:00 AM.</li>
+      <li>At trial he stated he was inside from 6:00 to 8:00 AM.</li>
+      <li>The two accounts conflict and were not reconciled in the reviewed materials.</li>
+      <li>His daughter knew Holly.</li>
+    </ul>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone CR 1096 Sector 1</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -1762,38 +1808,6 @@
     </div>
   </div>
 
-  <!-- STEP 35: 8:26 AM Drew's phone — same sector as Holly's -->
-  <div class="step" data-step="35" data-border="var(--c-drew)">
-    <div class="step-time">~8:26 AM</div>
-    <div class="step-title">Holly's phone stops moving</div>
-    <div class="person-pill"><span class="dot" style="background:var(--c-drew)"></span> Drew Scott</div>
-    <p><strong>~8:26 AM: </strong>Holly's phone stopped moving between 8:26 and 8:56 AM near the location her skeletal remains were ultimately discovered by deer hunters in September 2014.</p>
-    <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone CR 1096 Secor 2/Shiloh Rd. Tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">&rarr; McKenzie Tree Service</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">work/City of Parsons</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-boo)"></span><span class="who">"Boo" Scott</span> <span class="where">Food Giant/still in camo</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Unknown</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Holladay/Yellow Springs</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">goes to bank and then Sonic</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Camden Bottoms/Holladay/Yellow Springs</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">N. Utility District</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone CR 1096 Secor 2/Shiloh Rd. Tower</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">fishing/near Swan-Johnson Rd.</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-richie)"></span><span class="who">Richie</span> <span class="where">next door to the Scotts</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-weber)"></span><span class="who">Weber</span> <span class="where">putting up crime scene tape</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-pratt-inman)"></span><span class="who">Pratt &amp;Inman</span> <span class="where">Bobo home</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-shayne)"></span><span class="who">Shayne</span> <span class="where">home/on phone</span></div>
-    </div>
-  </div>
-
   <!-- STEP 36: 8:30–8:55 Texts become calls -->
   <div class="step" data-step="36" data-border="var(--c-autry)" data-clock="8:30 AM">
     <div class="step-time">~8:30 – 8:55 AM</div>
@@ -1802,12 +1816,27 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-shayne)"></span> Shayne Austin</div>
     <p><strong>~8:30 AM: </strong>Zach texts Jason back. Same tower the whole time. Zach's phone is also texting with Shayne Austin's phone that morning.</p>
-    <p><strong>~8:40 AM: </strong>Shayne was trying to arrange a morphine pill, which he intended to mix with methamphetamine. Zach told him he was busy and would call him back <em>"when he got to the location."</em> Autry put that call at around 8:40–8:50 AM. He then drove toward Decatur County to wait.</p>
+    <p><strong>8:39 AM: </strong>Facebook business records show Zach posts to his account from his <strong>grandmother's computer</strong>.</p>
+    <ul class="list-of-things">
+      <li>Zach is fighting with his girlfriend in a comment thread.</li>
+      <li>The post is timestamped 13:39 UTC / 8:39 AM CST, placing him at his grandmother's house at that moment.</li>
+    </ul>
+    <p><strong>~8:40 AM: </strong></p>
+    <ul class="list-of-things">
+      <li>Shayne was trying to arrange a morphine pill, which he intended to mix with methamphetamine.</li>
+      <li>Zach told him he was busy and would call him back <em>"when he got to the location."</em></li>
+      <li>Autry put that call at around 8:40–8:50 AM. He then drove toward Decatur County to wait.</li>
+    </ul>
     <p><strong>~8:53 AM: </strong>Zach and Jason call each other. Same tower the whole time.</p>
     <p><strong>~8:55 AM: </strong>Zach and Jason call each other. Same tower the whole time.</p>
-    <p><strong>~9:00 AM: </strong>At some point in this window, according to Autry's trial testimony (later recanted), Zach called him back and said he was at Shayne Austin's house and needed Autry's help. Autry still believed this was about a meth batch gone wrong. He drove to Shayne's&mdash;a 20 to 30 minute trip.</p>
-    <p>When he arrived, he found: a burn barrel with flames three to four feet high (which Autry said smelled like methamphetamine); Dylan Adams standing in the trailer doorway but never exiting; Shayne Austin outside saying <em>"Y'all need to hurry up and get the goddamn hell out of here,"</em> with a pistol holstered on his right side; and Zach Adams standing in front of his white Nissan Frontier. Autry says there was a gate at the entrance to the property.</p>
-    <p style="opacity:0.7;font-size:12px;"><strong>Contradiction:</strong> Rita Austin testified Shayne had no burn barrel&mdash;his parents picked up his garbage. A footnote from other trial testimony indicates the gate at Shayne's property was not installed until after April 13, 2011. Shayne's phone shows no activity before 9:23 AM and places him on his home tower from 9:23 AM through 10:55 AM&mdash;consistent with being at his trailer, but also consistent with the satellite installer Randy McGee finding him alone there at noon.</p>
+    <details>
+      <summary>Autry's trial account &mdash; arrival at Shayne's (~9:00 AM, later recanted)</summary>
+      <div class="detail-body">
+        <p style="opacity:0.7;font-size:12px;margin-top:10px;"><strong>~9:00 AM: </strong>At some point in this window, according to Autry's trial testimony (later recanted), Zach called him back and said he was at Shayne Austin's house and needed Autry's help. Autry still believed this was about a meth batch gone wrong. He drove to Shayne's&mdash;a 20 to 30 minute trip.</p>
+        <p style="opacity:0.7;font-size:12px;">When he arrived, he found: a burn barrel with flames three to four feet high (which Autry said smelled like methamphetamine); Dylan Adams standing in the trailer doorway but never exiting; Shayne Austin outside saying <em>"Y'all need to hurry up and get the goddamn hell out of here,"</em> with a pistol holstered on his right side; and Zach Adams standing in front of his white Nissan Frontier. Autry says there was a gate at the entrance to the property.</p>
+        <p style="opacity:0.7;font-size:12px;"><strong>Contradiction:</strong> Rita Austin testified Shayne had no burn barrel&mdash;his parents picked up his garbage. A footnote from other trial testimony indicates the gate at Shayne's property was not installed until after April 13, 2011. Shayne's phone shows no activity before 9:23 AM and places him on his home tower from 9:23 AM through 10:55 AM&mdash;consistent with being at his trailer, but also consistent with the satellite installer Randy McGee finding him alone there at noon.</p>
+      </div>
+    </details>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone CR 1096 Secor 2/Shiloh Rd. Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -1841,7 +1870,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
-    <p>For fifteen minutes, the prosecution's cell expert says <strong>all three phones</strong>&mdash;Holly's, Zach's, and Jason's&mdash;are on the same tower.</p>
+    <p>For fifteen minutes, the prosecution's cell expert says all three phones&mdash;<strong>Holly's, Zach's, and Jason's</strong>&mdash;are on the same tower.</p>
     <p>The defense's cell expert says they were on different sectors, and that Zach's phone never overlapped with Holly's based on predictive server mapping data not available at the time of the abduction but now able to significantly narrow location ranges.</p>
     <p>This is the forensic question at the heart of the case.</p>
     <div class="loc-strip">
@@ -1875,13 +1904,23 @@
     <div class="step-time">9:00 AM – 9:15 AM</div>
     <div class="step-title">CR 3152 transitions</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
-    <p><strong>~9:00–9:10 AM: </strong>Four pings in rapid succession&mdash;the kind of pattern a phone leaves behind when it's in a moving vehicle.</p>
-    <p><strong>~9:00 AM: </strong>Dana Bobo called Babb to ask what the minimum age was to file an Amber Alert, then told him Holly had been taken. Babb drove back to check his property and then went to the Bobo residence, where he spoke with sheriffs from both Henderson and Decatur counties, as well as Homeland Security and FBI agents.</p>
     <p><strong>~9:00 AM: </strong>Rebecca arrives at her job at Joe's Video.</p>
-    <p><strong>~9:00–10:00 AM: </strong> Dylan wakes up and driveswith Zach and Shayne to Parsons in his grey 2006 Chevy Silverado.</p>
+    <p><strong>~9:00–9:10 AM: </strong>Four pings in rapid succession&mdash;the kind of pattern a phone leaves behind when it's in a moving vehicle.</p>
+    <p><strong>~9:00 AM: </strong></p>
+    <ul class="list-of-things">
+      <li>Dana Bobo called Babb to ask what the minimum age was to file an Amber Alert, then told him Holly had been taken.</li>
+      <li>Babb drove back to check his property and then went to the Bobo residence, where he spoke with sheriffs from both Henderson and Decatur counties, as well as Homeland Security and FBI agents.</li>
+    </ul>
+    <p><strong>~9:15 AM: </strong></p>
+    <ul class="list-of-things">
+      <li>TBI Special Agent Brent Booth arrives at the Bobo home. By then, 100–200 people are already on the property. </li>
+      <li>Terry Dicus is securing the scene; a K-9 unit is dispatched into the woods.</li>
+      <li>In order to trigger an Amber Alert, Karen Bobo told Booth that Holly was 17, however, Holly was 20.</li>
+    </ul>
+    <p><strong>~9:00–10:00 AM: </strong> Dylan wakes up and drives with Zach and Shayne to Parsons in his grey 2006 Chevy Silverado.</p>
     <p>Around the same time, Dick Adams later says he saw <strong>Zach, Dylan, and Shayne driving south on Highway 641</strong>, in Dylan's pickup.</p>
-    <p style="opacity:0.7;font-size:12px;"><strong>9:15 AM: </strong>TBI Special Agent Brent Booth arrives at the Bobo home. By then, 100–200 people are already on the property. Terry Dicus is securing the scene; a K-9 unit is dispatched into the woods. In order to trigger an Amber Alert, Karen Bobo told Booth that Holly was 17, however, Holly was 20.</p>
     <p style="opacity:0.7;font-size:12px;">Billy Bell, a lifelong friend of Dick Adams who was working alongside him that day, does not remember seeing Zach, Dylan, or Shayne, although he confirms they did cross through the area Dick described. Bell also testified that Zach's white truck was parked on Bell's mother's property on Apr. 13.</p>
+    <p><strong>9:23 AM: </strong>Shayne Austin's phone shows its first activity of the morning&mdash;texting a number confirmed to be his drug supplier.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -1915,7 +1954,7 @@
     <div class="step-title">Final Ping</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo&mdash;LAST SIGNAL</div>
     <p><strong>~9:25 AM: </strong>Holly's phone pings the CR 1257 tower, Sector 3&mdash;placing it in the rural wooded area off W Natchez Trace Road, near where her lunchbox and notebook would later be recovered. It is the final recorded signal her phone will ever produce.</p>
-    <p>After this, the line goes dead&mdash;permanently. The phone is either powered down or has its battery removed.</p>
+    <p style="opacity:0.7;font-size:12px;">After this, the line goes dead&mdash;permanently. The phone is either powered down or has its battery removed.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -1978,22 +2017,36 @@
     </div>
   </div>
 
-  <!-- STEP 41: 9:50 AM Birdsong East -->
+  <!-- STEP 41: 9:45 AM Birdsong East -->
   <div class="step" data-step="41" data-border="var(--c-zach)">
-    <div class="step-time">9:50 AM – 10:32 AM</div>
+    <div class="step-time">9:45 AM – 10:43 AM</div>
     <div class="step-title">Birdsong East</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
-    <p><strong>~9:50 AM: </strong>Both phones stay on the Birdsong East sector for the next fifty minutes. The Birdsong tower serves the Tennessee River corridor, the area Jason Autry would later testify they drove to with Holly's body.</p>
+    <p><strong>~9:45 AM: </strong>Zach and Jason's phones stay on the Birdsong East sector for the next fifty minutes. The Birdsong tower serves the Tennessee River corridor, the area Jason Autry would later testify they drove to with Holly's body.</p>
+    <ul class="list-of-things">
+      <li><strong>~9:45 AM: </strong>They exchange texts again.</li>
+      <li><strong>~9:46 AM: </strong>They exchange texts again.</li>
+      <li><strong>~10:10 AM: </strong>Shayne calls Zach Adams.</li>
+      <li><strong>~10:19 AM: </strong>Shayne calls Zach Adams.</li>
+      <li><strong>~10:20 AM: </strong>Zach calls Shayne back.</li>
+      <li><strong>~10:39 AM: </strong>They exchange texts again.</li>
+      <li><strong>~10:43 AM: </strong>They exchange texts again.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">Shayne's phone remains on his home tower throughout.</p>
+    <figure class="step-figure">
+      <img src="assets/2011-04-13-Shayne-phone-records.png" alt="Shayne Austin phone records Apr. 13, 2011" loading="lazy" />
+      <figcaption>Shayne Austin phone records &mdash; Apr. 13, 2011</figcaption>
+    </figure>
     <details>
       <summary>Autry's trial account&mdash;what he testified to happening at the I-840 bridge (and later recanted)</summary>
       <div class="detail-body">
-        <p>According to Autry's trial testimony, after Zach told him he needed help "burying a body," Autry agreed under the condition that his PT Cruiser be parked somewhere other than Shayne's. He left it at a church and got into Zach's white Nissan Frontier.</p>
-        <p>He asked Zach about shovels; Zach had none. The plan, Autry testified, was to gut Holly and put her in the "slew" under a bridge so turtles would eat her&mdash;an idea Autry said came from having once seen a body floating under a bridge held up by its intestines. He denied on cross-examination suggesting the gutting plan himself.</p>
-        <p>They drove toward the I-840 bridge on the Tennessee River. Zach backed the truck up to a pile of riprap&mdash;loose limestone off to the side of the bridge&mdash;20–30 feet from the water. Autry grabbed the upper torso of the body with his right hand; Zach lowered the tailgate and grabbed her legs. Autry set her head on the riprap. He described a small amount of blood in the truck bed and an orange-sized bloodspot on the multicolored farm-style blanket. He said he never unwrapped the blanket or looked inside.</p>
-        <p>Then, Autry testified, he saw what he believed was a foot move and heard a sound of distress. He told Zach: <em>"This fucking bitch is still alive."</em> He added that she had heard his name, though on cross-examination he could not say when his name had been said&mdash;or confirm she could have heard anything from inside a wrapped blanket in the back of a truck.</p>
-        <p>Zach, who had been digging in a fanny pack, turned around and retrieved a pistol from the floorboards of the truck&mdash;the same gun, Autry testified, that Shayne had holstered on his right side at the trailer that morning. Autry said he told Zach to wait until he confirmed no one was watching, ran to check the area, came back, and then heard the gun fire. He described the sound as "boom"&mdash;three or four shots he then attributed to an echo. A boat was then heard on the river. Autry said he ran back to the truck, told Zach they had been seen, and they quickly reloaded the body&mdash;the bloodspot, he now said, had grown to the size of a grapefruit. They put Holly back in the truck, shut the tailgate, and left.</p>
-        <p>On the ride back, Autry says Zach explained the motive: Natalie, a woman Zach was involved with, was working at a strip club for drugs, had told Zach that Holly had been to his house, and had "left him with the idea" that the two of them would have a threesome with Holly. Zach had shown Autry pictures of Holly that Natalie had provided.</p>
+        <p style="opacity:0.7;font-size:12px;margin-top:10px;">According to Autry's trial testimony, after Zach told him he needed help "burying a body," Autry agreed under the condition that his PT Cruiser be parked somewhere other than Shayne's. He left it at a church and got into Zach's white Nissan Frontier.</p>
+        <p style="opacity:0.7;font-size:12px;">He asked Zach about shovels; Zach had none. The plan, Autry testified, was to gut Holly and put her in the "slew" under a bridge so turtles would eat her&mdash;an idea Autry said came from having once seen a body floating under a bridge held up by its intestines. He denied on cross-examination suggesting the gutting plan himself.</p>
+        <p style="opacity:0.7;font-size:12px;">They drove toward the I-840 bridge on the Tennessee River. Zach backed the truck up to a pile of riprap&mdash;loose limestone off to the side of the bridge&mdash;20–30 feet from the water. Autry grabbed the upper torso of the body with his right hand; Zach lowered the tailgate and grabbed her legs. Autry set her head on the riprap. He described a small amount of blood in the truck bed and an orange-sized bloodspot on the multicolored farm-style blanket. He said he never unwrapped the blanket or looked inside.</p>
+        <p style="opacity:0.7;font-size:12px;">Then, Autry testified, he saw what he believed was a foot move and heard a sound of distress. He told Zach: <em>"This fucking bitch is still alive."</em> He added that she had heard his name, though on cross-examination he could not say when his name had been said&mdash;or confirm she could have heard anything from inside a wrapped blanket in the back of a truck.</p>
+        <p style="opacity:0.7;font-size:12px;">Zach, who had been digging in a fanny pack, turned around and retrieved a pistol from the floorboards of the truck&mdash;the same gun, Autry testified, that Shayne had holstered on his right side at the trailer that morning. Autry said he told Zach to wait until he confirmed no one was watching, ran to check the area, came back, and then heard the gun fire. He described the sound as "boom"&mdash;three or four shots he then attributed to an echo. A boat was then heard on the river. Autry said he ran back to the truck, told Zach they had been seen, and they quickly reloaded the body&mdash;the bloodspot, he now said, had grown to the size of a grapefruit. They put Holly back in the truck, shut the tailgate, and left.</p>
+        <p style="opacity:0.7;font-size:12px;">On the ride back, Autry says Zach explained the motive: Natalie, a woman Zach was involved with, was working at a strip club for drugs, had told Zach that Holly had been to his house, and had "left him with the idea" that the two of them would have a threesome with Holly. Zach had shown Autry pictures of Holly that Natalie had provided.</p>
         <p style="opacity:0.7;font-size:12px;"><strong>Cross-examination inconsistencies:</strong> Autry testified on direct that he did not notice the gun on the truck's floorboard when he got in. On cross, he said he did notice it. He said they originally agreed to meet in "the thicket," but at one point referred to it as the Marathon Station. He testified he did not suggest gutting Holly but had described the plan in detail on direct. When Thompson asked why he would warn Zach that Holly had heard his name when she was presumably in the back of a closed truck wrapped in a blanket, he had no answer. In last fall's site visit, Autry was taken from Nashville State Prison to the actual bridge location by lawyers, law enforcement, and prosecutors to demonstrate what he claimed happened.</p>
       </div>
     </details>
@@ -2064,6 +2117,11 @@
     <div class="step-title">Zach heads home</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <p><strong>~10:38 AM: </strong>Adams' phone pings the tower closest to his home in Holladay. He has left the Birdsong area.</p>
+    <p><strong>10:40 AM: </strong>Facebook business records show Zach posts again from his grandmother's computer, apologizing for his language in the earlier comment thread. Timestamped 15:40 UTC / 10:40 AM CST.</p>
+    <figure class="step-figure">
+      <img src="assets/2011-04-13-Zach-facebook.png" alt="Zach Adams Facebook records Apr. 13, 2011" loading="lazy" />
+      <figcaption>Zach Adams Facebook business records &mdash; Apr. 13, 2011 (posts at 8:39 AM &amp; 10:40 AM CST)</figcaption>
+    </figure>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2097,7 +2155,7 @@
     <div class="step-title">Jason meets Angela at the Quick Mart</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
     <p><strong>~11:00 AM: </strong>According to Angela Smith Scott's testimony, she and Jason met for lunch regularly. She would pick him up at a nearby location and they would eat in the parking lot of the Health Department in Camden. She placed their usual lunch time at 11:30 AM, however, Autry's trial testimony (later recanted) placed it at 11:00 AM.</p>
-    <p>The closest identified candidate for the Quick Mart Autry referenced is <strong>Doherty's Quick Mart</strong> on TN-69A in Big Sandy, Benton County&mdash;consistent with where Autry said he and Angela lived.</p>
+    <p style="opacity:0.7;font-size:12px;">The closest identified candidate for the Quick Mart Autry referenced is Doherty's Quick Mart on TN-69A in Big Sandy, Benton County&mdash;consistent with where Autry said he and Angela lived.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2131,11 +2189,13 @@
     <div class="step-title">AM Farm surveillance</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <p>A parking-lot camera near the abduction area captures three vehicles passing within minutes:</p>
-    <p><strong>~11:04 AM: </strong>A black SUV.</p>
-    <p><strong>~11:05 AM: </strong>Two more black SUVs.</p> 
-    <p><strong>~11:07 AM: </strong>An extended-cab pickup truck like Zach Adams' dark Chevy Silverado with Georgia plates.</p>
-    <p>Investigators later note that a TBI special agent was throwing a retirement party that morning&mdash;many of the SUVs are likely officers heading to the Bobo home.</p>
-    <p>The pickup truck is something else.</p>
+    <ul class="list-of-things">
+      <li><strong>~11:04 AM: </strong>A black SUV.</li> 
+      <li><strong>~11:05 AM: </strong>Two more black SUVs.</li> 
+      <li><strong>~11:07 AM: </strong>An extended-cab pickup truck like Zach Adams' dark Chevy Silverado with Georgia plates.</li>
+    </ul>
+    <pstyle="opacity:0.7;font-size:12px;">Investigators later note that a TBI special agent was throwing a retirement party that morning&mdash;many of the SUVs are likely officers heading to the Bobo home.</p>
+    <p style="opacity:0.7;font-size:12px;">The pickup truck is something else.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2169,8 +2229,22 @@
     <div class="step-title">ATM video</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <p><strong>~11:12 AM: </strong>Adams' phone pings a tower near the CB&amp;S Bank ATM.</p>
-    <p>Surveillance footage from that ATM is later introduced at trial. At his 2025 post-conviction hearing, Dylan Adams testified that he <strong>identified his grey 2006 Chevy Silverado</strong> as the truck visible in this footage.</p>
-    <P>Dylan placed himself on a separate store video at <strong>11:55 AM</strong> in Parsons.</P>
+    <ul class="list-of-things">
+      <li>Shayne Austin's bank records show a <strong>$120 ATM withdrawal</strong> from Community South (now CB&amp;S) in Parsons at this stop.</li>
+      <li>Immediately after, Shayne's statement shows a <strong>$10.00 purchase at the Mapco gas station</strong> next door, where they filled up on gas.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">Surveillance footage from that ATM is later introduced at trial. At his 2025 post-conviction hearing, Dylan Adams testified that he <strong>identified his grey 2006 Chevy Silverado</strong> as the truck visible in this footage&mdash;pulling through the ATM lane backwards with three men inside.</p>
+    <figure class="step-figure">
+      <img src="assets/2011-04-13-Shayne-bank-statements.png" alt="Shayne Austin bank statements Apr. 13, 2011" loading="lazy" />
+      <figcaption>Shayne Austin bank statements &mdash; Apr. 13, 2011</figcaption>
+    </figure>
+    <div class="step-embed">
+      <div class="embed-placeholder" data-src="assets/11-12-AM-ATM-video.mp4" data-type="video">
+        <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+        <span>Tap to play</span>
+      </div>
+    </div>
+    <div class="embed-caption">CB&amp;S ATM surveillance footage &mdash; 11:12 AM, Apr. 13, 2011</div>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2184,18 +2258,37 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">N. Utility District</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">Parsons/CB&S ATM + BP</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-richie)"></span><span class="who">Richie</span> <span class="where">next door to the Scotts</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-weber)"></span><span class="who">Weber</span> <span class="where">putting up crime scene tape</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-pratt-inman)"></span><span class="who">Pratt &amp;Inman</span> <span class="where">Bobo home</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-shayne)"></span><span class="who">Shayne</span> <span class="where">Unknown</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-shayne)"></span><span class="who">Shayne</span> <span class="where">Parsons/ATM + Mapco + Shell + Sonic</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dinsmore)"></span><span class="who">Dinsmore</span> <span class="where">doesn't remember passing Zach, Dylan, and Shayne driving south on Hwy 641</span></div>
     </div>
+  </div>
+
+  <!-- STEP 455: 11:55 AM Dylan at BP -->
+  <div class="step" data-step="455" data-border="var(--c-dylan)">
+    <div class="step-time">11:55 AM</div>
+    <div class="step-title">Dylan at BP</div>
+    <div class="person-pill"><span class="dot" style="background:var(--c-dylan)"></span> Dylan Adams</div>
+    <p><strong>~11:55 AM: </strong>Dylan placed himself on a separate store video at in Parsons.</p>
+    <ul class="list-of-things">
+      <li>BP station surveillance footage captures his truck in the parking lot, with multiple frames showing the truck.</li>
+      <li>Shayne's bank records show a <strong>$9.84 purchase at Shell Service Station</strong> in Parsons.</li>
+      <li>Shayne's bank records show a <strong>$6.78 purchase at Sonic Drive-In</strong> in Parsons that day.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;"> A separate Shell station purchase near the interstate off-ramp close to Zach's home shows they stopped for <strong>$5 of gas before entering Parsons</strong>.</p>
+    <div class="step-gallery">
+      <img src="assets/11-55-AM-Dylan-at-BP.png" alt="Dylan Adams at BP in Parsons, 11:55 AM Apr. 13, 2011" loading="lazy" />
+      <img src="assets/cindy-IDing-Dylan.png" alt="Cindy Adams IDing Dylan from BP footage" loading="lazy" />
+    </div>
+    <p class="gallery-caption">Left: ATM &amp; BP surveillance footage with Dylan's truck, 11:12–11:55 AM &mdash; Right: Cindy Adams ID</p>
   </div>
 
   <!-- STEP 46: ~Noon Shayne's house -->
@@ -2204,7 +2297,7 @@
     <div class="step-title">Noon at Shayne's</div>
     <div class="person-pill"><span class="dot" style="background:#a17ec2"></span> Shayne Austin</div>
     <p><strong>~12:00 PM: </strong>Shayne Austin is at his trailer when satellite installer Randy McGee arrives around noon. The install was scheduled in advance&mdash;not a same-day call. Shayne is alone.</p>
-    <p>Cell-tower data lines up with this: Shayne's phone is on his home tower from <strong>9:23 AM through 10:55 AM</strong>, with no earlier activity that morning.</p>
+    <p style="opacity:0.7;font-size:12px;">Cell-tower data lines up with this: Shayne's phone is on his home tower from <strong>9:23 AM through 10:55 AM</strong>, with no earlier activity that morning.</p>
     <p style="opacity:0.7;font-size:12px;">After the 8:00 AM exam, Holly's classmate, Emily Pratt, is informed by their teacher that Holly is missing.</p> 
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
@@ -2240,7 +2333,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
     <p><strong>~12:17 PM: </strong>More than four hours after the abduction, Terry Britt, a confidential informant in Parsons, gets a phone call from his ex-wife Brenda Seagraves, who tells him about Holly's disappearance. Per his later trial testimony, this is how he first hears of it.</p>
     <p><strong>~12:20 PM: </strong>Britt calls his wife Janet. The call runs 2 minutes 56 seconds.</p>
-    <p>Janet would later tell investigators the two had been "together all day." You don't call someone standing next to you.</p>
+    <p style="opacity:0.7;font-size:12px;">Janet would later tell investigators the two had been "together all day." You don't call someone standing next to you.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2347,25 +2440,31 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <div class="person-pill"><span class="dot" style="background:#a17ec2"></span> Shayne Austin</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
-    <p>Dottie's house sits between Zach Adams' home and Shayne Austin's. Inside, Victor Dinsmore is remodeling and Debbie Dorris is cleaning&mdash;both were there most of the day.</p>
-    <p><strong>Between 2:30 and 3:00 PM: </strong>Three men pull up in a black pickup. Victor identifies the truck as Dylan Adams'. Debbie identifies one of the men as Jason Autry&mdash;she knew his mother. The third is Shayne Austin. Debbie did not hear what they were discussing.</p>
-    <p>Zach asks Victor for a joint and the men smoke it together. Then Zach and Shayne start fighting. During the altercation, Dinsmore testifies he heard both men say things about <em>"who was going to hit it first."</em> Jason breaks it up and they drive away.</p>
-    <p>Autry's trial account of the same fight (and later recanted) is more specific: he testified that Shayne told Zach, <em>"You didn't have to kill her,"</em> and Zach responded, <em>"You're just as damn guilty. You hit it."</em></p>
-    <p>In the days and weeks after the abduction, Dinsmore notices he doesn't see Zach or Dylan at all&mdash;an absence he finds unusual, given how regularly they were in contact. He later tells law enforcement he blocked out much of this period because he believes someone also attempted to abduct his daughter around this time; his wife identified the would-be abductor as one of the "Pearcy brothers," described as an associate of Zach's.</p>
+    <p style="opacity:0.7;font-size:12px;">Dottie's house sits between Zach Adams' home and Shayne Austin's. Inside, Victor Dinsmore is remodeling and Debbie Dorris is cleaning&mdash;both were there most of the day.</p>
+    <p><strong>Between 2:30 and 3:00 PM: </strong>Three men pull up in a black pickup.</p>
+    <ul class="list-of-things">
+      <li>Victor identifies the truck as Dylan Adams'.</li>
+      <li>Debbie identifies one of the men as Jason Autry&mdash;she knew his mother.</li>
+      <li>The third is Shayne Austin.</li>
+      <li>Debbie did not hear what they were discussing.</li>
+      <li>Zach asks Victor for a joint and the men smoke it together. Then Zach and Shayne start fighting.</li>
+      <li>During the altercation, Dinsmore testifies he heard both men say things about <em>"who was going to hit it first."</em></li>
+      <li>Jason breaks up the fight and they drive away.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">In the days and weeks after the abduction, Dinsmore notices he doesn't see Zach or Dylan at all&mdash;an absence he finds unusual, given how regularly they were in contact. He later tells law enforcement he blocked out much of this period because he believes someone also attempted to abduct his daughter around this time; his wife identified the would-be abductor as one of the "Pearcy brothers," described as an associate of Zach's.</p>
+    <p style="opacity:0.7;font-size:12px;">Autry's trial account of the same fight (and later recanted) is more specific: he testified that Shayne told Zach, <em>"You didn't have to kill her,"</em> and Zach responded, <em>"You're just as damn guilty. You hit it."</em></p>
     <details>
-      <summary>Contradictions with Autry's testimony</summary>
-      <div class="detail-body">
-        <ul class="list-of-things">
-          <li>Autry testified the group bought a morphine pill from Dinsmore at Dottie's that afternoon. Dinsmore says no morphine was sold there that day.</li>
-          <li>Autry testified Dinsmore made a statement about his wife or putting a car in his shop. Dinsmore denies any such statement was made.</li>
-          <li>Autry described the visit as a drug purchase. Dinsmore says they only asked for a joint&mdash;not pills.</li>
-        </ul>
-      </div>
+      <summary>Contradictions with testimony</summary>
+        <div class="detail-body">
+          <p style="opacity:0.7;font-size:12px;margin-top:10px;">Rita Austin confirmed that Shayne would not have had any quilts at his trailer&mdash;he didn't buy any and didn't receive any from the family home. She also confirmed he had no burn barrel; his parents picked up his garbage for him.</p>
+          <p style="opacity:0.7;font-size:12px;">SA Brent Booth admitted at trial that in a recorded conversation, he told Victor Dinsmore specific facts Jason Autry was going to testify to before Autry took the stand, including that Zach's truck had been stored on Dinsmore's property.</p>
+          <p style="opacity:0.7;font-size:12px;">Dinsmore had previously told Booth that Zach did not hide his truck at his residence&mdash;which he later acknowledged was factually false, adding that Booth "didn't ask" where it was hidden.</p>
+          <p style="opacity:0.7;font-size:12px;">Separately, Dinsmore initially told law enforcement that Zach was not with the group on the day Holly disappeared, but later said he had the days mixed up.</p>
+          <p style="opacity:0.7;font-size:12px;">Autry testified the group bought a morphine pill from Dinsmore at Dottie's that afternoon. Dinsmore says no morphine was sold there that day.</p>
+          <p style="opacity:0.7;font-size:12px;">Autry testified Dinsmore made a statement about his wife or putting a car in his shop. Dinsmore denies any such statement was made.</p>
+          <p style="opacity:0.7;font-size:12px;">Autry described the visit as a drug purchase. Dinsmore says they only asked for a joint&mdash;not pills.</p>
+        </div>
     </details>
-    <p style="opacity:0.7;font-size:12px;">Rita Austin confirmed that Shayne would not have had any quilts at his trailer&mdash;he didn't buy any and didn't receive any from the family home. She also confirmed he had no burn barrel; his parents picked up his garbage for him.</p>
-    <p style="opacity:0.7;font-size:12px;">SA Brent Booth admitted at trial that in a recorded conversation, he told Victor Dinsmore specific facts Jason Autry was going to testify to before Autry took the stand, including that Zach's truck had been stored on Dinsmore's property.</p>
-    <p style="opacity:0.7;font-size:12px;">Dinsmore had previously told Booth that Zach did not hide his truck at his residence&mdash;which he later acknowledged was factually false, adding that Booth "didn't ask" where it was hidden.</p>
-    <p style="opacity:0.7;font-size:12px;">Separately, Dinsmore initially told law enforcement that Zach was not with the group on the day Holly disappeared, but later said he had the days mixed up.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2402,7 +2501,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Janet Britt</div>
     <p><strong>~3:00 PM: </strong>The Britts roll back into their driveway and unload a bathtub. They say they bought it from Allgood's.</p>
-    <p>The receipt is handwritten. Allgood's has no matching store copy. No employee remembers the sale.</p>
+    <p style="opacity:0.7;font-size:12px;">The receipt is handwritten. Allgood's has no matching store copy. No employee remembers the sale.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2437,10 +2536,14 @@
     <div class="step-time">Afternoon</div>
     <div class="step-title">Judy feeds the horses</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> Judy Evans</div>
-    <p>Judy Evans, aunt to both Shayne Austin and Jason Autry, drives out to the property she keeps for her horses. The barn there is really just a corn crib: a two-door building in poor shape. Feeding her horses is part of her daily routine; today is no different.</p>
-    <p>If anyone were screaming inside the corn crib, Judy will later testify, it would be audible from the street.</p>
-    <p>On Apr. 15, 2011, two days after the abduction, Judy searched the property with Rita Austin. Other searchers also looked inside the corn crib. Judy saw no tire tracks behind it, and testified that the corn crib could not be accessed from the woods in the back.</p>
-    <p>The driveway did not have a gate at the time of the abduction.</p>
+    <p>Judy Evans, aunt to both Shayne Austin and Jason Autry, drives out to the property she keeps for her horses.</p>
+    <ul class="list-of-things">
+      <li>The barn there is really just a corn crib: a two-door building in poor shape.</li>
+      <li>Feeding her horses is part of her daily routine; today is no different.</li>
+      <li>If anyone were screaming inside the corn crib, Judy will later testify, it would be audible from the street.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">On Apr. 15, 2011, two days after the abduction, Judy searched the property with Rita Austin. Other searchers also looked inside the corn crib. Judy saw no tire tracks behind it, and testified that the corn crib could not be accessed from the woods in the back.</p>
+    <p style="opacity:0.7;font-size:12px;">The driveway did not have a gate at the time of the abduction.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
@@ -2477,10 +2580,12 @@
     <div class="step-title">A trail on Gooch Road</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-other)"></span> Gerald Stephens</div>
     <p>Searchers comb the road network around the Bobo home.</p>
-    <p>Driving slowly along Gooch Road, a cattle farmer named Gerald Stephens spots a pink item on the right shoulder, stops, and identifies it as a pair of women's underwear.</p>
-    <p>About <strong>300–400 feet up the road</strong>, near the Yellow Springs community, he picks up a folded wad of paper that turns out to be one of Holly's school papers, with her name and address on it.</p>
-    <p>Stephens later testifies that the residence further down the road from the underwear find was Shayne Austin's mobile home.</p>
-    <p>Booth, the investigator on scene, records the underwear's find spot using the nearest landmark: about <strong>75 feet from Austin's driveway</strong>, on the road itself.</p>
+    <ul class="list-of-things">
+      <li>Driving slowly along Gooch Road, a cattle farmer named Gerald Stephens spots a pink item on the right shoulder, stops, and identifies it as a pair of women's underwear.</li>
+      <li>About <strong>300–400 feet up the road</strong>, near the Yellow Springs community, he picks up a folded wad of paper that turns out to be one of Holly's school papers, with her name and address on it.</li>
+      <li>Stephens later testifies that the residence further down the road from the underwear find was Shayne Austin's mobile home.</li>
+      <li>Booth, the investigator on scene, records the underwear's find spot using the nearest landmark: about <strong>75 feet from Austin's driveway</strong>, on the road itself.</li>
+    </ul>
     <p style="opacity:0.7;font-size:12px;">Lab analysis later confirms the underwear is <em>not</em> Holly's.</p>
     <figure class="step-figure">
       <img src="photos/2011-search/searchers-1.webp" alt="Searchers combing the area near the Bobo home" loading="lazy" />
@@ -2494,18 +2599,18 @@
     <div class="step-title">Clint's handwritten statement</div>
     <div class="person-pill"><span class="dot" style="background:var(--c-clint)"></span> Clint Bobo</div>
     <p>Clint wrote this statement the same day Holly disappeared. Four passages define what the investigation had to work with.</p>
+      
+      <div class="stmt-excerpt">"I lifted the blinds slightly and could see the partial shoulders and arms of two individuals kneeled down facing each other."</div>
+      <div class="stmt-note">What he saw — partial, from behind glass</div>
 
-    <div class="stmt-excerpt">"I lifted the blinds slightly and could see the partial shoulders and arms of two individuals kneeled down facing each other."</div>
-    <div class="stmt-note">What he saw — partial, from behind glass</div>
+      <div class="stmt-excerpt">"His voice sounded the same as Drew's voice sounds when him and Holly are in Holly's room and I am in my room at night."</div>
+      <div class="stmt-note">Why he did not call 911 immediately</div>
 
-    <div class="stmt-excerpt">"His voice sounded the same as Drew's voice sounds when him and Holly are in Holly's room and I am in my room at night."</div>
-    <div class="stmt-note">Why he did not call 911 immediately</div>
+      <div class="stmt-excerpt">"I walked toward the back door and saw two people walking toward the woods together. They both seemed to be holding hands. The male had on full camo and the female had on a pink T-shirt and blue jeans."</div>
+      <div class="stmt-note">The only physical description of the male</div>
 
-    <div class="stmt-excerpt">"I walked toward the back door and saw two people walking toward the woods together. They both seemed to be holding hands. The male had on full camo and the female had on a pink T-shirt and blue jeans."</div>
-    <div class="stmt-note">The only physical description of the male</div>
-
-    <div class="stmt-excerpt">"My neighbor Cathy got out of the truck and stated that her husband heard screams about 15 or 20 minutes ago. I immediately called 911 at that point."</div>
-    <div class="stmt-note">What finally triggered the 911 call</div>
+      <div class="stmt-excerpt">"My neighbor Cathy got out of the truck and stated that her husband heard screams about 15 or 20 minutes ago. I immediately called 911 at that point."</div>
+      <div class="stmt-note">What finally triggered the 911 call</div>
 
     <div class="step-embed">
       <div class="embed-placeholder" data-src="assets/2011-04-13-clint-bobo-handwritten-statement.pdf" data-height="420px">
@@ -2521,76 +2626,124 @@
     <div class="step-time">~2:00 AM on April 14, 2011</div>
     <div class="step-title">TBI lab personnel clear the scene</div>
     <p><strong>~2:00 AM: </strong>Eighteen hours after Clint's 911 call, TBI lab personnel finish processing the carport. They take the blood, the surrounding evidence, and leave.</p>
-    <p>Holly has been gone for one day.</p>
+    <p style="opacity:0.7;font-size:12px;">Holly has been gone for one day.</p>
   </div>
 
   <!-- ACT 5: THE SILENCE -->
   <!-- STEP 56: April 14, 2011 – September 7, 2014 -->
   <div class="step" data-step="56" data-border="var(--c-other)">
     <div class="act-label">Act V &mdash; The Silence</div>
-    <div class="step-time">April 14, 2011 – September 7, 2014</div>
-    <div class="step-title">Early investigation</div>
+    <div class="step-time">April 14 – December 2011</div>
+    <div class="step-title">2011 — Early investigation</div>
     <p>By the early hours of Apr. 14, the lab has cleared the carport and the searchers have gone home. No new evidence surfaces.</p>
-    <p>Holly Bobo's remains would not be found for another three years.</p>
-
-    <p><strong>Jason Autry at Kelly's Ridge onApr. 16–17, 2011: </strong>The weekend after Holly's disappearance, Brenda O'Bryant was at her parents' home, which sits directly across from Kelly's Ridge&mdash;a gated dirt road through the woods where people regularly hunt. A silver PT Cruiser pulled into the driveway. The driver asked if he could fish in the ponds on the property. Her mother told him there weren't any fish, due to river otters. He then asked where her father was. When she told him her father was out looking for Holly, the man&mdash;who she later identified as Jason Autry&mdash;became visibly "stressed" and said he would return later.</p>
-    <p>Brenda reported this to law enforcement a few days later and followed up with a written email. She acknowledged that Kelly Ridge Road had been gated off for years.</p>
-
-    <p><strong>THP Officer Warren Rainey visits Zach Adams on Apr. 24, 2011: </strong> About a week and a half after the abduction, Tennessee Highway Patrol Officer Warren Rainey&mdash;working as a searcher, not on direct instruction from law enforcement&mdash;goes to Zach Adams' residence because "his name kept coming up." He arrives visibly armed and in uniform.</p>
-    <p>Zach appears to have just woken up. He is visibly nervous and shaking, and repeatedly denies involvement, telling Rainey his girlfriend had already given law enforcement his cell number. When Rainey follows Zach inside as he goes to put on a shirt, Zach wants him out of the house.</p>
-    <p style="opacity:0.7;font-size:12px;">At trial, defense attorney Jennifer Thompson pressed Rainey on this: <em>"And you'd recognize you have absolutely no legal right to be in his house?"</em></p>
-    <p>Rainey responded: <em>"I wasn't going to go all the way through his house, but I was not going to let a man that I did not know step in a house and obtain a firearm and shoot me."</em> Rainey acknowledged he had no instruction to speak to Adams and admitted it was plausible Zach was nervous due to having drugs in the home.</p>
-    <p>After Rainey and his fellow trooper leave, they watch in their mirrors as Zach runs back to his residence and hides up the road. Dylan Adams quickly exits the driveway in a pickup truck, driving so recklessly along back roads that Rainey says there was probable cause to stop him before he reached Parsons.</p>
-    <p>Rainey calls the command post requesting backup, stating he is "very suspicious about Zach Adams." Sheriff Wyatt and a man in a suit later arrive to speak to Zach.</p>
-    <p>Likely the next day, Rainey assembles a search team with three K-9 units to search hundreds of acres of county property behind the Adams residence. Two things are found:</p>
+    <p style="opacity:0.7;font-size:12px;">Holly Bobo's remains would not be found for another three years.</p>
+    <p><strong>Apr. 15, 2011: </strong>Marathon Station meeting</p>
     <ul class="list-of-things">
-      <li>A "decent," not old, mattress leaning against the northwest side of the house&mdash;not near the carport or front door. Rainey finds it suspicious but does not ask Zach about it.</li>
-      <li>A felled tree laying over a roughly 6×8-foot patch of bare dirt with no grass growing on it. Investigators suspect it may be a grave and dig into it. Zach retrieves a shovel when asked. It is not a grave.</li>
+      <li>According to Autry's trial testimony (later recanted), Zach called him and they agreed to meet near a Marathon Station about a mile from Zach's home.</li>
+      <li>Dylan was with Zach. They drove a quarter mile into a wooded area behind the station. Zach got into Autry's car alone, leaving Dylan in the other vehicle.</li>
+      <li>He asked Autry what it would take to kill Dylan&mdash;who, he said, "kept talking and wouldn't sleep."</li>
+      <li>Zach's offer: Dick Adams was expected to pass away soon, and if Jason killed Dylan, Zach would give him a share of the inheritance.</li>
+      <li>Autry said he would think about it. He later told Zach that if he killed Dylan, Zach would be next. Zach also told Autry he had dumped Holly's body near <strong>Kennedy Bridge</strong>.</li>
+      <li>Shortly after, Autry drove to Shayne's trailer, stopping at Dottie's to buy beer.</li>
+      <li>He ran into a roadblock staffed by Jeremy Inman, who searched his vehicle. </li>
     </ul>
-    <p>Hundreds of marijuana plants are found growing on the county property behind the house. No evidence related to Holly's disappearance is found on the Adams property or in Dylan's truck.</p>
-
-    <p><strong>Two days after the abduction on Apr. 15, 2011: </strong>According to Autry's trial testimony (later recanted), Zach called him and they agreed to meet near a Marathon Station about a mile from Zach's home (Autry said in one account they originally agreed to meet "in the thicket"). Dylan was with Zach. They drove a quarter mile into a wooded area behind the station, where Autry had marijuana plants. Zach got into Autry's car alone, leaving Dylan in the other vehicle. He asked Autry what it would take for Autry to kill Dylan&mdash;who, he said, "kept talking and wouldn't sleep." Zach's offer: Dick Adams was expected to pass away soon, and if Jason killed Dylan, Zach would give him a share of the inheritance and let him live in one of the family properties. Autry said he would think about it. He later told Zach that if he killed Dylan, Zach would be next. Zach also told Autry he had dumped Holly's body near <strong>Kennedy Bridge</strong>.</p>
-    <p>Shortly after, Autry drove to Shayne's trailer, stopping at Dottie's to buy beer. He ran into a roadblock staffed by Jeremy Inman, who searched his vehicle. Inman told him there were search parties past the roadblock and warned him to be careful if he was drinking. At Shayne's, Autry found him <em>"highly inebriated"</em> and <em>"frantic."</em> A command post had been set up at the nearby church. Autry put Shayne in his car, took him to Johnny's Bar and Grill to eat, then to another bar, and eventually dropped him back at the trailer before returning to Angela's house.</p>
+    <p><strong>At Shayne's: </strong>Autry found him <em>"highly inebriated"</em> and <em>"frantic."</em></p>
+    <ul class="list-of-things">
+      <li>A command post had been set up at the nearby church.</li>
+      <li>Autry put Shayne in his car, took him to Johnny's Bar and Grill to eat, then to another bar, and eventually dropped him back at the trailer before returning to Angela's house.</li>
+    </ul>
+    <p><strong>Apr. 16–17, 2011: </strong> Autry at Kelly's Ridge</p>
+    <ul class="list-of-things">
+      <li>The weekend after Holly's disappearance, Brenda O'Bryant was at her parents' home, which sits directly across from Kelly's Ridge&mdash;a gated dirt road through the woods where people regularly hunt.</li>
+      <li>A silver PT Cruiser pulled into the driveway. The driver asked if he could fish in the ponds on the property.</li>
+      <li>Her mother told him there weren't any fish, due to river otters. He asked where her father was.</li>
+      <li>When she told him her father was out looking for Holly, the man&mdash;who she later identified as Jason Autry&mdash;became visibly "stressed" and said he would return later.</li>
+      <li>Brenda reported this to law enforcement a few days later and followed up with a written email. She acknowledged that Kelly Ridge Road had been gated off for years.</li>
+    </ul>
+    <p><strong>Apr. 24, 2011: </strong>THP Officer Warren Rainey visits Zach Adams</p>
+    <ul class="list-of-things">
+      <li>About a week and a half after the abduction, Tennessee Highway Patrol Officer Warren Rainey&mdash;working as a searcher, not on direct instruction from law enforcement&mdash;goes to Zach Adams' residence because "his name kept coming up."</li>
+      <li>He arrives visibly armed and in uniform.</li>
+      <li>Zach appears to have just woken up. He is visibly nervous and shaking, and repeatedly denies involvement.</li>
+      <li>When Rainey follows Zach inside as he goes to put on a shirt, Zach wants him out of the house.</li>
+    </ul>
+    <p>At trial, defense attorney Jennifer Thompson pressed Rainey on this:</p>
+    <ul class="list-of-things">
+      <li><em>"And you'd recognize you have absolutely no legal right to be in his house?"</em></li>
+      <li>Rainey responded: <em>"I wasn't going to go all the way through his house, but I was not going to let a man that I did not know step in a house and obtain a firearm and shoot me."</em></li>
+      <li>Rainey acknowledged he had no instruction to speak to Adams and admitted it was plausible Zach was nervous due to having drugs in the home.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">After Rainey and his fellow trooper leave, they watch in their mirrors as Zach runs back to his residence and hides up the road. Dylan Adams quickly exits the driveway in a pickup truck, driving so recklessly along back roads that Rainey says there was probable cause to stop him before he reached Parsons. Rainey calls the command post requesting backup, stating he is "very suspicious about Zach Adams." Sheriff Wyatt and a man in a suit later arrive to speak to Zach.</p>
+    <p style="opacity:0.7;font-size:12px;">Likely the next day, Rainey assembles a search team with three K-9 units to search hundreds of acres of county property behind the Adams residence. A "decent," not old, mattress is found leaning against the northwest side of the house. A felled tree lays over a roughly 6×8-foot patch of bare dirt with no grass&mdash;suspected to be a grave. Investigators dig. Zach retrieves a shovel when asked. It is not a grave. Hundreds of marijuana plants are found growing on the county property. No evidence related to Holly's disappearance is found on the Adams property or in Dylan's truck.</p>
     <details>
-      <summary>Autry's trial account on the attempted killing of Dylan and barn visit (later recanted)</summary>
+      <summary>Autry's trial account — boat trip &amp; barn visit (Spring–Summer 2011, later recanted)</summary>
       <div class="detail-body">
-        <p>A few days after the Marathon Station meeting, Autry and Dylan went out on a boat on the Tennessee River, ostensibly to go bass fishing. Autry testified his real intent was to kill Dylan. After about an hour of fishing, drinking, and smoking marijuana — while Autry was evaluating locations — someone who knew Dick Adams and the boat's owner pulled alongside them and struck up a conversation. They fished the rest of the day without incident. Dylan got drunk and Autry got him talking about the events of April 13.</p>
-        <p>At some point after this (Autry says "months"), he drove to the barn property where he said Shayne Austin and Jason Autry's shared grandmother had a corn crib. He described it as the location where the rape occurred. He went to <em>"clean up any possible evidence left behind,"</em> but did not enter the barn, just looked from the doorway. It appeared normal to him and he left.</p>
+        <p>A few days after the Marathon Station meeting, Autry and Dylan went out on a boat on the Tennessee River, ostensibly to go bass fishing. Autry testified his real intent was to kill Dylan. After about an hour of fishing, drinking, and smoking marijuana&mdash;while Autry was evaluating locations&mdash;someone who knew Dick Adams and the boat's owner pulled alongside them and struck up a conversation. They fished the rest of the day without incident. Dylan got drunk and Autry got him talking about the events of April 13.</p>
+        <p>At some point after this (Autry says "months"), he drove to the barn property where he said Shayne Austin and Jason Autry's shared grandmother had a corn crib&mdash;the location he described as where the rape occurred. He went to <em>"clean up any possible evidence left behind,"</em> but did not enter the barn, just looked from the doorway. It appeared normal to him and he left.</p>
         <p style="opacity:0.7;font-size:12px;">Judy Evans testified that she visited the corn crib on April 15 with Rita Austin and other searchers and found nothing unusual. Demolition dates are disputed between Judy Evans and Rita Austin. The driveway had no gate at the time.</p>
       </div>
     </details>
-    <p><strong>Aug. 2012 @ Eagle Creek:</strong> Autry testified (later recanted) that he and Zach drove to Eagle Creek in Autry's vehicle and entered a hunting club property. They stole a deer stand and a camera. Sitting on a bank, they did methamphetamine. Autry said: <em>"It looks like we got away with this shit"</em>&mdash;referring to Holly's disappearance. Zach replied with the most detailed account of April 13 Autry says he heard: <em>"The real reason that we were there was to show Clint how to manufacture meth. We got there early, she came outside screaming and raising hell, then we took her."</em> That was, Autry testified, the last time he and Zach spoke about Holly Bobo.</p>
-    <p style="opacity:0.7;font-size:12px;"><strong>Feb. 25, 2014: </strong>SA Brent Booth was called in and became focused on Zach Adams, Dylan Adams, Jason Autry, and Shayne Austin. He discovered that their alibis had never been investigated&mdash;despite SA Terry Dicus testifying that they had been.</p>
+  </div>
+
+  <!-- STEP 561: 2012 -->
+  <div class="step" data-step="561" data-border="var(--c-other)">
+    <div class="step-time">2012</div>
+    <div class="step-title">2012 — Eagle Creek</div>
+    <p><strong>Aug. 2012 @ Eagle Creek:</strong> Autry testified (later recanted) that he and Zach drove to Eagle Creek in Autry's vehicle and entered a hunting club property. They stole a deer stand and a camera.</p>
+    <ul class="list-of-things">
+      <li>Sitting on a bank, they did methamphetamine. Autry said: <em>"It looks like we got away with this shit"</em>&mdash;referring to Holly's disappearance.</li>
+      <li>Zach replied with the most detailed account of April 13 Autry says he heard: <em>"The real reason that we were there was to show Clint how to manufacture meth.</li>
+        <li>We got there early, she came outside screaming and raising hell, then we took her."</em> That was, Autry testified, the last time he and Zach spoke about Holly Bobo.</li>
+    </ul>
+  </div>
+
+  <!-- STEP 562: 2014 pre-arrest -->
+  <div class="step" data-step="562" data-border="var(--c-other)">
+    <div class="step-time">Early 2014</div>
+    <div class="step-title">2014 — Investigation resumes</div>
+    <p><strong>Feb. 25, 2014: </strong>SA Brent Booth was called in and became focused on Zach Adams, Dylan Adams, Jason Autry, and Shayne Austin. He discovered that their alibis had never been investigated&mdash;despite SA Terry Dicus testifying that they had been.</p>
   </div>
 
   <!-- ACT 6: EVIDENCE -->
   <!-- STEP 57: 2011 – 2014 -->
   <div class="step" data-step="57" data-border="var(--c-evid)">
     <div class="act-label">Act VI &mdash; Evidence Recovery</div>
-    <div class="step-title">Evidence sites</div>
-    <p style="opacity:0.7;font-size:12px;">In 2012, US Marshal John Walker, SA Terry Dicus, and others developed a map of Holly's cell tower pings tracing her phone's movement on the day of her abduction. Walker had been requested by TBI for his expertise in interpreting cell tower records; he is not authorized to disclose the specific tracking methods used by the US Marshals Service. The map was displayed and explained in court.</p>
-    <p style="opacity:0.7;font-size:12px;">At trial, defense private investigator, Amber Treat, drove three routes in Decatur County to measure time and distance between key locations. No speed limit signs were observed on any of the roads; she drove at what she described as a normal pace:</p>
-    <ul class="list-of-things" style="opacity:0.7;font-size:12px;">
-      <li><strong>Route 1</strong> (Yellow Springs Church → I-40 bridge, Tennessee River): ~26 minutes</li>
-      <li><strong>Route 2</strong> (I-40 bridge → Yellow Springs Church, alternate path): ~32 minutes</li>
-      <li><strong>Route 3</strong> (Holly's phone route per Walker's cell tower interpretation): ~43 minutes</li>
+    <div class="step-time">Spring 2011</div>
+    <div class="step-title">2011 — Physical evidence</div>
+    <p>Over the years following the abduction, pieces of evidence surfaced across the region: Holly's lunchbox, her cell phone, a SIM card, nursing papers, and, finally, her remains.</p>
+    <p><strong>Easter Sunday (~Apr. 24, 2011): </strong>Holly's phone found</p>
+    <ul class="list-of-things">
+      <li>A few weeks after the abduction, Emily Pratt, Holly's nursing school classmate and family friend whose son is Deputy Jeremy Pratt, joined church congregants searching near McKenzie Tree Service on 641 North.</li>
+      <li>She found Holly's phone on the ground outside a business, approximately one driveway from McKenzie Tree Service.</li>
+      <li>Emily had used Holly's phone before and recognized it immediately. The group called law enforcement.</li>
+      <li>Emily gave a statement to Agent Viveros the same day and a second statement to Valerie Trout much later.</li>
+      <li>At trial she denied telling Trout the phone did not look like Holly's.</li>
     </ul>
-    <p style="opacity:0.7;font-size:12px;">The comparison was offered to contextualize the feasibility of the prosecution's proposed route against the available alternatives.</p>
-    <p style="opacity:0.7;font-size:12px;"><strong>Defense cell phone expert summary findings:</strong></p>
-    <ul class="list-of-things" style="opacity:0.7;font-size:12px;">
-      <li>Zach's phone never overlapped with Holly's based on predictive server mapping (data unavailable at time of abduction, but now able to significantly narrow location ranges).</li>
-      <li>On two separate occasions, Holly and Zach were clearly on <em>different</em> cell sectors at similar times.</li>
-      <li>No correlations between Jason Autry's phone and Holly's phone that day.</li>
-      <li>No records of Jason Autry's phone using Shayne Austin's home tower.</li>
-      <li>Shayne Austin's phone is on his home tower from 9:23 AM through 10:55 AM, with no earlier activity that morning.</li>
-      <li>Zach and Jason's phones do hit the same tower (Birdsong northeast sector) around the same time&mdash;consistent with them being together at that location.</li>
+    <p><strong>SIM card recovery:</strong></p>
+    <ul class="list-of-things">
+      <li>Sometime after the abduction, Ednesha Brasher, a social worker and nursing home coworker of Clint Bobo's, went on a bike ride along Camden Road with her younger brother.</li>
+      <li>While playing "I-Spy," her brother spotted a SIM card on the ground and picked it up. She pocketed it and they continued riding.</li>
+      <li>That night, she put it in her own phone and listened to the voicemails on it. She called a friend who told her to call Karen Bobo.</li>
+      <li>She found Karen's number online, called her, and described what she'd found.</li>
+      <li>Karen asked her to meet Dana and Clint at a gas station, where she handed the SIM card over.</li>
     </ul>
-    <p><strong>2011 – 2014: </strong>Over the next three years, pieces of evidence surfaced across the region: Holly's lunchbox, her cell phone, a SIM card, nursing papers, and, finally, her remains.</p>
-    <p><strong>Easter Sunday (~Apr. 24, 2011)&mdash;Holly's phone found:</strong> A few weeks after the abduction, Emily Pratt, Holly's nursing school classmate and family friend whose son is Deputy Jeremy Pratt, joined church congregants searching near McKenzie Tree Service on 641 North. She found Holly's phone on the ground outside a business, approximately one driveway from McKenzie Tree Service. Emily had used Holly's phone before and recognized it immediately. The group called law enforcement. Emily gave a statement to Agent Viveros the same day and a second statement to Valerie Trout much later. At trial she denied telling Trout the phone did not look like Holly's.</p>
-    <p><strong>SIM card recovery: </strong>Sometime after the abduction, Ednesha Brasher, a social worker and nursing home coworker of Clint Bobo's, went on a bike ride along Camden Road with her younger brother. While playing "I-Spy," her brother spotted a SIM card on the ground and picked it up. She pocketed it and they continued riding. That night, she put it in her own phone and listened to the voicemails on it. She called a friend who told her to call Karen Bobo. She found Karen's number online, called her, and described what she'd found. Karen asked her to meet Dana and Clint at a gas station, where she handed the SIM card over.</p>
-    <p>During the search of the Adams residence, investigators found <strong>nail polish</strong> they said matched material recovered at the crime scene. Hundreds of items and four vehicles were seized.</p>
-    <p>A palm print was recovered from Holly's vehicle. All four defendants&mdash;Zach Adams, Dylan Adams, Jason Autry, and Shayne Austin&mdash;were <strong>excluded</strong> from it.</p> 
-    <p>Per scrapyard records, Zach Adams was <strong>not</strong> at the scrapyard on the day of the abduction. His girlfriend Rebecca Earp corroborates the contradiction: that afternoon, Zach stopped by Joe's Video where she worked. She confronted him for using Dylan's phone instead of his own that morning&mdash;which she found suspicious enough to think he was lying about scrapping. His trailer was not on his truck when he arrived. She had also left him a note that morning asking him to move some laundry. When she got home, the bottom of the note was ripped off and the scrapyard's old, dirty business card had been taped where the missing portion was&mdash;suspicious because Zach told her he had not been home all day. She kept the ripped note and eventually gave it to TBI.</p>
+    <p><strong>Adams residence search:</strong></p>
+    <ul class="list-of-things">
+      <li>During the search of the Adams residence, investigators found <strong>nail polish</strong> they said matched material recovered at the crime scene.</li>
+      <li>Hundreds of items and four vehicles were seized.</li>
+      <li>A palm print was recovered from Holly's vehicle.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">All four defendants&mdash;Zach Adams, Dylan Adams, Jason Autry, and Shayne Austin&mdash;were <strong>excluded</strong> from it.</p>
+    <p><strong>Scrapyard records:</strong></p>
+    <ul class="list-of-things">
+      <li>Per scrapyard records, Zach Adams was <strong>not</strong> at the scrapyard on the day of the abduction.</li>
+      <li>His girlfriend Rebecca Earp corroborates the contradiction: that afternoon, Zach stopped by Joe's Video where she worked.</li>
+      <li>She confronted him for using Dylan's phone instead of his own that morning&mdash;which she found suspicious enough to think he was lying about scrapping.</li>
+      <li>His trailer was not on his truck when he arrived.</li>
+      <li>She had also left him a note that morning asking him to move some laundry.</li>
+      <li>When she got home, the bottom of the note was ripped off and the scrapyard's old, dirty business card had been taped where the missing portion was&mdash;suspicious because Zach told her he had not been home all day.</li>
+      <li>She kept the ripped note and eventually gave it to TBI.</li>
+    </ul>
     <div class="step-gallery">
       <img src="photos/evidence%20found/evidence-map.webp" alt="Map of evidence find sites" loading="lazy" />
       <img src="photos/evidence%20found/lunchbox.webp" alt="Holly's lunchbox" loading="lazy" />
@@ -2604,8 +2757,55 @@
       <img src="photos/evidence%20found/hwy-69.webp" alt="Highway 69 area" loading="lazy" />
     </div>
     <p class="gallery-caption">Items recovered between 2011 and 2014</p>
+  </div>
+
+  <!-- STEP 571: Summer–Fall 2011 -->
+  <div class="step" data-step="571" data-border="var(--c-evid)">
+    <div class="step-time">Summer – Winter 2011</div>
+    <div class="step-title">2011 — Dinsmore & the gun</div>
+    <p><strong>Summer 2011 (approx.):</strong></p>
+    <ul class="list-of-things">
+      <li>A few months after the abduction, Shayne Austin and Jason Autry brought Victor Dinsmore a pistol in exchange for pills.</li>
+      <li>Autry testified he was present for the transaction and identified the gun at trial&mdash;stating it was the same pistol Shayne had holstered on his right side at the trailer on April 13.</li>
+      <li>Dinsmore bought it for his wife's protection, but later told her to get rid of it <em>"because he thought it had killed somebody."</em></li>
+      <li>Dinsmore and his wife eventually gave TBI information about the gun; investigators flew them to Decatur County and searched a creek off Yellow Springs Road for it.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">In his trial testimony, Dinsmore described the gun as a .38 or .357, American-made. In an earlier statement he said it was a .22 caliber rifle. The gun was not recovered.</p>
+    <p><strong>December 2011:</strong></p>
+    <ul class="list-of-things">
+      <li>In a statement to law enforcement, Victor Dinsmore named <strong>Michael Alexander</strong> as someone involved in hiding Holly's body.</li>
+      <li>Alexander does not appear in any other reviewed source material&mdash;no corroboration, no follow-up, and no public record of investigation into the name.</li>
+    </ul>
+    <p><strong>Autry prison visit (date unclear):</strong></p>
+    <ul class="list-of-things">
+      <li>On a visit to Jason Autry in prison, members of the Austin family witnessed Autry showing them&mdash;through the glass&mdash;a report about pink underwear found in evidence.</li>
+      <li>During the same visit, Autry told them that Holly had been shot from the back of the head, with the bullet exiting under her right eye, and described the bullet casings found at the scene.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">This directly contradicts Autry's trial testimony that he did not have access to discovery material.</p>
+  </div>
+
+  <!-- STEP 572: 2012 Cell analysis -->
+  <div class="step" data-step="572" data-border="var(--c-evid)">
+    <div class="step-time">2012</div>
+    <div class="step-title">2012 — Cell tower analysis</div>
+    <p><strong>2012:</strong> US Marshal John Walker, SA Terry Dicus, and others developed a map of Holly's cell tower pings tracing her phone's movement on the day of her abduction. Walker had been requested by TBI for his expertise in interpreting cell tower records; he is not authorized to disclose the specific tracking methods used by the US Marshals Service. The map was displayed and explained in court.</p>
+    <p style="opacity:0.7;font-size:12px;"><strong>Defense cell phone expert summary findings (presented at trial):</strong></p>
+    <ul class="list-of-things">
+      <li>Zach's phone never overlapped with Holly's based on predictive server mapping (data unavailable at time of abduction, but now able to significantly narrow location ranges).</li>
+      <li>On two separate occasions, Holly and Zach were clearly on <em>different</em> cell sectors at similar times.</li>
+      <li>No correlations between Jason Autry's phone and Holly's phone that day.</li>
+      <li>No records of Jason Autry's phone using Shayne Austin's home tower.</li>
+      <li>Shayne Austin's phone is on his home tower from 9:23 AM through 10:55 AM, with no earlier activity that morning.</li>
+      <li>Zach and Jason's phones do hit the same tower (Birdsong northeast sector) around the same time&mdash;consistent with them being together at that location.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">At trial, defense private investigator Amber Treat drove three routes in Decatur County to measure time and distance between key locations:</p>
+    <ul class="list-of-things">
+      <li><strong>Route 1</strong> (Yellow Springs Church → I-40 bridge, Tennessee River): ~26 minutes</li>
+      <li><strong>Route 2</strong> (I-40 bridge → Yellow Springs Church, alternate path): ~32 minutes</li>
+      <li><strong>Route 3</strong> (Holly's phone route per Walker's cell tower interpretation): ~43 minutes</li>
+    </ul>
     <details>
-      <summary>Autry's credibility re: cross-examination findings and subsequent recantation</summary>
+      <summary>Autry's credibility — cross-examination findings &amp; recantation</summary>
       <div class="detail-body">
         <ul class="list-of-things">
           <li>Autry has been to prison three times for theft and drugs. He was charged in this case at the time of his testimony and testified hoping for leniency.</li>
@@ -2624,14 +2824,21 @@
         </ul>
       </div>
     </details>
-    <p><strong>Summer 2011 (approx.): </strong>A few months after the abduction, Shayne Austin and Jason Autry brought Victor Dinsmore a pistol in exchange for pills. Autry testified he was present for the transaction and identified the gun at trial&mdash;stating it was the same pistol Shayne had holstered on his right side at the trailer on April 13. Dinsmore bought it for his wife's protection, but later told her to get rid of it <em>"because he thought it had killed somebody."</em> Dinsmore and his wife eventually gave TBI information about the gun; investigators flew them to Decatur County and searched a creek off Yellow Springs Road for it.</p>
-    <p>In his trial testimony, Dinsmore described the gun as a .38 or .357, American-made. In an earlier statement he said it was a .22 caliber rifle. The gun was not recovered.</p>
-    <p><strong>December 2011: </strong>In a statement to law enforcement, Victor Dinsmore named <strong>Michael Alexander</strong> as someone involved in hiding Holly's body. Alexander does not appear in any other reviewed source material&mdash;no corroboration, no follow-up, and no public record of investigation into the name.</p>
-    <p><strong>Jason Autry prison visit: </strong>On a visit to Jason Autry in prison, members of the Austin family witnessed Autry showing them&mdash;through the glass&mdash;a report about pink underwear found in evidence. During the same visit, Autry told them that Holly had been shot from the back of the head, with the bullet exiting under her right eye, and described the bullet casings found at the scene.</p>
-    <p style="opacity:0.7;font-size:12px;">This directly contradicts Autry's trial testimony that he did not have access to discovery material.</p>
-    <p><strong>Shayne Austin immunity and DA cooperation: </strong>In 2014, Shayne and his lawyer met with the DA's office. A document in Shayne's own handwriting&mdash;introduced at trial by the defense&mdash;confirmed Shayne provided information to the DA regarding the kidnapping, rape, and murder of Holly Bobo. Shayne's mother argued the document lacked context; the judge ruled it hearsay and it was never read into the record. TBI offered Shayne an immunity agreement and told him he was going to be arrested but never followed through with the arrest. Shayne met with his lawyer only once, with TBI agents present.</p>
-    <p><strong>Shayne Austin death:</strong> Shayne Austin died by suicide. In the period leading up to his death, he had recently been fired from his job, missed a flight home, was described by his mother as "very messed up," and was transported between hotels.</p>
-    <p style="opacity:0.7;font-size:12px;"><strong>Yellow Springs Road&mdash;morning of April 13: </strong>Camden Police Officer Brian Vitt lives on Yellow Springs Road and returned home from his night shift at approximately 6:00 AM on the day of the abduction. He told a TBI agent he may have been outside mowing his lawn from 7:00 to 9:00 AM&mdash;the window during which Holly's phone was moving through the area. At trial he stated he was inside from 6:00 to 8:00 AM. The two accounts conflict and were not reconciled in the reviewed materials. His daughter knew Holly.</p>
+  </div>
+
+  <!-- STEP 573: 2014 Shayne immunity & death -->
+  <div class="step" data-step="573" data-border="var(--c-evid)">
+    <div class="step-time">2014</div>
+    <div class="step-title">2014 — Shayne Austin</div>
+    <p><strong>2014: </strong>Shayne Austin immunity &amp; DA cooperation</p>
+    <ul class="list-of-things">
+      <li>Shayne and his lawyer met with the DA's office.</li>
+      <li>A document in Shayne's own handwriting&mdash;introduced at trial by the defense&mdash;confirmed Shayne provided information to the DA regarding the kidnapping, rape, and murder of Holly Bobo.</li>
+      <li>Shayne's mother argued the document lacked context; the judge ruled it hearsay and it was never read into the record.</li>
+      <li>TBI offered Shayne an immunity agreement and told him he was going to be arrested but never followed through with the arrest.</li>
+      <li>Shayne met with his lawyer only once, with TBI agents present.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;"><strong>Shayne Austin death:</strong> Shayne Austin died by suicide. In the period leading up to his death, he had recently been fired from his job, missed a flight home, was described by his mother as "very messed up," and was transported between hotels.</p>
   </div>
 
   <!-- STEP 58: September 7, 2014 Remains found -->
@@ -2649,6 +2856,7 @@
       <li><strong>Markers 5, 7–9, 12, 38: </strong>rib bones</li>
       <li><strong>Markers 6, 25–26, 29–30, 32: </strong>teeth</li>
       <li><strong>Marker 11: </strong>pack of gum near the larger purse</li>
+      <li><strong>Marker 13: </strong>.380 auto cartridge case and a <strong>.410 shot shell</strong></li>
       <li><strong>Marker 17: </strong>a skull</li>
       <li><strong>Markers 25, 37: </strong>earrings</li> 
       <li><strong>Marker 28: </strong>a lotion bottle</li>
@@ -2657,9 +2865,12 @@
       <li><strong>Marker 35: </strong>a piece of pink fabric</li> 
       <li><strong>Marker 36: </strong>a ring</li>
     </ul>
-    <p>Weapons-related evidence: <strong>.380 auto cartridge case</strong> (marker 13) and a <strong>.410 shot shell</strong> were found at the scene.</p>
-    <p>A separate <strong>.32 caliber long revolver</strong> — manufactured in Germany, five chambers loaded, two empty, no matching shell casing — was recovered from a shallow drainage creek at the intersection of Bible Hill Road and Joe Holiday Road. West Tennessee Dive Rescue and Recovery, called in by Henderson County law enforcement at TBI's request, spent approximately four and a half hours searching the creek with waterproof metal detectors before locating the gun approximately 15 inches below the water's surface. SA Brent Booth was present for the search. The gun was examined by SA Cervinia Braswell.</p>
-    <p>Gun materials and personal belongings were sent to the TBI Crime Laboratory; remains went to the Memphis forensic center.</p>
+    <p>A separate <strong>.32 caliber long revolver</strong>&mdash;manufactured in Germany, five chambers loaded, two empty, no matching shell casing&mdash;was recovered from a shallow drainage creek at the intersection of Bible Hill Road and Joe Holiday Road.</p>
+    <ul class="list-of-things">
+      <li>West Tennessee Dive Rescue and Recovery, called in by Henderson County law enforcement at TBI's request, spent approximately four and a half hours searching the creek with waterproof metal detectors before locating the gun approximately 15 inches below the water's surface. SA Brent Booth was present for the search.</li>
+      <li>The gun was examined by SA Cervinia Braswell.</li>
+      <li>Gun materials and personal belongings were sent to the TBI Crime Laboratory; remains went to the Memphis forensic center.</li>
+    </ul>
     <p style="opacity:0.7;font-size:12px;">A hand-drawn map used at trial labeled items under three columns: <strong>"Holly Bobo," "Zach Adams,"</strong> and <strong>"Jason Autry."</strong> Some remains showed teeth marks consistent with coyote activity; investigators also searched nearby coyote dens.</p>
     <div class="step-gallery">
       <img src="photos/remains-found/remains-1.jpg" alt="Site where Holly Bobo's remains were discovered" loading="lazy" />
@@ -2681,11 +2892,13 @@
     <div class="act-label">Act VIII &mdash; The Informant</div>
     <div class="step-title">Purchases</div>
     <p>In the weeks surrounding Holly's disappearance, Britt makes a striking sequence of purchases:</p>
-    <p><strong>March 11–12, 2011: </strong>New phones.<br/>
-    <strong>April 11 (two days before the abduction): </strong>2,000 prepaid minutes.<br/>
-    <strong>April 29 (sixteen days after): </strong>A chainsaw.</p>
-    <p>When decomposition-trained cadaver dogs are walked across Britt's property, they alert on his tools: an axe, a shovel, and a hammer.</p>
-    <p>At least two deputies visited the Britt residence during the sex offender canvass on the morning of the abduction and found no one home:</p>
+    <ul class="list-of-things">
+      <li><strong>March 11–12, 2011: </strong>New phones.</li>
+      <li><strong>April 11 (two days before the abduction): </strong>2,000 prepaid minutes.</li>
+      <li><strong>April 29 (sixteen days after): </strong>A chainsaw.</li>
+    </ul>
+    <p style="opacity:0.7;font-size:12px;">When decomposition-trained cadaver dogs are walked across Britt's property, they alert on his tools: an axe, a shovel, and a hammer.</p>
+    <p style="opacity:0.7;font-size:12px;">At least two deputies visited the Britt residence during the sex offender canvass on the morning of the abduction and found no one home:</p>
     <ul class="list-of-things">
       <li><strong>Deputy Johnathan Ryker</strong> went by and found the property empty.</li>
       <li><strong>Deputy Travis Dunavant</strong>&mdash;also assigned to interview sex offenders&mdash;knocked, heard no movement, and found only a red, broken-down van. No other vehicles were present and Britt was not there.</li>
@@ -2699,7 +2912,7 @@
     <div class="step-title">"I didn't rape nobody"</div>
     <p>When investigators first approach Britt, his unprompted opening line is: <em>"I didn't rape nobody."</em> No one had mentioned rape.</p>
     <p style="opacity:0.7;font-size:12px;">Wiretapping Britt was described by SA Booth as unprecedented in the state of Tennessee.</p>
-    <p>Clint Bobo&mdash;the only person to hear the voice of his sister's abductor that morning&mdash;later says he is <strong>80% sure</strong> it was Britt's.</p>
+    <p style="opacity:0.7;font-size:12px;">Clint Bobo&mdash;the only person to hear the voice of his sister's abductor that morning&mdash;later says he is <strong>80% sure</strong> it was Britt's.</p>
     <p>Britt's vehicle matches surveillance footage from the ATM Farm near the abduction site. He has a documented history of stalking blonde, blue-eyed women in the area. Before his devices are seized, his computer holds searches across multiple sites including <em>video.xnxx.com</em> and <em>nudevista.com</em>&mdash;conducted in January 2011, three months before the abduction:</p>
     <ul class="list-of-things">
       <li><em>"abducted"</em></li>
@@ -2709,10 +2922,12 @@
       <li><em>"anal rape"</em></li>
     </ul>
     <p><strong>March 2013: </strong>US Marshal John Walker interviews Terry Britt in jail. Walker had been requested by TBI to assist in interpreting Holly's cell tower records and to follow leads in the case.</p>
-    <p>During the interview, Britt's first concern is that TBI won't let him contact his wife, and that his wife might be charged. (Janet Britt was facing a separate federal charge at the time.)</p>
-    <p>When Walker describes Clint's account of the abductor, Britt responds: <em>"That boy don't know what he saw."</em></p>
-    <p>When Walker describes how Janet likely woke to dogs barking when Britt returned home that morning, Britt says: <em>"Sounds like you've got it all figured out. I'll plead to it, and you close the case."</em></p>
-    <p>At trial, Britt denies making the offer.</p>
+    <ul class="list-of-things">
+      <li>During the interview, Britt's first concern is that TBI won't let him contact his wife, and that his wife might be charged. (Janet Britt was facing a separate federal charge at the time.)</li>
+      <li>When Walker describes Clint's account of the abductor, Britt responds: <em>"That boy don't know what he saw."</em></li>
+      <li>When Walker describes how Janet likely woke to dogs barking when Britt returned home that morning, Britt says: <em>"Sounds like you've got it all figured out. I'll plead to it, and you close the case."</em></li>
+      <li>At trial, Britt denies making the offer.</li>
+    </ul>
     <p style="opacity:0.7;font-size:12px;">Walker did not Mirandize Britt before the interview, stating he was not seeking testimonial evidence. Walker also confirmed at trial that he became friends with SA Terry Dicus during the investigation.</p>
   </div>
 
@@ -2810,7 +3025,10 @@ const POI = {
   'densmore':        { coord: [35.81870, -88.13937],         color: '#8E9AAF', label: 'Victor Dinsmore', pos: 'below' },
   'dick-sighting':   { coord: [35.819023, -88.088609],        color: '#8E9AAF', label: 'Dick sees boys (Hwy 641)', pos: 'above' },
   'north-utility':   { coord: [35.737753, -88.098614],        color: '#8E9AAF', label: 'N. Utility District', pos: 'right' },
-  'betty-bell':      { coord: [35.647856, -88.144464],        color: '#8E9AAF', label: "Betty Bell home", pos: 'right' }
+  'betty-bell':      { coord: [35.647856, -88.144464],        color: '#8E9AAF', label: "Betty Bell home", pos: 'right' },
+  'shell-holladay':  { coord: [35.833608, -88.086106],        color: '#a17ec2', label: 'Shell (near Zach home)', pos: 'right' },
+  'mapco-parsons':   { coord: [35.636886, -88.122806],        color: '#a17ec2', label: 'Mapco (Parsons)', pos: 'right' },
+  'sonic-parsons':   { coord: [35.649658, -88.125294],        color: '#a17ec2', label: 'Sonic (Parsons)', pos: 'right' }
 };
 
 // Timeline coordinates extracted from KML_DATA
@@ -3800,7 +4018,7 @@ const STEPS = {
   41: {
     center: [35.868, -87.960], zoom: 13,
     action() {
-      setClock('9:50 AM');
+      setClock('9:45 AM');
       const bt = makeDot(POI['birdsong-tower'].coord, '#FFD23F', 8, false);
       activeMarkers.push(bt);
       const bl = makeLabel(POI['birdsong-tower'].coord, 'Birdsong Tower', '#FFD23F', 'left', 55);
@@ -3866,12 +4084,15 @@ const STEPS = {
     }
   },
   45: {
-    bounds: [[35.645, -88.190], [35.695, -88.110]],
+    bounds: [POI['shell-holladay'].coord, POI['atm'].coord, POI['mapco-parsons'].coord, POI['sonic-parsons'].coord],
     action() {
       setClock('11:12 AM');
       const camCoord = drawPOI('am-farm', { pos: 'above', gap: 10 });
-      const towerCoord = drawPOI('atm', { label: 'CR 1257 Tower near ATM', pos: 'below', gap: 15 });
+      const towerCoord = drawPOI('atm', { label: 'CB&S ATM', pos: 'left', gap: 40 });
       drawLine(camCoord, towerCoord, '~3 MI', [0, 0.005]);
+      drawPOI('shell-holladay', { pos: 'right', gap: 10 });
+      drawPOI('mapco-parsons', { pos: 'right', gap: 10 });
+      drawPOI('sonic-parsons', { pos: 'right', gap: 10 });
       showRefGhosts();
     }
   },
@@ -3989,8 +4210,7 @@ const STEPS = {
   56: {
     center: [35.78, -88.08], zoom: 10,
     action() {
-      setClock('', 'Apr. 13, 2011 → Sep. 7, 2014');
-      
+      setClock('', 'Apr. 14 – Dec. 2011');
       const hbTrail = [TIMELINE.hb_0800, TIMELINE.hb_0811, TIMELINE.hb_0816, TIMELINE.hb_0826,
         TIMELINE.hb_0900, TIMELINE.hb_0902, TIMELINE.hb_0906, TIMELINE.hb_0910, TIMELINE.hb_0925];
       showTrail(hbTrail, COLORS.holly);
@@ -4001,6 +4221,31 @@ const STEPS = {
       });
       showPersistent('holly-last-ping', { pos: 'below', gap: 15 });
       showPersistent('remains-site', { pos: 'above', gap: 10 });
+      drawPOI('adams-home', { pos: 'above', gap: 10 });
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+    }
+  },
+
+  561: {
+    bounds: [ADAMS_HOME, AUSTIN_HOME, [35.868, -87.943]],
+    action() {
+      setClock('', '2012');
+      drawPOI('adams-home', { pos: 'above', gap: 10 });
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+      const eagleCreek = [35.868, -87.943];
+      const m = makeDot(eagleCreek, COLORS.zach, 6, false);
+      activeMarkers.push(m);
+      const lb = makeLabel(eagleCreek, 'Eagle Creek', COLORS.zach, 'above', 10);
+      activeMarkers.push(lb);
+    }
+  },
+  562: {
+    bounds: [ADAMS_HOME, AUSTIN_HOME],
+    action() {
+      setClock('', 'Early 2014');
+      drawPOI('adams-home', { pos: 'above', gap: 10 });
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+      drawPOI('dick-adams', { pos: 'right', gap: 10 });
     }
   },
 
@@ -4008,7 +4253,7 @@ const STEPS = {
   57: {
     bounds: [BOBO_HOME, [35.868, -87.950], REMAINS_SITE, [35.645, -88.19]],
     action() {
-      setClock('', '2011 – 2014');
+      setClock('', 'Spring 2011');
       const evidItems = KML_DATA.evidence.filter(e => e.name && e.name !== 'Untitled placemark');
       const evidConfig = {
         0: { offset: [-0.07, -0.12], label: "Bobo home" },
@@ -4041,6 +4286,40 @@ const STEPS = {
         }, i * 600);
         pendingTimeouts.push(tid);
       });
+    }
+  },
+  571: {
+    bounds: [POI['densmore'].coord, AUSTIN_HOME, ADAMS_HOME],
+    action() {
+      setClock('', 'Summer – Winter 2011');
+      drawPOI('densmore', { pos: 'right', gap: 10 });
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+      drawPOI('adams-home', { pos: 'above', gap: 10 });
+    }
+  },
+  572: {
+    center: [35.78, -88.08], zoom: 10,
+    action() {
+      setClock('', '2012');
+      const hbTrail = [TIMELINE.hb_0800, TIMELINE.hb_0811, TIMELINE.hb_0816, TIMELINE.hb_0826,
+        TIMELINE.hb_0900, TIMELINE.hb_0902, TIMELINE.hb_0906, TIMELINE.hb_0910, TIMELINE.hb_0925];
+      showTrail(hbTrail, COLORS.holly);
+      hbTrail.forEach(c => {
+        const d = makeDot(c, COLORS.holly, 3, false);
+        d.setStyle({ opacity: 0.3, fillOpacity: 0.15 });
+        activeMarkers.push(d);
+      });
+      showPersistent('holly-last-ping', { pos: 'below', gap: 15 });
+      drawPOI('adams-home', { pos: 'above', gap: 10 });
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+    }
+  },
+  573: {
+    bounds: [AUSTIN_HOME, ADAMS_HOME],
+    action() {
+      setClock('', '2014');
+      drawPOI('austin-home', { pos: 'below', gap: 10 });
+      drawPOI('adams-home', { pos: 'above', gap: 10 });
     }
   },
 
@@ -4391,11 +4670,21 @@ setTimeout(() => {
 // Click-to-load embeds
 document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
   ph.addEventListener('click', function() {
-    var iframe = document.createElement('iframe');
-    iframe.src = ph.dataset.src;
-    iframe.allow = 'autoplay';
-    iframe.style.cssText = 'display:block;width:100%;height:' + (ph.dataset.height || '60px') + ';border:none;';
-    ph.parentNode.replaceChild(iframe, ph);
+    var src = ph.dataset.src;
+    var el;
+    if (ph.dataset.type === 'video') {
+      el = document.createElement('video');
+      el.src = src;
+      el.controls = true;
+      el.autoplay = true;
+      el.style.cssText = 'display:block;width:100%;background:#000;';
+    } else {
+      el = document.createElement('iframe');
+      el.src = src;
+      el.allow = 'autoplay';
+      el.style.cssText = 'display:block;width:100%;height:' + (ph.dataset.height || '60px') + ';border:none;';
+    }
+    ph.parentNode.replaceChild(el, ph);
   });
 
   // Wrap loc-strips in expandable details
