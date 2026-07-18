@@ -474,8 +474,41 @@
       color: var(--text); 
       font-weight: 600; 
     }
-    .loc-pill .where { 
-      opacity: 0.65; 
+    .loc-pill .where {
+      opacity: 0.65;
+    }
+    details.loc-details {
+      margin-top: 14px;
+      border-top: 1px dashed rgba(244,229,196,0.10);
+    }
+    details.loc-details summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      padding-top: 8px;
+      list-style: none;
+      user-select: none;
+    }
+    details.loc-details summary::-webkit-details-marker { display: none; }
+    details.loc-details summary::after {
+      content: '▾';
+      font-size: 10px;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+    details.loc-details[open] summary::after { transform: rotate(-180deg); }
+    details.loc-details summary:hover { color: var(--text2); }
+    details.loc-details .step .loc-strip,
+    details.loc-details .loc-strip {
+      border-top: none;
+      margin-top: 6px;
+      padding-top: 0;
     }
     .scroll-hint {
       font-family: var(--mono); 
@@ -919,7 +952,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">home/asleep</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">Bath Springs</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-boo)"></span><span class="who">"Boo" Scott</span> <span class="where">Bath Springs</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Bath Springs</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">hauling scrap/phone on Holladay Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">Zach's home/asleep</span></div>
     </div>
@@ -1034,7 +1067,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">Zach's home/getting ready</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Camden Bottoms</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">next door/working on Clark's truck</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">next door/working on Barnes' truck</span></div>
     </div>
   </div>
 
@@ -1058,7 +1091,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">Zach's home/getting ready</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Camden Bottoms</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">next door/working on Clark's truck</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">next door/working on Barnes' truck</span></div>
     </div>
   </div>
 
@@ -1072,7 +1105,7 @@
     <p>Dick has worked the day shift with his neighbor Billy Bell for years.</p>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">home/studying</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">→ Scotts Hill/on phone</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">Scotts Hill/parking lot</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">&rarr; McKenzie Tree Service</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">home/asleep</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-drew)"></span><span class="who">Drew</span> <span class="where">Bath Springs</span></div> 
@@ -1085,7 +1118,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">next door/working on Clark's truck</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">Food Giant w/ Billy Bell</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">carport/kneeling</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">unknown</span></div> 
     </div>
   </div> 
  
@@ -1126,7 +1159,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">next door/loading tools in truck</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">Food Giant w/ Billy Bell</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">carport/kneeling</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">unknown</span></div> 
     </div>
   </div>
 
@@ -1168,7 +1201,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">next door loading truck/hears screams</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">Food Giant w/ Billy Bell</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">carport/kneeling</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">fishing/near Swan-Johnson Rd.</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">near Bobo home</span></div> 
     </div>
@@ -1269,7 +1302,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">→ work → calls Kathy</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">Food Giant w/ Billy Bell</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">carport/kneelinge</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">carport/kneeling</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">fishing/near Swan-Johnson Rd.</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">near Bobo home/calls school office</span></div>
     </div>
@@ -1694,7 +1727,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-holly)"></span> Holly Bobo</div>
     <p><strong>~8:26 AM: </strong>Holly's phone hits on the same tower but different sector. Her phone is still in the Shiloh Rd. area.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone CR 1096 Secor 2/Shiloh Rd. Tower</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone CR 1096 Sector 1</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">&rarr; McKenzie Tree Service</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -1708,7 +1741,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">Food Giant w/ Billy Bell</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone CR 1096 Secor 2/Shiloh Rd. Tower</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone CR 1096 Sector 1</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">fishing/near Swan-Johnson Rd.</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -1737,7 +1770,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">goes to bank and then Sonic</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Camden Bottoms/Holladay/Yellow Springs</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">→ Bobo driveway → work</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">Food Giant w/ Billy Bell</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone CR 1096 Secor 2/Shiloh Rd. Tower</span></div> 
@@ -1852,7 +1885,7 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
@@ -1873,7 +1906,7 @@
     <p><strong>~9:25 AM: </strong>Holly's phone pings the CR 1257 tower, Sector 3&mdash;placing it in the rural wooded area off W Natchez Trace Road, near where her lunchbox and notebook would later be recovered. It is the final recorded signal her phone will ever produce.</p>
     <p>After this, the line goes dead&mdash;permanently. The phone is either powered down or has its battery removed.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -1886,8 +1919,8 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -1908,7 +1941,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
     <p><strong>9:42 AM: </strong>Seventeen minutes after Holly's phone goes silent, Zach and Jason resurface&mdash;this time at Birdsong, a tower near the Tennessee River about twenty miles east of where they were all morning. They've moved.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -1921,8 +1954,8 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -1954,7 +1987,7 @@
       </div>
     </details>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -1967,8 +2000,8 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -1988,7 +2021,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-autry)"></span> Jason Autry</div>
     <p><strong>~10:35 AM: </strong>Both phones flip briefly to Birdsong West. Then Autry's drops off the data entirely.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2001,8 +2034,8 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2021,7 +2054,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <p><strong>~10:38 AM: </strong>Adams' phone pings the tower closest to his home in Holladay. He has left the Birdsong area.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2034,8 +2067,8 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Camden Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2055,7 +2088,7 @@
     <p><strong>~11:00 AM: </strong>According to Angela Smith Scott's testimony, she and Jason met for lunch regularly. She would pick him up at a nearby location and they would eat in the parking lot of the Health Department in Camden. She placed their usual lunch time at 11:30 AM, however, Autry's trial testimony (later recanted) placed it at 11:00 AM.</p>
     <p>The closest identified candidate for the Quick Mart Autry referenced is <strong>Doherty's Quick Mart</strong> on TN-69A in Big Sandy, Benton County&mdash;consistent with where Autry said he and Angela lived.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2065,11 +2098,11 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">→ Holladay Tower</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Quck Mart</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quick Mart</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2093,7 +2126,7 @@
     <p>Investigators later note that a TBI special agent was throwing a retirement party that morning&mdash;many of the SUVs are likely officers heading to the Bobo home.</p>
     <p>The pickup truck is something else.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2103,11 +2136,11 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">AM Farm road</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Quck Mart</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quick Mart</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2127,7 +2160,7 @@
     <p><strong>~11:12 AM: </strong>Adams' phone pings a tower near the CB&amp;S Bank ATM.</p>
     <p>Surveillance footage from that ATM is later introduced at trial.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2136,12 +2169,12 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">CB&S Bank ATM</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Quck Mart</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">unknown (post-lunch)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2162,7 +2195,7 @@
     <p>Cell-tower data lines up with this: Shayne's phone is on his home tower from <strong>9:23 AM through 10:55 AM</strong>, with no earlier activity that morning.</p>
     <p style="opacity:0.7;font-size:12px;">After the 8:00 AM exam, Holly's classmate, Emily Pratt, is informed by their teacher that Holly is missing.</p> 
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2171,12 +2204,12 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Parsons area</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Quck Mart</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">unknown (post-lunch)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2197,7 +2230,7 @@
     <p><strong>~12:20 PM: </strong>Britt calls his wife Janet. The call runs 2 minutes 56 seconds.</p>
     <p>Janet would later tell investigators the two had been "together all day." You don't call someone standing next to you.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2206,12 +2239,12 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Parsons area</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Quck Mart</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">unknown (post-lunch)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2232,7 +2265,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-zach)"></span> Zach Adams</div>
     <p><strong>~12:35 PM: </strong>Adams' phone pings a tower in the Parsons area more than four hours after the abduction. It is his last event in the phone timeline (of record).</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2241,12 +2274,12 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Parsons area (last known location)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Quck Mart</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">unknown (post-lunch)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2267,7 +2300,7 @@
     <div class="person-pill"><span class="dot" style="background:var(--c-britt)"></span> Terry Britt</div>
     <p><strong>~1:45 PM: </strong>Decatur County deputies arrive at the Britt home. No one is home. Three vehicles are gone.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2276,12 +2309,12 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-brasher)"></span><span class="who">Bo Brasher</span> <span class="where">Unknown</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Parsons area (last known location)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
-      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Quck Mart</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">unknown (post-lunch)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2322,7 +2355,7 @@
     <p style="opacity:0.7;font-size:12px;">Dinsmore had previously told Booth that Zach did not hide his truck at his residence&mdash;which he later acknowledged was factually false, adding that Booth "didn't ask" where it was hidden.</p>
     <p style="opacity:0.7;font-size:12px;">Separately, Dinsmore initially told law enforcement that Zach was not with the group on the day Holly disappeared, but later said he had the days mixed up.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2332,11 +2365,11 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Dottie's</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Dottie's</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2359,7 +2392,7 @@
     <p><strong>~3:00 PM: </strong>The Britts roll back into their driveway and unload a bathtub. They say they bought it from Allgood's.</p>
     <p>The receipt is handwritten. Allgood's has no matching store copy. No employee remembers the sale.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2369,11 +2402,11 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Dottie's</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Dottie's</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2397,7 +2430,7 @@
     <p>On Apr. 15, 2011, two days after the abduction, Judy searched the property with Rita Austin. Other searchers also looked inside the corn crib. Judy saw no tire tracks behind it, and testified that the corn crib could not be accessed from the woods in the back.</p>
     <p>The driveway did not have a gate at the time of the abduction.</p>
     <div class="loc-strip">
-      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone moving thru multiple sectors</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where">phone offline (last ping 9:25 AM)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dana)"></span><span class="who">Dana</span> <span class="where">home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-clint)"></span><span class="who">Clint</span> <span class="where">Bobo driveway</span></div> 
@@ -2407,11 +2440,11 @@
       <div class="loc-pill"><span class="dot" style="background:var(--c-zach)"></span><span class="who">Zach</span> <span class="where">Dottie's</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-rebecca)"></span><span class="who">Rebecca</span> <span class="where">at work/Joe's Vido</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-autry)"></span><span class="who">Jason</span> <span class="where">Dottie's</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">Quck Mart</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-angela)"></span><span class="who">Angela</span> <span class="where">unknown (post-lunch)</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-barnes)"></span><span class="who">Barnes</span> <span class="where">work</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-dick)"></span><span class="who">Dick</span> <span class="where">passes Zach, Dylan, &amp; Shayne on Hwy 641</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">home/asleep in bed</span></div>
-      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">Holly's phone moving thru multiple sectors</span></div> 
+      <div class="loc-pill"><span class="dot" style="background:var(--c-dylan)"></span><span class="who">Dylan</span> <span class="where">disputed — seen on Hwy 641 (per Dick)</span></div>
+      <div class="loc-pill"><span class="dot" style="background:var(--c-kidnapper)"></span><span class="who">Kidnapper</span> <span class="where">phone offline (last ping 9:25 AM)</span></div> 
       <div class="loc-pill"><span class="dot" style="background:var(--c-babb)"></span><span class="who">Babb</span> <span class="where">→ heading home</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-kathy)"></span><span class="who">Kathy</span> <span class="where">Bobo driveway</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-scott-home)"></span><span class="who">Scott home</span> <span class="where">next door to Richie</span></div>
@@ -2753,6 +2786,7 @@ const POI = {
   'scott-home':      { coord: [35.63488, -88.09210],           color: '#5DA39E', label: 'Drew Scott home', pos: 'below', gap: 10 },
   'drew-home-tower': { coord: [35.589, -88.129],               color: '#5DA39E', label: 'Drew home tower (Decaturville)', coverage: 5500, pos: 'below', gap: 10 },
   'decaturville':    { coord: [35.58342, -88.11742],           color: '#5DA39E', label: 'Decaturville', pos: 'right', gap: 10 },
+  'decatur-co-drew': { coord: [35.59509, -88.12914],           color: '#5DA39E', label: 'Decatur Co.', pos: 'right', gap: 10 },
   'drew-work':       { coord: [35.64284, -88.12314],           color: COLORS.drew, label: 'Drew @ work', pos: 'right', gap: 10 },
   'camden-tower':    { coord: [36.0160773, -88.0379963],    color: '#7B8FA1', label: 'Camden Tower', coverage: 3500, pos: 'right' },
   'autry-residence': { coord: [36.022526, -88.069439],      color: '#4A8FB8', label: "Autry home w/ GF)", pos: 'below' },
@@ -3506,14 +3540,13 @@ const STEPS = {
     }
   },
   23: {
-    bounds: [BOBO_HOME, SCOTTS_HILL_ELEM, POI['scott-home'].coord, POI['decaturville'].coord],
+    bounds: [BOBO_HOME, SCOTTS_HILL_ELEM, POI['decatur-co-drew'].coord],
     action() {
       setClock('7:59 AM');
       const a = drawPOI('bobo-home', { pos: 'above', gap: 10 });
       const s = drawPOI('scotts-hill', { label: 'Karen en route', color: '#E6C567', pos: 'below', gap: 10 });
-      drawPOI('scott-home', { label: 'Drew Scott home', color: '#5DA39E', pos: 'right', gap: 10 });
       drawLine(a, s, '~12 mi', [0, -0.1]);
-      const d = drawPOI('decaturville', { pos: 'right', gap: 10 });
+      const d = drawPOI('decatur-co-drew', { pos: 'right', gap: 10 });
       drawLine(d, s, '~9 mi', [-0.01, 0]);
     }
   },
@@ -4341,6 +4374,19 @@ document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
     iframe.allow = 'autoplay';
     iframe.style.cssText = 'display:block;width:100%;height:' + (ph.dataset.height || '60px') + ';border:none;';
     ph.parentNode.replaceChild(iframe, ph);
+  });
+
+  // Wrap loc-strips in expandable details
+  document.querySelectorAll('.loc-strip').forEach(strip => {
+    const count = strip.querySelectorAll('.loc-pill').length;
+    if (count === 0) return;
+    const details = document.createElement('details');
+    details.className = 'loc-details';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Whereabouts · ' + count + ' tracked';
+    details.appendChild(summary);
+    strip.parentNode.insertBefore(details, strip);
+    details.appendChild(strip);
   });
 });
 </script>
