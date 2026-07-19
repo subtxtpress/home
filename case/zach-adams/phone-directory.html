@@ -76,7 +76,8 @@
       tbody tr{width:calc(100% - 24px);background:var(--bg2);border-radius:10px;margin:8px 12px;padding:12px 14px;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.2);}
       tbody tr:nth-child(even) td{background:transparent;}
       tbody tr:hover td{background:transparent!important;}
-      td{border:none;position:relative;padding:3px 0 3px 80px;font-size:.82rem;display:block;word-break:break-word;}
+      tbody td{border:none;position:relative;padding:3px 0 3px 80px;font-size:.82rem;display:block;word-break:break-word;min-height:1.5rem;}
+      tbody td:not([data-label]){display:none;}
       td::before{content:attr(data-label);position:absolute;left:0;top:4px;width:74px;font-weight:700;font-size:.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.03em;}
       .kml-yes,.kml-no{text-align:left;}
     }
@@ -196,8 +197,8 @@ function render(){
       <td data-label="Person"><strong>${esc(r[1])}</strong></td>
       <td data-label="Category"><span class="badge ${catClass(r[2])}">${esc(r[2])}</span></td>
       <td data-label="KML" class="${kmlHas ? 'kml-yes' : 'kml-no'}">${kmlHas ? '✓' : '—'}</td>
-      <td data-label="Address" class="addr-cell">${esc(r[4])}</td>
-      <td data-label="Notes" class="note-cell">${esc(r[5])}</td>`;
+      <td ${r[4] ? 'data-label="Address"' : ''} class="addr-cell">${esc(r[4])}</td>
+      <td ${r[5] ? 'data-label="Notes"' : ''} class="note-cell">${esc(r[5])}</td>`;
     tbody.appendChild(tr);
   });
 

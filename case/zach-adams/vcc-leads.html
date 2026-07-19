@@ -188,7 +188,7 @@ tr.expanded .narr-full { display: block; }
   tbody tr:hover td { background: transparent !important; }
   td {
     border: none; position: relative;
-    padding: 2px 0 2px 72px; display: block;
+    padding: 2px 0 2px 72px; display: block; min-height: 1.6rem;
     font-size: .82rem; word-break: break-word; overflow-wrap: anywhere;
   }
   td::before {
@@ -366,9 +366,9 @@ function render() {
       <td data-label="ID"><strong>${r[0]}</strong></td>
       <td data-label="Date" style="white-space:nowrap">${r[1]}</td>
       <td data-label="Status"><span class="badge ${statusClass(r[2])}">${esc(r[2])}</span></td>
-      <td data-label="Prec"><span class="badge ${precClass(r[3])}">${esc(r[3])}</span></td>
-      <td data-label="Agent" style="max-width:140px">${esc(r[4])}</td>
-      <td data-label="Via" style="max-width:120px">${esc(r[5])}</td>
+      <td ${r[3] ? 'data-label="Prec"' : ''}><span class="badge ${precClass(r[3])}">${esc(r[3])}</span></td>
+      <td ${r[4] ? 'data-label="Agent"' : ''} style="max-width:140px">${esc(r[4])}</td>
+      <td ${r[5] ? 'data-label="Via"' : ''} style="max-width:120px">${esc(r[5])}</td>
       <td data-label="Narrative" class="narr-cell">
         <div class="narr-preview">${narr}</div>
         ${hasMore ? `<div class="narr-full">${narr.replace(/\n+/g,'<br>')}</div><button class="narr-toggle" onclick="toggleNarr(this)">▸ Read more</button>` : ''}
