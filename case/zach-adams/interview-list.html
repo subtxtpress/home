@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Bobo – Interview List</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: #f0f4ff; color: #1a1a2e; }
+
+header {
+  background: linear-gradient(135deg, #1F3864, #2d5a9e);
+  color: white; padding: 16px 24px 12px;
+}
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header p  { font-size: .78rem; opacity: .7; margin-top: 3px; }
+
+.stats-bar {
+  display: flex; gap: 8px; flex-wrap: nowrap;
+  background: #1a2f5a; padding: 8px 20px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.stats-bar::-webkit-scrollbar { display: none; }
+.stat {
+  background: rgba(255,255,255,.12); border-radius: 6px;
+  padding: 5px 12px; color: white; font-size: .75rem;
+  display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+}
+.stat strong { font-size: 1rem; }
+
+.toolbar {
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  padding: 10px 20px; background: white;
+  border-bottom: 2px solid #e2e8f0;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.toolbar input[type=text] {
+  flex: 1; min-width: 200px; padding: 8px 12px;
+  border: 1.5px solid #c7d2fe; border-radius: 7px;
+  font-size: .88rem; outline: none;
+}
+.toolbar input:focus { border-color: #4f46e5; }
+.toolbar select {
+  padding: 8px 10px; border: 1.5px solid #c7d2fe;
+  border-radius: 7px; font-size: .82rem; background: white; outline: none; cursor: pointer;
+}
+.btn {
+  padding: 8px 14px; border: none; border-radius: 7px;
+  font-size: .82rem; cursor: pointer; font-weight: 600; transition: .15s;
+  white-space: nowrap; text-decoration: none; display: inline-block;
+}
+.btn-clear  { background: #e0e7ff; color: #3730a3; }
+.btn-clear:hover  { background: #c7d2fe; }
+.btn-nav { background: #f3e8ff; color: #6b21a8; }
+.btn-nav:hover { background: #ddd6fe; }
+.btn-nav2 { background: #dbeafe; color: #1e40af; }
+.btn-nav2:hover { background: #bfdbfe; }
+
+.count-bar {
+  padding: 5px 20px; font-size: .75rem; color: #64748b;
+  background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+}
+
+/* Table */
+.table-wrap { overflow-x: auto; padding: 0 20px 40px; }
+table { width: 100%; border-collapse: collapse; margin-top: 14px; min-width: 680px; }
+thead th {
+  background: #1F3864; color: white; padding: 9px 10px;
+  font-size: .78rem; text-align: left;
+  position: sticky; top: 0; cursor: pointer;
+  user-select: none; white-space: nowrap;
+}
+thead th:hover { background: #2d4f8a; }
+thead th .si { margin-left: 4px; opacity: .5; }
+thead th.sorted .si { opacity: 1; }
+
+tbody tr:nth-child(even) td { background: #f8fafc; }
+tbody tr:hover td { background: #eef2ff !important; }
+td {
+  padding: 7px 10px; font-size: .82rem;
+  border-bottom: 1px solid #e8ecf0; vertical-align: top;
+}
+
+.ir-badge {
+  display: inline-block; padding: 1px 7px; border-radius: 10px;
+  background: #dbeafe; color: #1e40af;
+  font-size: .7rem; font-weight: 700; white-space: nowrap;
+}
+.sr-badge {
+  display: inline-block; padding: 1px 7px; border-radius: 10px;
+  background: #f0fdf4; color: #166534;
+  font-size: .7rem; font-weight: 600;
+}
+.ni-badge {
+  display: inline-block; padding: 1px 7px; border-radius: 10px;
+  background: #fef9c3; color: #854d0e;
+  font-size: .7rem; font-weight: 600;
+}
+.profile-link {
+  color: #7c3aed; text-decoration: none; font-size: .8rem; margin-left: 5px;
+}
+.profile-link:hover { text-decoration: underline; }
+
+/* Need-to-interview section */
+.need-section {
+  margin: 20px 20px 0; background: white; border-radius: 10px;
+  border-left: 5px solid #d97706; padding: 16px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+.need-section h2 {
+  font-size: .9rem; color: #854d0e; font-weight: 700; margin-bottom: 10px;
+}
+.need-item {
+  font-size: .82rem; padding: 4px 0;
+  border-bottom: 1px solid #fef9c3; color: #374151;
+}
+
+.no-results {
+  text-align: center; padding: 50px 20px; color: #94a3b8; font-size: 1rem;
+}
+
+/* Mobile card layout */
+@media (max-width: 640px) {
+  .toolbar { padding: 8px 12px; gap: 6px; }
+  .toolbar input[type=text] { min-width: 0; }
+  .need-section { margin: 12px 10px 0; }
+  header { padding: 12px 16px; }
+  header h1 { font-size: 1.05rem; }
+
+  .table-wrap { padding: 0 10px 40px; }
+  table, thead, tbody, tr, th, td { display: block; }
+  thead tr { display: none; }
+  tbody tr {
+    background: white; border-radius: 10px; margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08); padding: 12px 14px;
+    border-left: 4px solid #1F3864;
+  }
+  tbody tr:nth-child(even) td { background: transparent; }
+  tbody tr:hover td { background: transparent !important; }
+  td {
+    border: none; padding: 3px 0;
+    font-size: .84rem; display: flex; flex-wrap: wrap; gap: 4px; align-items: baseline;
+  }
+  td::before {
+    content: attr(data-label);
+    font-weight: 700; font-size: .7rem; color: #64748b;
+    text-transform: uppercase; letter-spacing: .03em;
+    min-width: 64px; display: inline-block;
+  }
+  td:first-child { display: none; } /* hide row # */
+  td:first-child + td { font-size: .95rem; } /* name */
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Holly Bobo Case — Full Interview List</h1>
+  <p>Case JA-90A-000005 · TBI / FBI · Agent: Dicus, Terry · SAC: Mehr, John R.</p>
+</header>
+
+<div class="stats-bar">
+  <div class="stat"><strong id="statTotal">483</strong> People</div>
+  <div class="stat"><strong id="statIR">–</strong> With IR#</div>
+  <div class="stat"><strong id="statSR">–</strong> Cleared (SR)</div>
+  <div class="stat"><strong id="statLinked">–</strong> In Name Index</div>
+  <div class="stat"><strong id="statShowing">–</strong> Showing</div>
+</div>
+
+<div class="toolbar">
+  <input type="text" id="searchBox" placeholder="🔍  Search name, IR#, agent, notes…" oninput="applyFilters()">
+  <select id="filterIR" onchange="applyFilters()">
+    <option value="">All entries</option>
+    <option value="ir">Has IR#</option>
+    <option value="noir">No IR#</option>
+  </select>
+  <select id="filterSR" onchange="applyFilters()">
+    <option value="">Any status</option>
+    <option value="sr">Cleared (SR)</option>
+    <option value="linked">In Name Index</option>
+  </select>
+  <button class="btn btn-clear" onclick="clearFilters()">✕ Clear</button>
+  <a href="name-Index.html" class="btn btn-nav">👤 Name Index</a>
+  <a href="volume-index.html" class="btn btn-nav2">📋 Vol. 1 Tracker</a>
+</div>
+<div class="count-bar" id="countBar"></div>
+
+<div class="table-wrap">
+<table id="mainTable">
+  <thead>
+    <tr>
+      <th onclick="sortTable(0)">#<span class="si">↕</span></th>
+      <th onclick="sortTable(1)">Name<span class="si">↕</span></th>
+      <th onclick="sortTable(2)">IR#<span class="si">↕</span></th>
+      <th onclick="sortTable(3)">Agent(s)<span class="si">↕</span></th>
+      <th>Notes / Status</th>
+      <th>Flag</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+<div class="no-results" id="noResults" style="display:none">No entries match your filters.</div>
+</div>
+
+<div class="need-section" id="needSection">
+  <h2>⚠ Still Needed / Not Yet Interviewed</h2>
+  <div id="needList"></div>
+</div>
+
+<script>
+const DATA = [
+  [1,"John Paul Aaron","","Brent","at work that morning",false,""],
+  [2,"Glenn Adams","1384","","person from Canada says following finding Holly website closely",false,""],
+  [3,"Wiley Adams  with dad","","","Wiley Adams with dad",true,""],
+  [4,"Zack Adams","","Matt Ross and Annett Cotton; 575","asleep in house, dad &amp; gp",false,""],
+  [5,"Claudia Akins","1345","Champine","stalked by Jason Nickell",false,""],
+  [6,"David “JR” Alexander","","Terry","at work at Amtac at 6:00 am",false,""],
+  [7,"John Alford","261","Terry","stripping floor at middle school with David Brewer",false,""],
+  [8,"Harold Allbritton","406","","at work at Allgood Salvage",false,""],
+  [9,"Barry Allen","1427","","from Benton County, facebook irregularities",false,""],
+  [10,"Kevin Allen","1414","","offered $100 for haircut, was at work",false,""],
+  [11,"Patrick Allen","1394","","info on Shane Hardison",false,""],
+  [12,"Ronald Allen -too old, at home","","","Ronald Allen -too old, at home",true,""],
+  [13,"Sara Allen","1394","","info on Shane Hardison",false,""],
+  [14,"Tony Allgood","408","","owner of Allgood Salvage",false,""],
+  [15,"Bobby Anderson","273","","",false,""],
+  [16,"Tommy Argo","1457","","",false,""],
+  [17,"Daniel Armstrong  jail","","","Daniel Armstrong jail",true,""],
+  [18,"Darold Armstrong","","Jeff Jackson","",false,""],
+  [19,"Josh Atchinson","","Brent and Ricky","at home with parents",false,""],
+  [20,"James Atkins","1363","","info on Tony Newton, from Madison County",true,""],
+  [21,"Gary Askins","1359","","in Montana or Idaho, no connection to Decatur Co",false,""],
+  [22,"Shayne Austin","","Joe Walker, Ricky Inman","",false,""],
+  [23,"Bryan Austin","","Terry","Eugene Tubbs’ alibi",false,""],
+  [24,"Jason Autry","","Terry","at work on Mike Douglass’ farm",false,""],
+  [25,"William Andy Austin","","Ronnie, home with health care nurse","",false,""],
+  [26,"Angela Atchison","330","","",false,""],
+  [27,"John Baab","288, 1376","Joey Hudgins","saw white truck, fishing across street",false,""],
+  [28,"Jason Baine","196, 723","SA Doug Pate","confirmed at work at Kolpak",false,""],
+  [29,"Mia Baker","1566","","",false,""],
+  [30,"Justin Barker","","Dicus","at UT-Martin at 9:00 am, per Dr. Donavant",false,"barker-william"],
+  [31,"William Barker, Sr.","","Terry Johnny Simmons Dave","",false,""],
+  [32,"William Barker, Jr.","","Ronnie, Marshalls","",false,""],
+  [33,"James Barnes","28, 29","Art, Valerie, Mark","",false,"barnes-james"],
+  [34,"Blake Barnett","1366","Ronnie, at work at 9:01 Food Giant, Brandon Singleton alibi","",false,"barnett-blake"],
+  [35,"John Barnett","","in prison","",false,"barnett-blake"],
+  [36,"Richie Bartholomew","","Terry","Jowers’ alibi",false,""],
+  [37,"Kassie Bates","25","","James Barnes’ alibi",false,"bates-kassie"],
+  [38,"Kristy Moon Baugus","1516","","another missing female from Decatur County",false,"baugus-lee"],
+  [39,"Lee Baugus","","Art, Terry in school","",false,"baugus-lee"],
+  [40,"Will Baugus","","Terry","per Deanna Heilman at work at 5:56 am BC landfill, only 30 minutes for lunch",false,"baugus-lee"],
+  [41,"Kenneth Beard  in KY","","","Kenneth Beard in KY",true,""],
+  [42,"Kodi Beck","423","Terry","stalking victim of Britt",false,""],
+  [43,"George Becker","","FBI Diane Harsha, at home","",false,"becker-george"],
+  [44,"Keith Benesch  at work","","","Keith Benesch at work",true,""],
+  [45,"Robert Berberette","","related to Sammy Hays intel","",false,""],
+  [46,"Bobby Bidwell","15030","","(",false,""],
+  [47,"Beth Bivens","","Ricky","lived at 301 Gooch Road followed home by van",false,""],
+  [48,"Timothy Blackburn  too short and fat","","","Timothy Blackburn too short and fat",true,""],
+  [49,"Jill Blankenship","","Terry","financee of John Russom, left for work at 7 am",false,"blankenship-trent"],
+  [50,"Trent Blankenship","","Jeff Jackson","",false,"blankenship-trent"],
+  [51,"Michelle Bledsoe","","","",false,"bledsoe-michelle"],
+  [52,"Clint Bobo","20, 22","Terry, John, Brent, polygraph","",false,"bobo-clint"],
+  [53,"Dana Bobo","325","","victim’s father, in Perry Co. at work",false,"bobo-dana"],
+  [54,"Karen Bobo","318","Terry, John","victim’s mother, at Scott’s Hill Elem",false,"bobo-karen"],
+  [55,"Natalie Bobo","442","Valerie, Jason Cordone","victim’s cousin",false,"bobo-natalie"],
+  [56,"Royce Bolton  at work","","","Royce Bolton at work",true,""],
+  [57,"Robert Bonee","1388","","suggestion on media releases",false,""],
+  [58,"Arnett “Skip” Boney","","Terry","living in Goodlettsville, buddy of TB",false,""],
+  [59,"Justin Boyle","","Joey","older man, 69 years old",false,""],
+  [60,"David Bradford","1564","","",false,""],
+  [61,"Bo Brasher","","Terry","saw Drew and Boo morning of, hunting land question",false,""],
+  [62,"Paul Braswell","","Joey","owns land on Yellow Springs, not in area",false,""],
+  [63,"David Brasher","","Simmons and Harmon","",false,""],
+  [64,"Karen Brasher","387","","",false,""],
+  [65,"David Brewer","","Terry","with John Alford",false,""],
+  [66,"Kelly Brewer","1362","","Jeff’s wife, reported a facebook post",false,""],
+  [67,"Jeff Brewer","","Art; hotel records","was in TX morning of",false,""],
+  [68,"Michael Brewer  at work at Volvo at 7:30 am","","","Michael Brewer at work at Volvo at 7:30 am",true,""],
+  [69,"Jonathan Bright  home with mother","","","Jonathan Bright home with mother",true,""],
+  [70,"Michael Bright  at work","","","Michael Bright at work",true,""],
+  [71,"Ashley Brinkley","1401","SA Ferguson","John Curtis’ girlfriend",false,""],
+  [72,"Janet Britt","418","Terry","Britt’s wife",false,""],
+  [73,"Terry Kenneth Britt","420","Terry","Britt’s son",false,""],
+  [74,"Terry Britt","410","Terry","at home",false,""],
+  [75,"Rebecca Broadway","1564","","",false,""],
+  [76,"Jimmy Broadway","","Joey","with Washburne",false,""],
+  [77,"Brittany Brown","","Jason Cordone, Valerie","",false,""],
+  [78,"David Brown","","Terry","was at work at Amtac at 6:00 am",false,""],
+  [79,"Rickey Broadway  at work Gateway Tire","","","Rickey Broadway at work Gateway Tire",true,""],
+  [80,"Michael Broughton","","truck driver in CA; Sgt. Weber","",false,""],
+  [81,"Joe Brown","","Karen","at Tigg’s Sand and Gravel",false,""],
+  [82,"Hoppy Joe Brown","","bracelet records if get more than 150 feet of house, no activity until after 12:00pm","",false,""],
+  [83,"JC Bruce","1369","","Terry, Cathy, Ron Darcy in woods in Benton County, rumor is bought equipment from Dana Bobo but didn’t",false,"bruce-jc"],
+  [84,"Terri Brumley","376","","",false,""],
+  [85,"Tiffany Buffing","290","","",false,"buffington-tiffany"],
+  [86,"Neil Burcham  too old","","","Neil Burcham too old",true,""],
+  [87,"Daniel Burton","","Upton, alibi","",false,"burton-steven"],
+  [88,"Ryan Burton","393","Terry","husband of Dlynne, delivering logs to PCA the morning of, no documents to prove it",false,"burton-steven"],
+  [89,"Steven Burton","30","Champine; at Tucker’s restaurant, 7-7:30","",false,"burton-steven"],
+  [90,"Weldon Buster","","work at 6:00 am; Sgt. Weber","",false,""],
+  [91,"David Byrd","464","","",false,""],
+  [92,"Cagle","","Inman","confirmed that Pruiett was awoken at 6 am, was with him all morning",false,""],
+  [93,"Tony Calabrese","1425","","from Liverpool, OH",false,""],
+  [94,"Natasha Call","1367","","suggestions of places to check",false,""],
+  [95,"William Candler","1421","SA Ferguson","from Benton County, at home",false,""],
+  [96,"Brent Carnett","","","",false,""],
+  [97,"Lisa Cartwright","","Off Tim Moss and Mylon Farrar","info on JC Bruce",false,""],
+  [98,"Lance Cary","","","",false,""],
+  [99,"Brad Camber","","Terry, Johnny Walker","at work in Lexington from 5:30 am until 4:01 pm",false,""],
+  [100,"John Carroll","407","","",false,""],
+  [101,"Tim Carroll","1414","","alibi for Kevin Allen",false,""],
+  [102,"Lisa Cartwright","397","Shawn Adkins","",false,""],
+  [103,"Bruce Cates","","Terry","at home, huge man, bad health, told nurse JMCGH about Autry, Adams and Austin",false,""],
+  [104,"Tammy Chessor","1412","","psychic",false,""],
+  [105,"Eric Christensen","","at home with wife Mary Ann; Sgt. Weber","",false,""],
+  [106,"Keith Clark","26","Art and Shane Brown","",false,"clark-keith"],
+  [107,"Stacy Clendenin","417","","",false,""],
+  [108,"Timmy Clenney","1428","FBI Chris Miller","at middle school",false,""],
+  [109,"Armando Coelho","317","","",false,""],
+  [110,"Alfred Coffee","","Ricky","was in federal prison at time",false,""],
+  [111,"Harmon Cole , b/m, family alibi","","","Harmon Cole , b/m, family alibi",true,""],
+  [112,"Brandon Michael Conrad","","Inman, Boock, in home at time, g/m alibi","",false,""],
+  [113,"Tony Conway","","Constable","733-1481 not in dump",false,""],
+  [114,"Darren Cooley","1346","SA Miller","mail carrier for Holly’s street",false,""],
+  [115,"Chester Cooper  home, too old","","","Chester Cooper home, too old",true,""],
+  [116,"Andy Couchoud","1448","","",false,""],
+  [117,"Mary Crews","","Warren","Terry Britt, 549-7509",false,""],
+  [118,"Billy Crossno  took kids to school","","","Billy Crossno took kids to school",true,""],
+  [119,"John Curtis","","Ronnie","",false,""],
+  [120,"Sandra Curtis  at home","","","Sandra Curtis at home",true,""],
+  [121,"Ron Darcy","","Terry","JC Bruce’s alibi",false,"darcy-ron"],
+  [122,"Brian Daughtery","1385","not uncommon there","heard gunshots",false,""],
+  [123,"Adam Davis","412","Ricky","seizure court Jackson, left at 11:30",false,""],
+  [124,"Billy Davis","","","",false,""],
+  [125,"Stephen Davis","260","Terry and Aubrey","real estate abductor, never been to Decatur Co",false,""],
+  [126,"Jessica Deere","","Champine","",false,"deere-jessica"],
+  [127,"Bennie Devone","","at work at 8:05; Sgt. Weber","",false,""],
+  [128,"Donald Derrington","286","Terry","Barnett’s manager at Food Giant",false,"derrington-donald"],
+  [129,"Pam Derryberry","344","","",false,""],
+  [130,"Arlene Dickson","","Valerie","info about sister being kept by Cathy Wise",false,""],
+  [131,"Donnie Dickson","","Terry","at work at Amtac",false,""],
+  [132,"Keith Dickson","1408","","school bus driver on Holly’s road, remembers nothing unusual",false,""],
+  [133,"Kevin Dickson","","Johnny Walker and Booke","clocked into work at 6:24, out 3:31",false,""],
+  [134,"Victor Dinsmore","267","","construction that day",false,""],
+  [135,"James Dixon","","at home; Sgt. Weber","",false,""],
+  [136,"Bradley Dodd","","Terry, Art","",false,"dodd-jonathan"],
+  [137,"Jon Dodd","1368","Terry, Art","spent night with Ben Steele",false,"dodd-jonathan"],
+  [138,"Granford Dodd","","Brent","",false,"dodd-jonathan"],
+  [139,"Sandra Dodd","","Joe, Mike","",false,"dodd-jonathan"],
+  [140,"Rodney Dotson","392","Mark Reynolds","info on Adam Davis",false,""],
+  [141,"Robert Dowell","278","Russ","steak delivery never in DC",false,""],
+  [142,"Anthony Duck","","soldier on tape at 7:01 Mapco, works in Henderson 8 am","",false,""],
+  [143,"Gordon Dunkin  at work","","","Gordon Dunkin at work",true,""],
+  [144,"Desi Dunkle","","Clint talking to, 16 yo","at school at Riverside",false,""],
+  [145,"Dennis Driggers  work at 7:00","","","Dennis Driggers work at 7:00",true,""],
+  [146,"Ronnie Dyer","416","","",false,""],
+  [147,"Rebecca Earp","266","","",false,""],
+  [148,"Bobby Eason  too old","","","Bobby Eason too old",true,""],
+  [149,"John Eberling","1458, 1474, 1475","","",false,""],
+  [150,"Michelle Eels","453","","",false,"bledsoe-michelle"],
+  [151,"Jonathan Emison","","Terry","at work at Amtac",false,""],
+  [152,"Aaron Evans","1375","SA Jeff Jackson","saw a white truck",false,"evans-lucille"],
+  [153,"Jerry Evans","1383","Johnny Walker","saw steel bed green truck",false,"evans-lucille"],
+  [154,"Lucille Evans","","","",false,"evans-lucille"],
+  [155,"Samuel Falzarono","1467","Terry","trouble at clinical, confirmed at work",false,""],
+  [156,"Mike Ferguson","218","Terry","saw black flip flop",false,""],
+  [157,"Stephanie Fesmire","311","","",false,""],
+  [158,"Ryan Fisher in school","","John Walker","",false,""],
+  [159,"Jason Flowers","","Terry and Inman","bald, 487-9562, was at Ricky Miller’s on 03-21-12, different county at time of abduction",false,""],
+  [160,"Herald Fonner  at home, too old","","","Herald Fonner at home, too old",true,""],
+  [161,"Jack Fowler  too old, no alibi","","","Jack Fowler too old, no alibi",true,""],
+  [162,"Don Franks","","Joe Walker","preacher",false,""],
+  [163,"Michael Fox","","Joe Walker","in school at Riverside",false,""],
+  [164,"Rollean Freeman  with with","","","Rollean Freeman with with",true,""],
+  [165,"Brian French  at work Murphy Oil","","","Brian French at work Murphy Oil",true,""],
+  [166,"John Friton  in wheelchair","","","John Friton in wheelchair",true,""],
+  [167,"Jeffrey Fuller , with mother","","","Jeffrey Fuller , with mother",true,""],
+  [168,"Michael Gagnon  at work at 7:00 am","","","Michael Gagnon at work at 7:00 am",true,""],
+  [169,"David Garey","","Terry","at work in Memphis",false,""],
+  [170,"Aaron Garner  at home with wife","","","Aaron Garner at home with wife",true,""],
+  [171,"Joe Gettings","363","","",false,""],
+  [172,"Shane Giachetti  fishing, too fat","","","Shane Giachetti fishing, too fat",true,""],
+  [173,"Kyle Gibson","1356","","",false,""],
+  [174,"Wayne Gibson","","Inman and Brent","foreman for Danny Graves",false,""],
+  [175,"Phillip Gulledge","","Terry","in area, alibi confirmed",false,""],
+  [176,"John Graves","","Terry","found lunchbox",false,"graves-john"],
+  [177,"Roger Grissom  with wife","","","Roger Grissom with wife",true,""],
+  [178,"Robert Grove  worked too much around time","","","Robert Grove worked too much around time",true,""],
+  [179,"Jan Guin","441","Terry","older lady, lives on Prospect, muddy socks in April",false,""],
+  [180,"Debbie Haggard","","Terry and Ricky","saw tan colored something on a field on Myracletown road at about 7:40 am day of",false,"haggard-tommy"],
+  [181,"Allen Hale  at home","","","Allen Hale at home",true,""],
+  [182,"Shane Hardison","","Terry","at Vulcan",false,""],
+  [183,"Anthony Hall","434","","",false,"hall-erin"],
+  [184,"Eddie Neal Hall at Wal-Mart SA Bishop","","","",false,""],
+  [185,"Erin Hall","","Champine","",false,"hall-erin"],
+  [186,"Lindsay Hall","219","","Hunter Marine, confirmed Jason Tharpe at work",false,"hall-erin"],
+  [187,"Roy Hall  too old","","","Roy Hall too old",true,""],
+  [188,"Darrell Hamm met him sometime before Holly came-up missind","","","",false,""],
+  [189,"Shelton Hammond  at work","","","Shelton Hammond at work",true,""],
+  [190,"Terry Hardee","1402","Inman and Hudgins","was with Thomas Holloway",false,""],
+  [191,"Shane Hardison","1394","SA Faulkner","known to proposition females",false,""],
+  [192,"James Harraltson","","Terry","at work at Amtac at 6:00 am",false,""],
+  [193,"Debbie Harris","1381","","saw rusted truck with a hispanic male driving it turn around at Farmer’s Bank",false,""],
+  [194,"Rebecca Hartley  w/f at home","","","Rebecca Hartley w/f at home",true,""],
+  [195,"Jean Harper","","Terry and Inman","IRS lady, at home at Sam Evans, knows Hefner whereabouts",false,""],
+  [196,"Tyler Harvey","","Inman","Dodd’s buddy, with him tried to steal 4- wheelers",false,"harvey-tyler"],
+  [197,"Jeff Hatcher","1392","SA Lovelace","lives in Unionville, reported by ex-wife, no known ties to Decatur County",false,""],
+  [198,"Cody Hayes","","Joe Walker","in Lexington that day",false,"hays-sammy"],
+  [199,"Jonathan Hayes","","Terry","info on JR Alexander, in Savannah that day",false,"hays-sammy"],
+  [200,"Luke Hayes","","Joey","in school that day",false,"hays-sammy"],
+  [201,"Sammy Hayes","12, 1422","John Sullivan, in Lexington according to dump","tried to enter a home in Scott’s Hill",false,"hays-sammy"],
+  [202,"Brent Haynes","","Terry","info on Randy Williams",false,""],
+  [203,"Danny Haynes","345","Terry","",false,""],
+  [204,"Tommy Hays in jail","","","",false,""],
+  [205,"Pat Hearn","1419","","Clint and Holly got in a fight at Jimmy D’s",false,""],
+  [206,"Tammy Hedge","415","","",false,""],
+  [207,"Jason Hefner","","Terry and Inman","scrapping gas tanks at Lugo’s house, was using a gold Jeep around the time",false,""],
+  [208,"Michael Heidelberg—broke hand","","","",false,""],
+  [209,"Wally Hickson  at home with father until probation office","","9:30 am in Lexington","Wally Hickson at home with father until probation office",true,""],
+  [210,"Walter Hickson","440","","alibi for son Wally",false,""],
+  [211,"Blake Hickerson","1373","","accused via facebook that an investigator is lying on him",false,""],
+  [212,"Henry Higdon","1423","","pumped Cathy Wise’s septic tank 2-3 weeks before abduction",false,""],
+  [213,"Elaine Hill","1355","Boock","Justin Hill’s mother",false,""],
+  [214,"Justin Hill","1355","Johnny Walker","welding in Louisiana, work checked",false,""],
+  [215,"Randall Hill","1355","Boock","Justin’s father",false,""],
+  [216,"Tyler Hollingsworth","324","","",false,""],
+  [217,"Thomas Holloway","1402","Inman and Hudgins","was with Terry Hardee",false,""],
+  [218,"Hercy Wayne Holmes","1460","Faulkner, Keen","fishing license for that day",false,""],
+  [219,"Jonathan Holmes","","Dicus","in Aberdeen, MS per Randy Swindle with TJ O’Brien",false,""],
+  [220,"Rodney Hopper","","Inman","working on garage",false,""],
+  [221,"Catherine Hopkins","1493","","",false,""],
+  [222,"Dan Hostutler","465","Terry, Joe Craig; hated asshole","moved to Goodlettsville, knew TB and JB",false,""],
+  [223,"Ashley Houston","27","SA Viveros","",false,"houston-ashley"],
+  [224,"Mike Huddleston","433","","",false,""],
+  [225,"Randall Hughes","783, 1358, 1364","FBI Mayes","fired from McKenzie Tree Service, at work in Lexington",false,""],
+  [226,"Tommy Hughes","","Terry","",false,""],
+  [227,"William Jackson  in bed","","","William Jackson in bed",true,""],
+  [228,"William Jennings","1409","","saw people on four-wheelers in dress clothes",false,""],
+  [229,"Kenneth Johnson","1429","SA Joe Walker","in Lexington cutting timber",false,""],
+  [230,"Randy Johnson  at work","","","Randy Johnson at work",true,""],
+  [231,"Donnie Jones","","Terry","info on JR Alexander",false,""],
+  [232,"Jerry Jones  b/m, home","","","Jerry Jones b/m, home",true,""],
+  [233,"Casey Jowers","","Terry","at work at NCI",false,""],
+  [234,"Randy Jowers","","Terry","in dump, alibi",false,""],
+  [235,"David Joy","","Terry and Art","car stalking a female in Perry County, too old, gay",false,""],
+  [236,"Virginia Kayes , female","","","Virginia Kayes , female",true,""],
+  [237,"Bruce Kearney  in Lexington","","","Bruce Kearney in Lexington",true,""],
+  [238,"Joel Keeton","","SA Lawson","cable tech for Charter",false,""],
+  [239,"Brandon Kelly","283","dropped off Debra Lime at 8:00 am; Sgt. Weber","",false,""],
+  [240,"Jennifer and Kelsey Kendrick","1468","Inman","Stalking victim of TB",false,""],
+  [241,"Lamar and Nikki Kendrick","1465","","",false,""],
+  [242,"Billy Kennamore","379","Brent","coming from south that morning",false,""],
+  [243,"Lori Kennamore","379","","",false,""],
+  [244,"Kevin Kennedy","","Terry","at work at Kolpak at 5:50 am",false,""],
+  [245,"Clint Keymon","","Terry","Gulledge’s alibi",false,""],
+  [246,"Mohammed Ali Khan","427","Terry","owns 412 Bar",false,""],
+  [247,"Jason Kilzer","1490","","",false,""],
+  [248,"Jessica King","","Terry","",false,""],
+  [249,"David Kowski","","Trooper Stanford","",false,""],
+  [250,"Janice Kousky","429","","",false,""],
+  [251,"Charles Krauss","332","Det. Mike Walker","stopped in Pearl, MS admitted kidnapping prostitutes, recanted, no ties to Decatur Co",false,""],
+  [252,"Paulette Lafay","330","","",false,""],
+  [253,"Annamarie Lampright","424","","",false,""],
+  [254,"Kenneth Lawson","","at work at 6:00 am, Bob Husky; Sgt. Weber","",false,""],
+  [255,"Jimmy Dewayne Lance","222","Inman","came through the area to get to work at Darden Bottoms as a logger",false,""],
+  [256,"Jacob Laum","","Joey; missing person from AL","searched on 4-22 through 4-25",false,""],
+  [257,"JP Landers  too old","","","JP Landers too old",true,""],
+  [258,"Kenny Lawson  black","","","Kenny Lawson black",true,""],
+  [259,"Brent Lay","1508","","entered coordinates into GPS on 4-13",false,""],
+  [260,"Jeffery Lederkramer","1360","SA Lewis and Bishop","complained about the investigation and lives on Gooch Road",false,""],
+  [261,"James Marshall Lewis","264","Terry","Scott Martinez alibi",false,""],
+  [262,"Penny Lindsay","","Terry","saw Dodd, Curtis, Derek Scott at Food Giant)",false,""],
+  [263,"Bobby Lineberry  in jail","","","Bobby Lineberry in jail",true,""],
+  [264,"Dustin Littles","1379","","documentation showed trucking that day out of the area",true,""],
+  [265,"Rod Livingston","1393","","info about man walking out of the woods",false,""],
+  [266,"Danny Lomax","302","","",false,""],
+  [267,"Donald Long, dead","","","",false,""],
+  [268,"Donna Loper","439","","",false,""],
+  [269,"Tracy Loving","1400","Mulliins","Family Leisure Pools, worked on Bobo pool April 1, 2011",false,""],
+  [270,"James Lunsford, Rodgers  probie at 9 am, mother with him","","","James Lunsford, Rodgers probie at 9 am, mother with him",true,""],
+  [271,"Maurice Macarath at work per Gerald Stephens","","","",false,""],
+  [272,"Robert Mammoser","1464","Ricky","",false,""],
+  [273,"Bobbie Maness","1420","SA Faulkner","rumor she is under concrete",false,""],
+  [274,"Courtney Maness","309","","",false,""],
+  [275,"Jacky Maness","319, 321","","",false,""],
+  [276,"Rosie Maness","1405","","school bus driver, Myracletown area",false,""],
+  [277,"Sherry Maness","421","Terry","Britt’s sister",false,""],
+  [278,"Mark Mangrum","","Ronnie","Dodd and Barnett being weird pastor, 06, 491",false,""],
+  [279,"Ricky Mattison","","Terry","computer guy at UTM, says in Waynesboro",false,""],
+  [280,"Brian Marley","1389","","reported seeing camo guy in Lebanon",false,""],
+  [281,"Chad Marshall","295","Art","tech school in Lexington",false,""],
+  [282,"Rita Marshall","296","","",false,""],
+  [283,"Jonathan Martin","1469","","",false,""],
+  [284,"Kenny Martin","419","Terry","worked a job with Britt",false,""],
+  [285,"Scott Martinez","","Terry","working in MS for Marshall Lewis",false,""],
+  [286,"Troy Martinez","265","","",false,""],
+  [287,"Jimmy May  at home all day, too old","","","Jimmy May at home all day, too old",true,""],
+  [288,"Woodrow Mayo","","TFO Acosta","problems with garbage pick-up, Mark Mays",false,""],
+  [289,"Mark A. Mays","","Terry","at work at water treatment plant",false,""],
+  [290,"Mark F. Mays","","Terry","at home, no car, really fat",false,""],
+  [291,"Michael McCall  at home with spouse","","","Michael McCall at home with spouse",true,""],
+  [292,"Donald McCall","","Brent","ran at 4:58 am",false,""],
+  [293,"Robert McCoy","310","","",false,""],
+  [294,"Brandon McFall","","in school","John Walker",false,""],
+  [295,"Jaime McFarland","322","","",false,""],
+  [296,"Pamela McGaha","431","Terry","Friend of Jan Britt",false,""],
+  [297,"Randy McGee","1415","Inman","found a shovel and newspaper",false,""],
+  [298,"Lisa McKay","414","","",false,""],
+  [299,"William Meyers","7","ASAC Skip Elrod","owned land north of Bobos",false,"myers-william"],
+  [300,"Corey Milam","","Cathy, at UPS","",false,""],
+  [301,"Barbara Millhorn","276","SA Scott Lawson","child with Anthony Cothe",false,""],
+  [302,"Brian Miller, logging with brother, saw faded Toyota/Mazda type man that resembled Anthony Neal with blond woman at around lunch around lunchtime","","","",false,""],
+  [303,"Eric Miller logging with brother Brian near bridge-out on Holladay Road","","","",false,""],
+  [304,"James Miller  at home","","","James Miller at home",true,""],
+  [305,"Jeff Miller","299","SA Troutt","was cooking meth in woods",false,""],
+  [306,"Jerry Miller","1382","","saw same green flat-bed truck that Jerry Evans saw",false,""],
+  [307,"Martin Miller","","Scott Cagle","",false,""],
+  [308,"Wilfred Miller  in NY","","","Wilfred Miller in NY",true,""],
+  [309,"Barbara Millhorn","313","","",false,""],
+  [310,"David Millinder  too old","","","David Millinder too old",true,""],
+  [311,"Thomas Minley","1361","","reported suspicious northerners at Busseltown Wildlife Refuge",false,""],
+  [312,"Harold Mitchell","","cousin alibi","",false,""],
+  [313,"Leamon Mitchell  friend alibi","","","Leamon Mitchell friend alibi",true,""],
+  [314,"Peggy Mitchell","443","Terry","Britt victim, never prosecuted",false,""],
+  [315,"Terry Moffitt  at work","","","Terry Moffitt at work",true,""],
+  [316,"Jennifer Monroe","428","","",false,""],
+  [317,"Bradley Moore","1570","","",false,""],
+  [318,"Michelle Morgan","438","","",false,""],
+  [319,"Clint Morris","1386","SA Lawson","cable tech for Charter",false,""],
+  [320,"John Morrow, Jr.  at Michael Jones’ residence","","","John Morrow, Jr. at Michael Jones’ residence",true,""],
+  [321,"John Murphy","1380","SA Faulkner; it wasn’t her","OH man thought he was chatting with Holly",false,""],
+  [322,"Bob Myers","1377","Skip Elrod","owns land north of Bobos, lives in Chattanooga, gave no one permission to hunt there",false,"myers-william"],
+  [323,"Jacob Myracle","1372","Wayne Wesson","in dorm room in Martin, bought a horse from Holly",false,""],
+  [324,"Joe Paul Myracle","388","","",false,""],
+  [325,"Brant Newman","","Wayne Wesson","at work at Bath Springs",false,""],
+  [326,"Jason Nickell","1345","Marshalls, Valerie, phone not in dump","",false,"nickell-jason"],
+  [327,"Stacy Nickell","284","","",false,"nickell-jason"],
+  [328,"Tiffany Overbey","","Diane Harsha, stripper took the bloody dollar, not Holly’s","",false,"overbey-tiffant"],
+  [329,"Cherie Parrish","","Terry and Joey","info",false,""],
+  [330,"Steve Paulk","","Bilnoski, Inman, Cardone","",false,""],
+  [331,"Haylea Patterson","","","",false,"patterson-haylea"],
+  [332,"Ronald Patton","","Terry","no alibi but too little",false,""],
+  [333,"Charity Pearcy","","Terry, Joe Upton","",false,""],
+  [334,"Jessica Pearcy","","Terry, Joe Upton","",false,""],
+  [335,"Mark Pearcy","","DC jail","",false,""],
+  [336,"Randall Pearcy","","Wesson","works for Potts roofing in Bath Springs, Newman confirmed",false,""],
+  [337,"Christopher Pearson , b/m, at home","","","Christopher Pearson , b/m, at home",true,""],
+  [338,"William Pearson","1399","FBI Lawson","made weird statements",false,""],
+  [339,"Flint Perkins","1398, 1450","","Clint’s friend, down south",false,""],
+  [340,"Benjie Persutti  alibi through others","","","Benjie Persutti alibi through others",true,""],
+  [341,"Mark Pewitt","1387","SA Faulkner","weird posts",false,""],
+  [342,"Marecia Phillips","377","","",false,""],
+  [343,"Thomas Pinkley","","Terry","at work at Amtac at 6:00 am",false,""],
+  [344,"Jimmy Pirtles","1378","","Steve Todd thinks he saw his van on Box Road on 4-9-11",false,""],
+  [345,"Jimmy Ray Potts","1416","SA Faulkner","at work in Alabama",false,""],
+  [346,"Gina Pratt","422","","",false,""],
+  [347,"Ritchie Pratt","358","","cousin works with Drew built like abductor",false,""],
+  [348,"Suzanne Pratt","304","","found victim’s cell",false,""],
+  [349,"Terry Presley  garden with brother","","","Terry Presley garden with brother",true,""],
+  [350,"Paul Ray Prueitt","221","Inman","was at mortuary for James Davis",false,""],
+  [351,"Joe Ragusa","10","John Sullivan","squatter, no car, 15 dogs",false,"ragusa-joseph"],
+  [352,"Robin Rainey","","Inman; does not know Prueitt","confirmed that people with Davis was there early",false,""],
+  [353,"Hannah Reece","","","",false,"reece-hannah"],
+  [354,"Ken Redfearn","220","Terry","info",false,""],
+  [355,"Robert Reeds , at home with father-in-law","","","Robert Reeds , at home with father-in-law",true,""],
+  [356,"Chad Reeves  with wife","","","Chad Reeves with wife",true,""],
+  [357,"Dale Reeves","","prison in IL","",false,"reeves-kristina"],
+  [358,"Kristina Reeves","4","SA Joshua Savley","",false,"reeves-kristina"],
+  [359,"Michael Rhodes checks in school at 9:20","","John Walker","",false,""],
+  [360,"Russell Rich","1418","FBI Cardone","at work 7 am til 11:30 am",false,""],
+  [361,"Nicky Richardson","478","","",false,""],
+  [362,"James Riddle","","truck driver, left house at 8:30 am; Sgt. Weber","",false,""],
+  [363,"Brian Riggs","","Becky Keith, Jackie Wallace","helping mom in yard at time",false,""],
+  [364,"Bridget Rister","223, 364","Terry","info on others, failed polygraph and confessed lying 08-22",false,""],
+  [365,"Sammy Jo Robbins","333","Terry and Inman","niece of Lance, info seen her at Brodie’s, she denies it",false,""],
+  [366,"Samuel Rosse","476","","",false,""],
+  [367,"John Russom","","Terry, Johnny Walker, Tom Booke, 2 times prior","no alibi, sex offender, perfect physical description, but bald and bad right foot, lives in transition zone",false,""],
+  [368,"Roy Russom  home","","","Roy Russom home",true,""],
+  [369,"Vickie Russom","","Terry and Johnny Walker","GL has house in transition zone",false,""],
+  [370,"Ray Ryan  at residence","","","Ray Ryan at residence",true,""],
+  [371,"Harvey Rymer  at home, alibi","","","Harvey Rymer at home, alibi",true,""],
+  [372,"Gretchen Sadler","","Joe Walker","Ed and Kassie dropped kid off between 8 and 9",false,"sadler-gretchen"],
+  [373,"Pedro Salinas","","visiting mother-in-law in Cullman; Sgt. Weber","",false,""],
+  [374,"Megan Scates","","Terry, Joe Upton","",false,""],
+  [375,"Boo Scott","1371, 1564","","Drew’s father",false,"scott-drew"],
+  [376,"Cody Scott","","","",false,"scott-drew"],
+  [377,"Derek Scott","","Terry","Drew’s brother, at work at Food Giant, saw Blake that day",false,"scott-drew"],
+  [378,"Drew Scott","19, 385","","hunting with father, Holly’s boyfriend",false,"scott-drew"],
+  [379,"Greg Scott","","Terry, Johnny Walker, Brent","at home? 733-6948",false,"scott-drew"],
+  [380,"Jarrett Scott in school","","John Walker","",false,""],
+  [381,"Penny Scott","435","","",false,"scott-drew"],
+  [382,"Sheila Scott","380, 1371","","Drew’s mother",false,"scott-drew"],
+  [383,"Shelby Sellers","","Brent and Nancy","",false,""],
+  [384,"Bronson Sewell","","Darryl Richardson, Inman","saw green Taurus",false,""],
+  [385,"DC Sewell","","Terry","with Paul Wheat’s crew",false,""],
+  [386,"Tracy Shanes , female, in school","","","Tracy Shanes , female, in school",true,""],
+  [387,"Shawn Shannon  at home","","","Shawn Shannon at home",true,""],
+  [388,"Christopher Shelton  Perry Co jail","","","Christopher Shelton Perry Co jail",true,""],
+  [389,"Cathy Shugart","1507","","",false,""],
+  [390,"Darlene Shutt","375","","",false,""],
+  [391,"Brandon Singleton","","with Barnett; Ronnie, Joe Walker","",false,""],
+  [392,"Samantha Simpson","6","SA Joshua Savley","",false,"simpson-samantha"],
+  [393,"Johnny Sipes  no alibi","","","Johnny Sipes no alibi",true,""],
+  [394,"Kristen Smith","347","Terry","Britt stalking victim",false,""],
+  [395,"Matthew Smith  at work at 7:30, not verified","","","Matthew Smith at work at 7:30, not verified",true,""],
+  [396,"Dale Soncrant-, school 7 am and 3 pm","","","Dale Soncrant-, school 7 am and 3 pm",true,""],
+  [397,"Gary Southerland , at work","","","Gary Southerland , at work",true,""],
+  [398,"William Spencer","","Terry","at work at Amtac at 6:00 am",false,""],
+  [399,"Douglas St. John","1396","","info by Tony Calabrese",false,""],
+  [400,"Robin Stanfill","723","","Info on mean ex- Jason Baine",false,""],
+  [401,"Melvin Stegall","","at home, wife Rhonda confirmed; Sgt. Weber","",false,""],
+  [402,"Ben Steele","279","Brent, Terry","spent night with Jon Dodd",false,""],
+  [403,"Gerald Stephens","","Terry, Johnny Walker","at work with crew, 7:00 am until at least 8:30 am",false,""],
+  [404,"Wayne Stephens at work per Gerald Stephens","","","",false,""],
+  [405,"Daniel Stevens","","at home with Charles Perez; Sgt. Weber","",false,""],
+  [406,"Davis Steverson","398","Derrick Jones","",false,""],
+  [407,"Corey Stewart","291","Art and Terry","and girlfriend",false,"stewart-corey"],
+  [408,"Sheree Sumner  home","","","Sheree Sumner home",true,""],
+  [409,"John Swafford, Jr.  in jail","","","John Swafford, Jr. in jail",true,""],
+  [410,"Justin Swindle","1358","","called in about seeing Randall Hughes",false,""],
+  [411,"Thomas Talmage","381","Terry","in Carrolton, KY per boss, phone records confirm",false,""],
+  [412,"Steve Todd","1378","","saw van believed to be Jimmy Pirtles on Box Road on 4-9-11",false,""],
+  [413,"Doris Tharpe","437","Terry","background on Britt",false,""],
+  [414,"Rodney Tharp","","Terry, Jeff","",false,"tharp-rodson"],
+  [415,"Phillip Thompson","320","","",false,""],
+  [416,"Allen Thoms","","Terry and Art by phone; bank records","info on Josh Sitton",false,""],
+  [417,"William Todd - at home","","","William Todd - at home",true,""],
+  [418,"Michael Tomlin  alibi","","","Michael Tomlin alibi",true,""],
+  [419,"William Tomsick","1390","SA Faulkner","sent a threatening tweet to Jill Monier, news reporter",false,""],
+  [420,"David Townsend","","Inman and Steve Phelps","*problems with saying he came by that morning",false,""],
+  [421,"Richard Townsend","","Ronnie","",false,""],
+  [422,"Chris Transor-Memphis","","Johnny Simmons; 901","let Russom borrow Yamaha motorcycle, 859-2870",false,""],
+  [423,"Mark Trimmer","430","Terry","work at News Leader",false,""],
+  [424,"Joey Troxler","","FBI Barnes, at work","",false,""],
+  [425,"Cory Tubbs","","Jeff, Nathan, Jason","",false,""],
+  [426,"Eugene Lloyd Tubbs","","Terry","number in dump, alibi",false,""],
+  [427,"John Tubbs","","Jeff, Nathan, Jason","",false,""],
+  [428,"Lee Tubbs  b/m, old","","","Lee Tubbs b/m, old",true,""],
+  [429,"Matthew Tubbs","","Terry, Johnny Walker","at work with Gerald Stephens",false,""],
+  [430,"Billy Tucker","1489","","",false,"tucker-jacey"],
+  [431,"Jacey Tucker","3","SA Joshua Savley","",false,"tucker-jacey"],
+  [432,"Joey Tucsnak","1370","","school teacher, at work at time",false,"tucsnak-joseph"],
+  [433,"Jeffery Turner","1431","SA Joe Walker","no transportation, with dying grandmother",false,""],
+  [434,"John Turner","","Sgt. Weber","with roommate",false,""],
+  [435,"Lonnie Turner  home, too old","","","Lonnie Turner home, too old",true,""],
+  [436,"Andy Vaughn , b/m","","","Andy Vaughn , b/m",true,""],
+  [437,"Randall Vaughn  home with wife","","","Randall Vaughn home with wife",true,""],
+  [438,"Lee Villaflor","287","","",false,""],
+  [439,"William Vowell","","Joey","wearing camo, at work at NCI that day",false,""],
+  [440,"Paula Vetron","","Terry","",false,""],
+  [441,"Travis Volner","285","","",false,""],
+  [442,"Victor Wall","357","","sex offender found in MN, extremely small",false,""],
+  [443,"Chris Ward","","at home with roommate, woke at 10 am; Sgt. Weber","",false,""],
+  [444,"Steve Warner","","Nashville photographer, cleared","",false,""],
+  [445,"Desiree Warren","1496","","info on Phillip Austin",false,""],
+  [446,"Franklin Washburn","314","","",false,""],
+  [447,"Gregory Webb  b/m, really short","","","Gregory Webb b/m, really short",true,""],
+  [448,"Alisha Weber","","Terry, Johnny Walker","only ranger on duty, in Lexington getting battery",false,""],
+  [449,"Brian Weber","","Terry, Johnny Walker","boss Gerald Stephens positive at work from 7:00 am until 8:30 am",false,""],
+  [450,"Herbert Weeks","","Terry","owner of Amtac, at work that day",false,""],
+  [451,"Jacqueline Weeks","","Terry","at work at Amtac that day",false,""],
+  [452,"William Welker  at Bill Williams’ house","","","William Welker at Bill Williams’ house",true,""],
+  [453,"Courtney West","1449","","",false,"west-courtney"],
+  [454,"Paul Wheat","","Terry","bricking a house with crew",false,""],
+  [455,"Tim Wheat","","at work, employer confirmed; Sgt. Weber","",false,""],
+  [456,"Keith White","31","Champine","",false,"white-keith"],
+  [457,"Mark Whitfield","","Karen","North 40, TB worked for 3 weeks, messing with girls",false,""],
+  [458,"Jake Whitman at work per Gerald Stephens","","","",false,""],
+  [459,"Troy Williams","263","","",false,""],
+  [460,"Frank Wise, Jr.","384","Joe Craig","doctor’s office in Columbia",false,""],
+  [461,"Cody Wood","1425","SA Joe Walker","confirmed at school at Jackson State",false,""],
+  [462,"Mitchell Wood","","Joe Upton, not in cell dump, but no alibi","",false,""],
+  [463,"Ricky Wood","","Terry","on Paul Wheat’s crew",false,""],
+  [464,"Shawn Wood-, at residence","","","Shawn Wood-, at residence",true,""],
+  [465,"Tim Wood , too short","","","Tim Wood , too short",true,""],
+  [466,"Timmy Wood","","Terry, Inman","",false,""],
+  [467,"Franklin Woods","1407","FBI Upton","at elementary school in Lexington at 7:30 am",false,""],
+  [468,"Keith White","","Steve Champine","",false,"white-keith"],
+  [469,"Scott White at work","","John Walker","",false,""],
+  [470,"Tammy White","1368","","Bobos friend, reported many suspicious people",false,"white-keith"],
+  [471,"Troy Williams","","Terry","at work",false,""],
+  [472,"Charles Wilson","","Terry","at Brian Lindamen’s working on AC, also went to Jackson",false,""],
+  [473,"Cody Wilson","334","","",false,""],
+  [474,"Catherine Wise","21, 1423, 1424","Chris Carpenter","",false,"wise-catherine"],
+  [475,"Jacob Wright","","Joe Walker","",false,""],
+  [476,"Kimberly Yarbro","5","SA Joshua Savley","",false,"yarbro-kimberly"],
+  [477,"Brandon Young","1365","","buying a horse from Holly, arrangement with Jake Myracle",false,""],
+  [478,"Brian Young","339","Terry","",false,""],
+  [479,"Darrell Young  prob too fat","","","Darrell Young prob too fat",true,""],
+  [480,"Kent Young","","Brent and Ronnie","at work",false,""],
+  [481,"Michelle Young","","Terry","Stanley Tubbs g/f, had phone in dumps",false,""],
+  [482,"Ronnie Zamora  fishing with girlfriend","","","Ronnie Zamora fishing with girlfriend",true,""],
+  [483,"Daniel Zukowski","1417, 1414","Ronnie; Carroll County; buddies with Hippie Joe-Tracey Dennis or Gary Lomax (buddies with Hippie Joe; Kathy Schapley’s son; 615; transition zone; 12601 Hwy 104 N; 512","at work at Lexington Chevrolet, at work at 7:59 am All workers for Dement Construction accounted for All of Tim Carroll’s loggers All employees of Amtac are accounted for Need to be interviewed or interviews found Shane Hopper Michael Heidelberg JC Crowley Charles Allen Alex Stokely Jake Azbill-Lee Baugus best friend green 2 door Jeep Cherokee, Taylortown Road Brandon Young-working at MIG Jerry Gilbert Travis Schapley*** his number is 278-5682 , fits physical, use care-Joe Craig Josh Smith tip from Connie Graham whose number is 291-2289 Robbie Middleton 549-0894 Dottie’s Marine 8-8:15, wife goes to church with Holly Lynn Reynolds real scarred there on Sat., Jeff Miller son-in-law David Vise, paid $100 to dunk Karen in booth Jeff Ledercramer? Asked to leave the search acting weird, Donald 733-1710",false,""]
+];
+const NEED = [
+  "Shane Hopper",
+  "Michael Heidelberg",
+  "JC Crowley (Carroll County)",
+  "Charles Allen",
+  "Alex Stokely",
+  "Jake Azbill-Lee Baugus best friend green 2 door Jeep Cherokee, Taylortown",
+  "Road",
+  "Brandon Young-working at MIG",
+  "Jerry Gilbert (buddies with Hippie Joe-Tracey",
+  "Dennis or Gary Lomax (buddies with Hippie Joe)",
+  "Travis Schapley*** (Kathy Schapley’s son) his number is (615) 278-5682",
+  "(transition zone), fits physical, use care-Joe Craig",
+  "Josh Smith (12601 Hwy 104 N) tip from Connie Graham whose number is (512)",
+  "291-2289",
+  "Robbie Middleton 549-0894 Dottie’s Marine 8-8:15, wife goes to church with",
+  "Holly",
+  "Lynn Reynolds real scarred there on Sat., Jeff Miller son-in-law",
+  "David Vise, paid $100 to dunk Karen in booth",
+  "Jeff Ledercramer? Asked to leave the search acting weird, Donald 733-1710"
+];
+
+// sort
+let sortCol = 0, sortDir = 1;
+let filtered = [...DATA];
+
+function applyFilters() {
+  const q      = document.getElementById('searchBox').value.toLowerCase().trim();
+  const ir     = document.getElementById('filterIR').value;
+  const status = document.getElementById('filterSR').value;
+
+  filtered = DATA.filter(r => {
+    const [num, name, irn, agents, notes, sr, id] = r;
+    const text = [num, name, irn, agents, notes].join(' ').toLowerCase();
+    if (q      && !text.includes(q))          return false;
+    if (ir === 'ir'   && !irn)                return false;
+    if (ir === 'noir' && irn)                 return false;
+    if (status === 'sr'     && !sr)           return false;
+    if (status === 'linked' && !id)           return false;
+    return true;
+  });
+  renderTable();
+}
+
+function clearFilters() {
+  document.getElementById('searchBox').value = '';
+  document.getElementById('filterIR').value  = '';
+  document.getElementById('filterSR').value  = '';
+  filtered = [...DATA];
+  renderTable();
+}
+
+function sortTable(col) {
+  if (sortCol === col) sortDir *= -1;
+  else { sortCol = col; sortDir = 1; }
+  document.querySelectorAll('thead th').forEach((th, i) => {
+    th.classList.toggle('sorted', i === col);
+    const si = th.querySelector('.si');
+    if (si) si.textContent = i===col ? (sortDir===1?'↑':'↓') : '↕';
+  });
+  filtered.sort((a, b) => {
+    let va = a[col]||'', vb = b[col]||'';
+    if (col === 0) return sortDir * (Number(va) - Number(vb));
+    return sortDir * String(va).localeCompare(String(vb));
+  });
+  renderTable();
+}
+
+function renderTable() {
+  const tbody  = document.getElementById('tableBody');
+  const noRes  = document.getElementById('noResults');
+  const table  = document.getElementById('mainTable');
+  tbody.innerHTML = '';
+
+  document.getElementById('countBar').textContent =
+    `Showing ${filtered.length} of ${DATA.length} entries`;
+  document.getElementById('statShowing').textContent = filtered.length;
+
+  if (!filtered.length) {
+    noRes.style.display  = 'block';
+    table.style.display  = 'none';
+    return;
+  }
+  noRes.style.display = 'none';
+  table.style.display = '';
+
+  filtered.forEach(r => {
+    const [num, name, irn, agents, notes, sr, id] = r;
+    const irBadge  = irn  ? irn.split(',').map(n=>`<span class="ir-badge">IR ${n.trim()}</span>`).join(' ') : '';
+    const srBadge  = sr   ? '<span class="sr-badge">Cleared</span>' : '';
+    const profLink = id   ? `<a class="profile-link" href="name-Index.html?person=${id}" target="_blank">👤</a>` : '';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="color:#94a3b8;font-size:.78rem;text-align:right;padding-right:8px;">${num}</td>
+      <td data-label="Name"><strong>${name}</strong>${profLink}</td>
+      <td data-label="IR #">${irBadge}</td>
+      <td data-label="Agent(s)" style="color:#475569;font-size:.78rem;">${agents}</td>
+      <td data-label="Notes" style="color:#374151;">${notes}</td>
+      <td data-label="Status">${srBadge}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // update stats (always off full DATA)
+  document.getElementById('statTotal').textContent  = DATA.length;
+  document.getElementById('statIR').textContent     = DATA.filter(r=>r[2]).length;
+  document.getElementById('statSR').textContent     = DATA.filter(r=>r[5]).length;
+  document.getElementById('statLinked').textContent = DATA.filter(r=>r[6]).length;
+}
+
+// Need-to-interview list
+const needList = document.getElementById('needList');
+NEED.forEach(n => {
+  const d = document.createElement('div');
+  d.className = 'need-item';
+  d.textContent = n;
+  needList.appendChild(d);
+});
+
+// Handle inbound ?search= param
+(function() {
+  const p = new URLSearchParams(window.location.search);
+  const q = p.get('search');
+  if (q) {
+    document.getElementById('searchBox').value = q;
+    applyFilters();
+  } else {
+    renderTable();
+  }
+})();
+</script>
+</body>
+</html>
