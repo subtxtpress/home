@@ -121,8 +121,8 @@ col.c-agent{ width: 120px; }
 col.c-how  { width: 110px; }
 col.c-narr { width: auto; }
 thead th {
-  background: var(--thead); color: var(--hdr-txt); padding: 8px 10px; text-align: center;
-  font-size: .75rem; text-align: left;
+  background: var(--thead); color: var(--hdr-txt); padding: 8px 10px; text-align: left;
+  font-size: clamp(.68rem, 1.2vw + .3rem, .78rem);
   position: sticky; top: 0; cursor: pointer;
   user-select: none; white-space: nowrap; border-bottom: 1px solid var(--border);
 }
@@ -132,7 +132,7 @@ thead th.sorted .si { opacity: 1; }
 tbody tr:nth-child(even) td { background: var(--card-alt); }
 tbody tr:hover td { background: var(--bg3) !important; }
 td {
-  padding: 7px 10px; font-size: .8rem;
+  padding: 7px 10px; font-size: clamp(.75rem, 1.3vw + .3rem, .82rem);
   border-bottom: 1px solid var(--border-lo); vertical-align: top;
   color: var(--text) !important;
 }

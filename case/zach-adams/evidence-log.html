@@ -162,7 +162,17 @@ header p  { font-size: clamp(.72rem, 1.5vw + .4rem, .78rem); opacity: .7; margin
 
 /* Table */
 .table-wrap { overflow-x: auto; padding: 0 20px 40px; }
-table { width: 100%; border-collapse: collapse; margin-top: 14px; min-width: 780px; }
+table { width: 100%; border-collapse: collapse; margin-top: 14px; min-width: 900px; table-layout: fixed; }
+col.c-num  { width: 90px; }
+col.c-desc { width: auto; }
+col.c-loc  { width: 130px; }
+col.c-ag   { width: 130px; }
+col.c-date { width: 100px; }
+col.c-ir   { width: 80px; }
+col.c-stat { width: 100px; }
+col.c-src  { width: 70px; }
+col.c-note { width: 160px; }
+col.c-del  { width: 32px; }
 thead th {
   background: var(--thead); color: var(--hdr-txt); padding: 9px 10px;
   font-size: .78rem; text-align: left;
@@ -354,6 +364,11 @@ td {
 
 <div class="table-wrap">
 <table id="mainTable">
+  <colgroup>
+    <col class="c-num"><col class="c-desc"><col class="c-loc">
+    <col class="c-ag"><col class="c-date"><col class="c-ir">
+    <col class="c-stat"><col class="c-src"><col class="c-note"><col class="c-del">
+  </colgroup>
   <thead>
     <tr>
       <th onclick="sortTable(0)">#<span class="si">↕</span></th>
@@ -396,8 +411,147 @@ const SEED = [
   ["2",  "Nail/wire on concrete surface",
          "Carport / concrete slab", "TBI", "", "04/13/2011", "",
          "Collected", "TBI Video", VIDEO_LINK, "", "ev-1b"],
+
+  // ── Sep. 2014 Remains Recovery ──────────────────────────────────────────
+  ["—",  "Skull discovered by Larry Stone (ginseng hunter) beneath an upside-down bucket in the woods near a cell tower, ~200–250 yards from the interstate, 3 mi from Shayne Austin's home, 5 mi from Zachary Adams'",
+         "Remains site — woods near I-40 cell tower", "TBI", "Larry Stone (civilian)", "09/07/2014", "",
+         "Collected", "", "", "", "ev-2014-skull-find"],
+  ["—",  "TBI violent crime response team (SA Laura Hodge) arrived; skull and initial bones had already been removed to West Tennessee forensics center. Team conducted line search with metal detectors and cadaver dogs.",
+         "Remains site — woods near I-40 cell tower", "TBI", "SA Laura Hodge", "09/08/2014–09/09/2014", "",
+         "Documented", "", "", "", "ev-2014-hodge-search"],
+
+  // ── Items found parallel to ditch ───────────────────────────────────────
+  ["1",  "Inhaler",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m1"],
+  ["2",  "Cloth purse strap",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m2"],
+  ["3",  "Small purse containing: pencils, pens, highlighters, lipstick tube, thumb drive, black flip flop sole, cloth/plastic material",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m3"],
+  ["4",  "Larger purse (under leaves and twigs) containing: keys, camera, lipstick tube, compact mirror",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m4"],
+  ["5, 7–9, 12, 38", "Rib bones",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-ribs"],
+  ["6, 25–26, 29–30, 32", "Teeth",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-teeth"],
+  ["11", "Pack of gum (near larger purse)",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m11"],
+  ["13", ".380 auto cartridge case and .410 shot shell",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m13"],
+  ["17", "Skull",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m17"],
+  ["25, 37", "Earrings",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-earrings"],
+  ["28", "Lotion bottle",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m28"],
+  ["31", "Wallet containing Holly's driver's license and other cards",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m31"],
+  ["34", "Black hair tie",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m34"],
+  ["35", "Piece of pink fabric",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m35"],
+  ["36", "Ring",
+         "Remains site — parallel to ditch", "TBI", "", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-m36"],
+
+  // ── Gun recovery ─────────────────────────────────────────────────────────
+  ["—",  ".32 caliber long revolver — manufactured in Germany; 5 chambers loaded, 2 empty; no matching shell casing. Recovered ~15 inches below water surface in shallow drainage creek. West TN Dive Rescue and Recovery searched ~4.5 hours with waterproof metal detectors. SA Brent Booth present; gun examined by SA Cervinia Braswell. Materials sent to TBI Crime Lab; remains to Memphis forensic center.",
+         "Bible Hill Rd & Joe Holiday Rd — drainage creek", "TBI / Henderson Co. SO / West TN Dive Rescue", "SA Cervinia Braswell; SA Brent Booth", "09/2014", "",
+         "Collected", "", "", "", "ev-2014-gun"],
+
+  // ── Trial exhibit ─────────────────────────────────────────────────────────
+  ["—",  "Hand-drawn map used at trial — items labeled under three columns: 'Holly Bobo,' 'Zach Adams,' 'Jason Autry.' Some remains showed teeth marks consistent with coyote activity; investigators also searched nearby coyote dens.",
+         "Remains site — trial exhibit", "TBI", "", "09/2014", "",
+         "Documented", "", "", "", "ev-2014-map"],
+
+  // ── Apr. 13, 2011 — Gooch Road finds ────────────────────────────────────
+  ["PHYS", "Women's underwear found on right shoulder of Gooch Road (~75 ft from Shayne Austin's driveway). Lab analysis confirmed NOT Holly's.",
+           "Gooch Road — near Austin driveway", "TBI", "SA Brent Booth", "04/13/2011", "",
+           "Collected", "", "", "Stephens later testified Austin's mobile home was further down the road from the underwear find.", "ev-gooch-underwear"],
+  ["PHYS", "Holly's school paper — folded wad, her name and address written on it — found ~300–400 ft up Gooch Road from the underwear, near Yellow Springs community. Recovered by Gerald Stephens.",
+           "Gooch Road — Yellow Springs community", "TBI", "Gerald Stephens (civilian)", "04/13/2011", "",
+           "Collected", "", "", "", "ev-gooch-paper"],
+
+  // ── Apr. 24, 2011 — Holly's phone ────────────────────────────────────────
+  ["PHYS", "Holly's cell phone found on the ground outside a business on 641 North, approximately one driveway from McKenzie Tree Service. Found by Emily Pratt (nursing school classmate, family friend; her son is Deputy Jeremy Pratt) while searching with church congregants. Emily recognized the phone immediately; the group called law enforcement.",
+           "641 North — near McKenzie Tree Service", "TBI", "SA Art Viveros", "04/24/2011", "",
+           "Collected", "", "", "Emily gave statement to Agent Viveros same day; later gave second statement to Valerie Trout. At trial she denied telling Trout the phone did not look like Holly's.", "ev-phone-emily"],
+
+  // ── Post-abduction 2011 — SIM card ───────────────────────────────────────
+  ["PHYS", "SIM card found on Camden Road during a bike ride by Ednesha Brasher (social worker, nursing home coworker of Clint Bobo) and her younger brother. Brother spotted it while playing 'I-Spy.' Brasher pocketed it, put it in her own phone that night, listened to voicemails, then contacted Karen Bobo online. Handed SIM card to Dana and Clint Bobo at a gas station.",
+           "Camden Road", "", "Ednesha Brasher (civilian)", "05/2011", "",
+           "Collected", "", "", "", "ev-simcard-brasher"],
+
+  // ── Adams residence search ────────────────────────────────────────────────
+  ["PHYS", "Nail polish recovered from Adams residence — investigators stated it matched material from the crime scene.",
+           "Adams residence", "TBI", "", "2011", "",
+           "Collected", "", "", "Hundreds of items and four vehicles also seized.", "ev-adams-nailpolish"],
+  ["PHYS", "Palm print recovered from Holly Bobo's vehicle. All four defendants (Zach Adams, Dylan Adams, Jason Autry, Shayne Austin) were excluded.",
+           "Holly Bobo's vehicle", "TBI", "", "2011", "",
+           "Collected — Excluded (all 4 defendants)", "", "", "", "ev-adams-palmprint"],
+
+  // ── Rebecca Earp — ripped note ────────────────────────────────────────────
+  ["DOC",  "Ripped note + scrapyard business card. Rebecca Earp (Zach's girlfriend) left a note that morning asking him to move laundry. When she got home, the bottom of the note was ripped off and the scrapyard's old, dirty business card had been taped where the missing portion was — despite Zach telling her he had not been home all day. She kept the note; eventually gave it to TBI. She also confronted him for using Dylan's phone instead of his own that morning, and noted his trailer was not on his truck when he arrived at Joe's Video where she worked.",
+           "Zach Adams — trailer / Joe's Video", "TBI", "", "04/13/2011", "",
+           "Collected", "", "", "Scrapyard records also confirm Zach was not at the scrapyard that day.", "ev-earp-note"],
+
+  // ── 2011 — Dinsmore & the gun ────────────────────────────────────────────
+  ["STMT", "Shayne Austin and Jason Autry brought Victor Dinsmore a pistol in exchange for pills (approx. summer 2011). Autry testified he was present and identified the gun at trial — stated it was the same pistol Shayne had holstered on his right side at the trailer on Apr. 13. Dinsmore bought it for his wife's protection, but later told her to get rid of it 'because he thought it had killed somebody.' Dinsmore and his wife gave TBI information about the gun; investigators flew them to Decatur County and searched a creek off Yellow Springs Road for it. Gun was not recovered in that search.",
+           "Yellow Springs Road — creek", "TBI", "Victor Dinsmore", "summer 2011", "",
+           "Documented", "", "", "Dinsmore described the gun as a .38 or .357, American-made at trial; in an earlier statement he said it was a .22 caliber rifle.", "ev-dinsmore-gun"],
+  ["DOC",  "In a Dec. 2011 statement, Victor Dinsmore named Michael Alexander as someone involved in hiding Holly's body. No corroboration, no follow-up, and no public record of investigation into the name appears in any other reviewed source material.",
+           "", "TBI", "Victor Dinsmore", "12/2011", "",
+           "Documented — Unverified", "", "", "", "ev-dinsmore-alexander"],
+
+  // ── Autry prison visit ────────────────────────────────────────────────────
+  ["STMT", "Members of the Austin family visited Jason Autry in prison. Through the glass, Autry showed them a report about pink underwear found in evidence. He told them Holly had been shot from the back of the head, with the bullet exiting under her right eye, and described bullet casings found at the scene. This directly contradicts Autry's trial testimony that he did not have access to discovery material.",
+           "Prison visitation", "", "Jason Autry", "date unclear", "",
+           "Documented", "", "", "", "ev-autry-prison"],
+
+  // ── 2014 — Shayne Austin immunity ────────────────────────────────────────
+  ["DOC",  "A document in Shayne Austin's own handwriting — introduced at trial by the defense — confirmed Shayne provided information to the DA regarding the kidnapping, rape, and murder of Holly Bobo. Shayne and his lawyer met with the DA's office. TBI offered an immunity agreement and told Shayne he was going to be arrested but never followed through. Shayne met with his lawyer only once, with TBI agents present. His mother argued the document lacked context; the judge ruled it hearsay and it was never read into the record.",
+           "DA's office", "TBI / DA", "Shayne Austin", "2014", "",
+           "Documented", "", "", "Shayne Austin later died by suicide. In the period leading up to his death he had recently been fired, missed a flight home, was described as 'very messed up,' and was transported between hotels.", "ev-austin-immunity"],
+
+  // ── Terry Britt — behavioral ──────────────────────────────────────────────
+  ["BVRL", "Britt's unprompted statement when first approached by investigators: 'I didn't rape nobody.' No one had mentioned rape. SA Booth described wiretapping Britt as unprecedented in Tennessee.",
+           "Britt residence", "TBI", "SA Brent Booth", "2011", "",
+           "Documented", "", "", "", "ev-britt-statement"],
+  ["DOC",  "Computer searches recovered from Britt's devices (conducted January 2011, ~3 months before abduction): 'abducted,' 'kidnapped' (multiple), 'kidnapped and raped,' 'rape scene,' 'anal rape.' Sites included video.xnxx.com and nudevista.com. Devices seized before additional searches could be conducted.",
+           "Britt residence — devices", "TBI", "", "01/2011", "",
+           "Collected", "", "", "", "ev-britt-searches"],
+  ["DOC",  "Purchases in weeks surrounding the abduction: Mar. 11–12, 2011 — new phones; Apr. 11 (two days before) — 2,000 prepaid minutes; Apr. 29 (sixteen days after) — chainsaw. When decomposition-trained cadaver dogs walked across Britt's property, they alerted on his tools: axe, shovel, and hammer.",
+           "Britt property / purchase records", "TBI", "", "03–04/2011", "",
+           "Documented", "", "", "", "ev-britt-purchases"],
+  ["STMT", "At least two deputies visited Britt's residence during the sex offender canvass on the morning of the abduction and found no one home: Deputy Jonathan Ryker found the property empty; Deputy Travis Dunavant knocked, heard no movement, found only a red broken-down van, no other vehicles. When SA Weber's team arrived later that day, Terry and Janet Britt were there, unloading a bathtub.",
+           "Britt residence", "Decatur Co. SO", "Deputies Ryker / Dunavant", "04/13/2011", "",
+           "Documented", "", "", "", "ev-britt-deputies"],
+  ["PHYS", "Britt's vehicle matches surveillance footage from the ATM Farm near the abduction site. Britt has a documented history of stalking blonde, blue-eyed women in the area.",
+           "ATM Farm — near abduction site", "TBI", "", "04/13/2011", "",
+           "Documented", "", "", "", "ev-britt-atm"],
+  ["STMT", "Clint Bobo — the only person to hear the voice of Holly's abductor that morning — later stated he is 80% sure it was Terry Britt's voice.",
+           "", "", "Clint Bobo", "post-trial", "",
+           "Documented", "", "", "", "ev-britt-clint"],
+
+  // ── March 2013 — Walker / Britt interview ────────────────────────────────
+  ["STMT", "US Marshal John Walker (requested by TBI to assist with cell tower records and leads) interviewed Terry Britt in jail, March 2013. Walker did not Mirandize Britt, stating he was not seeking testimonial evidence; Walker later confirmed at trial he became friends with SA Terry Dicus during the investigation. Key exchanges: (1) Britt's first concern was that TBI would not let him contact his wife and that his wife might be charged (Janet Britt was facing a separate federal charge). (2) When Walker described Clint's account of the abductor, Britt said: 'That boy don't know what he saw.' (3) When Walker described how Janet likely woke to dogs barking when Britt returned home that morning, Britt said: 'Sounds like you've got it all figured out. I'll plead to it, and you close the case.' Britt denied making the offer at trial.",
+           "Jail — Britt interview", "US Marshals / TBI", "US Marshal John Walker", "03/2013", "",
+           "Documented", "", "", "Walker was not seeking testimonial evidence per his own statement; no Miranda warning given.", "ev-britt-walker"],
 ];
-const SEED_VER = 3;
+const SEED_VER = 5;
 
 // Load from localStorage, merging with seed
 function loadItems() {

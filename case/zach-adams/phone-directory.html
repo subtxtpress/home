@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone Directory — Zach Adams Case</title>
+  <script>try{if(localStorage.getItem('foia-theme')==='light')document.documentElement.dataset.theme='light';}catch(e){}</script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{font-size:14px;}
+    :root{
+      --bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;
+      --accent:#2f81f7;--accent-subtle:rgba(47,129,247,.10);--accent-dim:rgba(47,129,247,.40);
+      --text:#e6edf3;--text-dim:#7d8590;--red:#f85149;--green:#3fb950;--amber:#d29922;
+      --card-alt:rgba(230,237,243,.04);--border-lo:rgba(48,54,61,.7);
+      --hdr:#010409;--hdr-sub:#0d1117;--hdr-txt:#e6edf3;
+      --thead:#161b22;--thd-hov:#21262d;
+      --green-bg:rgba(63,185,80,.12);--red-bg:rgba(248,81,73,.12);--amber-bg:rgba(210,153,34,.12);
+    }
+    [data-theme="light"]{
+      --bg:#ffffff;--bg2:#f6f8fa;--bg3:#eaeef2;--border:#d0d7de;
+      --accent:#0969da;--accent-subtle:rgba(9,105,218,.08);--accent-dim:rgba(9,105,218,.35);
+      --text:#1f2328;--text-dim:#57606a;--red:#cf222e;--green:#1a7f37;--amber:#9a6700;
+      --card-alt:rgba(31,35,40,.04);--border-lo:rgba(208,215,222,.6);
+      --hdr:#24292f;--hdr-sub:#1c2128;--hdr-txt:#f0f6fc;
+      --thead:#f6f8fa;--thd-hov:#eaeef2;
+      --green-bg:rgba(26,127,55,.10);--red-bg:rgba(207,34,46,.10);--amber-bg:rgba(154,103,0,.10);
+    }
+    body{background:var(--bg);color:var(--text);font-family:Arial,sans-serif;}
+    header{background:var(--hdr);color:var(--hdr-txt);padding:16px 24px 12px;}
+    header h1{font-size:clamp(.95rem,2.5vw + .4rem,1.15rem);font-weight:700;line-height:1.3;}
+    header p{font-size:clamp(.7rem,1.5vw + .3rem,.78rem);opacity:.7;margin-top:4px;line-height:1.4;}
+    .stats-bar{display:flex;gap:8px;flex-wrap:wrap;background:var(--hdr-sub);padding:8px 16px;}
+    .stat{border-right:1px solid var(--border);padding:5px 12px;color:var(--hdr-txt);font-size:.75rem;display:flex;align-items:center;gap:5px;flex-shrink:0;}
+    .stat strong{font-size:.95rem;}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .toolbar input{flex:1;min-width:180px;padding:7px 12px;background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:8px;font-size:.85rem;outline:none;}
+    .toolbar select{padding:7px 10px;background:var(--bg3);color:var(--text);border:1.5px solid var(--border);border-radius:7px;font-size:.82rem;outline:none;cursor:pointer;}
+    .btn-clear{padding:7px 13px;background:var(--accent-subtle);color:var(--accent);border:none;border-radius:7px;font-size:.82rem;cursor:pointer;font-weight:600;white-space:nowrap;}
+    .count-bar{padding:4px 16px;font-size:.75rem;color:var(--text-dim);background:var(--bg);border-bottom:1px solid var(--border-lo);}
+    .table-wrap{overflow-x:auto;padding:0 0 60px;}
+    table{width:100%;border-collapse:collapse;min-width:600px;table-layout:fixed;}
+    col.c-num {width:125px;}
+    col.c-per {width:145px;}
+    col.c-cat {width:115px;}
+    col.c-kml {width:55px;}
+    col.c-addr{width:155px;}
+    col.c-note{width:auto;}
+    thead th{background:var(--thead);color:var(--hdr-txt);padding:8px 10px;text-align:left;font-size:clamp(.68rem,1.2vw + .3rem,.78rem);position:sticky;top:0;cursor:pointer;user-select:none;white-space:nowrap;border-bottom:1px solid var(--border);}
+    thead th:hover{background:var(--thd-hov);}
+    thead th .si{margin-left:3px;opacity:.4;}
+    thead th.sorted .si{opacity:1;}
+    tbody td{padding:7px 10px;font-size:clamp(.75rem,1.3vw + .3rem,.82rem);border-bottom:1px solid var(--border-lo);vertical-align:top;}
+    tbody tr:nth-child(even) td{background:var(--card-alt);}
+    tbody tr:hover td{background:var(--bg3)!important;}
+    .badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:.68rem;font-weight:700;white-space:nowrap;}
+    .cat-defendant   {background:var(--red-bg);color:var(--red);}
+    .cat-victim      {background:rgba(47,129,247,.12);color:var(--accent);}
+    .cat-victim-family{background:rgba(47,129,247,.08);color:#79c0ff;}
+    .cat-witness     {background:var(--green-bg);color:var(--green);}
+    .cat-neighbor    {background:var(--amber-bg);color:var(--amber);}
+    .cat-poi         {background:rgba(157,78,221,.15);color:#d2a8ff;}
+    .cat-no-sig      {background:var(--bg3);color:var(--text-dim);}
+    .kml-yes{color:var(--green);font-weight:700;text-align:center;}
+    .kml-no {color:var(--text-dim);text-align:center;}
+    td.num-cell{font-family:'IBM Plex Mono',monospace;font-size:.78rem;white-space:nowrap;}
+    td.addr-cell{font-size:.76rem;color:var(--text-dim);}
+    td.note-cell{font-size:.78rem;color:var(--text-dim);word-break:break-word;}
+    @media(max-width:640px){
+      .toolbar input{min-width:0;flex:1 1 100%;}
+      .toolbar select{flex:1 1 calc(50% - 4px);min-width:0;max-width:none;}
+      .toolbar #case-nav{width:100%;}
+      table,thead,tbody,tr,th,td{display:block;}
+      table{width:100%;min-width:0;}
+      thead tr{display:none;}
+      tbody tr{width:calc(100% - 24px);background:var(--bg2);border-radius:10px;margin:8px 12px;padding:12px 14px;border-left:4px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.2);}
+      tbody tr:nth-child(even) td{background:transparent;}
+      tbody tr:hover td{background:transparent!important;}
+      td{border:none;position:relative;padding:3px 0 3px 80px;font-size:.82rem;display:block;word-break:break-word;}
+      td::before{content:attr(data-label);position:absolute;left:0;top:4px;width:74px;font-weight:700;font-size:.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.03em;}
+      .kml-yes,.kml-no{text-align:left;}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Phone Directory</h1>
+  <p>Case JA-90A-000005 · TBI / FBI · Numbers identified in tower dump &amp; discovery</p>
+</header>
+<div class="stats-bar">
+  <div class="stat"><strong id="st-total">—</strong> Total</div>
+  <div class="stat"><strong id="st-def">—</strong> Defendants</div>
+  <div class="stat"><strong id="st-wit">—</strong> Witnesses</div>
+  <div class="stat"><strong id="st-kml">—</strong> KML Available</div>
+</div>
+<div class="toolbar">
+  <input type="text" id="search" placeholder="Search name, number, notes…" oninput="render()">
+  <select id="f-cat" onchange="render()">
+    <option value="">All Categories</option>
+    <option>Defendant</option>
+    <option>Victim</option>
+    <option>Victim Family</option>
+    <option>Witness</option>
+    <option>Neighbor</option>
+    <option>Person of Interest</option>
+    <option>No Significance</option>
+  </select>
+  <select id="f-kml" onchange="render()">
+    <option value="">All KML</option>
+    <option value="yes">KML Available</option>
+    <option value="no">No KML</option>
+  </select>
+  <button class="btn-clear" onclick="clearFilters()">✕ Clear</button>
+  <div id="case-nav"></div>
+</div>
+<div class="count-bar" id="countBar">Showing 21 of 21</div>
+<div class="table-wrap">
+<table>
+  <colgroup>
+    <col class="c-num"><col class="c-per"><col class="c-cat">
+    <col class="c-kml"><col class="c-addr"><col class="c-note">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Phone #</th>
+      <th>Person</th>
+      <th>Category</th>
+      <th>KML</th>
+      <th>Address</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+</div>
+<script src="nav.js"></script>
+<script>
+const DATA = [
+  ["(731) 733-3992","Drew Scott","Witness","Yes - Drew_Scott_Cell_Locations.kml","","Holly's boyfriend; turkey hunting in Bath Springs on 4/13"],
+  ["(731) 733-0139","Kassie Barnes","Neighbor","Yes - combined KML","","Confirmed match from KML data"],
+  ["(731) 733-0071","James Barnes","Neighbor","Yes - combined KML","","On porch at 7:40 AM heard screaming; SMS with Keith Clark at 7:04 AM on 4/13"],
+  ["(731) 798-0089","Larry Hamm","Witness","No","1040 Frizzell Road, Lexington TN","IR #95 — Interviewed May 2 2011; saw suspicious white van with blue Seagrams graphics on Rock Crusher Loop 10:30–10:45 AM on 4/13; driver was white male in long-sleeve black turtleneck; phone hit Darden/Cox Rd towers on 4/13"],
+  ["(731) 220-0597","Becky Conrad (acct: Jerrel Conrad)","No Significance","No","3585 Highway 192, Holladay TN","Zero call records in tower dump; no IR hits; likely passing ping"],
+  ["(731) 549-0408","Keith Clark","Witness","No","2325 Haney School Road, Decaturville TN","IR #28 — James Barnes' childhood friend; unemployed; visited Barnes 2–3x/week; outside working on Barnes' pickup truck on 4/13; SMS at 7:04 AM with Barnes (731-733-0071); 1157 call records in tower dump (most active of unidentified numbers)"],
+  ["(731) 549-0599","Jonathan Dodd","Person of Interest","No","Scotts Hill TN (no street address)","Zero call records but extensive IR mentions: polygraph consent (IR #59); FBI lead on vehicles/property (IR #90); Dana Bobo reported someone with Dodd tried to steal Bobos' 4-wheelers (IR #270); Brian Lee saw Dodd speeding on red Honda 4-wheeler on Bible Hill Road on 4/13 (IR #74)"],
+  ["(901) 827-8777","Shared/Burner — Zach Adams / Dylan Adams / Dennis Benjamin","Defendant","No","","Listed under all three names in Master_PhoneList.csv; 901 area code (Memphis) unusual for 731-area locals; likely shared/burner phone"],
+  ["(770) 653-4095","Shared/Burner — Zach Adams / Dennis Benjamin","Defendant","No","","Listed under both names in Master_PhoneList.csv; 770 area code (Atlanta metro) unusual for 731-area locals; another shared device"],
+  ["(731) 571-5337","Holly Bobo","Victim","Yes - combined KML (stops March 21 2011)","","Holly's cell phone"],
+  ["(731) 571-9634","Karen Bobo","Victim Family","Yes - combined KML","","Holly's mother"],
+  ["(731) 571-6498","Dana Bobo","Victim Family","Yes - combined KML","","Holly's father"],
+  ["(731) 571-4016","Clint Bobo","Victim Family","Yes - combined KML","","Holly's brother; saw abduction"],
+  ["(731) 571-3498","Natalie Bobo","Victim Family","Yes - combined KML","","Holly's cousin"],
+  ["(901) 827-8777","Zach Adams","Defendant","No","","Primary defendant; also listed for Dylan Adams and Dennis Benjamin"],
+  ["(731) 363-0Prior","Zach Adams","Defendant","No","","Prior phone number (unconfirmed)"],
+  ["(731) 549-1804","Jason Autry","Defendant","No","","Co-defendant; testified for prosecution"],
+  ["(731) 549-0670","Dylan Adams","Defendant","No","","Zach's brother"],
+  ["(770) 653-4095","Dennis Benjamin","Defendant","No","","Also listed for Zach Adams"],
+  ["(731) 549-0446","Shane Austin","Defendant","No","","Remains found ~3 miles from his home"],
+  ["(731) 733-0071","James Barnes","Neighbor","Yes - combined KML","","On porch at 7:40 AM heard screaming"],
+];
+
+// Deduplicate and fix: remove exact duplicate row 21 (same as row 3)
+const ROWS = DATA.filter((r,i) => {
+  // keep first occurrence of each phone+person combo
+  return DATA.findIndex(x => x[0]===r[0] && x[1]===r[1]) === i;
+});
+
+function catClass(c){
+  const m = {'Defendant':'cat-defendant','Victim':'cat-victim','Victim Family':'cat-victim-family',
+    'Witness':'cat-witness','Neighbor':'cat-neighbor','Person of Interest':'cat-poi','No Significance':'cat-no-sig'};
+  return m[c] || 'cat-no-sig';
+}
+
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function render(){
+  const q   = document.getElementById('search').value.toLowerCase();
+  const cat = document.getElementById('f-cat').value;
+  const kml = document.getElementById('f-kml').value;
+
+  const filtered = ROWS.filter(r => {
+    if(cat && r[2] !== cat) return false;
+    if(kml === 'yes' && r[3] === 'No') return false;
+    if(kml === 'no'  && r[3] !== 'No') return false;
+    if(q && ![r[0],r[1],r[2],r[4],r[5]].join(' ').toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  filtered.forEach(r => {
+    const kmlHas = r[3] !== 'No';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td data-label="Phone" class="num-cell">${esc(r[0])}</td>
+      <td data-label="Person"><strong>${esc(r[1])}</strong></td>
+      <td data-label="Category"><span class="badge ${catClass(r[2])}">${esc(r[2])}</span></td>
+      <td data-label="KML" class="${kmlHas ? 'kml-yes' : 'kml-no'}">${kmlHas ? '✓' : '—'}</td>
+      <td data-label="Address" class="addr-cell">${esc(r[4])}</td>
+      <td data-label="Notes" class="note-cell">${esc(r[5])}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('countBar').textContent =
+    `Showing ${filtered.length} of ${ROWS.length}`;
+}
+
+function clearFilters(){
+  document.getElementById('search').value = '';
+  document.getElementById('f-cat').value = '';
+  document.getElementById('f-kml').value = '';
+  render();
+}
+
+// Stats (always from full ROWS)
+document.getElementById('st-total').textContent = ROWS.length;
+document.getElementById('st-def').textContent   = ROWS.filter(r=>r[2]==='Defendant').length;
+document.getElementById('st-wit').textContent   = ROWS.filter(r=>r[2]==='Witness').length;
+document.getElementById('st-kml').textContent   = ROWS.filter(r=>r[3]!=='No').length;
+
+render();
+</script>
+</body>
+</html>
