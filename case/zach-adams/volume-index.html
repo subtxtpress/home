@@ -5,178 +5,407 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vol. 1 Index</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, sans-serif; background: #f0f4ff; color: #1a1a2e; }
-
+  * { 
+    box-sizing: border-box; 
+    margin: 0; padding: 0; 
+  }
+  body { 
+    font-family: Arial, sans-serif; 
+    background: #f0f4ff; 
+    color: #1a1a2e; 
+  }
   header {
     background: linear-gradient(135deg, #1F3864 0%, #2d5a9e 100%);
-    color: white; padding: 16px 20px 14px;
+    color: white; 
+    padding: 16px 20px 14px;
   }
-  header h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: .3px; line-height: 1.3; }
-  header p  { font-size: .78rem; opacity: .75; margin-top: 4px; line-height: 1.4; }
-
+  header h1 { 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    letter-spacing: .3px; 
+    line-height: 1.3; 
+  }
+  header p { 
+    font-size: .78rem; 
+    opacity: .75; 
+    margin-top: 4px; 
+    line-height: 1.4; 
+  }
   /* Stats bar — horizontal scroll on narrow screens */
   .stats-bar {
-    display: flex; gap: 8px;
-    background: #1a2f5a; padding: 8px 16px;
-    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    display: flex; 
+    gap: 8px;
+    background: #1a2f5a; 
+    padding: 8px 16px;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  .stats-bar::-webkit-scrollbar { display: none; }
+  .stats-bar::-webkit-scrollbar { 
+    display: none; 
+  }
   .stat {
-    background: rgba(255,255,255,.12); border-radius: 6px;
-    padding: 5px 12px; color: white; font-size: .75rem;
-    display: flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,.12); 
+    border-radius: 6px;
+    padding: 5px 12px; 
+    color: white; 
+    font-size: .75rem;
+    display: flex; 
+    align-items: center; 
+    gap: 5px;
     flex-shrink: 0;
   }
-  .stat strong { font-size: 1rem; }
-
+  .stat strong { 
+    font-size: 1rem; 
+  }
   /* Controls — wrap into two rows on mobile */
   .controls {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    padding: 10px 16px; background: white;
+    display: flex; 
+    gap: 8px; 
+    flex-wrap: wrap;
+    padding: 10px 16px; 
+    background: white;
     border-bottom: 2px solid #e2e8f0;
-    position: sticky; top: 0; z-index: 100;
+    position: sticky; 
+    top: 0; 
+    z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,.06);
   }
   .controls input[type=text] {
-    flex: 1 1 100%; padding: 9px 14px;
-    border: 1.5px solid #c7d2fe; border-radius: 8px;
-    font-size: .9rem; outline: none;
+    flex: 1 1 100%;
+    padding: 9px 14px;
+    border: 1.5px solid #c7d2fe; 
+    border-radius: 8px;
+    font-size: .9rem; 
+    outline: none;
   }
-  .controls input[type=text]:focus { border-color: #4f46e5; }
+  .controls input[type=text]:focus { 
+    border-color: #4f46e5; 
+  }
   .filter-row {
-    display: flex; gap: 8px; flex: 1 1 100%; flex-wrap: wrap;
+    display: flex; 
+    gap: 8px; 
+    flex: 1 1 100%; 
+    flex-wrap: wrap;
   }
   .controls select {
-    flex: 1 1 calc(33% - 8px); min-width: 120px;
-    padding: 8px 10px; border: 1.5px solid #c7d2fe;
-    border-radius: 8px; font-size: .82rem; background: white;
-    outline: none; cursor: pointer;
+    flex: 1 1 calc(33% - 8px); 
+    min-width: 120px;
+    padding: 8px 10px; 
+    border: 1.5px solid #c7d2fe;
+    border-radius: 8px; 
+    font-size: .82rem; 
+    background: white;
+    outline: none; 
+    cursor: pointer;
   }
-  .controls select:focus { border-color: #4f46e5; }
+  .controls select:focus { 
+    border-color: #4f46e5; 
+  }
   .btn-clear {
     flex-shrink: 0;
-    padding: 8px 14px; background: #e0e7ff; color: #3730a3;
-    border: none; border-radius: 8px; font-size: .82rem;
-    cursor: pointer; font-weight: 600; transition: background .15s;
+    padding: 8px 14px; 
+    background: #e0e7ff; 
+    color: #3730a3;
+    border: none; 
+    border-radius: 8px; 
+    font-size: .82rem;
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: background .15s;
     align-self: stretch;
   }
-  .btn-clear:hover { background: #c7d2fe; }
-
-  .result-count {
-    padding: 5px 16px; font-size: .78rem; color: #64748b;
-    background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+  .btn-clear:hover { 
+    background: #c7d2fe; 
   }
-
+  .result-count {
+    padding: 5px 16px; 
+    font-size: .78rem; 
+    color: #64748b;
+    background: #f8fafc; 
+    border-bottom: 1px solid #e2e8f0;
+  }
   /* Legend */
   .legend {
-    display: flex; gap: 6px; flex-wrap: wrap;
-    padding: 8px 16px; background: #f8fafc;
-    border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap;
+    padding: 8px 16px; 
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0; 
+    border-bottom: 1px solid #e2e8f0;
   }
-  .legend span { font-size: .7rem; color: #475569; margin-right: 2px; font-weight: 600; }
-
+  .legend span { 
+    font-size: .7rem; 
+    color: #475569; 
+    margin-right: 2px; 
+    font-weight: 600; 
+  }
   /* ── Badges ── */
   .badge {
-    display: inline-block; padding: 2px 8px; border-radius: 12px;
-    font-size: .72rem; font-weight: 600; white-space: nowrap;
+    display: inline-block; 
+    padding: 2px 8px; 
+    border-radius: 12px;
+    font-size: .72rem; 
+    font-weight: 600; 
+    white-space: nowrap;
   }
-  .badge-interview-oral      { background:#dbeafe; color:#1e40af; }
-  .badge-interview-written   { background:#e0f2fe; color:#0369a1; }
-  .badge-interview-telephone { background:#f0f9ff; color:#0c4a6e; }
-  .badge-investigative-lead  { background:#fef9c3; color:#854d0e; }
-  .badge-document            { background:#f0fdf4; color:#166534; }
-  .badge-recovery            { background:#fee2e2; color:#991b1b; }
-  .badge-tbi-assist          { background:#f3e8ff; color:#6b21a8; }
-  .badge-ia-interview        { background:#fff7ed; color:#9a3412; }
-  .badge-crime-scene         { background:#ffedd5; color:#7c2d12; }
-  .badge-other               { background:#f1f5f9; color:#475569; }
-
-  .agency-fbi         { color:#1d4ed8; font-weight:600; }
-  .agency-tbi         { color:#6d28d9; font-weight:600; }
-  .agency-dcso        { color:#b45309; font-weight:600; }
-  .agency-thp         { color:#059669; font-weight:600; }
-  .agency-us-marshals { color:#dc2626; font-weight:600; }
-  .agency-ia          { color:#c2410c; font-weight:600; }
-  .agency-multi       { color:#374151; font-weight:600; }
-
+  .badge-interview-oral { 
+    background:#dbeafe; 
+    color:#1e40af; 
+  }
+  .badge-interview-written { 
+    background:#e0f2fe; 
+    color:#0369a1; 
+  }
+  .badge-interview-telephone { 
+    background:#f0f9ff; 
+    color:#0c4a6e; 
+  }
+  .badge-investigative-lead { 
+    background:#fef9c3; 
+    color:#854d0e; 
+  }
+  .badge-document { 
+    background:#f0fdf4; 
+    color:#166534; 
+  }
+  .badge-recovery { 
+    background:#fee2e2; 
+    color:#991b1b; 
+  }
+  .badge-tbi-assist { 
+    background:#f3e8ff; 
+    color:#6b21a8; 
+  }
+  .badge-ia-interview { 
+    background:#fff7ed; 
+    color:#9a3412; 
+  }
+  .badge-crime-scene { 
+    background:#ffedd5; 
+    color:#7c2d12; 
+  }
+  .badge-other { 
+    background:#f1f5f9; 
+    color:#475569; 
+  }
+  .agency-fbi { 
+    color:#1d4ed8; 
+    font-weight:600; 
+  }
+  .agency-tbi { 
+    color:#6d28d9; 
+    font-weight:600; 
+  }
+  .agency-dcso { 
+    color:#b45309; 
+    font-weight:600; 
+  }
+  .agency-thp { 
+    color:#059669; 
+    font-weight:600; 
+  }
+  .agency-us-marshals { 
+    color:#dc2626; 
+    font-weight:600; 
+  }
+  .agency-ia { 
+    color:#c2410c; 
+    font-weight:600; 
+  }
+  .agency-multi { 
+    color:#374151; 
+    font-weight:600; 
+  }
   /* ── Desktop table ── */
-  .table-wrap { overflow-x: auto; padding: 0 20px 40px; }
-  table { width: 100%; border-collapse: collapse; margin-top: 16px; min-width: 680px; }
+  .table-wrap { 
+    overflow-x: auto; 
+    padding: 0 20px 40px; 
+  }
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 16px; 
+    min-width: 680px; 
+  }
   thead th {
-    background: #1F3864; color: white; padding: 10px 12px;
-    font-size: .82rem; text-align: left; position: sticky; top: 0;
-    cursor: pointer; user-select: none; white-space: nowrap;
+    background: #1F3864;
+    color: white; 
+    padding: 10px 12px;
+    font-size: .82rem; 
+    text-align: left; 
+    position: sticky; 
+    top: 0;
+    cursor: pointer; 
+    user-select: none; 
+    white-space: nowrap;
   }
-  thead th:hover { background: #2d4f8a; }
-  thead th .sort-icon { margin-left: 4px; opacity: .5; }
-  thead th.sorted .sort-icon { opacity: 1; }
-  tbody tr { transition: background .1s; }
-  tbody tr:hover td { background: #eef2ff !important; }
+  thead th:hover { 
+    background: #2d4f8a; 
+  }
+  thead th .sort-icon { 
+    margin-left: 4px; 
+    opacity: .5; 
+  }
+  thead th.sorted .sort-icon { 
+    opacity: 1; 
+  }
+  tbody tr { 
+    transition: background .1s; 
+  }
+  tbody tr:hover td { 
+    background: #eef2ff !important; 
+  }
   td {
-    padding: 9px 12px; font-size: .84rem;
-    border-bottom: 1px solid #e2e8f0; vertical-align: top;
+    padding: 9px 12px; 
+    font-size: .84rem;
+    border-bottom: 1px solid #e2e8f0; 
+    vertical-align: top;
   }
-
   /* ── Mobile card layout ── */
-  .card-list { display: none; padding: 12px 16px 40px; }
+  .card-list { 
+    display: none; 
+    padding: 12px 16px 40px; 
+  }
   .card {
-    background: white; border-radius: 10px; margin-bottom: 10px;
+    background: white; 
+    border-radius: 10px; 
+    margin-bottom: 10px;
     box-shadow: 0 1px 4px rgba(0,0,0,.08);
-    padding: 14px 16px; border-left: 4px solid #1F3864;
+    padding: 14px 16px; 
+    border-left: 4px solid #1F3864;
   }
   .card-header {
-    display: flex; justify-content: space-between;
-    align-items: flex-start; gap: 8px; margin-bottom: 8px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 8px; 
+    margin-bottom: 8px;
   }
-  .card-subject { font-weight: 700; font-size: .9rem; flex: 1; }
-  .card-date { font-size: .75rem; color: #64748b; white-space: nowrap; }
-  .card-meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-  .card-agency { font-size: .78rem; font-weight: 600; }
-  .card-agent { font-size: .75rem; color: #64748b; }
-  .card-notes { font-size: .75rem; color: #94a3b8; margin-top: 6px; }
-
+  .card-subject { 
+    font-weight: 700; 
+    font-size: .9rem; 
+    flex: 1; 
+  }
+  .card-date { 
+    font-size: .75rem; 
+    color: #64748b; 
+    white-space: nowrap; 
+  }
+  .card-meta { 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+    align-items: center; 
+  }
+  .card-agency { 
+    font-size: .78rem; 
+    font-weight: 600; 
+  }
+  .card-agent { 
+    font-size: .75rem; 
+    color: #64748b; 
+  }
+  .card-notes { 
+    font-size: .75rem; 
+    color: #94a3b8; 
+    margin-top: 6px;
+  }
   /* Card border color by type */
-  .card.type-interview-oral      { border-left-color: #1e40af; }
-  .card.type-interview-written   { border-left-color: #0369a1; }
-  .card.type-interview-telephone { border-left-color: #0c4a6e; }
-  .card.type-investigative-lead  { border-left-color: #854d0e; }
-  .card.type-document            { border-left-color: #166534; }
-  .card.type-recovery            { border-left-color: #991b1b; }
-  .card.type-tbi-assist          { border-left-color: #6b21a8; }
-  .card.type-ia-interview        { border-left-color: #9a3412; }
-  .card.type-crime-scene         { border-left-color: #7c2d12; }
-  .card.type-other               { border-left-color: #94a3b8; }
-
-  .no-results {
-    text-align: center; padding: 60px 20px; color: #94a3b8; font-size: 1rem;
+  .card.type-interview-oral { 
+    border-left-color: #1e40af; 
   }
-
+  .card.type-interview-written { 
+    border-left-color: #0369a1; 
+  }
+  .card.type-interview-telephone { 
+    border-left-color: #0c4a6e; 
+  }
+  .card.type-investigative-lead { 
+    border-left-color: #854d0e; 
+  }
+  .card.type-document { 
+    border-left-color: #166534; 
+  }
+  .card.type-recovery { 
+    border-left-color: #991b1b; 
+  }
+  .card.type-tbi-assist { 
+    border-left-color: #6b21a8; 
+  }
+  .card.type-ia-interview { 
+    border-left-color: #9a3412; 
+  }
+  .card.type-crime-scene { 
+    border-left-color: #7c2d12; 
+  }
+  .card.type-other { 
+    border-left-color: #94a3b8; 
+  }
+  .no-results {
+    text-align: center; 
+    padding: 60px 20px; 
+    color: #94a3b8; 
+    font-size: 1rem;
+  }
   /* ── Breakpoint: mobile ── */
   @media (max-width: 640px) {
-    header h1 { font-size: 1rem; }
-    header p  { font-size: .72rem; }
-
-    .controls { padding: 10px 12px; gap: 6px; }
-    .controls select { flex: 1 1 calc(50% - 6px); font-size: .8rem; }
-
-    .legend { display: none; }   /* badges appear on each card instead */
-
-    .table-wrap  { display: none; }
-    .card-list   { display: block; }
+    header h1 { 
+      font-size: 1rem; 
+    }
+    header p  { 
+      font-size: .72rem; 
+    }
+    .controls { 
+      padding: 10px 12px; 
+      gap: 6px; 
+    }
+    .controls select { 
+      flex: 1 1 calc(50% - 6px); 
+      font-size: .8rem; 
+    }
+    .legend { 
+      display: none; 
+    }   /* badges appear on each card instead */
+    .table-wrap { 
+      display: none; 
+    }
+    .card-list { 
+      display: block; 
+    }
   }
-
   @media (min-width: 641px) {
-    header { padding: 20px 28px 16px; }
-    .stats-bar { padding: 10px 28px; gap: 12px; }
-    .controls { padding: 14px 28px; }
-    .controls input[type=text] { flex: 1 1 auto; }
-    .filter-row { flex: 0 0 auto; flex-wrap: nowrap; }
-    .controls select { flex: 0 0 auto; min-width: 0; }
-    .result-count { padding: 6px 28px; }
-    .legend { padding: 10px 28px; }
-    .table-wrap { padding: 0 28px 40px; }
+    header { 
+      padding: 20px 28px 16px; 
+    }
+    .stats-bar { 
+      padding: 10px 28px; 
+      gap: 12px; 
+    }
+    .controls { 
+      padding: 14px 28px; 
+    }
+    .controls input[type=text] { 
+      flex: 1 1 auto; 
+    }
+    .filter-row { 
+      flex: 0 0 auto; 
+      flex-wrap: nowrap; 
+    }
+    .controls select { 
+      flex: 0 0 auto; 
+      min-width: 0; 
+    }
+    .result-count { 
+      padding: 6px 28px; 
+    }
+    .legend { 
+      padding: 10px 28px; 
+    }
+    .table-wrap { 
+      padding: 0 28px 40px; 
+    }
   }
 </style>
 </head>
