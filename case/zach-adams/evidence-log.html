@@ -7,54 +7,56 @@
 <title>Holly Bobo – Evidence Log</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
 
 /* ── FOIA.io palette — dark default, [data-theme="light"] override ── */
 :root {
-  --bg:            #1a1a1a;
-  --bg2:           #242424;
-  --bg3:           #2e2e2e;
-  --border:        rgba(197,185,154,0.16);
-  --accent:        #b85c3f;
-  --accent-subtle: rgba(184,92,63,0.12);
-  --accent-dim:    rgba(184,92,63,0.40);
-  --text:          #F0EAE0;
-  --text-dim:      #8a8078;
-  --red:           #c4654a;
-  --green:         #8a9e7a;
-  --amber:         #c49a45;
-  --card-alt:      rgba(197,185,154,0.07);
-  --border-lo:     rgba(197,185,154,0.10);
-  --hdr:           #111;
-  --hdr-sub:       #0a0a0a;
-  --hdr-txt:       #F0EAE0;
-  --thead:         #141414;
-  --thd-hov:       #1c1c1c;
-  --green-bg:      rgba(138,158,122,0.12);
-  --red-bg:        rgba(196,101,74,0.12);
-  --amber-bg:      rgba(196,154,69,0.12);
+  --bg:            #0d1117;
+  --bg2:           #161b22;
+  --bg3:           #21262d;
+  --border:        #30363d;
+  --accent:        #2f81f7;
+  --accent-subtle: rgba(47,129,247,0.10);
+  --accent-dim:    rgba(47,129,247,0.40);
+  --text:          #e6edf3;
+  --text-dim:      #7d8590;
+  --red:           #f85149;
+  --green:         #3fb950;
+  --amber:         #d29922;
+  --card-alt:      rgba(230,237,243,0.04);
+  --border-lo:     rgba(48,54,61,0.7);
+  --hdr:           #010409;
+  --hdr-sub:       #0d1117;
+  --hdr-txt:       #e6edf3;
+  --thead:         #161b22;
+  --thd-hov:       #21262d;
+  --green-bg:      rgba(63,185,80,0.12);
+  --red-bg:        rgba(248,81,73,0.12);
+  --amber-bg:      rgba(210,153,34,0.12);
 }
 [data-theme="light"] {
-  --bg:            #F7F5F2;
-  --bg2:           #FFFFFF;
-  --bg3:           #F0EBE2;
-  --border:        rgba(139,100,60,0.20);
-  --accent:        #8B4513;
-  --accent-subtle: rgba(139,69,19,0.08);
-  --accent-dim:    rgba(139,69,19,0.40);
-  --text:          #1C1917;
-  --text-dim:      #78716C;
-  --red:           #b03a28;
-  --green:         #4a7a38;
-  --amber:         #9a6e18;
-  --card-alt:      rgba(197,185,154,0.18);
-  --border-lo:     rgba(197,185,154,0.35);
-  --hdr:           #1C1917;
-  --hdr-sub:       #120e0b;
-  --thead:         #2a2420;
-  --thd-hov:       #3a3028;
-  --green-bg:      rgba(74,122,56,0.10);
-  --red-bg:        rgba(176,58,40,0.10);
-  --amber-bg:      rgba(154,110,24,0.10);
+  --bg:            #ffffff;
+  --bg2:           #f6f8fa;
+  --bg3:           #eaeef2;
+  --border:        #d0d7de;
+  --accent:        #0969da;
+  --accent-subtle: rgba(9,105,218,0.08);
+  --accent-dim:    rgba(9,105,218,0.35);
+  --text:          #1f2328;
+  --text-dim:      #57606a;
+  --red:           #cf222e;
+  --green:         #1a7f37;
+  --amber:         #9a6700;
+  --card-alt:      rgba(31,35,40,0.04);
+  --border-lo:     rgba(208,215,222,0.6);
+  --hdr:           #24292f;
+  --hdr-sub:       #1c2128;
+  --hdr-txt:       #f0f6fc;
+  --thead:         #f6f8fa;
+  --thd-hov:       #eaeef2;
+  --green-bg:      rgba(26,127,55,0.10);
+  --red-bg:        rgba(207,34,46,0.10);
+  --amber-bg:      rgba(154,103,0,0.10);
 }
 
 body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
@@ -64,9 +66,8 @@ header h1 { font-size: clamp(1rem, 3vw + .5rem, 1.25rem); font-weight: 700; }
 header p  { font-size: clamp(.72rem, 1.5vw + .4rem, .78rem); opacity: .7; margin-top: 3px; }
 
 .stats-bar {
-  display: flex; gap: 8px; flex-wrap: nowrap;
+  display: flex; gap: 8px; flex-wrap: wrap;
   background: var(--hdr-sub); padding: 8px 20px;
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
 }
 .stats-bar::-webkit-scrollbar { display: none; }
 .stat {
@@ -256,7 +257,7 @@ td {
 <body>
 
 <header>
-  <h1>Holly Bobo Case — Evidence Log</h1>
+  <h1>Evidence Log</h1>
   <p>Case JA-90A-000005 · TBI / FBI · April 13, 2011 onwards</p>
 </header>
 

@@ -28,6 +28,12 @@ const CASE_PAGES = [
 (function injectNavStyles() {
   const style = document.createElement("style");
   style.textContent = `
+    #case-nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     .case-nav-btn {
       padding: 6px 12px;
       background: var(--accent-subtle);
