@@ -351,7 +351,7 @@ header p  {
   </select>
   <button class="btn btn-clear" onclick="clearFilters()">✕ Clear</button>
   <button class="btn btn-export" onclick="exportNotes()">⬇ Export Notes</button>
-  <a href="volume-index.html" style="padding:7px 14px;background:#dbeafe;color:#1e40af;border-radius:7px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;">📋 Vol. 1 Tracker</a>
+  <a href="volume-index.html" style="padding:7px 14px;background:#dbeafe;color:#1e40af;border-radius:7px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h6"/></svg> Vol. 1 Tracker</a>
   <span class="save-indicator" id="saveIndicator">✓ Saved</span>
 </div>
 <div class="count-bar" id="countBar"></div>
@@ -367,7 +367,7 @@ const PERSONS = [
   ["bobo-karen",        "Bobo, Karen",              "Family",       "",           "Mother of victim",                                    "",            "",     "IR#84 lead sheet TN0676 (4/26); Notes & Recollections doc 4/25", "", "Named Tucsnak to FBI 4/26; said Holly always feared him since childhood; had dream 'Joey had Holly'"],
   ["bobo-dana",         "Bobo, Dana",               "Family",       "",           "Family member (father?)",                             "",            "",     "Document – Notes & Recollections 4/25",                      "",  "Co-authored notes/recollections with Karen Bobo"],
   ["bobo-natalie",      "Bobo, Natalie Lynn",       "Family",       "",           "Family member (mother or relative)",                  "",            "",     "Oral interview 4/13 (Viveros/Booth); oral 4/14 (Viveros); oral 5/2 (DCSO Inman)", "", "Interviewed three times across six weeks; possible mother"],
-  ["barnes-james",      "Barnes, James",            "POI",          "09/14/1983", "Neighbor; claimed to hear scream from Bobo residence","",            "FAIL", "IR#1 (JA-100-000291) polygraph 4/21; oral interview 4/13 (x2, Viveros); written stmt 4/21; written interview 5/23 (SA Lies)", "", "⚠ FAILED polygraph — examiner concluded deceptive on 'did you take that girl.' Most-interviewed non-family subject in Vol. 1."],
+  ["barnes-james",      "Barnes, James",            "POI",          "09/14/1983", "Neighbor; claimed to hear scream from Bobo residence","",            "FAIL", "IR#1 (JA-100-000291) polygraph 4/21; oral interview 4/13 (x2, Viveros); written stmt 4/21; written interview 5/23 (SA Lies)", "", "<svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/><line x1='12' y1='9' x2='12' y2='13'/><line x1='12' y1='17' x2='12.01' y2='17'/></svg> FAILED polygraph — examiner concluded deceptive on 'did you take that girl.' Most-interviewed non-family subject in Vol. 1."],
   ["barnett-blake",     "Barnett, Blake Aaron",     "POI",          "",           "Subject; search warrant waiver signed",               "",            "",     "Oral interview 4/18 @ 1PM; Search Warrant Waiver 4/18; Statement/SW Waiver/Time Card 4/18; Written interview 5/23 (SA Lies)", "", "Multiple search warrant documents; time card obtained from employer"],
   ["dodd-jonathan",     "Dodd, Jonathan",           "POI",          "",           "Named by Tucsnak as capable of committing abduction", "",            "",     "FBI Polygraph Consent & Waiver doc 4/19",                    "",  "Tucsnak called him his 'nominee'; described as in 'trouble for years' without accountability. Polygraph waiver exists — unclear if exam was conducted."],
   ["nickell-jason",     "Nickell, Jason E.",        "POI",          "04/01/1972", "Registered sex offender; lived in proximity to Holly","",            "PASS", "IR#1 (JA-100-000289) polygraph 4/16",                        "",  "Polygraphed 2:35–2:50 AM on 4/16 — unusual hour. Passed."],
@@ -531,7 +531,7 @@ function render() {
     const polyBadge = polygraph === 'PASS'
       ? `<span class="badge badge-pass">PASS</span>`
       : polygraph === 'FAIL'
-      ? `<span class="badge badge-fail">⚠ FAIL</span>`
+      ? `<span class="badge badge-fail"><svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/><line x1='12' y1='9' x2='12' y2='13'/><line x1='12' y1='17' x2='12.01' y2='17'/></svg> FAIL</span>`
       : '';
 
     return `
@@ -574,7 +574,7 @@ function render() {
     </div>
     <div style="margin-top:10px;">
       <a class="btn-tracker" href="volume-index.html?search=${encodeURIComponent(lastName(name))}" target="_blank">
-        📋 View entries in Vol. 1 Tracker →
+        <svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><rect x='9' y='2' width='6' height='4' rx='1'/><path d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/><path d='M9 12h6'/><path d='M9 16h6'/></svg> View entries in Vol. 1 Tracker →
       </a>
     </div>
   </div>

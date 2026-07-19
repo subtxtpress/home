@@ -454,8 +454,8 @@
       <option value="">All Dates</option>
     </select>
     <button class="btn-clear" onclick="clearFilters()">✕ Clear</button>
-    <a href="name-Index.html" style="padding:8px 14px;background:#f3e8ff;color:#6b21a8;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;">👤 Name Index</a>
-    <a href="interview-list.html" style="padding:8px 14px;background:#dcfce7;color:#166534;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;">🗣 Interview List</a>
+    <a href="name-Index.html" style="padding:8px 14px;background:#f3e8ff;color:#6b21a8;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Name Index</a>
+    <a href="interview-list.html" style="padding:8px 14px;background:#dcfce7;color:#166534;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg> Interview List</a>
   </div>
 </div>
 <div class="result-count" id="resultCount"></div>
@@ -570,7 +570,7 @@ const DATA = [
   ["Investigative Lead","Delta Contracting Company Video Surveillance","","","04/26/2011",""],
   ["Investigative Lead","Contact with Helen Riggs, TN Tech Center","","","04/26/2011",""],
   ["Interview – Oral","Jessica Ann Deere","FBI","SA Champine","04/26/2011",""],
-  ["Interview – Oral","Joseph Frank Tucsnak","FBI","","04/27/2011",""],
+  ["Interview – Oral","Joseph Frank Tucsnak","FBI","","04/27/2011","<a href=\"https://drive.google.com/file/d/1JzOq8naWtiHMfEu0N98gWhNV2ooW3Iy5/view?usp=drive_link\" target=\"_blank\" style=\"color:#2563eb;font-size:.78rem;\"><svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><line x1='16' y1='13' x2='8' y2='13'/><line x1='16' y1='17' x2='8' y2='17'/></svg> FBI 302</a>"],
   ["Interview – Oral","Kristy Love","FBI","","04/27/2011",""],
   ["Interview – Oral","Kim Rose Snyder","","","04/27/2011",""],
   ["Interview – Oral","Courtney West","US Marshals","","04/27/2011",""],
@@ -580,7 +580,8 @@ const DATA = [
   ["TBI Assist","Interview – William Robert Myers","IA","ASAC Skip Elrod","05/03/2011",""],
   ["TBI Assist","William R. Myers","TBI","","05/04/2011",""],
   ["Interview – Oral","Sammy Hays","","","05/05/2011",""],
-  ["Interview – Written","Blake Barnett","FBI","SA Lies","05/23/2011",""]
+  ["Interview – Written","Blake Barnett","FBI","SA Lies","05/23/2011",""],
+  ["Interview – Written","Jason Kilzer","AKI","","07/20/2017","<a href=\"https://drive.google.com/file/d/1Dj7i5eqrOP1KaoWA68de-UDuB4qWORCd/view?usp=drive_link\" target=\"_blank\" style=\"color:#2563eb;font-size:.78rem;\"><svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><line x1='16' y1='13' x2='8' y2='13'/><line x1='16' y1='17' x2='8' y2='17'/></svg> Interview Memo</a>"]
 ];
 
 // Sort by date then subject (already done above, matches Python output)
@@ -817,7 +818,7 @@ function personLink(subject) {
   const id = NAME_TO_ID[key];
   if (!id) return '';
   return `<a href="name-Index.html?person=${id}" target="_blank"
-    title="Open in Name Index" style="color:#7c3aed;text-decoration:none;font-size:.85rem;margin-left:6px;">👤</a>`;
+    title="Open in Name Index" style="color:#7c3aed;text-decoration:none;margin-left:6px;"><svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg></a>`;
 }
 
 // Auto-apply ?search= param from inbound Name Index links, else render fresh

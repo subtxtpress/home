@@ -181,8 +181,8 @@ td {
     <option value="linked">In Name Index</option>
   </select>
   <button class="btn btn-clear" onclick="clearFilters()">✕ Clear</button>
-  <a href="name-Index.html" class="btn btn-nav">👤 Name Index</a>
-  <a href="volume-index.html" class="btn btn-nav2">📋 Vol. 1 Tracker</a>
+  <a href="name-Index.html" class="btn btn-nav"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Name Index</a>
+  <a href="volume-index.html" class="btn btn-nav2"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h6"/></svg> Vol. 1 Tracker</a>
 </div>
 <div class="count-bar" id="countBar"></div>
 
@@ -204,7 +204,7 @@ td {
 </div>
 
 <div class="need-section" id="needSection">
-  <h2>⚠ Still Needed / Not Yet Interviewed</h2>
+  <h2><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Still Needed / Not Yet Interviewed</h2>
   <div id="needList"></div>
 </div>
 
@@ -784,7 +784,7 @@ function renderTable() {
     const [num, name, irn, agents, notes, sr, id] = r;
     const irBadge  = irn  ? irn.split(',').map(n=>`<span class="ir-badge">IR ${n.trim()}</span>`).join(' ') : '';
     const srBadge  = sr   ? '<span class="sr-badge">Cleared</span>' : '';
-    const profLink = id   ? `<a class="profile-link" href="name-Index.html?person=${id}" target="_blank">👤</a>` : '';
+    const profLink = id   ? `<a class="profile-link" href="name-Index.html?person=${id}" target="_blank"><svg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg></a>` : '';
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td style="color:#94a3b8;font-size:.78rem;text-align:right;padding-right:8px;">${num}</td>
