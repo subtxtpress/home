@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holly Bobo – Name Index</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: #f0f4ff; color: #1a1a2e; font-size: 14px; }
+
+header {
+  background: linear-gradient(135deg, #1F3864, #2d5a9e);
+  color: white; padding: 16px 24px 12px;
+}
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header p  { font-size: .78rem; opacity: .7; margin-top: 3px; }
+
+.toolbar {
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  padding: 10px 20px; background: white;
+  border-bottom: 2px solid #e2e8f0;
+  position: sticky; top: 0; z-index: 200;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.toolbar input[type=text] {
+  flex: 1; min-width: 180px; padding: 7px 12px;
+  border: 1.5px solid #c7d2fe; border-radius: 7px; font-size: .85rem; outline: none;
+}
+.toolbar input:focus { border-color: #4f46e5; }
+.toolbar select {
+  padding: 7px 10px; border: 1.5px solid #c7d2fe;
+  border-radius: 7px; font-size: .82rem; background: white; outline: none; cursor: pointer;
+}
+.toolbar select:focus { border-color: #4f46e5; }
+.btn {
+  padding: 7px 14px; border: none; border-radius: 7px;
+  font-size: .82rem; cursor: pointer; font-weight: 600; transition: .15s;
+}
+.btn-clear  { background: #e0e7ff; color: #3730a3; }
+.btn-clear:hover  { background: #c7d2fe; }
+.btn-export { background: #1F3864; color: white; }
+.btn-export:hover { background: #2d4f8a; }
+.btn-tracker {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 11px; background: #ede9fe; color: #5b21b6;
+  border: none; border-radius: 6px; font-size: .75rem;
+  font-weight: 600; cursor: pointer; text-decoration: none;
+  transition: background .15s;
+}
+.btn-tracker:hover { background: #ddd6fe; }
+.save-indicator {
+  font-size: .75rem; color: #10b981; font-weight: 600;
+  opacity: 0; transition: opacity .3s;
+}
+.save-indicator.show { opacity: 1; }
+
+.count-bar {
+  padding: 4px 20px; font-size: .75rem; color: #64748b;
+  background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+}
+
+/* ── Person cards ── */
+.list { padding: 16px 20px 60px; display: flex; flex-direction: column; gap: 12px; }
+
+.person-card {
+  background: white; border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  border-left: 5px solid #94a3b8;
+  overflow: hidden;
+}
+.person-card.cat-victim       { border-left-color: #dc2626; }
+.person-card.cat-family       { border-left-color: #2563eb; }
+.person-card.cat-poi          { border-left-color: #d97706; }
+.person-card.cat-witness      { border-left-color: #16a34a; }
+.person-card.cat-investigator { border-left-color: #7c3aed; }
+.person-card.cat-other        { border-left-color: #94a3b8; }
+
+.card-top {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px 10px; cursor: pointer; user-select: none;
+}
+.card-top:hover { background: #f8fafc; }
+.card-name { font-weight: 700; font-size: .95rem; flex: 1; }
+.card-dob  { font-size: .75rem; color: #94a3b8; white-space: nowrap; }
+.card-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; align-items: center; }
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 10px;
+  font-size: .7rem; font-weight: 700; white-space: nowrap;
+}
+.badge-victim       { background:#fee2e2; color:#991b1b; }
+.badge-family       { background:#dbeafe; color:#1e40af; }
+.badge-poi          { background:#fef9c3; color:#854d0e; }
+.badge-witness      { background:#f0fdf4; color:#166534; }
+.badge-investigator { background:#f3e8ff; color:#6b21a8; }
+.badge-other        { background:#f1f5f9; color:#475569; }
+.badge-pass { background:#d1fae5; color:#065f46; }
+.badge-fail { background:#fee2e2; color:#991b1b; font-size:.7rem; }
+.role-text  { font-size: .78rem; color: #64748b; }
+.agency-text { font-size: .75rem; font-weight: 600; color: #374151; }
+
+.chevron { font-size: .8rem; color: #94a3b8; transition: transform .2s; flex-shrink: 0; margin-top: 2px; }
+.expanded .chevron { transform: rotate(180deg); }
+
+/* Editable fields panel */
+.card-fields {
+  display: none; padding: 0 16px 14px;
+  border-top: 1px solid #f1f5f9;
+}
+.card-fields.open { display: block; }
+
+.field-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .field-grid { grid-template-columns: 1fr; }
+}
+.field-full { grid-column: 1 / -1; }
+
+.field label {
+  display: block; font-size: .72rem; font-weight: 700;
+  color: #475569; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .04em;
+}
+.field .readonly-val {
+  font-size: .82rem; color: #374151; padding: 4px 0;
+}
+.field textarea, .field input[type=text] {
+  width: 100%; padding: 7px 10px;
+  border: 1.5px solid #e2e8f0; border-radius: 6px;
+  font-size: .82rem; font-family: Arial, sans-serif;
+  resize: vertical; outline: none; background: #fafbff;
+  transition: border-color .15s;
+}
+.field textarea:focus, .field input[type=text]:focus {
+  border-color: #6366f1; background: white;
+}
+.field textarea { min-height: 64px; }
+
+.field .hint { font-size: .7rem; color: #94a3b8; margin-top: 2px; }
+
+.no-results {
+  text-align: center; padding: 60px 20px; color: #94a3b8; font-size: 1rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Holly Bobo Case — Master Name Index</h1>
+  <p>Case JA-100-000291 / JA-90A-000005 · Click any person to add reports, evidence, and notes · Data saves automatically in your browser</p>
+</header>
+
+<div class="toolbar">
+  <input type="text" id="searchBox" placeholder="🔍  Search name, role, agency, notes…" oninput="applyFilters()">
+  <select id="filterCat" onchange="applyFilters()">
+    <option value="">All Categories</option>
+    <option value="Victim">Victim</option>
+    <option value="Family">Family</option>
+    <option value="POI">Person of Interest</option>
+    <option value="Witness">Witness</option>
+    <option value="Investigator">Investigator</option>
+    <option value="Other">Other</option>
+  </select>
+  <select id="filterPoly" onchange="applyFilters()">
+    <option value="">All Polygraph</option>
+    <option value="PASS">Passed</option>
+    <option value="FAIL">Failed</option>
+    <option value="NONE">Not polygraphed</option>
+  </select>
+  <button class="btn btn-clear" onclick="clearFilters()">✕ Clear</button>
+  <button class="btn btn-export" onclick="exportNotes()">⬇ Export Notes</button>
+  <span class="save-indicator" id="saveIndicator">✓ Saved</span>
+</div>
+<div class="count-bar" id="countBar"></div>
+
+<div class="list" id="personList"></div>
+<div class="no-results" id="noResults" style="display:none">No people match your filters.</div>
+
+<script>
+const PERSONS = [
+  // [id, name, category, dob, role, agency, polygraph, defaultReports, defaultEvidence, defaultNotes]
+  ["bobo-holly",        "Bobo, Holly Lynn",        "Victim",       "10/12/1990", "Missing person",                                      "",            "",     "TOC passim; IR#85 cover",                                    "",  ""],
+  ["bobo-clint",        "Bobo, Clint Hunter",       "Family",       "08/29/1985", "Brother; last known to see Holly",                    "",            "PASS", "IR#1 (JA-100-000290); written stmt 4/13; TBI Assist hypnosis 4/22; TBI Assist recollection 4/19; Inv. Leads DCSO 4/22", "", "Polygraphed same night Holly disappeared (8:38–8:54 PM 4/13). Passed."],
+  ["bobo-karen",        "Bobo, Karen",              "Family",       "",           "Mother of victim",                                    "",            "",     "IR#84 lead sheet TN0676 (4/26); Notes & Recollections doc 4/25", "", "Named Tucsnak to FBI 4/26; said Holly always feared him since childhood; had dream 'Joey had Holly'"],
+  ["bobo-dana",         "Bobo, Dana",               "Family",       "",           "Family member (father?)",                             "",            "",     "Document – Notes & Recollections 4/25",                      "",  "Co-authored notes/recollections with Karen Bobo"],
+  ["bobo-natalie",      "Bobo, Natalie Lynn",       "Family",       "",           "Family member (mother or relative)",                  "",            "",     "Oral interview 4/13 (Viveros/Booth); oral 4/14 (Viveros); oral 5/2 (DCSO Inman)", "", "Interviewed three times across six weeks; possible mother"],
+  ["barnes-james",      "Barnes, James",            "POI",          "09/14/1983", "Neighbor; claimed to hear scream from Bobo residence","",            "FAIL", "IR#1 (JA-100-000291) polygraph 4/21; oral interview 4/13 (x2, Viveros); written stmt 4/21; written interview 5/23 (SA Lies)", "", "⚠ FAILED polygraph — examiner concluded deceptive on 'did you take that girl.' Most-interviewed non-family subject in Vol. 1."],
+  ["barnett-blake",     "Barnett, Blake Aaron",     "POI",          "",           "Subject; search warrant waiver signed",               "",            "",     "Oral interview 4/18 @ 1PM; Search Warrant Waiver 4/18; Statement/SW Waiver/Time Card 4/18; Written interview 5/23 (SA Lies)", "", "Multiple search warrant documents; time card obtained from employer"],
+  ["dodd-jonathan",     "Dodd, Jonathan",           "POI",          "",           "Named by Tucsnak as capable of committing abduction", "",            "",     "FBI Polygraph Consent & Waiver doc 4/19",                    "",  "Tucsnak called him his 'nominee'; described as in 'trouble for years' without accountability. Polygraph waiver exists — unclear if exam was conducted."],
+  ["nickell-jason",     "Nickell, Jason E.",        "POI",          "04/01/1972", "Registered sex offender; lived in proximity to Holly","",            "PASS", "IR#1 (JA-100-000289) polygraph 4/16",                        "",  "Polygraphed 2:35–2:50 AM on 4/16 — unusual hour. Passed."],
+  ["ragusa-joseph",     "Ragusa, Joseph",           "POI",          "",           "Squatter; campsite found Henderson County",           "",            "",     "Oral interview 4/18; Recovery of Evidence – Ragusa campsite 4/18", "", "Campsite in Henderson County investigated as potential evidence location"],
+  ["tucsnak-joseph",    "Tucsnak, Joseph Frank",    "POI",          "10/05/1952", "Cashier, North Forty Truck Stop; named by Karen Bobo","",           "",     "IR#85 oral interview 4/27 (McMurtrie/Dale); IR#84 lead from Karen Bobo 4/26", "", "Holly reportedly always feared him since childhood. Tucsnak was at the truck stop Wed 4/13. In turn named Jonathan Dodd as his 'nominee.'"],
+  ["bates-kassie",      "Bates, Kassie",            "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/13 (FBI)",                                  "",  ""],
+  ["baugus-lee",        "Baugus, Lee",              "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/13 (Viveros/Cardone)",                      "",  ""],
+  ["barker-william",    "Barker, William Howard",   "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/23",                                        "",  ""],
+  ["becker-george",     "Becker, George",           "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 5/1",                                         "",  ""],
+  ["blankenship-trent", "Blankenship, Trent",       "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/18",                                        "",  ""],
+  ["bledsoe-michelle",  "Bledsoe, Michelle Renee",  "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/25 (Champine)",                             "",  ""],
+  ["bruce-jc",          "Bruce, J.C.",              "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/16",                                        "",  ""],
+  ["buffington-tiffany","Buffington, Tiffany",      "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/17",                                        "",  ""],
+  ["burton-steven",     "Burton, Steven Michael",   "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/23 (Champine)",                             "",  ""],
+  ["clark-keith",       "Clark, Keith",             "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/13 (Viveros)",                              "",  ""],
+  ["darcy-ron",         "Darcy, Ron",               "Witness",      "",           "Witness",                                             "",            "",     "Telephone interview 4/16",                                   "",  ""],
+  ["deere-jessica",     "Deere, Jessica Ann",       "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/26 (Champine)",                             "",  ""],
+  ["derrington-donald", "Derrington, Donald",       "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/16",                                        "",  ""],
+  ["evans-lucille",     "Evans, Lucille Francis",   "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/25 (Champine)",                             "",  ""],
+  ["graves-john",       "Graves, John",             "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/14",                                        "",  ""],
+  ["haggard-tommy",     "Haggard, Tommy",           "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/25",                                        "",  ""],
+  ["hall-erin",         "Hall, Erin Katherine",     "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/25 (Champine)",                             "",  ""],
+  ["harvey-tyler",      "Harvey, Tyler",            "Witness",      "",           "Witness",                                             "DCSO",        "",     "Oral interview 4/25 (Inman)",                                "",  ""],
+  ["hays-sammy",        "Hays, Sammy",              "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 5/5",                                         "",  ""],
+  ["houston-ashley",    "Houston, Ashley",          "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/24 (Viveros)",                              "",  ""],
+  ["jordan-gail",       "Jordan, Gail",             "Witness",      "",           "Witness",                                             "FBI",         "",     "Telephone interview 4/18",                                   "",  ""],
+  ["lee-brian",         "Lee, Brian",               "Witness",      "",           "Witness",                                             "THP",         "",     "Oral interview 4/21",                                        "",  ""],
+  ["love-kristy",       "Love, Kristy",             "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/27",                                        "",  ""],
+  ["myers-william",     "Myers, William R.",        "Witness",      "",           "Witness; IA Investigative Assist",                    "IA/TBI",      "",     "IA oral interview 5/3 (ASAC Elrod); TBI Assist 5/4",         "",  ""],
+  ["overbey-tiffant",   "Overbey, Tiffant",        "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/18",                                        "",  ""],
+  ["patterson-haylea",  "Patterson, Haylea D.",     "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/25 (Champine)",                             "",  ""],
+  ["reece-hannah",      "Reece, Hannah Paige",      "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/25 (Champine)",                             "",  ""],
+  ["reeves-kristina",   "Reeves, Kristina",         "Witness",      "",           "Witness",                                             "IA",          "",     "IA oral interview 4/25 (Savley)",                            "",  ""],
+  ["sadler-gretchen",   "Sadler, Gretchen",         "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/23",                                        "",  ""],
+  ["scott-drew",        "Scott, Drew",              "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/13 (Viveros/Cardone)",                      "",  ""],
+  ["simpson-samantha",  "Simpson, Samantha",        "Witness",      "",           "Witness",                                             "IA",          "",     "IA oral interview 4/25 (Savley)",                            "",  ""],
+  ["snyder-kim",        "Snyder, Kim Rose",         "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/27",                                        "",  ""],
+  ["stewart-corey",     "Stewart, Corey",           "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/17",                                        "",  ""],
+  ["tharp-rodney",      "Tharp, Rodney",            "Witness",      "",           "Witness",                                             "",            "",     "Oral interview 4/24",                                        "",  ""],
+  ["tucker-jacey",      "Tucker, Jacey Adara",      "Witness",      "",           "Witness",                                             "IA",          "",     "IA oral interview 4/25 (Savley)",                            "",  ""],
+  ["west-courtney",     "West, Courtney",           "Witness",      "",           "Witness",                                             "US Marshals", "",     "Oral interview 4/27",                                        "",  ""],
+  ["white-keith",       "White, Richard 'Keith'",   "Witness",      "",           "Witness",                                             "FBI",         "",     "Oral interview 4/24 (Champine)",                             "",  ""],
+  ["wise-catherine",    "Wise, Catherine M.",       "Witness",      "",           "Witness (and/or Wise Jr.)",                           "",            "",     "Oral interview 4/21; oral interview 4/13 (TBI Carpenter)",   "",  "Two entries — may be same person or mother/daughter"],
+  ["wise-kathy",        "Wise, Kathy",              "Witness",      "",           "Witness",                                             "DCSO",        "",     "Oral interview 4/13 (Inman)",                                "",  ""],
+  ["wood-timmy",        "Wood, Timmy",              "Witness",      "",           "Witness",                                             "TBI",         "",     "Oral interview 4/13",                                        "",  ""],
+  ["yarbro-kimberly",   "Yarbro, Kimberly W.",      "Witness",      "",           "Witness",                                             "IA",          "",     "IA oral interview 4/25 (Savley)",                            "",  ""],
+  ["carpenter-chris",   "Carpenter, Chris T.",      "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "Recovery of Evidence 4/13 (cell phone, knife ID, video surveillance)", "", ""],
+  ["champine-steven",   "Champine, Steven",         "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "Conducted ~8 witness interviews 4/23–4/26",                  "",  ""],
+  ["cardone-jason",     "Cardone, Jason",           "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "Oral interviews 4/13",                                       "",  ""],
+  ["dale-jeffrey",      "Dale, Jeffrey C.",         "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "IR#85 Tucsnak interview 4/27",                               "",  ""],
+  ["dicus-terry",       "Dicus, Terry L.",          "Investigator", "",           "TBI Special Agent; Case Agent",                       "TBI",         "",     "Case agent; requested polygraphs of Barnes, Bobo, Nickell",  "",  ""],
+  ["elrod-skip",        "Elrod, Skip",              "Investigator", "",           "ASAC (IA)",                                           "IA",          "",     "IA assist interview Myers 5/3",                              "",  ""],
+  ["inman-ricky",       "Inman, Ricky",             "Investigator", "",           "DCSO Investigator",                                   "DCSO",        "",     "Interviews: Kathy Wise, Natalie Bobo (x2), Tyler Harvey; leads 4/13–5/2", "", ""],
+  ["lies-sa",           "Lies, [SA]",               "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "Written interview Blake Barnett 5/23; written interview James Barnes 5/23", "", ""],
+  ["mcmurtrie-john",    "McMurtrie, John S.",       "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "IR#85 Tucsnak interview 4/27; Karen Bobo lead 4/26",         "",  ""],
+  ["mehr-john",         "Mehr, John Robert",        "Investigator", "",           "TBI SAC/ASAC",                                        "TBI",         "",     "Supervising agent on polygraph reports",                      "",  ""],
+  ["savley-joshua",     "Savley, Joshua",           "Investigator", "",           "IA Special Agent",                                    "IA",          "",     "4 IA interviews 4/25 (Simpson, Yarbro, Reeves, Tucker)",     "",  ""],
+  ["troutt-valerie",    "Troutt, Valerie",          "Investigator", "",           "TBI Forensic Polygraph Examiner (License #72)",        "TBI",         "",     "Conducted polygraphs: Barnes (FAIL), Clint Bobo (PASS), Nickell (PASS)", "", ""],
+  ["viveros-arthur",    "Viveros, Arthur G.",       "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "Numerous interviews 4/13–4/24",                              "",  ""],
+  ["weber-tony",        "Weber, Tony",              "Investigator", "",           "DCSO Sergeant",                                       "DCSO",        "",     "Written interview Clint Bobo 4/13",                          "",  ""],
+  ["riggs-helen",       "Riggs, Helen",             "Other",        "",           "TN Tech Center contact",                              "",            "",     "Investigative Lead 4/26",                                    "",  ""],
+];
+
+const CAT_BADGE = {
+  "Victim": "badge-victim", "Family": "badge-family", "POI": "badge-poi",
+  "Witness": "badge-witness", "Investigator": "badge-investigator", "Other": "badge-other"
+};
+const CAT_CLASS = {
+  "Victim": "cat-victim", "Family": "cat-family", "POI": "cat-poi",
+  "Witness": "cat-witness", "Investigator": "cat-investigator", "Other": "cat-other"
+};
+const CAT_LABEL = { "POI": "Person of Interest" };
+
+let filtered = [...PERSONS];
+let expandedId = null;
+
+function getStored(id) {
+  try {
+    const raw = localStorage.getItem('hb_person_' + id);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+
+function setStored(id, key, val) {
+  try {
+    const data = getStored(id);
+    data[key] = val;
+    localStorage.setItem('hb_person_' + id, JSON.stringify(data));
+    flashSave();
+  } catch(e) {}
+}
+
+function flashSave() {
+  const el = document.getElementById('saveIndicator');
+  el.classList.add('show');
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.remove('show'), 1500);
+}
+
+function applyFilters() {
+  const q    = document.getElementById('searchBox').value.toLowerCase().trim();
+  const cat  = document.getElementById('filterCat').value;
+  const poly = document.getElementById('filterPoly').value;
+
+  filtered = PERSONS.filter(p => {
+    const [id, name, category, dob, role, agency, polygraph] = p;
+    const stored = getStored(id);
+    const searchable = [name, category, role, agency, polygraph,
+      stored.reports||p[7], stored.evidence||p[8], stored.notes||p[9]
+    ].join(' ').toLowerCase();
+
+    if (q && !searchable.includes(q)) return false;
+    if (cat && category !== cat) return false;
+    if (poly === 'PASS'  && polygraph !== 'PASS') return false;
+    if (poly === 'FAIL'  && polygraph !== 'FAIL') return false;
+    if (poly === 'NONE'  && polygraph !== '') return false;
+    return true;
+  });
+  render();
+}
+
+function clearFilters() {
+  document.getElementById('searchBox').value = '';
+  document.getElementById('filterCat').value = '';
+  document.getElementById('filterPoly').value = '';
+  filtered = [...PERSONS];
+  render();
+}
+
+function toggleCard(id) {
+  expandedId = expandedId === id ? null : id;
+  render();
+  if (expandedId) {
+    setTimeout(() => {
+      const el = document.getElementById('card-' + id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
+  }
+}
+
+function render() {
+  const list = document.getElementById('personList');
+  const noRes = document.getElementById('noResults');
+  document.getElementById('countBar').textContent = `Showing ${filtered.length} of ${PERSONS.length} people`;
+
+  if (!filtered.length) {
+    list.innerHTML = ''; noRes.style.display = 'block'; return;
+  }
+  noRes.style.display = 'none';
+
+  list.innerHTML = filtered.map(p => {
+    const [id, name, category, dob, role, agency, polygraph, defReports, defEvidence, defNotes] = p;
+    const stored    = getStored(id);
+    const reports   = stored.reports  !== undefined ? stored.reports  : defReports;
+    const evidence  = stored.evidence !== undefined ? stored.evidence : defEvidence;
+    const notes     = stored.notes    !== undefined ? stored.notes    : defNotes;
+    const role2     = stored.role     !== undefined ? stored.role     : role;
+    const isOpen    = expandedId === id;
+    const catLabel  = CAT_LABEL[category] || category;
+
+    const polyBadge = polygraph === 'PASS'
+      ? `<span class="badge badge-pass">PASS</span>`
+      : polygraph === 'FAIL'
+      ? `<span class="badge badge-fail">⚠ FAIL</span>`
+      : '';
+
+    return `
+<div class="person-card ${CAT_CLASS[category]} ${isOpen ? 'expanded' : ''}" id="card-${id}">
+  <div class="card-top" onclick="toggleCard('${id}')">
+    <div style="flex:1">
+      <div class="card-name">${name}${dob ? ` <span class="card-dob">(b. ${dob})</span>` : ''}</div>
+      <div class="card-meta">
+        <span class="badge ${CAT_BADGE[category]}">${catLabel}</span>
+        ${polyBadge}
+        ${agency ? `<span class="agency-text">${agency}</span>` : ''}
+        ${role2  ? `<span class="role-text">· ${role2}</span>` : ''}
+      </div>
+    </div>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="card-fields ${isOpen ? 'open' : ''}">
+    <div class="field-grid">
+      <div class="field field-full">
+        <label>Role / Relationship</label>
+        <input type="text" value="${escHtml(role2)}"
+          oninput="setStored('${id}','role',this.value)"
+          placeholder="Describe relationship to case…">
+      </div>
+      <div class="field field-full">
+        <label>Reports / IR#s Referenced</label>
+        <textarea oninput="setStored('${id}','reports',this.value)"
+          placeholder="e.g. IR#1, FD-302 4/27, lead sheet TN0676…">${escHtml(reports)}</textarea>
+      </div>
+      <div class="field">
+        <label>Evidence Linked</label>
+        <textarea oninput="setStored('${id}','evidence',this.value)"
+          placeholder="Physical evidence, recordings, documents…">${escHtml(evidence)}</textarea>
+      </div>
+      <div class="field">
+        <label>Notes / Analysis</label>
+        <textarea oninput="setStored('${id}','notes',this.value)"
+          placeholder="Your observations, questions, inconsistencies…">${escHtml(notes)}</textarea>
+      </div>
+    </div>
+    <div style="margin-top:10px;">
+      <a class="btn-tracker" href="volume-index.html?search=${encodeURIComponent(lastName(name))}" target="_blank">
+        📋 View entries in Vol. 1 Tracker →
+      </a>
+    </div>
+  </div>
+</div>`;
+  }).join('');
+}
+
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// "Bobo, Holly Lynn" → "Bobo"
+function lastName(name) {
+  return (name || '').split(',')[0].trim();
+}
+
+function exportNotes() {
+  const lines = ['Holly Bobo Case — Name Index Notes Export', `Exported: ${new Date().toLocaleString()}`, '='.repeat(60)];
+  PERSONS.forEach(p => {
+    const [id, name, category, dob, role, agency, polygraph, defR, defE, defN] = p;
+    const s = getStored(id);
+    const reports  = s.reports  !== undefined ? s.reports  : defR;
+    const evidence = s.evidence !== undefined ? s.evidence : defE;
+    const notes    = s.notes    !== undefined ? s.notes    : defN;
+    const roleOut  = s.role     !== undefined ? s.role     : role;
+    if (!reports && !evidence && !notes && !roleOut) return;
+    lines.push('', `## ${name} [${category}${polygraph ? ' · POLY: '+polygraph : ''}]`);
+    if (roleOut)   lines.push(`Role: ${roleOut}`);
+    if (reports)   lines.push(`Reports: ${reports}`);
+    if (evidence)  lines.push(`Evidence: ${evidence}`);
+    if (notes)     lines.push(`Notes: ${notes}`);
+  });
+  const blob = new Blob([lines.join('\n')], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'HollyBobo_NameIndex_Notes.txt';
+  a.click();
+}
+
+// Auto-expand a person card if ?person=id is in the URL
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const personId = params.get('person');
+  if (personId) {
+    expandedId = personId;
+  }
+})();
+
+render();
+
+// Scroll to expanded card after render (handles inbound links from Tracker)
+window.addEventListener('load', () => {
+  const params = new URLSearchParams(window.location.search);
+  const personId = params.get('person');
+  if (personId) {
+    setTimeout(() => {
+      const el = document.getElementById('card-' + personId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 120);
+  }
+});
+</script>
+</body>
+</html>
