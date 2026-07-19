@@ -186,9 +186,13 @@
     background:#ffedd5; 
     color:#7c2d12; 
   }
-  .badge-other { 
-    background:#f1f5f9; 
-    color:#475569; 
+  .badge-video {
+    background:#fce7f3;
+    color:#9d174d;
+  }
+  .badge-other {
+    background:#f1f5f9;
+    color:#475569;
   }
   .agency-fbi { 
     color:#1d4ed8; 
@@ -340,8 +344,11 @@
   .card.type-crime-scene { 
     border-left-color: #7c2d12; 
   }
-  .card.type-other { 
-    border-left-color: #94a3b8; 
+  .card.type-video {
+    border-left-color: #9d174d;
+  }
+  .card.type-other {
+    border-left-color: #94a3b8;
   }
   .no-results {
     text-align: center; 
@@ -438,6 +445,7 @@
       <option>TBI Assist</option>
       <option>IA Interview – Oral</option>
       <option>Crime Scene</option>
+      <option>Video</option>
       <option>Other</option>
     </select>
     <select id="filterAgency" onchange="applyFilters()">
@@ -456,6 +464,7 @@
     <button class="btn-clear" onclick="clearFilters()">✕ Clear</button>
     <a href="name-Index.html" style="padding:8px 14px;background:#f3e8ff;color:#6b21a8;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Name Index</a>
     <a href="interview-list.html" style="padding:8px 14px;background:#dcfce7;color:#166534;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg> Interview List</a>
+    <a href="evidence-log.html" style="padding:8px 14px;background:#fce7f3;color:#9d174d;border-radius:8px;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Evidence Log</a>
   </div>
 </div>
 <div class="result-count" id="resultCount"></div>
@@ -496,6 +505,8 @@
 
 <script>
 const DATA = [
+  ["Video","Holly Bobo – School Dance (VHS)","","","11/30/2008","<a href=\"https://drive.google.com/file/d/13Th4ly-JxAzbnksm5GMBTOALP2iKF9qK/view?usp=drive_link\" target=\"_blank\" style=\"color:#9d174d;font-size:.78rem;\"><svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-1px'><polygon points='23 7 16 12 23 17 23 7'/><rect x='1' y='5' width='15' height='14' rx='2' ry='2'/></svg> View Video</a>"],
+  ["Video","Holly Bobo – Phone / Car with Friends","","","02/26/2010","<a href=\"https://drive.google.com/file/d/1soHmf2CffSGhFv-XYdfbqRb2qGVYOvRP/view?usp=drive_link\" target=\"_blank\" style=\"color:#9d174d;font-size:.78rem;\"><svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-1px'><polygon points='23 7 16 12 23 17 23 7'/><rect x='1' y='5' width='15' height='14' rx='2' ry='2'/></svg> View Video</a>"],
   ["Interview – Oral","Request for Investigation","DCSO","","04/14/2011",""],
   ["Other","Preliminary Investigative Report","Multi","","04/13/2011",""],
   ["Crime Scene","Departmental Report – DCSO Preliminary Investigative Report","DCSO","","04/13/2011",""],
@@ -503,6 +514,7 @@ const DATA = [
   ["Crime Scene","TBI Crime Scene Evidence Log","TBI","","04/13/2011",""],
   ["Document","Contents from (V) Bobo's Purse","","","04/13/2011",""],
   ["Investigative Lead","Shoeprint from Crime Scene","TBI","","04/13/2011",""],
+  ["Video","Bobo Residence – Exterior Footage (~8:00 AM)","TBI","","04/13/2011","<a href=\"https://drive.google.com/file/d/1SDUzExr3kjdTg6iaJjz86nlX39TNVgQ7/view?pli=1\" target=\"_blank\" style=\"color:#9d174d;font-size:.78rem;\"><svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-1px'><polygon points='23 7 16 12 23 17 23 7'/><rect x='1' y='5' width='15' height='14' rx='2' ry='2'/></svg> View Video</a>"],
   ["Document","First Day Summary","TBI","","04/13/2011",""],
   ["Interview – Oral","Drew Scott","FBI","SA Viveros / Cardone","04/13/2011",""],
   ["Interview – Written","Clint Bobo","DCSO","Sgt. Tony Weber","04/13/2011",""],
@@ -610,6 +622,7 @@ function typeBadge(t) {
     "TBI Assist":             "tbi-assist",
     "IA Interview – Oral":    "ia-interview",
     "Crime Scene":            "crime-scene",
+    "Video":                  "video",
     "Other":                  "other",
   };
   const cls = map[t] || "other";
@@ -678,6 +691,7 @@ const TYPE_CARD_CLASS = {
   "TBI Assist":             "type-tbi-assist",
   "IA Interview – Oral":    "type-ia-interview",
   "Crime Scene":            "type-crime-scene",
+  "Video":                  "type-video",
   "Other":                  "type-other",
 };
 
