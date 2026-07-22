@@ -419,7 +419,7 @@ tr.narr-open .narr-full  { display: block; }
    flag: 'Y'=yellow case tip, 'P'=pink high-interest, 'N'=routine
    status: 'T'=Transcribed, 'PA'=Partial, 'R'=Redacted, 'B'=Blank, 'NO'=Note
 ────────────────────────────────────────── */
-const SEED_VER = 2;
+const SEED_VER = 4;
 
 const SEED = [
   // ── 04-20-2011 / Note (BOBO 00008699) ──
@@ -507,6 +507,154 @@ const SEED = [
 
   // ── BOBO 00008710 — Knox County contact note ──
   ["00008710","[unknown]","—","[unknown]","—","—","—","—","NOTE (loose sheet): Det. Aaron Yarnell, Knox County. Cell: 865-684-0635 / Office: 865-215-3510.","N","NO","s50"],
+
+  // ── 05-03-2011 / BOBO 00008708 — missing entries ──
+  ["00008708","05-03-2011","0800–1600","S. Carver","1301","","D1","","To Westwood — 251/221.5.","N","T","s95"],
+  ["00008708","05-03-2011","0800–1600","S. Carver","1311","","D1","","Back in Service.","N","T","s96"],
+  ["00008708","05-03-2011","0800–1600","S. Carver","1338","714","","10-6","","N","B","s97"],
+  ["00008708","05-03-2011","0800–1600","S. Carver","1340","714","","10-8","","N","B","s98"],
+
+  // ── 05-03-2011 / BOBO 00008709 — Court House dispatch ──
+  ["00008709","05-03-2011","0800–1600","S. Carver","1413","","709","10-6","Court House.","N","T","s99"],
+
+  // ── 04-24-2011 / BOBO 00008711 — missing entries ──
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1551","","D1","","@ DCFH 250090.8.","N","T","s100"],
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1601","","D1","","Clear / available.","N","T","s101"],
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1619","","R4","","Enroute to McKannie tree service.","N","T","s102"],
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1656","All agencies","","","Paged.","N","T","s103"],
+
+  // ── 04-24-2011 / BOBO 00008712 — missing entries ──
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1724","709","","","Advised.","N","T","s104"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1745","","709","","10-97 area.","N","T","s105"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1748","","706","10-8","","N","B","s106"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1749","","786","10-8","","N","B","s107"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1750","","709","10-8","10-78 AO 10-25.","N","T","s108"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1757","","706","","Advised of #.","N","T","s109"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1804","All agencies","","","Tone test.","N","T","s110"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1907","","781","10-8","10-12, 641 N to Fairgrounds.","N","T","s111"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1913","","847-7111","","Female caller wanting to speak to officer.","N","T","s112"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1914","County units","","","Advised of #.","N","T","s113"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1914","","781","","Clear 16-12.","N","T","s114"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1918","","706","","# complete.","N","T","s115"],
+
+  // ── 04-23-2011 / BOBO 00008715 — missing entries ──
+  ["00008715","04-23-2011","1600–0000","Montgomery","1830","","Rec3","","Wants to hold.","N","T","s116"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1833","","Rec3","","Cuts to hold.","N","T","s117"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1931","EMS","","","Page First Responders.","N","T","s118"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1932","","Dec2","","Responding.","N","T","s119"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1941","","Dec2","","On scene.","N","T","s120"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1946","","Jubr","10-12","In lobby.","N","T","s121"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1954","712","","10-6","(jail).","N","T","s122"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1958","","Dec2","","Wants to ER — begin 290/901.2.","N","T","s123"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","2012","","Dec2","","@ ER — end miles 290/910.1.","N","T","s124"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","2020","","D7","10-8","","N","B","s125"],
+
+  // ── 04-23-2011 / BOBO 00008716 — missing entries ──
+  ["00008716","04-23-2011","1600–0000","Montgomery","2033","","Dec2","","Clear at Chase.","N","T","s126"],
+  ["00008716","04-23-2011","1600–0000","Montgomery","2129","712","","10-97","@ jail.","N","T","s127"],
+  ["00008716","04-23-2011","1600–0000","Montgomery","2134","","784/781","10-97","Food Giant.","N","T","s128"],
+
+  // ── 04-23-2011 / BOBO 00008718 ──
+  ["00008718","04-23-2011","1600–0000","Montgomery","2150","911","859-9221","","Female @ 59 West Creek Circle Rd @ boat dock. Rodney Tharp acting strange, advising someone is coming for him & evidence in his truck making them uncomfortable.","N","T","s129"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2151","","781/784","10-8","Report to be filed. En route Sunrise Lane.","N","T","s130"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2153","","781/784","10-6","Sunrise Lane.","N","T","s131"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2155","","706/712","10-97","West Creek Boat Dock.","N","T","s132"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2159","3911","257-7101","","Amber reporting Jenny Calabrese on Facebook on \"Bring Holly Home Safe\" page trying to contact admin; they thought we should know. See earlier call — she is \"investigator\" who called earlier.","P","T","s133"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2202","911","423-514/541-62","","Female on Hwy 641N southbound, possible 10-49 driver. Silver Sebring/Prix, TN tag 569 KHU, passing Liblys.","N","T","s134"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2203","911","111-0591","","Male in Sardis needs EMS, transfer to Henderson.","N","T","s135"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2207","3911","359-5008","","Ms. Bailey again gave her # to 707.","N","T","s136"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2210","911","411-1150","","Called by mistake.","N","T","s137"],
+  ["00008718","04-23-2011","1600–0000","Montgomery","2211","","781/784","10-4","County ✓","N","T","s138"],
+
+  // ── 04-23-2011 / BOBO 00008719 ──
+  ["00008719","04-23-2011","1600–0000","Montgomery","1816","852-3912","701-960-008","","Miss Ennis called about buzzards flying around the 112–183 Mile Marker. Henderson Co. was advised.","P","T","s139"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","1904","852-3912","618-993-1999","","Richard Neman called about helping/volunteering with the search.","N","T","s140"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","1931","852-3912","731-352-5008","","Mae Baily called, said the child she has custody of is at Julie Pruitt's House. Does not want child there; wants officer to go get child from Chris Bailey and Julie Pruitt. 706 received the information gathered, nothing further.","N","T","s141"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","1937","852-3912","731-644-2820","","706 called about the public service, gave the number to him.","N","T","s142"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","2019","852-3912","731-352-5008","","Mae Baily called again wondering if an officer had found where Julie Pruitt's house was. 706 contacted, said he was working on it; house could possibly be in Henderson county.","N","T","s143"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","2045","852-3912","731-68-970","","706 called and said public service complete. Henderson county is taking over. 485 Gilbert Rd.","N","T","s144"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","2116","852-3912","731-852-3119","","S/O Linsey requested an officer. Officer Dunnavant and officer Hamilton responded. Inmate tried to hang himself. Jim Jones.","N","T","s145"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","2151","852-3912","731-352-5008","","Mae Baily called back and wanted 706 name and Henderson county Dispatch.","N","T","s146"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","2203","852-3912","731-352-5008","","Mae Baily advised that the kid might be kidnapped.","N","T","s147"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","2210","852-3912","734-707","","707 called for Public Service. Gave him the number.","N","T","s148"],
+  ["00008719","04-23-2011","1600–0000","Montgomery","2236","852-3912","217-791-4101","","Amber called and stated that Tony Calabrese is from Liverpool, Ohio.","N","T","s149"],
+
+  // ── 04-22-2011 / BOBO 00008720 ──
+  ["00008720","04-22-2011","1600–0000","Montgomery","1543","3911","847-885/2806","","Mary Kramer reporting: she has been watching on TV, came from a juvenile background, was born on a farm. Young people today won't think of old farm features — rural areas have old wells, cisterns & cellars. She has seen newscasts focused on just one person in rural woods; too dangerous. Not trying to hinder — wants searchers to be aware.","P","T","s150"],
+  ["00008720","04-22-2011","1600–0000","Montgomery","1701","","Rec3","","Needs someone to come cut tree out of roadway on Yellow [?] Spring Rd between 192[?] Cemetery.","N","T","s151"],
+  ["00008720","04-22-2011","1600–0000","Montgomery","1702","3911","409-494/483","","Easter Clyne [?] is a searcher; thinks they found another meth lab. Crossed over I-40 near an 18-wheeler shop on Sandy Lane. Called Benton Co @ 717, gave info, able to dispatch officer & advised 100.","P","T","s152"],
+  ["00008720","04-22-2011","1600–0000","Montgomery","1707","3911","845/3630","","Very Beth Duke advises they are in a search party on Coach Rd / Cub Rule Hall Rd and someone is shooting multiple times.","P","T","s153"],
+
+  // ── 04-22-2011 / BOBO 00008721 ──
+  ["00008721","04-22-2011","1600–0000","Montgomery","1847","","781","10-26","L4ZA4L1W15F003170 — NSK, must on file, no chit.","N","T","s154"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1917","3911","733-4262","","Joanna Montgomery requesting to speak to an officer regarding the Holly Bobo disappearance. Believes they need to look at the Marxen Mafia — her husband is a truck driver & they don't check loads going into Old Mexico. They may be getting together a look at children. Gave # to 707.","P","T","s155"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1927","3911","549-7553","","Glenn Wallace wants officer to go top of hill behind Pisgah Chapel for a disturbance or progress.","N","T","s156"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1928","3911","847-9120","","Jenny Chandler reporting tree across road w/ powerlines on Old Parrisville Rd near Eastwood St.","N","T","s157"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1929","911","254-0204","","Male reports fire down.","N","T","s158"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1930","911","845-9207","","Beta Culp reports fight on S West St.","N","T","s159"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1932","","707/712","10-97","S West St.","N","T","s160"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1933","911","931-506-5889","","911 hang up call. Called back — recording, admin # most unreachable.","N","T","s161"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1936","LES","","","Advised of tree & line on Old Parrisville Rd.","N","T","s162"],
+  ["00008721","04-22-2011","1600–0000","Montgomery","1936","","781","10-97","Old Parrisville Rd.","N","T","s163"],
+
+  // ── 04-22-2011 / BOBO 00008722 ──
+  ["00008722","04-22-2011","1600–0000","Montgomery","1937","","707/712","10-8","10-98 cno 10-25, canvassed, left prior to arrival.","N","T","s164"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1939","","","","Talbrotto LES, will get crew.","N","T","s165"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1940","","Rec3","","[Partially legible] get you.","N","PA","s166"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1941","3911","549-9129","","Jeremy James reports subject back @ S West St.","N","T","s167"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1945","","707/712","10-97","S West St.","N","T","s168"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1953","","707/712","10-4","County ✓","N","T","s169"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1953","","Rec3","","#5 back, [elding?] available.","N","PA","s170"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1958","","707/712","10-8","","N","T","s171"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","1965","","Dec3","","Wants JMCGH, begin 978.5.","N","T","s172"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","2005","","594","10-8","","N","T","s173"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","2007","3911","901-453/1459","","Nichols Howell says she heard & her friend Diane heard on Channel 4 that Holly Bobo has been found and searches not needed.","P","T","s174"],
+  ["00008722","04-22-2011","1600–0000","Montgomery","2011","3911","JPD","","Cadet Eagle, Jackson PD, advises they received a tip from Northsale, VA from Cynthia Urnell @ 757-288-0407 who says she's a financial analyst with info on Holly Bobo case via Facebook. Attended 1-800-TRT-FIND. No 10-25, will end with other agency.","P","T","s175"],
+
+  // ── 04-22-2011 / BOBO 00008723 ──
+  ["00008723","04-22-2011","1600–0000","Montgomery","2016","3911","731-215/9-777","","Patsy Walker @ 19 Richard Dr reports female in yellow shorts & black shirt walked past her residence. Black female in yellow shorts was crying & looks just like Holly Bobo. They walked up Charlotte, walked past 19 Richard Dr to Linden St. Called CPD, gave info, able to send officer @ 2020.","P","T","s176"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2024","","781/786","10-8","Power westbound.","N","T","s177"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2041","","D7","10-6","Behind Bradshaw on Durwood Lane re: broken [?].","N","PA","s178"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2042","","D7","10-8","","N","T","s179"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2043","911","733-8854","","Female advises Brandon Kelly is drunk, driving S-10 leaving Hwy 100E headed to Hwy 412 westbound.","N","T","s180"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2045","911","853-3912","","Last call.","N","T","s181"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2052","","Hendo","10-53","Shane Johnson 10-50 for Jennifer @ Henderson Co.","N","T","s182"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2101","3911","Benton","","Ran @ Benton Co making sure TBI was aware of their other missing person, Sammy Mangrum Hayes. I assured them we made them aware.","P","T","s183"],
+  ["00008723","04-22-2011","1600–0000","Montgomery","2103","3911","733-801","","Ernest Davis on Iron Hill Rd advising he wants to speak w/ an officer regarding his daughter.","N","T","s184"],
+
+  // ── 04-22-2011 / BOBO 00008724 ──
+  ["00008724","04-22-2011","1600–0000","Montgomery","2103","","Cont.","","(Cont.) Deanna Davis cussing & fussing. Her son Adam Davis has been searching for Holly Bobo & she needs to leave him alone.","N","T","s185"],
+  ["00008724","04-22-2011","1600–0000","Montgomery","2105","712","","","Gave Mrs. Davis's #.","N","T","s186"],
+  ["00008724","04-22-2011","1600–0000","Montgomery","2146","3911","251-681/606-60","","Clay Parker @ Bells, TN: man ~6' tall, medium build ~180 lbs, short crop strawberry blonde hair, 3–4 day beard, thicker mustache, wearing McCoy Heating & Air shirt, in a van came to door asking for Bobo then Sanchez. Tried to force entry when told both not there. Female called Bell's PD — man identified as Jake Plunk from Yuma, TN (Carroll Co.), history of mental illness; McCoy's going to fire him today. Caller thought he should be checked for Bobo case.","P","T","s187"],
+  ["00008724","04-22-2011","1600–0000","Montgomery","2150","","Hend","10-53","Amber Cupples / Michael Raymond 10-50.","N","T","s188"],
+  ["00008724","04-22-2011","1600–0000","Montgomery","2156","911","733-3977","","Shonda Conway @ Dann River Rd to Cafe needs officer. Having issue w/ Constable D7 who threatened to click the door down; they feel covered as a threat. Gave to 712/200.","N","T","s189"],
+
+  // ── 04-21-2011 / BOBO 00008725 ──
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1611","","D1","","On scene at Westwood.","N","T","s190"],
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1625","","D1","Trans","Hospital begin mile 249831.9.","N","T","s191"],
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1631","","D1","out","Hospital end mile 249836.7.","N","T","s192"],
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1647","","789","10-8","From the office.","N","T","s193"],
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1719","","","","James Rosson, Correctional Officer, came to 911. Advised he spoke with a female who refused to call anywhere else & would not leave name or contact info but said there are buzzards flying around Darden Bridge — she thought our missing person may be there. Called Henderson County and advised them to send an officer to Darden Rd & check around Darden Bridge for our missing person.","P","T","s194"],
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1736","","Call","","Robert Hines called, wanted the address for Bible Hill Church. Advised him 71 Buss Long Lane.","N","T","s195"],
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1736","","Call","3911","Tracy Fawers 845-3186 called, advised he made a report of a break-in the other day, said he has found some stuff that was taken behind his house. Advised 705 to call him.","N","T","s196"],
+  ["00008725","04-21-2011","1600–0000","Woodward/Hale","1751","","Benton","","Benton Co. advised they have an officer out with military camo bike riding pants at the interstate. Advised them to photograph it, bag it & we will meet them at the interstate.","Y","T","s197"],
+
+  // ── 04-21-2011 / BOBO 00008726 ──
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1752","","Call","","Eugene Jubbs called: wife is behind a black truck with Ducks Unlimited tags on I-40, tag # 8322. Said he is speeding up & slowing down; wife around the 116 mm. Advised him to have her call 911 from her cell so THP can have her on the line.","N","T","s198"],
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1755","","Call","3911","Henderson Co communications officer Phillips called: Dep. McFadden checked Darden Bridge on Darden Rd — found nothing. Also said she did not see buzzards in the area.","Y","T","s199"],
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1803","","Call","911","Margaret Tucker 731-733-0312, 180 Wheat Store Rd, needs EMS. 53 yr old having chest pains for 30 min, has had an aspirin. Toned EMS @ 1805.","N","T","s200"],
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1806","","Dec3","Resp","To 180 Wheat Store Rd.","N","T","s201"],
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1813","","705","10-3","","N","T","s202"],
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1813","","713","10-6","","N","T","s203"],
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1815","","D3","10-97","On scene 180 Wheat Store Rd.","N","T","s204"],
+  ["00008726","04-21-2011","1600–0000","Woodward/Hale","1818","","Call","3911","Danny Tucker 615-319-9413 out of Dickson, TN — stated they had a dive team, wanted to know if we needed their assistance. Advised Kevin Cagle to call them.","Y","T","s205"],
+
+  // ── 04-21-2011 / BOBO 00008727 ──
+  ["00008727","04-21-2011","1600–0000","Woodward/Hale","1836","","D3","Trans","To hospital, begin mile 111865.4.","N","T","s206"],
+  ["00008727","04-21-2011","1600–0000","Woodward/Hale","1841","","Call","3911","Cristy Lareman 897-2510, 375 Pentecostal Campground Rd, wants to talk to an officer re: problem with a neighbor & their dog. Advised deputy Inman to call her.","N","T","s207"],
+  ["00008727","04-21-2011","1600–0000","Woodward/Hale","1849","","D3","out","Hospital end mile 111878.6.","N","T","s208"],
+  ["00008727","04-21-2011","1600–0000","Woodward/Hale","1912","","Hmco","3911","Henderson Co dispatcher Katie McFadden advised they received an anonymous caller who said when they were searching the other day (believed to be Tuesday), there was a Keith Holmes in their group acting very strange — said when they wanted to check something: \"She isn't there or she wouldn't be there.\" Said he works at [Colluroe?] Realty on E Church St in Lexington.","Y","T","s209"],
+  ["00008727","04-21-2011","1600–0000","Woodward/Hale","1913","","Call","3911","Molly Darby 733-8555 called: 2 girls B/F and 2 M/F about teenage age standing at the end of a driveway across from Bucks, swinging something & yelling. Advised Parsons are on radio.","N","T","s210"],
 
   // ── 04-20-2011 / BOBO 00008700 — additional entries ──
   ["00008700","04-20-2011","0800–1600","Shalu Carver","1519","","","","[Partial/illegible] From the shore on look around Dr. S… about military. Entry partially illegible.","N","PA","s51"],
