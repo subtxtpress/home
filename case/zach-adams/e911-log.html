@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>E-911 Dispatch Log — Holly Bobo / Zachary Adams</title>
+<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Transcription log of Decatur County E-911 Dispatch Logs (BOBO 00008698–) released in discovery.">
 <script>
   try {
@@ -419,7 +420,7 @@ tr.narr-open .narr-full  { display: block; }
    flag: 'Y'=yellow case tip, 'P'=pink high-interest, 'N'=routine
    status: 'T'=Transcribed, 'PA'=Partial, 'R'=Redacted, 'B'=Blank, 'NO'=Note
 ────────────────────────────────────────── */
-const SEED_VER = 4;
+const SEED_VER = 5;
 
 const SEED = [
   // ── 04-20-2011 / Note (BOBO 00008699) ──
@@ -655,6 +656,112 @@ const SEED = [
   ["00008727","04-21-2011","1600–0000","Woodward/Hale","1849","","D3","out","Hospital end mile 111878.6.","N","T","s208"],
   ["00008727","04-21-2011","1600–0000","Woodward/Hale","1912","","Hmco","3911","Henderson Co dispatcher Katie McFadden advised they received an anonymous caller who said when they were searching the other day (believed to be Tuesday), there was a Keith Holmes in their group acting very strange — said when they wanted to check something: \"She isn't there or she wouldn't be there.\" Said he works at [Colluroe?] Realty on E Church St in Lexington.","Y","T","s209"],
   ["00008727","04-21-2011","1600–0000","Woodward/Hale","1913","","Call","3911","Molly Darby 733-8555 called: 2 girls B/F and 2 M/F about teenage age standing at the end of a driveway across from Bucks, swinging something & yelling. Advised Parsons are on radio.","N","T","s210"],
+
+  // ── 04-21-2011 / BOBO 00008728 (pg 4) ──
+  ["00008728","04-21-2011","1600–0000","Woodward/Hale","1925","","D7","10-8","","N","T","s211"],
+  ["00008728","04-21-2011","1600–0000","Woodward/Hale","1938","","Hmco","3911","Advised someone called Sheriff Duke & reported a suspicious vehicle on Fred Inman Rd. Dec Co tag # 907-QDD, 86 Red Nissan, expired tag. Advised Sgt. Fox over phone.","Y","T","s212"],
+  ["00008728","04-21-2011","1600–0000","Woodward/Hale","1938","Call","911","","Anita Hall 733-0153 called: if Jeffery Murphy calls and says something about a white Dodge Caravan, said there is a girl named Mary that has her van and she is OK. Advised we had not gotten a call.","N","T","s213"],
+  ["00008728","04-21-2011","1600–0000","Woodward/Hale","1941","Call","911","","Chris Smith 549-0740 advised he is on 641 going towards Brooksie Thompson and there is a white GMC with a ladder rack on it all over the road & judging bumpers. Wants someone to check it out. Advised units over the radio.","N","T","s214"],
+  ["00008728","04-21-2011","1600–0000","Woodward/Hale","2006","","D7","10-8","","N","T","s215"],
+  ["00008728","04-21-2011","1600–0000","Woodward/Hale","2006","Call","911","","William Tucker 549-5492, 870 Walter Herndon Rd. Advised there are subjects in his (vacant) residence that shouldn't be; owner is not from around here. Needs officer. Advised county units.","N","T","s216"],
+
+  // ── 04-17-2011 / BOBO 00008729 — Shift 1200–0000, Montgomery ──
+  ["00008729","04-17-2011","1200–0000","Montgomery","1016","","Mayphel1","","On the way to shoot camp.","N","T","s217"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1214","3911","549-9167","","Robert Lindsey / Eugene Jubbs need Glynn Morany @ Command Center to call. Gave to Kevin Cagle.","N","T","s218"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1222","3911","205-498/9098","","Gordon McPhee @ ABC News (Churchboy Productions) wants 911 to pass — he will call TBI but would like to call on scene & boat ramp. Full size truck, extended cab. Cno 10-25.","N","T","s219"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1249","","Mayphel3","","Cno 10-25.","N","T","s220"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1301","","","","Cno 10-25.","N","T","s221"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1301","911","847-9214","","Don Camper asking for non-emergency #.","N","T","s222"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1304","","709","10-8","","N","T","s223"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1322","3911","731-608/DC-303","","Wendy Shore @ 731-608-0030: a small red Toyota pickup was beside her at Sonic with an average-looking male w/ dark hair, goatee & sunglasses who then followed her. She felt she was going to be abducted; went to police & made a report. Happened about 3 years ago. Just heavy on her heart — wanted to tell someone.","P","T","s224"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1333","","Dec1","","Wants to chap; begin 249,326.9.","N","T","s225"],
+  ["00008729","04-17-2011","1200–0000","Montgomery","1334","","Dec1","","Out @ chap; end 249,232.2.","N","T","s226"],
+
+  // ── 04-17-2011 / BOBO 00008730 ──
+  ["00008730","04-17-2011","1200–0000","Montgomery","1343","3911","733-8953","","Vicki Carpenter @ 21850 Hwy 412E saw a subject in a pink shirt in woods behind her residence — a cabin back off the road. She let it go, then dogs barked all night & she couldn't sleep.","P","T","s227"],
+  ["00008730","04-17-2011","1200–0000","Montgomery","1359","911","911-917/1380","","911 hang up call, non-activated cell.","N","T","s228"],
+  ["00008730","04-17-2011","1200–0000","Montgomery","1406","911","911-617/1380","","911 hang up call.","N","T","s229"],
+  ["00008730","04-17-2011","1200–0000","Montgomery","1406","911","94-320","","911 hang up call.","N","T","s230"],
+
+  // ── 04-17-2011 / BOBO 00008731 — Shift 0800–1600, Judy Wilkins ──
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0800","","","log-","710 @ Bobo Res'd.","N","T","s231"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0817","3911","X2","","Brenda Henning, 14 Rose St & Joanna Grace, 110 Camden Rd. Both heard loud explosion around Parsons City Park; electricity flashed on & off.","N","T","s232"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0818","","785","","Asked to check area.","N","T","s233"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0827","","785","10-97","Area.","N","T","s234"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0848","911","","","911-921-4460 hang up.","N","T","s235"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0856","3913","785","10-60","Going to check semi trailers behind Nutrious [?].","N","T","s236"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0858","3911","93/796-5583","","Susan Parker, Lewis County — volunteering to search for Holly Bobo. Gave her directions to DC Fairgrounds Bldg.","N","T","s237"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0906","3913","785","10-8","All semi trailers cleared, will check other abandoned trailers around town.","N","T","s238"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0911","3911","1100","","(Kevin Eagle, EMA) asking to send deputy down Yellow Spgs Rd ~1/8 mile. Meet volunteer searcher in white Ford F150 pickup — found bag of meth.","Y","T","s239"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0915","3911","731-96/731-3615","","Diane McGuire chatting Facebook because she & Holly Bobo have similar friends & she has a list of (odd acting people). Will fax info — has around 25 names.","Y","T","s240"],
+  ["00008731","04-17-2011","0800–1600","Judy Wilkins","0917","3912","","","Jr. Gillenwater, C.O. @ Detention Center. Asking if cave goes across from DC. Cave goes all the way to the river — 8048 Hwy 641N but cave is across from tavern off Old SH 69.","Y","T","s241"],
+
+  // ── 04-17-2011 / BOBO 00008732 (pg 2) ──
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0932","911","847-4668","","Frances Westin, 309 Old Perryville Rd. Need ambulance for husband Joe Westin, 87 yr, problem breathing (on oxygen), back problems.","N","T","s242"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0923","EMS","","","Paged.","N","T","s243"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0924","","D3","","Responding.","N","T","s244"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0927","","D3","","On scene.","N","T","s245"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0943","3912","733-6536","","Tom Cook. Needs 702 to call him.","N","T","s246"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0947","702","3912","","Asked to call Tom Cook.","N","T","s247"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0949","","D3","Trans","ER 111479.","N","T","s248"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0952","","D3","out","ER 111480.4.","N","T","s249"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0950","3912","","","Anthony Alexander, been staying with Dana & Karen. Karen is getting harassing phone calls & they have to stop. Anthony will call 710's cell #.","N","T","s250"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0952","3912","","","Tom Cook near Yellow Spgs Church — searchers are finding more meth. Meet him near church. White Blazer.","Y","T","s251"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","0958","3911","","","Kelly Ams, 731-441-7930, asking about cave off Old SH 69, if it's been checked.","N","T","s252"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","1000","","710","","Asked to meet with Tom Cook, White Blazer near Yellow Spgs Church.","N","T","s253"],
+  ["00008732","04-17-2011","0800–1600","Judy Wilkins","1000","3912","710","","Asked to meet with Tom Cook.","N","T","s254"],
+
+  // ── 04-17-2011 / BOBO 00008733 (pg 3) ──
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1002","3911","","","733-0996 Gordon Ball, getting # to TWRA. Owl stuck in his fence.","N","T","s255"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1013","3911","","","Nina Marks 307-1912 (spoke to Debbie).","N","T","s256"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1039","911","847-2796","","Female caller — town lady that fell outside of this res'd. Collett res'd, 58 E 4th St. Brenda Rosson, caller.","N","T","s257"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1040","EMS","","","Paged to E 4th St.","N","T","s258"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1040","","D3","","Hosp p.u.","N","T","s259"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1041","","D1","","Resp.","N","T","s260"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1042","","D1","","On scene.","N","T","s261"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1050","","D8","Trans","JMCGH 111481.9.","N","T","s262"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1059","","D1","Trans","EK routine 249225.6.","N","T","s263"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1103","","D1","out","EK 249226.5.","N","T","s264"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1114","3912","702","","Address info @ 30 Yellow Spgs Rd. Advised last we showed, was a Marty Garner.","N","T","s265"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1121","3911","847-2282","","Jerry Pratt. Needs 785 to call him. \"Got a theory.\"","N","T","s266"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1122","3913","785","","Asked to call Jerry Pratt.","N","T","s267"],
+  ["00008733","04-17-2011","0800–1600","Judy Wilkins","1124","3911","549-4565","","Brad Hall reporting something odd that happened on the 9th. He & wife Betty went to get fishing license @ Courthouse. Said 2 males were in the office @ the same time — a father & son. Son never spoke (looked around you). Said they were from Western Pennsylvania & owned land out Bible Hill Rd; down here for crow hunt.","Y","T","s268"],
+
+  // ── 04-17-2011 / BOBO 00008734 (pg 4) ──
+  ["00008734","04-17-2011","0800–1600","Judy Wilkins","1133","3911","901-451-0653","","Doug Culp, Munford, TN (north of Memphis). Two weeks ago came thru Parsons, checking old back roads. Reports a mid-70s Chev pickup in middle of road; subject, late 30s, wearing army clothing. He jumped a ditch & was running near his truck. Caller has no idea what road he was on — somewhere north of Parsons. Civil war relic hunter, runs metal detector.","Y","T","s269"],
+  ["00008734","04-17-2011","0800–1600","Judy Wilkins","1146","3911","","","Michael Simpson, Humphreys County Fire Chief — asking if need more volunteers. 931-264-0093.","N","T","s270"],
+  ["00008734","04-17-2011","0800–1600","Judy Wilkins","1213","911","731-225-2886","","Ricky Walker reporting assault on Mouse Tail Rd @ Busselltown Boat Ramp. W/M slender built, blond hair, 5'8\", hit white heavy-set female w/ brown hair. Said he led female to his vehicle because dizzy. Truck loaded boat & leaving. Pulled over, sitting beside roadway. Blue Ford 4-wheel drive pickup.","N","T","s271"],
+  ["00008734","04-17-2011","0800–1600","Judy Wilkins","1214","County units","","","Advised.","N","T","s272"],
+  ["00008734","04-17-2011","0800–1600","Judy Wilkins","1224","County unit","710","","Mouse Tail 3. Subject leaving now, coming out from Busselltown on Mousetail Rd.","N","T","s273"],
+  ["00008734","04-17-2011","0800–1600","Judy Wilkins","1238","3911","","","731-614-9315 Joshua Phillips, Lexington. Asking about volunteering.","N","T","s274"],
+  ["00008734","04-17-2011","0800–1600","Judy Wilkins","1239","3911","bcp in","","Ann Galt, asking about food needed. Told her Elks Lodge feeding volunteers meals today. Might wait day or two.","N","T","s275"],
+
+  // ── 04-17-2011 / BOBO 00008735 (pg 5) ──
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1300","3911","1100","10-28","126ZXB. Stolen license plate. DOT 03-31-2011, off Camden Rd. 1356-4630-563. Plate found by a volunteer & turned in. 1100 will give it to a county officer.","N","T","s276"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1302","3912","847-4214","","Don Camper, Brodies Judy area. Asking if someone has checked the mobile home at the old Vulcan Material Query on Brodies Judy Rd. Told him will give officers this info. Also Don said dogs barked most of night.","Y","T","s277"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1313","3911","256-473-7221","","William Wesson coming in by helicopter, ~40 min out. Where does he need to search? Told him I'll have someone call him back.","N","T","s278"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1315","1100","3912","","1100 advised to call Ms. Wesson.","N","T","s279"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1324","911","549-9476","","Heather Hopper, reporting a psychic passing info. Saying Holly is tied up in an abandoned shed or storage area near Jeanelle Holladay — Bible Hill area near a Fire Station.","Y","T","s280"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1329","","D1","","Enroute to Manor, pt pickup.","N","T","s281"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1329","","D1","","Out Manor.","N","T","s282"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1332","3911","733-0189","","Female (bus driver) wants to know if where Old Darden post office used to be is same as Darden-Christian Chapel Church. Told her yes.","N","T","s283"],
+  ["00008735","04-17-2011","0800–1600","Judy Wilkins","1351","","D7","10-8","","N","T","s284"],
+
+  // ── 04-17-2011 / BOBO 00008736 (pg 6) ──
+  ["00008736","04-17-2011","0800–1600","Judy Wilkins","1357","","D8","10-8","","N","T","s285"],
+  ["00008736","04-17-2011","0800–1600","Judy Wilkins","1358","710","3912","","Advised of Don Camper's call.","Y","T","s286"],
+
+  // ── 04-17-2011 / BOBO 00008737 — Shift 0800–1200, Debbie Kert ──
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0841","","702","have","710 call him on his cell.","N","T","s287"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0844","911","911-921-4460","","Neg activated phone.","N","T","s288"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0847","Paris PD","","","Wendy 443-2924 getting so many calls wanting to know where to sign up & they don't know anything about it. Was going across bottom of Ch. 4.","N","T","s289"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0848","1100","","","I'll adv Benton, Carroll & Henderson. Ask if he could get Ch 4 to change it. (Adv Paris PD back.)","N","T","s290"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0910","3912","700","","Contact Park Rangers at Natchez Trace? CK a car on Roberson Trail just across interstate. Bill Woods will be standing by. Tag # 12Y-USL (has pillows in veh.)","Y","T","s291"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0912","Hend Co","phone","","CK to see if they would do above.","N","T","s292"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0928","3911","","","Sherma Taylor, 733-8676, has aviation co-pilot that will bring helicopter; also people wanting to bring food/supplies. Took her #.","N","T","s293"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0930","901-620-0413","","","710/6 adv of above, gave him #.","N","T","s294"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","0951","3911","731-441-1930","","Girl asking to see where buses are going. She's in northern part. (Adv she would have to go to Fairgrounds, CK in there.)","N","T","s295"],
+  ["00008737","04-17-2011","0800–1200","Debbie Kert","","Nita Marks","","","Staying at Lex Motel, lives Holladay, wanting to know if there is money to pay for her motel room for her to search. CK with Kevin to see. (All volunteer.)","N","T","s296"],
 
   // ── 04-20-2011 / BOBO 00008700 — additional entries ──
   ["00008700","04-20-2011","0800–1600","Shalu Carver","1519","","","","[Partial/illegible] From the shore on look around Dr. S… about military. Entry partially illegible.","N","PA","s51"],
