@@ -335,46 +335,52 @@ td.td-del {
   font-size: .85rem;
 }
 @media (max-width: 700px) {
-  table, colgroup, col, tbody, tr { 
-    display: block; 
+  .stats-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
-  table { 
-    min-width: unset; 
-    width: 100%; 
+  .stats-bar > span:last-child {
+    margin-left: 0 !important;
+    flex-wrap: wrap;
+    width: 100%;
   }
-  thead { 
-    display: none; 
+  .stats-bar input[type="text"] {
+    width: 100%;
   }
-  tbody tr { 
-    padding: 10px 12px; 
-    border-bottom: 1px solid var(--border); 
+  table, colgroup, col, tbody, tr { display: block; }
+  table { min-width: unset; width: 100%; }
+  thead { display: none; }
+  tbody tr {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    border-left-width: 3px;
   }
-  tbody td { 
-    display: block; 
-    width: 100%; 
-    box-sizing: border-box; 
-    padding: 3px 0 3px 90px; 
-    position: relative; 
-    min-height: 1.5rem; 
+  tbody td {
+    display: block;
+    padding: 4px 0;
+    font-size: .78rem;
+    width: 100%;
   }
-  tbody td::before { 
+  tbody td::before {
     content: attr(data-label);
-    position: absolute; 
-    left: 0; 
-    top: 3px; 
-    font-size: .65rem; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    color: var(--text-dim); 
-    letter-spacing: .04em; 
+    display: block;
+    font-size: .65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    letter-spacing: .04em;
+    margin-bottom: 1px;
   }
+  tbody td[data-label=""] { display: none; }
+  .status-select { width: 100%; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <h1>Typo Flags <span>— Holly Bobo Discovery</span></h1>
+  <h1>Typos Log <span>–flagged transcription inconsistencies across discovery documents</span></h1>
   <div id="case-nav"></div>
 </div>
 
