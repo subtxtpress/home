@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TBI Events Board — Holly Bobo / Zachary Adams</title>
+<meta name="robots" content="noindex, nofollow">
+
+<meta name="description" content="Transcription of TBI Events Board (LEO Events Board) printouts released in discovery. BOBO 00008739–00008747.">
+<script>
+  try {
+    if (localStorage.getItem('foia-theme') === 'light')
+      document.documentElement.dataset.theme = 'light';
+  } catch(e) {}
+</script>
+<style>
+/* ── GitHub Dark / Light palette ── */
+:root {
+  --bg:          #0d1117;
+  --bg2:         #161b22;
+  --bg3:         #21262d;
+  --border:      #30363d;
+  --text:        #e6edf3;
+  --text-dim:    #8b949e;
+  --accent:      #58a6ff;
+  --accent-dim:  #1f3a5c;
+  --accent-subtle: #131d2e;
+  --red:         #f85149;
+  --green:       #3fb950;
+  --yellow:      #d29922;
+  --yellow-bg:   #272115;
+  --pink:        #f778ba;
+  --pink-bg:     #2a1520;
+  --purple:      #bc8cff;
+  --teal:        #39d353;
+  --orange:      #e3b341;
+}
+[data-theme="light"] {
+  --bg:          #ffffff;
+  --bg2:         #f6f8fa;
+  --bg3:         #eaeef2;
+  --border:      #d0d7de;
+  --text:        #1f2328;
+  --text-dim:    #636c76;
+  --accent:      #0969da;
+  --accent-dim:  #b6d4fb;
+  --accent-subtle: #ddf4ff;
+  --red:         #d1242f;
+  --green:       #1a7f37;
+  --yellow:      #9a6700;
+  --yellow-bg:   #fff8c5;
+  --pink:        #bf3989;
+  --pink-bg:     #ffeff7;
+  --purple:      #8250df;
+  --teal:        #1a7f37;
+  --orange:      #953800;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.toolbar h1 {
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+.toolbar h1 span { color: var(--text-dim); font-weight: 400; }
+
+.stats-bar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: .75rem;
+  color: var(--text-dim);
+}
+.stat-val { color: var(--text); font-weight: 600; }
+
+/* ── Filters ── */
+select, input[type="text"] {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: .78rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+select:focus, input[type="text"]:focus { outline: 2px solid var(--accent); }
+input[type="text"] { width: 180px; }
+
+/* ── Buttons ── */
+.btn {
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg3);
+  color: var(--text);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.btn:hover { opacity: .8; }
+.btn-primary {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* ── Table ── */
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  min-width: 1020px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+colgroup col.c-bobo  { width: 110px; }
+colgroup col.c-date  { width: 88px;  }
+colgroup col.c-time  { width: 56px;  }
+colgroup col.c-tn    { width: 72px;  }
+colgroup col.c-summ  { width: auto;  }
+colgroup col.c-stat  { width: 74px;  }
+colgroup col.c-prec  { width: 72px;  }
+colgroup col.c-flag  { width: 60px;  }
+colgroup col.c-del   { width: 30px;  }
+
+thead th {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+  padding: 7px 8px;
+  text-align: left;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background .1s;
+}
+tbody tr:hover { background: var(--bg3); }
+tbody tr.flagged-y { border-left: 3px solid var(--yellow); }
+tbody tr.flagged-p { border-left: 3px solid var(--pink); }
+[data-theme="light"] tbody tr.flagged-y { background: #fffbdd; }
+[data-theme="light"] tbody tr.flagged-y:hover { background: #fff8c5; }
+[data-theme="light"] tbody tr.flagged-p { background: #fff0f8; }
+[data-theme="light"] tbody tr.flagged-p:hover { background: #ffe4f2; }
+
+tbody td {
+  padding: 7px 8px;
+  vertical-align: top;
+  line-height: 1.45;
+  font-size: .78rem;
+  word-break: break-word;
+}
+td.c-mono { font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; font-size: .72rem; }
+td.td-del { text-align: center; vertical-align: middle; }
+.del-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: .9rem;
+  padding: 0 2px;
+  line-height: 1;
+  opacity: .4;
+}
+.del-btn:hover { opacity: 1; color: var(--red); }
+
+/* ── Narrative expand ── */
+.narr-short { display: block; }
+.narr-full  { display: none; }
+.narr-toggle {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: .7rem;
+  margin-top: 3px;
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+.narr-toggle:hover { text-decoration: underline; }
+tr.expanded .narr-short { display: none; }
+tr.expanded .narr-full  { display: block; }
+
+/* ── Badges ── */
+.badge {
+  display: inline-block;
+  font-size: .62rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 9px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.badge-open   { background: #0d2e0d; color: #3fb950; }
+.badge-closed { background: #21262d; color: #8b949e; }
+.badge-update { background: #0d1a2e; color: #58a6ff; }
+.badge-imm    { background: #3b0e0e; color: #f85149; }
+.badge-routine{ background: transparent; color: var(--text-dim); font-weight: 500; font-size: .65rem; }
+.badge-flag-y { background: #3b2c00; color: #d29922; }
+.badge-flag-p { background: #2a1520; color: #f778ba; }
+.badge-flag-n { display: none; }
+[data-theme="light"] .badge-open   { background: #d4f4d4; color: #1a5c1a; }
+[data-theme="light"] .badge-closed { background: #eaeef2; color: #636c76; }
+[data-theme="light"] .badge-update { background: #ddf4ff; color: #0969da; }
+[data-theme="light"] .badge-imm    { background: #fde0e0; color: #9a0000; }
+[data-theme="light"] .badge-flag-y { background: #fff3b0; color: #7a5100; }
+[data-theme="light"] .badge-flag-p { background: #ffe0f0; color: #8b005a; }
+
+/* ── Add form ── */
+.add-panel {
+  display: none;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+}
+.add-panel.open { display: block; }
+.add-panel h2 { font-size: .85rem; margin-bottom: 10px; font-weight: 700; }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.form-grid label { font-size: .7rem; color: var(--text-dim); display: block; margin-bottom: 2px; }
+.form-grid input, .form-grid select, .form-grid textarea {
+  width: 100%;
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 7px;
+  font-size: .78rem;
+  font-family: inherit;
+}
+.form-narr { grid-column: 1 / -1; }
+.form-narr textarea { width: 100%; min-height: 60px; resize: vertical; }
+.form-actions { display: flex; gap: 8px; }
+
+/* ── Empty ── */
+.empty-msg {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-dim);
+  font-size: .85rem;
+}
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+  table, colgroup, col, tbody, tr { display: block; }
+  table { min-width: unset; width: 100%; }
+  thead { display: none; }
+  tbody tr { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  tbody td { display: block; width: 100%; box-sizing: border-box; padding: 3px 0 3px 90px; position: relative; min-height: 1.5rem; }
+  tbody td::before { content: attr(data-label); position: absolute; left: 0; top: 3px; font-size: .65rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: .04em; width: 82px; }
+  tbody td:not([data-label]) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>TBI Events Board <span>— Holly Bobo</span></h1>
+  <div id="case-nav"></div>
+</div>
+
+<div class="toolbar" style="top:53px;">
+  <input type="text" id="q" placeholder="Search…" oninput="render()">
+  <select id="f-date" onchange="render()"><option value="">All dates</option></select>
+  <select id="f-status" onchange="render()">
+    <option value="">All statuses</option>
+    <option value="Open">Open</option>
+    <option value="Closed">Closed</option>
+    <option value="Update">Update</option>
+  </select>
+  <select id="f-flag" onchange="render()">
+    <option value="">All entries</option>
+    <option value="Y">TIP (yellow)</option>
+    <option value="P">NOTE (pink)</option>
+  </select>
+  <button class="btn btn-primary" onclick="toggleAdd()">+ Add Entry</button>
+</div>
+
+<div class="add-panel" id="add-panel">
+  <h2>Add TBI Events Board Entry</h2>
+  <div class="form-grid">
+    <div><label>BOBO #</label><input id="f-bobo" placeholder="00008739"></div>
+    <div><label>Date (MM-DD-YYYY)</label><input id="f-adate" placeholder="04-17-2011"></div>
+    <div><label>Time (24hr)</label><input id="f-time" placeholder="0923"></div>
+    <div><label>TN #</label><input id="f-tn" placeholder="TN0141"></div>
+    <div><label>Status</label>
+      <select id="f-astat">
+        <option value="Open">Open</option>
+        <option value="Closed">Closed</option>
+        <option value="Update">Update</option>
+      </select>
+    </div>
+    <div><label>Precedence</label>
+      <select id="f-aprec">
+        <option value="Routine">Routine</option>
+        <option value="Immediate">Immediate</option>
+      </select>
+    </div>
+    <div><label>Flag</label>
+      <select id="f-aflag">
+        <option value="N">None</option>
+        <option value="Y">TIP (yellow)</option>
+        <option value="P">NOTE (pink)</option>
+      </select>
+    </div>
+    <div class="form-narr"><label>Summary / Narrative</label><textarea id="f-narr" placeholder="Narrative text…"></textarea></div>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" onclick="addEntry()">Save Entry</button>
+    <button class="btn" onclick="toggleAdd()">Cancel</button>
+  </div>
+</div>
+
+<div class="stats-bar" id="stats-bar"></div>
+
+<div class="table-wrap">
+<table>
+<colgroup>
+  <col class="c-bobo"><col class="c-date"><col class="c-time"><col class="c-tn">
+  <col class="c-summ"><col class="c-stat"><col class="c-prec"><col class="c-flag"><col class="c-del">
+</colgroup>
+<thead>
+  <tr>
+    <th>BOBO #</th><th>Date</th><th>Time</th><th>TN #</th>
+    <th>Summary</th><th>Status</th><th>Prec.</th><th>Flag</th><th></th>
+  </tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+<div class="empty-msg" id="empty-msg" style="display:none">No entries match your filters.</div>
+</div>
+
+<script src="nav.js"></script>
+<script>
+const STORE_KEY = 'tbi_events';
+const VER_KEY   = 'tbi_events_ver';
+const SEED_VER  = 1;
+
+// SEED format: [bobo, date, time, tn, summary, status, prec, flag, id]
+const SEED = [
+  // ── 04/17/2011 / BOBO 00008739 ──
+  ["00008739","04-17-2011","1048","TN0142","Corey Stewart, 50 Anglin Rd, Scotts Hall. Seen with Whitney Duncan a couple of months ago, tried to befriend Holly and Whitney but were unsuccessful. Dicus and Viveros spoke with Stewart and has an alibi for that morning of Tiffany Huffington.","Closed","Routine","N","t1"],
+  ["00008739","04-17-2011","1021","TN0141","Pam Berning 731-816-6169: she has been taking her friend back and forth to Nashville to the airport. Coming back through this morning she saw a female's black tennis shoe on the entrance ramp of a road that connects to I-40 going W just across the TN river bridge. Did not know if the shoe could be related to the case but wanted to make someone aware.","Open","Routine","N","t2"],
+  ["00008739","04-17-2011","1017","TN0140","Ben Nelson 812-282-6002: at 1:17am this morning he and a group of friends were traveling through TN to Minnesota. Stopped at a gas station/McDonald's at 8137 Epps Mill Road in Christiana, TN (615) 904-7303. There were two white male subjects in the McDonald's in their early 30's. One had blood on his jeans, the other wearing a camo shirt. The subject wearing the jeans was 5'8 to 5'10 and had darker hair. The subjects were possibly driving a newer model two-tone Ford SUV.","Open","Routine","Y","t3"],
+  ["00008739","04-17-2011","0953","TN0139","Linked to TN0138. Officer Nicholas checked on Ricky Kipkins, a known sex offender who lives in Ricky Frye's neighborhood — found he is incarcerated at Henderson County Jail. Nicholas and McCready walked around the outside of the residence. Ricky advised he works at Wal-Mart from 10PM–7AM; days off Sunday and Monday. Always stops at Shell station and buys beer before going home. Contact Pam Scott, Wal-Mart security: arrived at Wal-Mart Tuesday night at 2027 hrs, left at 0707 Wednesday morning. Wednesday night arrived at 2047 hrs, clocked out at 0723. Ray gave permission to check his residence. All closets, bathrooms, bedrooms, kitchen, living room checked. LT. Donna Hetherington, CID.","Closed","Routine","N","t4"],
+  ["00008739","04-17-2011","0923","TN0024","Homeland Security SA Joseph Hudgins picked up on this information. Not a positive ID — witness said it looked like her. Met with Perry Co SO Chief Deputy Nic Weemes (931) 213-4192, lead investigator Fred Moore (931) 213-1813. Spoke to Gary Patel, manager of Fatman's Deli in Perry County (615) 337-0415. Perry Co assigned Deputy George Dittfuth (815) 542-4242 to canvass all stores in county, question and place posters. 1700: Deputy Dittfuth completed contact with all stores, nothing to report. BOLOs went out.","Closed","Routine","N","t5"],
+  ["00008739","04-17-2011","0904","TN0021","Bank officials advised SA Dicus and Det. Ricky Inman: no bank cards on Holly's accounts, just a check book. Around $90.00 in the account. She just deals with cash and checks.","Closed","Routine","N","t6"],
+  ["00008739","04-17-2011","0122","TN0137","Mrs. Bobo called SA Brent Booth: she and her husband remembered an old boyfriend of Holly's that was very strange — Wallace Hal, believed to be in the military now. Was married to a Katie Tomlin and they have a child. Katia's parents are Allen and Lori Tomlin and Katia now lives with them. Mother did live around the Lost Creek area in either Decaturville or Perryville.","Closed","Routine","P","t7"],
+
+  // ── 04/16/2011 / BOBO 00008739 (cont.) ──
+  ["00008739","04-16-2011","2101","TN0136","SA Joe Walker spoke with Rhonda Kates at approximately 7:30pm on 4-16-11 to follow up on her initial call. Kates said she was turning off Spring Hollow on Bunches Chapel and there is a small pull off there. Kates observed a newer model black Jeep with blacked out windows. Driver was on cell phone and she thought he was wearing camo. Kates said she had never seen this Jeep before in the area and there was nothing distinctive about it.","Open","Routine","N","t8"],
+  ["00008739","04-16-2011","2038","TN0135","Decatur Co 911 received a tip from an anonymous caller, 731-148-0456, wanting to check on Mark Clark on Holly's Facebook. Page called 'Prayer for Holly Bobo.' Caller told SA Joe Walker she has been monitoring this page. Mark Clark's original photograph showed him with a knit stocking cap and a camo shirt, but now he has on a suit. Caller said originally Clark had eight friends, now he has ten. Caller said 'his eyes look dead' and she had extra bad feelings about him.","Open","Routine","Y","t9"],
+  ["00008739","04-16-2011","2021","TN0134","Decatur Co 911 received call from Sigomee Colby from Orlando FL 407-352-9852. Calling attention to Holly Bobo's Facebook blogs. 'Saul' is making comments on the blog like Holly ran off with another man, Holly has eloped, people should stop looking for her, she is okay, it's all staged. Also making comments about how terrible the world is. Colby believes he either knows something or is acting out. Just thought this was bizarre.","Open","Routine","N","t10"],
+  ["00008739","04-16-2011","1944","TN0133","Decatur Co 911 received call from Rosa A. Rimmer (now Hinchey) 731-733-1837. Reported she told Officer Dale King 2 or 3 years ago that a man was stalking her and had said he wanted to take her out into the woods and tie her up. Sheila Carver passed this information to SA Joe Walker — the male's name was Paul Love, a volunteer fireman here, lives on Lindsey Rd. SA Walker located Love at 1117 Lindsey Rd. Love stated he does not remember law enforcement contacting him about this. Love said on Wednesday April 13th he left home at about 4:30am and traveled to Jackson to work. He was supervisor of operations at David Joseph, a subsidiary of Gerdeau Steel. Records need to be checked the first of the week.","Open","Routine","Y","t11"],
+  ["00008739","04-16-2011","1851","TN0063","Wes Mays FBI Agent, SA Art Viveros FBI spoke to Mike Chisel, sister's brother-in-law. DOB 6/22/1968, SSN 024-49-7022, W/M 250 lbs at 2575 Mouse Tail Rd, Parsons, TN 731-847-2058. States he's bi-polar and takes medications. Says he does own camo overall hunting garment but hasn't worn in a year. Does not go into woods. On Wednesday April 13 he was at home — wife Deanna can verify. On disability; does not hunt but owns several rifles at a friend's house because he's had thoughts of suicide in the past. Son Dakota Sharpe, 18 yrs, goes to UT-Martin, knows victim. Both said Dakota was sick on the 13th. After interview, determined this lead can be closed.","Closed","Routine","N","t12"],
+
+  // ── 04/16/2011 / BOBO 00008740 ──
+  ["00008740","04-16-2011","1832","TN0132","Friend of the family, Jessica Deer, remembered that last Friday she ran into Mitchell Wood who indicated he quit being a volunteer searcher and firefighter because they 'disrespected' him. After Holly went missing, she saw Mitchell in the search party on Wednesday. Mitchell has a history of being obsessive and stalking his ex-girlfriends. TBI Agent Terry Dyan has been involved in interviewing the Woods family. Mom (Karen Bobo) remembered that Holly had said that cousin/country singer Whitney Dunkins' song lyrics 'So Sorry Mama' were about Mitchell. Mom stated the song is about a bad boy that a girl is attracted to but knows he's trouble and tries to stay away from — this was said during the time period that Holly was pursuing Drew and Mitchell was pursuing Holly.","Open","Routine","P","t13"],
+  ["00008740","04-16-2011","1801","TN0131","THP has flown over the area with no result. Per SAC Mehr, this lead can be closed.","Closed","Routine","N","t14"],
+  ["00008740","04-16-2011","1747","TN0130","Norma Raleigh in TIES received a call at 1716 hrs from 731-632-1218. Caller stated her kids found a trunk at a farm belonging to Bill Roe on 4/16/2011 at approximately 5:00 PM. Kids went back to check it out. The volunteers were Ricky Alexander age 19, Dakota Alexander age 15, and Katlin [?] age 19. Caller states her kids have returned upset and feel certain they heard something and are asking to please send someone back to check the Conway Ridge area again.","Open","Routine","Y","t15"],
+  ["00008740","04-16-2011","1701","TN0102","On April 16, 2011 at approximately 1540, SA Clayton Goldsmith of FBI and SA Joe Walker of TBI went to 1264 Yellow Springs Rd, Holladay and spoke with Miller. Miller was told they were investigating Holly Bobo. Miller said he was turkey hunting alone on Conrad Ridge Rd on property of Lloyd Conrad. He came out of the woods and Deputy Johnson of Decatur County SO was there. Miller said when he got home he realized he had lost his hunting chair and a decoy. He and a friend Jason Markowski went back and retrieved the chair and decoy and threw them in his trunk and left. Lead investigated — agents feel comfortable to close this lead.","Closed","Routine","N","t16"],
+  ["00008740","04-16-2011","1640","TN0129","LEIC Stanfill received call from Decatur Co Dispatcher Deanna. Received a tip at 16:33 from Kenneth Smith Jr. (781) 897-1535. Deanna said Mr. Smith was very difficult to understand but she thinks he said he saw Holly Bobo 1.5 months ago at a Gentlemen's Club in Massachusetts.","Update","Routine","N","t17"],
+  ["00008740","04-16-2011","1557","TN0128","SAC John Mehr received information from the victim's family in regards to a Wally Lidberg. Lidberg stated he knew where the victim's body was — the location was approximately 1.5 hours away. Law enforcement went to the area. Lidberg had given previous information on another case and a body was found. Phone number 828-980-2516; address: 799 Bethany Church Road, Forest City, NC; DOB 05/08/1936; SSN 393-32-5688. Checks showed Mr. Lidberg does not have a criminal history. Phone calls made to Lidberg were recorded and copied to Decatur Kidnap folder on Command Post laptop. SA Jeff Jackson and the Obion County SO still in area at 1603 hrs searching.","Closed","Routine","N","t18"],
+  ["00008740","04-16-2011","1529","TN0126","SA Pate spoke with Mother and Father. Mother Tonye Fisher gave alibi for Aaron Wallace. Stated he was at home during time of incident and a painter was at the house as well. Tonye Fisher 731-549-7866.","Closed","Routine","N","t19"],
+  ["00008740","04-16-2011","1508","TN0093","Same lead as TN0052. LEIC Allen has spoken with Investigator Latta about his case. This is an email that has been sent around the community. Investigator advised the victim has not come in to file a formal report on this case at this time. If additional information is located, Latta will contact TBI.","Closed","Routine","N","t20"],
+  ["00008740","04-16-2011","1501","TN0119","Facebook page reviewed and blog page by LEIC Purviance. Nothing unusual posted on either page. Glenn Adams is a retired Atlanta Fire Department Captain who has joined the Bring Home Holly Bobo Safe Facebook page. All postings are in line with other postings by other individuals. Nothing further to look into. Close lead.","Closed","Routine","N","t21"],
+  ["00008740","04-16-2011","1410","TN0126","SA Doug Pate received information from an individual by the name of Wayne Wright reporting a person of interest, Aaron Wallace. Wallace is described as mentally impaired, lives in the area, close in age. SA Pate discovered Mr. Wallace does not live in the area; has lived with his mother for the last 4 years. He is mentally handicapped, draws SSI and does not have a DL. Mr. Wallace helped with the search parties on 4-wheelers/horseback since date of incident. Father Tommy Wallace lives at 1940 Sulfur Springs Rd in Parsons, personally spoken to on 4/16 by SA Pate.","Open","Routine","N","t22"],
+
+  // ── 04/16/2011 / BOBO 00008741 ──
+  ["00008741","04-16-2011","1404","TN0071","LEIC Allen contacted security at Harrah's Casino in Joliet, IL and spoke with Security Officer D. Jadzak (djadzak@jolietharrahs.com). Officer Jadzak is forwarding the information to the surveillance department to search their surveillance footage and to the on-duty managers.","Closed","Routine","N","t23"],
+  ["00008741","04-16-2011","1357","TN0124","4-16-11 approx 1345: LEIC Bryson received a phone call from 765-744-0881. Caller was calling about 2 people she knew back in the 90's who like to hunt and kill things. She has no info about where they currently live but thinks this is something they may do. Names are Alan Cook & Goodacrt [?] (first name not known), but has a sister named Candice, and the 2 men do not know each other.","Open","Routine","N","t24"],
+  ["00008741","04-16-2011","1331","TN0123","Reades [?] from Kelly (family friend) 662-587-7500, who advised she had spoken to Tracy Woodson 662-322-7175, 662-507-0300, who met new boyfriend 'Blu Smith' from Booneville/Iuka, Mississippi at Chili's in Tupelo, MS at 12 noon on April 13th. She had spoken with him that morning and he said he was in TN 'taking care of things and getting some beer.' Per Tracy, he was 'talking like a psychotic idiot on phone during lunch.' He told her he had just broken up with his girlfriend who was in nursing school in TN and showed her a picture that looked like Bobo. He is in the military and was scheduled to fly to the middle east on a C-5 plane at midnight of the 13th. Tracy advised he drives a grey Dodge vehicle.","Open","Routine","Y","t25"],
+  ["00008741","04-16-2011","1315","TN0127","Search team dog hit on an area around 2051 Yellow Springs Rd, which is a cabin. Vehicle at location had TN Tag 754-FZZ. Owner is Paul Baswell, DOB 10/09/1970, W/M. Address: 105 Bentree Court, Hendersonville, TN. TN DHS Joey Hudgins spoke with search team — dog handlers stated the hit could have been methane gas. Records check showed subject does not have a criminal history. Lead to be closed per SA Mark Lewis.","Closed","Routine","N","t26"],
+  ["00008741","04-16-2011","1314","TN0121","4/16/11 approx 1:12pm: LEIC Bryson received call from Nancy Nelson 580-862-7691. School teacher of 38 years — states that last night while praying she had a vision of a trailer (light in color, with a slightly dark roof) sitting on a slight incline in some trees cut out just for the trailer. On the back side of the trailer was a freshly planted tree on the south side and in that same area was a freshly dug hole near the skirting of the trailer that lead under and behind the skirting back into the trailer. She feels Holly may be inside or in the hole outside near the skirt of the trailer.","Open","Routine","N","t27"],
+  ["00008741","04-16-2011","1255","TN0059","LEIC Allen located information on Paul Winkleblack on AMW [America's Most Wanted]. Subject is still at large per the AMW website. http://www.amw.com/fugitives/case.cfm?id=71863","Closed","Routine","N","t28"],
+  ["00008741","04-16-2011","1253","TN0092","SA Doug Pate spoke with Jeffery Krider at 1590 Brodies Landing Rd, Parsons, TN. He was at work at Kolpak from 0515–1430 on Wednesday April 13, 2011. His son Michael McCaul lives at the address also but son is not suspected. There is a hunting cabin behind the property on Brodies Landing owned by Bobby Swindle. This property is being checked out by Decatur Co SO per Decatur 911.","Update","Routine","N","t29"],
+  ["00008741","04-16-2011","1250","TN0120","LEIC Stanfill took a call from Beth Higdon (731) 549-7764. Beth stated a friend who has been searching for Holly got suspicious of some boys (near Holly's age) who live in the area being searched because he did not see them helping in the search. Boys live near Pugh Rd in the Yellow Springs area. One of the boy's names is Cory Williams. Beth stated that he is known to use drugs and has been seen with Holly in the past. The father of the boys owns a saw mill and has several vehicles. Father has seen drug paraphernalia and portable meth labs near where some of the evidence has been found.","Open","Routine","Y","t30"],
+  ["00008741","04-16-2011","1238","TN0125","Anthony (cousin of victim's father) called in to the FBI: there's a parade in Holladay, TN today across the road from the search area. Anthony's friend Wayne Holliday is at the parade and noticed an old abandoned house that has been empty for a long time. But sometime within the last 5 days, new plywood boards have been nailed up on the windows that weren't there before.","Open","Routine","Y","t31"],
+  ["00008741","04-16-2011","1238","TN0109","SA Frizzell met with Michael Sanders Jr. of 2210 Oak Circle in Franklin, TN at approximately 2:45-3:00am on 4/16/11 re: the FB posting. SA Frizzell stated Mr. Sanders thought the posting was funny. Mr. Sanders was advised of the situation and that the posting is not funny.","Closed","Routine","N","t32"],
+
+  // ── 04/16/2011 / BOBO 00008742 ──
+  ["00008742","04-16-2011","1224","TN0117","4/16/11 approx 1135: LEIC Bryson received a tip from a caller at 407-319-057-4 about a Doug Saul who is on a Facebook blog (primenews) talking about the missing person Holly Bobo and how he hates women. He states she has a 2nd boyfriend and that is who she ran away with, not the 1st boyfriend. She is embarrassed because he is older and a friend of the family. 'This is what happens and young girls do this because it's like eloping. They make it seem like abduction so the parents are on the wrong track.'","Open","Routine","N","t33"],
+  ["00008742","04-16-2011","1216","TN0052","LEIC Allen spoke with Investigator Latta. He advised that they have been unable to locate the victim of this incident. They received the information through messages being posted to the internet by members of their community. At this time they do not have any specific information regarding the case. Advised they will contact TBI back with any further information on file.","Closed","Routine","N","t34"],
+  ["00008742","04-16-2011","1208","TN0037","LEIC Allen has possibly identified the subject as being Shane Hopper, DOB 09/15/1973. His address is 104 Willow Point in Lexington, Tennessee. His point of contact on his Tipton County booking record is his mother, Margaret Fry (731) 602-0005. CL Photo and CCH available at TBI HQ.","Closed","Routine","N","t35"],
+  ["00008742","04-16-2011","1150","TN0034","LEIC Allen spoke with Dispatcher Howell with the Perry County Ohio Sheriff's Department. Dispatcher Howell advised the body had been identified as being Laura Chevalier of Roseville, Ohio.","Update","Immediate","N","t36"],
+  ["00008742","04-16-2011","1128","TN0052","LEIC Allen spoke with dispatch and requested to speak with Investigator Latta. Dispatch is attempting to reach him.","Update","Routine","N","t37"],
+  ["00008742","04-16-2011","1119","TN0122","Christy Blackstock came to CP with cell phone 731-733-6400 and home number 731-847-4843. She stated to SA Art Viveros and SAC John Mehr that Stacy Rice works at the Top Top convenience store on Hwy 60 in Parsons and is said to know about a Roger Thornburg who knows something about Mexicans involved in drug activity in Decatur County and law enforcement had prior knowledge before making contact with Roger Thornburg. Local law enforcement tried to locate Roger about the Stacy Rice subject but failed. Christy knew the same info as Thornburg. Approximately 1 hour ago contact was made by SA Art Viveros of FBI and the interview revealed Christy had no information in regards to Mexicans and their drug activity and Holly Bobo's disappearance.","Open","Routine","N","t38"],
+  ["00008742","04-16-2011","1115","TN0023","Majority of sex offenders have been checked per SA Mark Lewis.","Update","Immediate","N","t39"],
+
+  // ── 04/16/2011 / BOBO 00008743 ──
+  ["00008743","04-16-2011","1107","TN0115","LEIC Allen spoke with Trooper Patterson 1127. He is in route to the location and would check with the truck stop for footage. He was given the complainant's phone number.","Update","Routine","N","t40"],
+  ["00008743","04-16-2011","1105","TN0116","LEIC Stanfill took a call from Dewayne Turner (256) 350-8121 home, (256) 566-3915 cell. He stated that on Friday 4-15-2011 he was driving south off Lawrenceburg when he saw a blonde lady driving a small four-door white car. She was stopped at a stop sign in the area of Liberty Grove on Hwy 227 north. He said that she was acting very odd and kept looking into the back seat several times.","Open","Routine","N","t41"],
+  ["00008743","04-16-2011","1059","TN0013","Negative information located. He said he woke up at home and took his wife to work between 8-8:30 AM. He took her to work at Sonic in Parsons. From there he went to Betty James to pick up some money she owed him for moving some furniture. Then he went to the Delta gas station and purchased gas and paid with a check. Also on receipt at Sonic (discrepancy): on the coffee table there was a spiral notebook where written 'SONIC Hours, 4/13 10:27 AM to 5:05 PM.' According to the notebook she didn't start work until 10:30 and he says he dropped her off at 8:30. She did say she got to work early that day. Brandon Kelly: SSN 411-39-7335, DOB 5/22/82, residential address: 4430 Highway 100 East, Decaturville, TN, cell: 731-487-4116.","Closed","Routine","Y","t42"],
+  ["00008743","04-16-2011","1038","TN0115","LEIC Allen spoke with patrol Lt. Kurt Menger with Schaumburg Illinois Police Department. He advised they received a call from a driver who stated he saw a woman matching the description of Holly Bobo at the rest stop on I-90 east in Schaumburg. The driver described the woman as a white blonde female. He will contact TBI back with additional information as it becomes available. Schaumburg Police Department contact number: (847) 882-3534 and (847) 456-3030 (cell).","Update","Routine","N","t43"],
+  ["00008743","04-16-2011","1028","TN0115","SAC Jerri Powell advised LEIC Allen to contact law enforcement in Missouri to have the rest area checked for surveillance video. LEIC Allen will be calling the Missouri Highway Patrol for assistance.","Update","Routine","N","t44"],
+  ["00008743","04-16-2011","1021","TN0115","Larry Spitler (734) 225-0019 or (479) 270-5801. Mr. Spitler called and advised that he was at the Missouri and Arkansas state line at the MacAdoodles Center at approximately 10:00 a.m. yesterday, April 15, 2011. Mr. Spitler stated he saw a female matching the victim's description wearing a pink top, jean shorts and a plaid pullover and large sunglasses. She talked to several African American children wearing name tags and then crossed the parking lot and got into a faded green pickup.","Open","Routine","Y","t45"],
+  ["00008743","04-16-2011","0844","TN0112","Norma Raleigh received a call from a female by the name of Patty Garrison and phone number 847-534-9446. Caller stated on 4/16/11 around 1720 hours Illinois time, the caller feels certain she saw Holly Bobo at the Deerfield Bakery. Number for the bakery is 847-534-0068. The female was wearing a light tan coat, black pants, brown boots, tall shaft hair pulled back in a ponytail. In the company of a B/M in his 30's wearing a brown blazer, jeans and a black driving cap/golf type short bill pulled down to the face. Caller stated they arrived in a car but does not remember the description at all of the vehicle. Caller stated O'Hare airport is within 7–8 miles of the bakery. Schaumburg PD is going to the bakery.","Open","Routine","N","t46"],
+  ["00008743","04-16-2011","0844","TN0113","Tommy Stevens 731-549-4702 on Wednesday at approximately 1pm at intersection of Youal Gibson Rd and 641 he saw a white male in his 50's, approx 5'11', he was not wearing camouflage, parked on side of road, walking around truck with passenger door open with a rock in his hand. Truck is brown, 4WD newer model, bed cover, MO tag. Unknown if anyone else was with him. TN DHS Joey Hudgins searched the area in and around this location and did not find anything.","Open","Routine","N","t47"],
+  ["00008743","04-16-2011","0812","TN0109","TBI SA Mike Frizzell advised that a message on WSMV Facebook stating 'I have her body in the closet' was traced by IP address to Michael Sanders in Franklin, TN. SA Frizzell and another agent were going to speak with Sanders. SA Frizzell says Sanders does not appear to be 'just.'","Open","Routine","Y","t48"],
+
+  // ── 04/15-16/2011 / BOBO 00008744 ──
+  ["00008744","04-16-2011","0647","TN0114","LEIC Purviance arrived at Command Post and relieved LEIC Anthony.","Closed","Routine","N","t49"],
+  ["00008744","04-16-2011","0028","TN0094","SA Mike Frizzell advised the IP address is located in Southern California. No further action required.","Closed","Routine","N","t50"],
+  ["00008744","04-16-2011","0020","TN0108","TBI SA Dicus. Search teams recovered: panties, two receipts with Holly Bobo's name, a one dollar bill, school paper, duck tape, lotion, camo mask, one left flip-flop shoe, Dr. Pepper can, a piece of paper with hair, a Maxi Pad, and a gum box, on Yellow Spring Road, Pugh Road, and Holly Springs Road. These items indicated direction of travel was north from victim's residence.","Closed","Routine","P","t51"],
+  ["00008744","04-16-2011","0009","TN0107","Just received a call advising that one of the friends on Bobo Facebook page is a Timothy Woods and the caller advised that there is a Timothy E. Woods on the Sexual Offender list that lives in Lexington, TN. Belinda C. Allender, TIES.","Open","Routine","N","t52"],
+  ["00008744","04-15-2011","2323","TN0106","TBI SA Doug Pate. Ben Steele, phone: 731-602-0505, reported that Richard Logan Woods was a patient at Buffalo Valley Treatment Center with Walter Anderson, who stated that Woods was obsessed with a female. Woods' father is Judge Rick Woods (731) 549-4371. Richard Woods was contacted and stated his girlfriend at the time was Chelsey Jowers. Richard Woods stated he was at home at 94 Dogwood Drive, Parsons, TN on Wednesday 13 Apr 11. No further action at this time per SA Pate.","Closed","Routine","P","t53"],
+  ["00008744","04-15-2011","2315","TN0105","TBI SA Dicus followed up on information from Homeland Security that search members identified Stone Lewis as acting suspicious in the area of Gooch Road on 15 Apr 11 at approximately 17:00. Stone asked about what would happen to anybody that 'let her go' and whether the searchers found the bloody school bag. SA Dicus, Carpenter, and Long interviewed Stone Lewis with his mother present. Lewis is 16 years of age and is a student at Riverside High School. Lewis was in school on the day of the kidnapping. Lewis's mother and step-father confirmed this information. No further action at this time.","Closed","Routine","Y","t54"],
+  ["00008744","04-15-2011","2243","TN0104","At 10:05 PM LEIC Belinda Allender received a call from Ralph Giranlin in Michigan (810-794-0941). He advised that his family was returning from a vacation in FL when they stopped to gas up in Pioneer, TN on the 11th of April at 3:43 PM. They saw a white man in camo clothes with camo paint on his face at the Shell station. He got into a drab looking Jeep Cherokee. He also advised that he believes he saw what looked like a M-16 between the seats as the man got into the Jeep. He also noticed that the man in the Jeep got onto Hwy 75 going southbound.","Open","Routine","Y","t55"],
+  ["00008744","04-15-2011","2220","TN0103","TBI SA Lewis advised that Jackson Police Officer Dwayne Mclean (731-467-1209) called and reported JPD has warrants for Stalking/Sexual Related for Jason Nickell, W/M, DOB 04/01/1972, H/A 1815 Liberty Church Road, Holladay, TN. Officer Mclean knew Nickell's residence was close to the area being searched for Victim Bobo. USMS and FBI Agents located Nickell at his residence and are conducting an interview.","Open","Immediate","P","t56"],
+  ["00008744","04-15-2011","2153","TN0102","FBI SA Bisnoski and Upton spoke with a witness who stated they saw 2 W/M on Conrad Ridge Road, Decatur County, running out of the woods and drive off in a Silver Dodge Intrepid. One W/M was carrying a small black box. Both W/Ms were wearing camo. One W/M was identified as Jeff Miller, DOB 08/09/1972, residence is 1264 Yellow Springs Road, Holladay, TN. An attempt to locate Miller was unsuccessful.","Open","Routine","Y","t57"],
+  ["00008744","04-15-2011","2148","TN0101","TBI SA Lewis advised that a truck driver, Tommy Hughes, cell phone 662-706-2676, called and stated on Thursday, 14 Apr 11 he saw a F/W walking on I-40 at MM 170. TBI SA Joe Craig made contact with the Drug Interdiction Units that patrol that area and they advised they have not seen anyone matching Victim Bobo's description on the Interstate.","Closed","Routine","N","t58"],
+  ["00008744","04-15-2011","2105","TN0100","LEIC Belinda Allender received a call at 20:41 from Tony Calabrese in Ohio, phone number 731-736-1293. Calabrese advised he was on the computer doing a search on Holly Bobo and found a site www.facebook.com/alain.robichaud. When you click on this person's friends you will find Holly Bobo listed. Calabrese advised that the site looked to him if it was bogus with only 7 friends listed, all girls, but for the boy listed.","Open","Routine","N","t59"],
+
+  // ── 04/15/2011 / BOBO 00008745 ──
+  ["00008745","04-15-2011","1957","TN0099","TBI SA Doug Pate called Charisty Kee, manager of Sonic in Huntington, TN (731) 986-8555. Ms. Kee stated that on Wednesday 13 Apr 11 at approximately 21:30 a F/W who looked similar to Victim Bobo came to the Sonic in a Gold Dodge Stratus missing a rear wheel cover. The F/W was wearing a blue 'Kentucky' tee-shirt. A M/B wearing a purple shirt and shorts was a passenger in the Dodge. The F/W did not appear to be in distress. SA Pate also spoke with Courtney Smith, a car-hop at Sonic, who stated the car was a Silver Dodge Stratus and the F/W was wearing a long sleeved Kentucky tee-shirt. The Dodge had a temporary tag in the back window.","Open","Routine","N","t60"],
+  ["00008745","04-15-2011","1925","TN0067","SA Ferguson and Pate — Jonathon Dodd, W/M, female lives in the Bible Hill Road area, lives with grandfather Grafton Dodd. Son of Bradley Dodd. Came in as a tip that he is a mean person, lives in the area, and is capable of doing something like this. Working on leads.","Open","Routine","N","t61"],
+  ["00008745","04-15-2011","1749","TN0067","SA Pate called Robbie Middleton — left message, has not called back. Spoke to Karen Lancaster. Still unable to locate Paul Ray Pruitt. He is a suspicious person who lives in the area but could not give specifics on how to find him.","Update","Routine","N","t62"],
+  ["00008745","04-15-2011","1739","TN0096","At 5:35 pm IA Johnson received a call from Andrea at 303-879-3 [?]. Andrea lives in NY and said she is a medium who recently saw the report on the missing girl in TN. Andrea said she is picking up information from the other side that the man who took Holly is either wearing or has worn hunting goggles. Andrea said he is involved in hunting in some sort of way. She would like to call back when she is able to receive more information.","Open","Routine","N","t63"],
+  ["00008745","04-15-2011","1720","TN0118","On 4/16/11, information was received from Deputy Bryant Allen of the Benton County SO to check on Ron Patton, W/M, 8/15/1969, 3190 Bald Knob Rd in Holladay, TN in regards to the disappearance of Holly Bobo. Allen stated a couple of years ago Patton kidnapped a female, tied her up and held her for a period of time. Allen said Patton injected the girl with meth. Allen said the girl got loose and was found running down the road naked. SA Terry Dycus and SA Walker interviewed Patton at his home at 9:50 AM on 4/16/11. Patton said his daughter was friendly with the victim Bobo. Patton said his daughter Brandy Patton had dated the same boy as Holly had at one time. They became acquaintances through this connection. The boy's name was Lee Baughs. Patton said he figured someone had been stalking her and thought Holly was in the woods somewhere or in the bottom of a river. Patton said he was disabled from a severe trucking accident.","Update","Routine","P","t64"],
+  ["00008745","04-15-2011","1657","TN0067","SA Pate called Judy Onan, phone 731-733-2467, who said she was with Pruitt from Sunday night 10 Apr 11 to Thursday night 14 Apr 11 until approximately 19:00 hours. Pruitt was arrested by Decatur County Sheriff's Officers Thursday night 14 Apr 11 and is still in custody.","Update","Routine","N","t65"],
+  ["00008745","04-15-2011","1648","TN0090","Teresa Blackstock 549-4618 — said Aunt Pauline Quinn, 1836 Horny Head Creek Road, got a phone call yesterday. A male voice was whispering, asking questions about the road around Tuckers.","Open","Routine","N","t66"],
+  ["00008745","04-15-2011","1647","TN0089","James Pedder 412-389-8756 — tip on Holly Bobo. Hit on head, knocked out, put in back of light colored late-model car.","Open","Routine","N","t67"],
+  ["00008745","04-15-2011","1644","TN0087","Red Cameron 804-815-3448 — Psychic. Nashville. Image of Holly tied up (hands and feet), captive in a small wooden shed (not much larger than an outhouse). Northwest of Parsons, near intersection. Road goes to right. Lake at end of road.","Open","Routine","N","t68"],
+  ["00008745","04-15-2011","1642","TN0086","Deputy Parker 731-298-406 — Someone told him he had vision of Holly being buried at Reelfoot Lake. First killing?","Open","Routine","N","t69"],
+  ["00008745","04-15-2011","1637","TN0082","Tipster Rodney McAlpine 256-366-4191. Saw this morning at Southern & Cooper, Memphis, south side of railroad tracks. Girl looking like Holly leaving motel followed by a large black male. Girl was carrying clothes over arm and looked scared. Call in at 0240 by Lt. Cindy Capps — Missing Persons desk 901-363-4444 or 901-636-4479.","Open","Routine","N","t70"],
+  ["00008745","04-15-2011","1635","TN0081","549-5581 — Fisher's Grocery. Caller ran into man this week, late 20s or early 30s. Right height. Spoke but guy in camo (old timey) gave him a horrible look. Short, reddish brown beard, slender face. Another guy in car. One guy asked if they were going back to the creek, which was unusual for turkey hunting at that time of day. Caller probably could recognize him.","Open","Routine","N","t71"],
+  ["00008745","04-15-2011","1625","TN0078","Alan Wright 549-9779, 549-5646 — Tuesday knocked at door. 5'7' white male early 20s, camo, dread locks, red bandana, acting strange. Said from Nashville, selling meat. Small tan truck with camper. Information received from Sheriff's Office on notepad and brought to CP. Unknown origin.","Open","Routine","Y","t72"],
+  ["00008745","04-15-2011","1623","TN0067","Dodd 731-549-0599, was at Ben Steele house asleep. Ben Steele is a rescue squad and Dodd went with him on the search. Dodd heard screams in the woods near Evanstown Road and Cedar Hill Road last night at dark.","Open","Routine","Y","t73"],
+
+  // ── 04/15/2011 / BOBO 00008746 ──
+  ["00008746","04-15-2011","1539","TN0071","IA Johnson received a call at 3:30 pm from Robert Chojnacki at 708-785-3184. He was at Harrah's Casino in Joliet, IL yesterday and spoke with a girl who said her name was Holly and that she looked a lot like Holly Bobo. He was approached by the woman at approximately 2:30 pm outside of the casino. Holly told Mr. Chojnacki she was 21 years old and 3 months pregnant. Holly also told him she is in an abusive relationship. Mr. Chojnacki said he gave Holly $20.00 because he felt sorry for her and that she went back into the casino.","Open","Routine","N","t74"],
+  ["00008746","04-15-2011","1526","TN0070","IA Johnson received a call from David Brewer at 615-429-5362. Back in 2006-2007 he used to hunt in Parsons, TN. Mr. Brewer wanted to let investigators know there are a lot of hunting clubs across the river and around the area she was reported missing. Mr. Brewer suggested LE might want to look into them if they haven't done so already.","Open","Routine","N","t75"],
+  ["00008746","04-15-2011","1500","TN0049","Joe Upton, FBI. Spoke to Stacy Rice — advised that Mitchell left as of last Friday, returned on 4/14/2011. He had a red 1985 Mercury Cougar that was scrapped earlier in the week. He had never mentioned Holly to her. Hasn't talked about what has happened. While he was not living with her he was staying with Roger (last name unknown) and Pam Brown. Roger works at Bo's Furniture in Parsons. She said Harold was there on and off. Spoke with Roger — he verified he took Harold on Tuesday 4/12/11 to Lexington, TN to scrap the vehicle. He stayed with Roger Tuesday night. Wednesday, Roger went to work and later mid-morning Wednesday Harold was with his cousin (Terry Arnold) at the shop 731-307-8100. He stayed with Terry all rest of Wednesday through Thursday.","Update","Routine","P","t76"],
+  ["00008746","04-15-2011","1440","TN0069","SA Joe Walker — Joe Frye, State Parole Officer in Henry County, called on 4/15/2011 at 1223 and reported he was concerned about Jason Nickell possibly being connected to the Bobo disappearance in Decatur County. Frye told me he had been discussing this incident and he believed Nickell was definitely the type of person who would do something like this. Frye said Nickell had recently been in trouble for stalking a coed. Frye said he would try to get contact information for Nickell.","Open","Routine","P","t77"],
+  ["00008746","04-15-2011","1424","TN0067","Ferguson and Pate — Jonathon Dodd, W/M, female lives in the Bible Hill Road area, lives with grandfather Grafton Dodd, son of Bradley Dodd. Came in as a tip that he is a mean person, lives in the area, and is capable of doing something like this. Working on leads.","Open","Routine","N","t78"],
+  ["00008746","04-15-2011","1414","TN0068","Email from Inv. Penney Curtis, Chattanooga PD CSU 423-643-5000: 'EDDIE NEAL HALL (W/M) 5'07 200lbs, TOMIS ID#: 00317368. HALL IS A VALIDATED MEMBER OF THE ARYAN BROTHERHOOD AND WAS SENTENCED TO PRISON FOR AGGRAVATED BURGLARY AND STATUATORY RAPE. HALL'S LISTED ADDRESS IS APPROXIMATELY 7 MILES FROM THE VICTIM'S RESIDENCE. LOOKING AT THE DIRECTIONS TO GET FROM HIS HOUSE TO HERS IS BASICALLY AN \"I\" PATTERN. I HOPE THIS HELPS.'","Open","Routine","Y","t79"],
+  ["00008746","04-15-2011","1401","TN0067","TBI SA Cathy Ferguson & SA Doug Pate — Checking on leads: Robby Middleton 731-549-0397 has information and Karen Lancaster 731-847-6726 has information re: Paul Ray Pruett, possible child molesters seen with the victim (not recently). Pate left voice memos to both subjects.","Open","Routine","N","t80"],
+  ["00008746","04-15-2011","1348","TN0066","Victoria Hayes (731) 549-2183. Ms. Hayes works in Sporting Goods at the Wal-Mart in Lexington, TN. She advised they have had 4 sales of MREs this week and she found that very unusual as they usually only sell one or two a year. She is currently at the Wal-Mart but could not get the store's number. She will be home after 5pm.","Open","Routine","Y","t81"],
+  ["00008746","04-15-2011","1343","TN0065","At 1:20 pm TBI Charley Dickenson received a call from Remona Carter from Petal, MS at 601-227-1356. Remona believes that Holly Bobo is alive and in the trunk of a car and is crying. Remona says she is an evangelist and has premonitions and dreams that sometimes become reality. She said in her dream there was a reference to a bathroom — when she reached for the tissue roll there would not tear and it looked like a blue and white striped towel instead of tissue paper, rough, like the type you would scratch your back with. She said this might signify: inside of a car trunk, a towel in the trunk, someone's bathroom she (Holly) knew, a bathroom where Holly might have been before, or a bathroom inside a building she'd been in.","Open","Routine","N","t82"],
+  ["00008746","04-15-2011","1326","TN0092","Gloria Hogan called and stated she saw the news and her ex-husband Michael McCaa and his father Jeffery Krider live in Parsons and Jeff Krider is a convicted sex offender. She stated they were both hunters and was concerned. Her number 731-519-7236.","Open","Routine","N","t83"],
+
+  // ── 04/15/2011 / BOBO 00008747 ──
+  ["00008747","04-15-2011","1233","TN0091","Heather Burry stated that she thinks she saw Holly at SIP in Parsons a few days ago when she was going to clinics at the hospital in Parsons and a man inside SIP was making comments to all the girls with her but singling Holly out. She does not know what the man was driving. Her phone 731-733-0000.","Open","Routine","N","t84"],
+  ["00008747","04-15-2011","1223","TN0062","At 10:48am Admin Asst Dickerson received a call from Scott Vincent at 914-781-7515. Mr. Vincent stated he called earlier but wanted to add that upon searching Holly Bobo's Facebook pages, he found a 'friend' she had named Randy Cortew. Mr. Vincent stated that both the victim and Scott Cortew attended UT Martin College. He also stated that the picture on Facebook showed him in camo and as an outdoorsman.","Open","Routine","Y","t85"],
+  ["00008747","04-15-2011","1216","TN0059","At approximately 10:30am LEIC Kershaw received a call from Sonya in Oregon at 503-754-6607. Sonya called to report information on a suspect, Paul Evans Winklebluck, in her daughter's kidnapping. According to Sonya, case has been mentioned on America's Most Wanted 3 times. Winklebluck has impersonated Police Officers wearing camo. Sonya reported some details similar to Bobo case. Suspect in her daughter's kidnapping is still on the run and her daughter was able to escape. Det. Michelle Michaels in Portland, OR worked the case.","Open","Routine","N","t86"],
+  ["00008747","04-15-2011","1151","TN0057","LEIC James Bryson received a call from a cab driver in Columbus, OH on the TBI find line at approximately 11:35am. Citizen did not provide name but called from 614-353-8871. Cab driver explained about 2 to 3 evenings ago he saw a car traveling 270 N and a blonde girl looked at him from the car window then a guy looked at her and she turned away. The guy sped away and he could not make out the vehicle TAG. Cab driver reported that the guy had a football build, short dark hair cut, tan complexion. The vehicle was described as a Mid 80's Gray Dodge-type car.","Open","Routine","N","t87"],
+  ["00008747","04-15-2011","1038","TN0061","Joseph Hudgens & Art Viveros, FBI. Interviewed Courtney LeAnn Tanner, 1727 Clayword Road, Decaturville, TN, cell 731-549-0284, DOB 8-17-91, SSN 412-69-6705. Student at UTM-Parsons, sophomore majoring in education. Knows Holly through growing up with her and through church — Corinth Baptist Church in Darden. Had a Wednesday class 0930 English Composition approximately 5 minutes late due to sleeping in. She stated she did not have any classes with Holly. Can't think of anyone who would want to hurt Holly. Did notice a creepy guy in a white van who wore glasses waiting for someone at the school, in his late 20s approximately 5'10', and he would sometimes wait in the student lounge with a small laptop and play the game Bejeweled. Charity Pearcy who works for Dr. Phillips in Parsons relayed to her that an older gentleman in a gray beard with camo pants came up to Pearcy's house and asked if they needed any brush cleared from the property.","Open","Routine","Y","t88"],
+  ["00008747","04-15-2011","1030","TN0060","Joseph Hudgens & Art Viveros, FBI. Interviewed Travis Eugene Hemby Volner, 68 Beasley Loop, Linden, TN, DOB 7-21-91, SSN 411-69-3490. Nursing student at UTM-Parsons. Lives with his father Kenny Volner. Sophomore, class on Wednesday from 0930 to 1045 (English comp) approximately 5 minutes late because he overslept. Father can verify he was at home. He did not have a class with Holly but knew her through school and spoke to her a few times at UTM-Parsons. Last time talked to her was a scholarship banquet in 2009 where they both won a $1000 scholarship. Has known her for 6–7 years. He couldn't recall anyone who would have wanted to hurt Holly or had an obsession with her. Story seems credible.","Closed","Routine","N","t89"],
+  ["00008747","04-15-2011","1019","TN0052","Sherry Ashley 205-466-5444. Complainant called to advise that a female subject in Blount County, Alabama was ambushed on Sunday night, April 10, 2011 at approximately 8:30 pm. The male subject attempted to grab the female at her residence as she was getting into her car. The female was able to get away. The male subject was tall, white male and had light colored or gray hair. Ms. Ashley has heard that he attempted to abduct another female in the county the same night. Blount County, AL is located approximately 3 miles south of Parsons, TN per the complainant.","Open","Routine","N","t90"],
+  ["00008747","04-15-2011","1010","TN0053","Male subject called 800 TBI FIND. He asked if he was talking to the FBI or TBI. Once he was told he was talking to TBI he stated 'He was glad that the girl was missing and hoped mom went missing because of the Bush era bullshit' and then hung up the phone. The number listed on the caller ID was 760-922-9832. Subject sounded like he had a Northern or Midwestern accent.","Open","Routine","N","t91"],
+  ["00008747","04-15-2011","0951","TN0111","Kim Lewis claims that her son (Toby Barris) may have information on Bobo case. Man was in Dandy's/Shell Station off New Shackle Island Rd in Hendersonville, TN. He claims there was a man there with camouflage bibs and long sleeve shirt with hat and salt and pepper hair. He doesn't remember if it was the day of or the day after the abduction. Kim Lewis phone 931-287-4513.","Open","Routine","N","t92"],
+  ["00008747","04-15-2011","0934","TN0050","Anonymous caller 4/15/2011 at 9:05 advised that on a Face Book friend (of the victim), Matt Elkins has a friend named Randy Cortew. And he is dressed in camouflage and is staying with a woman (maybe victim).","Open","Routine","Y","t93"],
+  ["00008747","04-15-2011","0930","TN0051","Clint Griswald, Baton Rouge, LA (225) 772-3651. Complainant wishes to remain anonymous. Complainant was driving through Tennessee on 4/11/11 on I-40 near Parsons. Pulled off exit to get gas and stopped at a McDonald's attached to Loretta Lynn's Kitchen (possibly Waverly exit). Subject was in line in front of caller. Subject was very agitated, loud, made threatening remarks, 'acting crazy.' Left McDonald's and went down the road and pulled off. Seemed to be waiting for caller to come by him. Subject was driving a brown/gray car, Hood/Odyssey-type vehicle, 5'11'. Subject was wearing blue jeans.","Open","Routine","N","t94"],
+];
+
+let entries = [];
+
+function loadEntries() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    const ver = localStorage.getItem(VER_KEY);
+    if (raw && ver === String(SEED_VER)) {
+      entries = JSON.parse(raw);
+      return;
+    }
+  } catch(e) {}
+  entries = SEED.map(r => ({
+    bobo: r[0], date: r[1], time: r[2], tn: r[3],
+    summary: r[4], status: r[5], prec: r[6], flag: r[7], id: r[8]
+  }));
+  saveEntries();
+}
+
+function saveEntries() {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(entries));
+    localStorage.setItem(VER_KEY, String(SEED_VER));
+  } catch(e) {}
+}
+
+function statusBadge(s) {
+  const map = { Open: 'badge-open', Closed: 'badge-closed', Update: 'badge-update' };
+  return `<span class="badge ${map[s] || 'badge-closed'}">${s}</span>`;
+}
+function precBadge(p) {
+  if (p === 'Immediate') return `<span class="badge badge-imm">Imm.</span>`;
+  return `<span class="badge badge-routine">Routine</span>`;
+}
+function flagBadge(f) {
+  if (f === 'Y') return `<span class="badge badge-flag-y">TIP</span>`;
+  if (f === 'P') return `<span class="badge badge-flag-p">NOTE</span>`;
+  return '';
+}
+function flagClass(f) {
+  if (f === 'Y') return ' flagged-y';
+  if (f === 'P') return ' flagged-p';
+  return '';
+}
+
+const TRUNC = 160;
+function summaryCell(e) {
+  const s = e.summary || '';
+  if (s.length <= TRUNC) return `<span class="narr-short">${esc(s)}</span>`;
+  return `<span class="narr-short">${esc(s.slice(0, TRUNC))}… <button class="narr-toggle" onclick="toggle(this)">more ▾</button></span>
+          <span class="narr-full">${esc(s)} <button class="narr-toggle" onclick="toggle(this)">less ▴</button></span>`;
+}
+function toggle(btn) {
+  btn.closest('tr').classList.toggle('expanded');
+}
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function render() {
+  const q    = document.getElementById('q').value.toLowerCase();
+  const fDate = document.getElementById('f-date').value;
+  const fStat = document.getElementById('f-status').value;
+  const fFlag = document.getElementById('f-flag').value;
+
+  const filtered = entries.filter(e => {
+    if (fDate && e.date !== fDate) return false;
+    if (fStat && e.status !== fStat) return false;
+    if (fFlag && e.flag !== fFlag) return false;
+    if (q) {
+      const hay = [e.bobo, e.date, e.time, e.tn, e.summary, e.status, e.prec].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  document.getElementById('empty-msg').style.display = filtered.length ? 'none' : 'block';
+
+  filtered.forEach(e => {
+    const tr = document.createElement('tr');
+    tr.className = flagClass(e.flag);
+    tr.innerHTML = `
+      <td class="c-mono" data-label="BOBO">${esc(e.bobo)}</td>
+      <td data-label="Date">${esc(e.date)}</td>
+      <td class="c-mono" data-label="Time">${esc(e.time)}</td>
+      <td class="c-mono" data-label="TN #"><strong>${esc(e.tn)}</strong></td>
+      <td data-label="Summary">${summaryCell(e)}</td>
+      <td data-label="Status">${statusBadge(e.status)}</td>
+      <td data-label="Prec.">${precBadge(e.prec)}</td>
+      <td data-label="Flag">${flagBadge(e.flag)}</td>
+      <td class="td-del"><button class="del-btn" title="Delete" onclick="delEntry('${e.id}')">×</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Update stats
+  const open   = entries.filter(e => e.status === 'Open').length;
+  const closed = entries.filter(e => e.status === 'Closed').length;
+  const update = entries.filter(e => e.status === 'Update').length;
+  const tips   = entries.filter(e => e.flag === 'Y').length;
+  const notes  = entries.filter(e => e.flag === 'P').length;
+  document.getElementById('stats-bar').innerHTML =
+    `<span><span class="stat-val">${filtered.length}</span> / ${entries.length} entries</span>` +
+    `<span>Open: <span class="stat-val">${open}</span></span>` +
+    `<span>Closed: <span class="stat-val">${closed}</span></span>` +
+    `<span>Update: <span class="stat-val">${update}</span></span>` +
+    `<span>TIP: <span class="stat-val">${tips}</span></span>` +
+    `<span>NOTE: <span class="stat-val">${notes}</span></span>` +
+    `<span style="margin-left:auto;font-size:.7rem;">BOBO 00008739–00008747 · TBI Events Board · 04-15 to 04-17-2011</span>`;
+}
+
+function populateDateFilter() {
+  const dates = [...new Set(entries.map(e => e.date))].sort();
+  const sel = document.getElementById('f-date');
+  dates.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d; opt.textContent = d;
+    sel.appendChild(opt);
+  });
+}
+
+function delEntry(id) {
+  entries = entries.filter(e => e.id !== id);
+  saveEntries();
+  render();
+}
+
+function toggleAdd() {
+  document.getElementById('add-panel').classList.toggle('open');
+}
+
+function addEntry() {
+  const id = 'u' + Date.now();
+  entries.unshift({
+    bobo:    document.getElementById('f-bobo').value.trim() || '?',
+    date:    document.getElementById('f-adate').value.trim(),
+    time:    document.getElementById('f-time').value.trim(),
+    tn:      document.getElementById('f-tn').value.trim(),
+    summary: document.getElementById('f-narr').value.trim(),
+    status:  document.getElementById('f-astat').value,
+    prec:    document.getElementById('f-aprec').value,
+    flag:    document.getElementById('f-aflag').value,
+    id
+  });
+  saveEntries();
+  document.getElementById('add-panel').classList.remove('open');
+  ['f-bobo','f-adate','f-time','f-tn','f-narr'].forEach(id => document.getElementById(id).value = '');
+  render();
+}
+
+loadEntries();
+populateDateFilter();
+render();
+</script>
+</body>
+</html>
