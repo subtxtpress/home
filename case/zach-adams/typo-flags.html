@@ -396,6 +396,7 @@ td.td-del {
       <option value="TBI Events Board">TBI Events Board</option>
       <option value="E-911 Log">E-911 Log</option>
       <option value="DCSO Reports">DCSO Reports</option>
+      <option value="VCC Leads">VCC Leads</option>
     </select>
     <select id="filter-status" onchange="renderTable()">
       <option value="">All statuses</option>
@@ -416,6 +417,7 @@ td.td-del {
         <option value="TBI Events Board">TBI Events Board</option>
         <option value="E-911 Log">E-911 Log</option>
         <option value="DCSO Reports">DCSO Reports</option>
+        <option value="VCC Leads">VCC Leads</option>
       </select>
     </div>
     <div>
@@ -481,19 +483,66 @@ td.td-del {
 <script src="nav.js"></script>
 <script>
 const STORE_KEY = 'typo_flags';
-const SEED_VER  = 1;
+const SEED_VER  = 3;
 const SEED_KEY  = STORE_KEY + '_seed_v';
 
 // format: [id, source, entry_id, var_a, var_b, context, status]
 const SEED = [
-  ["f1", "TBI Events Board", "t7 / TN0137",  "Katie",      "Katia",      "Was married to a Katie Tomlin and they have a child. Katia's parents are Allen and Lori Tomlin.", "open"],
-  ["f2", "TBI Events Board", "t13 / TN0132", "Wood",       "Woods",      "Mitchell Wood who indicated he quit … TBI Agent Terry Dyan has been involved in interviewing the Woods family.", "open"],
-  ["f3", "TBI Events Board", "t31 / TN0125", "Holladay",   "Holliday",   "A parade in Holladay, TN today … friend Wayne Holliday is at the parade.", "nofix"],
-  ["f4", "E-911 Log",        "s365",         "Clendamon",  "Clendanon",  "Going with Stacy Clendamon to Ball Fields … He has an order of protection against her ex-husband Matt Clendanon.", "open"],
-  ["f5", "E-911 Log",        "s518",         "Hesdrix",    "Hendrix",    "Getting addresses for Steve Hesdrix 150 Holladay Rd & Craig Hendrix 1549 Gooch Rd.", "open"],
-  ["f6", "E-911 Log",        "s141",         "Baily",      "Bailey",     "Mae Baily called … wants officer to go get child from Chris Bailey and Julie Pruitt.", "open"],
-  ["f7", "E-911 Log",        "s327",         "Potoma",     "Potowa",     "She speaks of a Blake Potoma/Potowa (an Indian name).", "nofix"],
-  ["f8", "E-911 Log",        "s268",         "Hall",       "Hill",       "Brad Hall reporting something odd … owned land out Bible Hill Rd.", "nofix"],
+  ["f1",  "TBI Events Board", "t7 / TN0137",  "Katie",         "Katia",         "Was married to a Katie Tomlin and they have a child. Katia's parents are Allen and Lori Tomlin.", "open"],
+  ["f2",  "TBI Events Board", "t13 / TN0132", "Wood",          "Woods",         "Mitchell Wood who indicated he quit … TBI Agent Terry Dyan has been involved in interviewing the Woods family.", "open"],
+  ["f3",  "TBI Events Board", "t31 / TN0125", "Holladay",      "Holliday",      "A parade in Holladay, TN today … friend Wayne Holliday is at the parade.", "nofix"],
+  ["f4",  "E-911 Log",        "s365",         "Clendamon",     "Clendanon",     "Going with Stacy Clendamon to Ball Fields … He has an order of protection against her ex-husband Matt Clendanon.", "open"],
+  ["f5",  "E-911 Log",        "s518",         "Hesdrix",       "Hendrix",       "Getting addresses for Steve Hesdrix 150 Holladay Rd & Craig Hendrix 1549 Gooch Rd.", "open"],
+  ["f6",  "E-911 Log",        "s141",         "Baily",         "Bailey",        "Mae Baily called … wants officer to go get child from Chris Bailey and Julie Pruitt.", "open"],
+  ["f7",  "E-911 Log",        "s327",         "Potoma",        "Potowa",        "She speaks of a Blake Potoma/Potowa (an Indian name).", "nofix"],
+  ["f8",  "E-911 Log",        "s268",         "Hall",          "Hill",          "Brad Hall reporting something odd … owned land out Bible Hill Rd.", "nofix"],
+  ["f9",  "VCC Leads",        "TN0025",       "Jessican",      "Jessica",       "10:02 FBI SA Joe Upton went to Parsons High School to interview FW/DOB 07/17/1994 Jessica Pearcy, who stated she was home alone… Jessican stated she does not know Holly Bobo personally.", "open"],
+  ["f10", "VCC Leads",        "TN0063",       "Sympsma",       "Sypsma",        "Sgt Jonathan Johnson - Ms. Jamie Sypsma called from 231-856-4246 to give information. When contacted back Ms. Sypsma did state that her brother-in-law…", "open"],
+  ["f11", "VCC Leads",        "TN0103",       "Nickelly",      "Nickell",       "JPD has warrants for Stalking/w Sexual Related for Jason Nickell MW/DOB 04/01/1972… Officer McLean knew Nickell's residence was close to the area… aka Nickelly.", "open"],
+  ["f12", "VCC Leads",        "TN0103",       "Kennedy",       "Kenney",        "22:12 TBI SA Lewis advised that Jackson Police Officer Dwayne McLean called and reported JPD has warrants… The victim's name is Kennedy or Kenney.", "open"],
+  ["f13", "VCC Leads",        "TN0155",       "Phinnesse",     "Phinnessee",    "SA Harsha and SA McMurtrie FBI - Chief Phinnessee, Henning Police Dept… Chief Phinnesse advised that he and/or Lauderdale Co Sheriff Dept would attempt to contact…", "open"],
+  ["f14", "VCC Leads",        "TN0195",       "Wenger",        "Wengler",       "Caller: Frank Wengler from Aurora, Nebraska… Mr. Wenger noticed that one of the ATV drivers who was supposed to be helping out with the search turned and spit on the patrol car.", "open"],
+  ["f15", "VCC Leads",        "TN0196",       "Baine",         "Blaine",        "Ms. Stanfill stated her ex-husband lives in Decautur County… her girls told her about 2 months back their stepfather Baine/Blaine had made some inappropriate comments.", "open"],
+  ["f16", "VCC Leads",        "TN0241",       "Dunoway",       "Dunaway",       "LT Dunaway THP through Michael Ivey - Subject come to Lt Dunoway and provide the following information: Neal Hightower had been praying about this…", "open"],
+  ["f17", "VCC Leads",        "TN0271",       "Wildenville",   "Wildersville",  "SA Booth - Brandon Powers 967-3834 - Saw Nissan Pathfinder dark green on Miller Trail and Wildenville Road Wildersville, TN.", "open"],
+  ["f18", "VCC Leads",        "TN0301",       "Vaugh",         "Vaughn",        "John Vaughn called… he stated that another man by the name of John Gary Vaugh, aka: John Michael Kent stole his identity.", "open"],
+  ["f19", "VCC Leads",        "TN0311",       "Brue",          "Bruce",         "Mr. Stevens said he worked in the past with Alvin Daniels on several cases and with Brue Daniels.", "open"],
+  ["f20", "VCC Leads",        "TN0345",       "Persons",       "Parsons",       "A Dennis C Sewell 2nd was located at 33 Durbin Lane in Parsons, TN… Dennis Sewell was located at 33 Durbin Lane in Persons, TN.", "open"],
+  ["f21", "VCC Leads",        "TN0362",       "Sulllivan",     "Sullivan",      "TBI SA John Sullivan spoke with Cheryl Phillips on 19 Apr 11 at 17:43… Event closed per SA Sulllivan.", "open"],
+  ["f22", "VCC Leads",        "TN0376",       "Chumeny",       "Chumney",       "Max Chumney who buffs the floors at the supermarket did not show up for work… Chumeny wasn't there because he is there every day.", "open"],
+  ["f23", "VCC Leads",        "TN0390",       "Herdon",        "Herndon",       "Shawn Herdon. Officers spoke with Shawn Herndon at Tudena Restaurant on Main Street in Parsons, TN.", "open"],
+  ["f24", "VCC Leads",        "TN0450",       "Barnet",        "Barnett",       "Lee Baugus - Holly's ex-boyfriend before Blake Barnett, Amy Barnett (Blake's sister)… Kristin stated that Amy Barnet had been acting erratic.", "open"],
+  ["f25", "VCC Leads",        "TN0461",       "Oatrvall",      "Oatsvell",      "Per Jeff Oatrvall, 50 Jacqueline, Camden, TN… (both spellings appear to be garbled transcriptions of the same name)", "open"],
+  ["f26", "VCC Leads",        "TN0495",       "Barnette",      "Barnett",       "Dwayne Waddle… W/M purchased a large amount of bleach, industrial size… suspect Blake Barnett or Barnette.", "open"],
+  ["f27", "VCC Leads",        "TN0534",       "Tarrie",        "Terrie",        "Kim Duncan stated that Cathy Wise called her friend Tarrie… Kim Duncan stated Terrie had said something about observing someone.", "open"],
+  ["f28", "VCC Leads",        "TN0547",       "Benefeld",      "Benefield",     "Billy Benefield, (931) 388-5575, 2485 Knob Creek Road… Mr. Benefeld along with J.W. Scott and Larry Inman were in the area.", "open"],
+  ["f29", "VCC Leads",        "TN0561",       "Cohl",          "Cole",          "A Sgt. Cohl called from 901-636-4… (likely same person as Sgt. Cole)", "open"],
+  ["f30", "VCC Leads",        "TN0561",       "Lawenceburg",   "Lawrenceburg",  "Caller stated he was from Lawenceburg, TN… referring to Lawrenceburg, TN.", "open"],
+  ["f31", "VCC Leads",        "TN0583",       "Fairbgrounds",  "Fairgrounds",   "Randy Cloyd observed suspicious activity in the Fairbgrounds building… inside the Fairgrounds building.", "open"],
+  ["f32", "VCC Leads",        "TN0584",       "Shelly",        "Shelley",       "Detectives spoke with Shelley Maness… Shelly Maness stated she was working at Scotts Hill.", "open"],
+  ["f33", "VCC Leads",        "TN0594",       "Joradn",        "Jordan",        "SAC Jordan called in… SAC Joradn said that he had his number.", "open"],
+  ["f34", "VCC Leads",        "TN0601",       "Calbrese",      "Calabrese",     "Tony Calabrese (234) 736-1293 called… Mr Calbrese has called in before with a facebook tip.", "open"],
+  ["f35", "VCC Leads",        "TN0615",       "Courntey",      "Courtney",      "Courntey West (731)307-1843 called… Courtney stated that she use to date Flint.", "open"],
+  ["f36", "VCC Leads",        "TN0658",       "Radall",        "Randall",       "Justin Swindle reported a suspicious pickup… passenger side — 'Radall' (likely Randall) in notes.", "open"],
+  ["f37", "VCC Leads",        "TN0666",       "Brooskie",      "Brooksie",      "McKenzie advised he fired Randall Hughes… Hughes went by the nickname Brooksie or Brooskie.", "open"],
+  ["f38", "VCC Leads",        "TN0718",       "Hollway",       "Holloway",      "Greg Simpson and Joey Hudgins interviewed Mr. Holloway on 4/27/2011. Follow up is needed on Hollway's alibi.", "open"],
+  ["f39", "VCC Leads",        "TN0745",       "Widlerville",   "Wilderville",   "TBI SA Faulkner spoke with Bobbie Maness at 985 Wilderville Road, Widlerville, TN.", "open"],
+  ["f40", "VCC Leads",        "TN0152",       "Mill",          "Mills",         "These loggers have been clearing the area… Terry Mill (logger)… Terry Mills.", "open"],
+  ["f41", "VCC Leads",        "TN0542",       "Grifton",       "Grafton",       "Around 1028 hours Ms Tibbs… Shane Austin WM was taken hostage… by a drug cartel where he was near beaten to death. This individual has a fixation with Grifton Dodd… Grafton Dodd.", "open"],
+  ["f42", "VCC Leads",        "TN0507",       "Infromation",   "Information",   "Informational purposes only. Infromation from Erin, TN. Event closed by TBI SA Lewis.", "open"],
+  ["f43", "VCC Leads",        "TN0747",       "Berberett",     "Berberette",    "FBI SA Adams and Simpson investigated… On 5/2/11, Katherine Walker and Miguel Acosta spoke with Robert and Linda Berberette at their residence… Robert and Linda Berberett.", "open"],
+  ["f44", "VCC Leads",        "TN0660",       "Askins",        "Atkins",        "SA Faulkner spoke with Mike… he knew Gary Atkins for about 10 years. Atkins lives in Lincoln County near Fayetteville… Gary Askins is the man's name.", "open"],
+  ["f45", "VCC Leads",        "TN0688",       "Faulker",       "Faulkner",      "On 05.02.2011, SA Faulker called John Murphy… On 05.04.2011, SA Faulkner received a copy of the pictures from John Murphy.", "open"],
+  ["f46", "VCC Leads",        "TN0781",       "Lundsford",     "Lunsford",      "Lexington PD, Robbie McCready, interviewed Sex Offender, James Rogers Lunsford… Lundsford stated that he met Holly Bobo at a horse show.", "open"],
+  ["f47", "VCC Leads",        "TN0491",       "Mangrun",       "Mangrum",       "On 06/22/11 at approx. 12:08pm TBI SA Faulkner spoke with Mark Mangrum telephonically. Mangrun is currently in a Federal Correctional Facility in MA.", "open"],
+  ["f48", "VCC Leads",        "TN0848",       "Menedez",       "Menendez",      "A white male in his late 30's by the name of Scott Menendez was possibly involved in Human Trafficking out of Mobile, AL. Menedez is supposed to be working at a Nolan/Noland County sheriff department.", "open"],
+  ["f49", "VCC Leads",        "TN0848",       "Nolan",         "Noland",        "Menedez is supposed to be working at a Nolan County or Noland County sheriff department.", "open"],
+  ["f50", "VCC Leads",        "TN0830",       "Clemmens",      "Clemmons",      "I received a call from Detective Clemmons. Mrs. Teresa Daily called her again. Detective Clemmens advised…", "open"],
+  ["f51", "VCC Leads",        "TN0873",       "Deanne",        "Deanna",        "I received a tip on the find line from Judy Afflerbach… Judy states that Deanna… and Deanne confirmed the story.", "open"],
+  ["f52", "VCC Leads",        "TN0880",       "Bobbo",         "Bobo",          "Subject line: Holly Bobbo Tip — I just received a tip about Holly Bobo.", "open"],
+  ["f53", "VCC Leads",        "TN0762",       "Hamlton",       "Hamilton",      "I spoke with Rosemary Hamilton telephonically at 731-733-1999 on May 19, 2011. Hamilton told me she had been in a wreck… Hamlton.", "open"],
+  ["f54", "VCC Leads",        "TN0880",       "Mart",          "Mark",          "This agent has tried numerous times to contact Michael Miller… I talked with Mart Lewis (SA Mark Lewis) about this…", "open"],
+  ["f55", "VCC Leads",        "TN0878",       "Hollie",        "Holly",         "I just received a call on the TBI find line from a person who identified himself as Holly's preacher… he received a phone call from an anonymous caller who said Hollie is being held at a residence.", "open"],
 ];
 
 function load() {
