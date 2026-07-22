@@ -124,6 +124,7 @@ header p  { font-size: clamp(.72rem, 1.5vw + .4rem, .78rem); opacity: .7; margin
 .person-card.cat-poi          { border-left-color: var(--amber); }
 .person-card.cat-witness      { border-left-color: var(--green); }
 .person-card.cat-investigator { border-left-color: var(--accent); }
+.person-card.cat-dispatcher   { border-left-color: var(--purple); }
 .person-card.cat-other        { border-left-color: var(--text-dim); }
 
 .card-top {
@@ -143,6 +144,7 @@ header p  { font-size: clamp(.72rem, 1.5vw + .4rem, .78rem); opacity: .7; margin
 .badge-poi         { background: var(--amber-bg);  color: var(--amber); }
 .badge-witness     { background: var(--green-bg);  color: var(--green); }
 .badge-investigator{ background: var(--accent-subtle); color: var(--accent); }
+.badge-dispatcher  { background: rgba(188,140,255,0.12); color: var(--purple); }
 .badge-other       { background: var(--card-alt);  color: var(--text-dim); }
 .badge-pass        { background: var(--green-bg);  color: var(--green); }
 .badge-fail        { background: var(--red-bg);    color: var(--red); font-size: .7rem; }
@@ -214,6 +216,7 @@ header p  { font-size: clamp(.72rem, 1.5vw + .4rem, .78rem); opacity: .7; margin
     <option value="POI">Person of Interest</option>
     <option value="Witness">Witness</option>
     <option value="Investigator">Investigator</option>
+    <option value="Dispatcher">Dispatcher</option>
     <option value="Other">Other</option>
   </select>
   <select id="filterPoly" onchange="applyFilters()">
@@ -303,15 +306,46 @@ const PERSONS = [
   ["viveros-arthur",    "Viveros, Arthur G.",       "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "Numerous interviews 4/13–4/24",                              "",  ""],
   ["weber-tony",        "Weber, Tony",              "Investigator", "",           "DCSO Sergeant",                                       "DCSO",        "",     "Written interview Clint Bobo 4/13",                          "",  ""],
   ["riggs-helen",       "Riggs, Helen",             "Other",        "",           "TN Tech Center contact",                              "",            "",     "Investigative Lead 4/26",                                    "",  ""],
+
+  // ── Dispatchers (E-911 operators) ──
+  ["wilkins-judy",      "Wilkins, Judy",            "Dispatcher",   "",           "Decatur Co. E-911 dispatcher; 0800–1600 shift",       "Decatur Co. E-911", "", "E-911 log 04-17-2011 (BOBO 00008731–00008738); 04-19-2011 0800–1600", "", ""],
+  ["montgomery-disp",   "Montgomery, [first unknown]","Dispatcher", "",           "Decatur Co. E-911 dispatcher; 1200–0000 shift",       "Decatur Co. E-911", "", "E-911 log 04-17-2011 1200–0000 (Part 11); 04-19-2011 1600–0000 (Part 15 Track B)", "", "Also worked parallel track with Woodward on 04-19-2011 1600–0000 shift"],
+  ["woodward-disp",     "Woodward, [first unknown]","Dispatcher",   "",           "Decatur Co. E-911 dispatcher; 1600–0000 shift",       "Decatur Co. E-911", "", "E-911 log 04-19-2011 1600–0000 (Part 15 Track A); also 04-17-2011 1400–0000 overnight", "", "Worked parallel track with Montgomery on 04-19-2011 1600–0000 shift"],
+  ["kert-debbie",       "Kert, Debbie",             "Dispatcher",   "",           "Decatur Co. E-911 dispatcher; 0800–1200 shift",       "Decatur Co. E-911", "", "E-911 log 04-17-2011 0800–1200 (BOBO 00008737)",             "", ""],
+  ["carver-shalu",      "Carver, Shalu",            "Dispatcher",   "",           "Decatur Co. E-911 dispatcher; 0800–1600 shift",       "Decatur Co. E-911", "", "E-911 log 04-20-2011 (BOBO 00008700–00008701)",              "", "Also referenced as 'S. Carver' and 'Sheila Carver' in TBI Events Board"],
+  ["hale-d",            "Hale, D.",                 "Dispatcher",   "",           "Decatur Co. E-911 dispatcher; 1400–0000 overnight",   "Decatur Co. E-911", "", "E-911 log 04-17-2011 overnight (with Montgomery)",           "", "First name unknown; listed as 'D. Hale / Montgomery' on shift page"],
+
+  // ── Investigators added from TBI Events Board & E-911 log ──
+  ["walker-joe",        "Walker, Joe",              "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "TBI Events Board: numerous leads 04-16–04-17-2011; E-911 log references", "", "Heavily involved in early-day tip follow-up and witness interviews"],
+  ["booth-brent",       "Booth, Brent",             "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "TBI Events Board: Natalie Bobo interviews 4/13–4/14; Karen Bobo recollections 4/25", "", ""],
+  ["lewis-mark",        "Lewis, Mark",              "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "TBI Events Board: evidence recovery, sex offender checks, lead management 4/13–4/17", "", "Recovered Holly's lunch box tip (TN0055); oversaw sex offender canvas"],
+  ["pate-doug",         "Pate, Doug",               "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "TBI Events Board: numerous witness interviews 4/15–4/17",    "", ""],
+  ["ferguson-cathy",    "Ferguson, Cathy",          "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "TBI Events Board: witness interviews 4/15 (with Pate)",      "", ""],
+  ["frizzell-mike",     "Frizzell, Mike",           "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "TBI Events Board: Facebook threat trace (Sanders); IP lookups 4/16", "", "Traced 'I have her body in the closet' Facebook post to Michael Sanders, Franklin TN"],
+  ["dycus-terry",       "Dycus, Terry",             "Investigator", "",           "TBI Special Agent",                                   "TBI",         "",     "TBI Events Board: Ron Patton interview 4/16",                "", "Distinct from Terry Dicus (case agent) — different spelling"],
+  ["upton-joe",         "Upton, Joe",               "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "TBI Events Board: Jessica Pearcy interview 4/14; Brittany Brown interview 4/14; Harold Mitchell lead 4/15", "", ""],
+  ["goldsmith-clayton", "Goldsmith, Clayton",       "Investigator", "",           "FBI Special Agent",                                   "FBI",         "",     "TBI Events Board: Aaron Wallace lead 4/16 (with Walker)",    "", ""],
+  ["crozier-chris",     "Crozier, Chris",           "Investigator", "",           "U.S. Marshal",                                        "USMS",        "",     "TBI Events Board: 555 Swan Johnson Rd search 4/13; sex offender checks 4/14; Harold Mitchell lead 4/15", "", "Searched bloodhound track endpoint at 555 Swan Johnson Rd"],
+  ["hudgens-joey",      "Hudgens, Joey",            "Investigator", "",           "TBI / Homeland Security Special Agent",               "TBI/DHS",     "",     "TBI Events Board: Aaron Wallace interview 4/16; search team coordination", "", "Also referenced as 'Joseph Hudgins'"],
+  ["weber-david",       "Weber, David A.",          "Investigator", "",           "DCSO Sergeant",                                       "DCSO",        "",     "DCSO Preliminary Investigative Report 04-13-2011 (case 11-00233); first responding supervisor", "", "Reported by Sgt. Weber (badge 704); entered woods with Deputy Prat"],
+  // LEIC operators (TBI Events Board tip line)
+  ["stanfill-leic",     "Stanfill, [LEIC]",         "Investigator", "",           "TBI Law Enforcement Intelligence Coordinator (LEIC)", "TBI",         "",     "TBI Events Board: multiple tip intake entries 4/15–4/17",    "", "First name unknown from source documents"],
+  ["bryson-james",      "Bryson, James",            "Investigator", "",           "TBI Law Enforcement Intelligence Coordinator (LEIC)", "TBI",         "",     "TBI Events Board: multiple tip intake entries 4/15–4/16",    "", ""],
+  ["allen-leic",        "Allen, [LEIC]",            "Investigator", "",           "TBI Law Enforcement Intelligence Coordinator (LEIC)", "TBI",         "",     "TBI Events Board: multiple tip intake entries 4/16",         "", "First name unknown from source documents"],
+  ["purviance-leic",    "Purviance, [LEIC]",        "Investigator", "",           "TBI Law Enforcement Intelligence Coordinator (LEIC)", "TBI",         "",     "TBI Events Board: Facebook review, CP handoff 4/16",         "", "First name unknown from source documents"],
+  ["raleigh-norma",     "Raleigh, Norma",           "Investigator", "",           "TBI / TIES tip intake",                               "TBI",         "",     "TBI Events Board: tip intake 4/16 (Garrison, Kates leads)",  "", ""],
+  ["allender-belinda",  "Allender, Belinda C.",     "Investigator", "",           "TBI Analyst / TIES tip intake",                       "TBI",         "",     "TBI Events Board: Timothy Woods lead 4/16; Tony Calabrese lead 4/15", "", ""],
 ];
 
 const CAT_BADGE = {
   "Victim": "badge-victim", "Family": "badge-family", "POI": "badge-poi",
-  "Witness": "badge-witness", "Investigator": "badge-investigator", "Other": "badge-other"
+  "Witness": "badge-witness", "Investigator": "badge-investigator",
+  "Dispatcher": "badge-dispatcher", "Other": "badge-other"
 };
 const CAT_CLASS = {
   "Victim": "cat-victim", "Family": "cat-family", "POI": "cat-poi",
-  "Witness": "cat-witness", "Investigator": "cat-investigator", "Other": "cat-other"
+  "Witness": "cat-witness", "Investigator": "cat-investigator",
+  "Dispatcher": "cat-dispatcher", "Other": "cat-other"
 };
 const CAT_LABEL = { "POI": "Person of Interest" };
 
