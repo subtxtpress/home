@@ -420,7 +420,7 @@ tr.narr-open .narr-full  { display: block; }
    flag: 'Y'=yellow case tip, 'P'=pink high-interest, 'N'=routine
    status: 'T'=Transcribed, 'PA'=Partial, 'R'=Redacted, 'B'=Blank, 'NO'=Note
 ────────────────────────────────────────── */
-const SEED_VER = 6;
+const SEED_VER = 7;
 
 const SEED = [
   // ── 04-20-2011 / Note (BOBO 00008699) ──
@@ -770,6 +770,38 @@ const SEED = [
   ["00008738","04-17-2011","0800–1200","Debbie Kert","1133","702","","","No contact by phone or radio.","N","T","s300"],
   ["00008738","04-17-2011","0800–1200","Debbie Kert","1136","","","","Gates to Kevin, advise him.","N","T","s301"],
   ["00008738","04-17-2011","0800–1200","Debbie Kert","1800","3911","","","Alvaros from ABC News (347/212/1728) wanting copy of transcript of 911 call. Adv her TBI or Sheriff — she would need to talk to them. She adv she was almost at command and would speak with Strigg.","N","T","s302"],
+
+  // ── 04-27-2011 / BOBO 00008772 — Tips Copy ──
+  ["00008772","04-27-2011","0800–1600","S. Carver","1241","391H","708-255-5441","","Nancy Louise Garnett Cole, 8700 W 31st, Brookville, IL 60513 (708-485-1155). Said man who has Bobo girl is John Gates. He has jumped bail, using a different name now but charged for car theft & is a sex offender. She has 15 pages of tips, can not read them all. Need Brookville IL Police to come pick them up & fax to the Bobo case. The letter is in the drawer in case they come when she is gone for therapy.","P","T","s303"],
+
+  // ── 04-26-2011 / BOBO 00008773 — Tips Copies, 1600–0000 ──
+  ["00008773","04-26-2011","1600–0000","D. Hale/S. Woodward","1613","391H","882-8??","","Joan at the Sheriff's Dept called and adv. that Jimmy Hatch (731-798-0396) had found a powder blue comb on Forest Trail about 50 yards off Melton Trail in the Natchez Trace Park area. 701 adv. to have a Deputy w/ Hend. Co. run out and retrieve this item and meet at line. adv. Hend. Co. of 701's traffic.","Y","T","s304"],
+  ["00008773","04-26-2011","1600–0000","D. Hale/S. Woodward","1635","391","636-689-9001","","Keith Fisher in St. Peters, MO called and wanted us to know that TBI may want to check into the sex slave ring in the St. Louis, MO area. He doesn't know if there is anything to it but it may be something that could explain why Holly is missing.","Y","T","s305"],
+  ["00008773","04-26-2011","1600–0000","D. Hale/S. Woodward","1633","391H","549-2382","","Amber Garnett adv. they needed an officer at 6680 Three Way Rd — having problems w/ Mrs. Tucker, want her to stay away from their house.","N","T","s306"],
+  ["00008773","04-26-2011","1600–0000","D. Hale/S. Woodward","1646","1-800-824-1004","391/2","","Called TBI and adv. unable to log into NCIC w/ Tucker subj. at 6010 Three Way Rd.","N","T","s307"],
+  ["00008773","04-26-2011","1600–0000","D. Hale/S. Woodward","1802","9H","843-6??","","Alarm adv. at civic center.","N","T","s308"],
+
+  // ── 04-26-2011 / BOBO 00008774 — Tips Copies, 0800–1600, pg 5 of 7 ──
+  ["00008774","04-26-2011","0800–1600","Judy Wilkins","1258","911","847-6562","","Ms. Blackwell, 94 Buckwell Dr. Non-emergency. Checking weather.","N","T","s309"],
+  ["00008774","04-26-2011","0800–1600","Judy Wilkins","1312","911","847-4042","","Amanda, Dr. Montgomery's office (Decatur Co. Family Practice) 190 University Ave. Ms. Ariana Mitchell there, difficulty breathing, is on oxygen.","N","T","s310"],
+  ["00008774","04-26-2011","0800–1600","Judy Wilkins","1321","391H","217-791-4101","","Aibor Andres. Reporting a Joe Calabrese on Bring Home Holly Safe page — weird action fellow. Asking all kinds of personal questions about her. Caller has called several times before & really thinks Calabrese needs checked. Very odd.","P","T","s311"],
+  ["00008774","04-26-2011","0800–1600","Judy Wilkins","1400","391H","733-1263","","Timothy Patterson, 575 Oakville Cir. Wife was backing out of driveway & someone hit her. 10-45.","N","T","s312"],
+
+  // ── 04-26-2011 / BOBO 00008775 — 0800–1600, pg 4 of 7 ──
+  ["00008775","04-26-2011","0800–1600","Judy Wilkins","1141","DI","","","Out ER 250403.4.","N","T","s313"],
+  ["00008775","04-26-2011","0800–1600","Judy Wilkins","1204","391H","847-3031","","Heather, FR @ DC Hosp. Got a 15-year-old girl in ER who says she was raped over the weekend. Occurred over the weekend in Jackson at some hotel. Heather said could not get much info from her (victim's mother is there). Address of victim is 480 Marshall Town St. Advised of call & show him en route.","N","T","s314"],
+  ["00008775","04-26-2011","0800–1600","Judy Wilkins","1220","","","","LOG-906: Notified of phone #847-6691. Charles/Kori Mix res. @ 902 Key Miller Rd., being out of service. Tech. said several homes without service in Parsons & Bruceton.","N","T","s315"],
+  ["00008775","04-26-2011","0800–1600","Judy Wilkins","1237","391H","901-552-3733","","Diane Shelby asked if she could leave info that may or may not help in Bobo case. Said her cousin Gaylene Gregory was held against her will (hostage) around 1 yr. ago. The 'people' that got her are from Big Sandy & somehow her cousin got away from them. She refused to press charges because she is scared. Thought her cousin did report this incident. I asked her to get her cousin to call us. Cousin is in Henderson County. Another dispatch, Melody Shelby, called her & said she heard on talk radio about the Bobo case.","Y","T","s316"],
+
+  // ── 04-25-2011 / BOBO 00008776 — 1600–0000 ──
+  ["00008776","04-25-2011","1600–0000","Montgomery","1742","714","","","Cannys w/ Walkers — searching on their own. Clara E. advising who @ 7463 Pike Circle Rd — 35, 5'11\", 248 lbs — is in woods on right and she is there willingly, not against her will.","N","T","s317"],
+  ["00008776","04-25-2011","1600–0000","Montgomery","1751","911","713-874-3014","","Scott Cagle took call reporting wreck on I-40. Advise to Henderson 6.","N","T","s318"],
+  ["00008776","04-25-2011","1600–0000","Montgomery","1818","391H","","","(Transfer from 714) Clara E. advising who @ 7463 Pike Circle Rd is in woods on right and there willingly. Would not give #, but wanted to give insight in Holly Bobo case — thinks they should be considering the Elizabeth Smart/Jaycee Dugard scenario where a female assists the male abductor; could apply in this case.","P","T","s319"],
+  ["00008776","04-25-2011","1600–0000","Montgomery","1826","391H","","","Janet Gifford reporting charges w/ in Joplin. #741 on 41&W w/ Hamilton Co. tags, driving high rate of speed headed west. Advise Henderson 6. She called around time @ 1827.","N","T","s320"],
+
+  // ── 04-25-2011 / BOBO 00008777 — 1600–0000, continuation ──
+  ["00008777","04-25-2011","1600–0000","Montgomery","2036","391H","461-0535","","Cindy Nexen from Haynes Rd. Herself and her husband have been out helping to find Holly several days. Last Monday they saw Jared Proctor's Road Crew working, and a boy in the white truck w/ a country motorcycle told them she had been cruising horses w/ Holly this whole life and then riding around Curley Rd & they were in the Morgan's Creek/Nickelton Rd area. There was a father, mother & son — last name (Baugen?), adv. they dated Holly for 5 months & she taught her to ride. Baugen son had 2 black cars supposedly from a fight the night before; he was charged. They helped w/ Baugen ATV property & they were on a new 4-seater ATV type vehicle.","Y","T","s321"],
+  ["00008777","04-25-2011","1600–0000","Montgomery","2043","391H","843-2700","","Casey Jones @ 638 Jimmie Crawford Rd needs to speak w/ an officer regarding a break-in. Save to 703 @ 0035.","N","T","s322"],
 
   // ── 04-20-2011 / BOBO 00008700 — additional entries ──
   ["00008700","04-20-2011","0800–1600","Shalu Carver","1519","","","","[Partial/illegible] From the shore on look around Dr. S… about military. Entry partially illegible.","N","PA","s51"],
