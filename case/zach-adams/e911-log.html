@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-911 Dispatch Log — Holly Bobo / Zachary Adams</title>
+<title>E-911 Dispatch Log</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Transcription log of Decatur County E-911 Dispatch Logs (BOBO 00008698–) released in discovery.">
 <script>
@@ -54,9 +54,14 @@
   --teal:        #2da44e;
   --orange:      #bc4c00;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 14px; }
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+html { 
+  font-size: 14px; 
+}
 body {
   font-family: Arial, sans-serif;
   background: var(--bg);
@@ -64,7 +69,6 @@ body {
   min-height: 100vh;
   line-height: 1.5;
 }
-
 /* ── Toolbar ── */
 .toolbar {
   background: var(--bg2);
@@ -85,7 +89,9 @@ body {
   margin-right: 4px;
   white-space: nowrap;
 }
-.toolbar-sep { color: var(--text-dim); }
+.toolbar-sep { 
+  color: var(--text-dim); 
+}
 .search-box {
   padding: 5px 10px;
   background: var(--bg3);
@@ -96,7 +102,9 @@ body {
   font-family: inherit;
   width: 220px;
 }
-.search-box:focus { outline: 1px solid var(--accent); }
+.search-box:focus { 
+  outline: 1px solid var(--accent); 
+}
 select.filter-sel {
   padding: 5px 8px;
   background: var(--bg3);
@@ -120,13 +128,14 @@ select.filter-sel {
   transition: opacity .15s;
   white-space: nowrap;
 }
-.btn:hover { opacity: .75; }
+.btn:hover { 
+  opacity: .75; 
+}
 .btn-primary {
   background: var(--accent-subtle);
   color: var(--accent);
   border-color: var(--accent-dim);
 }
-
 /* ── Stats bar ── */
 .stats-bar {
   padding: 8px 16px;
@@ -144,9 +153,14 @@ select.filter-sel {
   border-right: 1px solid var(--border);
   white-space: nowrap;
 }
-.stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-.stat strong { color: var(--text); }
-
+.stat:last-child { 
+  border-right: none; 
+  margin-right: 0; 
+  padding-right: 0; 
+}
+.stat strong { 
+  color: var(--text); 
+}
 /* ── Add-entry form ── */
 .add-form {
   background: var(--bg2);
@@ -157,8 +171,14 @@ select.filter-sel {
   gap: 8px;
   align-items: flex-end;
 }
-.add-form.open { display: flex; }
-.field-group { display: flex; flex-direction: column; gap: 3px; }
+.add-form.open { 
+  display: flex; 
+}
+.field-group { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 3px; 
+}
 .field-group label {
   font-size: .72rem;
   color: var(--text-dim);
@@ -179,12 +199,22 @@ select.filter-sel {
 }
 .field-group input:focus,
 .field-group select:focus,
-.field-group textarea:focus { outline: 1px solid var(--accent); }
-.field-group textarea { resize: vertical; min-height: 58px; }
-.field-sm input { width: 110px; }
-.field-xs input { width: 72px; }
-.field-lg textarea { width: 320px; }
-
+.field-group textarea:focus { 
+  outline: 1px solid var(--accent); 
+}
+.field-group textarea { 
+  resize: vertical; 
+  min-height: 58px; 
+}
+.field-sm input { 
+  width: 110px; 
+}
+.field-xs input { 
+  width: 72px; 
+}
+.field-lg textarea { 
+  width: 320px; 
+}
 /* ── Table ── */
 .table-wrap {
   overflow-x: auto;
@@ -209,7 +239,6 @@ col.c-flag  { width: 60px;  }
 col.c-stat  { width: 78px;  }
 col.c-narr  { width: auto;  }
 col.c-del   { width: 30px;  }
-
 thead th {
   background: var(--bg2);
   border-bottom: 2px solid var(--border);
@@ -222,16 +251,38 @@ thead th {
   letter-spacing: .04em;
   white-space: nowrap;
 }
-tbody tr { border-bottom: 1px solid var(--border); }
-tbody tr:hover { background: var(--bg2); }
-tbody tr.flagged-y { border-left: 3px solid var(--yellow); }
-tbody tr.flagged-y:hover { background: var(--bg2); }
-tbody tr.flagged-p { border-left: 3px solid var(--pink); }
-tbody tr.flagged-p:hover { background: var(--bg2); }
-[data-theme="light"] tbody tr.flagged-y { border-left: 3px solid var(--yellow); background: #fffbdd; }
-[data-theme="light"] tbody tr.flagged-y:hover { background: #fff8c5; }
-[data-theme="light"] tbody tr.flagged-p { border-left: 3px solid var(--pink); background: #fff0f8; }
-[data-theme="light"] tbody tr.flagged-p:hover { background: #ffe4f2; }
+tbody tr { 
+  border-bottom: 1px solid var(--border); 
+}
+tbody tr:hover { 
+  background: var(--bg2); 
+}
+tbody tr.flagged-y { 
+  border-left: 3px solid var(--yellow); 
+}
+tbody tr.flagged-y:hover { 
+  background: var(--bg2); 
+}
+tbody tr.flagged-p { 
+  border-left: 3px solid var(--pink); 
+}
+tbody tr.flagged-p:hover { 
+  background: var(--bg2); 
+}
+[data-theme="light"] tbody tr.flagged-y { 
+  border-left: 3px solid var(--yellow); 
+  background: #fffbdd; 
+}
+[data-theme="light"] tbody tr.flagged-y:hover { 
+  background: #fff8c5; 
+}
+[data-theme="light"] tbody tr.flagged-p { 
+  border-left: 3px solid var(--pink); 
+  background: #fff0f8; 
+}
+[data-theme="light"] tbody tr.flagged-p:hover { 
+  background: #ffe4f2; 
+}
 tbody td {
   padding: 7px 8px;
   font-size: clamp(.73rem, 1.2vw + .3rem, .8rem);
@@ -240,16 +291,34 @@ tbody td {
   overflow-wrap: break-word;
   word-break: break-word;
 }
-td.td-time { white-space: nowrap; font-variant-numeric: tabular-nums; }
-td.td-mono { font-family: 'Courier New', monospace; font-size: .75rem; }
-td.td-dim  { color: var(--text-dim); font-size: .75rem; }
-
+td.td-time { 
+  white-space: nowrap; 
+  font-variant-numeric: tabular-nums; 
+}
+td.td-mono { 
+  font-family: 'Courier New', monospace; 
+  font-size: .75rem; 
+}
+td.td-dim  { 
+  color: var(--text-dim); 
+  font-size: .75rem; 
+}
 /* Narrative cell */
-.narr-short { cursor: pointer; }
-.narr-short:hover { color: var(--accent); }
-.narr-full  { display: none; }
-tr.narr-open .narr-short { display: none; }
-tr.narr-open .narr-full  { display: block; }
+.narr-short { 
+  cursor: pointer; 
+}
+.narr-short:hover { 
+  color: var(--accent); 
+}
+.narr-full  { 
+  display: none; 
+}
+tr.narr-open .narr-short { 
+  display: none; 
+}
+tr.narr-open .narr-full  { 
+  display: block; 
+}
 .expand-btn {
   display: inline-block;
   margin-left: 4px;
@@ -259,7 +328,6 @@ tr.narr-open .narr-full  { display: block; }
   user-select: none;
   white-space: nowrap;
 }
-
 /* Badges */
 .badge {
   display: inline-block;
@@ -269,20 +337,54 @@ tr.narr-open .narr-full  { display: block; }
   font-weight: 700;
   white-space: nowrap;
 }
-.badge-flag-y { background: #3a2e00; color: #f0c929; }
-.badge-flag-p { background: #3a0020; color: #f778ba; }
-[data-theme="light"] .badge-flag-y { background: #fff3b0; color: #7a5100; }
-[data-theme="light"] .badge-flag-p { background: #ffe0f0; color: #8b005a; }
-
-.badge-t { background: #0d2a0d; color: var(--green); }
-.badge-p { background: #2a2200; color: var(--orange); }
-.badge-r { background: #2a0a0a; color: var(--red); }
-.badge-n { background: var(--bg3); color: var(--text-dim); }
-[data-theme="light"] .badge-t { background: #d4f4d4; color: #1a5c1a; }
-[data-theme="light"] .badge-p { background: #fff3cc; color: #7a4800; }
-[data-theme="light"] .badge-r { background: #fde0e0; color: #9a0000; }
-[data-theme="light"] .badge-n { background: var(--bg3); color: var(--text-dim); }
-
+.badge-flag-y { 
+  background: #3a2e00; 
+  color: #f0c929; 
+}
+.badge-flag-p { 
+  background: #3a0020; 
+  color: #f778ba; 
+}
+[data-theme="light"] .badge-flag-y { 
+  background: #fff3b0; 
+  color: #7a5100; 
+}
+[data-theme="light"] .badge-flag-p { 
+  background: #ffe0f0; 
+  color: #8b005a; 
+}
+.badge-t { 
+  background: #0d2a0d; 
+  color: var(--green); 
+}
+.badge-p { 
+  background: #2a2200; 
+  color: var(--orange); 
+}
+.badge-r { 
+  background: #2a0a0a; 
+  color: var(--red); 
+}
+.badge-n { 
+  background: var(--bg3); 
+  color: var(--text-dim); 
+}
+[data-theme="light"] .badge-t { 
+  background: #d4f4d4; 
+  color: #1a5c1a; 
+}
+[data-theme="light"] .badge-p { 
+  background: #fff3cc; 
+  color: #7a4800; 
+}
+[data-theme="light"] .badge-r { 
+  background: #fde0e0; 
+  color: #9a0000; 
+}
+[data-theme="light"] .badge-n { 
+  background: var(--bg3); 
+  color: var(--text-dim); 
+}
 .del-btn {
   background: none;
   border: none;
@@ -292,8 +394,9 @@ tr.narr-open .narr-full  { display: block; }
   padding: 0 2px;
   opacity: .5;
 }
-.del-btn:hover { opacity: 1; }
-
+.del-btn:hover { 
+  opacity: 1; 
+}
 /* ── Empty state ── */
 .empty-state {
   text-align: center;
@@ -301,18 +404,38 @@ tr.narr-open .narr-full  { display: block; }
   color: var(--text-dim);
   display: none;
 }
-.empty-state.show { display: block; }
-
+.empty-state.show { 
+  display: block; 
+}
 /* ── Mobile card layout ── */
 @media (max-width: 700px) {
   col.c-bobo, col.c-date, col.c-shift, col.c-oper,
   col.c-time, col.c-to, col.c-from, col.c-disp,
-  col.c-flag, col.c-stat, col.c-narr, col.c-del { width: auto; }
-  thead { display: none; }
-  table, colgroup, col, tbody, tr { display: block; }
-  table { min-width: unset; width: 100%; }
-  tbody tr { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-  tbody td { display: block; width: 100%; box-sizing: border-box; padding: 3px 0 3px 90px; position: relative; min-height: 1.5rem; }
+  col.c-flag, col.c-stat, col.c-narr, col.c-del { 
+    width: auto; 
+  }
+  thead { 
+    display: none; 
+  }
+  table, colgroup, col, tbody, tr { 
+    display: block; 
+  }
+  table { 
+    min-width: unset; 
+    width: 100%; 
+  }
+  tbody tr { 
+    padding: 10px 12px; 
+    border-bottom: 1px solid var(--border); 
+  }
+  tbody td { 
+    display: block; 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 3px 0 3px 90px; 
+    position: relative; 
+    min-height: 1.5rem; 
+  }
   tbody td::before {
     content: attr(data-label);
     position: absolute;
@@ -325,15 +448,19 @@ tr.narr-open .narr-full  { display: block; }
     letter-spacing: .04em;
     width: 82px;
   }
-  tbody td:not([data-label]) { display: none; }
-  .search-box { width: 100%; }
+  tbody td:not([data-label]) { 
+    display: none; 
+  }
+  .search-box { 
+    width: 100%; 
+  }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <span class="toolbar-title">E-911 Dispatch Log</span>
+  <span class="toolbar-title">E–911 Dispatch Log</span>
   <span class="toolbar-sep">·</span>
   <div id="case-nav"></div>
   <input class="search-box" id="searchBox" type="search" placeholder="Search comments, caller, date…" autocomplete="off">

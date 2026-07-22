@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DCSO Reports — Holly Bobo / Zachary Adams</title>
+<title>DCSO Reports</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Decatur County Sheriff's Office preliminary investigative reports released in discovery — Holly Bobo case.">
 <script>
@@ -53,9 +53,11 @@
   --teal:        #1a7f37;
   --orange:      #953800;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 13px;
@@ -63,7 +65,6 @@ body {
   color: var(--text);
   min-height: 100vh;
 }
-
 .toolbar {
   position: sticky;
   top: 0;
@@ -83,8 +84,10 @@ body {
   white-space: nowrap;
   margin-right: 4px;
 }
-.toolbar h1 span { color: var(--text-dim); font-weight: 400; }
-
+.toolbar h1 span { 
+  color: var(--text-dim); 
+  font-weight: 400; 
+}
 .stats-bar {
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
@@ -96,8 +99,10 @@ body {
   font-size: .75rem;
   color: var(--text-dim);
 }
-.stat-val { color: var(--text); font-weight: 600; }
-
+.stat-val { 
+  color: var(--text); 
+  font-weight: 600; 
+}
 select, input[type="text"] {
   background: var(--bg3);
   color: var(--text);
@@ -108,9 +113,12 @@ select, input[type="text"] {
   font-family: inherit;
   cursor: pointer;
 }
-select:focus, input[type="text"]:focus { outline: 2px solid var(--accent); }
-input[type="text"] { width: 200px; }
-
+select:focus, input[type="text"]:focus { 
+  outline: 2px solid var(--accent); 
+}
+input[type="text"] { 
+  width: 200px; 
+}
 .btn {
   padding: 5px 11px;
   border: 1px solid var(--border);
@@ -123,14 +131,17 @@ input[type="text"] { width: 200px; }
   font-family: inherit;
   white-space: nowrap;
 }
-.btn:hover { opacity: .8; }
+.btn:hover { 
+  opacity: .8; 
+}
 .btn-primary {
   background: var(--accent-subtle);
   color: var(--accent);
   border-color: var(--accent-dim);
 }
-
-.table-wrap { overflow-x: auto; }
+.table-wrap { 
+  overflow-x: auto; 
+}
 table {
   width: 100%;
   min-width: 1080px;
@@ -146,7 +157,6 @@ colgroup col.c-desc   { width: auto;  }
 colgroup col.c-stat   { width: 74px;  }
 colgroup col.c-flag   { width: 60px;  }
 colgroup col.c-del    { width: 30px;  }
-
 thead th {
   background: var(--bg2);
   border-bottom: 2px solid var(--border);
@@ -163,14 +173,27 @@ tbody tr {
   border-bottom: 1px solid var(--border);
   transition: background .1s;
 }
-tbody tr:hover { background: var(--bg3); }
-tbody tr.flagged-y { border-left: 3px solid var(--yellow); }
-tbody tr.flagged-p { border-left: 3px solid var(--pink); }
-[data-theme="light"] tbody tr.flagged-y { background: #fffbdd; }
-[data-theme="light"] tbody tr.flagged-y:hover { background: #fff8c5; }
-[data-theme="light"] tbody tr.flagged-p { background: #fff0f8; }
-[data-theme="light"] tbody tr.flagged-p:hover { background: #ffe4f2; }
-
+tbody tr:hover { 
+  background: var(--bg3); 
+}
+tbody tr.flagged-y { 
+  border-left: 3px solid var(--yellow); 
+}
+tbody tr.flagged-p { 
+  border-left: 3px solid var(--pink); 
+}
+[data-theme="light"] tbody tr.flagged-y { 
+  background: #fffbdd; 
+}
+[data-theme="light"] tbody tr.flagged-y:hover { 
+  background: #fff8c5; 
+}
+[data-theme="light"] tbody tr.flagged-p { 
+  background: #fff0f8; 
+}
+[data-theme="light"] tbody tr.flagged-p:hover { 
+  background: #ffe4f2; 
+}
 tbody td {
   padding: 7px 8px;
   vertical-align: top;
@@ -178,8 +201,14 @@ tbody td {
   font-size: .78rem;
   word-break: break-word;
 }
-td.c-mono { font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; font-size: .72rem; }
-td.td-del { text-align: center; vertical-align: middle; }
+td.c-mono { 
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; 
+  font-size: .72rem; 
+}
+td.td-del { 
+  text-align: center; 
+  vertical-align: middle; 
+}
 .del-btn {
   background: none;
   border: none;
@@ -190,10 +219,16 @@ td.td-del { text-align: center; vertical-align: middle; }
   line-height: 1;
   opacity: .4;
 }
-.del-btn:hover { opacity: 1; color: var(--red); }
-
-.narr-short { display: block; }
-.narr-full  { display: none; }
+.del-btn:hover { 
+  opacity: 1; 
+  color: var(--red); 
+}
+.narr-short { 
+  display: block; 
+}
+.narr-full  { 
+  display: none; 
+}
 .narr-toggle {
   color: var(--accent);
   cursor: pointer;
@@ -205,10 +240,15 @@ td.td-del { text-align: center; vertical-align: middle; }
   padding: 0;
   font-family: inherit;
 }
-.narr-toggle:hover { text-decoration: underline; }
-tr.expanded .narr-short { display: none; }
-tr.expanded .narr-full  { display: block; }
-
+.narr-toggle:hover { 
+  text-decoration: underline; 
+}
+tr.expanded .narr-short { 
+  display: none; 
+}
+tr.expanded .narr-full  { 
+  display: block; 
+}
 .badge {
   display: inline-block;
   font-size: .62rem;
@@ -220,31 +260,67 @@ tr.expanded .narr-full  { display: block; }
   text-transform: uppercase;
   letter-spacing: .03em;
 }
-.badge-active  { background: #0d2e0d; color: #3fb950; }
-.badge-closed  { background: #21262d; color: #8b949e; }
-.badge-flag-y  { background: #3b2c00; color: #d29922; }
-.badge-flag-p  { background: #2a1520; color: #f778ba; }
-.badge-flag-n  { display: none; }
-[data-theme="light"] .badge-active  { background: #d4f4d4; color: #1a5c1a; }
-[data-theme="light"] .badge-closed  { background: #eaeef2; color: #636c76; }
-[data-theme="light"] .badge-flag-y  { background: #fff3b0; color: #7a5100; }
-[data-theme="light"] .badge-flag-p  { background: #ffe0f0; color: #8b005a; }
-
+.badge-active  { 
+  background: #0d2e0d; 
+  color: #3fb950; 
+}
+.badge-closed  { 
+  background: #21262d; 
+  color: #8b949e; 
+}
+.badge-flag-y  { 
+  background: #3b2c00; 
+  color: #d29922; 
+}
+.badge-flag-p  { 
+  background: #2a1520; 
+  color: #f778ba; 
+}
+.badge-flag-n  { 
+  display: none; 
+}
+[data-theme="light"] .badge-active  { 
+  background: #d4f4d4; 
+  color: #1a5c1a; 
+}
+[data-theme="light"] .badge-closed  { 
+  background: #eaeef2; 
+  color: #636c76; 
+}
+[data-theme="light"] .badge-flag-y  { 
+  background: #fff3b0; 
+  color: #7a5100; 
+}
+[data-theme="light"] .badge-flag-p  { 
+  background: #ffe0f0; 
+  color: #8b005a; 
+}
 .add-panel {
   display: none;
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
   padding: 12px 14px;
 }
-.add-panel.open { display: block; }
-.add-panel h2 { font-size: .85rem; margin-bottom: 10px; font-weight: 700; }
+.add-panel.open { 
+  display: block; 
+}
+.add-panel h2 { 
+  font-size: .85rem; 
+  margin-bottom: 10px; 
+  font-weight: 700; 
+}
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 8px;
   margin-bottom: 10px;
 }
-.form-grid label { font-size: .7rem; color: var(--text-dim); display: block; margin-bottom: 2px; }
+.form-grid label { 
+  font-size: .7rem; 
+  color: var(--text-dim); 
+  display: block; 
+  margin-bottom: 2px; 
+}
 .form-grid input, .form-grid select, .form-grid textarea {
   width: 100%;
   background: var(--bg3);
@@ -255,32 +331,69 @@ tr.expanded .narr-full  { display: block; }
   font-size: .78rem;
   font-family: inherit;
 }
-.form-narr { grid-column: 1 / -1; }
-.form-narr textarea { width: 100%; min-height: 60px; resize: vertical; }
-.form-actions { display: flex; gap: 8px; }
-
+.form-narr { 
+  grid-column: 1 / -1; 
+}
+.form-narr textarea { 
+  width: 100%; 
+  min-height: 60px; 
+  resize: vertical; 
+}
+.form-actions { 
+  display: flex; 
+  gap: 8px; 
+}
 .empty-msg {
   text-align: center;
   padding: 40px;
   color: var(--text-dim);
   font-size: .85rem;
 }
-
 @media (max-width: 700px) {
-  table, colgroup, col, tbody, tr { display: block; }
-  table { min-width: unset; width: 100%; }
-  thead { display: none; }
-  tbody tr { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-  tbody td { display: block; width: 100%; box-sizing: border-box; padding: 3px 0 3px 90px; position: relative; min-height: 1.5rem; }
-  tbody td::before { content: attr(data-label); position: absolute; left: 0; top: 3px; font-size: .65rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: .04em; width: 82px; }
-  tbody td:not([data-label]) { display: none; }
+  table, colgroup, col, tbody, tr { 
+    display: block; 
+  }
+  table { 
+    min-width: unset; 
+    width: 100%; 
+  }
+  thead { 
+    display: none; 
+  }
+  tbody tr { 
+    padding: 10px 12px; 
+    border-bottom: 1px solid var(--border); 
+  }
+  tbody td { 
+    display: block; 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 3px 0 3px 90px; 
+    position: relative; 
+    min-height: 1.5rem; 
+  }
+  tbody td::before { 
+    content: attr(data-label); 
+    position: absolute; 
+    left: 0; 
+    top: 3px; 
+    font-size: .65rem; 
+    font-weight: 700; 
+    color: var(--text-dim); 
+    text-transform: uppercase; 
+    letter-spacing: .04em; 
+    width: 82px; 
+  }
+  tbody td:not([data-label]) { 
+    display: none; 
+  }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <h1>DCSO Reports <span>— Holly Bobo / Zachary Adams</span></h1>
+  <h1>DCSO Reports</h1>
   <div id="case-nav"></div>
 </div>
 
