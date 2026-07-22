@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typo Flags</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Flagged transcription inconsistencies across discovery documents">
+  <script>try{if(localStorage.getItem('foia-theme')==='light')document.documentElement.dataset.theme='light';}catch(e){}</script>
+<style>
+:root {
+  --bg:          #0d1117;
+  --bg2:         #161b22;
+  --bg3:         #21262d;
+  --border:      #30363d;
+  --text:        #e6edf3;
+  --text-dim:    #8b949e;
+  --accent:      #58a6ff;
+  --accent-dim:  #1f3a5c;
+  --accent-subtle: #131d2e;
+  --red:         #f85149;
+  --green:       #3fb950;
+  --yellow:      #d29922;
+  --yellow-bg:   #272115;
+  --pink:        #f778ba;
+  --pink-bg:     #2a1520;
+  --purple:      #bc8cff;
+  --teal:        #39d353;
+  --orange:      #e3b341;
+}
+[data-theme="light"] {
+  --bg:          #ffffff;
+  --bg2:         #f6f8fa;
+  --bg3:         #eaeef2;
+  --border:      #d0d7de;
+  --text:        #1f2328;
+  --text-dim:    #636c76;
+  --accent:      #0969da;
+  --accent-dim:  #b6d4fb;
+  --accent-subtle: #ddf4ff;
+  --red:         #d1242f;
+  --green:       #1a7f37;
+  --yellow:      #9a6700;
+  --yellow-bg:   #fff8c5;
+  --pink:        #bf3989;
+  --pink-bg:     #ffeff7;
+  --purple:      #8250df;
+  --teal:        #1a7f37;
+  --orange:      #953800;
+}
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.toolbar h1 {
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+.toolbar h1 span { 
+  color: var(--text-dim); 
+  font-weight: 400; 
+}
+.stats-bar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: .75rem;
+  color: var(--text-dim);
+}
+.stat-val { 
+  color: var(--text); 
+  font-weight: 600; 
+}
+select, input[type="text"] {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: .78rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+select:focus, input[type="text"]:focus { 
+  outline: 2px solid var(--accent); 
+}
+input[type="text"] { 
+  width: 200px; 
+}
+.btn {
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg3);
+  color: var(--text);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.btn:hover { 
+  opacity: .8; 
+}
+.btn-primary {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+.table-wrap { 
+  overflow-x: auto; 
+}
+table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+colgroup col.c-id      { width: 72px; }
+colgroup col.c-src     { width: 110px; }
+colgroup col.c-entry   { width: 80px; }
+colgroup col.c-var1    { width: 130px; }
+colgroup col.c-var2    { width: 130px; }
+colgroup col.c-ctx     { width: auto; }
+colgroup col.c-status  { width: 100px; }
+colgroup col.c-del     { width: 30px; }
+thead th {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+  padding: 7px 8px;
+  text-align: left;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background .1s;
+}
+tbody tr:hover { 
+  background: var(--bg3); 
+}
+tbody tr.status-open { 
+  border-left: 3px solid var(--yellow); 
+}
+tbody tr.status-fixed { 
+  border-left: 3px solid var(--green); 
+}
+tbody tr.status-nofix { 
+  border-left: 3px solid var(--text-dim); 
+}
+[data-theme="light"] tbody tr.status-open { 
+  background: #fffbdd; 
+}
+[data-theme="light"] tbody tr.status-open:hover { 
+  background: #fff8c5; 
+}
+[data-theme="light"] tbody tr.status-fixed { 
+  background: #e6ffed; 
+}
+[data-theme="light"] tbody tr.status-fixed:hover { 
+  background: #d4f4d4; 
+}
+tbody td {
+  padding: 7px 8px;
+  vertical-align: top;
+  line-height: 1.45;
+  font-size: .78rem;
+  word-break: break-word;
+}
+td.c-mono {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: .72rem;
+}
+td.td-del { 
+  text-align: center; 
+  vertical-align: middle; 
+}
+.del-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: .9rem;
+  padding: 0 2px;
+  line-height: 1;
+  opacity: .4;
+}
+.del-btn:hover { 
+  opacity: 1; 
+  color: var(--red); 
+}
+.badge {
+  display: inline-block;
+  font-size: .62rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 9px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.badge-open  { 
+  background: #3b2c00; 
+  color: #d29922; 
+}
+.badge-fixed { 
+  background: #0d2e0d; 
+  color: #3fb950; 
+}
+.badge-nofix { 
+  background: #21262d; 
+  color: #8b949e; 
+}
+[data-theme="light"] .badge-open  { 
+  background: #fff3b0; 
+  color: #7a5100; 
+}
+[data-theme="light"] .badge-fixed { 
+  background: #d4f4d4; 
+  color: #1a5c1a; 
+}
+[data-theme="light"] .badge-nofix { 
+  background: #eaeef2; 
+  color: #636c76; 
+}
+.var-pair {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: .72rem;
+}
+.var-a { 
+  color: var(--red); 
+}
+.var-b { 
+  color: var(--green); 
+}
+.ctx-snippet {
+  color: var(--text-dim);
+  font-size: .72rem;
+  line-height: 1.5;
+}
+.ctx-snippet mark {
+  background: rgba(210,153,34,.25);
+  color: var(--text);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+[data-theme="light"] .ctx-snippet mark {
+  background: #fff0a0;
+  color: var(--text);
+}
+.add-panel {
+  display: none;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+}
+.add-panel.open { 
+  display: block; 
+}
+.add-panel h2 { 
+  font-size: .85rem; 
+  margin-bottom: 10px; 
+  font-weight: 700; 
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.form-grid label { 
+  font-size: .7rem; 
+  color: var(--text-dim); 
+  display: block; 
+  margin-bottom: 2px; 
+}
+.form-grid input, .form-grid select, .form-grid textarea {
+  width: 100%;
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 7px;
+  font-size: .78rem;
+  font-family: inherit;
+}
+.form-ctx { 
+  grid-column: 1 / -1; 
+}
+.form-ctx textarea { 
+  width: 100%; 
+  min-height: 60px; 
+  resize: vertical; 
+}
+.form-actions { 
+  display: flex; 
+  gap: 8px; 
+}
+.empty-msg {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-dim);
+  font-size: .85rem;
+}
+@media (max-width: 700px) {
+  table, colgroup, col, tbody, tr { 
+    display: block; 
+  }
+  table { 
+    min-width: unset; 
+    width: 100%; 
+  }
+  thead { 
+    display: none; 
+  }
+  tbody tr { 
+    padding: 10px 12px; 
+    border-bottom: 1px solid var(--border); 
+  }
+  tbody td { 
+    display: block; 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 3px 0 3px 90px; 
+    position: relative; 
+    min-height: 1.5rem; 
+  }
+  tbody td::before { 
+    content: attr(data-label);
+    position: absolute; 
+    left: 0; 
+    top: 3px; 
+    font-size: .65rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    color: var(--text-dim); 
+    letter-spacing: .04em; 
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>Typo Flags <span>— Holly Bobo Discovery</span></h1>
+  <div id="case-nav"></div>
+</div>
+
+<div class="stats-bar" id="stats-bar">
+  <span>Total: <span class="stat-val" id="stat-total">—</span></span>
+  <span>Open: <span class="stat-val" id="stat-open">—</span></span>
+  <span>Fixed: <span class="stat-val" id="stat-fixed">—</span></span>
+  <span>No Fix: <span class="stat-val" id="stat-nofix">—</span></span>
+  <span style="margin-left:auto; display:flex; gap:6px; align-items:center;">
+    <input type="text" id="search-box" placeholder="Search…" oninput="renderTable()">
+    <select id="filter-src" onchange="renderTable()">
+      <option value="">All sources</option>
+      <option value="TBI Events Board">TBI Events Board</option>
+      <option value="E-911 Log">E-911 Log</option>
+      <option value="DCSO Reports">DCSO Reports</option>
+    </select>
+    <select id="filter-status" onchange="renderTable()">
+      <option value="">All statuses</option>
+      <option value="open">Open</option>
+      <option value="fixed">Fixed</option>
+      <option value="nofix">No Fix</option>
+    </select>
+    <button class="btn btn-primary" onclick="toggleAddPanel()">+ Add Flag</button>
+  </span>
+</div>
+
+<div class="add-panel" id="add-panel">
+  <h2>Add Typo Flag</h2>
+  <div class="form-grid">
+    <div>
+      <label>Source Page</label>
+      <select id="f-src">
+        <option value="TBI Events Board">TBI Events Board</option>
+        <option value="E-911 Log">E-911 Log</option>
+        <option value="DCSO Reports">DCSO Reports</option>
+      </select>
+    </div>
+    <div>
+      <label>Entry ID</label>
+      <input type="text" id="f-entry" placeholder="e.g. t7, s141">
+    </div>
+    <div>
+      <label>Variant A (questionable)</label>
+      <input type="text" id="f-var1" placeholder="e.g. Baily">
+    </div>
+    <div>
+      <label>Variant B (likely correct)</label>
+      <input type="text" id="f-var2" placeholder="e.g. Bailey">
+    </div>
+    <div>
+      <label>Status</label>
+      <select id="f-status">
+        <option value="open">Open</option>
+        <option value="fixed">Fixed</option>
+        <option value="nofix">No Fix</option>
+      </select>
+    </div>
+    <div class="form-ctx">
+      <label>Context snippet (paste the relevant sentence)</label>
+      <textarea id="f-ctx" placeholder="Paste the relevant line from the entry…"></textarea>
+    </div>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" onclick="addFlag()">Save Flag</button>
+    <button class="btn" onclick="toggleAddPanel()">Cancel</button>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <colgroup>
+      <col class="c-id">
+      <col class="c-src">
+      <col class="c-entry">
+      <col class="c-var1">
+      <col class="c-var2">
+      <col class="c-ctx">
+      <col class="c-status">
+      <col class="c-del">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Source</th>
+        <th>Entry</th>
+        <th>Variant A</th>
+        <th>Variant B</th>
+        <th>Context</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+  <div class="empty-msg" id="empty-msg" style="display:none">No flags match the current filters.</div>
+</div>
+
+<script src="nav.js"></script>
+<script>
+const STORE_KEY = 'typo_flags';
+const SEED_VER  = 1;
+const SEED_KEY  = STORE_KEY + '_seed_v';
+
+// format: [id, source, entry_id, var_a, var_b, context, status]
+const SEED = [
+  ["f1", "TBI Events Board", "t7 / TN0137",  "Katie",      "Katia",      "Was married to a Katie Tomlin and they have a child. Katia's parents are Allen and Lori Tomlin.", "open"],
+  ["f2", "TBI Events Board", "t13 / TN0132", "Wood",       "Woods",      "Mitchell Wood who indicated he quit … TBI Agent Terry Dyan has been involved in interviewing the Woods family.", "open"],
+  ["f3", "TBI Events Board", "t31 / TN0125", "Holladay",   "Holliday",   "A parade in Holladay, TN today … friend Wayne Holliday is at the parade.", "nofix"],
+  ["f4", "E-911 Log",        "s365",         "Clendamon",  "Clendanon",  "Going with Stacy Clendamon to Ball Fields … He has an order of protection against her ex-husband Matt Clendanon.", "open"],
+  ["f5", "E-911 Log",        "s518",         "Hesdrix",    "Hendrix",    "Getting addresses for Steve Hesdrix 150 Holladay Rd & Craig Hendrix 1549 Gooch Rd.", "open"],
+  ["f6", "E-911 Log",        "s141",         "Baily",      "Bailey",     "Mae Baily called … wants officer to go get child from Chris Bailey and Julie Pruitt.", "open"],
+  ["f7", "E-911 Log",        "s327",         "Potoma",     "Potowa",     "She speaks of a Blake Potoma/Potowa (an Indian name).", "nofix"],
+  ["f8", "E-911 Log",        "s268",         "Hall",       "Hill",       "Brad Hall reporting something odd … owned land out Bible Hill Rd.", "nofix"],
+];
+
+function load() {
+  try {
+    const ver = parseInt(localStorage.getItem(SEED_KEY) || '0', 10);
+    if (ver < SEED_VER) {
+      const existing = getData();
+      const ids = new Set(existing.map(r => r[0]));
+      const merged = [...existing, ...SEED.filter(r => !ids.has(r[0]))];
+      localStorage.setItem(STORE_KEY, JSON.stringify(merged));
+      localStorage.setItem(SEED_KEY, String(SEED_VER));
+    }
+  } catch(e) {}
+}
+
+function getData() {
+  try { return JSON.parse(localStorage.getItem(STORE_KEY) || '[]'); } catch(e) { return []; }
+}
+
+function save(data) {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+function nextId(data) {
+  const nums = data.map(r => parseInt(r[0].replace('f',''), 10)).filter(n => !isNaN(n));
+  return 'f' + (nums.length ? Math.max(...nums) + 1 : 1);
+}
+
+function renderTable() {
+  const q      = document.getElementById('search-box').value.toLowerCase();
+  const fSrc   = document.getElementById('filter-src').value;
+  const fStat  = document.getElementById('filter-status').value;
+  const tbody  = document.getElementById('table-body');
+  const data   = getData();
+
+  let open = 0, fixed = 0, nofix = 0;
+  data.forEach(r => { if (r[6]==='open') open++; else if (r[6]==='fixed') fixed++; else nofix++; });
+  document.getElementById('stat-total').textContent = data.length;
+  document.getElementById('stat-open').textContent  = open;
+  document.getElementById('stat-fixed').textContent = fixed;
+  document.getElementById('stat-nofix').textContent = nofix;
+
+  const rows = data.filter(r => {
+    if (fSrc  && r[1] !== fSrc)  return false;
+    if (fStat && r[6] !== fStat) return false;
+    if (q && !r.join(' ').toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  document.getElementById('empty-msg').style.display = rows.length ? 'none' : 'block';
+
+  tbody.innerHTML = rows.map(r => {
+    const [id, src, entry, varA, varB, ctx, status] = r;
+    const statusLabel = {open:'Open', fixed:'Fixed', nofix:'No Fix'}[status] || status;
+    const badgeCls = 'badge-' + status;
+    const rowCls   = 'status-' + status;
+    const ctxHtml  = ctx
+      ? ctx.replace(/&/g,'&amp;').replace(/</g,'&lt;')
+           .replace(new RegExp(varA.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'gi'), m => `<mark>${m}</mark>`)
+           .replace(new RegExp(varB.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'gi'), m => `<mark>${m}</mark>`)
+      : '<span style="color:var(--text-dim)">—</span>';
+    return `<tr class="${rowCls}" data-id="${id}">
+      <td class="c-mono" data-label="ID">${id}</td>
+      <td data-label="Source">${src}</td>
+      <td class="c-mono" data-label="Entry">${entry}</td>
+      <td class="var-pair var-a" data-label="Variant A">${varA}</td>
+      <td class="var-pair var-b" data-label="Variant B">${varB}</td>
+      <td class="ctx-snippet" data-label="Context">${ctxHtml}</td>
+      <td data-label="Status">
+        <select class="status-select" data-id="${id}" style="font-size:.7rem;padding:3px 5px;">
+          <option value="open"  ${status==='open'  ?'selected':''}>Open</option>
+          <option value="fixed" ${status==='fixed' ?'selected':''}>Fixed</option>
+          <option value="nofix" ${status==='nofix' ?'selected':''}>No Fix</option>
+        </select>
+      </td>
+      <td class="td-del" data-label="">
+        <button class="del-btn" data-id="${id}" title="Delete">×</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  tbody.querySelectorAll('.status-select').forEach(sel => {
+    sel.addEventListener('change', e => {
+      const id = e.target.dataset.id;
+      const data = getData();
+      const row = data.find(r => r[0] === id);
+      if (row) { row[6] = e.target.value; save(data); renderTable(); }
+    });
+  });
+
+  tbody.querySelectorAll('.del-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const id = e.target.dataset.id;
+      if (!confirm('Delete this flag?')) return;
+      save(getData().filter(r => r[0] !== id));
+      renderTable();
+    });
+  });
+}
+
+function toggleAddPanel() {
+  document.getElementById('add-panel').classList.toggle('open');
+}
+
+function addFlag() {
+  const src    = document.getElementById('f-src').value.trim();
+  const entry  = document.getElementById('f-entry').value.trim();
+  const varA   = document.getElementById('f-var1').value.trim();
+  const varB   = document.getElementById('f-var2').value.trim();
+  const status = document.getElementById('f-status').value;
+  const ctx    = document.getElementById('f-ctx').value.trim();
+  if (!src || !entry || !varA) { alert('Source, Entry ID, and Variant A are required.'); return; }
+  const data = getData();
+  data.push([nextId(data), src, entry, varA, varB, ctx, status]);
+  save(data);
+  ['f-entry','f-var1','f-var2','f-ctx'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('f-status').value = 'open';
+  toggleAddPanel();
+  renderTable();
+}
+
+load();
+renderTable();
+</script>
+</body>
+</html>
