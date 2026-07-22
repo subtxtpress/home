@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DCSO Reports — Holly Bobo / Zachary Adams</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Decatur County Sheriff's Office preliminary investigative reports released in discovery — Holly Bobo case.">
+<script>
+  try {
+    if (localStorage.getItem('foia-theme') === 'light')
+      document.documentElement.dataset.theme = 'light';
+  } catch(e) {}
+</script>
+<style>
+:root {
+  --bg:          #0d1117;
+  --bg2:         #161b22;
+  --bg3:         #21262d;
+  --border:      #30363d;
+  --text:        #e6edf3;
+  --text-dim:    #8b949e;
+  --accent:      #58a6ff;
+  --accent-dim:  #1f3a5c;
+  --accent-subtle: #131d2e;
+  --red:         #f85149;
+  --green:       #3fb950;
+  --yellow:      #d29922;
+  --yellow-bg:   #272115;
+  --pink:        #f778ba;
+  --pink-bg:     #2a1520;
+  --purple:      #bc8cff;
+  --teal:        #39d353;
+  --orange:      #e3b341;
+}
+[data-theme="light"] {
+  --bg:          #ffffff;
+  --bg2:         #f6f8fa;
+  --bg3:         #eaeef2;
+  --border:      #d0d7de;
+  --text:        #1f2328;
+  --text-dim:    #636c76;
+  --accent:      #0969da;
+  --accent-dim:  #b6d4fb;
+  --accent-subtle: #ddf4ff;
+  --red:         #d1242f;
+  --green:       #1a7f37;
+  --yellow:      #9a6700;
+  --yellow-bg:   #fff8c5;
+  --pink:        #bf3989;
+  --pink-bg:     #ffeff7;
+  --purple:      #8250df;
+  --teal:        #1a7f37;
+  --orange:      #953800;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.toolbar h1 {
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+.toolbar h1 span { color: var(--text-dim); font-weight: 400; }
+
+.stats-bar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: .75rem;
+  color: var(--text-dim);
+}
+.stat-val { color: var(--text); font-weight: 600; }
+
+select, input[type="text"] {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: .78rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+select:focus, input[type="text"]:focus { outline: 2px solid var(--accent); }
+input[type="text"] { width: 200px; }
+
+.btn {
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg3);
+  color: var(--text);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.btn:hover { opacity: .8; }
+.btn-primary {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  min-width: 1080px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+colgroup col.c-bobo   { width: 110px; }
+colgroup col.c-case   { width: 96px;  }
+colgroup col.c-date   { width: 88px;  }
+colgroup col.c-victim { width: 130px; }
+colgroup col.c-off    { width: 140px; }
+colgroup col.c-desc   { width: auto;  }
+colgroup col.c-stat   { width: 74px;  }
+colgroup col.c-flag   { width: 60px;  }
+colgroup col.c-del    { width: 30px;  }
+
+thead th {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+  padding: 7px 8px;
+  text-align: left;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background .1s;
+}
+tbody tr:hover { background: var(--bg3); }
+tbody tr.flagged-y { border-left: 3px solid var(--yellow); }
+tbody tr.flagged-p { border-left: 3px solid var(--pink); }
+[data-theme="light"] tbody tr.flagged-y { background: #fffbdd; }
+[data-theme="light"] tbody tr.flagged-y:hover { background: #fff8c5; }
+[data-theme="light"] tbody tr.flagged-p { background: #fff0f8; }
+[data-theme="light"] tbody tr.flagged-p:hover { background: #ffe4f2; }
+
+tbody td {
+  padding: 7px 8px;
+  vertical-align: top;
+  line-height: 1.45;
+  font-size: .78rem;
+  word-break: break-word;
+}
+td.c-mono { font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; font-size: .72rem; }
+td.td-del { text-align: center; vertical-align: middle; }
+.del-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: .9rem;
+  padding: 0 2px;
+  line-height: 1;
+  opacity: .4;
+}
+.del-btn:hover { opacity: 1; color: var(--red); }
+
+.narr-short { display: block; }
+.narr-full  { display: none; }
+.narr-toggle {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: .7rem;
+  margin-top: 3px;
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+.narr-toggle:hover { text-decoration: underline; }
+tr.expanded .narr-short { display: none; }
+tr.expanded .narr-full  { display: block; }
+
+.badge {
+  display: inline-block;
+  font-size: .62rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 9px;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.badge-active  { background: #0d2e0d; color: #3fb950; }
+.badge-closed  { background: #21262d; color: #8b949e; }
+.badge-flag-y  { background: #3b2c00; color: #d29922; }
+.badge-flag-p  { background: #2a1520; color: #f778ba; }
+.badge-flag-n  { display: none; }
+[data-theme="light"] .badge-active  { background: #d4f4d4; color: #1a5c1a; }
+[data-theme="light"] .badge-closed  { background: #eaeef2; color: #636c76; }
+[data-theme="light"] .badge-flag-y  { background: #fff3b0; color: #7a5100; }
+[data-theme="light"] .badge-flag-p  { background: #ffe0f0; color: #8b005a; }
+
+.add-panel {
+  display: none;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+}
+.add-panel.open { display: block; }
+.add-panel h2 { font-size: .85rem; margin-bottom: 10px; font-weight: 700; }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.form-grid label { font-size: .7rem; color: var(--text-dim); display: block; margin-bottom: 2px; }
+.form-grid input, .form-grid select, .form-grid textarea {
+  width: 100%;
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 7px;
+  font-size: .78rem;
+  font-family: inherit;
+}
+.form-narr { grid-column: 1 / -1; }
+.form-narr textarea { width: 100%; min-height: 60px; resize: vertical; }
+.form-actions { display: flex; gap: 8px; }
+
+.empty-msg {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-dim);
+  font-size: .85rem;
+}
+
+@media (max-width: 700px) {
+  table, colgroup, col, tbody, tr { display: block; }
+  table { min-width: unset; width: 100%; }
+  thead { display: none; }
+  tbody tr { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  tbody td { display: block; width: 100%; box-sizing: border-box; padding: 3px 0 3px 90px; position: relative; min-height: 1.5rem; }
+  tbody td::before { content: attr(data-label); position: absolute; left: 0; top: 3px; font-size: .65rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: .04em; width: 82px; }
+  tbody td:not([data-label]) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>DCSO Reports <span>— Holly Bobo / Zachary Adams</span></h1>
+  <div id="case-nav"></div>
+</div>
+
+<div class="toolbar" style="top:53px;">
+  <input type="text" id="q" placeholder="Search reports…" oninput="render()">
+  <select id="f-date" onchange="render()"><option value="">All dates</option></select>
+  <select id="f-status" onchange="render()">
+    <option value="">All statuses</option>
+    <option value="Active">Active</option>
+    <option value="Closed">Closed</option>
+  </select>
+  <select id="f-flag" onchange="render()">
+    <option value="">All entries</option>
+    <option value="Y">Flagged (yellow)</option>
+    <option value="P">Note (pink)</option>
+  </select>
+  <button class="btn btn-primary" onclick="toggleAdd()">+ Add Entry</button>
+</div>
+
+<div class="add-panel" id="add-panel">
+  <h2>Add DCSO Report</h2>
+  <div class="form-grid">
+    <div><label>BOBO #</label><input id="f-bobo" placeholder="00008766"></div>
+    <div><label>Case #</label><input id="f-case" placeholder="11-00233"></div>
+    <div><label>Date (MM-DD-YYYY)</label><input id="f-adate" placeholder="04-13-2011"></div>
+    <div><label>Victim / Subject</label><input id="f-victim" placeholder="Name, address"></div>
+    <div><label>Offense</label><input id="f-offense" placeholder="Offense type"></div>
+    <div><label>Status</label>
+      <select id="f-astat">
+        <option value="Active">Active</option>
+        <option value="Closed">Closed</option>
+      </select>
+    </div>
+    <div><label>Flag</label>
+      <select id="f-aflag">
+        <option value="N">None</option>
+        <option value="Y">Flagged (yellow)</option>
+        <option value="P">Note (pink)</option>
+      </select>
+    </div>
+    <div class="form-narr"><label>Description / Narrative</label><textarea id="f-narr" placeholder="Report narrative…"></textarea></div>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" onclick="addEntry()">Save Entry</button>
+    <button class="btn" onclick="toggleAdd()">Cancel</button>
+  </div>
+</div>
+
+<div class="stats-bar" id="stats-bar"></div>
+
+<div class="table-wrap">
+<table>
+<colgroup>
+  <col class="c-bobo"><col class="c-case"><col class="c-date">
+  <col class="c-victim"><col class="c-off"><col class="c-desc">
+  <col class="c-stat"><col class="c-flag"><col class="c-del">
+</colgroup>
+<thead>
+  <tr>
+    <th>BOBO #</th><th>Case #</th><th>Date</th>
+    <th>Victim / Subject</th><th>Offense</th><th>Description</th>
+    <th>Status</th><th>Flag</th><th></th>
+  </tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+<div class="empty-msg" id="empty-msg" style="display:none">No entries match your filters.</div>
+</div>
+
+<script src="nav.js"></script>
+<script>
+const STORE_KEY = 'dcso_reports';
+const VER_KEY   = 'dcso_reports_ver';
+const SEED_VER  = 1;
+
+// SEED format: [bobo, case_num, date, victim, offense, description, status, flag, id]
+const SEED = [
+  ["—","11-00233","04-13-2011","Holly Bobo, 681 Swan Johnson Rd, Parsons TN 38363; DOB 10-12-1990; W/F","Kidnapping / Abduction (Code 100)","DCSO Preliminary Investigative Report. Code TN0200000. Reported 04-13-2011 07:59 by Sgt. David A. Weber (704). Clint Bobo (associate/owner) gave verbal statement: heard scream, saw Holly in pink shirt and light blue jeans walking into woods with a camo-clad individual; initially thought she was going with her boyfriend (turkey hunter). Blood found in carport behind home. Holly's black Ford Mustang remained in carport. Cell phone track (#5497352) initiated 8:46am; last ping ~9:25am then went silent. Deputy Prat and Weber entered woods — no contact made. BOBO # not visible in source images.","Active","N","d1"],
+  ["00008766","11-00247","04-17-2011","Frankie Shane Rushing, 97 Stanley White Rd, Decaturville TN 38329","Motor Vehicle Theft — ATV","2003 Honda TRX450FE3, VIN 478TE224X34410921, estimated value $3,000. Stolen between 04-13-2011 and 04-17-2011 during the Bobo search period. Report filed 04-17-2011 at 20:11. BOBO 00008766–00008767.","Active","N","d2"],
+];
+
+let entries = [];
+
+function loadEntries() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    const ver = localStorage.getItem(VER_KEY);
+    if (raw && ver === String(SEED_VER)) {
+      entries = JSON.parse(raw);
+      return;
+    }
+  } catch(e) {}
+  entries = SEED.map(r => ({
+    bobo: r[0], case_num: r[1], date: r[2], victim: r[3],
+    offense: r[4], description: r[5], status: r[6], flag: r[7], id: r[8]
+  }));
+  saveEntries();
+}
+
+function saveEntries() {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(entries));
+    localStorage.setItem(VER_KEY, String(SEED_VER));
+  } catch(e) {}
+}
+
+function statusBadge(s) {
+  const cls = s === 'Active' ? 'badge-active' : 'badge-closed';
+  return `<span class="badge ${cls}">${s}</span>`;
+}
+function flagBadge(f) {
+  if (f === 'Y') return `<span class="badge badge-flag-y">FLAG</span>`;
+  if (f === 'P') return `<span class="badge badge-flag-p">NOTE</span>`;
+  return '';
+}
+function flagClass(f) {
+  if (f === 'Y') return ' flagged-y';
+  if (f === 'P') return ' flagged-p';
+  return '';
+}
+
+const TRUNC = 180;
+function descCell(e) {
+  const s = e.description || '';
+  if (s.length <= TRUNC) return `<span class="narr-short">${esc(s)}</span>`;
+  return `<span class="narr-short">${esc(s.slice(0, TRUNC))}… <button class="narr-toggle" onclick="toggle(this)">more ▾</button></span>
+          <span class="narr-full">${esc(s)} <button class="narr-toggle" onclick="toggle(this)">less ▴</button></span>`;
+}
+function toggle(btn) { btn.closest('tr').classList.toggle('expanded'); }
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function render() {
+  const q       = document.getElementById('q').value.toLowerCase();
+  const fDate   = document.getElementById('f-date').value;
+  const fStat   = document.getElementById('f-status').value;
+  const fFlag   = document.getElementById('f-flag').value;
+
+  const filtered = entries.filter(e => {
+    if (fDate && e.date !== fDate) return false;
+    if (fStat && e.status !== fStat) return false;
+    if (fFlag && e.flag !== fFlag) return false;
+    if (q) {
+      const hay = [e.bobo, e.case_num, e.date, e.victim, e.offense, e.description].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  document.getElementById('empty-msg').style.display = filtered.length ? 'none' : 'block';
+
+  filtered.forEach(e => {
+    const tr = document.createElement('tr');
+    tr.className = flagClass(e.flag);
+    tr.innerHTML = `
+      <td class="c-mono" data-label="BOBO">${esc(e.bobo)}</td>
+      <td class="c-mono" data-label="Case #"><strong>${esc(e.case_num)}</strong></td>
+      <td data-label="Date">${esc(e.date)}</td>
+      <td data-label="Victim">${esc(e.victim)}</td>
+      <td data-label="Offense">${esc(e.offense)}</td>
+      <td data-label="Description">${descCell(e)}</td>
+      <td data-label="Status">${statusBadge(e.status)}</td>
+      <td data-label="Flag">${flagBadge(e.flag)}</td>
+      <td class="td-del"><button class="del-btn" title="Delete" onclick="delEntry('${e.id}')">×</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  const active = entries.filter(e => e.status === 'Active').length;
+  const closed = entries.filter(e => e.status === 'Closed').length;
+  document.getElementById('stats-bar').innerHTML =
+    `<span><span class="stat-val">${filtered.length}</span> / ${entries.length} reports</span>` +
+    `<span>Active: <span class="stat-val">${active}</span></span>` +
+    `<span>Closed: <span class="stat-val">${closed}</span></span>` +
+    `<span style="margin-left:auto;font-size:.7rem;">Decatur County Sheriff's Office · Preliminary Investigative Reports</span>`;
+}
+
+function populateDateFilter() {
+  const dates = [...new Set(entries.map(e => e.date))].sort();
+  const sel = document.getElementById('f-date');
+  dates.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d; opt.textContent = d;
+    sel.appendChild(opt);
+  });
+}
+
+function delEntry(id) {
+  entries = entries.filter(e => e.id !== id);
+  saveEntries();
+  render();
+}
+
+function toggleAdd() {
+  document.getElementById('add-panel').classList.toggle('open');
+}
+
+function addEntry() {
+  const id = 'u' + Date.now();
+  entries.unshift({
+    bobo:        document.getElementById('f-bobo').value.trim() || '—',
+    case_num:    document.getElementById('f-case').value.trim(),
+    date:        document.getElementById('f-adate').value.trim(),
+    victim:      document.getElementById('f-victim').value.trim(),
+    offense:     document.getElementById('f-offense').value.trim(),
+    description: document.getElementById('f-narr').value.trim(),
+    status:      document.getElementById('f-astat').value,
+    flag:        document.getElementById('f-aflag').value,
+    id
+  });
+  saveEntries();
+  document.getElementById('add-panel').classList.remove('open');
+  ['f-bobo','f-case','f-adate','f-victim','f-offense','f-narr'].forEach(id => document.getElementById(id).value = '');
+  render();
+}
+
+loadEntries();
+populateDateFilter();
+render();
+</script>
+</body>
+</html>
