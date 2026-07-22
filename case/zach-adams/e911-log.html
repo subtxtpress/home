@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-911 Dispatch Log — Holly Bobo / Zachary Adams</title>
+<meta name="description" content="Transcription log of Decatur County E-911 Dispatch Logs (BOBO 00008698–) released in discovery.">
+<script>
+  try {
+    if (localStorage.getItem('foia-theme') === 'light')
+      document.documentElement.dataset.theme = 'light';
+  } catch(e) {}
+</script>
+<style>
+/* ── GitHub Dark / Light palette ── */
+:root {
+  --bg:          #0d1117;
+  --bg2:         #161b22;
+  --bg3:         #21262d;
+  --border:      #30363d;
+  --text:        #e6edf3;
+  --text-dim:    #8b949e;
+  --accent:      #58a6ff;
+  --accent-dim:  #1f3a5c;
+  --accent-subtle: #131d2e;
+  --red:         #f85149;
+  --green:       #3fb950;
+  --yellow:      #d29922;
+  --yellow-bg:   #272115;
+  --pink:        #f778ba;
+  --pink-bg:     #2a1520;
+  --purple:      #bc8cff;
+  --teal:        #39d353;
+  --orange:      #e3b341;
+}
+[data-theme="light"] {
+  --bg:          #ffffff;
+  --bg2:         #f6f8fa;
+  --bg3:         #eaeef2;
+  --border:      #d0d7de;
+  --text:        #1f2328;
+  --text-dim:    #636c76;
+  --accent:      #0969da;
+  --accent-dim:  #b6d4fb;
+  --accent-subtle: #ddf4ff;
+  --red:         #cf222e;
+  --green:       #1a7f37;
+  --yellow:      #9a6700;
+  --yellow-bg:   #fff8c5;
+  --pink:        #bf3989;
+  --pink-bg:     #ffeff7;
+  --purple:      #8250df;
+  --teal:        #2da44e;
+  --orange:      #bc4c00;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.toolbar-title {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-right: 4px;
+  white-space: nowrap;
+}
+.toolbar-sep { color: var(--text-dim); }
+.search-box {
+  padding: 5px 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: .82rem;
+  font-family: inherit;
+  width: 220px;
+}
+.search-box:focus { outline: 1px solid var(--accent); }
+select.filter-sel {
+  padding: 5px 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: .82rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  color: var(--text);
+  font-family: inherit;
+  transition: opacity .15s;
+  white-space: nowrap;
+}
+.btn:hover { opacity: .75; }
+.btn-primary {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* ── Stats bar ── */
+.stats-bar {
+  padding: 8px 16px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  font-size: .78rem;
+  color: var(--text-dim);
+}
+.stat {
+  padding: 0 14px 0 0;
+  margin-right: 14px;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+.stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.stat strong { color: var(--text); }
+
+/* ── Add-entry form ── */
+.add-form {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-end;
+}
+.add-form.open { display: flex; }
+.field-group { display: flex; flex-direction: column; gap: 3px; }
+.field-group label {
+  font-size: .72rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.field-group input,
+.field-group select,
+.field-group textarea {
+  padding: 5px 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: .82rem;
+  font-family: inherit;
+}
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus { outline: 1px solid var(--accent); }
+.field-group textarea { resize: vertical; min-height: 58px; }
+.field-sm input { width: 110px; }
+.field-xs input { width: 72px; }
+.field-lg textarea { width: 320px; }
+
+/* ── Table ── */
+.table-wrap {
+  overflow-x: auto;
+  padding: 0 0 60px;
+}
+table {
+  width: 100%;
+  min-width: 1080px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+colgroup col {}
+col.c-bobo  { width: 110px; }
+col.c-date  { width: 96px;  }
+col.c-shift { width: 88px;  }
+col.c-oper  { width: 110px; }
+col.c-time  { width: 58px;  }
+col.c-to    { width: 52px;  }
+col.c-from  { width: 110px; }
+col.c-disp  { width: 54px;  }
+col.c-flag  { width: 60px;  }
+col.c-stat  { width: 78px;  }
+col.c-narr  { width: auto;  }
+col.c-del   { width: 30px;  }
+
+thead th {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+  padding: 8px 8px;
+  text-align: left;
+  font-size: clamp(.66rem, 1.1vw + .3rem, .76rem);
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: var(--bg2); }
+tbody tr.flagged-y { border-left: 3px solid var(--yellow); }
+tbody tr.flagged-y:hover { background: var(--bg2); }
+tbody tr.flagged-p { border-left: 3px solid var(--pink); }
+tbody tr.flagged-p:hover { background: var(--bg2); }
+[data-theme="light"] tbody tr.flagged-y { border-left: 3px solid var(--yellow); background: #fffbdd; }
+[data-theme="light"] tbody tr.flagged-y:hover { background: #fff8c5; }
+[data-theme="light"] tbody tr.flagged-p { border-left: 3px solid var(--pink); background: #fff0f8; }
+[data-theme="light"] tbody tr.flagged-p:hover { background: #ffe4f2; }
+tbody td {
+  padding: 7px 8px;
+  font-size: clamp(.73rem, 1.2vw + .3rem, .8rem);
+  vertical-align: top;
+  color: var(--text);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+td.td-time { white-space: nowrap; font-variant-numeric: tabular-nums; }
+td.td-mono { font-family: 'Courier New', monospace; font-size: .75rem; }
+td.td-dim  { color: var(--text-dim); font-size: .75rem; }
+
+/* Narrative cell */
+.narr-short { cursor: pointer; }
+.narr-short:hover { color: var(--accent); }
+.narr-full  { display: none; }
+tr.narr-open .narr-short { display: none; }
+tr.narr-open .narr-full  { display: block; }
+.expand-btn {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: .7rem;
+  color: var(--accent);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-size: .68rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge-flag-y { background: #3a2e00; color: #f0c929; }
+.badge-flag-p { background: #3a0020; color: #f778ba; }
+[data-theme="light"] .badge-flag-y { background: #fff3b0; color: #7a5100; }
+[data-theme="light"] .badge-flag-p { background: #ffe0f0; color: #8b005a; }
+
+.badge-t { background: #0d2a0d; color: var(--green); }
+.badge-p { background: #2a2200; color: var(--orange); }
+.badge-r { background: #2a0a0a; color: var(--red); }
+.badge-n { background: var(--bg3); color: var(--text-dim); }
+[data-theme="light"] .badge-t { background: #d4f4d4; color: #1a5c1a; }
+[data-theme="light"] .badge-p { background: #fff3cc; color: #7a4800; }
+[data-theme="light"] .badge-r { background: #fde0e0; color: #9a0000; }
+[data-theme="light"] .badge-n { background: var(--bg3); color: var(--text-dim); }
+
+.del-btn {
+  background: none;
+  border: none;
+  color: var(--red);
+  cursor: pointer;
+  font-size: .85rem;
+  padding: 0 2px;
+  opacity: .5;
+}
+.del-btn:hover { opacity: 1; }
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-dim);
+  display: none;
+}
+.empty-state.show { display: block; }
+
+/* ── Mobile card layout ── */
+@media (max-width: 700px) {
+  col.c-bobo, col.c-date, col.c-shift, col.c-oper,
+  col.c-time, col.c-to, col.c-from, col.c-disp,
+  col.c-flag, col.c-stat, col.c-narr, col.c-del { width: auto; }
+  thead { display: none; }
+  table, colgroup, col, tbody, tr { display: block; }
+  table { min-width: unset; width: 100%; }
+  tbody tr { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  tbody td { display: block; width: 100%; box-sizing: border-box; padding: 3px 0 3px 90px; position: relative; min-height: 1.5rem; }
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    width: 82px;
+  }
+  tbody td:not([data-label]) { display: none; }
+  .search-box { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="toolbar-title">E-911 Dispatch Log</span>
+  <span class="toolbar-sep">·</span>
+  <div id="case-nav"></div>
+  <input class="search-box" id="searchBox" type="search" placeholder="Search comments, caller, date…" autocomplete="off">
+  <select class="filter-sel" id="filterDate">
+    <option value="">All dates</option>
+  </select>
+  <select class="filter-sel" id="filterFlag">
+    <option value="">All entries</option>
+    <option value="Y">Case tip (yellow)</option>
+    <option value="P">High-interest (pink)</option>
+    <option value="N">Routine</option>
+  </select>
+  <select class="filter-sel" id="filterStatus">
+    <option value="">All statuses</option>
+    <option value="T">Transcribed</option>
+    <option value="PA">Partial</option>
+    <option value="R">Redacted</option>
+    <option value="B">Blank</option>
+    <option value="NO">Note</option>
+  </select>
+  <button class="btn btn-primary" id="addBtn">+ Add Entry</button>
+</div>
+
+<div class="add-form" id="addForm">
+  <div class="field-group field-sm"><label>BOBO #</label><input id="fBobo" placeholder="00008698"></div>
+  <div class="field-group field-sm"><label>Date</label><input id="fDate" placeholder="04-20-2011"></div>
+  <div class="field-group field-sm"><label>Shift</label><input id="fShift" placeholder="0800–1600"></div>
+  <div class="field-group field-sm"><label>Operator</label><input id="fOper" placeholder="S. Carver"></div>
+  <div class="field-group field-xs"><label>Time</label><input id="fTime" placeholder="1345"></div>
+  <div class="field-group field-xs"><label>To</label><input id="fTo" placeholder="3911"></div>
+  <div class="field-group field-sm"><label>From</label><input id="fFrom" placeholder="733-5555"></div>
+  <div class="field-group field-xs"><label>Disp.</label><input id="fDisp" placeholder="10-6"></div>
+  <div class="field-group">
+    <label>Flag</label>
+    <select id="fFlag">
+      <option value="N">None</option>
+      <option value="Y">Yellow (case tip)</option>
+      <option value="P">Pink (high-interest)</option>
+    </select>
+  </div>
+  <div class="field-group">
+    <label>Status</label>
+    <select id="fStat">
+      <option value="T">Transcribed</option>
+      <option value="PA">Partial</option>
+      <option value="R">Redacted</option>
+      <option value="B">Blank</option>
+      <option value="NO">Note</option>
+    </select>
+  </div>
+  <div class="field-group field-lg"><label>Comments / Narrative</label><textarea id="fNarr" placeholder="Transcription of entry…"></textarea></div>
+  <div class="field-group" style="justify-content:flex-end;flex-direction:row;gap:6px;align-self:flex-end">
+    <button class="btn" id="cancelBtn">Cancel</button>
+    <button class="btn btn-primary" id="saveBtn">Save</button>
+  </div>
+</div>
+
+<div class="stats-bar" id="statsBar"></div>
+
+<div class="table-wrap">
+<table id="mainTable">
+<colgroup>
+  <col class="c-bobo"><col class="c-date"><col class="c-shift"><col class="c-oper">
+  <col class="c-time"><col class="c-to"><col class="c-from"><col class="c-disp">
+  <col class="c-flag"><col class="c-stat"><col class="c-narr"><col class="c-del">
+</colgroup>
+<thead>
+<tr>
+  <th>BOBO #</th><th>Date</th><th>Shift</th><th>Operator</th>
+  <th>Time</th><th>To</th><th>From</th><th>Disp.</th>
+  <th>Flag</th><th>Status</th><th>Comments</th><th></th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+<div class="empty-state" id="emptyState">No entries match the current filters.</div>
+</div>
+
+<script src="nav.js"></script>
+<script>
+/* ──────────────────────────────────────────
+   SEED DATA
+   Fields: [bobo, date, shift, operator, time, to, from, disp, comments, flag, status, id]
+   flag: 'Y'=yellow case tip, 'P'=pink high-interest, 'N'=routine
+   status: 'T'=Transcribed, 'PA'=Partial, 'R'=Redacted, 'B'=Blank, 'NO'=Note
+────────────────────────────────────────── */
+const SEED_VER = 2;
+
+const SEED = [
+  // ── 04-20-2011 / Note (BOBO 00008699) ──
+  ["00008699","04-20-2011","—","[unknown]","—","—","Sheila Hensley / Health Dept","—","NOTE from Sheila Hensley, Nurse at Health Dept: Check house at 175 Starbuck Ln – vacant house & barn off Hwy 641S. Also 112 Starbuck Ln – vacant house for sale, had a light on last few days. Dated 4-20-11.","Y","NO","s1"],
+
+  // ── 04-20-2011 / Shift 8–4 / Operator: S. Carver / BOBO 00008701 (pg 2) ──
+  ["00008701","04-20-2011","0800–1600","S. Carver","1005","","1101","10-8","ER to Bussell Town.","N","T","s2"],
+  ["00008701","04-20-2011","0800–1600","S. Carver","1031","3913","785","","[Partial – blacked out] Came to get subject… said it was a real heavy sleeper.","N","PA","s3"],
+  ["00008701","04-20-2011","0800–1600","S. Carver","1105","3911","708-255-5441","—","Nancy Louise Garrett — officers had missed one sex offender that lives near Holly's house. He had her in basement at first but now she is dead & he has buried her in the woods behind his house. He is cleaning up the basement with Clorox now — we might be able to find the bed clothes & put him away.","Y","T","s4"],
+
+  // ── 04-20-2011 / Shift 8–4 / Operator: Shalu Carver / BOBO 00008700 (pg 5) ──
+  ["00008700","04-20-2011","0800–1600","Shalu Carver","1507","3911","970-1686-0631","—","\"Prayer Person\" — her husband is a pastor. Just came up from prayer. Man pulled Holly into woods, thick area, raped her & hit her, not sure if it killed her or not. Then dragged her by feet a pretty far ways to an open camp-like area with a fire pit. Then went to another place that was very dark & kept reaching over & pulling on something like a tunnel or cave.","Y","T","s5"],
+
+  // ── Date unclear / BOBO 00008698 ──
+  ["00008698","[unknown]","—","[unknown]","1126","3911","73-695-0083","—","Brooke Sullivan advises last Sunday she was riding horses @ Natchez Trace. She's been riding from Wrangler Camp over to Daylet Trail; on the far end at back there was a white car way down end of trail w/ garbage bags in back & a spaced-out looking white male w/ black hair.","Y","T","s6"],
+  ["00008698","[unknown]","—","[unknown]","1130","3911","731-300-7188 (cell) / 731-948-3300 (home)","—","Felicia Garner — works at school at Henderson Co., heard Jonathan Dodd was arrested. Her daughter Kallie was in the search the day before yesterday w/ Jonathan; another boy named John Curtis. Jonathan Dodd & John Curtis were living in a shed at the back of Jonathan's parents/grandparents' residence.","Y","T","s7"],
+
+  // ── 04-23-2011 / Shift 1600–0000 / Operator: Montgomery / BOBO 00008715 (Dip Sheet) ──
+  ["00008715","04-23-2011","1600–0000","Montgomery","1853","911","781-911 / 0000","","Female calling — Laura (partial).","N","PA","s8"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1914","3911","731-350-1150","","Searchers wanting info.","N","T","s9"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","1929","911","856-5506","—","911 call — female @ 1562 Crawford School Rd, needs EMS for 80-yr-old female, possible broken hip.","N","T","s10"],
+  ["00008715","04-23-2011","1600–0000","Montgomery","2028","3911","234-136-1893","—","Tony Calabrese advises he has assembled a team in Ohio doing a cyber investigation on the Bobo case. Found info at Facebook profile ID 100000959724120 (Jarred Shelley Potts). Asking criminal justice questions — team needs to know if Holly did an internship at any area hospitals because their security needs to be checked out. They believe it is either an off-duty officer (possibly on a traffic stop w/ her), a CSI student, or a security guard. Offered to come down if needed.","P","T","s11"],
+
+  // ── 04-23-2011 cont. / BOBO 00008716 ──
+  ["00008716","04-23-2011","1600–0000","Montgomery","2116","3911","708-255-5441","—","Nancy Louise Garrett Cole — advises: using the wrong dog, must be a bitch dog to catch her scent, must use something personal (dirty underwear or socks). She is in a ditch-like area, covered by debris, dirt filled in. She is dead & decaying. Was alive when she called the first time. He has a wrap sheet for car theft as well as pedofiling. He has an old dark forest green truck. He is a farm hand, in the area about 3 years, day laborer. The moment he sees police he will run. She has a several-page letter she wants Brookfield PD (IL) to pick up @ the British Home, 8700 W 31st St, Brookfield, IL — fax to us & to the girl's mother.","P","T","s12"],
+  ["00008716","04-23-2011","1600–0000","Montgomery","2129","911","739-2066","—","Michael Cooper needs to meet officers @ Food Giant parking lot re: incident on Sunrise Dr.","N","T","s13"],
+  ["00008716","04-23-2011","1600–0000","Montgomery","2136","3911","740-553-4101","—","Officer Stewart @ Portsmouth, Ohio — advises Mr. Robert McVey @ 520-559-3601 / 6308 Copper Summit Dr, Sierra Vista, AZ 85635 — was at a Tennessee Travel Plaza in Cornersville, TN last week. Was approached by a ~ 5'11\"–6', ~180 lb male in camo. Advises they lived [entry continues / partial].","P","PA","s14"],
+
+  // ── 04-24-2011 / Shift 1600–0000 / Operator: Maxwell Wyatt / BOBO 00008711 (pg 1 of 5) ──
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1555","911","549-5650","—","Female caller calling about fire on Middleburg Decatville Rd — stated 2 fires out, 1 still burning; advised Henderson Co had been notified.","N","T","s15"],
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1640","","234/736-1293","—","Tony Calabres called — stated he had been tracking the Bobo case and thought we might want to be aware that a plane left Beech River airport the morning Ms. Bobo was taken. Plane went to Sun Coaste Air Center in Venus, Florida. He contacted the airport and a woman fitting the description was on this plane. Airport #: 941-485-1299. He stated he had contacted the TBI with no answer.","Y","T","s16"],
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1652","","549-7583","—","Jeremy Inman called, requested us to page every available fire & rescue to fairgrounds for ground search per THP.","N","T","s17"],
+  ["00008711","04-24-2011","1600–0000","Maxwell Wyatt","1722","911","630-880-4990","—","Male caller wanting to speak to officer about a horse — could see bones in Beacon area.","N","T","s18"],
+
+  // ── 04-24-2011 / Shift 1600–0000 / BOBO 00008712 (pg 2 of 5) ──
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1737","911","848-7189","—","Hang-up call, called back — female stated kid playing with phone, 10-97 area.","N","T","s19"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1755","","733-6348","—","Eric Jones wanting to speak to officer about suspicious activity.","Y","T","s20"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1818","Head Co. Dispatch","","—","Head Co. Dispatch stated they took a call from a man at Tractor Supply — another man walked up talking about Holly Bobo, saying suspicious things. LPD checked subject ID# 10172830 — Troy Bowan III, 461 Franklin Ave, Lexington, TN. Thought we may want to log as Tip.","Y","T","s21"],
+  ["00008712","04-24-2011","1600–0000","Maxwell Wyatt","1936","","8867","","Wanting 702 w/ Garmin GPS, 641 N for evidence.","N","T","s22"],
+
+  // ── 04-24-2011 / BOBO 00008713 (note, signed Scott Wyatt) ──
+  ["00008713","04-24-2011","—","Scott Wyatt","0005","","Knox County PD","—","NOTE (signed Scott Wyatt): Talked to Knox County PD again — she advised the worker on duty could not pull the video and manager could not come in. She advised they would send officer first thing in the morning to look at the tape then call us and let us know what they see.","Y","NO","s23"],
+
+  // ── 04-24-2011 / BOBO 00008714 (Operators: S. Wyatt / J. Maxwell, pg 2) ──
+  ["00008714","04-24-2011","1600–close","S. Wyatt / J. Maxwell","2218","3911","865-215-2293","—","Knoxville PD called — received a call from Sherl Nicely (865-924-3902) who states she believes she saw Holly at the Pilot off Maynardville Pk. Called EOC. National Guard advised they take leads over in morning; advised we had 3 days of leads not yet taken. Told to call Knox back. Knox said they had an officer who could look at video. Called Sherl Nicely back — she advised it was NOT the Pilot store but Weigel's Store. Newer model Jeep Cherokee, dark color, tinted windows, parked at front door. Two people: male medium build, same height as female, stood at hood; and a very pretty blond female who went inside. Female had on white shirt, no shoulder, peach color with flowers and shorts. Called Knox and corrected to Weigel's Store.","Y","T","s24"],
+
+  // ── 04-28-2011 / Shift 1600–0000 / Operator: Montgomery / BOBO 00008702 ──
+  ["00008702","04-28-2011","1600–0000","Montgomery","1839","3911","723-1041","—","BJ Ferguson @ 733-1061 needs 712 — gene chin # 1844.","N","PA","s25"],
+  ["00008702","04-28-2011","1600–0000","Montgomery","1840","3911","847-[?]","—","Caller from Blue Bird Guide (Edwinia?) — they were out driving around and turned on Bird Ring Lane @ bottom of hill. Old model Grey Explorer/Blazer type vehicle w/ black male, parked at bottom of hill in the woods. Made C. tag 177 NXP. Close to Randy Walden residence. Left tail light out; when they came back down road they blew horn @ him — he sped away.","Y","T","s26"],
+  ["00008702","04-28-2011","1600–0000","Montgomery","1849","TBI Comm","","—","Called regarding not receiving anything since 12:30. They did switch it; should come to us.","N","T","s27"],
+
+  // ── 04-28-2011 / BOBO 00008703 (pg 1 of 8) ──
+  ["00008703","04-28-2011","1600–0000","Montgomery","1857","911","784/819","—","Female on E 8th St complaining about car again in area.","N","T","s28"],
+  ["00008703","04-28-2011","1600–0000","Montgomery","1904","3911","649-5533","—","Joey Luganek advises cut on Use Loop (per Danny Grauer?); attempt bath #12 (per Mr. Luganek); line 10-25, left message.","N","PA","s29"],
+  ["00008703","04-28-2011","1600–0000","Montgomery","1907","784","","10-6","873 KNY @ 533 Kay Ave S; 10-28 873KNY 1963 Chevy Imp 2dr, Exp. 2/29/12; 10-99 WSR \"Brian Chappell\", 531 Kay Ave S, Parsons, TN 38363.","N","T","s30"],
+  ["00008703","04-28-2011","1600–0000","Montgomery","1912","3911","614-356","—","Paula Candle on Hwy 412 E, crossing Calvin C. Gale Bridge, behind a maroon Chevy Impala, driving reckless westbound.","N","T","s31"],
+  ["00008703","04-28-2011","1600–0000","Montgomery","1921","3911","852-2668","—","Peggy Scott @ 4951 Brookrue Thompson Rd — needs to speak w/ 706, gave him # @ 1926.","N","T","s32"],
+  ["00008703","04-28-2011","1600–0000","Montgomery","1921","3911","731-586-2577","—","Catherine Vanilen — thinks Jeff Tframes (?) is involved in Holly Bobo case; says she's been seeing him in this week's Camden Chronicle & seen him on America's Most Wanted. Wants to speak w/ investigator on case.","Y","T","s33"],
+
+  // ── 04-28-2011 / BOBO 00008704 ──
+  ["00008704","04-28-2011","1600–0000","Montgomery","1923","","709","10-81","Temp tag # 014411 KY, Black Toyota Highlander @ Hwy 641 / Jeanette Hill.","N","T","s34"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","1949","3911","800-238-2127","—","Crystal advises Henry Treschette @ 2400 Conrad Ridge Rd — motion in rear door & dining room.","N","T","s35"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","2008","3911","549-7850","—","Anita White wants to speak w/ officer regarding info she has on Bobo case. Gave to 707 @ 2015.","Y","T","s36"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","2026","911","845-5345","—","Male @ 14 E 8th St — all could understand was address & needs officers. Hung up; called back, answered but just open line.","N","T","s37"],
+
+  // ── 04-28-2011 / BOBO 00008705 ──
+  ["00008705","04-28-2011","1600–0000","Montgomery","2135","","712","","0904S1014 — Christopher A Clark — Valid Class A; 89 W 5th St, Parsons, TN 38363.","N","T","s38"],
+  ["00008705","04-28-2011","1600–0000","Montgomery","2147","3911","307-5027","—","Shanny Hatto & husband from 305 Sandy Dr #40, Lexington — advises husband works at Leroy Demo w/ Jesse Stanfill. He has been coming in saying his insurance that boys she at Nashville Wasp. Today he said his cousin said it was a drug deal gone bad. Today he was randomly handing out gift cards from Walmart & McDonalds. They think he should be checked out because he went to school w/ Holly & has been searching. Spoke w/ 707 — hard to understand.","Y","T","s39"],
+  ["00008705","04-28-2011","1600–0000","Montgomery","2246","3911","847-0833","—","Michelle advises white SUV type vehicle pulled her daughter over [partial — gave info to 712 to call].","N","PA","s40"],
+
+  // ── 04-29-2011 / Shift 0000–0800 / Operator: Alexander / BOBO 00008706 (pg 2) ──
+  ["00008706","04-29-2011","0000–0800","Alexander","0640","D1","","","1st Resp on scene.","N","T","s41"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0644","","821","","WF Head Inj, lays across seat.","N","T","s42"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0647","D1","","","On scene — Launch Aircraft.","N","T","s43"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0650","","","","Airocare 72 — 5 min lift & 12 min flight, 20 min total.","N","T","s44"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0734","","733-6193","—","Rena Savell — advising she had a dream that Holly Bobo was alive in a grain bin, somewhere in Decatur Co.","Y","T","s45"],
+
+  // ── 04-29-2011 / BOBO 00008707 (pg 3) ──
+  ["00008707","04-29-2011","0000–0800","Alexander","0743","","733-8193","—","Kevin Rush — worked with James Borns (?) several years ago; saw him last night and he was acting strange & telling that the FBI had been investigating him for the Holly Bobo case.","Y","T","s46"],
+
+  // ── 05-03-2011 / Shift 8–4 / Operator: S. Carver / BOBO 00008708 (pg 4) ──
+  ["00008708","05-03-2011","0800–1600","S. Carver","1329","","733-2426","","Man said he pushed wrong # (older-sounding like a man) — 670 Virginia Ave S.","N","T","s47"],
+  ["00008708","05-03-2011","0800–1600","S. Carver","1342","911","733-2426","","Disconnected — called back — voice mailbox not set up.","N","T","s48"],
+  ["00008708","05-03-2011","0800–1600","S. Carver","1345","911","733-3699","—","Rita Power, 1940 Sulphur Springs Rd — says they have a rent house at 2091 Sulphur Springs Rd. Renter is Wayne Holmes, works at Clayton Homes in Jackson. He has not been back to this house since Holly went missing. Has run — maybe something. Has lots of camo/hunting clothing in the house. Her husband went in & walked thru when looking for Holly but did not look in attic & other places she could have been. Wayne's girlfriend works at the Mousse Lodge in Lexington — she has called & looked for him & can't find him either. Rita told her they wanted his stuff out of the house. Wayne has a truck but has it with him & does not come home. They called his place of work — he has not been to work since Holly went missing. Rita's sister-in-law Janice Wyatt might know more about him. She owned the house before her brother bought it. Rita says they want to go to Court House to get him out. There is a 4-wheeler at the house also.","Y","T","s49"],
+
+  // ── BOBO 00008710 — Knox County contact note ──
+  ["00008710","[unknown]","—","[unknown]","—","—","—","—","NOTE (loose sheet): Det. Aaron Yarnell, Knox County. Cell: 865-684-0635 / Office: 865-215-3510.","N","NO","s50"],
+
+  // ── 04-20-2011 / BOBO 00008700 — additional entries ──
+  ["00008700","04-20-2011","0800–1600","Shalu Carver","1519","","","","[Partial/illegible] From the shore on look around Dr. S… about military. Entry partially illegible.","N","PA","s51"],
+
+  // ── 04-20-2011 / BOBO 00008701 — redacted & partial entries ──
+  ["00008701","04-20-2011","0800–1600","S. Carver","1015","","185","","[Redacted] ER — partial: 3396/3007, White [?], 12-31-[?], Steven McGriff, 395 Fithdale Dr, Decaturville — 285 Responded EMS. Remainder blacked out.","N","R","s52"],
+  ["00008701","04-20-2011","0800–1600","S. Carver","1014","","21","","[Redacted] Blacked out.","N","R","s53"],
+  ["00008701","04-20-2011","0800–1600","S. Carver","1031","","","","Jack Instructor — No Transport.","N","T","s54"],
+  ["00008701","04-20-2011","0800–1600","S. Carver","1031","3913","785","1660","[Partial] A white/worry — a stranger to come get subject [blacked out].","N","PA","s55"],
+  ["00008701","04-20-2011","0800–1600","S. Carver","1041","","785","","[Partial] Someone came & picked him up — said it was a real heavy sleeper. [Remainder blacked out.]","N","PA","s56"],
+  ["00008701","04-20-2011","0800–1600","S. Carver","1157","3911","[?] 215","","[Partial/illegible] Tom Davis — 911 — going to [?] vehicle [?]. Remainder blacked out.","N","PA","s57"],
+
+  // ── 04-28-2011 / BOBO 00008702 — missing entries ──
+  ["00008702","04-28-2011","1600–0000","Montgomery","1833","","727","10-8","From Swan Johnson w/ 707.","N","T","s58"],
+  ["00008702","04-28-2011","1600–0000","Montgomery","1833","","721","10-6","Swan Johnson.","N","T","s59"],
+  ["00008702","04-28-2011","1600–0000","Montgomery","1838","3911","847-6828","—","Patty Pratt — needs to speak w/ Parsons Office re: building on 2nd St.","N","T","s60"],
+  ["00008702","04-28-2011","1600–0000","Montgomery","1844","","781","","# complete, want extra patrol tonight.","N","T","s61"],
+
+  // ── 04-28-2011 / BOBO 00008703 — missing entry ──
+  ["00008703","04-28-2011","1600–0000","Montgomery","1903","","784","10-6","In area.","N","T","s62"],
+
+  // ── 04-28-2011 / BOBO 00008704 — missing entries ──
+  ["00008704","04-28-2011","1600–0000","Montgomery","1926","","709","10-8","","N","B","s63"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","1927","","709","10-7","","N","B","s64"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","2012","712","","10-8","10-98.","N","T","s65"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","2030","707","","10-97","E 8th St.","N","T","s66"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","2039","707/727/781/784","","10-4","Security check.","N","T","s67"],
+  ["00008704","04-28-2011","1600–0000","Montgomery","2040","707","","10-8","","N","B","s68"],
+
+  // ── 04-28-2011 / BOBO 00008705 — missing entries ──
+  ["00008705","04-28-2011","1600–0000","Montgomery","2133","","712","10-97","Black.","N","T","s69"],
+  ["00008705","04-28-2011","1600–0000","Montgomery","2137","","712","10-8","","N","B","s70"],
+  ["00008705","04-28-2011","1600–0000","Montgomery","2141","","D7","10-8","Spoke w/ caller — everything okay.","N","T","s71"],
+  ["00008705","04-28-2011","1600–0000","Montgomery","2204","","591","10-7","","N","B","s72"],
+  ["00008705","04-28-2011","1600–0000","Montgomery","2204","","D1","10-7","","N","B","s73"],
+
+  // ── 04-29-2011 / BOBO 00008706 — missing MVA / scene entries ──
+  ["00008706","04-29-2011","0000–0800","Alexander","0641","THP","","","Advised.","N","T","s74"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0642","","R1","","Resp.","N","T","s75"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0643","","821","","10-97.","N","T","s76"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0644","","P3","","Resp — 317 on scene.","N","T","s77"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0646","","705","10-97","","N","B","s78"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0646","","R3","","Resp — R2 Resp.","N","T","s79"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0650","","R1","","On scene — R2 on scene.","N","T","s80"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0653","","R3","","On scene.","N","T","s81"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0655","","819","","On scene.","N","T","s82"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0658","911","662-640-9548","","About Accident — MVA.","N","T","s83"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0659","911","731-614-6057","","About Accident — MVA.","N","T","s84"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0702","","590","10-8","","N","B","s85"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0734","","D1","","Pat care turned over to Flight crew — will be on scene a few min.","N","T","s86"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0736","","R1","","Leave scene.","N","T","s87"],
+  ["00008706","04-29-2011","0000–0800","Alexander","0736","","P3","","All fireman leave scene.","N","T","s88"],
+
+  // ── 04-29-2011 / BOBO 00008707 — missing scene-clear entries ──
+  ["00008707","04-29-2011","0000–0800","Alexander","0739","","R3","","Leave scene.","N","T","s89"],
+  ["00008707","04-29-2011","0000–0800","Alexander","0740","D1","","","Clear scene — route to station.","N","T","s90"],
+  ["00008707","04-29-2011","0000–0800","Alexander","0742","","R2","","Leave scene.","N","T","s91"],
+  ["00008707","04-29-2011","0000–0800","Alexander","0750","","R2","","Blds. & Available.","N","T","s92"],
+  ["00008707","04-29-2011","0000–0800","Alexander","0751","","R3","","Blds.","N","T","s93"],
+  ["00008707","04-29-2011","0000–0800","Alexander","0753","","R1","","Blds.","N","T","s94"],
+];
+
+/* ──────────────────────────────────────────
+   Storage / render
+────────────────────────────────────────── */
+const STORE_KEY = 'e911_log';
+const VER_KEY   = 'e911_log_ver';
+
+function load() {
+  try {
+    const ver = localStorage.getItem(VER_KEY);
+    if (ver !== String(SEED_VER)) throw new Error('stale');
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  const data = SEED.map(r => ({
+    bobo:r[0], date:r[1], shift:r[2], operator:r[3],
+    time:r[4], to:r[5], from:r[6], disp:r[7],
+    comments:r[8], flag:r[9], status:r[10], id:r[11]
+  }));
+  save(data);
+  return data;
+}
+
+function save(data) {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(data));
+    localStorage.setItem(VER_KEY, String(SEED_VER));
+  } catch(e) {}
+}
+
+let DATA = load();
+let nextId = DATA.reduce((m,r) => {
+  const n = parseInt(r.id.replace(/\D/g,'')) || 0;
+  return Math.max(m, n);
+}, 100) + 1;
+
+/* ── Filters ── */
+const searchBox   = document.getElementById('searchBox');
+const filterDate  = document.getElementById('filterDate');
+const filterFlag  = document.getElementById('filterFlag');
+const filterStatus= document.getElementById('filterStatus');
+
+function populateDateFilter() {
+  const dates = [...new Set(DATA.map(r => r.date).filter(d => d && d !== '[unknown]' && d !== '—'))].sort();
+  filterDate.innerHTML = '<option value="">All dates</option>' +
+    dates.map(d => `<option value="${d}">${d}</option>`).join('');
+}
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function flagBadge(f) {
+  if (f === 'Y') return '<span class="badge badge-flag-y">TIP</span>';
+  if (f === 'P') return '<span class="badge badge-flag-p">NOTE</span>';
+  return '';
+}
+
+function statusBadge(s) {
+  const map = {T:['badge-t','Transcribed'],PA:['badge-p','Partial'],R:['badge-r','Redacted'],B:['badge-n','Blank'],NO:['badge-n','Note']};
+  const [cls, label] = map[s] || ['badge-n', s];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function trClass(f) {
+  if (f === 'Y') return ' class="flagged-y"';
+  if (f === 'P') return ' class="flagged-p"';
+  return '';
+}
+
+function render() {
+  const q     = searchBox.value.toLowerCase().trim();
+  const dFilt = filterDate.value;
+  const fFilt = filterFlag.value;
+  const sFilt = filterStatus.value;
+
+  const rows = DATA.filter(r => {
+    if (dFilt && r.date !== dFilt) return false;
+    if (fFilt) {
+      if (fFilt === 'N' && (r.flag === 'Y' || r.flag === 'P')) return false;
+      if (fFilt !== 'N' && r.flag !== fFilt) return false;
+    }
+    if (sFilt && r.status !== sFilt) return false;
+    if (q) {
+      const haystack = [r.bobo, r.date, r.operator, r.time, r.to, r.from, r.disp, r.comments].join(' ').toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = rows.map(r => {
+    const short = r.comments.length > 120 ? r.comments.slice(0,120) + '…' : r.comments;
+    const full  = r.comments.replace(/\n+/g, '<br>');
+    const hasMore = r.comments.length > 120;
+    return `<tr${trClass(r.flag)} data-id="${esc(r.id)}">
+      <td class="td-mono" data-label="BOBO">${esc(r.bobo)}</td>
+      <td class="td-time" data-label="Date" style="white-space:nowrap">${esc(r.date)}</td>
+      <td class="td-dim" ${r.shift ? 'data-label="Shift"' : ''}>${esc(r.shift)}</td>
+      <td ${r.operator ? 'data-label="Operator"' : ''}>${esc(r.operator)}</td>
+      <td class="td-time" data-label="Time" style="white-space:nowrap">${esc(r.time)}</td>
+      <td ${r.to ? 'data-label="To"' : ''}>${esc(r.to)}</td>
+      <td data-label="From">${esc(r.from)}</td>
+      <td class="td-dim" ${r.disp ? 'data-label="Disp"' : ''}>${esc(r.disp)}</td>
+      <td data-label="Flag">${flagBadge(r.flag)}</td>
+      <td data-label="Status">${statusBadge(r.status)}</td>
+      <td data-label="Comments">
+        <span class="narr-short" onclick="toggleNarr(this)">${esc(short)}${hasMore ? '<span class="expand-btn">[expand]</span>' : ''}</span>
+        <span class="narr-full">${full}${hasMore ? ' <span class="expand-btn" onclick="toggleNarr(this)">[collapse]</span>' : ''}</span>
+      </td>
+      <td><button class="del-btn" onclick="delRow('${esc(r.id)}')" title="Delete">✕</button></td>
+    </tr>`;
+  }).join('');
+
+  // Stats
+  const total   = DATA.length;
+  const tips    = DATA.filter(r => r.flag === 'Y').length;
+  const notable = DATA.filter(r => r.flag === 'P').length;
+  const shown   = rows.length;
+  const dates   = [...new Set(DATA.map(r=>r.date).filter(d=>d&&d!=='[unknown]'&&d!=='—'))].length;
+  document.getElementById('statsBar').innerHTML =
+    `<span class="stat"><strong>${total}</strong> entries</span>
+     <span class="stat"><strong>${tips}</strong> case tips</span>
+     <span class="stat"><strong>${notable}</strong> high-interest</span>
+     <span class="stat"><strong>${dates}</strong> log dates</span>
+     <span class="stat"><strong>${shown}</strong> shown</span>`;
+
+  document.getElementById('emptyState').classList.toggle('show', rows.length === 0);
+}
+
+function toggleNarr(el) {
+  el.closest('tr').classList.toggle('narr-open');
+}
+
+function delRow(id) {
+  if (!confirm('Delete this entry?')) return;
+  DATA = DATA.filter(r => r.id !== id);
+  save(DATA);
+  render();
+}
+
+/* ── Add form ── */
+document.getElementById('addBtn').addEventListener('click', () => {
+  document.getElementById('addForm').classList.toggle('open');
+});
+document.getElementById('cancelBtn').addEventListener('click', () => {
+  document.getElementById('addForm').classList.remove('open');
+});
+document.getElementById('saveBtn').addEventListener('click', () => {
+  const get = id => document.getElementById(id).value.trim();
+  const entry = {
+    bobo:     get('fBobo') || '—',
+    date:     get('fDate') || '—',
+    shift:    get('fShift') || '—',
+    operator: get('fOper') || '—',
+    time:     get('fTime') || '—',
+    to:       get('fTo'),
+    from:     get('fFrom'),
+    disp:     get('fDisp'),
+    comments: get('fNarr'),
+    flag:     document.getElementById('fFlag').value,
+    status:   document.getElementById('fStat').value,
+    id:       'u' + (nextId++),
+  };
+  DATA.push(entry);
+  save(DATA);
+  populateDateFilter();
+  render();
+  document.getElementById('addForm').classList.remove('open');
+  ['fBobo','fDate','fShift','fOper','fTime','fTo','fFrom','fDisp','fNarr'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+});
+
+/* ── Event listeners ── */
+searchBox.addEventListener('input', render);
+filterDate.addEventListener('change', render);
+filterFlag.addEventListener('change', render);
+filterStatus.addEventListener('change', render);
+
+/* ── Init ── */
+populateDateFilter();
+render();
+</script>
+</body>
+</html>
