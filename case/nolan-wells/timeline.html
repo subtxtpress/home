@@ -70,7 +70,7 @@
       position: relative;
       z-index: 100;
       width: 100%;
-      min-height: 200vh;
+      min-height: 450vh;
     }
     .step {
       height: 100vh;
@@ -83,10 +83,10 @@
     }
     .step-content {
       pointer-events: auto;
-      max-width: 600px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 60px 40px;
-      text-align: center;
+      text-align: left;
     }
     .step-time {
       font-family: var(--mono);
@@ -124,6 +124,46 @@
       color: #e8956a;
       border: 1px solid rgba(192,78,1,0.3);
     }
+    .pill-nolan {
+      background: rgba(232,149,106,0.15);
+      color: #e8956a;
+      border: 1px solid rgba(232,149,106,0.3);
+    }
+    .pill-warren {
+      background: rgba(74,138,124,0.15);
+      color: #6ba3a3;
+      border: 1px solid rgba(107,163,163,0.3);
+    }
+    .pill-katie {
+      background: rgba(215,154,166,0.15);
+      color: #d79ba6;
+      border: 1px solid rgba(215,154,166,0.3);
+    }
+    .pill-jayvon {
+      background: rgba(212,165,116,0.15);
+      color: #d4a574;
+      border: 1px solid rgba(212,165,116,0.3);
+    }
+    .pill-wyatt {
+      background: rgba(139,123,168,0.15);
+      color: #8b7ba8;
+      border: 1px solid rgba(139,123,168,0.3);
+    }
+    .pill-evan {
+      background: rgba(107,163,163,0.15);
+      color: #6ba3a3;
+      border: 1px solid rgba(107,163,163,0.3);
+    }
+    .pill-tracestin {
+      background: rgba(201,149,106,0.15);
+      color: #c9956a;
+      border: 1px solid rgba(201,149,106,0.3);
+    }
+    .pill-crump {
+      background: rgba(122,143,184,0.15);
+      color: #7a8fb8;
+      border: 1px solid rgba(122,143,184,0.3);
+    }
     .pill-location {
       background: rgba(74,138,124,0.15);
       color: #7ab89c;
@@ -158,133 +198,309 @@
   <!-- INTRO -->
   <div class="step" data-step="0">
     <div class="step-content">
-      <div class="step-time">July 4, 2026</div>
+      <div class="step-time">July 3–6, 2026</div>
       <div class="step-title">Nolan Wells</div>
       <div class="step-body">
-        <p>An 18-year-old wide receiver celebrates Independence Day on the water with friends. What unfolds over 48 hours becomes a mystery that grips the nation.</p>
+        <p>An 18-year-old wide receiver vanished from a crowded barrier island on July 4, 2026. Two days later, his body washed ashore. This is the timeline of conflicting accounts, unanswered questions, and an ongoing investigation into the circumstances surrounding his death.</p>
       </div>
     </div>
   </div>
 
-  <!-- DEPARTURE -->
+  <!-- JULY 3 EVENING -->
   <div class="step" data-step="1">
+    <div class="step-content">
+      <div class="step-time">Evening · July 3</div>
+      <div class="step-title">Last Dinner</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan</span> made salmon dinner for his parents. Before leaving to spend the night at <span class="pill pill-warren">Warren's</span> house, he hugged his mom. "Hey mom, I'm about to go. I love you," he said. She hugged him back. It was the last time she saw him alive.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JULY 4 EARLY MORNING -->
+  <div class="step" data-step="2">
+    <div class="step-content">
+      <div class="step-time">Early Morning · July 4</div>
+      <div class="step-title">Fourth of July Plans</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan</span>, <span class="pill pill-warren">Warren</span>, and friends headed to <span class="pill pill-location">Horn Island</span>, a federally protected barrier island known for its untouched beaches and isolation. Approximately 2,000+ people were expected there for the holiday weekend.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPARTURE 9:56 AM -->
+  <div class="step" data-step="3">
     <div class="step-content">
       <div class="step-time">9:56 AM · July 4</div>
       <div class="step-title">Boats Depart</div>
       <div class="step-body">
-        <p>Three boats leave <span class="pill pill-location">Fort Bayou Launch</span> carrying ~20–30 people. <span class="pill pill-person">Nolan</span> boards Wyatt's Triton. <span class="pill pill-person">Warren</span> travels on Bart's Tide Line.</p>
+        <p>Three boats left from different docks near <span class="pill pill-location">Ocean Springs</span>, carrying ~20 to 30 people total. <span class="pill pill-nolan">Nolan</span> and <span class="pill pill-warren">Warren</span> rode together on one of the boats. <span class="pill pill-jayvon">Jayvon Williams</span>, a close friend, was going to ride with Nolan but that boat filled up, so he went on a different vessel.</p>
       </div>
     </div>
   </div>
 
-  <!-- ISLAND ARRIVAL -->
-  <div class="step" data-step="2">
-    <div class="step-content">
-      <div class="step-time">10:30 AM · July 4</div>
-      <div class="step-title">Horn Island</div>
-      <div class="step-body">
-        <p>Boats arrive at <span class="pill pill-location">Horn Island</span> northwestern tip. Approximately 2,000+ people. Three rows of boats stretching miles along the shoreline.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ISLAND HOURS -->
-  <div class="step" data-step="3">
-    <div class="step-content">
-      <div class="step-time">~2:00–4:00 PM · July 4</div>
-      <div class="step-title">The Day Unfolds</div>
-      <div class="step-body">
-        <p><span class="pill pill-person">Nolan</span> meets a girl named <span class="pill pill-person">Katie</span>. They spend the afternoon together. Around 3 PM, <span class="pill pill-person">Warren</span> last sees them laughing.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- EMERGENCY -->
+  <!-- ARRIVAL 11:14 AM -->
   <div class="step" data-step="4">
+    <div class="step-content">
+      <div class="step-time">11:14 AM · July 4</div>
+      <div class="step-title">Horn Island Arrival</div>
+      <div class="step-body">
+        <p>The group's boats arrived at the northwestern tip of <span class="pill pill-location">Horn Island</span>. Three rows of boats stretched for miles along the shoreline. The beach was packed. <span class="pill pill-jayvon">Jayvon</span> saw <span class="pill pill-nolan">Nolan</span> after they arrived. He told ABC News: "As soon as we got out there, Nolan told me that he loved me."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTERNOON ON ISLAND -->
+  <div class="step" data-step="5">
+    <div class="step-content">
+      <div class="step-time">~2:00–3:00 PM · July 4</div>
+      <div class="step-title">Meeting Katie</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan</span> met a girl named <span class="pill pill-katie">Katie</span>. They spent the afternoon together on the beach. Around 3 PM, <span class="pill pill-warren">Warren</span> last saw <span class="pill pill-nolan">Nolan</span> with their friends, and they appeared to be laughing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 PM VIDEO -->
+  <div class="step" data-step="6">
+    <div class="step-content">
+      <div class="step-time">~4:00 PM · July 4</div>
+      <div class="step-title">Altercation on Island</div>
+      <div class="step-body">
+        <p>A video showing someone yelling in a heated argument: "Give me my f-ing phone back." Many initially believed it was <span class="pill pill-nolan">Nolan</span> in the video. Later, <span class="pill pill-tracestin">Tracestin Shepherd</span>, a friend on the trip, clarified: "That's me yelling. That's the video I am referring to." <span class="pill pill-jayvon">Jayvon</span> confirmed: "We were calming Tracestin down in that video." <span class="pill pill-katie">Katie</span> reportedly said she last saw <span class="pill pill-nolan">Nolan</span> around this time, still with his friends.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BILGE PUMP ISSUE -->
+  <div class="step" data-step="7">
     <div class="step-content">
       <div class="step-time">~4:15 PM · July 4</div>
       <div class="step-title">Bilge Pump Fails</div>
       <div class="step-body">
-        <p><span class="pill pill-person">Warren</span> checks on the Triton. Water up to the batteries. The bilge pump isn't working. The boat is sinking.</p>
+        <p><span class="pill pill-warren">Warren</span> checked on the Triton. Water was up to the batteries. The bilge pump wasn't working and the boat was taking on water. A private towing company was called to report the emergency.</p>
       </div>
     </div>
   </div>
 
-  <!-- NOLAN STAYS -->
-  <div class="step" data-step="5">
+  <!-- NOLAN DECISION -->
+  <div class="step" data-step="8">
     <div class="step-content">
       <div class="step-time">4:25–4:30 PM · July 4</div>
       <div class="step-title">Nolan Stays Behind</div>
       <div class="step-body">
-        <p><span class="pill pill-person">Warren</span> shouts: "Get on the boat! We're leaving!"</p>
-        <p><span class="pill pill-person">Nolan</span>: "No, I'm staying out here. I'm going to ride in with somebody else."</p>
-        <p><span class="pill pill-person">Katie</span> is there and will later confirm she heard them asking <span class="pill pill-person">Nolan</span> to board.</p>
+        <p><span class="pill pill-warren">Warren</span> told <span class="pill pill-nolan">Nolan</span>: "Get on the boat! We're leaving!" <span class="pill pill-nolan">Nolan</span> responded: "No, I'm staying out here. I'm going to ride in with somebody else." <span class="pill pill-katie">Katie</span> will later, reportedly, confirm she heard them asking <span class="pill pill-nolan">Nolan</span> to board. But <span class="pill pill-nolan">Nolan</span> stayed on the island&mdash;the only one from his original boat to do so.</p>
       </div>
     </div>
   </div>
 
-  <!-- BOATS RETURN -->
-  <div class="step" data-step="6">
+  <!-- BOATS LEAVE -->
+  <div class="step" data-step="9">
     <div class="step-content">
       <div class="step-time">4:30 PM · July 4</div>
       <div class="step-title">Emergency Return</div>
       <div class="step-body">
-        <p>Damaged Triton is towed to <span class="pill pill-location">Fort Bayou</span>. <span class="pill pill-person">Nolan</span> remains on the island with <span class="pill pill-person">Katie</span>. Still ~2,000 people there.</p>
+        <p>The damaged Triton was towed to the <span class="pill pill-location">Fort Bayou Boat Launch</span>. <span class="pill pill-nolan">Nolan</span> remained on the island with <span class="pill pill-katie">Katie</span> and ~2,000 other people. At this time, no one knew this would be the last time anyone saw him alive.</p>
       </div>
     </div>
   </div>
 
-  <!-- MISSING -->
-  <div class="step" data-step="7">
+
+  <!-- MISSING CALL -->
+  <div class="step" data-step="10">
     <div class="step-content">
       <div class="step-time">~11:00 PM · July 4</div>
-      <div class="step-title">Something's Wrong</div>
+      <div class="step-title">Friends Call—He's Not Back</div>
       <div class="step-body">
-        <p><span class="pill pill-person">Warren</span> can't reach <span class="pill pill-person">Nolan</span>. Calls Coast Guard. Nolan's parents go to <span class="pill pill-location">Warren's Home</span> searching for answers.</p>
+        <p>One of <span class="pill pill-nolan">Nolan</span>'s friends called his mother to say <span class="pill pill-nolan">Nolan</span> still hadn't returned from the island. His mother called <span class="pill pill-person">Tashema Hands</span>, mother of <span class="pill pill-person">Jayvon Williams</span>, to ask if she'd seen him. <span class="pill pill-jayvon">Jayvon</span> and his brother check <span class="pill pill-nolan">Nolan's</span> Snapchat location. His mother checks Life360. The data doesn't match.</p>
       </div>
     </div>
   </div>
 
-  <!-- SEARCH -->
-  <div class="step" data-step="8">
+  <!-- PHONE LOCATION -->
+  <div class="step" data-step="11">
+    <div class="step-content">
+      <div class="step-time">11:00 PM+ · July 4</div>
+      <div class="step-title">Locating the Phone</div>
+      <div class="step-body">
+        <p><span class="pill pill-person">Tashema Hands</span> used Snapchat to track <span class="pill pill-nolan">Nolan's</span> phone to a house. She finds his phone there with the friends who had been with the group that day. It takes pressing them before they admit they have it. When <span class="pill pill-nolan">Nolan's</span> mother finally gets the phone and scrolls through it, she notices something disturbing: there are zero saved photos or videos from the boat or the island.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEYS RETRIEVAL -->
+  <div class="step" data-step="12">
+    <div class="step-content">
+      <div class="step-time">Late Night · July 4</div>
+      <div class="step-title">Where Are the Keys?</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan's</span> parents arrive at <span class="pill pill-warren">Warren's</span> house to get his vehicle and search for him. Several friends answer the door. It's tense. One friend who was asleep comes out and says he doesn't know where the keys are. After 15 minutes of searching, they still can't find them. Then <span class="pill pill-nolan">Nolan's</span> father overhears one of the boys on the phone with a girl, who says the keys are on the XBox. About 5 minutes later, they find them.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSING PERSON REPORT -->
+  <div class="step" data-step="13">
+    <div class="step-content">
+      <div class="step-time">~11:30 PM–12:00 AM · July 4–5</div>
+      <div class="step-title">Missing Person Report</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan's</span> mother calls Ocean Springs Police to report him missing. They tell her to contact the Department of Marine Resources (DMR) because the incident happened on the island, which is federal land. When she calls DMR, she's told she needs to file with Ocean Springs Police first. Eventually, someone from DMR starts the missing person report to avoid further delay.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEETING WITH OFFICER -->
+  <div class="step" data-step="14">
+    <div class="step-content">
+      <div class="step-time">12:00 AM · July 5</div>
+      <div class="step-title">Meet with DMR</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan's</span> parents meet with an officer from DMR at a McDonald's parking lot to provide details for the missing person report. One of <span class="pill pill-nolan">Nolan's</span> friends also contacts the Coast Guard directly to report him missing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTAGRAM POST -->
+  <div class="step" data-step="15">
+    <div class="step-content">
+      <div class="step-time">2:53 AM · July 5</div>
+      <div class="step-title">Photos Surface</div>
+      <div class="step-body">
+        <p><span class="pill pill-evan">Evan Noel</span> posts a photo on Instagram showing <span class="pill pill-nolan">Nolan</span> in the pool at the party. The image will later become central to increased speculation about what happened before someone clarifies the pool party occured on June 27th, not July 4th. Around this time, the friends' lawyers advise them to stop cooperating and retain legal representation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAWN SEARCH -->
+  <div class="step" data-step="16">
     <div class="step-content">
       <div class="step-time">6:00 AM · July 5</div>
-      <div class="step-title">Search & Rescue</div>
+      <div class="step-title">Private Search Begins</div>
       <div class="step-body">
-        <p>Multi-agency search. United Cajun Navy, Coast Guard, helicopters, planes. <span class="pill pill-location">Lake Mars Pier</span> becomes command center.</p>
+        <p><span class="pill pill-nolan">Nolan's</span> coach, who saw social media posts about him missing, contacts <span class="pill pill-nolan">Nolan's</span> father on Facebook and offers to take him out on his boat. They go to <span class="pill pill-location">Horn Island</span> to search. <span class="pill pill-nolan">Nolan's</span> father sees a family in a tent that appears to be living on the island.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COAST GUARD RESPONSE -->
+  <div class="step" data-step="17">
+    <div class="step-content">
+      <div class="step-time">12:26 PM · July 5</div>
+      <div class="step-title">Official Search Launches</div>
+      <div class="step-body">
+        <p>The U.S. Coast Guard Sector Mobile receives a request for assistance from Jackson County Sheriff's Office. An urgent marine information broadcast is issued. A helicopter is sent to search the area. Multiple agencies mobilize: Coast Guard, Mississippi Department of Marine Resources, U.S. National Park Service, Gulf Islands National Seashore.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMAND POST -->
+  <div class="step" data-step="18">
+    <div class="step-content">
+      <div class="step-time">5:54 PM · July 5</div>
+      <div class="step-title">Command Post Established</div>
+      <div class="step-body">
+        <p>Jackson County Sheriff's Office establishes a command post at <span class="pill pill-location">Lake Mars Boat Launch</span>. Sheriff John Ledbetter coordinates with multiple agencies. The United Cajun Navy, a nonprofit volunteer search and rescue group from Louisiana, joins the effort. Their vice president tells CNN: if someone fell in the water, strong rip currents that day would have posed a serious risk.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JULY 6 DAWN -->
+  <div class="step" data-step="19">
+    <div class="step-content">
+      <div class="step-time">6:00 AM · July 6</div>
+      <div class="step-title">UCN Continues Search</div>
+      <div class="step-body">
+        <p>The United Cajun Navy begins searching via land, air, and sea. Search boats are deployed at 8:00 AM. The last vessels leave just before 8 AM to continue the search for <span class="pill pill-nolan">Nolan</span>.</p>
       </div>
     </div>
   </div>
 
   <!-- BODY FOUND -->
-  <div class="step" data-step="9">
+  <div class="step" data-step="20">
     <div class="step-content">
       <div class="step-time">8:40 AM · July 6</div>
       <div class="step-title">Body Found</div>
       <div class="step-body">
-        <p>A U.S. Park Service ranger discovers a body face down at the western tip of <span class="pill pill-location">Horn Island</span>—where the boats were anchored.</p>
+        <p>A U.S. Park Service ranger discovers a body face down in the water at the western tip of <span class="pill pill-location">Horn Island</span> where the boats had been anchored. The body matches <span class="pill pill-nolan">Nolan's</span> description: 6'1", approximately 180 pounds, wearing blue swim trunks.</p>
       </div>
     </div>
   </div>
 
-  <!-- IDENTIFICATION -->
-  <div class="step" data-step="10">
+  <!-- FAMILY NOTIFICATION -->
+  <div class="step" data-step="21">
     <div class="step-content">
-      <div class="step-time">Later that day · July 6</div>
+      <div class="step-time">8:45 AM+ · July 6</div>
+      <div class="step-title">Family Notified</div>
+      <div class="step-body">
+        <p>Sheriff Ledbetter confirms authorities received a call reporting a body found at the northwestern tip of Horn Island. <span class="pill pill-nolan">Nolan's</span> family is asked to come to <span class="pill pill-location">Lake Mars Boat Launch</span>, where they meet with Sheriff Ledbetter and Coroner Bruce Lynd. There are no immediate, obvious signs of foul play or trauma on the body.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORONER IDENTIFICATION -->
+  <div class="step" data-step="22">
+    <div class="step-content">
+      <div class="step-time">11:00 AM · July 6</div>
       <div class="step-title">Identification</div>
       <div class="step-body">
-        <p>Family taken to <span class="pill pill-location">Coroner's Office</span> in Pascagoula. Body confirmed via dental records.</p>
+        <p>The family is taken to the <span class="pill pill-location">Coroner's Office</span> in Pascagoula. The body is confirmed via dental records. It is <span class="pill pill-nolan">Nolan Wells</span>.</p>
       </div>
     </div>
   </div>
 
-  <!-- END -->
-  <div class="step" data-step="11">
+  <!-- PUBLIC CONFIRMATION -->
+  <div class="step" data-step="23">
     <div class="step-content">
-      <div class="step-time">July 7–23, 2026</div>
-      <div class="step-title">Investigation Underway</div>
+      <div class="step-time">1:00 PM · July 6</div>
+      <div class="step-title">Public Confirmation</div>
       <div class="step-body">
-        <p><span class="pill pill-person">Warren</span> and friends cooperate fully. Ben Crump retained. Independent autopsy ordered. Cause of death: undetermined, pending investigation.</p>
+        <p><span class="pill pill-nolan">Nolan's</span> family confirms his death on social media. His mother posts on Facebook: the body found on <span class="pill pill-location">Horn Island</span> was their son. The coroner's office requests the autopsy be conducted at the state medical examiner's office due to the "condition" of the body and to determine if there was any trauma or foul play.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEN CRUMP -->
+  <div class="step" data-step="24">
+    <div class="step-content">
+      <div class="step-time">July 7, 2026</div>
+      <div class="step-title">Legal Team Retained</div>
+      <div class="step-body">
+        <p>The Wells family retains nationally renowned civil rights attorney <span class="pill pill-crump">Ben Crump</span>. Crump calls for a "thorough and transparent investigation." Crump tells ABC News: the family is concerned about South Mississippi law enforcement investigating a case where a "young Black man" may have been involved with "young white students who may have some culpability."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDEPENDENT AUTOPSY -->
+  <div class="step" data-step="25">
+    <div class="step-content">
+      <div class="step-time">July 7, 2026</div>
+      <div class="step-title">Independent Autopsy Ordered</div>
+      <div class="step-body">
+        <p>The family's legal team orders an independent autopsy. <span class="pill pill-nolan">Nolan's</span> body is flown to Washington, D.C., for examination by experienced forensic pathologist Dr. Roger Mitchell. The state medical examiner conducts an autopsy in Mississippi. Cause of death: pending investigation. Date of death: unknown pending investigation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVESTIGATION UPDATE -->
+  <div class="step" data-step="26">
+    <div class="step-content">
+      <div class="step-time">July 22, 2026</div>
+      <div class="step-title">Autopsy Findings</div>
+      <div class="step-body">
+        <p>At the NAACP National Convention, Ben Crump announces preliminary findings from the independent autopsy. Cause and manner of death: undetermined "pending investigation." The second autopsy revealed: no lacerations of skin or fractures of skull, but a 12-by-8-inch area of red discoloration in soft tissue on the back of <span class="pill pill-nolan">Nolan</span>'s head. The throat was not received with the body, making it impossible to rule out injury to the neck as a cause of death.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ONGOING INVESTIGATION -->
+  <div class="step" data-step="27">
+    <div class="step-content">
+      <div class="step-time">July 23, 2026 · Present</div>
+      <div class="step-title">Investigation Continues</div>
+      <div class="step-body">
+        <p>Over 60 witnesses have been interviewed. The FBI is assisting with digital evidence. District Attorney Angel Myers McIlrath confirmed the state medical examiner's autopsy report will be withheld until a grand jury reviews it. Rewards totaling $125,000 have been offered. Critical questions remain unanswered: What were the circumstances that led to <span class="pill pill-nolan">Nolan</span> entering the water? Was there water in the airway? What are the toxicology findings? Investigators await answers.</p>
       </div>
     </div>
   </div>
@@ -510,17 +726,33 @@ function showMultiple(keys, lat, lng, zoom) {
 // Step animations
 const animations = {
   0: () => showMultiple(['tritonDepart', 'warrensHome', 'lakeMarsPier', 'bodyFound'], 30.35, -88.70, 10),
-  1: () => showLocation('tritonDepart'),
-  2: () => showLocation('tritonArrival'),
-  3: () => showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7610, 12),
-  4: () => showLocation('tritonDistress'),
+  1: () => showLocation('warrensHome'),
+  2: () => showLocation('tritonDepart'),
+  3: () => showLocation('tritonDepart'),
+  4: () => showLocation('tritonArrival'),
   5: () => showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7610, 12),
-  6: () => showMultiple(['tritonFortBayou', 'palmBeachReturn'], 30.4300, -88.8470, 12),
-  7: () => showLocation('warrensHome'),
-  8: () => showLocation('lakeMarsPier'),
-  9: () => showLocation('bodyFound'),
-  10: () => showLocation('coroner'),
-  11: () => showMultiple(['tritonDepart', 'warrensHome', 'lakeMarsPier', 'bodyFound'], 30.35, -88.70, 10)
+  6: () => showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7610, 12),
+  7: () => showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7610, 12),
+  8: () => showLocation('tritonDistress'),
+  9: () => showLocation('tritonFortBayou'),
+  10: () => showLocation('warrensHome'),
+  11: () => showLocation('warrensHome'),
+  12: () => showLocation('warrensHome'),
+  13: () => showLocation('warrensHome'),
+  14: () => showLocation('warrensHome'),
+  15: () => showMultiple(['palmBeachReturn', 'lakeMarsPier'], 30.40, -88.80, 11),
+  16: () => showLocation('tritonArrival'),
+  17: () => showLocation('tritonArrival'),
+  18: () => showLocation('lakeMarsPier'),
+  19: () => showLocation('lakeMarsPier'),
+  20: () => showLocation('bodyFound'),
+  21: () => showLocation('bodyFound'),
+  22: () => showLocation('bodyFound'),
+  23: () => showLocation('coroner'),
+  24: () => showLocation('coroner'),
+  25: () => showLocation('coroner'),
+  26: () => showLocation('coroner'),
+  27: () => showMultiple(['tritonDepart', 'warrensHome', 'lakeMarsPier', 'bodyFound'], 30.35, -88.70, 10)
 };
 
 // Scroll sync
