@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nolan Wells | Subtxt Press</title>
+<meta name="description" content="">
+<link rel="canonical" href="https://subtxtpress.github.io/home/case/nolan-wells/event-timeline">
+<!-- Open Graph -->
+<meta property="og:title" content="Nolan Wells | Subtxt Press">
+<meta property="og:description" content="">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://subtxtpress.github.io/home/case/nolan-wells/event-timeline">
+<meta property="og:image" content="https://subtxtpress.github.io/home/case/nolan-wells/img/timeline.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:site_name" content="Case Maps | Subtxt Press">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nolan Wells | Subtxt Presss">
+<meta name="twitter:description" content="T">
+<meta name="twitter:image" content="https://subtxtpress.github.io/home/case/nolan-wells/img/timeline.png">
+<meta name="twitter:creator" content="@subtxtpress">
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+<link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+<link rel="manifest" href="../../icons/site.webmanifest">
+<!-- Styles -->
+<style>
+  :root {
+    --bg:           #080c12;
+    --surface:      #111820;
+    --text:         #ddd8cc;
+    --text-muted:   #9fa1a4;
+    --text-dim:     #a6abb1;
+    --accent:       #d28959;
+    --accent-soft:  rgba(192,78,1,0.1);
+    --teal:         #4a8a7c;
+    --teal-soft:    rgba(74,138,124,0.1);
+    --gold:         #b88800;
+    --gold-soft:    rgba(184,136,0,0.08);
+    --red:          #d28959;
+    --border:       rgba(210, 137, 89, 0.06);
+    --rule:         rgba(210, 137, 89, 0.05);
+    --ts:           #84949e;
+    --mono:         "Courier New", monospace;
+    --sans:         system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  @media(prefers-color-scheme:light) {
+    :root {
+      --bg:            #f2ede6;
+      --surface:       #e8e2d8;
+      --text:          #1a1814;
+      --text-muted:    #5a5248;
+      --text-dim:      #aaa098;
+      --accent:        #a33600;
+      --accent-soft:   rgba(163,54,0,0.08);
+      --teal:          #2d6b60;
+      --teal-soft:     rgba(45,107,96,0.08);
+      --gold:          #8a6200;
+      --gold-soft:     rgba(138,98,0,0.07);
+      --border:        rgba(0,0,0,0.07);
+      --rule:          rgba(0,0,0,0.05);
+      --ts:            #7a6e68;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:           #f2ede6;
+    --surface:      #e8e2d8;
+    --text:         #1a1814;
+    --text-muted:   #5a5248;
+    --text-dim:     #aaa098;
+    --accent:       #a33600;
+    --accent-soft:  rgba(163,54,0,0.08);
+    --teal:         #2d6b60;
+    --teal-soft:    rgba(45,107,96,0.08);
+    --gold:         #8a6200;
+    --gold-soft:    rgba(138,98,0,0.07);
+    --border        rgba(0,0,0,0.07);
+    --rule:         rgba(0,0,0,0.05);
+    --ts:           #7a6e68;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 44px 24px 80px;
+  }
+  a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+  b {
+    font-weight: 600;
+  }
+  /* Header */
+  .pg-header {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 44px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .pg-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .pg-meta {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+  /* Key Info Block */
+  .key-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 16px;
+    background: var(--surface);
+    border-radius: 4px;
+    margin-bottom: 36px;
+    font-size: 13px;
+  }
+  .ki-item{
+    border-left: 2px solid var(--teal);
+    padding-left: 12px;
+  }
+  .ki-label{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+  .ki-value {
+    color: var(--text);
+  }
+  /* Date section */
+  .ds {
+    margin-bottom: 48px;
+  }
+  .dh {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    padding: 12px 0 8px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 6px;
+  }
+  .dh h2 {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .dh .dn {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+  /* Events */
+  .events {
+    padding-top: 4px;
+  }
+  .ev{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0 18px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .ev:last-child {
+    border-bottom: none;
+  }
+  .et {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ts);
+    padding-top: 2px;
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: .03em;
+    flex-shrink: 0;
+  }
+  .et.ap {
+    font-style: italic;
+    color: var(--text-muted);
+  }
+  .eb {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .eb p+p {
+    margin-top: 9px;
+  }
+  /* People & Locations */
+  .person {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 2px;
+  }
+  .person.nolan {
+    background: rgba(192,78,1,0.15);
+    color: #e8956a;
+    border: 1px solid rgba(192,78,1,0.3);
+  }
+  .person.warren {
+    background: rgba(74,138,124,0.15);
+    color: #7ab89c;
+    border: 1px solid rgba(74,138,124,0.3);
+  }
+  .person.wyatt {
+    background: rgba(100,120,160,0.15);
+    color: #8fa5d8;
+    border: 1px solid rgba(100,120,160,0.3);
+  }
+  .person.katie {
+    background: rgba(160,100,140,0.15);
+    color: #d89cb0;
+    border: 1px solid rgba(160,100,140,0.3);
+  }
+  .person.jayvon {
+    background: rgba(120,140,100,0.15);
+    color: #adc998;
+    border: 1px solid rgba(120,140,100,0.3);
+  }
+  .person.bart {
+    background: rgba(150,130,90,0.15);
+    color: #d8b88c;
+    border: 1px solid rgba(150,130,90,0.3);
+  }
+  .person.gen {
+    background: rgba(200,200,200,0.1);
+    color: #aaa;
+    border: 1px solid rgba(200,200,200,0.2);
+  }
+  .location {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(74,138,124,0.1);
+    color: #7ab89c;
+    border: 1px solid rgba(74,138,124,0.2);
+    margin: 0 2px;
+  }
+  /* Details box */
+  .detail {
+    margin:10px 0;
+    padding:9px 12px;
+    border-left:2px solid var(--teal);
+    background:var(--teal-soft);
+    font-size:13px;
+    border-radius:0 3px 3px 0;
+  }
+  .detail strong {
+    color:var(--teal);
+  }
+  .callout {
+    margin: 10px 0;
+    padding: 9px 12px;
+    border-left: 2px solid var(--accent);
+    background: var(--accent-soft);
+    font-size: 13px;
+    border-radius :0 3px 3px 0;
+    font-style: italic;
+  }
+  .quote {
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-left: 3px solid var(--text-muted);
+    font-size: 13px;
+    line-height: 1.7;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+  /* Witness note */
+  .witness {
+    display: inline-block;
+    padding: 1px 4px;
+    background: rgba(184,136,0,0.15);
+    color: #c8a860;
+    border: 1px solid rgba(184,136,0,0.25);
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-left: 3px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  /* Open Q */
+  .q {
+    display: inline-block;
+    padding: 2px 4px;
+    background: rgba(74,138,124,0.2);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-left: 3px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+  .ev ol,.ev ul {
+    margin: 8px 0 0 20px;
+    line-height: 1.8;
+    font-size: 13px;
+  }
+  .ev ol li,.ev ul li {
+    padding: 2px 0;
+  }
+  .person-list {
+    margin: 8px 0;
+    padding: 8px 0;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .boat-summary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 11px 13px;
+    margin: 9px 0;
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+  .boat-summary strong{
+    display: block;
+    color: var(--teal);
+    margin-bottom: 5px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  @media(max-width:640px) {
+    .ev {
+      grid-template-columns: 80px 1fr;
+      gap: 0 12px;
+    }
+    .et {
+      font-size: 10px;
+    }
+    .key-info {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="pg-header">
+  <div class="eyebrow">July 3–6, 2026 — Investigation Timeline</div>
+  <h1>Nolan Wells</h1>
+  <div class="pg-meta">Unified from police statements, media coverage, and interviews..</div>
+
+  <div class="key-info">
+    <div class="ki-item">
+      <div class="ki-label">Victim</div>
+      <div class="ki-value"><span class="person nolan">Nolan Xavier Wells</span>, 18 · Ocean Springs High School '25 · WR, Southwest MS CC football</div>
+    </div>
+    <div class="ki-item">
+      <div class="ki-label">Status</div>
+      <div class="ki-value">Found deceased, July 6, 2026, 8:40 AM · Northwestern tip, Horn Island</div>
+    </div>
+    <div class="ki-item">
+      <div class="ki-label">Key Locations</div>
+      <div class="ki-value"><span class="location">Fort Bayou dock</span> · <span class="location">Horn Island</span> · <span class="location">Pass Christian</span></div>
+    </div>
+    <div class="ki-item">
+      <div class="ki-label">Core Group</div>
+      <div class="ki-value"><span class="person warren">Warren Cole</span> · <span class="person wyatt">Wyatt</span> · <span class="person bart">Bart</span> · <span class="person jayvon">Jayvon Williams</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- JUNE 27 -->
+<div class="ds">
+  <div class="dh"><h2>June 27, 2026</h2><div class="dn">Saturday (one week before July 4)</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et ap">Afternoon/Evening</div>
+      <div class="eb">
+        <span class="person warren">Warren</span>, <span class="person nolan">Nolan</span>, and friends gather at a house in <span class="location">Pass Christian</span> for a pool party. <span class="person warren">Warren's</span> arm is around <span class="person nolan">Nolan</span> in a photo taken this day. This photo will later circulate online (misidentified as July 4).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 3 -->
+<div class="ds">
+  <div class="dh"><h2>July 3, 2026</h2><div class="dn">Thursday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">Evening</div>
+      <div class="eb">
+        <span class="person nolan">Nolan</span> cooks salmon for his family before heading out. Tells his mother: "Hey mom, I'm about to go, I love you." Hugs and kisses her goodbye.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Evening</div>
+      <div class="eb">
+        <span class="person nolan">Nolan</span> stays the night at <span class="person warren">Warren's</span> house with the group preparing for July 4.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">—</div>
+      <div class="eb">
+        <span class="person nolan">Nolan</span> receives a message from his friend <b>Trace Carter</b>: "Just hit me up when you get back. Just be careful, bro. Watch out for yourself." <span class="person nolan">Nolan</span> replies: "I got you. I'll hit you up later."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 4 MORNING -->
+<div class="ds">
+  <div class="dh"><h2>July 4, 2026 — Morning Prep</h2><div class="dn">Saturday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">Early AM</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> wakes up at his buddy's house, grabs breakfast at McDonald's. Checks on his boat (hooked to his truck) and fills it with ice.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Morning</div>
+      <div class="eb">
+        Three boats are prepared and loaded:
+        <div class="boat-summary">
+          <strong>Wyatt's 22 Triton</strong>
+          <span class="person nolan">Nolan</span> boards this boat outbound. Multiple passengers including friends from college.
+        </div>
+        <div class="boat-summary">
+          <strong>18-foot Palm Beach</strong>
+          4 passengers. <span class="person wyatt">Wyatt's</span>second boat.
+        </div>
+        <div class="boat-summary">
+          <strong>Bart's 24 Tide Line</strong>
+          <span class="person warren">Warren</span> travels on this boat outbound. 10–16 passengers.
+        </div>
+        <div class="detail"><strong>Total:</strong> ~20–30 people across three boats. Crew of college friends and high school buddies.</div>
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Morning</div>
+      <div class="eb">
+        All boats meet at <span class="person bart">Bart's</span> grandparents' house to coordinate departure for <span class="location">Horn Island</span>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 4 ISLAND -->
+<div class="ds">
+  <div class="dh"><h2>July 4, 2026 — Horn Island</h2><div class="dn">Saturday · 9:56 AM – 4:30 PM</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">9:56 AM</div>
+      <div class="eb">Boats depart from <span class="location">Fort Bayou dock</span> (private launch in Ocean Springs area).</div>
+    </div>
+    <div class="ev">
+      <div class="et">~10:30 AM</div>
+      <div class="eb">
+        Boats arrive at <span class="location">Horn Island</span> (northwestern tip). Island is packed: approximately 2,000–3,000+ people, three rows of boats stretching miles along the shoreline. The west tip (where the group anchors) is the most popular spot.
+        <div class="detail"><strong>Conditions:</strong> Clear skies, calm water (3–4 knots), excellent visibility. Great day to be on the water.</div>
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">~10:30 AM onward</div>
+      <div class="eb">
+        Boats tie up; the group settles in for the day. People get in the water, drinks and food are distributed. <span class="person nolan">Nolan</span> seems "completely fine" in conversations with <span class="person warren">Warren</span>, <span class="person jayvon">Jayvon</span>, and others. No one tracking him specifically due to the large crowd.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">~2:00–2:30 PM</div>
+      <div class="eb">
+        <span class="person nolan">Nolan</span> meets a girl named <span class="person katie">Katie</span> on the island. They spend time together throughout the afternoon. <span class="person tracestin">Tracestin Shepherd</span> (a friend on the trip) described <span class="person nolan">Nolan</span> as staying with her: "They met that day...he really did like her."
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">~3:00 PM</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> last sees <span class="person nolan">Nolan</span>: "The last time I saw Nolan was three o'clock. Nolan was cradling <span class="person katie">Katie</span> in his arms...Nolan was shaking his head, laughing, and I was like, 'Dude, you crazy.'" <span class="person katie">Katie</span> is confirmed as a witness to all subsequent events.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">~4:00 PM</div>
+      <div class="eb">
+        A phone dispute video surfaces on the island. <span class="person tracestin">Tracestin Shepherd</span> (not <span class="person nolan">Nolan</span>) was shouting over his phone being taken. <span class="person jayvon">Jayvon</span> confirmed: "We were calming Tracestin down in that video where he said, 'Give me my f-ing phone back.'" This is a separate incident from <span class="person nolan">Nolan</span>.
+      </div>
+    </div>
+    <div class="ev flag>
+      <div class="et">~4:00–4:15 PM</div>
+      <div class="eb">
+        <span class="person warren">Warren's</span> younger brother gets into a fight on the beach with another person. <span class="person warren">Warren</span> is alerted and runs to help. Fight is broken up; brother was angry but okay. <span class="person nolan">Nolan</span> was <b>not involved</b> — he was with <span class="person katie">Katie</span> elsewhere.
+      </div>
+    </div>
+    <div class="ev flag>
+      <div class="et">~4:15–4:20 PM</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> returns to <span class="person wyatt">Wyatt's</span> <b>Triton</b>. Opens the bilge hatch: water up to the batteries. Motor won't respond. <span class="person wyatt">Wyatt</span> throws a rear anchor; crew begins emergency procedures. <span class="person bart">Bart</span> (on the Tide Line) offers to tow them out of the chaos.
+      </div>
+    </div>
+    <div class="ev flag>
+      <div class="et">~4:25 PM</div>
+      <div class="eb">
+        <span class="person wyatt">Wyatt</span> and crew begin shouting for people to get off the boat or get on the tow. They yell for <span class="person nolan">Nolan</span>: "Nolan, get on the boat! We're leaving! The boat's having issues!" Multiple calls. <span class="person nolan">Nolan</span> responds: <b>"No, I'm staying out here. I'm going to ride in with somebody else."</b>
+        <div class="callout"><span class="person wyatt">Wyatt</span> asks multiple times. This is not uncommon — people frequently ride out on one boat and return on another.</div>
+        <span class="person katie">Katie</span> is present and texts a friend the next day: "The last time I saw him was when they were yelling for him to get on the boat." <span class="witness">WITNESS</span>
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">4:30 PM</div>
+      <div class="eb">
+        Boats depart <span class="location">Horn Island</span> with the damaged <b>Triton</b> being towed by <b>Bart's Tide Line</b>. <span class="person nolan">Nolan</span> remains on the island with <span class="person katie">Katie</span>. Multiple people (at least 5–8 on the Triton + others) heard <span class="person nolan">Nolan</span> refuse to board. The <b>Palm Beach</b> had already left earlier.
+        <div class="detail"><strong>Note:</strong> ~20–30 people still on the island at this time, plus 100s more from other groups.</div>
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">~4:30–5:30 PM</div>
+      <div class="eb">
+        <span class="person nolan">Nolan</span> is last reported seen on the island by someone around 6:30 PM (per one account). No confirmed sightings between 4:30 and that time. He was with <span class="person katie">Katie</span>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 4 RETURN -->
+<div class="ds">
+  <div class="dh"><h2>July 4, 2026 — Return & Evening</h2><div class="dn">Saturday · 4:30 PM onward</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">~5:52 PM</div>
+      <div class="eb">Damaged <b>Triton</b> is towed into <span class="location">Fort Bayou</span>. <span class="person wyatt">Wyatt</span> and crew jump in water to reinstall the drain plug. Boat is planed off (40+ mph) to expel excess water.</div>
+    </div>
+    <div class="ev">
+      <div class="et">~6:06 PM</div>
+      <div class="eb">Boats dock (original location). The group heads to <span class="person bart">Bart's</span> grandparents' house to eat and rest after a long day.</div>
+    </div>
+    <div class="ev">
+      <div class="et">~7:30 PM</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> and friends transition to an evening event: Fourth of July fireworks and pool party at a girlfriend's house. They swim, hang out, celebrate.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">~9:00–10:00 PM</div>
+      <div class="eb">
+        At the pool party, <span class="person warren">Warren</span> talks to buddy <span class="person wyatt">Wyatt</span> and others. <span class="person warren">Warren</span> asks: "Where's <span class="person nolan">Nolan</span>? Have y'all heard from him?" No one has. Mildly concerning.
+      </div>
+    </div>
+    <div class="ev flag>
+      <div class="et">~11:00 PM</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> texts <span class="person jayvon">Jayvon</span> asking if <span class="person nolan">Nolan</span> rode back with him. <span class="person jayvon">Jayvon</span> says no. <span class="person warren">Warren</span> requests <span class="person jayvon">Jayvon's</span> mother's phone number (Tashema Hands). Says: "If she hasn't heard from <span class="person nolan">Nolan</span>, I'm calling the Coast Guard."
+      </div>
+    </div>
+    <div class="ev flag>
+      <div class="et">~11:00 PM</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> calls <b>Christine Wonsley</b> (Nolan's mother). First call she receives that night about <span class="person nolan">Nolan</span> being missing. <span class="person warren">Warren</span>: "Don't freak out. I'm going to call the Coast Guard."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 4 NIGHT -->
+<div class="ds">
+  <div class="dh"><h2>July 4–5, 2026 — Night & Initial Response</h2><div class="dn">Late Saturday / Early Sunday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">~11:00 PM</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> calls the <b>U.S. Coast Guard</b> and speaks for ~20 minutes. Provides: description of <span class="person nolan">Nolan</span>, what he was wearing, last known location, time last seen, boat info, water conditions, and context. <span class="person warren">Warren's</span> reasoning: "People die out there all the time. I'd rather call 100 times and he be okay than not know where he is."
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">12:00 AM</div>
+      <div class="eb">
+        <b>Christine Wonsley</b> and <b>Elmore Wonsley</b> (Nolan's parents) meet a <b>DMR officer</b> at a McDonald's parking lot to officially file a missing person report. Coast Guard is also contacted.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">After midnight</div>
+      <div class="eb">
+        <span class="person warren">Warren's</span> parents retrieve <span class="person nolan">Nolan's</span> car keys from Warren's house (they were left on an Xbox). After ~15 minutes of searching. Nolan's parents use Life360 and Snapchat to track <span class="person nolan">Nolan's</span> phone — data conflicts between apps. Friends are reluctant to produce the phone initially; <span class="person tashema">Tashema Hands</span> retrieves it from a house (~15 min process). <b>No photos or videos from the island are on the phone.</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 5 -->
+<div class="ds">
+  <div class="dh"><h2>July 5, 2026</h2><div class="dn">Sunday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">Early AM</div>
+      <div class="eb">
+        <b>Christine Wonsley</b> posts social media appeals. States family has Nolan's phone; they've traveled to the island to search. Posts photos of <span class="person nolan">Nolan</span> from July 4 (blue swim trunks, no shirt, sunglasses).
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Early AM</div>
+      <div class="eb">
+        Friends on the island trip begin to lawyer up (specific individuals not yet publicly named, but <span class="person warren">Warren</span> cooperates fully without an attorney).
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Before 6 AM</div>
+      <div class="eb">
+        <span class="person nolan">Nolan's</span> football coach sees social media posts and contacts <span class="person elmore">Elmore Wonsley</span> on Facebook, offering his boat for searching.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">6:00 AM</div>
+      <div class="eb">
+        <span class="person elmore">Elmore Wonsley</span> and the coach head out on the coach's boat to <span class="location">Horn Island</span>. <span class="person elmore">Elmore</span> observes a family camping/living in a tent on the island.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">12:26 PM</div>
+      <div class="eb">
+        <b>Coast Guard Sector Mobile</b> receives request from <b>JCSO</b> for assistance. Urgent marine broadcast issued; helicopter deployed.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">12:31 PM</div>
+      <div class="eb">
+        <b>JCSO press release:</b> Searching for Nolan Xavier Wells, 18, Black male, 6′1″, 180 lbs. Last seen July 4 on Horn Island in blue swim trunks, no shirt, sunglasses.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">5:54 PM</div>
+      <div class="eb">
+        <b>JCSO</b> establishes command post at <span class="location">Lake Mars Boat Launch</span> (1200 Lake Mars Ave, Ocean Springs). Multi-agency search underway: Gulf Islands National Seashore, NPS, USCG, MDMR, MS Dept. of Wildlife/Fisheries/Parks, Biloxi Fire, Harrison County SO, Jackson County Fire, <b>United Cajun Navy</b>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 6 -->
+<div class="ds">
+  <div class="dh"><h2>July 6, 2026</h2><div class="dn">Monday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">6:00 AM</div>
+      <div class="eb">
+        <b>United Cajun Navy</b> launches coordinated search via land, air, and sea.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">~8:00 AM</div>
+      <div class="eb">
+        Search boats deployed; last vessels leave just before 8 AM.
+      </div>
+    </div>
+    <div class="ev flag>
+      <div class="et">8:40 AM</div>
+      <div class="eb">
+        <span class="person nolan">Nolan's</span> body washes up on shore, face down, at the <b>northwestern tip of Horn Island</b>. Discovered by a <b>U.S. National Park Service ranger</b>.
+      </div>
+    </div>
+    <div class="ev flag>
+      <div class="et">8:45 AM</div>
+      <div class="eb">
+        <b>Sheriff Ledbetter</b> confirms authorities received a call reporting the body. <b>Coroner Bruce Lynd</b> is notified. No immediate signs of physical injury or obvious foul play noted. Family is called to <span class="location">Lake Mars Boat Launch</span>.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">11:00 AM</div>
+      <div class="eb">
+        Family taken to coroner's office in Pascagoula for identification.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">1:00 PM</div>
+      <div class="eb">
+        <b>Christine Wonsley</b> posts on Facebook confirming the body is <span class="person nolan">Nolan</span>.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Afternoon</div>
+      <div class="eb">
+        <b>Coroner Lynd</b> confirms body via dental records. Requests state autopsy due to uncertain circumstances and body condition.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 7 -->
+<div class="ds">
+  <div class="dh"><h2>July 7, 2026</h2><div class="dn">Tuesday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">—</div>
+      <div class="eb">
+        <span class="person warren">Warren</span> is interviewed by lead investigator. Provides full statement "top to bottom, dotted every eye, crossed every t." All friends on the boat trip cooperate fully with police.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">—</div>
+      <div class="eb">
+        <b>Mississippi State Medical Examiner's Office</b> conducts autopsy. Family arranges independent autopsy in Washington D.C. (funded by <b>Colin Kaepernick</b>).
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">2:00 PM</div>
+      <div class="eb">
+        <b>Coroner Lynd</b> confirms to WLOX that body is <span class="person nolan">Nolan</span>, confirmed by dental records.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">9:15 PM</div>
+      <div class="eb">
+        <b>Ashlee Cole</b> (Warren's mother; a judge) posts on Facebook. States: Warren saw <span class="person nolan">Nolan</span> last at ~3 PM on July 4. They left at 4:30 PM due to boat issues. <span class="person nolan">Nolan</span> "made a decision to stay on the island and return inland later with another group of friends." Warren was interviewed by JCSO and cooperated fully. She and her husband were not at Horn Island. Emphasizes respect for the Wells family and community.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 15 -->
+<div class="ds">
+  <div class="dh"><h2>July 15, 2026</h2><div class="dn">Wednesday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">Morning</div>
+      <div class="eb">
+        Wells family and attorneys <b>Ben Crump</b> and <b>Eric Hertz</b> meet with <b>Jackson County DA Angel Myers McIlrath</b>. Family agrees to "mutual inspection" of <span class="person nolan">Nolan's</span> phone by experts from both parties. <b>Crump:</b> Case will go to grand jury after JCSO investigation concludes (standard procedure).
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Afternoon</div>
+      <div class="eb">
+        Press conference at Jackson County Courthouse. Funeral announced for July 20 at Center Pointe Church, Ocean Springs. Visitation 9–11 AM; service afterward. Celebration of life at Jackson County Fairgrounds.
+      </div>
+    </div>
+    <div class="ev">
+      <div class="et">Afternoon</div>
+      <div class="eb">
+        <b>Sheriff Ledbetter</b> confirms <b>FBI</b> is assisting with digital evidence examination. <b>Over 60 witnesses</b> have been interviewed, including the friends on the boat. Death threats reported by <span class="person ashlee-cole">Ashlee Cole</span> and <span class="person tracestin">Tracestin Shepherd</span>; FBI is "working to address interstate threats."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 22 -->
+<div class="ds">
+  <div class="dh"><h2>July 22, 2026</h2><div class="dn">Wednesday · NAACP National Convention, Chicago</div></div>
+  <div class="events">
+    <div class="ev flag>
+      <div class="et">8:00 AM</div>
+      <div class="eb">
+        <b>Ben Crump</b> presents preliminary independent autopsy findings (conducted by <b>Dr. Roger Mitchell</b>, Washington D.C., July 10):
+        <ul>
+          <li><b>Cause & manner of death:</b> Undetermined, pending investigation</li>
+          <li><b>Date of death:</b> Unknown</li>
+          <li><b>Physical findings:</b> Heavy decomposition; no lacerations, no skull fractures</li>
+          <li><b>Key finding:</b> 12-by-8-inch area of red discoloration in soft tissue on back of head</li>
+          <li><b>Missing:</b> Throat not received; organs removed (noted as routine for testing)</li>
+          <li><b>Unable to rule out:</b> Neck injury, intracranial hemorrhage, water in airway</li>
+        </ul>
+        <div class="detail"><strong>Outstanding questions:</strong> Circumstances of entering water? Body position when found? Water in airway? Evidence of neck injuries? Stomach contents? Toxicology results?</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JULY 23 -->
+<div class="ds">
+  <div class="dh"><h2>July 23, 2026</h2><div class="dn">Thursday</div></div>
+  <div class="events">
+    <div class="ev">
+      <div class="et">—</div>
+      <div class="eb">
+        <b>DA McIlrath</b> confirms state medical examiner's autopsy report will be <b>withheld until grand jury review</b>. Standard procedure for all unnatural/suspicious deaths in Jackson County.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KEY CONTEXT FOR MAP
+<div style="margin-top:60px;padding-top:40px;border-top:2px solid var(--rule);">
+  <h2 style="font-size:16px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;">Context for Scrolly Map</h2>
+
+  <div style="line-height:1.8;font-size:13.5px;color:var(--text);margin-bottom:28px;">
+    <p><b>Boat routes (July 4):</b></p>
+    <ul style="margin:8px 0 0 20px;">
+      <li><span class="person warren">Warren</span> departs <span class="location">Fort Bayou dock</span> ~9:56 AM on <span class="person bart">Bart's</span> Tide Line</li>
+      <li><span class="person nolan">Nolan</span> departs on <span class="person wyatt">Wyatt's</span> Triton (same time)</li>
+      <li>All boats arrive <span class="location">Horn Island</span> ~10:30 AM (northwestern tip)</li>
+      <li>Damaged Triton towed to <span class="location">Fort Bayou</span> (~5:52 PM), then to <span class="person bart">Bart's</span> grandparents' house</li>
+      <li><span class="person nolan">Nolan</span> remains on island after 4:30 PM departure; body found at northwestern tip July 6</li>
+    </ul>
+  </div>
+
+  <div style="line-height:1.8;font-size:13.5px;color:var(--text);margin-bottom:28px;">
+    <p><b>Key decisions for the map:</b></p>
+    <ul style="margin:8px 0 0 20px;">
+      <li>Animate three boats departing in formation (9:56 AM)</li>
+      <li>Show island crowd context (2,000+ people, multiple boats)</li>
+      <li>Highlight 4:30 PM moment: boats leaving, <span class="person nolan">Nolan</span> staying with <span class="person katie">Katie</span></li>
+      <li>Show return route (Fort Bayou stop, then to grandparents' house)</li>
+      <li>Mark body discovery location (northwestern tip, July 6, 8:40 AM)</li>
+      <li>Use person pills for key individuals; location pills for venues</li>
+    </ul>
+  </div>-->
+</div>
+
