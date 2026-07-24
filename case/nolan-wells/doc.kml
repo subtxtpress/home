@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>nolan.kmz</name>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Folder>
+		<name>My Places</name>
+		<open>1</open>
+		<Style>
+			<ListStyle>
+				<listItemType>check</listItemType>
+				<ItemIcon>
+					<state>open</state>
+					<href>files/mysavedplaces_open.png</href>
+				</ItemIcon>
+				<ItemIcon>
+					<state>closed</state>
+					<href>files/mysavedplaces_closed.png</href>
+				</ItemIcon>
+				<bgColor>00ffffff</bgColor>
+				<maxSnippetLines>2</maxSnippetLines>
+			</ListStyle>
+		</Style>
+		<Placemark>
+			<name>Horn Island</name>
+			<LookAt>
+				<longitude>-88.50830105324771</longitude>
+				<latitude>30.26232973223627</latitude>
+				<altitude>0</altitude>
+				<heading>0.08549269847795378</heading>
+				<tilt>1.238282318202374</tilt>
+				<range>47157.64023387472</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-88.67888632158501,30.23728201844211,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Pass Christian</name>
+			<LookAt>
+				<longitude>-89.24754289999996</longitude>
+				<latitude>30.31575269999999</latitude>
+				<altitude>0</altitude>
+				<heading>-1.093315671753084e-14</heading>
+				<tilt>0</tilt>
+				<range>14770.61324356986</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-89.24754289999994,30.3157527,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fort Bayou Draw Bridge</name>
+			<LookAt>
+				<longitude>-88.82800037682173</longitude>
+				<latitude>30.41946099711326</latitude>
+				<altitude>0</altitude>
+				<heading>1.139632499301896e-12</heading>
+				<tilt>0</tilt>
+				<range>1000.705934963199</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-88.82800037682173,30.41946099711326,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Lake Mars Pier</name>
+			<LookAt>
+				<longitude>-88.76418357061459</longitude>
+				<latitude>30.36076592497538</latitude>
+				<altitude>0</altitude>
+				<heading>3.388374112197019e-10</heading>
+				<tilt>0</tilt>
+				<range>1004.336629079009</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-88.76418357061459,30.36076592497539,0</coordinates>
+			</Point>
+		</Placemark>
+		<atom:link rel="app" href="https://www.google.com/earth/about/versions/#earth-pro" title="Google Earth Pro 7.3.7.1155"></atom:link>
+	</Folder>
+</Document>
+</kml>

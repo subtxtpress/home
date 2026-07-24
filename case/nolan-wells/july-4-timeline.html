@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nolan Wells — July 4, 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+  :root {
+    --bg: #080c12;
+    --surface: #111820;
+    --text: #ddd8cc;
+    --text-muted: #8a9098;
+    --accent: #c04e01;
+    --accent-soft: rgba(192,78,1,0.1);
+    --teal: #4a8a7c;
+    --gold: #b88800;
+    --mono: "Courier New", monospace;
+    --sans: system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    gap: 0;
+  }
+
+  #map {
+    height: 100vh;
+    width: 100%;
+    background: #1a2332;
+  }
+
+  .narrative {
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 60px 40px;
+    background: var(--bg);
+    border-left: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .narrative::-webkit-scrollbar {
+    width: 8px;
+  }
+  .narrative::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.02);
+  }
+  .narrative::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+  }
+
+  .step {
+    margin-bottom: 120px;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+
+  .step.active {
+    opacity: 1;
+  }
+
+  .step-time {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .step-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .step-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 90%;
+  }
+
+  .step-body p {
+    margin-bottom: 10px;
+  }
+
+  .person-pill {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 2px;
+    margin-bottom: 2px;
+  }
+
+  .person-pill.nolan {
+    background: rgba(192,78,1,0.15);
+    color: #e8956a;
+    border: 1px solid rgba(192,78,1,0.3);
+  }
+
+  .person-pill.warren {
+    background: rgba(74,138,124,0.15);
+    color: #7ab89c;
+    border: 1px solid rgba(74,138,124,0.3);
+  }
+
+  .person-pill.katie {
+    background: rgba(160,100,140,0.15);
+    color: #d89cb0;
+    border: 1px solid rgba(160,100,140,0.3);
+  }
+
+  .location-pill {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(74,138,124,0.1);
+    color: #7ab89c;
+    border: 1px solid rgba(74,138,124,0.2);
+    margin: 0 2px;
+  }
+
+  .callout {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-left: 2px solid var(--accent);
+    background: var(--accent-soft);
+    font-size: 13px;
+    font-style: italic;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .witness {
+    display: inline-block;
+    padding: 1px 4px;
+    background: rgba(184,136,0,0.15);
+    color: #c8a860;
+    border: 1px solid rgba(184,136,0,0.25);
+    font-size: 9px;
+    font-weight: 700;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-left: 3px;
+  }
+
+  .map-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 4px;
+    border-radius: 2px;
+    background: rgba(8,12,18,0.8);
+    color: var(--text);
+    white-space: nowrap;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .map-legend {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(8,12,18,0.9);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 11px;
+    color: var(--text-muted);
+    max-width: 220px;
+    z-index: 1000;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .legend-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-active { background: #e8956a; }
+  .dot-secondary { background: #7ab89c; }
+  .dot-search { background: #b88800; }
+  .dot-discovery { background: #c04e01; }
+
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+    #map {
+      height: 50vh;
+      position: sticky;
+      top: 0;
+    }
+    .narrative {
+      height: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div id="map"></div>
+
+  <div class="narrative">
+    <div class="step active" data-step="0">
+      <div class="step-time">July 3–4, 2026</div>
+      <div class="step-title">Nolan Wells</div>
+      <div class="step-body">
+        <p>An 18-year-old wide receiver from Ocean Springs, Mississippi, plans to celebrate Independence Day on the water with friends. What unfolds over the next 48 hours will become a mystery that grips the nation.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="1">
+      <div class="step-time">9:56 AM · July 4</div>
+      <div class="step-title">Boats Depart</div>
+      <div class="step-body">
+        <p>Three boats leave <span class="location-pill">Fort Bayou Launch</span> carrying ~20–30 people. <span class="person-pill nolan">Nolan</span> boards Wyatt's Triton. <span class="person-pill warren">Warren</span> travels on Bart's Tide Line.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="2">
+      <div class="step-time">10:30 AM · July 4</div>
+      <div class="step-title">Horn Island Arrival</div>
+      <div class="step-body">
+        <p>Boats arrive at <span class="location-pill">Horn Island</span> northwestern tip. ~2,000+ people, three rows of boats. <span class="person-pill nolan">Nolan</span> gets in the water, seems fine.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="3">
+      <div class="step-time">~2:00–4:00 PM · July 4</div>
+      <div class="step-title">Island Hours</div>
+      <div class="step-body">
+        <p><span class="person-pill nolan">Nolan</span> meets <span class="person-pill katie">Katie</span>. They spend the afternoon together. Around 3 PM, <span class="person-pill warren">Warren</span> last sees them laughing.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="4">
+      <div class="step-time">~4:15 PM · July 4</div>
+      <div class="step-title">Emergency</div>
+      <div class="step-body">
+        <p>Triton's bilge pump fails. Water up to batteries. <span class="person-pill warren">Warren</span> sees it filling up. Panic. Bart offers to tow them out.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="5">
+      <div class="step-time">4:25–4:30 PM · July 4</div>
+      <div class="step-title">Nolan Stays Behind</div>
+      <div class="step-body">
+        <p><span class="person-pill warren">Warren</span> shouts for <span class="person-pill nolan">Nolan</span>: "Get on the boat! We're leaving!"</p>
+        <p><span class="person-pill nolan">Nolan</span>: "No, I'm staying out here. I'm going to ride in with somebody else."</p>
+        <p><span class="person-pill katie">Katie</span> is there and will confirm she heard them asking. <span class="witness">WITNESS</span></p>
+      </div>
+    </div>
+
+    <div class="step" data-step="6">
+      <div class="step-time">4:30 PM · July 4</div>
+      <div class="step-title">Boats Return</div>
+      <div class="step-body">
+        <p>Damaged Triton is towed to <span class="location-pill">Fort Bayou</span>. <span class="person-pill nolan">Nolan</span> remains on island with <span class="person-pill katie">Katie</span>. ~2,000 people still there.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="7">
+      <div class="step-time">~11:00 PM · July 4</div>
+      <div class="step-title">Missing</div>
+      <div class="step-body">
+        <p><span class="person-pill warren">Warren</span> can't reach <span class="person-pill nolan">Nolan</span>. Calls Coast Guard. Nolan's parents go to <span class="location-pill">Warren's Home</span> to get his keys. Friends reluctant to produce phone.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="8">
+      <div class="step-time">6:00 AM · July 5</div>
+      <div class="step-title">Search Begins</div>
+      <div class="step-body">
+        <p>Multi-agency search. United Cajun Navy, Coast Guard, helicopters, planes. <span class="location-pill">Lake Mars Pier</span> becomes command center.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="9">
+      <div class="step-time">8:40 AM · July 6</div>
+      <div class="step-title">Body Found</div>
+      <div class="step-body">
+        <p>U.S. Park Service ranger discovers a body face down at the northwestern tip of <span class="location-pill">Horn Island</span>. Same area where boats were anchored.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="10">
+      <div class="step-time">Later that day · July 6</div>
+      <div class="step-title">Identification</div>
+      <div class="step-body">
+        <p>Family taken to <span class="location-pill">Coroner's Office</span> in Pascagoula. Body confirmed via dental records.</p>
+      </div>
+    </div>
+
+    <div class="step" data-step="11">
+      <div class="step-time">July 7–23, 2026</div>
+      <div class="step-title">Investigation</div>
+      <div class="step-body">
+        <p><span class="person-pill warren">Warren</span> and friends cooperate fully. Ben Crump retained. Independent autopsy ordered. Cause of death: undetermined.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="map-legend">
+  <div class="legend-item">
+    <div class="legend-dot dot-active"></div>
+    <span>Active location</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-dot dot-secondary"></div>
+    <span>Secondary/past</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-dot dot-discovery"></div>
+    <span>Body found</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-dot dot-search"></div>
+    <span>Search operation</span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// Map initialization with dark tiles
+const map = L.map('map', {
+  fadeAnimation: false,
+  markerZoomAnimation: false
+}).setView([30.32, -88.70], 10);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  maxZoom: 19
+}).addTo(map);
+
+// Locations from your KMZ (exact coordinates)
+const locations = {
+  fortBayouLaunch: {
+    lat: 30.41946,
+    lng: -88.82800,
+    name: 'Fort Bayou Launch',
+    color: '#4a8a7c'
+  },
+  hornIsland: {
+    lat: 30.23728,
+    lng: -88.67889,
+    name: 'Horn Island',
+    color: '#c04e01'
+  },
+  lakeMarsPier: {
+    lat: 30.36077,
+    lng: -88.76418,
+    name: 'Lake Mars Pier',
+    color: '#b88800'
+  },
+  bodyFound: {
+    lat: 30.24200,
+    lng: -88.68500,
+    name: 'Body Found',
+    color: '#c04e01'
+  },
+  warrensHome: {
+    lat: 30.34971,
+    lng: -88.55503,
+    name: 'Warren\'s Home',
+    color: '#7ab89c'
+  },
+  coroner: {
+    lat: 30.37970,
+    lng: -88.52971,
+    name: 'Coroner\'s Office',
+    color: '#8a9098'
+  }
+};
+
+// Create all markers with labels
+const markers = {};
+const labels = {};
+
+Object.entries(locations).forEach(([key, loc]) => {
+  const marker = L.circleMarker([loc.lat, loc.lng], {
+    radius: 6,
+    fillColor: loc.color,
+    color: loc.color,
+    weight: 2,
+    opacity: 0.3,
+    fillOpacity: 0.3
+  }).addTo(map);
+
+  // Persistent label
+  const label = L.marker([loc.lat, loc.lng], {
+    icon: L.divIcon({
+      className: 'map-label',
+      html: `<div>${loc.name}</div>`,
+      iconSize: [120, 20],
+      iconAnchor: [60, -10]
+    })
+  }).addTo(map);
+
+  markers[key] = marker;
+  labels[key] = label;
+});
+
+// Smooth transitions
+function showLocation(key, zoom = 11) {
+  Object.values(markers).forEach(m => {
+    m.setStyle({ opacity: 0.2, fillOpacity: 0.1 });
+  });
+  if (markers[key]) {
+    markers[key].setStyle({ opacity: 1, fillOpacity: 0.8, radius: 8 });
+  }
+  const loc = locations[key];
+  map.flyTo([loc.lat, loc.lng], zoom, { duration: 1, easeLinearity: 0.25 });
+}
+
+function showMultiple(keys, lat, lng, zoom = 11) {
+  Object.values(markers).forEach(m => {
+    m.setStyle({ opacity: 0.2, fillOpacity: 0.1 });
+  });
+  keys.forEach(key => {
+    if (markers[key]) {
+      markers[key].setStyle({ opacity: 0.7, fillOpacity: 0.6, radius: 7 });
+    }
+  });
+  map.flyTo([lat, lng], zoom, { duration: 1, easeLinearity: 0.25 });
+}
+
+// Step animations
+const steps = {
+  0: () => showMultiple(Object.keys(locations), 30.32, -88.70, 10),
+  1: () => showLocation('fortBayouLaunch', 12),
+  2: () => showLocation('hornIsland', 12),
+  3: () => showLocation('hornIsland', 13),
+  4: () => showLocation('hornIsland', 13),
+  5: () => showLocation('hornIsland', 13),
+  6: () => showLocation('hornIsland', 11),
+  7: () => showLocation('warrensHome', 12),
+  8: () => showLocation('lakeMarsPier', 11),
+  9: () => showLocation('bodyFound', 12),
+  10: () => showLocation('coroner', 12),
+  11: () => showMultiple(Object.keys(locations), 30.32, -88.70, 10)
+};
+
+// Scroll sync
+const narrativeDiv = document.querySelector('.narrative');
+const stepDivs = document.querySelectorAll('.step');
+let currentStep = 0;
+
+function updateStep() {
+  let activeStep = 0;
+  stepDivs.forEach((step, idx) => {
+    const stepTop = step.offsetTop - narrativeDiv.scrollTop;
+    if (stepTop < 200) {
+      activeStep = idx;
+    }
+  });
+
+  stepDivs.forEach((step, idx) => {
+    step.classList.toggle('active', idx === activeStep);
+  });
+
+  if (activeStep !== currentStep && steps[activeStep]) {
+    currentStep = activeStep;
+    steps[activeStep]();
+  }
+}
+
+narrativeDiv.addEventListener('scroll', updateStep);
+window.addEventListener('resize', updateStep);
+
+updateStep();
+</script>
+
+</body>
+</html>
