@@ -1093,6 +1093,11 @@ function handleScroll() {
 
 window.addEventListener('scroll', handleScroll);
 handleScroll();
+
+// Block browser-level pinch-zoom on iOS (ignores user-scalable=no since iOS 10)
+document.addEventListener('touchmove', function(e) {
+  if (e.touches.length > 1) e.preventDefault();
+}, { passive: false });
 </script>
 
 </body>
