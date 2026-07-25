@@ -183,6 +183,54 @@
       border: 1px solid rgba(255,255,255,0.15);
       white-space: nowrap;
     }
+    .step-embed {
+      margin: 18px 0 6px;
+      border: 1px solid rgba(74,138,124,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #000;
+    }
+    .step-embed video {
+      display: block;
+      width: 100%;
+      max-height: 360px;
+    }
+    .embed-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 60px;
+      cursor: pointer;
+      transition: background 0.2s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .embed-placeholder:hover { background: rgba(255,255,255,0.06); }
+    .embed-placeholder:active { background: rgba(255,255,255,0.10); }
+    .embed-placeholder svg {
+      width: 13px;
+      height: 13px;
+      fill: rgba(216,218,219,0.45);
+      flex-shrink: 0;
+    }
+    .embed-placeholder:hover svg { fill: #F5F5F5; }
+    .embed-placeholder span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(216,218,219,0.45);
+      text-transform: uppercase;
+    }
+    .embed-placeholder:hover span { color: #D8DADB; }
+    .embed-caption {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: rgba(216,218,219,0.35);
+      letter-spacing: 0.06em;
+      margin: 4px 0 14px;
+      text-transform: uppercase;
+    }
     .conditions-box {
       margin-top: 20px;
       padding: 14px 16px;
@@ -323,6 +371,13 @@
       <div class="step-title">Meeting Katie</div>
       <div class="step-body">
         <p><span class="pill pill-nolan">Nolan</span> met a girl named <span class="pill pill-katie">Katie</span>. They spent the afternoon together on the beach. Around 3 PM, <span class="pill pill-warren">Warren</span> last saw <span class="pill pill-nolan">Nolan</span> with their friends, and they appeared to be laughing.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2026-07-04-parents-on-boat-at-1443.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 4th @ 2:43 PM | Video from TMZ</p>
       </div>
     </div>
   </div>
@@ -367,6 +422,13 @@
       <div class="step-title">Triton in Distress</div>
       <div class="step-body">
         <p>The 22 Triton reports a distress situation. Water is still entering the vessel. Emergency response is initiated. GPS coordinates mark the boat's position between the island and mainland as it heads toward the coast for emergency assistance.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2026-07-04-dispatch-call.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 4th dispatch call | Video from NBC</p>
         <div class="conditions-box">
           <div class="cond-item">
             <span class="cond-label">Tide</span>
@@ -579,6 +641,13 @@
       <div class="step-title">Official Search Launches</div>
       <div class="step-body">
         <p>The U.S. Coast Guard Sector Mobile receives a request for assistance from Jackson County Sheriff's Office. An urgent marine information broadcast is issued. A helicopter is sent to search the area. Multiple agencies mobilize: Coast Guard, Mississippi Department of Marine Resources, U.S. National Park Service, Gulf Islands National Seashore.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2026-07-05-UCN-have-you-seen-him.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 5th · Have you seen him? | Video from UCN</p>
       </div>
     </div>
   </div>
@@ -663,6 +732,13 @@
       <div class="step-title">Public Confirmation</div>
       <div class="step-body">
         <p><span class="pill pill-nolan">Nolan's</span> family confirms his death on social media. His mother posts on Facebook: the body found on <span class="pill pill-location">Horn Island</span> was their son. The coroner's office requests the autopsy be conducted at the state medical examiner's office due to the "condition" of the body and to determine if there was any trauma or foul play.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2026-07-06-Will-Pollston.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 6th | Video from Will Pollston</p>
       </div>
     </div>
   </div>
@@ -1083,6 +1159,17 @@ handleScroll();
 document.addEventListener('touchmove', function(e) {
   if (e.touches.length > 1) e.preventDefault();
 }, { passive: false });
+
+document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
+  ph.addEventListener('click', function() {
+    var video = document.createElement('video');
+    video.src = ph.dataset.src;
+    video.controls = true;
+    video.autoplay = true;
+    video.style.cssText = 'display:block;width:100%;max-height:360px;';
+    ph.parentNode.replaceChild(video, ph);
+  });
+});
 </script>
 
 </body>
