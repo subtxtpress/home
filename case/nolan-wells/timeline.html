@@ -223,6 +223,38 @@
       text-transform: uppercase;
     }
     .embed-placeholder:hover span { color: #D8DADB; }
+    .img-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 60px;
+      cursor: pointer;
+      transition: background 0.2s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .step-gallery .img-placeholder {
+      border: 1px solid rgba(74,138,124,0.15);
+      border-radius: 2px;
+    }
+    .img-placeholder:hover { background: rgba(255,255,255,0.06); }
+    .img-placeholder:active { background: rgba(255,255,255,0.10); }
+    .img-placeholder svg {
+      width: 13px;
+      height: 13px;
+      fill: rgba(216,218,219,0.45);
+      flex-shrink: 0;
+    }
+    .img-placeholder:hover svg { fill: #F5F5F5; }
+    .img-placeholder span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(216,218,219,0.45);
+      text-transform: uppercase;
+    }
+    .img-placeholder:hover span { color: #D8DADB; }
     .embed-caption {
       font-family: var(--mono);
       font-size: 10px;
@@ -399,7 +431,10 @@
         </div>
         <p class="conditions-source">Tide: NOAA Pascagoula (8741533) · Wind: NOAA Dauphin Island (8735180) · July 4, 2026</p>
         <figure class="step-figure">
-          <img src="assets/0956-MI4088BU-depart-from-El-Camino-Real-Rd.png" alt="GPS: MI4088BU departs El Camino Real Rd @ 9:56 AM" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/0956-MI4088BU-depart-from-El-Camino-Real-Rd.png" data-alt="GPS: MI4088BU departs El Camino Real Rd · 9:56 AM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
           <figcaption>GPS · MI4088BU departs El Camino Real Rd @ 9:56 AM</figcaption>
         </figure>
       </div>
@@ -414,8 +449,14 @@
       <div class="step-body">
         <p>The group's boats arrived at the northwestern tip of <span class="pill pill-location">Horn Island</span>. Three rows of boats stretched for miles along the shoreline. The beach was packed. <span class="pill pill-jayvon">Jayvon</span> saw <span class="pill pill-nolan">Nolan</span> after they arrived. He told ABC News: "As soon as we got out there, Nolan told me that he loved me."</p>
         <div class="step-gallery">
-          <img src="assets/2026-07-04-Nolan-on-boat-with-bros.png" alt="Nolan on boat with friends on July 4th" loading="lazy" />
-          <img src="assets/1114-MI4088BU-arrives-at-West-Tip-of-Horn-Island.png" alt="GPS: MI4088BU arrives at Horn Island west tip @ 11:14 AM" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/2026-07-04-Nolan-on-boat-with-bros.png" data-alt="Nolan on boat with friends · July 4">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <div class="img-placeholder" data-src="assets/1114-MI4088BU-arrives-at-West-Tip-of-Horn-Island.png" data-alt="GPS: MI4088BU arrives at Horn Island west tip · 11:14 AM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
         </div>
         <div class="gallery-caption">Left: Nolan with friends on the boat on July 4th | Right: GPS · MI4088BU arrives at Horn Island west tip @ 11:14 AM</div>
       </div>
@@ -517,7 +558,10 @@
       <div class="step-body">
         <p>The 24 Tide Lane boat returns to the <span class="pill pill-location">Ocean Springs</span> boat launch. GPS tracking documents the return of one of the three boats that departed earlier that morning.</p>
         <figure class="step-figure">
-          <img src="assets/1744-unknown-Vessel-arrives-at%3Areturns-to-Camino-Real-Rd.png" alt="GPS: unknown vessel at/returns to El Camino Real Rd @ 5:44 PM" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/1744-unknown-Vessel-arrives-at%3Areturns-to-Camino-Real-Rd.png" data-alt="GPS: unknown vessel at/returns to El Camino Real Rd · 5:44 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
           <figcaption>GPS · unknown vessel arrives at/returns to El Camino Real Rd @ 5:44 PM</figcaption>
         </figure>
       </div>
@@ -565,7 +609,10 @@
       <div class="step-body">
         <p>The 22 Triton continues underway near <span class="pill pill-location">Fort Bayou</span>. Two minutes after the 12 Triton's position, GPS coordinates track the vessel's continued movement toward the boat launch.</p>
         <figure class="step-figure">
-          <img src="assets/1834-MI4088BU-underway-to-Fort-Bayou-boat-launch.png" alt="GPS: MI4088BU underway to Fort Bayou boat launch @ 6:34 PM" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/1834-MI4088BU-underway-to-Fort-Bayou-boat-launch.png" data-alt="GPS: MI4088BU underway to Fort Bayou boat launch · 6:34 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
           <figcaption>GPS · MI4088BU underway to Fort Bayou boat launch @ 6:34 PM</figcaption>
         </figure>
       </div>
@@ -580,7 +627,10 @@
       <div class="step-body">
         <p>Boat(s) arrive at the <span class="pill pill-location">Fort Bayou</span> location. This marks the end of the evening return voyage from the island and represents the geographic anchor showing boats back at the mainland launch area.</p>
         <figure class="step-figure">
-          <img src="assets/1919-MI4088BU-arrives-at-Fort-Bayou-boat-launch.png" alt="GPS: MI4088BU arrives at Fort Bayou boat launch @ 7:19 PM" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/1919-MI4088BU-arrives-at-Fort-Bayou-boat-launch.png" data-alt="GPS: MI4088BU arrives at Fort Bayou boat launch · 7:19 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
           <figcaption>GPS · MI4088BU arrives at Fort Bayou boat launch @ 7:19 PM</figcaption>
         </figure>
       </div>
@@ -595,7 +645,10 @@
       <div class="step-body">
         <p>The 22 Triton departs <span class="pill pill-location">Fort Bayou</span> toward <span class="pill pill-location">Cardinal Lane</span> in Biloxi. GPS tracking shows the extended route from Fort Bayou, marking the furthest documented waypoint at approximately 22 miles inland/south, where the damaged vessel is ultimately trailed.</p>
         <figure class="step-figure">
-          <img src="assets/1947-MI4088BU-trailered-to-Cardinal-Lane-in-Biloxi.png" alt="GPS: MI4088BU trailered to Cardinal Lane, Biloxi @ 7:47 PM" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/1947-MI4088BU-trailered-to-Cardinal-Lane-in-Biloxi.png" data-alt="GPS: MI4088BU trailered to Cardinal Lane, Biloxi · 7:47 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
           <figcaption>GPS · MI4088BU trailered to Cardinal Lane, Biloxi @ 7:47 PM</figcaption>
         </figure>
       </div>
@@ -694,7 +747,10 @@
       <div class="step-body">
         <p><span class="pill pill-evan">Evan Noel</span> posts a photo on Instagram showing <span class="pill pill-nolan">Nolan</span> in the pool at the party. The image will later become central to increased speculation about what happened before someone clarifies the pool party occured on June 27th, not July 4th. Around this time, the friends' lawyers advise them to stop cooperating and retain legal representation.</p>
         <figure class="step-figure">
-          <img src="assets/2026-06-27-pool-party.png" alt="Pool party on June 27th" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/2026-06-27-pool-party.png" data-alt="Pool party · June 27, 2026">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
           <figcaption>Photo of pool party from June 27th &mdash; not July 4th</figcaption>
         </figure>
       </div>
@@ -727,7 +783,10 @@
       <div class="step-body">
         <p>The U.S. Coast Guard Sector Mobile receives a request for assistance from Jackson County Sheriff's Office. An urgent marine information broadcast is issued. A helicopter is sent to search the area. Multiple agencies mobilize: Coast Guard, Mississippi Department of Marine Resources, U.S. National Park Service, Gulf Islands National Seashore.</p>
         <figure class="step-figure">
-          <img src="assets/2026-07-05-search-efforts-begin.png" alt="Search efforts begin on July 5th" loading="lazy" />
+          <div class="img-placeholder" data-src="assets/2026-07-05-search-efforts-begin.png" data-alt="Search efforts begin · July 5, 2026">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
           <figcaption>Search efforts begin on July 5th</figcaption>
         </figure>
       </div>
@@ -1254,6 +1313,19 @@ document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
 });
 
 // =========================================================
+// IMG PLACEHOLDER — click to reveal image
+// =========================================================
+document.querySelectorAll('.img-placeholder').forEach(function(ph) {
+  ph.addEventListener('click', function() {
+    var img = document.createElement('img');
+    img.src = ph.dataset.src;
+    img.alt = ph.dataset.alt || '';
+    img.loading = 'lazy';
+    ph.parentNode.replaceChild(img, ph);
+  });
+});
+
+// =========================================================
 // LIGHTBOX — click any figure/gallery image to view full size
 // =========================================================
 (function() {
@@ -1270,12 +1342,13 @@ document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
   function close() { overlay.style.display = 'none'; }
   overlay.addEventListener('click', close);
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
-  document.querySelectorAll('.step-gallery img, .step-figure img').forEach(function(el) {
-    el.addEventListener('click', function() {
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    if (el.tagName === 'IMG' && (el.closest('.step-gallery') || el.closest('.step-figure'))) {
       img.src = el.src;
       caption.textContent = el.alt || '';
       overlay.style.display = 'flex';
-    });
+    }
   });
 })();
 </script>
