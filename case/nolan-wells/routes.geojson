@@ -6,40 +6,40 @@
             "properties": {
                 "stroke-width": 1,
                 "stroke-opacity": 1,
-                "stroke": "rgba(1, 255, 187, 1)",
-                "name": "(Step 12) Tide Lane return to El Camino Real Rd. @ 5:44 PM",
-                "@id": "a22b5850-87eb-11f1-90a0-ad1a19eb6c4c"
+                "stroke": "rgba(242, 0, 255, 1)",
+                "name": "(Step 3) Tide Lane departs @ 9:56 AM",
+                "@id": "4e408740-88a1-11f1-90a0-ad1a19eb6c4c"
             },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
                     [
-                        -88.848686,
-                        30.433595
+                        -88.848528,
+                        30.433399
                     ],
                     [
-                        -88.856306,
-                        30.425579
+                        -88.855409,
+                        30.425441
                     ],
                     [
-                        -88.856538,
-                        30.423502
+                        -88.855645,
+                        30.423626
                     ],
                     [
-                        -88.815552,
-                        30.364176
+                        -88.813062,
+                        30.364714
                     ],
                     [
-                        -88.778127,
-                        30.243372
+                        -88.777778,
+                        30.243656
                     ]
                 ]
             },
             "bbox": [
-                -88.856538,
-                30.243372,
-                -88.778127,
-                30.433595
+                -88.855645,
+                30.243656,
+                -88.777778,
+                30.433399
             ]
         },
         {
@@ -48,39 +48,80 @@
                 "stroke-width": 1,
                 "stroke-opacity": 1,
                 "stroke": "rgba(0, 221, 255, 1)",
-                "name": "(Step 3) Palm Beach to Horn Island ",
-                "@id": "3d449d80-87ea-11f1-90a0-ad1a19eb6c4c"
+                "name": "(Step 3) Palm Beach departs @ 9:56 AM",
+                "@id": "e120f5c0-889e-11f1-90a0-ad1a19eb6c4c"
             },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
                     [
-                        -88.848686,
-                        30.433595
+                        -88.848626,
+                        30.43345
                     ],
                     [
-                        -88.85569,
-                        30.42547
+                        -88.85578,
+                        30.425444
                     ],
                     [
-                        -88.855892,
-                        30.423519
+                        -88.856027,
+                        30.423659
                     ],
                     [
-                        -88.81404,
-                        30.364332
+                        -88.813885,
+                        30.364369
                     ],
                     [
-                        -88.778127,
-                        30.243372
+                        -88.777911,
+                        30.243588
                     ]
                 ]
             },
             "bbox": [
-                -88.855892,
-                30.243372,
-                -88.778127,
-                30.433595
+                -88.856027,
+                30.243588,
+                -88.777911,
+                30.43345
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(1, 255, 187, 1)",
+                "name": "(Step 12) Palm Beach return @ 5:44 PM",
+                "@id": "a22b5850-87eb-11f1-90a0-ad1a19eb6c4c"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -88.848703,
+                        30.433494
+                    ],
+                    [
+                        -88.856156,
+                        30.425483
+                    ],
+                    [
+                        -88.856396,
+                        30.423687
+                    ],
+                    [
+                        -88.814688,
+                        30.364043
+                    ],
+                    [
+                        -88.777911,
+                        30.243588
+                    ]
+                ]
+            },
+            "bbox": [
+                -88.856396,
+                30.243588,
+                -88.777911,
+                30.433494
             ]
         },
         {
@@ -256,12 +297,12 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -88.777755,
-                    30.243508
+                    -88.777619,
+                    30.243717
                 ]
             },
             "properties": {
-                "name": "(Step 3) Triton arrival @ 11:14 AM",
+                "name": "(Step 4) Triton arrival @ 11:14 AM",
                 "styleUrl": "#m_ylw-pushpin",
                 "icon-scale": 1.1,
                 "icon-offset": [
@@ -276,10 +317,10 @@
                 "@id": "9cc03d15-87e9-11f1-90a0-ad1a19eb6c4c"
             },
             "bbox": [
-                -88.777755,
-                30.243508,
-                -88.777755,
-                30.243508
+                -88.777619,
+                30.243717,
+                -88.777619,
+                30.243717
             ]
         },
         {
@@ -287,8 +328,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -88.77746,
-                    30.243753
+                    -88.777911,
+                    30.243588
                 ]
             },
             "properties": {
@@ -307,10 +348,10 @@
                 "@id": "9cc03d16-87e9-11f1-90a0-ad1a19eb6c4c"
             },
             "bbox": [
-                -88.77746,
-                30.243753,
-                -88.77746,
-                30.243753
+                -88.777911,
+                30.243588,
+                -88.777911,
+                30.243588
             ]
         },
         {
@@ -318,8 +359,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -88.778127,
-                    30.243372
+                    -88.777778,
+                    30.243656
                 ]
             },
             "properties": {
@@ -338,10 +379,10 @@
                 "@id": "9cc03d17-87e9-11f1-90a0-ad1a19eb6c4c"
             },
             "bbox": [
-                -88.778127,
-                30.243372,
-                -88.778127,
-                30.243372
+                -88.777778,
+                30.243656,
+                -88.777778,
+                30.243656
             ]
         },
         {
@@ -842,13 +883,12 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -88.848686,
-                    30.433594,
-                    0
+                    -88.848528,
+                    30.433399
                 ]
             },
             "properties": {
-                "name": "(Step 3) Tide Lane depart @ 9:56 AM",
+                "name": "(Step 3) Tide Lane departs @ 9:56 AM",
                 "styleUrl": "#m_ylw-pushpin",
                 "icon-scale": 1.1,
                 "icon-offset": [
@@ -863,10 +903,10 @@
                 "@id": "9cc03d28-87e9-11f1-90a0-ad1a19eb6c4c"
             },
             "bbox": [
-                -88.848686,
-                30.433594,
-                -88.848686,
-                30.433594
+                -88.848528,
+                30.433399,
+                -88.848528,
+                30.433399
             ]
         },
         {
@@ -874,13 +914,12 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -88.848469,
-                    30.433556,
-                    0
+                    -88.848699,
+                    30.433494
                 ]
             },
             "properties": {
-                "name": "(Step 10) Tide Lane return to El Camino Real Rd. @ 5:44 PM",
+                "name": "(Step 10) Palm Beach return @ 5:44 PM",
                 "styleUrl": "#m_ylw-pushpin",
                 "icon-scale": 1.1,
                 "icon-offset": [
@@ -895,10 +934,10 @@
                 "@id": "9cc03d29-87e9-11f1-90a0-ad1a19eb6c4c"
             },
             "bbox": [
-                -88.848469,
-                30.433556,
-                -88.848469,
-                30.433556
+                -88.848699,
+                30.433494,
+                -88.848699,
+                30.433494
             ]
         },
         {
@@ -907,15 +946,15 @@
                 "stroke-width": 1,
                 "stroke-opacity": 1,
                 "stroke": "rgba(255, 174, 0, 1)",
-                "name": "(Step 3) Triton to Horn Island @ 9:56 AM",
+                "name": "(Step 3) Triton departs @ 9:56 AM",
                 "@id": "b5d263f0-87e9-11f1-90a0-ad1a19eb6c4c"
             },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
                     [
-                        -88.848469,
-                        30.433556
+                        -88.848426,
+                        30.433343
                     ],
                     [
                         -88.855038,
@@ -926,20 +965,20 @@
                         30.423535
                     ],
                     [
-                        -88.81277,
-                        30.36475
+                        -88.812259,
+                        30.365008
                     ],
                     [
-                        -88.777755,
-                        30.243508
+                        -88.777619,
+                        30.243717
                     ]
                 ]
             },
             "bbox": [
                 -88.855257,
-                30.243508,
-                -88.777755,
-                30.433556
+                30.243717,
+                -88.777619,
+                30.433343
             ]
         },
         {
@@ -947,7 +986,7 @@
             "properties": {
                 "stroke-width": 1,
                 "stroke-opacity": 1,
-                "name": "(Step 11) Horn Island to distress point @ 4:31 PM",
+                "name": "(Step 11) Triton in distress @ 4:31 PM",
                 "stroke": "rgba(235, 255, 0, 1)",
                 "@id": "42a17d60-87eb-11f1-90a0-ad1a19eb6c4c"
             },
@@ -955,29 +994,29 @@
                 "type": "LineString",
                 "coordinates": [
                     [
-                        -88.777755,
-                        30.243508
+                        -88.777619,
+                        30.243717
                     ],
                     [
                         -88.790442,
-                        30.288414
+                        30.288446
                     ]
                 ]
             },
             "bbox": [
                 -88.790442,
-                30.243508,
-                -88.777755,
-                30.288414
+                30.243717,
+                -88.777619,
+                30.288446
             ]
         },
         {
             "type": "Feature",
             "properties": {
+                "name": "(Step 13) Triton turns east @ 5:52 PM",
                 "stroke-width": 1,
                 "stroke-opacity": 1,
-                "name": "(Step 13) Triton turns east @ 5:52 PM",
-                "stroke": "rgba(127, 254, 0, 1)",
+                "stroke": "#7ffe00",
                 "@id": "4b19a700-87ec-11f1-90a0-ad1a19eb6c4c"
             },
             "geometry": {
@@ -988,8 +1027,8 @@
                         30.288446
                     ],
                     [
-                        -88.811379,
-                        30.365167
+                        -88.811457,
+                        30.365268
                     ],
                     [
                         -88.854646,
@@ -1062,8 +1101,8 @@
             "properties": {
                 "stroke-width": 1,
                 "stroke-opacity": 1,
-                "name": "(7) Triton arrives at boat launch @ 7:19 PM",
-                "stroke": "rgba(127, 254, 0, 1)",
+                "name": "(Step 16) Triton arrives at Ft. Bayou boat launch @ 7:19 PM",
+                "stroke": "#7ffe00",
                 "@id": "e6a746f0-87ec-11f1-90a0-ad1a19eb6c4c"
             },
             "geometry": {
@@ -1674,43 +1713,6 @@
         {
             "type": "Feature",
             "properties": {
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                "stroke": "rgba(42, 255, 0, 1)",
-                "name": "(Step 16) Triton arrives at Ft. Bayou boat launch @ 7:19 PM",
-                "@id": "a6557560-886c-11f1-90a0-ad1a19eb6c4c"
-            },
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [
-                    [
-                        -88.827825,
-                        30.419464
-                    ],
-                    [
-                        -88.827837,
-                        30.419659
-                    ],
-                    [
-                        -88.827897,
-                        30.420032
-                    ],
-                    [
-                        -88.828001,
-                        30.420425
-                    ]
-                ]
-            },
-            "bbox": [
-                -88.828001,
-                30.419464,
-                -88.827825,
-                30.420425
-            ]
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "marker-size": "medium",
                 "marker-symbol": "racetrack-boat",
                 "name": "(Step 26) Private search @ 6:00 AM",
@@ -1728,6 +1730,46 @@
                 30.252738,
                 -88.716695,
                 30.252738
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "(Step 3) Triton departs @ 9:56 AM",
+                "@id": "c61780d0-88a0-11f1-90a0-ad1a19eb6c4c"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.848426,
+                    30.433343
+                ]
+            },
+            "bbox": [
+                -88.848426,
+                30.433343,
+                -88.848426,
+                30.433343
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "(Step 3) Palm Beach departs @ 9:56 AM",
+                "@id": "df6b1d80-88a0-11f1-90a0-ad1a19eb6c4c"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.848626,
+                    30.43345
+                ]
+            },
+            "bbox": [
+                -88.848626,
+                30.43345,
+                -88.848626,
+                30.43345
             ]
         }
     ]
