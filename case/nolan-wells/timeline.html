@@ -272,6 +272,55 @@
       opacity: 0.45;
       font-style: italic;
     }
+    .step-figure {
+      margin: 18px 0 8px;
+      border: 1px solid rgba(74,138,124,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .step-figure img {
+      display: block;
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .step-figure figcaption {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      padding: 8px 12px;
+      border-top: 1px dashed rgba(74,138,124,0.2);
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+    .step-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin: 18px 0 8px;
+    }
+    .step-gallery img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid rgba(74,138,124,0.15);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .step-gallery img:hover { opacity: 0.85; }
+    .step-gallery + .gallery-caption {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin: -2px 0 12px;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
     @media (max-width: 768px) {
       .step-title {
         font-size: 28px;
@@ -349,6 +398,10 @@
           </div>
         </div>
         <p class="conditions-source">Tide: NOAA Pascagoula (8741533) · Wind: NOAA Dauphin Island (8735180) · July 4, 2026</p>
+        <figure class="step-figure">
+          <img src="assets/0956-MI4088BU-depart-from-El-Camino-Real-Rd.png" alt="GPS: MI4088BU departs El Camino Real Rd @ 9:56 AM" loading="lazy" />
+          <figcaption>GPS · MI4088BU departs El Camino Real Rd @ 9:56 AM</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -360,6 +413,11 @@
       <div class="step-title">Horn Island Arrival</div>
       <div class="step-body">
         <p>The group's boats arrived at the northwestern tip of <span class="pill pill-location">Horn Island</span>. Three rows of boats stretched for miles along the shoreline. The beach was packed. <span class="pill pill-jayvon">Jayvon</span> saw <span class="pill pill-nolan">Nolan</span> after they arrived. He told ABC News: "As soon as we got out there, Nolan told me that he loved me."</p>
+        <div class="step-gallery">
+          <img src="assets/2026-07-04-Nolan-on-boat-with-bros.png" alt="Nolan on boat with friends on July 4th" loading="lazy" />
+          <img src="assets/1114-MI4088BU-arrives-at-West-Tip-of-Horn-Island.png" alt="GPS: MI4088BU arrives at Horn Island west tip @ 11:14 AM" loading="lazy" />
+        </div>
+        <div class="gallery-caption">Left: Nolan with friends on the boat on July 4th | Right: GPS · MI4088BU arrives at Horn Island west tip @ 11:14 AM</div>
       </div>
     </div>
   </div>
@@ -458,6 +516,10 @@
       <div class="step-title">The Tide Lane Returns</div>
       <div class="step-body">
         <p>The 24 Tide Lane boat returns to the <span class="pill pill-location">Ocean Springs</span> boat launch. GPS tracking documents the return of one of the three boats that departed earlier that morning.</p>
+        <figure class="step-figure">
+          <img src="assets/1744-unknown-Vessel-arrives-at%3Areturns-to-Camino-Real-Rd.png" alt="GPS: unknown vessel at/returns to El Camino Real Rd @ 5:44 PM" loading="lazy" />
+          <figcaption>GPS · unknown vessel arrives at/returns to El Camino Real Rd @ 5:44 PM</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -502,6 +564,10 @@
       <div class="step-title">The Triton Underway</div>
       <div class="step-body">
         <p>The 22 Triton continues underway near <span class="pill pill-location">Fort Bayou</span>. Two minutes after the 12 Triton's position, GPS coordinates track the vessel's continued movement toward the boat launch.</p>
+        <figure class="step-figure">
+          <img src="assets/1834-MI4088BU-underway-to-Fort-Bayou-boat-launch.png" alt="GPS: MI4088BU underway to Fort Bayou boat launch @ 6:34 PM" loading="lazy" />
+          <figcaption>GPS · MI4088BU underway to Fort Bayou boat launch @ 6:34 PM</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -513,6 +579,10 @@
       <div class="step-title">Fort Bayou Arrival</div>
       <div class="step-body">
         <p>Boat(s) arrive at the <span class="pill pill-location">Fort Bayou</span> location. This marks the end of the evening return voyage from the island and represents the geographic anchor showing boats back at the mainland launch area.</p>
+        <figure class="step-figure">
+          <img src="assets/1919-MI4088BU-arrives-at-Fort-Bayou-boat-launch.png" alt="GPS: MI4088BU arrives at Fort Bayou boat launch @ 7:19 PM" loading="lazy" />
+          <figcaption>GPS · MI4088BU arrives at Fort Bayou boat launch @ 7:19 PM</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -524,6 +594,10 @@
       <div class="step-title">The Triton Trailered to Biloxi</div>
       <div class="step-body">
         <p>The 22 Triton departs <span class="pill pill-location">Fort Bayou</span> toward <span class="pill pill-location">Cardinal Lane</span> in Biloxi. GPS tracking shows the extended route from Fort Bayou, marking the furthest documented waypoint at approximately 22 miles inland/south, where the damaged vessel is ultimately trailed.</p>
+        <figure class="step-figure">
+          <img src="assets/1947-MI4088BU-trailered-to-Cardinal-Lane-in-Biloxi.png" alt="GPS: MI4088BU trailered to Cardinal Lane, Biloxi @ 7:47 PM" loading="lazy" />
+          <figcaption>GPS · MI4088BU trailered to Cardinal Lane, Biloxi @ 7:47 PM</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -619,6 +693,10 @@
       <div class="step-title">Photos Surface on Instagram</div>
       <div class="step-body">
         <p><span class="pill pill-evan">Evan Noel</span> posts a photo on Instagram showing <span class="pill pill-nolan">Nolan</span> in the pool at the party. The image will later become central to increased speculation about what happened before someone clarifies the pool party occured on June 27th, not July 4th. Around this time, the friends' lawyers advise them to stop cooperating and retain legal representation.</p>
+        <figure class="step-figure">
+          <img src="assets/2026-06-27-pool-party.png" alt="Pool party on June 27th" loading="lazy" />
+          <figcaption>Photo of pool party from June 27th &mdash; not July 4th</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -630,6 +708,13 @@
       <div class="step-title">Private Search Begins</div>
       <div class="step-body">
         <p><span class="pill pill-nolan">Nolan's</span> coach, who saw social media posts about him missing, contacts <span class="pill pill-nolan">Nolan's</span> father on Facebook and offers to take him out on his boat. They go to <span class="pill pill-location">Horn Island</span> to search. <span class="pill pill-nolan">Nolan's</span> father sees a family in a tent that appears to be living on the island.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2026-07-05-UCN-have-you-seen-him.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 5th · Have you seen him? | Video from UCN</p>
       </div>
     </div>
   </div>
@@ -641,13 +726,10 @@
       <div class="step-title">Official Search Launches</div>
       <div class="step-body">
         <p>The U.S. Coast Guard Sector Mobile receives a request for assistance from Jackson County Sheriff's Office. An urgent marine information broadcast is issued. A helicopter is sent to search the area. Multiple agencies mobilize: Coast Guard, Mississippi Department of Marine Resources, U.S. National Park Service, Gulf Islands National Seashore.</p>
-        <div class="step-embed">
-          <div class="embed-placeholder" data-src="assets/2026-07-05-UCN-have-you-seen-him.mp4">
-            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
-            <span>Tap to play</span>
-          </div>
-        </div>
-        <p class="embed-caption">July 5th · Have you seen him? | Video from UCN</p>
+        <figure class="step-figure">
+          <img src="assets/2026-07-05-search-efforts-begin.png" alt="Search efforts begin on July 5th" loading="lazy" />
+          <figcaption>Search efforts begin on July 5th</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -1170,6 +1252,32 @@ document.querySelectorAll('.embed-placeholder').forEach(function(ph) {
     ph.parentNode.replaceChild(video, ph);
   });
 });
+
+// =========================================================
+// LIGHTBOX — click any figure/gallery image to view full size
+// =========================================================
+(function() {
+  var overlay = document.createElement('div');
+  overlay.id = 'lightbox';
+  overlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,11,20,0.92);backdrop-filter:blur(8px);cursor:zoom-out;align-items:center;justify-content:center;padding:24px;';
+  var img = document.createElement('img');
+  img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 4px 40px rgba(0,0,0,0.6);';
+  var caption = document.createElement('div');
+  caption.style.cssText = 'position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(216,218,219,0.45);';
+  overlay.appendChild(img);
+  overlay.appendChild(caption);
+  document.body.appendChild(overlay);
+  function close() { overlay.style.display = 'none'; }
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('.step-gallery img, .step-figure img').forEach(function(el) {
+    el.addEventListener('click', function() {
+      img.src = el.src;
+      caption.textContent = el.alt || '';
+      overlay.style.display = 'flex';
+    });
+  });
+})();
 </script>
 
 </body>
