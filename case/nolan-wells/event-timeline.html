@@ -292,6 +292,18 @@
     border: 1px solid rgba(74,138,124,0.2);
     margin: 0 2px;
   }
+  .boat {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0 2px;
+  }
+  .boat.triton   { background: rgba(70,115,175,0.15); color: #6498d0; border: 1px solid rgba(70,115,175,0.3); }
+  .boat.tideline { background: rgba(180,95,60,0.15);  color: #c87850; border: 1px solid rgba(180,95,60,0.3);  }
+  .boat.palmbeach{ background: rgba(60,165,140,0.15); color: #44b090; border: 1px solid rgba(60,165,140,0.3); }
+  .boat.uncle    { background: rgba(105,120,148,0.15);color: #7d8fa8; border: 1px solid rgba(105,120,148,0.3);}
   /* Details box */
   .detail {
     margin:10px 0;
@@ -448,7 +460,7 @@
     </div>
     <div class="ki-item">
       <div class="ki-label">Key Locations</div>
-      <div class="ki-value"><span class="location">El Camino Real Rd.</span> (private launch) · <span class="location">Horn Island</span> (last known location) · <span class="location">Fort Bayou</span> (Triton towed) · <span class="location">Lake Mars Boat Launch</span> (command post / family notified)</div>
+      <div class="ki-value"><span class="location">El Camino Real Rd.</span> (private launch) · <span class="location">Horn Island</span> (last known location) · <span class="location">Fort Bayou</span> (<span class="boat triton">Triton</span> towed) · <span class="location">Lake Mars Boat Launch</span> (command post / family notified)</div>
     </div>
     <div class="ki-item">
       <div class="ki-label">Core Group</div>
@@ -510,19 +522,19 @@
       <div class="eb">
         Three boats are prepared and loaded:
         <div class="boat-summary">
-          <strong>Wyatt's 22-foot Triton</strong>
-          <span class="person nolan">Nolan</span> (outbound only — stays on island), <span class="person warren">Warren</span> (return only — moved from Palm Beach area to Triton during distress). ~8–9 people total outbound.
+          <strong>Wyatt's 22-foot <span class="boat triton">Triton</span></strong>
+          <span class="person nolan">Nolan</span> (outbound only — stays on island), <span class="person warren">Warren</span> (return only — moved from <span class="boat palmbeach">Palm Beach</span> area to <span class="boat triton">Triton</span> during distress). ~8–9 people total outbound.
         </div>
         <div class="boat-summary">
-          <strong>Wyatt's 18-foot Palm Beach</strong>
+          <strong>Wyatt's 18-foot <span class="boat palmbeach">Palm Beach</span></strong>
           4 passengers. <span class="person wyatt">Wyatt</span> (both ways), <span class="person jayvon">Jayvon</span> (both ways).
         </div>
         <div class="boat-summary">
-          <strong>Bart's 24-foot Tide Line</strong>
-          <span class="person warren">Warren</span> (outbound). 10–16 passengers total. Tows damaged Triton on return.
+          <strong>Bart's 24-foot <span class="boat tideline">Tide Line</span></strong>
+          <span class="person warren">Warren</span> (outbound). 10–16 passengers total. Tows damaged <span class="boat triton">Triton</span> on return.
         </div>
         <div class="boat-summary">
-          <strong>Tracestin's uncle's boat</strong>
+          <strong>Tracestin's <span class="boat uncle">uncle's boat</span></strong>
           <span class="person tracestin">Tracestin Shepherd</span> + girlfriend. ~14 people total. Separate vessel — part of the broader group at Horn Island but not one of the main three. Tracestin remained on it through the evening.
         </div>
         <div class="detail"><strong>Total (main 3 boats):</strong> ~20–30 people. Crew of college friends and high school buddies.</div>
@@ -573,7 +585,7 @@
     <div class="ev">
       <div class="et">~3:50 PM</div>
       <div class="eb">
-        <span class="person tracestin">Tracestin Shepherd</span> and his girlfriend are walking back toward his uncle's boat when <span class="person nolan">Nolan</span> crosses their path, heading the other direction toward Wyatt's boat. They dap up. Tracestin makes a joking comment about the girl Nolan is with. His last words to Nolan: <em>"All right, buddy. I love you. See you later."</em> — "I'm glad I said it," Tracestin later told interviewers. "That was my last encounter with Nolan."
+        <span class="person tracestin">Tracestin Shepherd</span> and his girlfriend are walking back toward his <span class="boat uncle">uncle's boat</span> when <span class="person nolan">Nolan</span> crosses their path, heading the other direction toward <span class="person wyatt">Wyatt's</span> <span class="boat triton">Triton</span>. They dap up. Tracestin makes a joking comment about the girl Nolan is with. His last words to Nolan: <em>"All right, buddy. I love you. See you later."</em> — "I'm glad I said it," Tracestin later told interviewers. "That was my last encounter with Nolan."
       </div>
     </div>
     <div class="ev flag">
@@ -593,7 +605,7 @@
     <div class="ev flag">
       <div class="et">~4:15–4:20 PM</div>
       <div class="eb">
-        <span class="person warren">Warren</span> checks the bilge hatch on <span class="person wyatt">Wyatt's</span> <b>Triton</b>: water up to the batteries. Motor won't respond. <span class="person wyatt">Wyatt</span> throws a rear anchor; crew begins emergency procedures. <span class="person bart">Bart</span> (on the Tide Line) offers to tow them out of the chaos.
+        <span class="person warren">Warren</span> checks the bilge hatch on <span class="person wyatt">Wyatt's</span> <span class="boat triton">Triton</span>: water up to the batteries. Motor won't respond. <span class="person wyatt">Wyatt</span> throws a rear anchor; crew begins emergency procedures. <span class="person bart">Bart</span> (on the <span class="boat tideline">Tide Line</span>) offers to tow them out of the chaos.
       </div>
     </div>
     <div class="ev flag">
@@ -607,7 +619,7 @@
     <div class="ev">
       <div class="et">4:30 PM</div>
       <div class="eb">
-        Boats depart <span class="location">Horn Island</span> with the damaged <b>Triton</b> being towed by <b>Bart's Tide Line</b>. <span class="person nolan">Nolan</span> remains on the island with <span class="person katie">Katie</span>. Multiple people (at least 5–8 on the Triton + others) heard <span class="person nolan">Nolan</span> refuse to board. The <b>Palm Beach</b> had already left earlier.
+        Boats depart <span class="location">Horn Island</span> with the damaged <span class="boat triton">Triton</span> being towed by <span class="person bart">Bart's</span> <span class="boat tideline">Tide Line</span>. <span class="person nolan">Nolan</span> remains on the island with <span class="person katie">Katie</span>. Multiple people (at least 5–8 on the <span class="boat triton">Triton</span> + others) heard <span class="person nolan">Nolan</span> refuse to board. The <span class="boat palmbeach">Palm Beach</span> had already left earlier.
         <div class="detail"><strong>Note:</strong> ~20–30 people still on the island at this time, plus 100s more from other groups.</div>
       </div>
     </div>
@@ -626,7 +638,7 @@
   <div class="events">
     <div class="ev">
       <div class="et">~5:52 PM</div>
-      <div class="eb">Damaged <b>Triton</b> is towed into <span class="location">Fort Bayou</span>. <span class="person wyatt">Wyatt</span> and crew jump in water to reinstall the drain plug. Boat is planed off (40+ mph) to expel excess water.</div>
+      <div class="eb">Damaged <span class="boat triton">Triton</span> is towed into <span class="location">Fort Bayou</span>. <span class="person wyatt">Wyatt</span> and crew jump in water to reinstall the drain plug. Boat is planed off (40+ mph) to expel excess water.</div>
     </div>
     <div class="ev">
       <div class="et">~6:06 PM</div>
@@ -647,7 +659,7 @@
     <div class="ev">
       <div class="et">~9:20 PM</div>
       <div class="eb">
-        <span class="person warren">Warren</span> calls <span class="person tracestin">Tracestin</span>. Tracestin is asleep on his uncle's boat — tired from the day — and doesn't answer.
+        <span class="person warren">Warren</span> calls <span class="person tracestin">Tracestin</span>. Tracestin is asleep on his <span class="boat uncle">uncle's boat</span> — tired from the day — and doesn't answer.
       </div>
     </div>
     <div class="ev flag">
@@ -920,9 +932,9 @@
   <div style="line-height:1.8;font-size:13.5px;color:var(--text);margin-bottom:28px;">
     <p><b>Boat routes (July 4):</b></p>
     <ul style="margin:8px 0 0 20px;">
-      <li><span class="person nolan">Nolan</span> departs <span class="location">Fort Bayou dock</span> ~9:56 AM on <span class="person wyatt">Wyatt's</span> Triton; <span class="person warren">Warren</span> departs on <span class="person bart">Bart's</span> Tide Line</li>
+      <li><span class="person nolan">Nolan</span> departs <span class="location">Fort Bayou dock</span> ~9:56 AM on <span class="person wyatt">Wyatt's</span> <span class="boat triton">Triton</span>; <span class="person warren">Warren</span> departs on <span class="person bart">Bart's</span> <span class="boat tideline">Tide Line</span></li>
       <li>All boats arrive <span class="location">Horn Island</span> ~10:30 AM (northwestern tip)</li>
-      <li>Damaged Triton towed to <span class="location">Fort Bayou</span> (~5:52 PM), then to <span class="person bart">Bart's</span> grandparents' house</li>
+      <li>Damaged <span class="boat triton">Triton</span> towed to <span class="location">Fort Bayou</span> (~5:52 PM), then to <span class="person bart">Bart's</span> grandparents' house</li>
       <li><span class="person nolan">Nolan</span> remains on island after 4:30 PM departure; body found at northwestern tip July 6</li>
     </ul>
   </div>
