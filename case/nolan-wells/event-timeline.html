@@ -170,21 +170,20 @@
     margin-bottom: 36px;
     font-size: 13px;
   }
-  .ki-item{
-    border-left: 2px solid var(--teal);
-    padding-left: 12px;
-  }
+  .ki-item{ }
   .ki-label{
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--text-dim);
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
-  .ki-value {
-    color: var(--text);
-  }
+  .ki-value { color: var(--text); }
+  .ki-bio { display: block; margin-top: 3px; font-size: 11.5px; color: var(--text-dim); }
+  .ki-locs { display: flex; flex-direction: column; gap: 5px; }
+  .ki-desc { font-size: 11.5px; color: var(--text-dim); margin-left: 3px; }
+  .ki-pills { display: flex; flex-wrap: wrap; gap: 5px; align-items: flex-start; }
   /* Date section */
   .ds {
     margin-bottom: 48px;
@@ -527,19 +526,33 @@
   <div class="key-info">
     <div class="ki-item">
       <div class="ki-label">Victim</div>
-      <div class="ki-value"><span class="person nolan">Nolan Xavier Wells</span>, 18 · Ocean Springs High School '25 · WR, Southwest MS CC football</div>
+      <div class="ki-value">
+        <span class="person nolan">Nolan Xavier Wells</span>
+        <span class="ki-bio">18 yrs old · Southwest MS Community College Wide Receiver</span>
+      </div>
     </div>
     <div class="ki-item">
       <div class="ki-label">Status</div>
-      <div class="ki-value">Found deceased, July 6, 2026, 8:40 AM · Northwestern tip, Horn Island</div>
+      <div class="ki-value">Found deceased on July 6, 2026 @ 8:40 AM on the Northwestern tip of Horn Island</div>
     </div>
     <div class="ki-item">
       <div class="ki-label">Key Locations</div>
-      <div class="ki-value"><span class="location">El Camino Real Rd.</span> (private launch) · <span class="location">Horn Island</span> (last known location) · <span class="location">Fort Bayou</span> (<span class="boat triton">Triton</span> towed) · <span class="location">Lake Mars Boat Launch</span> (command post / family notified)</div>
+      <div class="ki-value ki-locs">
+        <div><span class="location">El Camino Real Rd.</span><span class="ki-desc">private launch</span></div>
+        <div><span class="location">Horn Island</span><span class="ki-desc">last known location</span></div>
+        <div><span class="location">Fort Bayou</span><span class="ki-desc"><span class="boat triton">Triton</span> towed here</span></div>
+        <div><span class="location">Lake Mars Boat Launch</span><span class="ki-desc">command post</span></div>
+      </div>
     </div>
     <div class="ki-item">
       <div class="ki-label">Core Group</div>
-      <div class="ki-value"><span class="person warren">Warren Cole</span> · <span class="person wyatt">Wyatt</span> · <span class="person bart">Bart</span> · <span class="person jayvon">Jayvon Williams</span></div>
+      <div class="ki-value ki-pills">
+        <span class="person bart">Bart</span>
+        <span class="person jayvon">Jayvon</span>
+        <span class="person tracestin">Tracestin</span>
+        <span class="person warren">Warren</span>
+        <span class="person wyatt">Wyatt</span>
+      </div>
     </div>
   </div>
 </div>
