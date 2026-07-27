@@ -78,7 +78,7 @@
     --teal-soft:    rgba(45,107,96,0.08);
     --gold:         #8a6200;
     --gold-soft:    rgba(138,98,0,0.07);
-    --border        rgba(0,0,0,0.07);
+    --border:       rgba(0,0,0,0.07);
     --rule:         rgba(0,0,0,0.05);
     --ts:           #7a6e68;
   }
@@ -109,6 +109,31 @@
     padding-bottom: 28px;
     border-bottom: 1px solid var(--rule);
     margin-bottom: 44px;
+  }
+  .xlink {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .xlink a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .xlink a:hover { 
+    text-decoration: underline;
+    color: var(--text-muted); 
+  }
+  .xlink span {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-left: 6px;
   }
   .eyebrow {
     font-family: var(--mono);
@@ -275,6 +300,41 @@
     color: #b89ad8;
     border: 1px solid rgba(140,100,180,0.3);
   }
+  .person.sheriff {
+    background: rgba(90,110,155,0.15);
+    color: #7888bc;
+    border: 1px solid rgba(90,110,155,0.3);
+  }
+  .person.dmr {
+    background: rgba(90,140,80,0.15);
+    color: #72a860;
+    border: 1px solid rgba(90,140,80,0.3);
+  }
+  .person.ucn {
+    background: rgba(185,145,45,0.15);
+    color: #c89e40;
+    border: 1px solid rgba(185,145,45,0.3);
+  }
+  .person.da {
+    background: rgba(65,130,100,0.15);
+    color: #55a080;
+    border: 1px solid rgba(65,130,100,0.3);
+  }
+  .location.dc { 
+    background: rgba(70,100,160,0.12);  
+    color: #6080c0; 
+    border-color: rgba(70,100,160,0.25);  
+  }
+  .location.naacp { 
+    background: rgba(140,80,130,0.12);  
+    color: #b068a8; 
+    border-color: rgba(140,80,130,0.25);  
+  }
+  .location.pascagoula { 
+    background: rgba(160,130,55,0.12);  
+    color: #b89838; 
+    border-color: rgba(160,130,55,0.25);  
+  }
   .ev.flag {
     background: rgba(192,78,1,0.04);
     border-left: 2px solid rgba(192,78,1,0.35);
@@ -300,10 +360,26 @@
     font-weight: 600;
     margin: 0 2px;
   }
-  .boat.triton   { background: rgba(70,115,175,0.15); color: #6498d0; border: 1px solid rgba(70,115,175,0.3); }
-  .boat.tideline { background: rgba(180,95,60,0.15);  color: #c87850; border: 1px solid rgba(180,95,60,0.3);  }
-  .boat.palmbeach{ background: rgba(60,165,140,0.15); color: #44b090; border: 1px solid rgba(60,165,140,0.3); }
-  .boat.uncle    { background: rgba(105,120,148,0.15);color: #7d8fa8; border: 1px solid rgba(105,120,148,0.3);}
+  .boat.triton { 
+    background: rgba(70,115,175,0.15); 
+    color: #6498d0; 
+    border: 1px solid rgba(70,115,175,0.3); 
+  }
+  .boat.tideline { 
+    background: rgba(180,95,60,0.15);  
+    color: #c87850; 
+    border: 1px solid rgba(180,95,60,0.3);  
+  }
+  .boat.palmbeach { 
+    background: rgba(60,165,140,0.15); 
+    color: #44b090; 
+    border: 1px solid rgba(60,165,140,0.3); 
+  }
+  .boat.uncle { 
+    background: rgba(105,120,148,0.15);
+    color: #7d8fa8; 
+    border: 1px solid rgba(105,120,148,0.3);
+  }
   /* Details box */
   .detail {
     margin:10px 0;
@@ -445,9 +521,10 @@
 </style>
 
 <div class="pg-header">
-  <div class="eyebrow">July 3–6, 2026 — Investigation Timeline</div>
+  <div class="eyebrow">July 3–6, 2026</div>
   <h1>Nolan Wells</h1>
-  <div class="pg-meta">Unified from police statements, media coverage, and interviews..</div>
+  <div class="pg-meta">Unified from police statements, media coverage, and interviews (under construction while I continue sorting the all-over-the-place media reports and updates).</p></div>
+  <div class="xlink"><a href="timeline.html">← Interactive Map Timeline</a><span>with GPS routes and map</span></div>
 
   <div class="key-info">
     <div class="ki-item">
@@ -696,7 +773,7 @@
     <div class="ev">
       <div class="et">12:00 AM</div>
       <div class="eb">
-        <span class="person christine">Christine Wonsley</span> and <b>Elmore Wonsley</b> (Nolan's parents) meet a <b>DMR officer</b> at a <span class="location">McDonald's</span> parking lot to officially file a missing person report. Coast Guard is also contacted.
+        <span class="person christine">Christine Wonsley</span> and <b>Elmore Wonsley</b> (Nolan's parents) meet a <span class="person dmr">DMR</span> officer at a <span class="location">McDonald's</span> parking lot to officially file a missing person report. Coast Guard is also contacted.
       </div>
     </div>
     <div class="ev">
@@ -763,7 +840,7 @@
     <div class="ev">
       <div class="et">5:54 PM</div>
       <div class="eb">
-        <b>JCSO</b> establishes command post at <span class="location">Lake Mars Boat Launch</span> (1200 Lake Mars Ave, Ocean Springs). Multi-agency search underway: Gulf Islands National Seashore, NPS, USCG, MDMR, MS Dept. of Wildlife/Fisheries/Parks, Biloxi Fire, Harrison County SO, Jackson County Fire, <b>United Cajun Navy</b>.
+        <b>JCSO</b> establishes command post at <span class="location">Lake Mars Boat Launch</span> (1200 Lake Mars Ave, Ocean Springs). Multi-agency search underway: Gulf Islands National Seashore, NPS, USCG, <span class="person dmr">MDMR</span>, MS Dept. of Wildlife/Fisheries/Parks, Biloxi Fire, Harrison County SO, Jackson County Fire, <span class="person ucn">United Cajun Navy</span>.
       </div>
     </div>
   </div>
@@ -788,7 +865,7 @@
     <div class="ev">
       <div class="et">6:00 AM</div>
       <div class="eb">
-        <b>United Cajun Navy</b> launches coordinated search via land, air, and sea.
+        <span class="person ucn">United Cajun Navy</span> launches coordinated search via land, air, and sea.
       </div>
     </div>
     <div class="ev">
@@ -806,13 +883,13 @@
     <div class="ev flag">
       <div class="et">8:45 AM</div>
       <div class="eb">
-        <b>Sheriff Ledbetter</b> confirms authorities received a call reporting the body. <b>Coroner Bruce Lynd</b> is notified. No immediate signs of physical injury or obvious foul play noted. Family is called to <span class="location">Lake Mars Boat Launch</span>.
+        <span class="person sheriff">Sheriff Ledbetter</span> confirms authorities received a call reporting the body. <b>Coroner Bruce Lynd</b> is notified. No immediate signs of physical injury or obvious foul play noted. Family is called to <span class="location">Lake Mars Boat Launch</span>.
       </div>
     </div>
     <div class="ev">
       <div class="et">11:00 AM</div>
       <div class="eb">
-        Family taken to coroner's office in Pascagoula for identification.
+        Family taken to coroner's office in <span class="location pascagoula">Pascagoula</span> for identification.
       </div>
     </div>
     <div class="ev">
@@ -843,7 +920,7 @@
     <div class="ev">
       <div class="et">—</div>
       <div class="eb">
-        <b>Mississippi State Medical Examiner's Office</b> conducts autopsy. Family arranges independent autopsy in Washington D.C. (funded by <b>Colin Kaepernick</b>).
+        <b>Mississippi State Medical Examiner's Office</b> conducts autopsy. Family arranges independent autopsy in <span class="location dc">Washington D.C.</span> (funded by <b>Colin Kaepernick</b>).
       </div>
     </div>
     <div class="ev">
@@ -868,7 +945,7 @@
     <div class="ev">
       <div class="et">Morning</div>
       <div class="eb">
-        Wells family and attorneys <b>Ben Crump</b> and <b>Eric Hertz</b> meet with <b>Jackson County DA Angel Myers McIlrath</b>. Family agrees to "mutual inspection" of <span class="person nolan">Nolan's</span> phone by experts from both parties. <b>Crump:</b> Case will go to grand jury after JCSO investigation concludes (standard procedure).
+        Wells family and attorneys <b>Ben Crump</b> and <b>Eric Hertz</b> meet with <span class="person da">DA Angel Myers McIlrath</span>. Family agrees to "mutual inspection" of <span class="person nolan">Nolan's</span> phone by experts from both parties. <b>Crump:</b> Case will go to grand jury after JCSO investigation concludes (standard procedure).
       </div>
     </div>
     <div class="ev">
@@ -880,7 +957,7 @@
     <div class="ev">
       <div class="et">Afternoon</div>
       <div class="eb">
-        <b>Sheriff Ledbetter</b> confirms <b>FBI</b> is assisting with digital evidence examination. <b>Over 60 witnesses</b> have been interviewed, including the friends on the boat. Death threats reported by <span class="person ashlee-cole">Ashlee Cole</span> and <span class="person tracestin">Tracestin Shepherd</span>; FBI is "working to address interstate threats."
+        <span class="person sheriff">Sheriff Ledbetter</span> confirms <b>FBI</b> is assisting with digital evidence examination. <b>Over 60 witnesses</b> have been interviewed, including the friends on the boat. Death threats reported by <span class="person ashlee-cole">Ashlee Cole</span> and <span class="person tracestin">Tracestin Shepherd</span>; FBI is "working to address interstate threats."
       </div>
     </div>
   </div>
@@ -888,12 +965,12 @@
 
 <!-- JULY 22 -->
 <div class="ds">
-  <div class="dh"><h2>July 22, 2026</h2><div class="dn">Wednesday · NAACP National Convention, Chicago</div></div>
+  <div class="dh"><h2>July 22, 2026</h2><div class="dn">Wednesday · <span class="location naacp">NAACP National Convention</span>, Chicago</div></div>
   <div class="events">
     <div class="ev flag">
       <div class="et">8:00 AM</div>
       <div class="eb">
-        <b>Ben Crump</b> presents preliminary independent autopsy findings (conducted by <b>Dr. Roger Mitchell</b>, Washington D.C., July 10):
+        <b>Ben Crump</b> presents preliminary independent autopsy findings (conducted by <b>Dr. Roger Mitchell</b>, <span class="location dc">Washington D.C.</span>, July 10):
         <ul>
           <li><b>Cause & manner of death:</b> Undetermined, pending investigation</li>
           <li><b>Date of death:</b> Unknown</li>
@@ -919,7 +996,7 @@
     <div class="ev">
       <div class="et">—</div>
       <div class="eb">
-        <b>DA McIlrath</b> confirms state medical examiner's autopsy report will be <b>withheld until grand jury review</b>. Standard procedure for all unnatural/suspicious deaths in Jackson County.
+        <span class="person da">DA McIlrath</span> confirms state medical examiner's autopsy report will be <b>withheld until grand jury review</b>. Standard procedure for all unnatural/suspicious deaths in Jackson County.
       </div>
     </div>
   </div>

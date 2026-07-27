@@ -186,6 +186,39 @@
     .pill-tideline  { background: rgba(180,95,60,0.15);  color: #c87850; border: 1px solid rgba(180,95,60,0.3);  }
     .pill-palmbeach { background: rgba(60,165,140,0.15); color: #44b090; border: 1px solid rgba(60,165,140,0.3); }
     .pill-uncle     { background: rgba(105,120,148,0.15);color: #7d8fa8; border: 1px solid rgba(105,120,148,0.3);}
+    .pill-sheriff   { background: rgba(90,110,155,0.15); color: #7888bc; border: 1px solid rgba(90,110,155,0.3); }
+    .pill-dmr       { background: rgba(90,140,80,0.15);  color: #72a860; border: 1px solid rgba(90,140,80,0.3);  }
+    .pill-ucn        { background: rgba(185,145,45,0.15);  color: #c89e40; border: 1px solid rgba(185,145,45,0.3);  }
+    .pill-da         { background: rgba(65,130,100,0.15);  color: #55a080; border: 1px solid rgba(65,130,100,0.3);  }
+    .pill-dc         { background: rgba(70,100,160,0.15);  color: #6080c0; border: 1px solid rgba(70,100,160,0.3);  }
+    .pill-naacp      { background: rgba(140,80,130,0.15);  color: #b068a8; border: 1px solid rgba(140,80,130,0.3);  }
+    .pill-pascagoula { background: rgba(160,130,55,0.15);  color: #b89838; border: 1px solid rgba(160,130,55,0.3);  }
+    .xlink {
+      margin-top: 20px;
+      padding: 12px 14px;
+      border: 1px solid rgba(235,226,205,0.15);
+      border-radius: 4px;
+      background: rgba(235,226,205,0.04);
+    }
+    .xlink a {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .xlink a:hover { 
+      text-decoration: underline; 
+      color: rgba(235,226,205,0.55);;
+    }
+    .xlink p {
+      margin: 5px 0 0;
+      font-size: 13px;
+      color: rgba(235,226,205,0.55);
+      line-height: 1.55;
+    }
     .map-label {
       font-family: var(--mono);
       font-size: 11px;
@@ -837,8 +870,8 @@
       <div class="step-time">Around Midnight · July 5</div>
       <div class="step-title">Missing Person Report Filed</div>
       <div class="step-body">
-        <p><span class="pill pill-christine">Christine</span> calls Ocean Springs Police to report <span class="pill pill-nolan">Nolan</span> missing. They tell her to contact the Department of Marine Resources (DMR) because the incident happened on the island, which is federal land.</p>
-        <p>When she calls DMR, she's told she needs to file with Ocean Springs Police first. Eventually, someone from DMR starts the missing person report to avoid further delay.</p>
+        <p><span class="pill pill-christine">Christine</span> calls Ocean Springs Police to report <span class="pill pill-nolan">Nolan</span> missing. They tell her to contact the Department of Marine Resources (<span class="pill pill-dmr">DMR</span>) because the incident happened on the island, which is federal land.</p>
+        <p>When she calls <span class="pill pill-dmr">DMR</span>, she's told she needs to file with Ocean Springs Police first. Eventually, someone from <span class="pill pill-dmr">DMR</span> starts the missing person report to avoid further delay.</p>
       </div>
     </div>
   </div>
@@ -849,7 +882,7 @@
       <div class="step-time">Around Midnight · July 5</div>
       <div class="step-title">Meet with DMR Officer</div>
       <div class="step-body">
-        <p><span class="pill pill-nolan">Nolan's</span> parents meet with an officer from DMR at a <span class="pill pill-location">McDonald's</span> parking lot to provide details for the missing person report. <span class="pill pill-warren">Warren</span> has already contacted the Coast Guard directly to report him missing.</p>
+        <p><span class="pill pill-nolan">Nolan's</span> parents meet with an officer from <span class="pill pill-dmr">DMR</span> at a <span class="pill pill-location">McDonald's</span> parking lot to provide details for the missing person report. <span class="pill pill-warren">Warren</span> has already contacted the Coast Guard directly to report him missing.</p>
       </div>
     </div>
   </div>
@@ -886,7 +919,7 @@
             <span>Tap to play</span>
           </div>
         </div>
-        <p class="embed-caption">July 5th · Have you seen him? | Video from UCN</p>
+        <p class="embed-caption">July 5th · Have you seen him? | Video from <span class="pill pill-ucn">UCN</span></p>
       </div>
     </div>
   </div>
@@ -920,7 +953,7 @@
       <div class="step-time">12:26 PM · July 5</div>
       <div class="step-title">Official Search Launches</div>
       <div class="step-body">
-        <p>The U.S. Coast Guard Sector Mobile receives a request for assistance from Jackson County Sheriff's Office. An urgent marine information broadcast is issued. A helicopter is sent to search the area. Multiple agencies mobilize: Coast Guard, Mississippi Department of Marine Resources, U.S. National Park Service, Gulf Islands National Seashore.</p>
+        <p>The U.S. Coast Guard Sector Mobile receives a request for assistance from Jackson County Sheriff's Office. An urgent marine information broadcast is issued. A helicopter is sent to search the area. Multiple agencies mobilize: Coast Guard, Mississippi Department of Marine Resources (<span class="pill pill-dmr">DMR</span>), U.S. National Park Service, Gulf Islands National Seashore.</p>
         <figure class="step-figure">
           <div class="img-placeholder" data-src="assets/2026-07-05-search-efforts-begin.png" data-alt="Search efforts begin · July 5, 2026">
             <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
@@ -938,20 +971,19 @@
       <div class="step-time">5:54 PM · July 5</div>
       <div class="step-title">Command Post Established</div>
       <div class="step-body">
-        <p>Jackson County Sheriff's Office establishes a command post at <span class="pill pill-location">Lake Mars Pier</span>. Sheriff John Ledbetter coordinates with multiple agencies.</p>
-        <p>The United Cajun Navy, a nonprofit volunteer search and rescue group from Louisiana, joins the effort. Their vice president tells CNN: <em>if someone fell in the water, strong rip currents that day would have posed a serious risk.</em></p>
+        <p>Jackson County Sheriff's Office establishes a command post at <span class="pill pill-location">Lake Mars Pier</span>. <span class="pill pill-sheriff">Sheriff Ledbetter</span> coordinates with multiple agencies.</p>
+        <p>The <span class="pill pill-ucn">United Cajun Navy</span>, a nonprofit volunteer search and rescue group from Louisiana, joins the effort. Their vice president tells CNN: <em>if someone fell in the water, strong rip currents that day would have posed a serious risk.</em></p>
       </div>
     </div>
   </div>
 
-  <!-- step 31: Tracetin Got the News at McDonald's -->
+  <!-- step 31: Tracestin Preps to Search -->
   <div class="step" data-step="31">
     <div class="step-content">
-      <div class="step-time">~5:00–6:00 AM · July 6</div>
-      <div class="step-title">Tracetin Got the News at McDonald's</div>
+      <div class="step-time">5:00–6:00 AM · July 6</div>
+      <div class="step-title">Tracestin Preps to Search</div>
       <div class="step-body">
-        <p><span class="pill pill-tracestin">Tracestin</span> was up at 5:00 AM on Monday, July 6th. He fueled his boat at 6:00 AM and the plan was to take another boat out to the <span class="pill pill-location">Chandelier Islands</span> at 7:00 AM to expand the search area. He put his boat on the lift and stopped at <span class="pill pill-location">McDonald's</span> first. While leaving <span class="pill pill-location">McDonald's</span>, he got the news: <span class="pill pill-nolan">Nolan's</span> body had been found.</p>
-        <p>"I wasn't there to help him in his last minutes," he said. "But now I do everything in my power to help." <span class="pill pill-tracestin">Tracestin</span> donated to the family, reached out personally, and has since given multiple on-record interviews to clear up what he says are false narratives about his friend group.</p>
+        <p><span class="pill pill-tracestin">Tracestin</span> was up at 5:00 AM. He fueled his boat at 6:00 AM with plans to take the boat back out to the <span class="pill pill-location">Chandelier Islands</span> to expand the search area. He put his boat on the lift and stopped at <span class="pill pill-location">McDonald's</span> first.</p>
       </div>
     </div>
   </div>
@@ -962,7 +994,14 @@
       <div class="step-time">6:00 AM · July 6</div>
       <div class="step-title">UCN Continues Search</div>
       <div class="step-body">
-        <p>The United Cajun Navy continues searching via land, air, and sea. Search boats are deployed and the last vessels leave just before 8:00 AM to continue the search for <span class="pill pill-nolan">Nolan</span>.</p>
+        <p>The <span class="pill pill-ucn">United Cajun Navy</span> continues searching via land, air, and sea. Search boats are deployed and the last vessels leave just before 8:00 AM to continue the search for <span class="pill pill-nolan">Nolan</span>.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2026-07-06-Will-Pollston.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 6th | Video from Will Pollston</p>
       </div>
     </div>
   </div>
@@ -996,48 +1035,53 @@
     </div>
   </div>
 
-  <!-- step 34: Family Notified -->
+  <!-- step 34: News Reaches Tracestin -->
   <div class="step" data-step="34">
+    <div class="step-content">
+      <div class="step-time">After 8:40 AM · July 6</div>
+      <div class="step-title">News Reaches Tracestin</div>
+      <div class="step-body">
+        <p>While leaving <span class="pill pill-location">McDonald's</span>, <span class="pill pill-tracestin">Tracestin</span> got the news: <span class="pill pill-nolan">Nolan's</span> body had been found.</p>
+        <p>"I wasn't there to help him in his last minutes," he said. "But now I do everything in my power to help." He donated to the family, reached out personally, and has since given multiple on-record interviews to clear up what he says are false narratives about his friend group.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 35: Family Notified -->
+  <div class="step" data-step="35">
     <div class="step-content">
       <div class="step-time">8:45 AM+ · July 6</div>
       <div class="step-title">Family Notified</div>
       <div class="step-body">
-        <p>Sheriff Ledbetter confirms authorities received a call reporting a body found at the northwestern tip of <span class="pill pill-location">Horn Island</span>. <span class="pill pill-nolan">Nolan's</span> family is asked to come to <span class="pill pill-location">Lake Mars Pier</span>, where they meet with Sheriff Ledbetter and Coroner Bruce Lynd. They are told there are no immediate, obvious signs of foul play or trauma on the body.</p>
+        <p><span class="pill pill-sheriff">Sheriff Ledbetter</span> confirms authorities received a call reporting a body found at the northwestern tip of <span class="pill pill-location">Horn Island</span>. <span class="pill pill-nolan">Nolan's</span> family is asked to come to <span class="pill pill-location">Lake Mars Pier</span>, where they meet with <span class="pill pill-sheriff">Sheriff Ledbetter</span> and Coroner Bruce Lynd. They are told there are no immediate, obvious signs of foul play or trauma on the body.</p>
       </div>
     </div>
   </div>
 
-  <!-- step 35: Identification Confirmed -->
-  <div class="step" data-step="35">
+  <!-- step 36: Identification Confirmed -->
+  <div class="step" data-step="36">
     <div class="step-content">
       <div class="step-time">11:00 AM · July 6</div>
       <div class="step-title">Identification Confirmed</div>
       <div class="step-body">
-        <p>The family is taken to the <span class="pill pill-location">Coroner's Office</span> in Pascagoula. The body is confirmed via dental records. It is <span class="pill pill-nolan">Nolan Wells</span>.</p>
+        <p>The family is taken to the <span class="pill pill-location">Coroner's Office</span> in <span class="pill pill-pascagoula">Pascagoula</span>. The body is confirmed via dental records. It is <span class="pill pill-nolan">Nolan Wells</span>.</p>
       </div>
     </div>
   </div>
 
-  <!-- step 36: Public Confirmation -->
-  <div class="step" data-step="36">
+  <!-- step 37: Public Confirmation -->
+  <div class="step" data-step="37">
     <div class="step-content">
       <div class="step-time">1:00 PM · July 6</div>
       <div class="step-title">Public Confirmation</div>
       <div class="step-body">
         <p><span class="pill pill-nolan">Nolan's</span> family confirms his death on social media. <span class="pill pill-christine">Christine</span> posts on Facebook: the body found on <span class="pill pill-location">Horn Island</span> was their son. The <span class="pill pill-location">Coroner's Office</span> requests the autopsy be conducted at the state medical examiner's office due to the "condition" of the body and to determine if there was any trauma or foul play.</p>
-        <div class="step-embed">
-          <div class="embed-placeholder" data-src="assets/2026-07-06-Will-Pollston.mp4">
-            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
-            <span>Tap to play</span>
-          </div>
-        </div>
-        <p class="embed-caption">July 6th | Video from Will Pollston</p>
       </div>
     </div>
   </div>
 
-  <!-- step 37: Legal Team Retained -->
-  <div class="step" data-step="37">
+  <!-- step 38: Legal Team Retained -->
+  <div class="step" data-step="38">
     <div class="step-content">
       <div class="step-time">July 7, 2026</div>
       <div class="step-title">Legal Team Retained</div>
@@ -1047,38 +1091,42 @@
     </div>
   </div>
 
-  <!-- step 38: Independent Autopsy Ordered -->
-  <div class="step" data-step="38">
+  <!-- step 39: Independent Autopsy Ordered -->
+  <div class="step" data-step="39">
     <div class="step-content">
       <div class="step-time">July 7, 2026</div>
       <div class="step-title">Independent Autopsy Ordered</div>
       <div class="step-body">
-        <p>The family's legal team orders an independent autopsy. <span class="pill pill-nolan">Nolan's</span> body is flown to Washington, D.C., for examination by experienced forensic pathologist Dr. Roger Mitchell. The state medical examiner conducts an autopsy in Mississippi. Cause of death: pending investigation. Date of death: unknown pending investigation.</p>
+        <p>The family's legal team orders an independent autopsy. <span class="pill pill-nolan">Nolan's</span> body is flown to <span class="pill pill-dc">Washington, D.C.</span>, for examination by experienced forensic pathologist Dr. Roger Mitchell. The state medical examiner conducts an autopsy in Mississippi. Cause of death: pending investigation. Date of death: unknown pending investigation.</p>
       </div>
     </div>
   </div>
 
-  <!-- step 39: Autopsy Findings -->
-  <div class="step" data-step="39">
+  <!-- step 40: Autopsy Findings -->
+  <div class="step" data-step="40">
     <div class="step-content">
       <div class="step-time">July 22, 2026</div>
       <div class="step-title">Autopsy Findings</div>
       <div class="step-body">
-        <p>At the NAACP National Convention in Chicago, <span class="pill pill-crump">Ben Crump</span> announces preliminary findings from the independent autopsy (Dr. Roger Mitchell, Washington D.C.). Cause and manner of death: undetermined, pending investigation. Marked decompositional changes; no fractures or deep tissue injuries. A 12-by-8-inch area of red discoloration in soft tissue on the back of <span class="pill pill-nolan">Nolan</span>'s head. The throat was not received with the body. Toxicology results not yet available.</p>
+        <p>At the <span class="pill pill-naacp">NAACP National Convention</span> in Chicago, <span class="pill pill-crump">Ben Crump</span> announces preliminary findings from the independent autopsy (Dr. Roger Mitchell, Washington D.C.). Cause and manner of death: undetermined, pending investigation. Marked decompositional changes; no fractures or deep tissue injuries. A 12-by-8-inch area of red discoloration in soft tissue on the back of <span class="pill pill-nolan">Nolan</span>'s head. The throat was not received with the body. Toxicology results not yet available.</p>
         <p><span class="pill pill-crump">Crump</span>: "The condition of <span class="pill pill-nolan">Nolan Wells</span> before he entered the water would be the crux of the matter&mdash;whether he was conscious or unconscious, forced or unforced. It would be of utmost importance to determining cause and manner of death."</p>
         <p><span class="pill pill-christine">Christine</span>: "The only question we have is, what happened to our son?"</p>
       </div>
     </div>
   </div>
 
-  <!-- step 40: Investigation Continues-->
-  <div class="step" data-step="40">
+  <!-- step 41: Investigation Continues-->
+  <div class="step" data-step="41">
     <div class="step-content">
       <div class="step-time">July 23, 2026 · Present</div>
       <div class="step-title">Investigation Continues</div>
       <div class="step-body">
-        <p>Over 60 witnesses have been interviewed. The FBI is assisting with digital evidence. District Attorney Angel Myers McIlrath confirmed the state medical examiner's autopsy report will be withheld until a grand jury reviews it. Rewards totaling $125,000 have been offered.</p>
+        <p>Over 60 witnesses have been interviewed. The FBI is assisting with digital evidence. <span class="pill pill-da">District Attoney McIlrath</span> confirmed the state medical examiner's autopsy report will be withheld until a grand jury reviews it. Rewards totaling $125,000 have been offered.</p>
         <p>Critical questions remain unanswered: What were the circumstances that led to <span class="pill pill-nolan">Nolan</span> entering the water? Was there water in the airway? What are the toxicology findings? Investigators await answers.</p>
+        <div class="xlink">
+          <a href="event-timeline.html">Full Event Log →</a>
+          <p>Timestamped entries for every known event including boat assignments, witness communications, search response, and investigation milestones.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1226,7 +1274,7 @@ const locations = {
   },
   washingtonDC: {
     lat: 38.883664, lng: -77.018392,
-    name: 'Washington, D.C. Medical Examiner',
+    name: '<span class="pill pill-dc">Washington, D.C.</span> Medical Examiner',
     color: '#8fa5d8', zoom: 12
   },
   naacpConference: {
@@ -1434,16 +1482,17 @@ const animations = {
   28: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
   29: () => { showLocation('jacksonSheriff');                                                                                       showRoutes([]); },
   30: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
-  31: () => { showLocation('mcdonalds');                                                                                            showRoutes([]); },
+  31: () => { showLocation('searchEfforts');                                                                                       showRoutes([]); },
   32: () => { showLocation('searchEfforts');                                                                                        showRoutes([]); },
   33: () => { showLocation('bodyFound');                                                                                            showRoutes([]); },
-  34: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
-  35: () => { showLocation('coroner');                                                                                               showRoutes([]); },
+  34: () => { showLocation('mcdonalds');                                                                                            showRoutes([]); },
+  35: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
   36: () => { showLocation('coroner');                                                                                               showRoutes([]); },
   37: () => { showLocation('coroner');                                                                                               showRoutes([]); },
-  38: () => { showLocation('washingtonDC');                                                                                         showRoutes([]); },
-  39: () => { showLocation('naacpConference');                                                                                      showRoutes([]); },
-  40: () => { showLocation('districtAttorney');                                                                                     showRoutes([]); }
+  38: () => { showLocation('coroner');                                                                                               showRoutes([]); },
+  39: () => { showLocation('washingtonDC');                                                                                         showRoutes([]); },
+  40: () => { showLocation('naacpConference');                                                                                      showRoutes([]); },
+  41: () => { showLocation('districtAttorney');                                                                                     showRoutes([]); }
 };
 
 // Scroll sync
