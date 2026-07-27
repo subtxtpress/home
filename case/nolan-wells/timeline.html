@@ -117,11 +117,11 @@
     }
     .pill {
       display: inline-block;
-      padding: 3px 8px;
+      padding: 2px 8px;
       border-radius: 3px;
       font-weight: 600;
-      font-size: 13px;
-      margin: 0 2px;
+      font-size: 12px;
+      margin: 2px 2px;
     }
     .pill-person {
       background: rgba(192,78,1,0.15);
@@ -183,17 +183,61 @@
       color: #7ab89c;
       border: 1px solid rgba(74,138,124,0.3);
     }
-    .pill-triton    { background: rgba(70,115,175,0.15); color: #6498d0; border: 1px solid rgba(70,115,175,0.3); }
-    .pill-tideline  { background: rgba(180,95,60,0.15);  color: #c87850; border: 1px solid rgba(180,95,60,0.3);  }
-    .pill-palmbeach { background: rgba(60,165,140,0.15); color: #44b090; border: 1px solid rgba(60,165,140,0.3); }
-    .pill-uncle     { background: rgba(105,120,148,0.15);color: #7d8fa8; border: 1px solid rgba(105,120,148,0.3);}
-    .pill-sheriff   { background: rgba(90,110,155,0.15); color: #7888bc; border: 1px solid rgba(90,110,155,0.3); }
-    .pill-dmr       { background: rgba(90,140,80,0.15);  color: #72a860; border: 1px solid rgba(90,140,80,0.3);  }
-    .pill-ucn        { background: rgba(185,145,45,0.15);  color: #c89e40; border: 1px solid rgba(185,145,45,0.3);  }
-    .pill-da         { background: rgba(65,130,100,0.15);  color: #55a080; border: 1px solid rgba(65,130,100,0.3);  }
-    .pill-dc         { background: rgba(70,100,160,0.15);  color: #6080c0; border: 1px solid rgba(70,100,160,0.3);  }
-    .pill-naacp      { background: rgba(140,80,130,0.15);  color: #b068a8; border: 1px solid rgba(140,80,130,0.3);  }
-    .pill-pascagoula { background: rgba(160,130,55,0.15);  color: #b89838; border: 1px solid rgba(160,130,55,0.3);  }
+    .pill-triton { 
+      background: rgba(70,115,175,0.15); 
+      color: #6498d0; 
+      border: 1px solid rgba(70,115,175,0.3); 
+    }
+    .pill-tideline { 
+      background: rgba(180,95,60,0.15);  
+      color: #c87850; 
+      border: 1px solid rgba(180,95,60,0.3);  
+    }
+    .pill-palmbeach { 
+      background: rgba(60,165,140,0.15); 
+      color: #44b090; 
+      border: 1px solid rgba(60,165,140,0.3); 
+    }
+    .pill-uncle { 
+      background: rgba(105,120,148,0.15);
+      color: #7d8fa8; 
+      border: 1px solid rgba(105,120,148,0.3);
+    }
+    .pill-sheriff { 
+      background: rgba(90,110,155,0.15); 
+      color: #7888bc; 
+      border: 1px solid rgba(90,110,155,0.3); 
+    }
+    .pill-dmr { 
+      background: rgba(90,140,80,0.15);  
+      color: #72a860; 
+      border: 1px solid rgba(90,140,80,0.3);  
+    }
+    .pill-ucn { 
+      background: rgba(185,145,45,0.15);  
+      color: #c89e40; 
+      border: 1px solid rgba(185,145,45,0.3);  
+    }
+    .pill-da { 
+      background: rgba(65,130,100,0.15);  
+      color: #55a080; 
+      border: 1px solid rgba(65,130,100,0.3);  
+    }
+    .pill-dc { 
+      background: rgba(70,100,160,0.15);  
+      color: #6080c0; 
+      border: 1px solid rgba(70,100,160,0.3);  
+    }
+    .pill-naacp { 
+      background: rgba(140,80,130,0.15);  
+      color: #b068a8; 
+      border: 1px solid rgba(140,80,130,0.3);  
+    }
+    .pill-pascagoula { 
+      background: rgba(160,130,55,0.15);  
+      color: #b89838; 
+      border: 1px solid rgba(160,130,55,0.3);  
+    }
     .xlink {
       margin-top: 20px;
       padding: 12px 14px;
@@ -430,6 +474,149 @@
         gap: 16px;
       }
     }
+    /* Boat reference panel */
+    #boat-ref-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px 6px 8px;
+      background: rgba(6,11,20,0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: border-color 0.18s, color 0.18s;
+      pointer-events: auto;
+    }
+    #boat-ref-btn:hover,
+    #boat-ref-btn.active {
+      border-color: rgba(74,138,124,0.45);
+      color: #70d5b7;
+    }
+    #boat-ref-btn svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+    #boat-ref-panel {
+      position: fixed;
+      top: 50px;
+      right: 16px;
+      z-index: 500;
+      width: 296px;
+      max-height: calc(100vh - 74px);
+      overflow-y: auto;
+      background: rgba(6,11,20,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    #boat-ref-panel.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .brp-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .brp-label {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    #boat-ref-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    #boat-ref-close:hover { 
+      color: var(--text); 
+    }
+    .brp-boat {
+      padding: 10px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .brp-boat:last-child { 
+      border-bottom: none; 
+    }
+    .brp-boat-name {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .brp-boat-name .pill {
+      font-size: 10px;
+      padding: 1px 5px;
+      letter-spacing: .02em;
+      text-transform: none;
+      vertical-align: middle;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brp-boat-name .brp-sep {
+      color: var(--text-dim);
+      opacity: 0.5;
+    }
+    .brp-pax {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .brp-pax .pill {
+      font-size: 11px;
+      padding: 1px 5px;
+      vertical-align: middle;
+    }
+    .brp-count {
+      display: block;
+      margin-top: 4px;
+      font-size: 10.5px;
+      color: var(--text-dim);
+    }
+    .brp-note {
+      margin-top: 5px;
+      font-size: 10.5px;
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    @media (max-width: 480px) {
+      #boat-ref-panel { 
+        width: calc(100vw - 32px); 
+      }
+    }
     @media (max-width: 480px) {
       .step {
         padding-top: 10vh;
@@ -466,6 +653,54 @@
 <body>
 
 <div id="map"></div>
+
+<button id="boat-ref-btn" title="Boats &amp; Passengers">
+  <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+    <path d="M3 9.5 4.2 6h7.6L13 9.5H3z"/>
+    <path d="M8 1.5v4.5"/>
+    <path d="M8 6l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M1 13.5c1-.8 2.5-.8 3.5 0s2.5.8 3.5 0 2.5-.8 3.5 0 2.5.8 3.5 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+  </svg>
+  Boats
+</button>
+
+<div id="boat-ref-panel">
+  <div class="brp-header">
+    <span class="brp-label">Boats &amp; Passengers on July 4th</span>
+    <button id="boat-ref-close" aria-label="Close">✕</button>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name"><span class="pill pill-triton">Triton</span> · Wyatt's 22-ft</div>
+    <div class="brp-pax">
+      <span class="pill pill-nolan">Nolan</span> outbound only<br>
+      <span class="pill pill-warren">Warren</span> outbound
+      <span class="brp-count">~8–9 passengers total</span>
+    </div>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name"><span class="pill pill-tideline">Tide Line</span> · Bart's 24-ft</div>
+    <div class="brp-pax">
+      <span class="pill pill-bart">Bart</span> both ways<br>
+      <span class="pill pill-warren">Warren</span> outbound
+      <span class="brp-count">~10–16 passengers total</span>
+    </div>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name"><span class="pill pill-palmbeach">Palm Beach</span> · Wyatt's 18-ft</div>
+    <div class="brp-pax">
+      <span class="pill pill-wyatt">Wyatt</span> both ways<br>
+      <span class="pill pill-jayvon">Jayvon</span> both ways
+      <span class="brp-count">~4 passengers total</span>
+    </div>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name">Tracestin's Uncle's boat<span class="brp-sep"> · </span> Separate vessel</div>
+    <div class="brp-pax">
+      <span class="pill pill-tracestin">Tracestin</span> + girlfriend
+      <span class="brp-count">~14 passengers total</span>
+    </div>
+  </div>
+</div>
 
 <div class="scroll-container">
   <!-- step 0: Nolan Wells -->
@@ -1599,6 +1834,22 @@ document.querySelectorAll('.embed-placeholder, .img-placeholder').forEach(initPl
       caption.textContent = el.alt || '';
       overlay.style.display = 'flex';
     }
+  });
+})();
+
+// Boat reference panel
+(function() {
+  const btn   = document.getElementById('boat-ref-btn');
+  const panel = document.getElementById('boat-ref-panel');
+  const close = document.getElementById('boat-ref-close');
+
+  function open()  { panel.classList.add('open');    btn.classList.add('active'); }
+  function shut()  { panel.classList.remove('open'); btn.classList.remove('active'); }
+
+  btn.addEventListener('click', e => { e.stopPropagation(); panel.classList.contains('open') ? shut() : open(); });
+  close.addEventListener('click', shut);
+  document.addEventListener('click', e => {
+    if (!panel.contains(e.target) && e.target !== btn) shut();
   });
 })();
 </script>
