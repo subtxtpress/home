@@ -3,118 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>July 4, 2026 — Sea Tow Dispatch Call — Nolan Wells Case</title>
+<title>Sea Tow Dispatch Call | Nolan Wells Case</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" sizes="180x180" href="../../../icons/icon-180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../../../icons/icon-32.png">
 <link rel="icon" type="image/x-icon" href="../../../icons/favicon.ico">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  background:#060B14;
-  color:#D8DADB;
-  font-family:'Inter',-apple-system,sans-serif;
-  font-size:13px;
-  -webkit-font-smoothing:antialiased;
-  padding:1.25rem 1.5rem 3rem;
-  max-width:860px;
-  margin:0 auto;
+*,*::before,*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.header{
-  margin-bottom:1.25rem;
-  padding-bottom:0.875rem;
-  border-bottom:1px solid rgba(244,229,196,0.10);
+html,body {
+  height: 100%;
 }
-h1{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.6rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:rgba(235,226,205,0.55);
-  margin-bottom:0.5rem;
+body {
+  background: #060B14;
+  color: #D8DADB;
+  font-family: 'Inter',-apple-system,sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  padding: 1.25rem 1.5rem 3rem;
+  max-width: 860px;
+  margin: 0 auto;
 }
-.meta{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.6rem;
-  letter-spacing:0.06em;
-  color:rgba(216,218,219,0.3);
-  margin-top:0.35rem;
-  line-height:1.7;
+.header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid rgba(244,229,196,0.10);
 }
-.meta b{
-  color:rgba(216,218,219,0.5);
-  font-weight:500;
+h1 {
+  font-family: 'IBM Plex Mono',monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(235,226,205,0.55);
+  margin-bottom: 0.5rem;
 }
-.line{
-  display:grid;
-  grid-template-columns:5rem 1fr;
-  gap:1rem;
-  padding:4px 0;
-  border-bottom:1px solid rgba(244,229,196,0.04);
+.meta {
+  font-family: 'IBM Plex Mono',monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: rgba(216,218,219,0.5);
+  margin-top: 0.35rem;
+  line-height: 1.7;
 }
-.line:last-child{border-bottom:none}
-.sp{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.55rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  white-space:nowrap;
-  padding-top:3px;
-  font-weight:500;
+.meta b {
+  color: rgba(216,218,219,0.5);
+  font-weight: 500;
 }
-.sp.caller  { color:#c4845a; }
-.sp.vicky   { color:#4a8a7c; }
-.sp.captain { color:#84949e; }
-.sp.system  { color:rgba(216,218,219,0.25); font-style:italic; }
-.txt{
-  font-size:0.8125rem;
-  line-height:1.65;
-  color:#D8DADB;
+.line {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1rem;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(244,229,196,0.04);
 }
-.divider{
-  display:flex;
-  align-items:center;
-  gap:0.75rem;
-  margin:1rem 0 0.5rem;
-  grid-column:1/-1;
+.line:last-child {
+  border-bottom: none;
 }
-.divider-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.55rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:rgba(216,218,219,0.28);
-  white-space:nowrap;
+.sp {
+  font-family: 'IBM Plex Mono',monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 3px;
+  font-weight: 500;
 }
-.divider-rule{
-  flex:1;
-  border:none;
-  border-top:1px solid rgba(244,229,196,0.07);
+.sp.caller { 
+  color:#c4845a; 
 }
-.key{
-  display:flex;
-  gap:1.5rem;
-  margin-bottom:0.75rem;
-  flex-wrap:wrap;
+.sp.vicky { 
+  color:#4a8a7c; 
 }
-.key-item{
-  display:flex;
-  align-items:center;
-  gap:0.4rem;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.55rem;
-  letter-spacing:0.07em;
-  text-transform:uppercase;
-  color:rgba(216,218,219,0.40);
+.sp.captain { 
+  color:#84949e; 
 }
-.key-dot{
-  width:6px;height:6px;border-radius:50%;flex-shrink:0;
+.sp.system { 
+  color: rgba(216,218,219,0.25); 
+  font-style: italic; 
 }
-.key-dot.caller  { background:#c4845a; }
-.key-dot.vicky   { background:#4a8a7c; }
-.key-dot.captain { background:#84949e; }
+.txt {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: #D8DADB;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0 0.5rem;
+  grid-column: 1/-1;
+}
+.divider-label {
+  font-family: 'IBM Plex Mono',monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(216,218,219,0.28);
+  white-space: nowrap;
+}
+.divider-rule {
+  flex: 1;
+  border: none;
+  border-top: 1px solid rgba(244,229,196,0.07);
+}
+.key {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.key-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'IBM Plex Mono',monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(216,218,219,0.40);
+}
+.key-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.key-dot.caller { 
+  background: #c4845a; 
+}
+.key-dot.vicky { 
+  background: #4a8a7c; 
+}
+.key-dot.captain { 
+  background: #84949e; 
+  }
 </style>
 </head>
 <body>
