@@ -480,12 +480,18 @@
         gap: 16px;
       }
     }
-    /* Boat reference panel */
-    #boat-ref-btn {
+    /* Top button bar */
+    #top-btns {
       position: fixed;
       top: 16px;
       right: 16px;
       z-index: 500;
+      display: flex;
+      gap: 8px;
+      pointer-events: auto;
+    }
+    /* Boat reference panel */
+    #boat-ref-btn, #tx-ref-btn {
       display: flex;
       align-items: center;
       gap: 6px;
@@ -504,12 +510,12 @@
       transition: border-color 0.18s, color 0.18s;
       pointer-events: auto;
     }
-    #boat-ref-btn:hover,
-    #boat-ref-btn.active {
+    #boat-ref-btn:hover, #boat-ref-btn.active,
+    #tx-ref-btn:hover,   #tx-ref-btn.active {
       border-color: rgba(74,138,124,0.45);
       color: #70d5b7;
     }
-    #boat-ref-btn svg {
+    #boat-ref-btn svg, #tx-ref-btn svg {
       width: 13px;
       height: 13px;
       flex-shrink: 0;
@@ -532,11 +538,75 @@
       transform: translateY(-6px);
       transition: opacity 0.18s, transform 0.18s;
     }
-    #boat-ref-panel.open {
+    #boat-ref-panel.open, #tx-ref-panel.open {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
     }
+    #tx-ref-panel {
+      position: fixed;
+      top: 50px;
+      right: 16px;
+      z-index: 500;
+      width: 296px;
+      max-height: calc(100vh - 74px);
+      overflow-y: auto;
+      background: rgba(6,11,20,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .trp-section {
+      padding: 10px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .trp-section:last-child { border-bottom: none; }
+    .trp-who {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 7px;
+    }
+    .trp-links {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .trp-link {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .trp-link:hover { color: #70d5b7; }
+    .trp-link-label { color: var(--teal); font-weight: 500; }
+    .trp-link-meta {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: .04em;
+    }
+    #boat-ref-close, #tx-ref-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    #boat-ref-close:hover, #tx-ref-close:hover { color: var(--text); }
     .brp-header {
       display: flex;
       align-items: center;
@@ -550,19 +620,6 @@
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--text-muted);
-    }
-    #boat-ref-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 13px;
-      padding: 0;
-      line-height: 1;
-      transition: color 0.15s;
-    }
-    #boat-ref-close:hover { 
-      color: var(--text); 
     }
     .brp-boat {
       padding: 10px 13px;
@@ -620,8 +677,8 @@
       line-height: 1.5;
     }
     @media (max-width: 480px) {
-      #boat-ref-panel { 
-        width: calc(100vw - 32px); 
+      #boat-ref-panel, #tx-ref-panel {
+        width: calc(100vw - 32px);
       }
     }
     @media (max-width: 480px) {
@@ -661,15 +718,72 @@
 
 <div id="map"></div>
 
-<button id="boat-ref-btn" title="Boats &amp; Passengers">
-  <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-    <path d="M3 9.5 4.2 6h7.6L13 9.5H3z"/>
-    <path d="M8 1.5v4.5"/>
-    <path d="M8 6l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-    <path d="M1 13.5c1-.8 2.5-.8 3.5 0s2.5.8 3.5 0 2.5-.8 3.5 0 2.5.8 3.5 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-  </svg>
-  Boats
-</button>
+<div id="top-btns">
+  <button id="tx-ref-btn" title="Transcripts">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2.5" y="1.5" width="11" height="13" rx="1.2" fill="none"/>
+      <line x1="5" y1="5" x2="11" y2="5"/>
+      <line x1="5" y1="7.5" x2="11" y2="7.5"/>
+      <line x1="5" y1="10" x2="9" y2="10"/>
+    </svg>
+    Transcripts
+  </button>
+  <button id="boat-ref-btn" title="Boats &amp; Passengers">
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M3 9.5 4.2 6h7.6L13 9.5H3z"/>
+      <path d="M8 1.5v4.5"/>
+      <path d="M8 6l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M1 13.5c1-.8 2.5-.8 3.5 0s2.5.8 3.5 0 2.5-.8 3.5 0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    Boats
+  </button>
+</div>
+
+<div id="tx-ref-panel">
+  <div class="brp-header">
+    <span class="brp-label">Interview Transcripts</span>
+    <button id="tx-ref-close" aria-label="Close">✕</button>
+  </div>
+  <div class="trp-section">
+    <div class="trp-who">Dispatch call &mdash; SeaTow / Coast Guard</div>
+    <div class="trp-links">
+      <a class="trp-link" href="transcripts/seatow-audio.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Seatow call</span>
+        <span class="trp-link-meta">July 4 &middot; boat distress</span>
+      </a>
+    </div>
+  </div>
+  <div class="trp-section">
+    <div class="trp-who">Warren &mdash; Nolan's best friend</div>
+    <div class="trp-links">
+      <a class="trp-link" href="transcripts/warren-part-1.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 1</span>
+        <span class="trp-link-meta">~17 min &middot; relationship &amp; the day</span>
+      </a>
+      <a class="trp-link" href="transcripts/warren-part-2.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 2</span>
+        <span class="trp-link-meta">~13 min &middot; Horn Island standup</span>
+      </a>
+      <a class="trp-link" href="transcripts/warren-part-3.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 3</span>
+        <span class="trp-link-meta">~22 min &middot; Q&amp;A continued</span>
+      </a>
+      <a class="trp-link" href="transcripts/warren-part-4.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 4</span>
+        <span class="trp-link-meta">~28 min &middot; phone, keys &amp; pointed Q&amp;A</span>
+      </a>
+    </div>
+  </div>
+  <div class="trp-section">
+    <div class="trp-who">Tracestin Shepherd &mdash; friend on the trip</div>
+    <div class="trp-links">
+      <a class="trp-link" href="transcripts/tracestin-part-5.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 5</span>
+        <span class="trp-link-meta">~45 min &middot; full Q&amp;A</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <div id="boat-ref-panel">
   <div class="brp-header">
@@ -1848,20 +1962,32 @@ document.querySelectorAll('.embed-placeholder, .img-placeholder').forEach(initPl
   });
 })();
 
-// Boat reference panel
+// Reference panels (Boats + Transcripts)
 (function() {
-  const btn   = document.getElementById('boat-ref-btn');
-  const panel = document.getElementById('boat-ref-panel');
-  const close = document.getElementById('boat-ref-close');
+  function makePanel(btnId, panelId, closeId, otherBtnId, otherPanelId) {
+    const btn   = document.getElementById(btnId);
+    const panel = document.getElementById(panelId);
+    const close = document.getElementById(closeId);
+    const oBtn  = document.getElementById(otherBtnId);
+    const oPan  = document.getElementById(otherPanelId);
 
-  function open()  { panel.classList.add('open');    btn.classList.add('active'); }
-  function shut()  { panel.classList.remove('open'); btn.classList.remove('active'); }
+    function open() {
+      oPan.classList.remove('open'); oBtn.classList.remove('active');
+      panel.classList.add('open');   btn.classList.add('active');
+    }
+    function shut() {
+      panel.classList.remove('open'); btn.classList.remove('active');
+    }
 
-  btn.addEventListener('click', e => { e.stopPropagation(); panel.classList.contains('open') ? shut() : open(); });
-  close.addEventListener('click', shut);
-  document.addEventListener('click', e => {
-    if (!panel.contains(e.target) && e.target !== btn) shut();
-  });
+    btn.addEventListener('click', e => { e.stopPropagation(); panel.classList.contains('open') ? shut() : open(); });
+    close.addEventListener('click', shut);
+    document.addEventListener('click', e => {
+      if (!panel.contains(e.target) && e.target !== btn) shut();
+    });
+  }
+
+  makePanel('boat-ref-btn', 'boat-ref-panel', 'boat-ref-close', 'tx-ref-btn', 'tx-ref-panel');
+  makePanel('tx-ref-btn',   'tx-ref-panel',   'tx-ref-close',   'boat-ref-btn', 'boat-ref-panel');
 })();
 </script>
 
