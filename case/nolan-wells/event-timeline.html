@@ -207,6 +207,7 @@
     line-height: 1.5;
     letter-spacing: .03em;
     flex-shrink: 0;
+    white-space: nowrap;
   }
   .et.ap {
     font-style: italic;
@@ -268,6 +269,11 @@
     background: rgba(210,160,60,0.15);
     color: #d4a05c;
     border: 1px solid rgba(210,160,60,0.3);
+  }
+  .person.christine {
+    background: rgba(140,100,180,0.15);
+    color: #b89ad8;
+    border: 1px solid rgba(140,100,180,0.3);
   }
   .ev.flag {
     background: rgba(192,78,1,0.04);
@@ -403,11 +409,13 @@
       font-size: 11px;
     }
     .ev {
-      grid-template-columns: 72px 1fr;
-      gap: 0 10px;
+      grid-template-columns: 1fr;
+      gap: 2px 0;
     }
     .et {
       font-size: 11px;
+      text-align: left;
+      white-space: nowrap;
     }
     .eb {
       font-size: 14px;
@@ -657,7 +665,7 @@
     <div class="ev flag">
       <div class="et">~11:00 PM</div>
       <div class="eb">
-        <span class="person warren">Warren</span> calls <b>Christine Wonsley</b> (Nolan's mother). First call she receives that night about <span class="person nolan">Nolan</span> being missing. <span class="person warren">Warren</span>: "Don't freak out. I'm going to call the Coast Guard."
+        <span class="person warren">Warren</span> calls <span class="person christine">Christine Wonsley</span>, Nolan's mother. First call she receives that night about <span class="person nolan">Nolan</span> being missing. <span class="person warren">Warren</span>: "Don't freak out. I'm going to call the Coast Guard."
       </div>
     </div>
   </div>
@@ -676,7 +684,7 @@
     <div class="ev">
       <div class="et">12:00 AM</div>
       <div class="eb">
-        <b>Christine Wonsley</b> and <b>Elmore Wonsley</b> (Nolan's parents) meet a <b>DMR officer</b> at a McDonald's parking lot to officially file a missing person report. Coast Guard is also contacted.
+        <span class="person christine">Christine Wonsley</span> and <b>Elmore Wonsley</b> (Nolan's parents) meet a <b>DMR officer</b> at a McDonald's parking lot to officially file a missing person report. Coast Guard is also contacted.
       </div>
     </div>
     <div class="ev">
@@ -881,8 +889,12 @@
           <li><b>Key finding:</b> 12-by-8-inch area of red discoloration in soft tissue on back of head</li>
           <li><b>Missing:</b> Throat not received; organs removed (noted as routine for testing)</li>
           <li><b>Unable to rule out:</b> Neck injury, intracranial hemorrhage, water in airway</li>
+          <li><b>Toxicology:</b> Original results not received at time of report</li>
+          <li><b>Official autopsy:</b> State Medical Examiner's report still pending (per Coroner Bruce Lynd Jr.); will be withheld until grand jury review</li>
         </ul>
-        <div class="detail"><strong>Outstanding questions:</strong> Circumstances of entering water? Body position when found? Water in airway? Evidence of neck injuries? Stomach contents? Toxicology results?</div>
+        <div class="callout"><b>Crump:</b> "With suspicion of drowning, it is important to confirm how that person entered the water... At the time of this report, this forensic pathologist does not know the condition of Nolan Wells. He did not know whether he was conscious or unconscious when he entered the water — he said that would be significant. He did not know whether he was forced into the water or unforced — he said that would be significant. The condition of Nolan Wells before he entered the water would be the crux of the matter."</div>
+        <div class="callout"><b>Christine Wonsley:</b> "Losing a child, it truly breaks your heart. It is a pain that is, just, you can't measure it. Especially someone like Nolan, who brought so much joy and light and life to everyone. The only question we have is, what happened to our son?"</div>
+        <div class="detail"><strong>Outstanding questions:</strong> Circumstances of entering water? Was Nolan conscious? Forced or unforced entry? Water in airway? Evidence of neck injuries? Stomach contents? Toxicology results?</div>
       </div>
     </div>
   </div>
