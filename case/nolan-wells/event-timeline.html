@@ -27,26 +27,29 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
 <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
 <link rel="manifest" href="../../icons/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- Styles -->
 <style>
   :root {
-    --bg:           #080c12;
-    --surface:      #111820;
+    --bg:           #060B14;
+    --surface:      #0e1620;
     --text:         #ddd8cc;
     --text-muted:   #9fa1a4;
     --text-dim:     #a6abb1;
-    --accent:       #d28959;
-    --accent-soft:  rgba(192,78,1,0.1);
+    --accent:       #c4845a;
+    --accent-soft:  rgba(180,110,70,0.1);
     --teal:         #4a8a7c;
     --teal-soft:    rgba(74,138,124,0.1);
     --gold:         #b88800;
     --gold-soft:    rgba(184,136,0,0.08);
-    --red:          #d28959;
-    --border:       rgba(210, 137, 89, 0.06);
-    --rule:         rgba(210, 137, 89, 0.05);
+    --red:          #c4845a;
+    --border:       rgba(255,255,255,0.05);
+    --rule:         rgba(255,255,255,0.06);
     --ts:           #84949e;
-    --mono:         "Courier New", monospace;
-    --sans:         system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:         'IBM Plex Mono', monospace;
+    --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   @media(prefers-color-scheme:light) {
     :root {
@@ -337,9 +340,6 @@
   }
   .ev.flag {
     background: rgba(192,78,1,0.04);
-    border-left: 2px solid rgba(192,78,1,0.35);
-    padding-left: 10px;
-    margin-left: -12px;
   }
   .location {
     display: inline-block;
@@ -380,33 +380,23 @@
     color: #7d8fa8; 
     border: 1px solid rgba(105,120,148,0.3);
   }
-  /* Details box */
-  .detail {
-    margin:10px 0;
-    padding:9px 12px;
-    border-left:2px solid var(--teal);
-    background:var(--teal-soft);
-    font-size:13px;
-    border-radius:0 3px 3px 0;
-  }
-  .detail strong {
-    color:var(--teal);
-  }
-  .callout {
+  /* Block elements inside event bodies */
+  .detail, .callout, .quote {
     margin: 10px 0;
     padding: 9px 12px;
-    border-left: 2px solid var(--accent);
-    background: var(--accent-soft);
+    background: var(--surface);
+    border-radius: 3px;
     font-size: 13px;
-    border-radius :0 3px 3px 0;
+    line-height: 1.65;
+  }
+  .detail strong {
+    color: var(--teal);
+  }
+  .callout {
     font-style: italic;
+    color: var(--text-muted);
   }
   .quote {
-    margin: 10px 0;
-    padding: 10px 14px;
-    border-left: 3px solid var(--text-muted);
-    font-size: 13px;
-    line-height: 1.7;
     font-style: italic;
     color: var(--text-muted);
   }
@@ -437,13 +427,17 @@
     text-transform: uppercase;
     letter-spacing: .03em;
   }
-  .ev ol,.ev ul {
-    margin: 8px 0 0 20px;
-    line-height: 1.8;
+  .ev ol, .ev ul {
+    margin: 8px 0 0 16px;
+    line-height: 1.75;
     font-size: 13px;
+    color: var(--text-muted);
   }
-  .ev ol li,.ev ul li {
-    padding: 2px 0;
+  .ev ol li, .ev ul li {
+    padding: 3px 0;
+  }
+  .ev ul li::marker {
+    color: var(--ts);
   }
   .person-list {
     margin: 8px 0;
@@ -453,17 +447,16 @@
   }
   .boat-summary {
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 11px 13px;
+    border-radius: 3px;
+    padding: 9px 12px;
     margin: 9px 0;
-    font-size: 12.5px;
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.65;
   }
-  .boat-summary strong{
+  .boat-summary strong {
     display: block;
     color: var(--teal);
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     font-family: var(--mono);
     font-size: 10px;
     text-transform: uppercase;
