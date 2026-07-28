@@ -1589,7 +1589,8 @@ const locations = {
   palmBeachReturn: {
     lat: 30.433458, lng: -88.848619,
     name: 'Palm Beach return to El Camino Real Rd. @ 5:44 PM',
-    color: '#8fa5d8', zoom: 13
+    color: '#8fa5d8', zoom: 12,
+    iconSize: [400, 26], labelOffset: [200, 13]
   },
   tritonEastMarker: {
     lat: 30.425525, lng: -88.848525,
@@ -1604,7 +1605,8 @@ const locations = {
   fortBayou: {
     lat: 30.419464, lng: -88.827825,
     name: 'Triton arrives at Ft. Bayou boat launch @ 7:19 PM',
-    color: '#4a8a7c', zoom: 14
+    color: '#4a8a7c', zoom: 14,
+    iconSize: [400, 26], labelOffset: [200, 13]
   },
   tritonCardinalLn: {
     lat: 30.42513, lng: -89.136214,
@@ -1654,7 +1656,7 @@ const locations = {
   },
   washingtonDC: {
     lat: 38.883664, lng: -77.018392,
-    name: '<span class="pill pill-dc">Washington, D.C.</span> Medical Examiner',
+    name: 'Washington, D.C. Medical Examiner',
     color: '#8fa5d8', zoom: 12
   },
   naacpConference: {
@@ -1690,11 +1692,12 @@ Object.entries(locations).forEach(([key, loc]) => {
   }).addTo(map);
 
   const labelOffset = loc.labelOffset || [70, -12];
+  const labelSize = loc.iconSize || [140, 24];
   const label = L.marker([loc.lat, loc.lng], {
     icon: L.divIcon({
       className: 'map-label',
       html: `<div>${loc.name}</div>`,
-      iconSize: [140, 24],
+      iconSize: labelSize,
       iconAnchor: labelOffset
     })
   }).addTo(map);
