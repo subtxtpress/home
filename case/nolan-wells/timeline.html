@@ -1583,7 +1583,7 @@ map.getPane('markersPane').style.zIndex = 450;
 // Location data keyed to geojson markers
 const locations = {
   bodyFound: {
-    lat: 30.240811, lng: -88.779171,
+    lat: 30.242014, lng: -88.778409,
     name: 'Body found @ 8:40 AM',
     color: '#c04e01', zoom: 14
   },
@@ -1673,7 +1673,7 @@ const locations = {
     color: '#e8956a', zoom: 15
   },
   privateSearch: {
-    lat: 30.252738, lng: -88.716695,
+    lat: 30.25242, lng: -88.717975,
     name: 'Private search @ 6:00 AM',
     color: '#4a8a7c', zoom: 12
   },
@@ -1714,8 +1714,8 @@ const locations = {
     color: '#e8956a', zoom: 14
   },
   coastGuard: {
-    lat: 30.363558, lng: -89.091072,
-    name: 'U.S. Coast Guard',
+    lat: 30.363558, lng: -89.091075,
+    name: 'Coast Guard @ 11:00 PM',
     color: '#8fa5d8', zoom: 11
   }
 };
@@ -1810,6 +1810,20 @@ const gpsRouteData = [
     weight: 2.5,
     coords: [[-88.827825, 30.419464], [-88.827837, 30.419659], [-88.827897, 30.420032], [-88.828001, 30.420425]]
   },
+  // Step 2: Palm Beach Fort Bayou launch → El Camino Real Rd @ 9:45 AM — yellow
+  {
+    key: 'r_fortBayouToElCamino',
+    color: '#c8b83a',
+    weight: 2.5,
+    coords: [[-88.828001, 30.420425], [-88.827894, 30.420031], [-88.827852, 30.419749], [-88.827832, 30.41962], [-88.827825, 30.419464], [-88.831838, 30.41917], [-88.842635, 30.422188], [-88.843586, 30.422957], [-88.849927, 30.431627], [-88.848434, 30.433353]]
+  },
+  // Step 16: Palm Beach returns to Ft. Bayou boat launch — blue-gray
+  {
+    key: 'r_palmBeachFtBayou',
+    color: '#8fa5d8',
+    weight: 2.5,
+    coords: [[-88.777144, 30.243663], [-88.813717, 30.363796], [-88.854821, 30.423525], [-88.8546, 30.425431], [-88.852353, 30.426129], [-88.848458, 30.425669], [-88.842678, 30.422105], [-88.831831, 30.419136], [-88.827854, 30.419485], [-88.828001, 30.420425]]
+  },
   // Step 17: Triton trailered to Canal Rd @ 7:47 PM — light teal
   {
     key: 'r8_trailerToCanal',
@@ -1876,12 +1890,12 @@ function showMultiple(keys, lat, lng, zoom) {
   });
 }
 
-// Step animations — indexed by DOM NodeList order (steps 13 & 17 are commented out so indices shift)
+// Step animations — indexed by DOM NodeList order
 const animations = {
   0:  () => { showLocation('bodyFound');                                                                                            showRoutes([]); },
-  1:  () => { showLocation('warrensHome');                                                                                          showRoutes([]); },
-  2:  () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
-  3:  () => { showMultiple([], 30.345, -88.820, 10);                                                                              showRoutes(['r0_tritonDepart', 'r1_tideLaneDepart', 'r2_palmBeachDepart']); },
+  1:  () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  2:  () => { showMultiple([], 30.427, -88.838, 14);                                                                               showRoutes(['r_fortBayouToElCamino']); },
+  3:  () => { showMultiple([], 30.345, -88.820, 10);                                                                               showRoutes(['r0_tritonDepart', 'r1_tideLaneDepart', 'r2_palmBeachDepart']); },
   4:  () => { showMultiple(['tritonArrival', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7780, 13);                         showRoutes([]); },
   5:  () => { showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7610, 12);                          showRoutes([]); },
   6:  () => { showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7610, 12);                          showRoutes([]); },
@@ -1892,15 +1906,15 @@ const animations = {
   11: () => { showLocation('tritonDistress');                                                                                       showRoutes(['r3_tritonDistress']); },
   12: () => { showLocation('palmBeachReturn');                                                                                      showRoutes(['r4_palmBeachReturn']); },
   13: () => { showLocation('tritonEastMarker');                                                                                     showRoutes(['r6_tritonEastFtBayou']); },
-  14: () => { showMultiple(['tidelineIsland', 'hornIsland'], 30.2430, -88.7770, 14);                                              showRoutes([]); },
+  14: () => { showMultiple(['tidelineIsland', 'hornIsland'], 30.2430, -88.7770, 14);                                               showRoutes([]); },
   15: () => { showLocation('tritonUnderway');                                                                                       showRoutes(['r7_tritonUnderway']); },
-  16: () => { showLocation('fortBayou');                                                                                            showRoutes(['r7b_ftBayouArrival']); },
+  16: () => { showLocation('fortBayou');                                                                                            showRoutes(['r7b_ftBayouArrival', 'r_palmBeachFtBayou']); },
   17: () => { showLocation('tritonCardinalLn');                                                                                     showRoutes(['r8_trailerToCanal']); },
-  18: () => { showLocation('warrensHome');                                                                                          showRoutes([]); },
-  19: () => { showLocation('coastGuard');                                                                                           showRoutes([]); },
+  18: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  19: () => { showMultiple(['hornIsland', 'coastGuard'], 30.30, -88.93, 9);                                                        showRoutes([]); },
   20: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
-  21: () => { showLocation('warrensHome');                                                                                          showRoutes([]); },
-  22: () => { showLocation('warrensHome');                                                                                          showRoutes([]); },
+  21: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  22: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
   23: () => { showMultiple(['oceanSpringsPD', 'dmr'], 30.421, -88.851, 10);                                                        showRoutes([]); },
   24: () => { showLocation('mcdonalds');                                                                                            showRoutes([]); },
   25: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
@@ -1909,16 +1923,16 @@ const animations = {
   28: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
   29: () => { showLocation('jacksonSheriff');                                                                                       showRoutes([]); },
   30: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
-  31: () => { showLocation('searchEfforts');                                                                                       showRoutes([]); },
+  31: () => { showLocation('mcdonalds');                                                                                            showRoutes([]); },
   32: () => { showLocation('searchEfforts');                                                                                        showRoutes([]); },
   33: () => { showLocation('bodyFound');                                                                                            showRoutes([]); },
-  34: () => { showLocation('mcdonalds');                                                                                            showRoutes([]); },
-  35: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
+  34: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
+  35: () => { showLocation('coroner');                                                                                               showRoutes([]); },
   36: () => { showLocation('coroner');                                                                                               showRoutes([]); },
   37: () => { showLocation('coroner');                                                                                               showRoutes([]); },
-  38: () => { showLocation('coroner');                                                                                               showRoutes([]); },
-  39: () => { showLocation('washingtonDC');                                                                                         showRoutes([]); },
-  40: () => { showLocation('naacpConference');                                                                                      showRoutes([]); },
+  38: () => { showLocation('washingtonDC');                                                                                         showRoutes([]); },
+  39: () => { showLocation('naacpConference');                                                                                      showRoutes([]); },
+  40: () => { showLocation('districtAttorney');                                                                                     showRoutes([]); },
   41: () => { showLocation('districtAttorney');                                                                                     showRoutes([]); }
 };
 

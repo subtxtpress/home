@@ -3,125 +3,733 @@
     "features": [
         {
             "type": "Feature",
-            "properties": {
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                "stroke": "rgba(242, 0, 255, 1)",
-                "name": "(Step 3) Tide Lane departs @ 9:56 AM",
-                "@id": "4e408740-88a1-11f1-90a0-ad1a19eb6c4c"
-            },
             "geometry": {
-                "type": "LineString",
+                "type": "Point",
                 "coordinates": [
-                    [
-                        -88.848528,
-                        30.433399
-                    ],
-                    [
-                        -88.855409,
-                        30.425441
-                    ],
-                    [
-                        -88.855645,
-                        30.423626
-                    ],
-                    [
-                        -88.813062,
-                        30.364714
-                    ],
-                    [
-                        -88.777778,
-                        30.243656
-                    ]
+                    -88.764184,
+                    30.360766,
+                    0
                 ]
             },
+            "properties": {
+                "name": "Lake Mars Pier",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26590-8a57-11f1-850e-51f9b9219568"
+            },
             "bbox": [
-                -88.855645,
-                30.243656,
-                -88.777778,
-                30.433399
+                -88.764184,
+                30.360766,
+                -88.764184,
+                30.360766
             ]
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.529708,
+                    30.379697,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Coroner",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26591-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.529708,
+                30.379697,
+                -88.529708,
+                30.379697
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.716673,
+                    30.429279,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Church",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26592-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.716673,
+                30.429279,
+                -88.716673,
+                30.429279
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.531639,
+                    30.380207,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Fairgrounds",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26593-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.531639,
+                30.380207,
+                -88.531639,
+                30.380207
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.827825,
+                    30.419464,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Ft. Bayou @ 7:19 PM",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26595-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.827825,
+                30.419464,
+                -88.827825,
+                30.419464
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.827939,
+                    30.420506,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Ft. Bayou boat launch",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26596-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.827939,
+                30.420506,
+                -88.827939,
+                30.420506
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.828258,
+                    30.419411,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Triton underway @ 6:34 PM",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26598-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.828258,
+                30.419411,
+                -88.828258,
+                30.419411
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.558525,
+                    30.347661,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Warren's house",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db26599-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.558525,
+                30.347661,
+                -88.558525,
+                30.347661
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.620675,
+                    41.850669,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "NAACP Conference",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db2659a-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -87.620675,
+                41.850669,
+                -87.620675,
+                41.850669
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.018392,
+                    38.883664,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Washington, D.C. Medical Examiner",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db2659b-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -77.018392,
+                38.883664,
+                -77.018392,
+                38.883664
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.5589,
+                    30.3656,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "District Attorney",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db2659c-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.5589,
+                30.3656,
+                -88.5589,
+                30.3656
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.558317,
+                    30.36545,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Jackson County Sheriff's Dept.",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db2659d-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.558317,
+                30.36545,
+                -88.558317,
+                30.36545
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.765086,
+                    30.409167,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Ocean Springs Police Dept.",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db2659e-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.765086,
+                30.409167,
+                -88.765086,
+                30.409167
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.6583,
+                    30.237256,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Search Efforts",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db265a0-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.6583,
+                30.237256,
+                -88.6583,
+                30.237256
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.936117,
+                    30.433178,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Dept. of Marine Resources",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db265a1-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.936117,
+                30.433178,
+                -88.936117,
+                30.433178
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.759083,
+                    30.409531,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "McDonald's",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db265a2-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.759083,
+                30.409531,
+                -88.759083,
+                30.409531
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.848525,
+                    30.425525,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "East to Ft. Bayou @ 5:52 PM",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db265a4-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.848525,
+                30.425525,
+                -88.848525,
+                30.425525
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.091075,
+                    30.363558,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Coast Guard @ 11:00 PM",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db265a7-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -89.091075,
+                30.363558,
+                -89.091075,
+                30.363558
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.787851,
+                    30.288496,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "Triton in distress @ 4:31 PM",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [
+                    20,
+                    2
+                ],
+                "icon-offset-units": [
+                    "pixels",
+                    "pixels"
+                ],
+                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
+                "@id": "2db265ab-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.787851,
+                30.288496,
+                -88.787851,
+                30.288496
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -88.848511,
+                        30.433407
+                    ],
+                    [
+                        -88.855975,
+                        30.425265
+                    ],
+                    [
+                        -88.855986,
+                        30.423868
+                    ],
+                    [
+                        -88.814751,
+                        30.363507
+                    ],
+                    [
+                        -88.777299,
+                        30.243626
+                    ]
+                ]
+            },
+            "properties": {
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(242, 0, 255, 1)",
+                "name": "(Step 3) Tideline departs @ 9:56 AM",
+                "@id": "2234f5c0-8a57-11f1-850e-51f9b9219568"
+            },
+            "bbox": [
+                -88.855986,
+                30.243626,
+                -88.777299,
+                30.433407
+            ]
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -88.848477,
+                        30.433385
+                    ],
+                    [
+                        -88.855724,
+                        30.425257
+                    ],
+                    [
+                        -88.855724,
+                        30.423848
+                    ],
+                    [
+                        -88.814226,
+                        30.363655
+                    ],
+                    [
+                        -88.777144,
+                        30.243663
+                    ]
+                ]
+            },
             "properties": {
                 "stroke-width": 1,
                 "stroke-opacity": 1,
                 "stroke": "rgba(0, 221, 255, 1)",
                 "name": "(Step 3) Palm Beach departs @ 9:56 AM",
-                "@id": "e120f5c0-889e-11f1-90a0-ad1a19eb6c4c"
-            },
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [
-                    [
-                        -88.848626,
-                        30.43345
-                    ],
-                    [
-                        -88.85578,
-                        30.425444
-                    ],
-                    [
-                        -88.856027,
-                        30.423659
-                    ],
-                    [
-                        -88.813885,
-                        30.364369
-                    ],
-                    [
-                        -88.777911,
-                        30.243588
-                    ]
-                ]
+                "@id": "2234f5c1-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
-                -88.856027,
-                30.243588,
-                -88.777911,
-                30.43345
+                -88.855724,
+                30.243663,
+                -88.777144,
+                30.433385
             ]
         },
         {
             "type": "Feature",
-            "properties": {
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                "stroke": "rgba(1, 255, 187, 1)",
-                "name": "(Step 12) Palm Beach return @ 5:44 PM",
-                "@id": "a22b5850-87eb-11f1-90a0-ad1a19eb6c4c"
-            },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
                     [
-                        -88.848703,
-                        30.433494
+                        -88.848551,
+                        30.433433
                     ],
                     [
-                        -88.856156,
-                        30.425483
+                        -88.85622,
+                        30.425281
                     ],
                     [
-                        -88.856396,
-                        30.423687
+                        -88.856277,
+                        30.423852
                     ],
                     [
-                        -88.814688,
-                        30.364043
+                        -88.815258,
+                        30.363314
                     ],
                     [
-                        -88.777911,
-                        30.243588
+                        -88.777299,
+                        30.243626
                     ]
                 ]
             },
+            "properties": {
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(1, 255, 187, 1)",
+                "name": "(Step 12) Tideline return @ 5:44 PM",
+                "@id": "2234f5c2-8a57-11f1-850e-51f9b9219568"
+            },
             "bbox": [
-                -88.856396,
-                30.243588,
-                -88.777911,
-                30.433494
+                -88.856277,
+                30.243626,
+                -88.777299,
+                30.433433
             ]
         },
         {
@@ -149,7 +757,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-symbol": "marker",
                 "marker-size": "medium",
-                "@id": "9cc03d10-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5c3-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.764184,
@@ -183,7 +791,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d11-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5c4-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.529708,
@@ -217,7 +825,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "religious-christian",
-                "@id": "9cc03d12-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5c5-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.716673,
@@ -251,7 +859,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d13-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5c6-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.531639,
@@ -265,133 +873,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -88.790443,
-                    30.288446,
-                    0
-                ]
-            },
-            "properties": {
-                "name": "(Step 11) Triton in distress @ 4:31 PM",
-                "styleUrl": "#m_ylw-pushpin",
-                "icon-scale": 1.1,
-                "icon-offset": [
-                    20,
-                    2
-                ],
-                "icon-offset-units": [
-                    "pixels",
-                    "pixels"
-                ],
-                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d14-87e9-11f1-90a0-ad1a19eb6c4c"
-            },
-            "bbox": [
-                -88.790443,
-                30.288446,
-                -88.790443,
-                30.288446
-            ]
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -88.777619,
-                    30.243717
-                ]
-            },
-            "properties": {
-                "name": "(Step 4) Triton arrival @ 11:14 AM",
-                "styleUrl": "#m_ylw-pushpin",
-                "icon-scale": 1.1,
-                "icon-offset": [
-                    20,
-                    2
-                ],
-                "icon-offset-units": [
-                    "pixels",
-                    "pixels"
-                ],
-                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d15-87e9-11f1-90a0-ad1a19eb6c4c"
-            },
-            "bbox": [
-                -88.777619,
-                30.243717,
-                -88.777619,
-                30.243717
-            ]
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -88.777911,
-                    30.243588
-                ]
-            },
-            "properties": {
-                "name": "Palm Beach",
-                "styleUrl": "#m_ylw-pushpin",
-                "icon-scale": 1.1,
-                "icon-offset": [
-                    20,
-                    2
-                ],
-                "icon-offset-units": [
-                    "pixels",
-                    "pixels"
-                ],
-                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d16-87e9-11f1-90a0-ad1a19eb6c4c"
-            },
-            "bbox": [
-                -88.777911,
-                30.243588,
-                -88.777911,
-                30.243588
-            ]
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -88.777778,
-                    30.243656
-                ]
-            },
-            "properties": {
-                "name": "Tide Lane",
-                "styleUrl": "#m_ylw-pushpin",
-                "icon-scale": 1.1,
-                "icon-offset": [
-                    20,
-                    2
-                ],
-                "icon-offset-units": [
-                    "pixels",
-                    "pixels"
-                ],
-                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d17-87e9-11f1-90a0-ad1a19eb6c4c"
-            },
-            "bbox": [
-                -88.777778,
-                30.243656,
-                -88.777778,
-                30.243656
-            ]
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -88.779171,
-                    30.240811
+                    -88.778409,
+                    30.242014
                 ]
             },
             "properties": {
@@ -407,13 +890,15 @@
                     "pixels"
                 ],
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d18-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5cb-8a57-11f1-850e-51f9b9219568",
+                "marker-size": "medium",
+                "marker-symbol": "marker"
             },
             "bbox": [
-                -88.779171,
-                30.240811,
-                -88.779171,
-                30.240811
+                -88.778409,
+                30.242014,
+                -88.778409,
+                30.242014
             ]
         },
         {
@@ -439,7 +924,7 @@
                     "pixels"
                 ],
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d19-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5cc-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.827825,
@@ -470,7 +955,7 @@
                     "pixels"
                 ],
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d1a-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5cd-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.828001,
@@ -502,7 +987,7 @@
                     "pixels"
                 ],
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d1c-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5ce-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.828258,
@@ -536,7 +1021,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "home",
-                "@id": "9cc03d1d-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5cf-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.558525,
@@ -568,7 +1053,7 @@
                     "pixels"
                 ],
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d1e-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d0-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -87.620675,
@@ -600,7 +1085,7 @@
                     "pixels"
                 ],
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d1f-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d1-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -77.018392,
@@ -634,7 +1119,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d20-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d2-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.5589,
@@ -668,7 +1153,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d21-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d3-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.558317,
@@ -702,7 +1187,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d22-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d4-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.765086,
@@ -735,7 +1220,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d23-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d5-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.776574,
@@ -769,7 +1254,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "airport",
-                "@id": "9cc03d24-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d6-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.6583,
@@ -803,7 +1288,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d25-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d7-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.936117,
@@ -837,7 +1322,7 @@
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
                 "marker-size": "medium",
                 "marker-symbol": "marker",
-                "@id": "9cc03d26-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d8-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.759083,
@@ -869,7 +1354,7 @@
                     "pixels"
                 ],
                 "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d27-87e9-11f1-90a0-ad1a19eb6c4c"
+                "@id": "2234f5d9-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -88.848525,
@@ -881,154 +1366,85 @@
         {
             "type": "Feature",
             "geometry": {
-                "type": "Point",
+                "type": "LineString",
                 "coordinates": [
-                    -88.848528,
-                    30.433399
+                    [
+                        -88.848584,
+                        30.433459
+                    ],
+                    [
+                        -88.856476,
+                        30.425283
+                    ],
+                    [
+                        -88.856539,
+                        30.423847
+                    ],
+                    [
+                        -88.815757,
+                        30.363158
+                    ],
+                    [
+                        -88.777485,
+                        30.243558
+                    ]
                 ]
             },
-            "properties": {
-                "name": "(Step 3) Tide Lane departs @ 9:56 AM",
-                "styleUrl": "#m_ylw-pushpin",
-                "icon-scale": 1.1,
-                "icon-offset": [
-                    20,
-                    2
-                ],
-                "icon-offset-units": [
-                    "pixels",
-                    "pixels"
-                ],
-                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d28-87e9-11f1-90a0-ad1a19eb6c4c"
-            },
-            "bbox": [
-                -88.848528,
-                30.433399,
-                -88.848528,
-                30.433399
-            ]
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -88.848699,
-                    30.433494
-                ]
-            },
-            "properties": {
-                "name": "(Step 10) Palm Beach return @ 5:44 PM",
-                "styleUrl": "#m_ylw-pushpin",
-                "icon-scale": 1.1,
-                "icon-offset": [
-                    20,
-                    2
-                ],
-                "icon-offset-units": [
-                    "pixels",
-                    "pixels"
-                ],
-                "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png",
-                "@id": "9cc03d29-87e9-11f1-90a0-ad1a19eb6c4c"
-            },
-            "bbox": [
-                -88.848699,
-                30.433494,
-                -88.848699,
-                30.433494
-            ]
-        },
-        {
-            "type": "Feature",
             "properties": {
                 "stroke-width": 1,
                 "stroke-opacity": 1,
                 "stroke": "rgba(255, 174, 0, 1)",
                 "name": "(Step 3) Triton departs @ 9:56 AM",
-                "@id": "b5d263f0-87e9-11f1-90a0-ad1a19eb6c4c"
-            },
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [
-                    [
-                        -88.848426,
-                        30.433343
-                    ],
-                    [
-                        -88.855038,
-                        30.425419
-                    ],
-                    [
-                        -88.855257,
-                        30.423535
-                    ],
-                    [
-                        -88.812259,
-                        30.365008
-                    ],
-                    [
-                        -88.777619,
-                        30.243717
-                    ]
-                ]
+                "@id": "2234f5dc-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
-                -88.855257,
-                30.243717,
-                -88.777619,
-                30.433343
+                -88.856539,
+                30.243558,
+                -88.777485,
+                30.433459
             ]
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -88.777485,
+                        30.243558
+                    ],
+                    [
+                        -88.78785,
+                        30.288493
+                    ]
+                ]
+            },
             "properties": {
                 "stroke-width": 1,
                 "stroke-opacity": 1,
                 "name": "(Step 11) Triton in distress @ 4:31 PM",
                 "stroke": "rgba(235, 255, 0, 1)",
-                "@id": "42a17d60-87eb-11f1-90a0-ad1a19eb6c4c"
-            },
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [
-                    [
-                        -88.777619,
-                        30.243717
-                    ],
-                    [
-                        -88.790442,
-                        30.288446
-                    ]
-                ]
+                "@id": "2234f5dd-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
-                -88.790442,
-                30.243717,
-                -88.777619,
-                30.288446
+                -88.78785,
+                30.243558,
+                -88.777485,
+                30.288493
             ]
         },
         {
             "type": "Feature",
-            "properties": {
-                "name": "(Step 13) Triton turns east @ 5:52 PM",
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                "stroke": "#7ffe00",
-                "@id": "4b19a700-87ec-11f1-90a0-ad1a19eb6c4c"
-            },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
                     [
-                        -88.790443,
-                        30.288446
+                        -88.787857,
+                        30.288499
                     ],
                     [
-                        -88.811457,
-                        30.365268
+                        -88.813271,
+                        30.363942
                     ],
                     [
                         -88.854646,
@@ -1052,22 +1468,22 @@
                     ]
                 ]
             },
+            "properties": {
+                "name": "(Step 13) Triton turns east @ 5:52 PM",
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(255, 0, 237, 1)",
+                "@id": "2234f5de-8a57-11f1-850e-51f9b9219568"
+            },
             "bbox": [
                 -88.854646,
-                30.288446,
-                -88.790443,
+                30.288499,
+                -88.787857,
                 30.42599
             ]
         },
         {
             "type": "Feature",
-            "properties": {
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                "stroke": "rgba(127, 254, 0, 1)",
-                "name": "(Step 15) Triton underway @ 6:34 PM",
-                "@id": "a8512d80-87ec-11f1-90a0-ad1a19eb6c4c"
-            },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
@@ -1089,6 +1505,13 @@
                     ]
                 ]
             },
+            "properties": {
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(127, 254, 0, 1)",
+                "name": "(Step 15) Triton underway @ 6:34 PM",
+                "@id": "2234f5df-8a57-11f1-850e-51f9b9219568"
+            },
             "bbox": [
                 -88.848525,
                 30.419098,
@@ -1098,13 +1521,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                "name": "(Step 16) Triton arrives at Ft. Bayou boat launch @ 7:19 PM",
-                "stroke": "#7ffe00",
-                "@id": "e6a746f0-87ec-11f1-90a0-ad1a19eb6c4c"
-            },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
@@ -1118,6 +1534,13 @@
                     ]
                 ]
             },
+            "properties": {
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "name": "(Step 16) Triton arrives at Ft. Bayou boat launch @ 7:19 PM",
+                "stroke": "#7ffe00",
+                "@id": "2234f5e0-8a57-11f1-850e-51f9b9219568"
+            },
             "bbox": [
                 -88.828258,
                 30.419411,
@@ -1127,16 +1550,16 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "name": "(Step 17) Triton trailered to Biloxi @ 7:47 PM",
-                "@id": "91b4f6f0-8860-11f1-90a0-ad1a19eb6c4c"
-            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -89.136214,
                     30.42513
                 ]
+            },
+            "properties": {
+                "name": "(Step 17) Triton trailered to Biloxi @ 7:47 PM",
+                "@id": "2234f5e1-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
                 -89.136214,
@@ -1147,13 +1570,6 @@
         },
         {
             "type": "Feature",
-            "properties": {
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                "stroke": "rgba(0, 201, 255, 1)",
-                "name": "(Step 17) Triton trailered to Biloxi @ 7:47 PM",
-                "@id": "d7f176c0-8860-11f1-90a0-ad1a19eb6c4c"
-            },
             "geometry": {
                 "type": "LineString",
                 "coordinates": [
@@ -1703,6 +2119,13 @@
                     ]
                 ]
             },
+            "properties": {
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(0, 201, 255, 1)",
+                "name": "(Step 17) Triton trailered to Biloxi @ 7:47 PM",
+                "@id": "2234f5e2-8a57-11f1-850e-51f9b9219568"
+            },
             "bbox": [
                 -89.136214,
                 30.420425,
@@ -1712,64 +2135,146 @@
         },
         {
             "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.717975,
+                    30.25242
+                ]
+            },
             "properties": {
                 "marker-size": "medium",
                 "marker-symbol": "racetrack-boat",
                 "name": "(Step 26) Private search @ 6:00 AM",
-                "@id": "e48ffb10-886d-11f1-90a0-ad1a19eb6c4c"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -88.716695,
-                    30.252738
-                ]
+                "@id": "2234f5e3-8a57-11f1-850e-51f9b9219568"
             },
             "bbox": [
-                -88.716695,
-                30.252738,
-                -88.716695,
-                30.252738
+                -88.717975,
+                30.25242,
+                -88.717975,
+                30.25242
             ]
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "(Step 3) Triton departs @ 9:56 AM",
-                "@id": "c61780d0-88a0-11f1-90a0-ad1a19eb6c4c"
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(251, 255, 0, 1)",
+                "name": "(Step 2) Fort Bayou to El Camino @ 9:45 AM",
+                "@id": "44a83c20-8a57-11f1-850e-51f9b9219568"
             },
             "geometry": {
-                "type": "Point",
+                "type": "LineString",
                 "coordinates": [
-                    -88.848426,
-                    30.433343
+                    [
+                        -88.828001,
+                        30.420425
+                    ],
+                    [
+                        -88.827894,
+                        30.420031
+                    ],
+                    [
+                        -88.827852,
+                        30.419749
+                    ],
+                    [
+                        -88.827832,
+                        30.41962
+                    ],
+                    [
+                        -88.827825,
+                        30.419464
+                    ],
+                    [
+                        -88.831838,
+                        30.41917
+                    ],
+                    [
+                        -88.842635,
+                        30.422188
+                    ],
+                    [
+                        -88.843586,
+                        30.422957
+                    ],
+                    [
+                        -88.849927,
+                        30.431627
+                    ],
+                    [
+                        -88.848434,
+                        30.433353
+                    ]
                 ]
             },
             "bbox": [
-                -88.848426,
-                30.433343,
-                -88.848426,
-                30.433343
+                -88.849927,
+                30.41917,
+                -88.827825,
+                30.433353
             ]
         },
         {
             "type": "Feature",
             "properties": {
-                "name": "(Step 3) Palm Beach departs @ 9:56 AM",
-                "@id": "df6b1d80-88a0-11f1-90a0-ad1a19eb6c4c"
+                "stroke-width": 1,
+                "stroke-opacity": 1,
+                "stroke": "rgba(227, 255, 0, 1)",
+                "name": "(Step 16) Palm Beach returns to Ft. Bayou boat launch",
+                "@id": "7a50a030-8a5a-11f1-850e-51f9b9219568"
             },
             "geometry": {
-                "type": "Point",
+                "type": "LineString",
                 "coordinates": [
-                    -88.848626,
-                    30.43345
+                    [
+                        -88.777144,
+                        30.243663
+                    ],
+                    [
+                        -88.813717,
+                        30.363796
+                    ],
+                    [
+                        -88.854821,
+                        30.423525
+                    ],
+                    [
+                        -88.8546,
+                        30.425431
+                    ],
+                    [
+                        -88.852353,
+                        30.426129
+                    ],
+                    [
+                        -88.848458,
+                        30.425669
+                    ],
+                    [
+                        -88.842678,
+                        30.422105
+                    ],
+                    [
+                        -88.831831,
+                        30.419136
+                    ],
+                    [
+                        -88.827854,
+                        30.419485
+                    ],
+                    [
+                        -88.828001,
+                        30.420425
+                    ]
                 ]
             },
             "bbox": [
-                -88.848626,
-                30.43345,
-                -88.848626,
-                30.43345
+                -88.854821,
+                30.243663,
+                -88.777144,
+                30.426129
             ]
         }
     ]
