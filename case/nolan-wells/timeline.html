@@ -178,6 +178,21 @@
       color: #ad8cc2;
       border: 1px solid rgba(122,143,184,0.3);
     }
+    .pill-passenger {
+      background: rgba(232,228,106,0.15);
+      color: #ccca89;
+      border: 1px solid rgba(232,228,106,0.3);
+    }
+    .pill-girls {
+      background: rgba(204,137,197,0.15);
+      color: #cc89c5;
+      border: 1px solid rgba(204,137,197,0.3);
+    }
+    .pill-guys {
+      background: rgba(125,168,201,0.15);
+      color: #7da8c9;
+      border: 1px solid rgba(125,168,201,0.3);
+    }
     .pill-location {
       background: rgba(74,138,124,0.15);
       color: #7ab89c;
@@ -186,7 +201,7 @@
     .pill-triton { 
       background: rgba(70,115,175,0.15); 
       color: #6498d0; 
-      border: 1px solid rgba(70,115,175,0.3); 
+      border: 1px solid rgba(70,115,175,0.3);
     }
     .pill-tideline { 
       background: rgba(180,95,60,0.15);  
@@ -376,7 +391,9 @@
       text-decoration: none;
       transition: color 0.15s;
     }
-    .embed-caption a:hover { color: var(--text-muted); }
+    .embed-caption a:hover { 
+      color: var(--text-muted); 
+    }
     .conditions-box {
       margin-top: 20px;
       padding: 14px 16px;
@@ -567,7 +584,9 @@
       padding: 10px 13px;
       border-bottom: 1px solid rgba(255,255,255,0.04);
     }
-    .trp-section:last-child { border-bottom: none; }
+    .trp-section:last-child { 
+      border-bottom: none; 
+    }
     .trp-who {
       font-family: var(--mono);
       font-size: 9px;
@@ -590,8 +609,13 @@
       text-decoration: none;
       transition: color 0.15s;
     }
-    .trp-link:hover { color: #70d5b7; }
-    .trp-link-label { color: var(--teal); font-weight: 500; }
+    .trp-link:hover { 
+      color: #70d5b7; 
+    }
+    .trp-link-label { 
+      color: var(--teal); 
+      font-weight: 500; 
+    }
     .trp-link-meta {
       font-family: var(--mono);
       font-size: 9px;
@@ -608,7 +632,9 @@
       line-height: 1;
       transition: color 0.15s;
     }
-    #boat-ref-close:hover, #tx-ref-close:hover { color: var(--text); }
+    #boat-ref-close:hover, #tx-ref-close:hover { 
+      color: var(--text); 
+    }
     .brp-header {
       display: flex;
       align-items: center;
@@ -812,32 +838,42 @@
   <div class="brp-boat">
     <div class="brp-boat-name"><span class="pill pill-triton">Triton</span> · Wyatt's 22-ft</div>
     <div class="brp-pax">
-      <span class="pill pill-nolan">Nolan</span> outbound only<br>
-      <span class="pill pill-warren">Warren</span> outbound
-      <span class="brp-count">~8–9 passengers total</span>
+      <span class="pill pill-nolan">Nolan</span> to Horn Island<br>
+      <span class="pill pill-warren">Warren</span> from Horn Island<br>
+      <span class="pill pill-passenger">Passenger 3</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 4</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 5</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 6</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 7</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 8</span> both ways<br>
+      <span class="brp-count">~8 passengers</span>
     </div>
   </div>
   <div class="brp-boat">
-    <div class="brp-boat-name"><span class="pill pill-tideline">Tide Line</span> · Bart's 24-ft</div>
+    <div class="brp-boat-name"><span class="pill pill-tideline">Tideline</span> · Bart's 24-ft</div>
     <div class="brp-pax">
       <span class="pill pill-bart">Bart</span> both ways<br>
-      <span class="pill pill-warren">Warren</span> outbound
-      <span class="brp-count">~10–16 passengers total</span>
+      <span class="pill pill-warren">Warren</span> to Horn Island<br>
+      <span class="pill pill-girls">Girls from college</span> both ways<br>
+      <span class="pill pill-guys">Guys from college</span> both ways<br>
+      <span class="brp-count">~18 passengers</span>
     </div>
   </div>
   <div class="brp-boat">
     <div class="brp-boat-name"><span class="pill pill-palmbeach">Palm Beach</span> · Wyatt's 18-ft</div>
     <div class="brp-pax">
       <span class="pill pill-wyatt">Wyatt</span> both ways<br>
-      <span class="pill pill-jayvon">Jayvon</span> both ways
-      <span class="brp-count">~4 passengers total</span>
+      <span class="pill pill-jayvon">Jayvon</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 3</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 4</span> both ways<br>
+      <span class="brp-count">~4 passengers</span>
     </div>
   </div>
   <div class="brp-boat">
     <div class="brp-boat-name">Tracestin's Uncle's boat<span class="brp-sep"> · </span> Separate vessel</div>
     <div class="brp-pax">
       <span class="pill pill-tracestin">Tracestin</span> + girlfriend
-      <span class="brp-count">~14 passengers total</span>
+      <span class="brp-count">~14 passengers</span>
     </div>
   </div>
 </div>
@@ -861,7 +897,7 @@
       <div class="step-time">Evening · July 3</div>
       <div class="step-title">Last Dinner</div>
       <div class="step-body">
-        <p><span class="pill pill-nolan">Nolan</span> made salmon dinner for his parents. Before leaving to spend the night at <span class="pill pill-warren">Warren's</span> house, he hugged his mom and told her he loved her. It was the last time she saw him alive.</p>
+        <p><span class="pill pill-nolan">Nolan</span> made salmon dinner for his parents. Before leaving to spend the night at a friend's house, he hugged his mom and told her he loved her. It was the last time she saw him alive.</p>
       </div>
     </div>
   </div>
@@ -872,8 +908,15 @@
       <div class="step-time">Early Morning · July 4</div>
       <div class="step-title">Fourth of July Plans</div>
       <div class="step-body">
-        <p><span class="pill pill-warren">Warren</span> woke at a buddy's house, drove thru <span class="pill pill-location">McDonald's</span>, then met up with <span class="pill pill-wyatt">Wyatt</span> to top off the boat with gas and load it with ice. The group coordinated at <span class="pill pill-bart">Bart's</span> grandparents' house before heading out.</p>
+        <p><span class="pill pill-warren">Warren</span> and <span class="pill pill-nolan">Nolan</span> had stayed overnight at a friend's house. <span class="pill pill-warren">Warren</span> swung by his own house first, then hit <span class="pill pill-location">McDonald's</span> for breakfast, then met up with <span class="pill pill-wyatt">Wyatt</span> to top off the boat with gas and load it with ice. <span class="pill pill-wyatt">Wyatt</span> launched the <span class="pill pill-palmbeach">Palm Beach</span> at <span class="pill pill-location">Fort Bayou</span> boat launch and drove it to <span class="pill pill-bart">Bart's</span> grandparents' dock, where the group coordinated before heading out.</p>
         <p><span class="pill pill-nolan">Nolan</span>, <span class="pill pill-warren">Warren</span>, and roughly 20 to 30 friends were bound for <span class="pill pill-location">Horn Island</span>, a federally protected barrier island known for its untouched beaches and isolation. Approximately two to three thousand people were expected there for the holiday weekend.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/2026-07-04-group-depature.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">Group prepares to leave @ 9:41 AM on July 4th | Video from Officer Tatum</p>
       </div>
     </div>
   </div>
@@ -884,7 +927,7 @@
       <div class="step-time">9:56 AM · July 4</div>
       <div class="step-title">Boats Depart</div>
       <div class="step-body">
-        <p>Three boats, ~20–30 people, departed together. <span class="pill pill-nolan">Nolan</span> on <span class="pill pill-wyatt">Wyatt's</span> <span class="pill pill-triton">Triton</span>. <span class="pill pill-warren">Warren</span> on <span class="pill pill-bart">Bart's</span> <span class="pill pill-tideline">Tide Line</span>. <span class="pill pill-wyatt">Wyatt</span> and <span class="pill pill-jayvon">Jayvon</span> on the <span class="pill pill-palmbeach">Palm Beach</span>.</p>
+        <p>Three boats, ~20–30 people, departed together. <span class="pill pill-nolan">Nolan</span> on <span class="pill pill-wyatt">Wyatt's</span> <span class="pill pill-triton">Triton</span>. <span class="pill pill-warren">Warren</span> on <span class="pill pill-bart">Bart's</span> <span class="pill pill-tideline">Tideline</span>. <span class="pill pill-wyatt">Wyatt</span> and <span class="pill pill-jayvon">Jayvon</span> on the <span class="pill pill-palmbeach">Palm Beach</span>.</p>
         <div class="conditions-box">
           <div class="cond-item">
             <span class="cond-label">Tide</span>
@@ -922,6 +965,7 @@
       <div class="step-body">
         <p>The group's boats arrived at the northwestern tip of <span class="pill pill-location">Horn Island</span>. Three rows of boats stretched for miles along the shoreline. The beach was packed. <span class="pill pill-jayvon">Jayvon</span> told ABC that he saw <span class="pill pill-nolan">Nolan</span> after they arrived, explaining "As soon as we got out there, <span class="pill pill-nolan">Nolan's</span> told me that he loved me."</p>
         <p><span class="pill pill-nolan">Nolan</span> had called <span class="pill pill-tracestin">Tracestin</span> twice around 11:00 AM to find where he was anchored. <span class="pill pill-tracestin">Tracestin</span> missed both calls but spotted their boat pulling in, directed them to an open spot, and helped set the stern anchor.</p>
+        <p>The boats anchored in formation along the shore: the <span class="pill pill-tideline">Tideline</span> was closest to shore, the <span class="pill pill-palmbeach">Palm Beach</span> in the middle, and the <span class="pill pill-triton">Triton</span> on the outer side.</p>
         <p class="embed-caption">Warren · Officer Tatum interview · <a href="transcripts/warren-part-2.html" target="_blank" rel="noopener">Part 2 transcript</a> &mdash; documentary standup on the island</p>
         <figure class="step-figure">
           <div class="img-placeholder" data-src="assets/1114-MI4088BU-arrives-at-West-Tip-of-Horn-Island.png" data-alt="GPS: MI4088BU arrives at Horn Island west tip · 11:14 AM">
@@ -1007,7 +1051,7 @@
       <div class="step-time">~4:15 PM · July 4</div>
       <div class="step-title">Bilge Pump Fails</div>
       <div class="step-body">
-        <p>When <span class="pill pill-warren">Warren</span> checked on the <span class="pill pill-triton">Triton</span>, water was up to the batteries and the motor wouldn't respond so <span class="pill pill-wyatt">Wyatt</span> threw a rear anchor. <span class="pill pill-bart">Bart</span>, on the <span class="pill pill-tideline">Tide Line</span>, offered to tow them clear of the crowd.</p>
+        <p>When <span class="pill pill-warren">Warren</span> checked on the <span class="pill pill-triton">Triton</span>, water was up to the batteries and the motor wouldn't respond so <span class="pill pill-wyatt">Wyatt</span> threw a rear anchor. <span class="pill pill-bart">Bart</span>, on the <span class="pill pill-tideline">Tideline</span>, offered to tow them clear of the crowd.</p>
       </div>
     </div>
   </div>
@@ -1056,6 +1100,13 @@
           </div>
         </div>
         <p class="conditions-source">Tide: NOAA Pascagoula (8741533) · Wind: NOAA Dauphin Island (8735180) · July 4, 2026</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/2026-07-04-boats-on-horn-island-1641-PM.png" data-alt="Aerial view of boats on Horn Island">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>Aerial view of boats on Horn Island @ 4:41 PM</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -1068,7 +1119,7 @@
       <div class="step-body">
         <p>GPS tracking documents show the <span class="pill pill-palmbeach">Palm Beach</span> returns to the <span class="pill pill-location">El Camino Real Rd.</span> dock.</p>
         <figure class="step-figure">
-          <div class="img-placeholder" data-src="assets/1744-unknown-Vessel-arrives-at%3Areturns-to-Camino-Real-Rd.png" data-alt="GPS: unknown vessel at/returns to El Camino Real Rd · 5:44 PM">
+          <div class="img-placeholder" data-src="assets/1744-unknown-Vessel-returns-to-Camino-Real-Rd.png" data-alt="GPS: unknown vessel at/returns to El Camino Real Rd · 5:44 PM">
             <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
             <span>View image</span>
           </div>
@@ -1084,9 +1135,9 @@
       <div class="step-time">5:52 PM · July 4</div>
       <div class="step-title">The Triton Heads East</div>
       <div class="step-body">
-        <p>The damaged <span class="pill pill-triton">Triton</span>, towed by <span class="pill pill-bart">Bart's</span> <span class="pill pill-tideline">Tide Line</span>, changes course eastward toward the <span class="pill pill-location">Fort Bayou</span> boat launch. The motor had a trim failure: it would drop into the water but spring back up when put in gear, causing the stop-start GPS pattern. Holding the manual trim override allowed them to maintain speed. <span class="pill pill-wyatt">Wyatt</span> jumps in to pull the drain plug; the crew shifts weight to the bow to plane out at 40+ mph and expel the water.</p>
+        <p>The damaged <span class="pill pill-triton">Triton</span>, towed by <span class="pill pill-bart">Bart's</span> <span class="pill pill-tideline">Tideline</span>, changes course eastward toward the <span class="pill pill-location">Fort Bayou</span> boat launch. The motor had a trim failure: it would drop into the water but spring back up when put in gear, causing the stop-start GPS pattern. Holding the manual trim override allowed them to maintain speed. <span class="pill pill-wyatt">Wyatt</span> jumps in to pull the drain plug; the crew shifts weight to the bow to plane out at 40+ mph and expel the water.</p>
         <figure class="step-figure">
-          <div class="img-placeholder" data-src="assets/1752-MI4088BU-headed-easti.png" data-alt="GPS: MI4088BU headed east @ 5:52 PM">
+          <div class="img-placeholder" data-src="assets/1752-MI4088BU-headed-east.png" data-alt="GPS: MI4088BU headed east @ 5:52 PM">
             <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
             <span>View image</span>
           </div>
@@ -1103,13 +1154,6 @@
       <div class="step-title">Last Known Sighting</div>
       <div class="step-body">
         <p>Warren personally spoke with someone who saw <span class="pill pill-nolan">Nolan</span> on <span class="pill pill-location">Horn Island</span> around 6:00 PM&mdash;approximately 90 minutes after the boats departed. Warren: "We weren't even the last people to see Nolan." Dozens of boats were still anchored around the island at that hour.</p>
-        <figure class="step-figure">
-          <div class="img-placeholder" data-src="assets/2026-07-04-boats-on-horn-island.png" data-alt="Aerial view of boats on Horn Island">
-            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
-            <span>View image</span>
-          </div>
-          <figcaption>Aerial view of boats on Horn Island</figcaption>
-        </figure>
       </div>
     </div>
   </div>
@@ -1555,7 +1599,7 @@ const locations = {
   },
   tideLaneDepart: {
     lat: 30.433399, lng: -88.848528,
-    name: 'Tide Lane depart @ 9:56 AM',
+    name: 'Tideline depart @ 9:56 AM',
     color: '#7ab89c', zoom: 14
   },
   tritonArrival: {
@@ -1571,7 +1615,7 @@ const locations = {
   },
   tidelineIsland: {
     lat: 30.243372, lng: -88.778127,
-    name: 'Tide Lane',
+    name: 'Tideline',
     color: '#7ab89c', zoom: 14,
     labelOffset: [70, 70]
   },
@@ -1717,7 +1761,7 @@ const gpsRouteData = [
     weight: 2.5,
     coords: [[-88.848426, 30.433343], [-88.855038, 30.425419], [-88.855257, 30.423535], [-88.812259, 30.365008], [-88.777619, 30.243717]]
   },
-  // Step 3: Tide Lane → Horn Island @ 9:56 AM — teal
+  // Step 3: Tideline → Horn Island @ 9:56 AM — teal
   {
     key: 'r1_tideLaneDepart',
     color: '#4a8a7c',
