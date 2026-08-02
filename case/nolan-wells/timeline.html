@@ -2321,6 +2321,8 @@ const routeColors = {
   });
 })();
 
+function mz(z) { return window.innerWidth < 768 ? Math.max(z - 1, 8) : z; }
+
 function clearRoutes() {
   Object.values(routes).forEach(r => r.setStyle({ opacity: 0 }));
 }
@@ -2336,7 +2338,7 @@ function showLocation(key) {
   const loc = locations[key];
   if (markers[key]) markers[key].setStyle({ opacity: 1, fillOpacity: 1, radius: 5 });
   if (labels[key]) map.addLayer(labels[key]);
-  map.flyTo([loc.lat, loc.lng], loc.zoom, { duration: 1.5, easeLinearity: 0.2 });
+  map.flyTo([loc.lat, loc.lng], mz(loc.zoom), { duration: 1.5, easeLinearity: 0.2 });
 }
 
 function showMultiple(keys, lat, lng, zoom) {
@@ -2347,7 +2349,7 @@ function showMultiple(keys, lat, lng, zoom) {
     if (markers[key]) markers[key].setStyle({ opacity: 1, fillOpacity: 1, radius: 5 });
     if (labels[key]) map.addLayer(labels[key]);
   });
-  map.flyTo([lat, lng], zoom, { duration: 1.5, easeLinearity: 0.2 });
+  map.flyTo([lat, lng], mz(zoom), { duration: 1.5, easeLinearity: 0.2 });
 }
 
 const animations = {
