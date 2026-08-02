@@ -1029,6 +1029,13 @@
       <div class="step-title">Pool party on June 27th</div>
       <div class="step-body">
         <p><span class="pill pill-nolan">Nolan</span> and friends attend a pool party in <span class="pill pill-location">Pass Christian</span>. A photo is taken of the group&mdash;the same photo that will later be misidentified by the public as having been taken on July 4th at <span class="pill pill-location">Horn Island</span>.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/2026-06-27-pool-party.png" data-alt="Evan Noell pool party on June 27th">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>Evan Noell pool party on June 27th | @evannoell4 Instagram</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -1147,7 +1154,7 @@
   <!-- step 9 -->
   <div class="step" data-step="9">
     <div class="step-content">
-      <div class="step-time">11:15 AM Onward &middot; July 4, 2026</div>
+      <div class="step-time">Afternoon &middot; July 4, 2026</div>
       <div class="step-title">Nolan Is Fine</div>
       <div class="step-body">
         <p><span class="pill pill-tracestin">Tracestin</span> is already at the island when the group arrives. He helps the group find a spot and group settle in. <span class="pill pill-nolan">Nolan</span> is described by <span class="pill pill-warren">Warren</span>, <span class="pill pill-jayvon">Jayvon</span>, and others as "completely fine" throughout the afternoon&mdash;talking, laughing, enjoying the day. <span class="pill pill-nolan">Nolan</span> meets <span class="pill pill-katie">Katie McCormack</span> on the island and they spend the afternoon together.</p>
@@ -1182,7 +1189,7 @@
       <div class="step-body">
         <p>A video circulates online of someone yelling <em>"Give me my f&mdash;ing phone back."</em> It is widely misattributed to <span class="pill pill-nolan">Nolan</span>but the person yelling is <span class="pill pill-tracestin">Tracestin Shepherd</span>. His uncle called him back on the boat. <span class="pill pill-nolan">Nolan</span> is with <span class="pill pill-katie">Katie</span> elsewhere on the island at this time and is not involved.</p>
         <div class="step-embed">
-          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-parents-on-boat-at-1543.mp4">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-tracetin-fighting.mp4">
             <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
             <span>Tap to play</span>
           </div>
@@ -1231,10 +1238,17 @@
   <div class="step" data-step="15">
     <div class="step-content">
       <div class="step-time">~4:20 PM &middot; July 4, 2026</div>
-      <div class="step-title">Bilge Emergency</div>
+      <div class="step-title">Nolan Seen During Bilge Emergency</div>
       <div class="step-body">
         <p><span class="pill pill-warren">Warren</span> checks the bilge hatch on the <span class="pill pill-triton">Triton</span>: approximately 6 inches of water, battery submerged. The motor won't respond. Flooding built up from foot traffic over the transom. <span class="pill pill-wyatt">Wyatt</span> throws the rear anchor; <span class="pill pill-warren">Warren</span> and <span class="pill pill-bart">Bart</span> try to clear the bilge intake. <span class="pill pill-bart">Bart</span> offers to tow the <span class="pill pill-triton">Triton</span>.</p>
         <p class="embed-caption">Warren Interview with Officer Tatum | <a href="assets/transcripts/warren-part-1.html" target="_blank" rel="noopener">Part 1 Transcript</a> &middot; <a href="assets/transcripts/warren-part-3.html" target="_blank" rel="noopener">Part 3 Transcript</a></p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-right-before-sea-tow.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 4th @ ~4:20 PM | Video from Officer Tatum</p>
       </div>
     </div>
   </div>
@@ -1282,6 +1296,13 @@
           </div>
           <figcaption>GPS &middot; MI4088BU in distress @ 4:31 PM</figcaption>
         </figure>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-sea-tow-footage.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">Footage of Sea Tow | Video from Officer Tatum</p>
       </div>
     </div>
   </div>
@@ -2321,7 +2342,7 @@ const routeColors = {
   });
 })();
 
-function mz(z) { return window.innerWidth < 768 ? Math.max(z - 1, 8) : z; }
+function mz(z, mob) { if (window.innerWidth >= 768) return z; return mob !== undefined ? mob : (z <= 11 ? Math.max(z - 2, 8) : z - 1); }
 
 function clearRoutes() {
   Object.values(routes).forEach(r => r.setStyle({ opacity: 0 }));
@@ -2349,7 +2370,18 @@ function showMultiple(keys, lat, lng, zoom) {
     if (markers[key]) markers[key].setStyle({ opacity: 1, fillOpacity: 1, radius: 5 });
     if (labels[key]) map.addLayer(labels[key]);
   });
-  map.flyTo([lat, lng], mz(zoom), { duration: 1.5, easeLinearity: 0.2 });
+  const pts = keys.filter(k => markers[k]).map(k => markers[k].getLatLng());
+  if (pts.length > 1) {
+    map.flyToBounds(L.latLngBounds(pts), {
+      paddingTopLeft: [80, 30],
+      paddingBottomRight: [80, 30],
+      maxZoom: zoom,
+      duration: 1.5,
+      easeLinearity: 0.2
+    });
+  } else {
+    map.flyTo([lat, lng], mz(zoom), { duration: 1.5, easeLinearity: 0.2 });
+  }
 }
 
 const animations = {
@@ -2358,7 +2390,7 @@ const animations = {
   2:  () => { showLocation('nolanHome'); },                                                                    // Nolan's Last Dinner
   3:  () => { showLocation('wyattHome'); },                                                                    // Sleepover at Wyatt's
   4:  () => { showLocation('wyattHome'); },                                                                    // Tracestin and Nolan's Texts
-  5:  () => { showMultiple(['warrensHome','wyattHome','mcdonaldsPascagoula'], 30.375, -88.665, 12); showRoutes(['warrenToHome','warrenToMcdonalds','warrenFromMcdonalds']); },  // Warren Prepares For The Day
+  5:  () => { showMultiple(['warrensHome','wyattHome','mcdonaldsPascagoula'], 30.375, -88.685, 12); showRoutes(['warrenToHome','warrenToMcdonalds','warrenFromMcdonalds']); },  // Warren Prepares For The Day
   6:  () => { showMultiple(['elcaminoLaunch','fortBayou','bartHome','wyattHome'], 30.426, -88.832, 13); showRoutes(['warrenWyattFortBayou','palmBeachElCamino','tritonElCamino','bartTideline']); },  // Three Boats Meet Up
   7:  () => { showMultiple(['elcaminoLaunch','tideline'], 30.34, -88.816, 11); showRoutes(['tidelineToHorn']); },  // Three Boats Depart
   8:  () => { showMultiple(['triton','palmBeach','tideline','vesselCluster'], 30.2437, -88.7772, 16); },       // Three Boats Arrive At Horn Island
