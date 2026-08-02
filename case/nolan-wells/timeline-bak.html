@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Nolan Wells | Subtxt Press</title>
+  <meta name="description" content="Conflicting accounts, unanswered questions, and an ongoing investigation into the circumstances surrounding his death.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/nolan-wells/timeline">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nolan Wells | Subtxt Press">
+  <meta property="og:description" content="Conflicting accounts, unanswered questions, and an ongoing investigation into the circumstances surrounding his death.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/nolan-wells/timeline">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/case/nolan-wells/img/timeline.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Case Maps | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nolan Wells | Subtxt Presss">
+  <meta name="twitter:description" content="Conflicting accounts, unanswered questions, and an ongoing investigation into the circumstances surrounding his death.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/case/nolan-wells/img/timeline.png">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Script -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" crossorigin=""/>
+  <!-- Styles -->
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg: #060B14;
+      --text: #F5F5F5;
+      --text-muted: #D8DADB;
+      --accent: #C04E01;
+      --teal: #4a8a7c;
+      --mono: 'IBM Plex Mono', monospace;
+      --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text-muted);
+      font-family: var(--body);
+      font-size: 14px;
+      overflow-x: hidden;
+    }
+    #map {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .scroll-container {
+      position: relative;
+      z-index: 100;
+      width: 100%;
+      min-height: 560vh;
+      pointer-events: none;
+    }
+    .step {
+      height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 20vh;
+      position: relative;
+      pointer-events: none;
+    }
+    .step-content {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      text-align: left;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+    }
+    .step-time {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .step-title {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .step-body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+    .step-body p {
+      margin-bottom: 12px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 12px;
+      margin: 2px 2px;
+    }
+    .pill-person {
+      background: rgba(192,78,1,0.15);
+      color: #e8956a;
+      border: 1px solid rgba(192,78,1,0.3);
+    }
+    .pill-nolan {
+      background: rgba(232,149,106,0.15);
+      color: #e8956a;
+      border: 1px solid rgba(232,149,106,0.3);
+    }
+    .pill-warren {
+      background: rgba(74,138,124,0.15);
+      color: #6ba3a3;
+      border: 1px solid rgba(107,163,163,0.3);
+    }
+    .pill-katie {
+      background: rgba(215,154,166,0.15);
+      color: #d79ba6;
+      border: 1px solid rgba(215,154,166,0.3);
+    }
+    .pill-jayvon {
+      background: rgba(212,165,116,0.15);
+      color: #d4a574;
+      border: 1px solid rgba(212,165,116,0.3);
+    }
+    .pill-wyatt {
+      background: rgba(139,123,168,0.15);
+      color: #8b7ba8;
+      border: 1px solid rgba(139,123,168,0.3);
+    }
+    .pill-evan {
+      background: rgba(107,163,163,0.15);
+      color: #6ba3a3;
+      border: 1px solid rgba(107,163,163,0.3);
+    }
+    .pill-tracestin {
+      background: rgba(201,149,106,0.15);
+      color: #c9956a;
+      border: 1px solid rgba(201,149,106,0.3);
+    }
+    .pill-bart {
+      background: rgba(122,143,184,0.15);
+      color: #7a8fb8;
+      border: 1px solid rgba(122,143,184,0.3);
+    }
+    .pill-crump {
+      background: rgba(122,143,184,0.15);
+      color: #7a8fb8;
+      border: 1px solid rgba(122,143,184,0.3);
+    }
+    .pill-christine {
+      background: rgba(122,143,184,0.15);
+      color: #ad8cc2;
+      border: 1px solid rgba(122,143,184,0.3);
+    }
+    .pill-passenger {
+      background: rgba(232,228,106,0.15);
+      color: #ccca89;
+      border: 1px solid rgba(232,228,106,0.3);
+    }
+    .pill-girls {
+      background: rgba(204,137,197,0.15);
+      color: #cc89c5;
+      border: 1px solid rgba(204,137,197,0.3);
+    }
+    .pill-guys {
+      background: rgba(125,168,201,0.15);
+      color: #7da8c9;
+      border: 1px solid rgba(125,168,201,0.3);
+    }
+    .pill-location {
+      background: rgba(74,138,124,0.15);
+      color: #7ab89c;
+      border: 1px solid rgba(74,138,124,0.3);
+    }
+    .pill-triton { 
+      background: rgba(70,115,175,0.15); 
+      color: #6498d0; 
+      border: 1px solid rgba(70,115,175,0.3);
+    }
+    .pill-tideline { 
+      background: rgba(180,95,60,0.15);  
+      color: #c87850; 
+      border: 1px solid rgba(180,95,60,0.3);  
+    }
+    .pill-palmbeach { 
+      background: rgba(60,165,140,0.15); 
+      color: #44b090; 
+      border: 1px solid rgba(60,165,140,0.3); 
+    }
+    .pill-uncle { 
+      background: rgba(105,120,148,0.15);
+      color: #7d8fa8; 
+      border: 1px solid rgba(105,120,148,0.3);
+    }
+    .pill-sheriff { 
+      background: rgba(90,110,155,0.15); 
+      color: #7888bc; 
+      border: 1px solid rgba(90,110,155,0.3); 
+    }
+    .pill-dmr { 
+      background: rgba(90,140,80,0.15);  
+      color: #72a860; 
+      border: 1px solid rgba(90,140,80,0.3);  
+    }
+    .pill-ucn { 
+      background: rgba(185,145,45,0.15);  
+      color: #c89e40; 
+      border: 1px solid rgba(185,145,45,0.3);  
+    }
+    .pill-da { 
+      background: rgba(65,130,100,0.15);  
+      color: #55a080; 
+      border: 1px solid rgba(65,130,100,0.3);  
+    }
+    .pill-dc { 
+      background: rgba(70,100,160,0.15);  
+      color: #6080c0; 
+      border: 1px solid rgba(70,100,160,0.3);  
+    }
+    .pill-naacp { 
+      background: rgba(140,80,130,0.15);  
+      color: #b068a8; 
+      border: 1px solid rgba(140,80,130,0.3);  
+    }
+    .pill-pascagoula {
+      background: rgba(160,130,55,0.15);
+      color: #b89838;
+      border: 1px solid rgba(160,130,55,0.3);
+    }
+    .pill-lukesmom {
+      background: rgba(185,90,100,0.15);
+      color: #c46878;
+      border: 1px solid rgba(185,90,100,0.3);
+    }
+    .pill-luke {
+      background: rgba(60,165,175,0.15);
+      color: #45b0be;
+      border: 1px solid rgba(60,165,175,0.3);
+    }
+    .pill-ivy {
+      background: rgba(145,170,65,0.15);
+      color: #a8c045;
+      border: 1px solid rgba(145,170,65,0.3);
+    }
+    .pill-ivyshusband {
+      background: rgba(85,105,145,0.15);
+      color: #6a82b8;
+      border: 1px solid rgba(85,105,145,0.3);
+    }
+    .pill-tracestinsuncle {
+      background: rgba(105,140,75,0.15);
+      color: #7aaa55;
+      border: 1px solid rgba(105,140,75,0.3);
+    }
+    .pill-morgan {
+      background: rgba(170,100,130,0.15);
+      color: #c07898;
+      border: 1px solid rgba(170,100,130,0.3);
+    }
+    .pill-jax {
+      background: rgba(115,125,195,0.15);
+      color: #8a94d8;
+      border: 1px solid rgba(115,125,195,0.3);
+    }
+    .xlink {
+      margin-top: 20px;
+      padding: 12px 14px;
+      border: 1px solid rgba(235,226,205,0.15);
+      border-radius: 4px;
+      background: rgba(235,226,205,0.04);
+    }
+    .xlink a {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .xlink a:hover { 
+      text-decoration: underline; 
+      color: rgba(235,226,205,0.55);;
+    }
+    .xlink p {
+      margin: 5px 0 0;
+      font-size: 13px;
+      color: rgba(235,226,205,0.55);
+      line-height: 1.55;
+    }
+    .map-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 3px;
+      background: rgba(6, 11, 20, 0.85);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.15);
+      white-space: nowrap;
+    }
+    .step-embed {
+      margin: 18px 0 6px;
+      border: 1px solid rgba(74,138,124,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #000;
+    }
+    .step-embed video {
+      display: block;
+      width: 100%;
+      max-height: 360px;
+    }
+    .embed-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 60px;
+      cursor: pointer;
+      transition: background 0.2s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .embed-placeholder:hover { 
+      background: rgba(255,255,255,0.06); 
+    }
+    .embed-placeholder:active { 
+      background: rgba(255,255,255,0.10); 
+    }
+    .embed-placeholder svg {
+      width: 13px;
+      height: 13px;
+      fill: rgba(216,218,219,0.75);
+      flex-shrink: 0;
+    }
+    .embed-placeholder:hover svg {
+      fill: #F5F5F5;
+    }
+    .embed-placeholder span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(216,218,219,0.75);
+      text-transform: uppercase;
+    }
+    .embed-placeholder:hover span {
+      color: #D8DADB;
+    }
+    .img-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 60px;
+      cursor: pointer;
+      transition: background 0.2s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .step-gallery .img-placeholder {
+      border: 1px solid rgba(74,138,124,0.15);
+      border-radius: 2px;
+    }
+    .img-placeholder:hover { 
+      background: rgba(255,255,255,0.06); 
+    }
+    .img-placeholder:active { 
+      background: rgba(255,255,255,0.10); 
+    }
+    .img-placeholder svg {
+      width: 13px;
+      height: 13px;
+      fill: rgba(216,218,219,0.45);
+      flex-shrink: 0;
+    }
+    .img-placeholder:hover svg { 
+      fill: #F5F5F5; 
+    }
+    .img-placeholder span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(216,218,219,0.45);
+      text-transform: uppercase;
+    }
+    .img-placeholder:hover span { 
+      color: #D8DADB; 
+    }
+    .embed-caption {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: rgba(216,218,219,0.35);
+      letter-spacing: 0.06em;
+      margin: 4px 0 14px;
+      text-transform: uppercase;
+    }
+    .embed-caption a {
+      color: var(--teal);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .embed-caption a:hover { 
+      color: var(--text-muted); 
+    }
+    .conditions-box {
+      margin-top: 20px;
+      padding: 14px 16px;
+      background: rgba(74,138,124,0.08);
+      border: 1px solid rgba(74,138,124,0.25);
+      border-radius: 4px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .conditions-box .cond-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .conditions-box .cond-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      opacity: 0.8;
+    }
+    .conditions-box .cond-value {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text);
+    }
+    .conditions-box .cond-note {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+    .conditions-source {
+      margin-top: 6px;
+      font-size: 10px;
+      color: var(--text-muted);
+      opacity: 0.45;
+      font-style: italic;
+    }
+    .step-figure {
+      margin: 18px 0 8px;
+      border: 1px solid rgba(74,138,124,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .step-figure img {
+      display: block;
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .step-figure figcaption {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      padding: 8px 12px;
+      border-top: 1px dashed rgba(74,138,124,0.2);
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+    .step-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin: 18px 0 8px;
+    }
+    .step-gallery img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid rgba(74,138,124,0.15);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .step-gallery img:hover { 
+      opacity: 0.85; 
+    }
+    .step-gallery + .gallery-caption {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin: -2px 0 12px;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+    @media (max-width: 768px) {
+      .step-title {
+        font-size: 28px;
+      }
+      .step-content {
+        padding: 40px 24px;
+      }
+      .conditions-box {
+        gap: 16px;
+      }
+    }
+    /* Top button bar */
+    #top-btns {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 500;
+      display: flex;
+      gap: 8px;
+      pointer-events: auto;
+    }
+    /* Boat reference panel */
+    #boat-ref-btn, #tx-ref-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px 6px 8px;
+      background: rgba(6,11,20,0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: border-color 0.18s, color 0.18s;
+      pointer-events: auto;
+    }
+    #boat-ref-btn:hover, #boat-ref-btn.active,
+    #tx-ref-btn:hover,   #tx-ref-btn.active {
+      border-color: rgba(74,138,124,0.45);
+      color: #70d5b7;
+    }
+    #boat-ref-btn svg, #tx-ref-btn svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+    #boat-ref-panel {
+      position: fixed;
+      top: 50px;
+      right: 16px;
+      z-index: 500;
+      width: 340px;
+      max-height: calc(100vh - 74px);
+      overflow-y: auto;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.18s, transform 0.18s;
+      padding: 1% 1%;
+    }
+    #boat-ref-panel.open, #tx-ref-panel.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #tx-ref-panel {
+      position: fixed;
+      top: 50px;
+      right: 16px;
+      z-index: 500;
+      width: 340px;
+      max-height: calc(100vh - 74px);
+      overflow-y: auto;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.18s, transform 0.18s;
+      padding: 1% 1%;
+    }
+    .trp-section {
+      padding: 10px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .trp-section:last-child { 
+      border-bottom: none; 
+    }
+    .trp-who {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 7px;
+    }
+    .trp-links {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .trp-link {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .trp-link:hover { 
+      color: #70d5b7; 
+    }
+    .trp-link-label { 
+      color: var(--teal); 
+      font-weight: 500; 
+    }
+    .trp-link-meta {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: .04em;
+    }
+    #boat-ref-close, #tx-ref-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    #boat-ref-close:hover, #tx-ref-close:hover { 
+      color: var(--text); 
+    }
+    .brp-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .brp-label {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .brp-boat {
+      padding: 10px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .brp-boat:last-child { 
+      border-bottom: none; 
+    }
+    .brp-boat-name {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .brp-boat-name .pill {
+      font-size: 10px;
+      padding: 1px 5px;
+      letter-spacing: .02em;
+      text-transform: none;
+      vertical-align: middle;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brp-boat-name .brp-sep {
+      color: var(--text-dim);
+      opacity: 0.5;
+    }
+    .brp-pax {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .brp-pax .pill {
+      font-size: 11px;
+      padding: 1px 5px;
+      vertical-align: middle;
+    }
+    .brp-count {
+      display: block;
+      margin-top: 4px;
+      margin-left: 2px;
+      font-size: 10.5px;
+      color: var(--text-dim);
+    }
+    .brp-note {
+      margin-top: 5px;
+      font-size: 10.5px;
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    @media (max-width: 480px) {
+      #boat-ref-panel, #tx-ref-panel {
+        width: calc(100vw - 32px);
+      }
+      #top-btns {
+        top: 10px;
+        right: 10px;
+        gap: 6px;
+      }
+      #boat-ref-btn, #tx-ref-btn {
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        font-size: 0;
+      }
+      #boat-ref-btn svg, #tx-ref-btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 1;
+        padding-left: 5px;
+      }
+    }
+    @media (max-width: 480px) {
+      .step {
+        padding-top: 10vh;
+        align-items: flex-start;
+      }
+      .step-content {
+        padding: 18px 14px;
+        max-height: 82vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .step-title {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .step-time {
+        font-size: 10px;
+        margin-bottom: 8px;
+      }
+      .step-body {
+        font-size: 14px;
+        line-height: 1.65;
+      }
+      .step-body p {
+        margin-bottom: 8px;
+      }
+      .conditions-box {
+        gap: 12px;
+        padding: 10px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<div id="top-btns">
+  <button id="tx-ref-btn" title="Transcripts">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2.5" y="1.5" width="11" height="13" rx="1.2" fill="none"/>
+      <line x1="5" y1="5" x2="11" y2="5"/>
+      <line x1="5" y1="7.5" x2="11" y2="7.5"/>
+      <line x1="5" y1="10" x2="9" y2="10"/>
+    </svg>
+    Transcripts
+  </button>
+  <button id="boat-ref-btn" title="Boats &amp; Passengers">
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M2 11.5L3.5 7h9L14 11.5H2z"/>
+      <path d="M7.5 2h1v5h-1z"/>
+      <path d="M8.5 2.5l4.5 2.8-4.5.2z"/>
+    </svg>
+    Boats
+  </button>
+</div>
+
+<div id="tx-ref-panel">
+  <div class="brp-header">
+    <span class="brp-label">Interview Transcripts</span>
+    <button id="tx-ref-close" aria-label="Close">✕</button>
+  </div>
+  <div class="trp-section">
+    <div class="trp-who">Dispatch call &mdash; SeaTow / Coast Guard</div>
+    <div class="trp-links">
+      <a class="trp-link" href="assets/transcripts/seatow-audio.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Seatow call</span>
+        <span class="trp-link-meta">July 4 &middot; boat distress</span>
+      </a>
+    </div>
+  </div>
+  <div class="trp-section">
+    <div class="trp-who">Warren &mdash; Nolan's best friend</div>
+    <div class="trp-links">
+      <a class="trp-link" href="assets/transcripts/warren-part-1.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 1</span>
+        <span class="trp-link-meta">~17 min &middot; relationship &amp; the day</span>
+      </a>
+      <a class="trp-link" href="assets/transcripts/warren-part-2.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 2</span>
+        <span class="trp-link-meta">~13 min &middot; Horn Island standup</span>
+      </a>
+      <a class="trp-link" href="assets/transcripts/warren-part-3.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 3</span>
+        <span class="trp-link-meta">~22 min &middot; Q&amp;A continued</span>
+      </a>
+      <a class="trp-link" href="assets/transcripts/warren-part-4.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 4</span>
+        <span class="trp-link-meta">~28 min &middot; phone, keys &amp; pointed Q&amp;A</span>
+      </a>
+    </div>
+  </div>
+  <div class="trp-section">
+    <div class="trp-who">Tracestin Shepherd &mdash; friend on the trip</div>
+    <div class="trp-links">
+      <a class="trp-link" href="assets/transcripts/tracestin-part-5.html" target="_blank" rel="noopener">
+        <span class="trp-link-label">Part 5</span>
+        <span class="trp-link-meta">~45 min &middot; full Q&amp;A</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="boat-ref-panel">
+  <div class="brp-header">
+    <span class="brp-label">Boats &amp; Passengers on July 4th</span>
+    <button id="boat-ref-close" aria-label="Close">✕</button>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name"><span class="pill pill-triton">Triton</span> · Wyatt's 22-ft</div>
+    <div class="brp-pax">
+      <span class="pill pill-nolan">Nolan</span> to Horn Island<br>
+      <span class="pill pill-warren">Warren</span> from Horn Island<br>
+      <span class="pill pill-morgan">Morgan</span> both ways<br>
+      <span class="pill pill-jax">Jax</span> both ways<br>
+      <span class="pill pill-erick">Erick</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 6</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 7</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 8</span> both ways<br>
+      <span class="brp-count">~8 passengers</span>
+    </div>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name"><span class="pill pill-tideline">Tideline</span> · Bart's 24-ft</div>
+    <div class="brp-pax">
+      <span class="pill pill-bart">Bart</span> both ways<br>
+      <span class="pill pill-warren">Warren</span> to Horn Island<br>
+      <span class="pill pill-girls">Girls from college</span> both ways<br>
+      <span class="pill pill-guys">Guys from college</span> both ways<br>
+      <span class="brp-count">~18 passengers</span>
+    </div>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name"><span class="pill pill-palmbeach">Palm Beach</span> · Wyatt's 18-ft</div>
+    <div class="brp-pax">
+      <span class="pill pill-passenger">Passenger 1</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 2</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 3</span> both ways<br>
+      <span class="pill pill-passenger">Passenger 4</span> both ways<br>
+      <span class="brp-count">~4 passengers</span>
+    </div>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name">Luke's Boat<span class="brp-sep"> · </span> Separate vessel</div>
+    <div class="brp-pax">
+      <span class="pill pill-lukesmom">Luke's mom</span> both ways<br>
+      <span class="pill pill-luke">Luke</span> both ways<br>
+      <span class="pill pill-jayvon">Jayvon</span> both ways<br>
+      <span class="pill pill-wyatt">Wyatt</span> both ways<br>
+      <span class="brp-count">~Unknown passengers</span>
+    </div>
+  </div>
+  <div class="brp-boat">
+    <div class="brp-boat-name">Tracestin's Uncle's boat<span class="brp-sep"> · </span> Separate vessel</div>
+    <div class="brp-pax">
+      <span class="pill pill-tracestinsuncle">Tracestin's uncle</span> both ways<br>
+      <span class="pill pill-tracestin">Tracestin</span> both ways<br>
+      <span class="pill pill-tracestinsgirlfriend">Tracestin's girlfriend</span> both ways<br>
+      <span class="pill pill-ivy">Ivy</span> both ways<br>
+      <span class="pill pill-ivyshusband">Ivy's husband</span> both ways<br>
+      <span class="brp-count">~14 passengers</span>
+    </div>
+    </div>
+    <div class="brp-boat">
+    <div class="brp-boat-name">Katie's boat<span class="brp-sep"> · </span> Separate vessel</div>
+    <div class="brp-pax">
+      <span class="pill pill-katie">Katie</span> both ways
+      <span class="brp-count">~Unknown passengers</span>
+    </div>
+  </div>
+</div>
+
+<div class="scroll-container">
+  <!-- step 0: Nolan Wells -->
+  <div class="step" data-step="0">
+    <div class="step-content">
+      <div class="step-time">July 3–6, 2026</div>
+      <div class="step-title">Nolan Wells</div>
+      <div class="step-body">
+        <p>An 18-year-old wide receiver vanished from a crowded barrier island on July 4, 2026. Two days later, his body washed ashore. This is the timeline of conflicting accounts, unanswered questions, and an ongoing investigation into the circumstances surrounding his death.</p>
+        <p style="font-size:12px;color:var(--text-muted);font-style:italic;">This page is under construction while I continue sorting the all-over-the-place media reports and updates.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 1: Last Dinner -->
+  <div class="step" data-step="1">
+    <div class="step-content">
+      <div class="step-time">Evening · July 3</div>
+      <div class="step-title">Last Dinner</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan</span> made salmon dinner for his parents. Before leaving to spend the night at a friend's house, he hugged his mom and told her he loved her. It was the last time she saw him alive.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 2: Fourth of July Plans -->
+  <div class="step" data-step="2">
+    <div class="step-content">
+      <div class="step-time">Early Morning · July 4</div>
+      <div class="step-title">Fourth of July Plans</div>
+      <div class="step-body">
+        <p><span class="pill pill-warren">Warren</span> and <span class="pill pill-nolan">Nolan</span> had stayed overnight at a friend's house. <span class="pill pill-warren">Warren</span> ran home then hit <span class="pill pill-location">McDonald's</span> for breakfast, and met up with <span class="pill pill-wyatt">Wyatt</span> to top off the boat with gas + load it with ice. <span class="pill pill-wyatt">Wyatt</span> launched the <span class="pill pill-palmbeach">Palm Beach</span> at the <span class="pill pill-location">Fort Bayou</span> boat launch and drove it to <span class="pill pill-bart">Bart's</span> grandparents' dock, where the group coordinated before heading out.</p>
+        <p><span class="pill pill-nolan">Nolan</span>, <span class="pill pill-warren">Warren</span>, and roughly 20 to 30 friends were bound for <span class="pill pill-location">Horn Island</span>. Approximately two to three thousand people were expected there for the holiday weekend.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-group-depature.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">Group prepares to leave @ 9:41 AM on July 4th | Video from Officer Tatum</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 3: Boats Depart -->
+  <div class="step" data-step="3">
+    <div class="step-content">
+      <div class="step-time">9:56 AM · July 4</div>
+      <div class="step-title">Boats Depart</div>
+      <div class="step-body">
+        <p>Three boats carrying ~20–30 people departed together.</p>
+        <div class="conditions-box">
+          <div class="cond-item">
+            <span class="cond-label">Tide</span>
+            <span class="cond-value">▲ Flooding · 1.69 ft</span>
+            <span class="cond-note">Predicted high: 1.53 ft at 12:45 PM</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Wind</span>
+            <span class="cond-value">NNE · 8 kt</span>
+            <span class="cond-note">Favorable crossing conditions</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Water temp</span>
+            <span class="cond-value">~85°F</span>
+            <span class="cond-note">Pascagoula, MS Sound</span>
+          </div>
+        </div>
+        <p class="conditions-source">Tide: NOAA Pascagoula (8741533) · Wind: NOAA Dauphin Island (8735180) · July 4, 2026</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/0956-MI4088BU-depart-from-El-Camino-Real-Rd.png" data-alt="GPS: MI4088BU departs El Camino Real Rd · 9:56 AM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>GPS · MI4088BU departs El Camino Real Rd @ 9:56 AM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 4: Horn Island Arrival -->
+  <div class="step" data-step="4">
+    <div class="step-content">
+      <div class="step-time">11:14 AM · July 4</div>
+      <div class="step-title">Horn Island Arrival</div>
+      <div class="step-body">
+        <p>The group's boats arrived at the northwestern tip of <span class="pill pill-location">Horn Island</span>. Three rows of boats stretched for miles along the shoreline. The beach was packed. <span class="pill pill-jayvon">Jayvon</span> told ABC that he saw <span class="pill pill-nolan">Nolan</span> after they arrived, explaining "As soon as we got out there, <span class="pill pill-nolan">Nolan's</span> told me that he loved me."</p>
+        <p><span class="pill pill-nolan">Nolan</span> had called <span class="pill pill-tracestin">Tracestin</span> twice around 11:00 AM to find where he was anchored. <span class="pill pill-tracestin">Tracestin</span> missed both calls but spotted their boat pulling in, directed them to an open spot, and helped set the stern anchor.</p>
+        <p>The boats anchored in formation along the shore: the <span class="pill pill-tideline">Tideline</span> was closest to shore, the <span class="pill pill-palmbeach">Palm Beach</span> in the middle, and the <span class="pill pill-triton">Triton</span> on the outer side. They were in the third row out&mdash;the point where the water drops sharply from neck-deep to 17–20 feet. The current near the west tip of the island is notably strong.</p>
+        <p class="embed-caption">Warren · Officer Tatum interview · <a href="assets/transcripts/warren-part-2.html" target="_blank" rel="noopener">Part 2 transcript</a> &mdash; documentary standup on the island</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/1114-MI4088BU-arrives-at-West-Tip-of-Horn-Island.png" data-alt="GPS: MI4088BU arrives at Horn Island west tip · 11:14 AM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>GPS · MI4088BU arrives at Horn Island west tip @ 11:14 AM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 5: Nolan Meets Katie -->
+  <div class="step" data-step="5">
+    <div class="step-content">
+      <div class="step-time">~3:43 PM · July 4</div>
+      <div class="step-title">Nolan Meets Katie</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan</span> met a girl named <span class="pill pill-katie">Katie</span>. They spent the afternoon together on the beach. Around 3:00 PM, <span class="pill pill-warren">Warren</span> caught his last glimpse of <span class="pill pill-nolan">Nolan</span> cradling <span class="pill pill-katie">Katie</span> in his arms&mdash;shaking his head, laughing. I was like, 'Dude, you crazy.'"</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-parents-on-boat-at-1543.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 4th @ 3:43 PM | Video from TMZ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 6: "All right, buddy. I love you. See you later." -->
+  <div class="step" data-step="6">
+    <div class="step-content">
+      <div class="step-time">~3:50 PM · July 4</div>
+      <div class="step-title">"All right, buddy. I love you. See you later."</div>
+      <div class="step-body">
+        <p><span class="pill pill-tracestin">Tracestin</span> and his girlfriend were walking back toward his <span class="pill pill-uncle">uncle's boat</span>. <span class="pill pill-nolan">Nolan</span> crossed their path going the opposite direction toward <span class="pill pill-wyatt">Wyatt's</span> <span class="pill pill-triton">Triton</span>. They dabbed up. <span class="pill pill-tracestin">Tracestin</span> made a joking comment about the girl <span class="pill pill-nolan">Nolan</span> was with.</p>
+        <p>His last words to <span class="pill pill-nolan">Nolan</span>: <em>"All right, buddy. I love you. See you later."</em> <span class="pill pill-tracestin">Tracestin</span> said that was their last encounter that day.</p>
+        <p class="embed-caption">Tracestin Interview with Officer Tatum | <a href="assets/transcripts/tracestin-part-5.html" target="_blank" rel="noopener">Part 5 transcript</a> mdash;Q&A from the island through the search</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/2026-07-04-Nolan-on-boat-with-bros.png" data-alt="Nolan on boat with friends on July 4th">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>Nolan with friends on the boat on July 4th</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 7: Altercation on Island -->
+  <div class="step" data-step="7">
+    <div class="step-content">
+      <div class="step-time">~4:00 PM · July 4</div>
+      <div class="step-title">Altercation on Island</div>
+      <div class="step-body">
+        <p class="embed-caption">July 4th · Altercation video</p>
+        <p>A video caught someone someone yelling "Give me my f-ing phone back" and was widely assumed to be <span class="pill pill-nolan">Nolan</span>. <span class="pill pill-tracestin">Tracestin</span> later clarified: "That's me yelling." <span class="pill pill-nolan">Nolan</span> was not involved in the altercation.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-tracetin-fighting.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 8: He Threw the First Punch -->
+  <div class="step" data-step="8">
+    <div class="step-content">
+      <div class="step-time">~4:00 PM · July 4</div>
+      <div class="step-title">'He Threw the First Punch'</div>
+      <div class="step-body">
+        <p>A stranger interjected himself into an argument between <span class="pill pill-tracestin">Tracestin</span> and his girlfriend. <span class="pill pill-tracestin">Tracestin</span> told him twice to step away. The stranger threw the first punch. <span class="pill pill-nolan">Nolan</span> was not involved&mdash;he was with <span class="pill pill-katie">Katie</span> elsewhere on the island.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 9: Bilge Pump Fails -->
+  <div class="step" data-step="9">
+    <div class="step-content">
+      <div class="step-time">~4:15 PM · July 4</div>
+      <div class="step-title">Bilge Pump Fails</div>
+      <div class="step-body">
+        <p>When <span class="pill pill-warren">Warren</span> checked on the <span class="pill pill-triton">Triton</span>, water was up to the batteries and the motor wouldn't respond so <span class="pill pill-wyatt">Wyatt</span> threw a rear anchor. <span class="pill pill-bart">Bart</span>, on the <span class="pill pill-tideline">Tideline</span>, offered to tow them clear of the crowd. The flooding had built up over hours: heavy foot traffic from people climbing on and off the boat throughout the day gradually dragged water in over the transom, overwhelming the bilge pump.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 10: Nolan Stays Behind -->
+  <div class="step" data-step="10">
+    <div class="step-content">
+      <div class="step-time">4:25–4:30 PM · July 4</div>
+      <div class="step-title">Nolan Stays Behind</div>
+      <div class="step-body">
+        <p><span class="pill pill-wyatt">Wyatt</span> called for <span class="pill pill-nolan">Nolan</span> multiple times but <span class="pill pill-nolan">Nolan</span> told him "I'm staying out here. I'm going to ride in with somebody else." At least 5 to 8 people heard him, according to <span class="pill pill-warren">Warren</span>.</p>
+        <p class="embed-caption">Warren · Officer Tatum interviews · <a href="assets/transcripts/warren-part-1.html" target="_blank" rel="noopener">Part 1</a> &middot; <a href="assets/transcripts/warren-part-3.html" target="_blank" rel="noopener">Part 3</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 11: Triton in Distress -->
+  <div class="step" data-step="11">
+    <div class="step-content">
+      <div class="step-time">4:31 PM · July 4</div>
+      <div class="step-title">Triton in Distress</div>
+      <div class="step-body">
+        <p>The <span class="pill pill-triton">Triton</span> reports a distress situation. Water is still entering the vessel. Emergency response is initiated. GPS coordinates mark the boat's position between the island and mainland as it heads toward the coast for emergency assistance.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-04-full-dispatch-call.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 4th dispatch call | Video from Plunder · <a href="assets/transcripts/seatow-audio.html" target="_blank" rel="noopener">Read transcript</a></p>
+        <div class="conditions-box">
+          <div class="cond-item">
+            <span class="cond-label">Tide</span>
+            <span class="cond-value">▼ Ebbing · 1.72 ft</span>
+            <span class="cond-note">High of 2.01 ft at 1:48 PM</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Wind</span>
+            <span class="cond-value">S · 8 kt</span>
+            <span class="cond-note">Opposing ebb current</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Conditions</span>
+            <span class="cond-value">Confused chop</span>
+            <span class="cond-note">Wind-against-tide on shallow Sound</span>
+          </div>
+        </div>
+        <p class="conditions-source">Tide: NOAA Pascagoula (8741533) · Wind: NOAA Dauphin Island (8735180) · July 4, 2026</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/2026-07-04-boats-on-horn-island-1641-PM.png" data-alt="Aerial view of boats on Horn Island">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>Aerial view of boats on Horn Island @ 4:41 PM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 12: Triton and Tideline Part Ways -->
+  <div class="step" data-step="12">
+    <div class="step-content">
+      <div class="step-time">5:25 PM · July 4</div>
+      <div class="step-title">The Triton And Tideline Part Ways</div>
+      <div class="step-body">
+        <p>The <span class="pill pill-tideline">Tideline</span> continues on back to the <span class="pill pill-location">El Camino Real Rd.</span> dock while the <span class="pill pill-triton">Triton</span> continues on to the <span class="pill pill-location">Fort Bayou</span> boat launch.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 13: The Palm Beach Returns -->
+  <div class="step" data-step="13">
+    <div class="step-content">
+      <div class="step-time">5:44 PM · July 4</div>
+      <div class="step-title">The Tideline Returns</div>
+      <div class="step-body">
+        <p>GPS tracking documents show the <span class="pill pill-tideline">Tideline</span> returns to the <span class="pill pill-location">El Camino Real Rd.</span> dock.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/1744-unknown-Vessel-returns-to-Camino-Real-Rd.png" data-alt="GPS: unknown vessel at/returns to El Camino Real Rd · 5:44 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>GPS · The Tideline arrives at/returns to El Camino Real Rd. dock @ 5:44 PM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 14: The Triton Heads East-->
+  <div class="step" data-step="14">
+    <div class="step-content">
+      <div class="step-time">5:52 PM · July 4</div>
+      <div class="step-title">The Triton Heads East</div>
+      <div class="step-body">
+        <p>The damaged <span class="pill pill-triton">Triton</span> changes course eastward toward the <span class="pill pill-location">Fort Bayou</span> boat launch. The motor had a trim failure: it would drop into the water but spring back up when put in gear, causing the stop-start GPS pattern. Holding the manual trim override allowed them to maintain speed. <span class="pill pill-wyatt">Wyatt</span> jumps in to pull the drain plug; the crew shifts weight to the bow to plane out at 40+ mph and expel the water.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/1752-MI4088BU-headed-east.png" data-alt="GPS: MI4088BU headed east @ 5:52 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>GPS · MI4088BU headed east @ 5:52 PM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 15: Last Known Sighting -->
+  <div class="step" data-step="15">
+    <div class="step-content">
+      <div class="step-time">~6:00 PM · July 4</div>
+      <div class="step-title">Last Known Sighting</div>
+      <div class="step-body">
+        <p>Warren personally spoke with someone who saw <span class="pill pill-nolan">Nolan</span> on <span class="pill pill-location">Horn Island</span> around 6:00 PM&mdash;approximately 90 minutes after the boats departed. Warren: "We weren't even the last people to see Nolan." Dozens of boats were still anchored around the island at that hour.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 16: The Triton Underway -->
+  <div class="step" data-step="16">
+    <div class="step-content">
+      <div class="step-time">6:34 PM · July 4</div>
+      <div class="step-title">The Triton Underway</div>
+      <div class="step-body">
+        <p>The <span class="pill pill-triton">Triton</span> continues underway near <span class="pill pill-location">Fort Bayou</span>. GPS coordinates track the vessel's continued movement toward the boat launch, approximately 40 minutes after the boat's previously logged position.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/1834-MI4088BU-underway-to-Fort-Bayou-boat-launch.png" data-alt="GPS: MI4088BU underway to Fort Bayou boat launch · 6:34 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>GPS · MI4088BU underway to Fort Bayou boat launch @ 6:34 PM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 17: Fort Bayou Arrival -->
+  <div class="step" data-step="17">
+    <div class="step-content">
+      <div class="step-time">7:19 PM · July 4</div>
+      <div class="step-title">Fort Bayou Arrival</div>
+      <div class="step-body">
+        <p>The <span class="pill pill-triton">Triton</span> arrives at the <span class="pill pill-location">Fort Bayou</span> boat launch. This marks the end of the evening return voyage from the island and represents the geographic anchor showing boats back at the mainland launch area.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/1919-MI4088BU-arrives-at-Fort-Bayou-boat-launch.png" data-alt="GPS: MI4088BU arrives at Fort Bayou boat launch · 7:19 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>GPS · MI4088BU arrives at Fort Bayou boat launch @ 7:19 PM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 18: The Triton Trailered to Biloxi -->
+  <div class="step" data-step="18">
+    <div class="step-content">
+      <div class="step-time">7:47 PM · July 4</div>
+      <div class="step-title">The Triton Trailered to Biloxi</div>
+      <div class="step-body">
+        <p>The <span class="pill pill-triton">Triton</span> departs the <span class="pill pill-location">Fort Bayou</span> boat launch toward <span class="pill pill-location">Biloxi</span>. GPS tracking shows the route east along the coast, marking the furthest documented waypoint at approximately 22 miles from <span class="pill pill-location">Fort Bayou</span>, where the damaged vessel is ultimately trailered.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/1947-MI4088BU-trailered-to-Cardinal-Lane-in-Biloxi.png" data-alt="GPS: MI4088BU trailered to Cardinal Lane, Biloxi · 7:47 PM">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>GPS · MI4088BU trailered to Cardinal Lane, Biloxi @ 7:47 PM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 19: Warren calls Tracetin -->
+  <div class="step" data-step="19">
+    <div class="step-content">
+      <div class="step-time">~9:20 PM · July 4</div>
+      <div class="step-title">Warren calls Tracetin</div>
+      <div class="step-body">
+        <p><span class="pill pill-warren">Warren</span> calls <span class="pill pill-tracestin">Tracestin</span> at approximately 9:20 PM. <span class="pill pill-tracestin">Tracestin</span> was asleep on his <span class="pill pill-uncle">uncle's boat</span> and didn't answer.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 20: "They're Looking for Nolan" -->
+  <div class="step" data-step="20">
+    <div class="step-content">
+      <div class="step-time">~11:00 PM · July 4</div>
+      <div class="step-title">"They're Looking for Nolan"</div>
+      <div class="step-body">
+        <p><span class="pill pill-tracestin">Tracestin's</span> brother woke him: "They're looking for <span class="pill pill-nolan">Nolan</span>." <span class="pill pill-tracestin">Tracestin</span> called back. His first read: "He's probably just out somewhere with that girl." <span class="pill pill-warren">Warren</span>: "We're starting to freak out." <span class="pill pill-warren">Warren</span> hung up to dial the Coast Guard.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 21: Friends Call—He's Not Back -->
+  <div class="step" data-step="21">
+    <div class="step-content">
+      <div class="step-time">~11:15 PM · July 4</div>
+      <div class="step-title">Warren Calls Nolan's Mom</div>
+      <div class="step-body">
+        <p><span class="pill pill-warren">Warren</span> calls <span class="pill pill-christine">Christine</span>, <span class="pill pill-nolan">Nolan's</span> mother, to say he still hadn't returned from the island. <span class="pill pill-christine">Christine</span> called <span class="pill pill-person">Tashema Hands</span>, mother of <span class="pill pill-person">Jayvon Williams</span>, to ask if he'd seen <span class="pill pill-nolan">Nolan</span>.</p>
+        <p><span class="pill pill-jayvon">Jayvon</span> and his brother check <span class="pill pill-nolan">Nolan's</span> Snapchat location while <span class="pill pill-christine">Christine</span> checks Life360. The data doesn't match.</p>
+        <div class="conditions-box">
+          <div class="cond-item">
+            <span class="cond-label">Tide</span>
+            <span class="cond-value">Near low · ~0.30 ft</span>
+            <span class="cond-note">Predicted low: 0.30 ft at 10:11 PM</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Wind</span>
+            <span class="cond-value">SW · 4 kt, dying</span>
+            <span class="cond-note">Near-calm, near-slack water</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Conditions</span>
+            <span class="cond-value">Dark · Sound near dry</span>
+            <span class="cond-note">~0.3 ft above datum — 5.7 hrs since last sighting</span>
+          </div>
+        </div>
+        <p class="conditions-source">Tide: NOAA Pascagoula (8741533) · Wind: NOAA Dauphin Island (8735180) · July 4, 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 22: Where Are the Keys? -->
+  <div class="step" data-step="22">
+    <div class="step-content">
+      <div class="step-time">Around Midnight · July 5</div>
+      <div class="step-title">Where Are Nolan's Keys?</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan's</span> parents head to <span class="pill pill-warren">Warren's</span> house to get his vehicle and search for him. Several friends answer the door. It's tense. One friend who was asleep comes out and says he doesn't know where the keys are. After 15 minutes of searching, they still can't find them.</p>
+        <p><span class="pill pill-nolan">Nolan's</span> father overhears one of the boys on the phone with a girl, who says the keys are on the XBox. About 5 minutes later, they find them.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 23: Phone Handed Over -->
+  <div class="step" data-step="23">
+    <div class="step-content">
+      <div class="step-time">~12:30 AM · July 5</div>
+      <div class="step-title">Tashema Picks Up Nolan's Phone</div>
+      <div class="step-body">
+        <p>Before calling the Coast Guard, <span class="pill pill-warren">Warren</span> had checked <span class="pill pill-nolan">Nolan's</span> Snapchat location. <span class="pill pill-wyatt">Wyatt</span> confirmed the phone was showing as being in his truck. <span class="pill pill-warren">Warren</span> told <span class="pill pill-christine">Christine</span> they had the phone before dialing the Coast Guard.</p>
+        <p>Around 12:30 AM, an unidentified person calls the group &mdash; very aggravated, asks "Where are y'all at?" &mdash; then hangs up. About 30 minutes later, <span class="pill pill-person">Tashema Hands</span> (<span class="pill pill-jayvon">Jayvon's</span> mother) arrives unannounced with a girl and roughly 8&ndash;9 others. She demands <span class="pill pill-nolan">Nolan's</span> phone. <span class="pill pill-wyatt">Wyatt</span> goes to his truck and hands it over. Per <span class="pill pill-warren">Warren</span>: "No complications, no issue." When the phone is later reviewed by the family, <span class="pill pill-christine">Christine</span> finds zero saved photos or videos from the island. <span class="pill pill-warren">Warren</span>: "We had no reason to delete anything."</p>
+        <p class="embed-caption">Warren · Officer Tatum interview · <a href="assets/transcripts/warren-part-4.html" target="_blank" rel="noopener">Part 4 transcript</a> &mdash; phone retrieval, keys, and direct Q&A</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 24: Missing Person Report Filed-->
+  <div class="step" data-step="24">
+    <div class="step-content">
+      <div class="step-time">11:49 PM · July 5</div>
+      <div class="step-title">Missing Person Report Filed</div>
+      <div class="step-body">
+        <p><span class="pill pill-christine">Christine</span> calls Ocean Springs Police to report <span class="pill pill-nolan">Nolan</span> missing. They tell her to contact the Department of Marine Resources (<span class="pill pill-dmr">DMR</span>) because the incident happened on the island, which is federal land.</p>
+        <p>When she calls <span class="pill pill-dmr">DMR</span>, she's told she needs to file with Ocean Springs Police first. Eventually, someone from <span class="pill pill-dmr">DMR</span> starts the missing person report to avoid further delay.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 25: Meet with DMR Officer-->
+  <div class="step" data-step="25">
+    <div class="step-content">
+      <div class="step-time">Around Midnight · July 5</div>
+      <div class="step-title">Meet with DMR Officer</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan's</span> parents meet with an officer from <span class="pill pill-dmr">DMR</span> at a <span class="pill pill-location">McDonald's</span> parking lot to provide details for the missing person report. <span class="pill pill-warren">Warren</span> has already contacted the Coast Guard directly to report him missing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 26: Photos Surface on Instagram -->
+  <div class="step" data-step="26">
+    <div class="step-content">
+      <div class="step-time">2:53 AM · July 5</div>
+      <div class="step-title">Evan posts photo of Nolan</div>
+      <div class="step-body">
+        <p><span class="pill pill-evan">Evan Noel</span> posts a photo on Instagram showing <span class="pill pill-nolan">Nolan</span> in the pool with their friends. The image fuels speculation until someone clarifies the pool party occurred on June 27th&mdash;not July 4th.</p>
+        <p>Around this time, the friends' lawyers advise them to stop cooperating with investigators and retain legal representation.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/2026-06-27-pool-party.png" data-alt="Pool party on June 27th">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>Photo of pool party from June 27th&mdash;not July 4th</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 27: Private Search Begins -->
+  <div class="step" data-step="27">
+    <div class="step-content">
+      <div class="step-time">6:00 AM · July 5</div>
+      <div class="step-title">Nolan's Coach Joins The Search</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan's</span> coach, who saw social media posts about him missing, contacts <span class="pill pill-nolan">Nolan's</span> father on Facebook and offers to take him out on his boat to look for <span class="pill pill-nolan">Nolan</span>. They head out to <span class="pill pill-location">Horn Island</span> to search. <span class="pill pill-nolan">Nolan's</span> father sees a family in a tent that appears to be living on the island.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-05-UCN-have-you-seen-him.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 5th · Have you seen him? | Video from <span class="pill pill-ucn">UCN</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 28: Back on the Water -->
+  <div class="step" data-step="28">
+    <div class="step-content">
+      <div class="step-time">~7:00 AM · July 5</div>
+      <div class="step-title">Friends Return to Horn Island</div>
+      <div class="step-body">
+        <p><span class="pill pill-tracestin">Tracestin</span> was up at 7:00 AM the next morning. He, <span class="pill pill-wyatt">Wyatt</span>, and others took <span class="pill pill-wyatt">Wyatt's</span> boat back out to search <span class="pill pill-location">Horn Island</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 29: Back on the Water -->
+  <div class="step" data-step="29">
+    <div class="step-content">
+      <div class="step-time">9:45 AM–Noon · July 5</div>
+      <div class="step-title">Nolan's Friends Head Back Out To Search</div>
+      <div class="step-body">
+        <p><span class="pill pill-tracestin">Tracestin</span>, <span class="pill pill-wyatt">Wyatt</span>, and other searched <span class="pill pill-location">Horn Island</span> in <span class="pill pill-wyatt">Wyatt's</span> boat from 9:45 AM until approximately noon. A rescue official told them professionals had the area under control and directed them to use social media instead.</p>
+        <p>They returned to shore and spent the rest of Sunday and through the night searching online and sharing everything they could, trying to reach anyone who might have spoken to <span class="pill pill-nolan">Nolan</span> after he was last seen.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 30: Official Search Launches-->
+  <div class="step" data-step="30">
+    <div class="step-content">
+      <div class="step-time">12:26 PM · July 5</div>
+      <div class="step-title">Official Search Launches</div>
+      <div class="step-body">
+        <p>The U.S. Coast Guard Sector Mobile receives a request for assistance from Jackson County Sheriff's Office. An urgent marine information broadcast is issued. A helicopter is sent to search the area. Multiple agencies mobilize: Coast Guard, Mississippi Department of Marine Resources (<span class="pill pill-dmr">DMR</span>), U.S. National Park Service, Gulf Islands National Seashore.</p>
+        <figure class="step-figure">
+          <div class="img-placeholder" data-src="assets/photos/2026-07-05-search-efforts-begin.png" data-alt="Search efforts begin · July 5, 2026">
+            <svg viewBox="0 0 24 24"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm0 2h14v9l-4-4-4 5-3-3-3 3V5zm2.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <span>View image</span>
+          </div>
+          <figcaption>Search efforts begin on July 5th</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 31: Command Post Established -->
+  <div class="step" data-step="31">
+    <div class="step-content">
+      <div class="step-time">5:54 PM · July 5</div>
+      <div class="step-title">Command Post Established</div>
+      <div class="step-body">
+        <p>Jackson County Sheriff's Office establishes a command post at <span class="pill pill-location">Lake Mars Pier</span>. <span class="pill pill-sheriff">Sheriff Ledbetter</span> coordinates with multiple agencies.</p>
+        <p>The <span class="pill pill-ucn">United Cajun Navy</span>, a nonprofit volunteer search and rescue group from Louisiana, joins the effort. Their vice president tells CNN: <em>if someone fell in the water, strong rip currents that day would have posed a serious risk.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 32: Tracestin Preps to Search -->
+  <div class="step" data-step="32">
+    <div class="step-content">
+      <div class="step-time">5:00–6:00 AM · July 6</div>
+      <div class="step-title">Tracestin Preps to Search</div>
+      <div class="step-body">
+        <p><span class="pill pill-tracestin">Tracestin</span> was up at 5:00 AM. He fueled his boat at 6:00 AM with plans to take the boat back out to the <span class="pill pill-location">Chandelier Islands</span> to expand the search area. He put his boat on the lift and stopped at <span class="pill pill-location">McDonald's</span> first.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 33: UCN Continues Search -->
+  <div class="step" data-step="33">
+    <div class="step-content">
+      <div class="step-time">6:00 AM · July 6</div>
+      <div class="step-title">UCN Continues Search</div>
+      <div class="step-body">
+        <p>The <span class="pill pill-ucn">United Cajun Navy</span> continues searching via land, air, and sea. Search boats are deployed and the last vessels leave just before 8:00 AM to continue the search for <span class="pill pill-nolan">Nolan</span>.</p>
+        <div class="step-embed">
+          <div class="embed-placeholder" data-src="assets/mp4s/2026-07-06-Will-Pollston.mp4">
+            <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+            <span>Tap to play</span>
+          </div>
+        </div>
+        <p class="embed-caption">July 6th | Video from Will Pollston</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 34: Body Found -->
+  <div class="step" data-step="34">
+    <div class="step-content">
+      <div class="step-time">8:40 AM · July 6</div>
+      <div class="step-title">Body Found</div>
+      <div class="step-body">
+        <p>A U.S. Park Service ranger discovers a body face down in the water at the western tip of <span class="pill pill-location">Horn Island</span> where the boats had been anchored. The body matches <span class="pill pill-nolan">Nolan's</span> description: 6'1", approximately 180 pounds, wearing blue swim trunks.</p>
+        <div class="conditions-box">
+          <div class="cond-item">
+            <span class="cond-label">Tide · July 6</span>
+            <span class="cond-value">Ebbing · ~0.97 ft</span>
+            <span class="cond-note">High of 1.01 ft at 6:20 AM — 2h20m prior</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Pattern</span>
+            <span class="cond-value">Morning flood → deposit</span>
+            <span class="cond-note">Flood tide consistent with body washing ashore</span>
+          </div>
+          <div class="cond-item">
+            <span class="cond-label">Water temp</span>
+            <span class="cond-value">~85°F</span>
+            <span class="cond-note">~40 hrs in water since last sighting</span>
+          </div>
+        </div>
+        <p class="conditions-source">Tide: NOAA Pascagoula (8741533) · Temp: NOAA Pascagoula (8741533) · July 6, 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 35: News Reaches Tracestin -->
+  <div class="step" data-step="35">
+    <div class="step-content">
+      <div class="step-time">After 8:40 AM · July 6</div>
+      <div class="step-title">News Reaches Tracestin</div>
+      <div class="step-body">
+        <p>While leaving <span class="pill pill-location">McDonald's</span>, <span class="pill pill-tracestin">Tracestin</span> got the news: <span class="pill pill-nolan">Nolan's</span> body had been found.</p>
+        <p>"I wasn't there to help him in his last minutes," he said. "But now I do everything in my power to help." He donated to the family, reached out personally, and has since given multiple on-record interviews to clear up what he says are false narratives about his friend group.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 36: Family Notified -->
+  <div class="step" data-step="36">
+    <div class="step-content">
+      <div class="step-time">8:45 AM+ · July 6</div>
+      <div class="step-title">Family Notified</div>
+      <div class="step-body">
+        <p><span class="pill pill-sheriff">Sheriff Ledbetter</span> confirms authorities received a call reporting a body found at the northwestern tip of <span class="pill pill-location">Horn Island</span>. <span class="pill pill-nolan">Nolan's</span> family is asked to come to <span class="pill pill-location">Lake Mars Pier</span>, where they meet with <span class="pill pill-sheriff">Sheriff Ledbetter</span> and Coroner Bruce Lynd. They are told there are no immediate, obvious signs of foul play or trauma on the body.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 37: Identification Confirmed -->
+  <div class="step" data-step="37">
+    <div class="step-content">
+      <div class="step-time">11:00 AM · July 6</div>
+      <div class="step-title">Identification Confirmed</div>
+      <div class="step-body">
+        <p>The family is taken to the <span class="pill pill-location">Coroner's Office</span> in <span class="pill pill-pascagoula">Pascagoula</span>. The body is confirmed via dental records. It is <span class="pill pill-nolan">Nolan Wells</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 38: Public Confirmation -->
+  <div class="step" data-step="38">
+    <div class="step-content">
+      <div class="step-time">1:00 PM · July 6</div>
+      <div class="step-title">Public Confirmation</div>
+      <div class="step-body">
+        <p><span class="pill pill-nolan">Nolan's</span> family confirms his death on social media. <span class="pill pill-christine">Christine</span> posts on Facebook: the body found on <span class="pill pill-location">Horn Island</span> was their son. The <span class="pill pill-location">Coroner's Office</span> requests the autopsy be conducted at the state medical examiner's office due to the "condition" of the body and to determine if there was any trauma or foul play.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 39: Legal Team Retained -->
+  <div class="step" data-step="39">
+    <div class="step-content">
+      <div class="step-time">July 7, 2026</div>
+      <div class="step-title">Legal Team Retained</div>
+      <div class="step-body">
+        <p><span class="pill pill-christine">The Wells family</span> retains nationally renowned civil rights attorney <span class="pill pill-crump">Ben Crump</span> who immediately calls for a "thorough and transparent investigation." <span class="pill pill-crump">Crump</span> tells ABC News the family is concerned about South Mississippi law enforcement investigating a case where a "young Black man" may have been involved with "young white students who may have some culpability."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 40: Independent Autopsy Ordered -->
+  <div class="step" data-step="40">
+    <div class="step-content">
+      <div class="step-time">July 7, 2026</div>
+      <div class="step-title">Independent Autopsy Ordered</div>
+      <div class="step-body">
+        <p>The family's legal team orders an independent autopsy. <span class="pill pill-nolan">Nolan's</span> body is flown to <span class="pill pill-dc">Washington, D.C.</span>, for examination by experienced forensic pathologist Dr. Roger Mitchell. The state medical examiner conducts an autopsy in Mississippi. Cause of death: pending investigation. Date of death: unknown pending investigation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 41: Autopsy Findings -->
+  <div class="step" data-step="41">
+    <div class="step-content">
+      <div class="step-time">July 22, 2026</div>
+      <div class="step-title">Autopsy Findings</div>
+      <div class="step-body">
+        <p>At the <span class="pill pill-naacp">NAACP National Convention</span> in Chicago, <span class="pill pill-crump">Ben Crump</span> announces preliminary findings from the independent autopsy (Dr. Roger Mitchell, Washington D.C.). Cause and manner of death: undetermined, pending investigation. Marked decompositional changes; no fractures or deep tissue injuries. A 12-by-8-inch area of red discoloration in soft tissue on the back of <span class="pill pill-nolan">Nolan</span>'s head. The throat was not received with the body. Toxicology results not yet available.</p>
+        <p><span class="pill pill-crump">Crump</span>: "The condition of <span class="pill pill-nolan">Nolan Wells</span> before he entered the water would be the crux of the matter&mdash;whether he was conscious or unconscious, forced or unforced. It would be of utmost importance to determining cause and manner of death."</p>
+        <p><span class="pill pill-christine">Christine</span>: "The only question we have is, what happened to our son?"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- step 42: Investigation Continues-->
+  <div class="step" data-step="42">
+    <div class="step-content">
+      <div class="step-time">July 23, 2026 · Present</div>
+      <div class="step-title">Investigation Continues</div>
+      <div class="step-body">
+        <p>Over 60 witnesses have been interviewed. The FBI is assisting with digital evidence. <span class="pill pill-da">District Attoney McIlrath</span> confirmed the state medical examiner's autopsy report will be withheld until a grand jury reviews it. Rewards totaling $125,000 have been offered.</p>
+        <p>Critical questions remain unanswered: What were the circumstances that led to <span class="pill pill-nolan">Nolan</span> entering the water? Was there water in the airway? What are the toxicology findings? Investigators await answers.</p>
+        <div class="xlink">
+          <a href="event-timeline.html">Full Event Log →</a>
+          <p>Timestamped entries for every known event including boat assignments, witness communications, search response, and investigation milestones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js" crossorigin=""></script>
+<script>
+// Initialize map with satellite imagery
+const map = L.map('map', {
+  zoomControl: false,
+  attributionControl: true,
+  fadeAnimation: false,
+  dragging: false,
+  scrollWheelZoom: false,
+  doubleClickZoom: false,
+  touchZoom: false
+}).setView([30.30, -88.70], 11);
+
+// Use dark basemap
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+// Markers pane above the overlay pane (polylines @ 400) so circles cover route lines
+map.createPane('markersPane');
+map.getPane('markersPane').style.zIndex = 450;
+
+// Location data keyed to geojson markers
+const locations = {
+  bodyFound: {
+    lat: 30.242014, lng: -88.778409,
+    name: 'Body found @ 8:40 AM',
+    color: '#c04e01', zoom: 14
+  },
+  warrensHome: {
+    lat: 30.347661, lng: -88.558525,
+    name: "Warren's house",
+    color: '#7ab89c', zoom: 13
+  },
+  hornIsland: {
+    lat: 30.24235, lng: -88.776574,
+    name: 'Horn Island',
+    color: '#c9956a', zoom: 12
+  },
+  tideLaneDepart: {
+    lat: 30.433399, lng: -88.848528,
+    name: 'Tideline depart @ 9:56 AM',
+    color: '#7ab89c', zoom: 14
+  },
+  tritonArrival: {
+    lat: 30.243508, lng: -88.777755,
+    name: 'Triton arrival @ 11:14 AM',
+    color: '#e8956a', zoom: 13,
+    labelOffset: [140, 12]
+  },
+  palmBeachIsland: {
+    lat: 30.243164, lng: -88.780178,
+    name: 'Palm Beach',
+    color: '#8fa5d8', zoom: 14,
+    noLabel: true
+  },
+  tidelineIsland: {
+    lat: 30.243156, lng: -88.779864,
+    name: 'Tideline',
+    color: '#7ab89c', zoom: 14,
+    noLabel: true
+  },
+  tritonIsland: {
+    lat: 30.243156, lng: -88.780664,
+    name: 'Triton',
+    color: '#e8956a', zoom: 14,
+    noLabel: true
+  },
+  tritonDistress: {
+    lat: 30.288446, lng: -88.790443,
+    name: 'Triton in distress @ 4:31 PM',
+    color: '#c04e01', zoom: 13
+  },
+  tidelineReturn: {
+    lat: 30.433458, lng: -88.848619,
+    name: 'Tideline returns @ 5:44 PM',
+    color: '#7ab89c', zoom: 12,
+    iconSize: [400, 26], labelOffset: [200, 13]
+  },
+  tritonEastMarker: {
+    lat: 30.425525, lng: -88.848525,
+    name: 'Triton turns east @ 5:52 PM',
+    color: '#ebe2cd', zoom: 13
+  },
+  tritonUnderway: {
+    lat: 30.419411, lng: -88.828258,
+    name: 'Triton underway @ 6:34 PM',
+    color: '#e8956a', zoom: 13
+  },
+  fortBayou: {
+    lat: 30.419464, lng: -88.827825,
+    name: 'Triton arrives at Ft. Bayou boat launch @ 7:19 PM',
+    color: '#4a8a7c', zoom: 14,
+    iconSize: [400, 26], labelOffset: [200, 13]
+  },
+  tritonCardinalLn: {
+    lat: 30.42513, lng: -89.136214,
+    name: 'Triton trailered to Canal Rd @ 7:47 PM',
+    color: '#e8956a', zoom: 12
+  },
+  oceanSpringsPD: {
+    lat: 30.409167, lng: -88.765086,
+    name: 'Ocean Springs PD',
+    color: '#8fa5d8', zoom: 14
+  },
+  dmr: {
+    lat: 30.433178, lng: -88.936117,
+    name: 'Dept. of Marine Resources',
+    color: '#7ab89c', zoom: 13
+  },
+  mcdonalds: {
+    lat: 30.409531, lng: -88.759083,
+    name: "McDonald's",
+    color: '#e8956a', zoom: 15
+  },
+  privateSearch: {
+    lat: 30.25242, lng: -88.717975,
+    name: 'Private search @ 6:00 AM',
+    color: '#4a8a7c', zoom: 12
+  },
+  jacksonSheriff: {
+    lat: 30.36545, lng: -88.558317,
+    name: "Jackson County Sheriff's Dept.",
+    color: '#7a8fb8', zoom: 14,
+    labelOffset: [70, 24]
+  },
+  lakeMarsPier: {
+    lat: 30.360766, lng: -88.764184,
+    name: 'Lake Mars Pier',
+    color: '#c04e01', zoom: 13
+  },
+  searchEfforts: {
+    lat: 30.237256, lng: -88.6583,
+    name: 'Search efforts',
+    color: '#4a8a7c', zoom: 11
+  },
+  coroner: {
+    lat: 30.379697, lng: -88.529708,
+    name: 'Coroner',
+    color: '#7ab89c', zoom: 13
+  },
+  washingtonDC: {
+    lat: 38.883664, lng: -77.018392,
+    name: 'Washington, D.C. Medical Examiner',
+    color: '#8fa5d8', zoom: 12
+  },
+  naacpConference: {
+    lat: 41.850669, lng: -87.620675,
+    name: 'NAACP Conference in Chicago, IL',
+    color: '#d4a574', zoom: 11
+  },
+  districtAttorney: {
+    lat: 30.3656, lng: -88.5589,
+    name: 'District Attorney',
+    color: '#e8956a', zoom: 14
+  },
+  coastGuard: {
+    lat: 30.363558, lng: -89.091075,
+    name: 'Coast Guard @ 11:00 PM',
+    color: '#8fa5d8', zoom: 11
+  }
+};
+
+// Create markers with labels
+const markers = {};
+const labels = {};
+
+Object.entries(locations).forEach(([key, loc]) => {
+  const marker = L.circleMarker([loc.lat, loc.lng], {
+    radius: 6,
+    fillColor: loc.color,
+    color: loc.color,
+    weight: 2,
+    opacity: 0,
+    fillOpacity: 0,
+    pane: 'markersPane'
+  }).addTo(map);
+
+  const labelOffset = loc.labelOffset || [70, -12];
+  const labelSize = loc.iconSize || [140, 24];
+  const label = loc.noLabel ? null : L.marker([loc.lat, loc.lng], {
+    icon: L.divIcon({
+      className: 'map-label',
+      html: `<div>${loc.name}</div>`,
+      iconSize: labelSize,
+      iconAnchor: labelOffset
+    })
+  }).addTo(map);
+
+  markers[key] = marker;
+  labels[key] = label;
+});
+
+// GPS route lines in geojson chronological order (1-8), hidden until step triggers
+const routeLines = {};
+
+const gpsRouteData = [
+  // Step 3: Triton depart → Horn Island @ 9:56 AM — amber
+  {
+    key: 'r0_tritonDepart',
+    color: '#d4a05c',
+    weight: 2.5,
+    coords: [[-88.848426, 30.433343], [-88.855038, 30.425419], [-88.855257, 30.423535], [-88.812259, 30.365008], [-88.777619, 30.243717]]
+  },
+  // Step 3: Tideline → Horn Island @ 9:56 AM — teal
+  {
+    key: 'r1_tideLaneDepart',
+    color: '#4a8a7c',
+    weight: 2.5,
+    coords: [[-88.848528, 30.433399], [-88.855409, 30.425441], [-88.855645, 30.423626], [-88.813062, 30.364714], [-88.777789, 30.243622]]
+  },
+  // Step 3: Palm Beach → Horn Island @ 9:56 AM — peach
+  {
+    key: 'r2_palmBeachDepart',
+    color: '#E8956A',
+    weight: 2.5,
+    coords: [[-88.848695, 30.433511], [-88.85618, 30.42559], [-88.856403, 30.423704], [-88.814899, 30.36401], [-88.777954, 30.243535]]
+  },
+  // Step 11: Horn Island to distress point @ 4:31 PM — red
+  {
+    key: 'r3_tritonDistress',
+    color: '#C04E01',
+    weight: 2.5,
+    coords: [[-88.777755, 30.243508], [-88.790442, 30.288414]]
+  },
+  // Step 12: Tideline returns to El Camino Real Rd. — teal
+  {
+    key: 'r4_tidelineReturn',
+    color: '#4a8a7c',
+    weight: 2.5,
+    coords: [[-88.848686, 30.433595], [-88.856306, 30.425579], [-88.856538, 30.423502], [-88.815552, 30.364176], [-88.778127, 30.243372]]
+  },
+  // Step 13: Triton turns east @ 5:52 PM — accent cream
+  {
+    key: 'r6_tritonEastFtBayou',
+    color: '#ebe2cd',
+    weight: 2.5,
+    coords: [[-88.787857, 30.288499], [-88.813271, 30.363942], [-88.854646, 30.423516], [-88.854444, 30.425339], [-88.852328, 30.42599], [-88.850276, 30.425744], [-88.848525, 30.425525]]
+  },
+  // Step 15: Triton underway @ 6:34 PM — carmine
+  {
+    key: 'r7_tritonUnderway',
+    color: '#7A5063',
+    weight: 2.5,
+    coords: [[-88.848525, 30.425525], [-88.842724, 30.422039], [-88.831837, 30.419098], [-88.828258, 30.419411]]
+  },
+  // Step 16: Triton arrives at Ft. Bayou boat launch — teal
+  {
+    key: 'r7b_ftBayouArrival',
+    color: '#4a8a7c',
+    weight: 2.5,
+    coords: [[-88.828258, 30.419411], [-88.827825, 30.419464]]
+  },
+  // Step 2: Palm Beach Fort Bayou launch → El Camino Real Rd @ 9:45 AM — yellow
+  {
+    key: 'r_fortBayouToElCamino',
+    color: '#c8b83a',
+    weight: 2.5,
+    coords: [[-88.828001, 30.420425], [-88.827894, 30.420031], [-88.827852, 30.419749], [-88.827832, 30.41962], [-88.827825, 30.419464], [-88.831838, 30.41917], [-88.842635, 30.422188], [-88.843586, 30.422957], [-88.849927, 30.431627], [-88.848434, 30.433353]]
+  },
+  // Step 16: Palm Beach returns to Ft. Bayou boat launch — blue-gray
+  {
+    key: 'r_palmBeachFtBayou',
+    color: '#8fa5d8',
+    weight: 2.5,
+    coords: [[-88.777144, 30.243663], [-88.813717, 30.363796], [-88.854821, 30.423525], [-88.8546, 30.425431], [-88.852353, 30.426129], [-88.848458, 30.425669], [-88.842678, 30.422105], [-88.831831, 30.419136], [-88.827854, 30.419485], [-88.828001, 30.420425]]
+  },
+  // Step 8: Palm Beach returns prior to 4:30 PM — blue-gray
+  {
+    key: 'r_palmBeachReturn',
+    color: '#8fa5d8',
+    weight: 2.5,
+    coords: [[-88.777295, 30.243631], [-88.813717, 30.363796], [-88.854821, 30.423525], [-88.8546, 30.425431], [-88.852353, 30.426129], [-88.848458, 30.425669], [-88.842678, 30.422105], [-88.831831, 30.419136], [-88.827854, 30.419485], [-88.828001, 30.420425]]
+  },
+  // Step 11: Tideline tows Triton @ 4:31 PM — teal
+  {
+    key: 'r_tidelineTows',
+    color: '#4a8a7c',
+    weight: 2.5,
+    coords: [[-88.777207, 30.243658], [-88.779502, 30.249866]]
+  },
+  // Step 12: Tideline part ways @ 5:25 PM (Tideline heads to mainland) — teal
+  {
+    key: 'r_tidelinePartWays',
+    color: '#4a8a7c',
+    weight: 2.5,
+    coords: [[-88.848513, 30.433404], [-88.85619, 30.425227], [-88.856217, 30.423846], [-88.814751, 30.363507], [-88.777207, 30.243658]]
+  },
+  // Step 12: Triton part ways @ 5:25 PM (Triton heads east to mainland) — amber
+  {
+    key: 'r_tritonPartWays',
+    color: '#d4a05c',
+    weight: 2.5,
+    coords: [[-88.779502, 30.249866], [-88.813271, 30.363942], [-88.854646, 30.423516], [-88.854444, 30.425339], [-88.852328, 30.42599], [-88.850276, 30.425744], [-88.848525, 30.425525]]
+  },
+  // Meetup routes — morning of July 4, how everyone got to El Camino Real Rd
+  // Warren: Wyatt's house → his own home ("ran home") — yellow
+  {
+    key: 'r_meetup_wyattToHome',
+    color: '#fbff00',
+    weight: 2,
+    coords: [[-88.785119,30.40942],[-88.784819,30.409421],[-88.784819,30.409804],[-88.784785,30.4099],[-88.785076,30.410058],[-88.785406,30.410216],[-88.78567,30.410323],[-88.785932,30.41041],[-88.785853,30.410742],[-88.785788,30.410856],[-88.785697,30.410962],[-88.78556,30.411061],[-88.785415,30.411143],[-88.784323,30.411627],[-88.783723,30.411883],[-88.783116,30.412133],[-88.782969,30.412197],[-88.782899,30.412238],[-88.782844,30.412279],[-88.782803,30.41233],[-88.782774,30.412382],[-88.782738,30.412502],[-88.782717,30.412618],[-88.780969,30.412334],[-88.779899,30.412167],[-88.778826,30.411989],[-88.776765,30.411646],[-88.774701,30.411314],[-88.770689,30.41066],[-88.766628,30.40999],[-88.765918,30.40986],[-88.764893,30.409706],[-88.763136,30.409424],[-88.759598,30.408851],[-88.755636,30.408213],[-88.751631,30.407546],[-88.749358,30.407191],[-88.747634,30.406911],[-88.743635,30.406262],[-88.739634,30.405606],[-88.735524,30.40494],[-88.732167,30.40439],[-88.728715,30.403827],[-88.719515,30.402332],[-88.713655,30.401374],[-88.706194,30.400167],[-88.703185,30.399679],[-88.700164,30.399206],[-88.693821,30.398228],[-88.68564,30.396977],[-88.677429,30.3957],[-88.672554,30.394962],[-88.665041,30.393815],[-88.659199,30.392917],[-88.654446,30.392183],[-88.651758,30.391777],[-88.648907,30.391324],[-88.646006,30.390886],[-88.641706,30.39023],[-88.640431,30.390026],[-88.639143,30.389787],[-88.638094,30.389592],[-88.637519,30.389472],[-88.637039,30.389351],[-88.632997,30.388433],[-88.627704,30.387213],[-88.625595,30.386738],[-88.62343,30.386226],[-88.620049,30.385456],[-88.61215,30.383644],[-88.609435,30.382992],[-88.606678,30.382368],[-88.601202,30.381107],[-88.597681,30.380304],[-88.594119,30.379473],[-88.58604,30.37761],[-88.578516,30.375871],[-88.576668,30.375465],[-88.57477,30.375032],[-88.573056,30.374621],[-88.570964,30.374067],[-88.568512,30.373405],[-88.56549,30.372768],[-88.557883,30.371236],[-88.557161,30.371089],[-88.55645,30.370979],[-88.555525,30.370884],[-88.5545,30.370837],[-88.552963,30.370849],[-88.551423,30.370841],[-88.548615,30.370824],[-88.548522,30.354836],[-88.554015,30.354724],[-88.553762,30.353524],[-88.553642,30.352932],[-88.553579,30.352489],[-88.553516,30.351842],[-88.553497,30.351199],[-88.553524,30.349658],[-88.554649,30.349658],[-88.555114,30.349649],[-88.555343,30.349632],[-88.555595,30.349594],[-88.556183,30.349497],[-88.556155,30.348925],[-88.556182,30.348785],[-88.556211,30.348721],[-88.55627,30.348665],[-88.556359,30.348629],[-88.556484,30.348599],[-88.556915,30.348502],[-88.556889,30.347995]]
+  },
+  // Warren: home → McDonald's (Pascagoula) — first leg, green
+  {
+    key: 'r_meetup_homeToMcD',
+    color: '#00ff19',
+    weight: 2,
+    coords: [[-88.556889,30.347995],[-88.556915,30.348502],[-88.556359,30.348629],[-88.55627,30.348665],[-88.55621,30.348721],[-88.556182,30.348785],[-88.556154,30.348925],[-88.556183,30.349497],[-88.55569,30.34958],[-88.555345,30.349631],[-88.555118,30.349649],[-88.554722,30.349657],[-88.554329,30.349658],[-88.553524,30.349658],[-88.553504,30.350893],[-88.553498,30.351204],[-88.553505,30.351472],[-88.553515,30.351788],[-88.553516,30.351834],[-88.55352,30.351875],[-88.553537,30.352059],[-88.55358,30.352495],[-88.553643,30.35293],[-88.553741,30.353424],[-88.554015,30.354724],[-88.548419,30.354838],[-88.548432,30.357139],[-88.548438,30.35833],[-88.548448,30.358924],[-88.54845,30.359582],[-88.548463,30.363981],[-88.548469,30.364502],[-88.547964,30.364488],[-88.547902,30.364486],[-88.547887,30.364486],[-88.54787,30.364487],[-88.547853,30.36449],[-88.547836,30.364494],[-88.547818,30.364499],[-88.547803,30.364505],[-88.547791,30.364513],[-88.547784,30.364518],[-88.547774,30.364526],[-88.547767,30.364534],[-88.547763,30.364546],[-88.54776,30.364558],[-88.547757,30.364582],[-88.547757,30.364603],[-88.547758,30.364642],[-88.547762,30.364673],[-88.547763,30.364684],[-88.547766,30.364694],[-88.547773,30.364704],[-88.547779,30.364709],[-88.547796,30.364721],[-88.547806,30.364725],[-88.547815,30.364728],[-88.547839,30.364731],[-88.547887,30.364734],[-88.547963,30.364735],[-88.548084,30.364737],[-88.548159,30.364735],[-88.548173,30.364734],[-88.548187,30.364733],[-88.548204,30.364729],[-88.548215,30.364724],[-88.548223,30.364718],[-88.54823,30.364711],[-88.548232,30.364702],[-88.548238,30.364537]]
+  },
+  // Warren: McDonald's → Wyatt's house — second leg, cyan
+  {
+    key: 'r_meetup_mcDToWyatt',
+    color: '#00fffb',
+    weight: 2,
+    coords: [[-88.548238,30.364537],[-88.548469,30.364545],[-88.54847,30.365079],[-88.548476,30.365522],[-88.548488,30.366694],[-88.548487,30.36786],[-88.548494,30.369409],[-88.548503,30.370193],[-88.548507,30.370965],[-88.550008,30.37097],[-88.551432,30.370976],[-88.552996,30.370981],[-88.554407,30.370986],[-88.555329,30.371042],[-88.556151,30.371121],[-88.556995,30.37125],[-88.557841,30.371419],[-88.55964,30.371781],[-88.561638,30.372183],[-88.56544,30.372951],[-88.566159,30.373097],[-88.566899,30.373248],[-88.567896,30.373447],[-88.568355,30.37351],[-88.56966,30.37384],[-88.570966,30.374197],[-88.573158,30.374787],[-88.5753,30.375323],[-88.580704,30.376549],[-88.587478,30.378115],[-88.594798,30.379797],[-88.603042,30.3817],[-88.605846,30.382329],[-88.608633,30.382968],[-88.610403,30.383372],[-88.612155,30.383798],[-88.614711,30.384398],[-88.616084,30.384713],[-88.617398,30.38501],[-88.618031,30.385167],[-88.619263,30.385459],[-88.62011,30.385665],[-88.62247,30.386225],[-88.623467,30.386436],[-88.625587,30.386932],[-88.627705,30.387414],[-88.630543,30.388073],[-88.632949,30.388623],[-88.635185,30.389138],[-88.637031,30.389563],[-88.639152,30.39],[-88.640681,30.390271],[-88.641735,30.39044],[-88.645968,30.391091],[-88.651747,30.391981],[-88.652727,30.392122],[-88.654413,30.392387],[-88.657629,30.392892],[-88.659217,30.393122],[-88.660761,30.393353],[-88.661897,30.393522],[-88.663913,30.393842],[-88.66505,30.394003],[-88.668309,30.394499],[-88.67001,30.39476],[-88.671314,30.394958],[-88.677946,30.39596],[-88.683739,30.396859],[-88.693788,30.398408],[-88.700193,30.399384],[-88.706628,30.400414],[-88.714333,30.401668],[-88.718273,30.402312],[-88.719668,30.402545],[-88.722515,30.403001],[-88.731049,30.40439],[-88.738316,30.405579],[-88.739602,30.405787],[-88.741185,30.406053],[-88.742323,30.406242],[-88.743767,30.406466],[-88.744895,30.406642],[-88.747022,30.406998],[-88.749046,30.40732],[-88.751606,30.407727],[-88.753737,30.408081],[-88.756574,30.408547],[-88.759579,30.409029],[-88.761027,30.409259],[-88.763797,30.409715],[-88.765668,30.410018],[-88.768763,30.410517],[-88.770228,30.410754],[-88.771916,30.411037],[-88.776731,30.411822],[-88.779573,30.4123],[-88.781141,30.41254],[-88.782683,30.412797],[-88.782717,30.41262],[-88.782734,30.412534],[-88.782753,30.41245],[-88.782776,30.412378],[-88.782827,30.412295],[-88.782888,30.412246],[-88.782976,30.412195],[-88.783114,30.412133],[-88.783727,30.411882],[-88.784332,30.411624],[-88.78495,30.411349],[-88.785385,30.411158],[-88.78556,30.411061],[-88.785696,30.410962],[-88.785789,30.410855],[-88.785853,30.410742],[-88.785932,30.41041],[-88.785678,30.410326],[-88.785421,30.410223],[-88.785096,30.410067],[-88.784785,30.4099],[-88.784819,30.409804],[-88.784819,30.409421],[-88.784972,30.40942],[-88.785049,30.40942],[-88.785119,30.40942]]
+  },
+  // Warren + Wyatt + Nolan: Wyatt's → Fort Bayou boat launch — amber
+  {
+    key: 'r_meetup_wyattToFortBayou',
+    color: '#ffb205',
+    weight: 2,
+    coords: [[-88.82753,30.418864],[-88.827563,30.418353],[-88.827523,30.418184],[-88.827494,30.418004],[-88.827672,30.41798],[-88.827656,30.417286],[-88.827666,30.416133],[-88.826343,30.416126],[-88.824476,30.416155],[-88.822585,30.416183],[-88.81879,30.416239],[-88.816773,30.416277],[-88.816173,30.416281],[-88.815569,30.416297],[-88.814219,30.416336],[-88.812935,30.416364],[-88.811372,30.416372],[-88.810484,30.416396],[-88.809595,30.41641],[-88.808335,30.416433],[-88.806907,30.416449],[-88.806337,30.41644],[-88.805766,30.416419],[-88.804993,30.41636],[-88.804023,30.416248],[-88.803505,30.416168],[-88.802984,30.416079],[-88.80142,30.415835],[-88.799772,30.415566],[-88.798678,30.415393],[-88.797547,30.415209],[-88.795384,30.414856],[-88.791845,30.414282],[-88.789068,30.413837],[-88.787525,30.413583],[-88.785919,30.413323],[-88.784301,30.413067],[-88.782683,30.412797],[-88.782718,30.412617],[-88.78274,30.412501],[-88.782774,30.412381],[-88.782802,30.412334],[-88.782835,30.41229],[-88.782863,30.412265],[-88.782896,30.412241],[-88.782967,30.412199],[-88.783113,30.412135],[-88.783723,30.411882],[-88.784331,30.411624],[-88.785028,30.411316],[-88.785416,30.411143],[-88.785562,30.411059],[-88.785695,30.410963],[-88.785788,30.410856],[-88.785853,30.410743],[-88.785932,30.41041],[-88.785675,30.410324],[-88.785415,30.410221],[-88.785083,30.410062],[-88.784785,30.4099],[-88.784819,30.409804],[-88.784819,30.409421],[-88.785119,30.40942]]
+  },
+  // Palm Beach: Fort Bayou launch → El Camino Real Rd — light blue
+  {
+    key: 'r_meetup_pbToElCamino',
+    color: '#00c9ff',
+    weight: 2,
+    coords: [[-88.827825,30.419464],[-88.830141,30.419261],[-88.831054,30.419157],[-88.831942,30.41925],[-88.832762,30.41935],[-88.833438,30.419548],[-88.834166,30.419755],[-88.842254,30.42199],[-88.843081,30.422278],[-88.843561,30.422564],[-88.84402,30.422984],[-88.844429,30.423471],[-88.849465,30.429844],[-88.850006,30.430573],[-88.850282,30.430931],[-88.850341,30.431023],[-88.850371,30.431116],[-88.850362,30.431201],[-88.850332,30.431296],[-88.850252,30.431488],[-88.850088,30.431692],[-88.849859,30.431931],[-88.849509,30.432256],[-88.849085,30.432662],[-88.848746,30.433066],[-88.84854,30.433348],[-88.848444,30.433676],[-88.848413,30.434049],[-88.848409,30.434221],[-88.848312,30.434371],[-88.848088,30.434506],[-88.847827,30.434589],[-88.847461,30.434541],[-88.846833,30.434398],[-88.846792,30.43452]]
+  },
+  // Triton: Fort Bayou launch → El Camino Real Rd — green
+  {
+    key: 'r_meetup_tritonToElCamino',
+    color: '#00ff19',
+    weight: 2,
+    coords: [[-88.827846,30.419421],[-88.831041,30.419048],[-88.832782,30.419238],[-88.842842,30.422034],[-88.84333,30.422215],[-88.843713,30.42245],[-88.844221,30.422892],[-88.844566,30.423335],[-88.850505,30.430963],[-88.850556,30.431088],[-88.850571,30.431201],[-88.850545,30.431305],[-88.850476,30.431426],[-88.850379,30.431587],[-88.849519,30.432515],[-88.849046,30.432956],[-88.848845,30.433176],[-88.848679,30.433409],[-88.848592,30.433656],[-88.848567,30.433899],[-88.848547,30.434086],[-88.848491,30.434254],[-88.848436,30.434347],[-88.848357,30.434431],[-88.848245,30.434508],[-88.848114,30.434568],[-88.84798,30.434619],[-88.847837,30.434649],[-88.847438,30.43459],[-88.846933,30.434484],[-88.846913,30.43455]]
+  },
+  // Bart: home dock → launches Tideline → El Camino Real Rd — orange
+  {
+    key: 'r_meetup_bartToElCamino',
+    color: '#ffa100',
+    weight: 2,
+    coords: [[-88.812798,30.424206],[-88.812604,30.424519],[-88.815234,30.425506],[-88.816072,30.425747],[-88.816906,30.425923],[-88.817352,30.425969],[-88.817798,30.426014],[-88.818213,30.425995],[-88.818508,30.425917],[-88.81873,30.425687],[-88.818832,30.425448],[-88.818828,30.425218],[-88.81881,30.424946],[-88.81873,30.424645],[-88.818464,30.424133],[-88.818335,30.423756],[-88.818459,30.423325],[-88.818655,30.423136],[-88.818946,30.42297],[-88.819473,30.422958],[-88.820062,30.423283],[-88.820583,30.423831],[-88.821422,30.424163],[-88.822147,30.42413],[-88.822736,30.4237],[-88.823905,30.421521],[-88.827812,30.419348],[-88.830529,30.418927],[-88.83105,30.418881],[-88.831405,30.418913],[-88.831872,30.418968],[-88.832364,30.419028],[-88.832809,30.419119],[-88.843313,30.422004],[-88.843687,30.422182],[-88.844031,30.422428],[-88.844433,30.422835],[-88.850686,30.430943],[-88.850733,30.431054],[-88.850752,30.431162],[-88.850733,30.431277],[-88.850682,30.431389],[-88.850405,30.43179],[-88.848918,30.433303],[-88.848738,30.433571],[-88.848706,30.433858],[-88.848632,30.43418],[-88.848395,30.43447],[-88.848132,30.434598],[-88.847839,30.434689],[-88.847418,30.43462],[-88.846995,30.43452],[-88.846981,30.434563]]
+  },
+  // Step 17: Triton trailered to Canal Rd @ 7:47 PM — light teal
+  {
+    key: 'r8_trailerToCanal',
+    color: '#b8d4cf',
+    weight: 2,
+    coords: [[-89.136214, 30.425131], [-89.134669, 30.424732], [-89.133874, 30.424529], [-89.132778, 30.42439], [-89.131553, 30.424353], [-89.130071, 30.424399], [-89.127132, 30.424634], [-89.125161, 30.424913], [-89.123108, 30.425308], [-89.118562, 30.426432], [-89.110127, 30.428585], [-89.093929, 30.432796], [-89.085697, 30.434944], [-89.07935, 30.436657], [-89.076233, 30.437491], [-89.07303, 30.438236], [-89.03277, 30.444228], [-89.030871, 30.444508], [-89.027724, 30.445069], [-89.022682, 30.446206], [-89.017922, 30.447224], [-89.015542, 30.44765], [-89.013095, 30.447977], [-89.000187, 30.449943], [-88.998497, 30.450201], [-88.997053, 30.450548], [-88.995636, 30.451041], [-88.994153, 30.451602], [-88.993191, 30.452084], [-88.992268, 30.4526], [-88.990653, 30.453654], [-88.987291, 30.45601], [-88.98284, 30.458828], [-88.980518, 30.459766], [-88.977955, 30.460433], [-88.97602, 30.460725], [-88.97394, 30.460787], [-88.968814, 30.460767], [-88.959441, 30.460722], [-88.957215, 30.460481], [-88.954928, 30.459931], [-88.952718, 30.459153], [-88.950788, 30.45816], [-88.942718, 30.453619], [-88.938989, 30.451608], [-88.936979, 30.450666], [-88.934774, 30.449795], [-88.93283, 30.449187], [-88.930799, 30.448643], [-88.928471, 30.448137], [-88.926102, 30.44778], [-88.923795, 30.447549], [-88.921424, 30.447457], [-88.919095, 30.447494], [-88.917878, 30.447577], [-88.916714, 30.447687], [-88.915571, 30.447816], [-88.914385, 30.447982], [-88.913178, 30.448194], [-88.911897, 30.448442], [-88.909525, 30.449041], [-88.90725, 30.449796], [-88.903854, 30.450975], [-88.899824, 30.45233], [-88.898148, 30.452897], [-88.896279, 30.453422], [-88.894987, 30.453698], [-88.893658, 30.453863], [-88.892529, 30.453965], [-88.891357, 30.454034], [-88.889403, 30.454061], [-88.88744, 30.454058], [-88.881094, 30.454123], [-88.868414, 30.454212], [-88.852313, 30.454324], [-88.84936, 30.454347], [-88.847969, 30.454377], [-88.847305, 30.454399], [-88.846627, 30.454433], [-88.846348, 30.454451], [-88.846063, 30.454477], [-88.845792, 30.454517], [-88.845518, 30.454572], [-88.84533, 30.454616], [-88.845138, 30.454674], [-88.844962, 30.454739], [-88.844776, 30.454809], [-88.844273, 30.455022], [-88.843814, 30.455223], [-88.843436, 30.455307], [-88.843055, 30.455357], [-88.842846, 30.454392], [-88.842467, 30.45318], [-88.842149, 30.452392], [-88.841912, 30.451634], [-88.841365, 30.450129], [-88.83951, 30.444999], [-88.838975, 30.443606], [-88.838684, 30.443156], [-88.838277, 30.442727], [-88.83514, 30.439895], [-88.831512, 30.436661], [-88.830811, 30.436007], [-88.830479, 30.435463], [-88.830316, 30.435112], [-88.830186, 30.434574], [-88.830047, 30.433793], [-88.829777, 30.432389], [-88.829246, 30.429605], [-88.829203, 30.429178], [-88.829185, 30.42873], [-88.829244, 30.427567], [-88.82924, 30.427105], [-88.829207, 30.426625], [-88.829128, 30.425662], [-88.828981, 30.423746], [-88.828854, 30.423729], [-88.828717, 30.423721], [-88.828621, 30.423678], [-88.828598, 30.423651], [-88.828581, 30.423613], [-88.828571, 30.42358], [-88.828572, 30.423534], [-88.828588, 30.423428], [-88.828628, 30.42311], [-88.828644, 30.422963], [-88.828653, 30.422812], [-88.828658, 30.422632], [-88.828639, 30.422512], [-88.828487, 30.422019], [-88.828398, 30.421772], [-88.828312, 30.421521], [-88.828257, 30.421272], [-88.828187, 30.421051], [-88.828105, 30.42083], [-88.828001, 30.420425]]
+  }
+];
+
+// Build polylines but don't add to map yet — shown per step
+gpsRouteData.forEach(route => {
+  const coords = route.coords.map(c => [c[1], c[0]]);
+  routeLines[route.key] = L.polyline(coords, {
+    color: route.color,
+    weight: route.weight || 2,
+    opacity: 0.75,
+    lineCap: 'round',
+    lineJoin: 'round'
+  });
+});
+
+function showRoutes(keys) {
+  Object.values(routeLines).forEach(line => map.removeLayer(line));
+  keys.forEach(key => { if (routeLines[key]) map.addLayer(routeLines[key]); });
+}
+
+// Animation functions
+function showLocation(key) {
+  const loc = locations[key];
+
+  // Hide all markers
+  Object.values(markers).forEach(m => {
+    m.setStyle({ opacity: 0, fillOpacity: 0 });
+  });
+  Object.values(labels).forEach(l => l && map.removeLayer(l));
+
+  // Show this marker
+  markers[key].setStyle({ opacity: 1, fillOpacity: 0.8, radius: 8 });
+  if (labels[key]) map.addLayer(labels[key]);
+
+  // Fly to location
+  map.flyTo([loc.lat, loc.lng], loc.zoom, {
+    duration: 1.5,
+    easeLinearity: 0.2
+  });
+}
+
+function showMultiple(keys, lat, lng, zoom) {
+  // Hide all
+  Object.values(markers).forEach(m => {
+    m.setStyle({ opacity: 0, fillOpacity: 0 });
+  });
+  Object.values(labels).forEach(l => l && map.removeLayer(l));
+
+  // Show selected
+  keys.forEach(key => {
+    markers[key].setStyle({ opacity: 0.6, fillOpacity: 0.5, radius: 7 });
+    if (labels[key]) map.addLayer(labels[key]);
+  });
+
+  map.flyTo([lat, lng], zoom, {
+    duration: 1.5,
+    easeLinearity: 0.2
+  });
+}
+
+// Step animations — indexed by DOM NodeList order
+const animations = {
+  0:  () => { showLocation('bodyFound');                                                                                            showRoutes([]); },
+  1:  () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  2:  () => { showMultiple([], 30.391, -88.700, 11);                                                                               showRoutes(['r_meetup_wyattToHome', 'r_meetup_homeToMcD', 'r_meetup_mcDToWyatt', 'r_meetup_wyattToFortBayou', 'r_meetup_pbToElCamino', 'r_meetup_tritonToElCamino', 'r_meetup_bartToElCamino']); },
+  3:  () => { showMultiple([], 30.345, -88.820, 10);                                                                               showRoutes(['r0_tritonDepart', 'r1_tideLaneDepart', 'r2_palmBeachDepart']); },
+  4:  () => { showMultiple(['tritonArrival', 'palmBeachIsland', 'tidelineIsland'], 30.2437, -88.7780, 13);                         showRoutes([]); },
+  5:  () => { showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2432, -88.7803, 13);                         showRoutes([]); },
+  6:  () => { showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2432, -88.7803, 13);                         showRoutes([]); },
+  7:  () => { showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2432, -88.7803, 13);                         showRoutes([]); },
+  8:  () => { showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2432, -88.7803, 13);                         showRoutes(['r_palmBeachReturn']); },
+  9:  () => { showMultiple(['tritonIsland', 'palmBeachIsland', 'tidelineIsland'], 30.2432, -88.7803, 13);                         showRoutes([]); },
+  10: () => { showMultiple(['tritonIsland', 'tidelineIsland'], 30.2432, -88.7803, 13);                                            showRoutes([]); },
+  11: () => { showLocation('tritonDistress');                                                                                       showRoutes(['r3_tritonDistress', 'r_tidelineTows']); },
+  12: () => { showMultiple([], 30.34, -88.81, 10);                                                                                showRoutes(['r_tritonPartWays', 'r_tidelinePartWays']); },
+  13: () => { showLocation('tidelineReturn');                                                                                       showRoutes(['r4_tidelineReturn']); },
+  14: () => { showLocation('tritonEastMarker');                                                                                     showRoutes(['r6_tritonEastFtBayou']); },
+  15: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  16: () => { showLocation('tritonUnderway');                                                                                       showRoutes(['r7_tritonUnderway']); },
+  17: () => { showLocation('fortBayou');                                                                                            showRoutes(['r7b_ftBayouArrival']); },
+  18: () => { showLocation('tritonCardinalLn');                                                                                     showRoutes(['r8_trailerToCanal']); },
+  19: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  20: () => { showMultiple(['hornIsland', 'coastGuard'], 30.30, -88.93, 9);                                                        showRoutes([]); },
+  21: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  22: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  23: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  24: () => { showMultiple(['oceanSpringsPD', 'dmr'], 30.421, -88.851, 10);                                                        showRoutes([]); },
+  25: () => { showLocation('mcdonalds');                                                                                            showRoutes([]); },
+  26: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  27: () => { showLocation('privateSearch');                                                                                        showRoutes([]); },
+  28: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  29: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  30: () => { showLocation('jacksonSheriff');                                                                                       showRoutes([]); },
+  31: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
+  32: () => { showLocation('hornIsland');                                                                                           showRoutes([]); },
+  33: () => { showLocation('searchEfforts');                                                                                        showRoutes([]); },
+  34: () => { showLocation('bodyFound');                                                                                            showRoutes([]); },
+  35: () => { showLocation('mcdonalds');                                                                                            showRoutes([]); },
+  36: () => { showLocation('lakeMarsPier');                                                                                         showRoutes([]); },
+  37: () => { showLocation('coroner');                                                                                               showRoutes([]); },
+  38: () => { showLocation('coroner');                                                                                               showRoutes([]); },
+  39: () => { showLocation('coroner');                                                                                               showRoutes([]); },
+  40: () => { showLocation('washingtonDC');                                                                                         showRoutes([]); },
+  41: () => { showLocation('naacpConference');                                                                                      showRoutes([]); },
+  42: () => { showLocation('districtAttorney');                                                                                     showRoutes([]); }
+};
+
+// Scroll sync
+const steps = document.querySelectorAll('.step');
+let lastStep = -1;
+
+function handleScroll() {
+  let currentStep = 0;
+
+  steps.forEach((step, idx) => {
+    const rect = step.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.35) {
+      currentStep = idx;
+    }
+  });
+
+  if (currentStep !== lastStep && animations[currentStep]) {
+    lastStep = currentStep;
+    animations[currentStep]();
+  }
+}
+
+window.addEventListener('scroll', handleScroll);
+handleScroll();
+
+// Block browser-level pinch-zoom on iOS (ignores user-scalable=no since iOS 10)
+document.addEventListener('touchmove', function(e) {
+  if (e.touches.length > 1) e.preventDefault();
+}, { passive: false });
+
+function initPlaceholder(ph) {
+  ph.addEventListener('click', function handler() {
+    var isEmbed = ph.classList.contains('embed-placeholder');
+    var wrapper = document.createElement('div');
+    wrapper.style.cssText = 'position:relative;';
+
+    var media;
+    if (isEmbed) {
+      media = document.createElement('video');
+      media.src = ph.dataset.src;
+      media.controls = true;
+      media.autoplay = true;
+      media.style.cssText = 'display:block;width:100%;max-height:360px;';
+    } else {
+      media = document.createElement('img');
+      media.src = ph.dataset.src;
+      media.alt = ph.dataset.alt || '';
+      media.loading = 'lazy';
+    }
+
+    var closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.style.cssText = [
+      'position:absolute;top:6px;right:6px',
+      'background:rgba(0,0,0,0.6);color:#ccc',
+      'border:none;border-radius:3px',
+      'width:28px;height:28px',
+      'font-size:18px;line-height:1',
+      'cursor:pointer;z-index:10',
+      'display:flex;align-items:center;justify-content:center;padding:0'
+    ].join(';');
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (isEmbed) media.pause();
+      var newPh = document.createElement('div');
+      newPh.className = ph.className;
+      newPh.innerHTML = ph.innerHTML;
+      Object.keys(ph.dataset).forEach(function(k) { newPh.dataset[k] = ph.dataset[k]; });
+      initPlaceholder(newPh);
+      wrapper.parentNode.replaceChild(newPh, wrapper);
+    });
+
+    wrapper.appendChild(media);
+    wrapper.appendChild(closeBtn);
+    ph.parentNode.replaceChild(wrapper, ph);
+  });
+}
+
+document.querySelectorAll('.embed-placeholder, .img-placeholder').forEach(initPlaceholder);
+
+// =========================================================
+// LIGHTBOX — click any figure/gallery image to view full size
+// =========================================================
+(function() {
+  var overlay = document.createElement('div');
+  overlay.id = 'lightbox';
+  overlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,11,20,0.92);backdrop-filter:blur(8px);cursor:zoom-out;align-items:center;justify-content:center;padding:24px;';
+  var img = document.createElement('img');
+  img.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 4px 40px rgba(0,0,0,0.6);';
+  var caption = document.createElement('div');
+  caption.style.cssText = 'position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(216,218,219,0.45);';
+  overlay.appendChild(img);
+  overlay.appendChild(caption);
+  document.body.appendChild(overlay);
+  function close() { overlay.style.display = 'none'; }
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    if (el.tagName === 'IMG' && (el.closest('.step-gallery') || el.closest('.step-figure'))) {
+      img.src = el.src;
+      caption.textContent = el.alt || '';
+      overlay.style.display = 'flex';
+    }
+  });
+})();
+
+// Reference panels (Boats + Transcripts)
+(function() {
+  function makePanel(btnId, panelId, closeId, otherBtnId, otherPanelId) {
+    const btn   = document.getElementById(btnId);
+    const panel = document.getElementById(panelId);
+    const close = document.getElementById(closeId);
+    const oBtn  = document.getElementById(otherBtnId);
+    const oPan  = document.getElementById(otherPanelId);
+
+    function open() {
+      oPan.classList.remove('open'); oBtn.classList.remove('active');
+      panel.classList.add('open');   btn.classList.add('active');
+    }
+    function shut() {
+      panel.classList.remove('open'); btn.classList.remove('active');
+    }
+
+    btn.addEventListener('click', e => { e.stopPropagation(); panel.classList.contains('open') ? shut() : open(); });
+    close.addEventListener('click', shut);
+    document.addEventListener('click', e => {
+      if (!panel.contains(e.target) && e.target !== btn) shut();
+    });
+  }
+
+  makePanel('boat-ref-btn', 'boat-ref-panel', 'boat-ref-close', 'tx-ref-btn', 'tx-ref-panel');
+  makePanel('tx-ref-btn',   'tx-ref-panel',   'tx-ref-close',   'boat-ref-btn', 'boat-ref-panel');
+})();
+</script>
+
+</body>
+</html>
