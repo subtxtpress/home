@@ -29,7 +29,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../icons/icon-16.png">
   <link rel="icon" type="image/x-icon" href="../icons/favicon.ico">
   <link rel="manifest" href="../icons/site.webmanifest">
-
+  <!-- Styles -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
@@ -37,8 +37,11 @@
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
     :root {
       /* Brand palette */
       --peach:   #E8956A;
@@ -47,32 +50,27 @@
       --plum:    #3E2436;
       --carmine: #7A5063;
       --ink:     #241620;
-
       /* Surface system */
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-
       /* Text scale */
       --text-heading: #241620;
       --text-body:    #44373C;
       --text-label:   #7A5063;
       --text-muted:   rgba(68, 55, 60, 0.45);
-
       /* Accent */
       --accent:        #E8956A;
       --accent-border: rgba(232, 149, 106, 0.40);
-
       /* Borders */
       --border-light:  rgba(221, 208, 188, 0.55);
       --border-mid:    rgba(180, 140, 100, 0.22);
-
       /* Gradients */
       --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
     }
-
-    html { scroll-behavior: smooth; }
-
+    html { 
+      scroll-behavior: smooth; 
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--surface-page);
@@ -80,7 +78,6 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-
     /* ─── Section label ──────────────────────────────────────── */
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
@@ -99,11 +96,12 @@
       height: 1px;
       background: var(--border-mid);
     }
-
     /* ─── Nav ───────────────────────────────────────────────── */
     .site-nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0; 
+      left: 0; 
+      right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
@@ -112,7 +110,6 @@
       transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
       border-bottom: 1px solid transparent;
     }
-
     .site-nav.scrolled {
       padding: 14px 5vw;
       background: rgba(244, 237, 227, 0.96);
@@ -121,7 +118,6 @@
       border-bottom-color: var(--border-light);
       box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
     }
-
     .nav-brand {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 14px;
@@ -132,15 +128,14 @@
       text-decoration: none;
       transition: color 0.3s;
     }
-
-    .site-nav.scrolled .nav-brand { color: var(--ink); }
-
+    .site-nav.scrolled .nav-brand { 
+      color: var(--ink); 
+    }
     .nav-links {
       list-style: none;
       display: flex;
       gap: 40px;
     }
-
     .nav-links a {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -151,14 +146,21 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .nav-links a:hover  { color: #fff; }
-    .nav-links a.active { color: var(--peach); }
-
-    .site-nav.scrolled .nav-links a         { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover   { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active  { color: var(--accent); }
-
+    .nav-links a:hover  { 
+      color: #fff; 
+    }
+    .nav-links a.active { 
+      color: var(--peach); 
+    }
+    .site-nav.scrolled .nav-links a { 
+      color: var(--text-label); 
+    }
+    .site-nav.scrolled .nav-links a:hover { 
+      color: var(--ink); 
+    }
+    .site-nav.scrolled .nav-links a.active { 
+      color: var(--accent); 
+    }
     /* ─── Masthead ──────────────────────────────────────────── */
     .masthead {
       position: relative;
@@ -166,7 +168,6 @@
       min-height: 520px;
       overflow: hidden;
     }
-
     .masthead-img {
       position: absolute;
       inset: 0;
@@ -175,7 +176,6 @@
       object-fit: cover;
       object-position: center 52%;
     }
-
     .masthead::after {
       content: '';
       position: absolute;
@@ -187,14 +187,12 @@
         rgba(0, 0, 0, 0.38) 100%
       );
     }
-
     .masthead-text {
       position: absolute;
       bottom: 72px;
       left: 5vw;
       z-index: 2;
     }
-
     .masthead-kicker {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -207,7 +205,6 @@
       align-items: center;
       gap: 10px;
     }
-
     .masthead-kicker::before {
       content: '';
       width: 22px;
@@ -215,7 +212,6 @@
       background: var(--peach);
       flex-shrink: 0;
     }
-
     .masthead-title {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(2.4rem, 5vw, 4rem);
@@ -226,21 +222,18 @@
       letter-spacing: 0.02em;
       text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
     }
-
     /* ─── Work Section ──────────────────────────────────────── */
     .work-section {
       max-width: 100%;
       margin: 0 auto;
       padding: 56px 5vw 88px;
     }
-
     /* ─── Work Grid ─────────────────────────────────────────── */
     .work-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
-
     /* ─── Project card ──────────────────────────────────────── */
     .project-card {
       display: flex;
@@ -252,14 +245,12 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
     .project-card:hover {
       transform: translateY(-3px);
       box-shadow:
         0 8px 28px rgba(0, 0, 0, 0.10),
         0 0 0 1px var(--accent-border);
     }
-
     /* ─── Thumbnail ─────────────────────────────────────────── */
     .card-thumb {
       width: 100%;
@@ -277,7 +268,6 @@
         ),
         #1a0f15;
     }
-
     /* Ghost project number */
     .card-thumb::before {
       content: attr(data-num);
@@ -293,7 +283,6 @@
       pointer-events: none;
       user-select: none;
     }
-
     /* Gradient rule — expands left → right on hover */
     .card-thumb::after {
       content: '';
@@ -305,20 +294,21 @@
       transform-origin: left center;
       transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
-
-    .project-card:hover .card-thumb::after { transform: scaleX(1); }
-
+    .project-card:hover .card-thumb::after { 
+      transform: scaleX(1); 
+    }
     /* Warm glow */
     .card-thumb .cover-glow {
       position: absolute;
-      top: 0; left: 0;
-      width: 280px; height: 280px;
+      top: 0; 
+      left: 0;
+      width: 280px; 
+      height: 280px;
       border-radius: 50%;
       opacity: 0.08;
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
-
     /* Editorial cover text */
     .card-cover {
       position: absolute;
@@ -328,7 +318,6 @@
       flex-direction: column;
       justify-content: flex-end;
     }
-
     .cover-rule {
       width: 28px;
       height: 1.5px;
@@ -336,7 +325,6 @@
       margin-bottom: 14px;
       flex-shrink: 0;
     }
-
     .cover-cat {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -346,7 +334,6 @@
       color: rgba(232, 149, 106, 0.75);
       margin-bottom: 9px;
     }
-
     .cover-head {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(1.6rem, 2.4vw, 2.1rem);
@@ -357,7 +344,6 @@
       text-transform: uppercase;
       text-wrap: pretty;
     }
-
     /* ─── Card info ─────────────────────────────────────────── */
     .card-info {
       padding: 22px 28px 26px;
@@ -366,7 +352,6 @@
       flex-direction: column;
       background: var(--surface-card);
     }
-
     .card-meta {
       display: flex;
       align-items: baseline;
@@ -375,7 +360,6 @@
       padding-bottom: 12px;
       border-bottom: 1px solid var(--border-light);
     }
-
     .card-number {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
@@ -384,7 +368,6 @@
       color: var(--accent);
       flex-shrink: 0;
     }
-
     .card-category {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
@@ -395,7 +378,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
     .card-title {
       font-family: 'Raleway', sans-serif;
       font-size: clamp(1.05rem, 1.5vw, 1.3rem);
@@ -406,7 +388,6 @@
       margin-bottom: 10px;
       text-wrap: pretty;
     }
-
     .card-desc {
       font-size: 13px;
       line-height: 1.75;
@@ -414,12 +395,10 @@
       margin-bottom: 16px;
       flex: 1;
     }
-
     .card-desc a {
       color: var(--carmine);
       text-underline-offset: 2px;
     }
-
     /* Tags */
     .card-tags {
       display: flex;
@@ -427,7 +406,6 @@
       gap: 5px;
       margin-bottom: 18px;
     }
-
     .tag {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 9px;
@@ -439,13 +417,11 @@
       background: rgba(221, 208, 188, 0.25);
       border: 1px solid var(--border-mid);
     }
-
     /* Card action */
     .card-actions {
       padding-top: 16px;
       border-top: 1px solid var(--border-light);
     }
-
     .card-cta {
       display: inline-flex;
       align-items: center;
@@ -459,12 +435,10 @@
       text-decoration: none;
       transition: color 0.2s, gap 0.2s;
     }
-
     .card-cta:hover {
       color: var(--ink);
       gap: 10px;
     }
-
     /* ─── Footer ────────────────────────────────────────────── */
     .site-footer {
       display: flex;
@@ -477,7 +451,6 @@
       padding: 24px 5vw;
       border-top: 1px solid var(--border-light);
     }
-
     .footer-brand {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -485,21 +458,19 @@
       text-transform: uppercase;
       color: var(--text-muted);
     }
-
     .footer-social {
       display: flex;
       gap: 20px;
     }
-
     .footer-social a {
       color: var(--text-muted);
       font-size: 15px;
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .footer-social a:hover { color: var(--carmine); }
-
+    .footer-social a:hover { 
+      color: var(--carmine); 
+    }
     /* ─── Nav toggle (mobile) ────────────────────────────────── */
     .nav-toggle {
       display: none;
@@ -513,24 +484,35 @@
       margin-left: auto;
       transition: color 0.3s;
     }
-    .site-nav.scrolled .nav-toggle { color: var(--ink); }
-
+    .site-nav.scrolled .nav-toggle { 
+      color: var(--ink); 
+    }
     /* ─── Tablet ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .work-grid          { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+      .work-grid { 
+        grid-template-columns: 1fr; 
+        max-width: 600px; 
+        margin: 0 auto; 
+      }
     }
-
     /* ─── Mobile ─────────────────────────────────────────────── */
     @media (max-width: 720px) {
-      .nav-toggle          { display: block; }
+      .nav-toggle { 
+        display: block; 
+      }
       .site-nav,
-      .site-nav.scrolled   { padding: 12px 16px; }
-      .nav-brand           { font-size: 11px; }
+      .site-nav.scrolled { 
+        padding: 12px 16px; 
+      }
+      .nav-brand  { 
+        font-size: 11px; 
+      }
       .nav-links {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0; right: 0;
+        left: 0; 
+        right: 0;
         flex-direction: column;
         background: var(--surface-page);
         border-bottom: 1px solid var(--border-light);
@@ -538,35 +520,98 @@
         gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open      { display: flex; }
-      .nav-links li        { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
-      .nav-links li:last-child { border-bottom: none; }
-      .nav-links a         { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active  { color: var(--accent) !important; }
-      .nav-links a:hover   { color: var(--ink) !important; }
-      .masthead-text       { left: 20px; bottom: 52px; }
-      .masthead-kicker     { font-size: 9px; letter-spacing: 0.18em; }
-      .work-section        { padding: 32px 16px 56px; }
-      .section-label       { font-size: 0.5rem; }
-      .card-thumb          { height: 200px; }
-      .card-thumb::before  { font-size: 120px; top: -30px; }
-      .cover-cat           { font-size: 8px; letter-spacing: 0.12em; }
-      .cover-head          { font-size: 1.25rem; }
-      .card-info           { padding: 16px 18px 20px; }
-      .card-meta           { margin-bottom: 10px; padding-bottom: 10px; }
-      .card-number         { font-size: 9px; }
-      .card-category       { font-size: 7.5px; letter-spacing: 0.08em; }
-      .card-title          { font-size: 0.95rem; margin-bottom: 8px; }
-      .card-desc           { font-size: 12px; line-height: 1.65; margin-bottom: 12px; }
-      .tag                 { font-size: 7.5px; padding: 2px 6px; }
-      .card-cta            { font-size: 9px; letter-spacing: 0.10em; }
-      .card-actions        { padding-top: 12px; }
-      .site-footer         { padding: 24px 16px; }
-      .footer-brand        { font-size: 9px; }
+      .nav-links.open { 
+        display: flex; 
+      }
+      .nav-links li { 
+        padding: 8px 0; 
+        border-bottom: 1px solid var(--border-mid); 
+      }
+      .nav-links li:last-child { 
+        border-bottom: none; 
+      }
+      .nav-links a { 
+        font-size: 10px !important; 
+        letter-spacing: 0.12em !important; 
+        color: var(--text-label) !important; 
+      }
+      .nav-links a.active { 
+        color: var(--accent) !important; 
+      }
+      .nav-links a:hover { 
+        color: var(--ink) !important; 
+      }
+      .masthead-text { 
+        left: 20px; 
+        bottom: 52px; 
+      }
+      .masthead-kicker { 
+        font-size: 9px; 
+        letter-spacing: 0.18em; 
+      }
+      .work-section { 
+        padding: 32px 16px 56px; 
+      }
+      .section-label { 
+        font-size: 0.5rem; 
+      }
+      .card-thumb { 
+        height: 200px; 
+      }
+      .card-thumb::before { 
+        font-size: 120px; 
+        top: -30px; 
+      }
+      .cover-cat { 
+        font-size: 8px; 
+        letter-spacing: 0.12em; 
+      }
+      .cover-head { 
+        font-size: 1.25rem; 
+      }
+      .card-info { 
+        padding: 16px 18px 20px; 
+      }
+      .card-meta { 
+        margin-bottom: 10px; 
+        padding-bottom: 10px; 
+      }
+      .card-number { 
+        font-size: 9px; 
+      }
+      .card-category { 
+        font-size: 7.5px; 
+        letter-spacing: 0.08em; 
+      }
+      .card-title { 
+        font-size: 0.95rem; 
+        margin-bottom: 8px; 
+      }
+      .card-desc { 
+        font-size: 12px; 
+        line-height: 1.65; 
+        margin-bottom: 12px; 
+      }
+      .tag { 
+        font-size: 7.5px; 
+        padding: 2px 6px; 
+      }
+      .card-cta { 
+        font-size: 9px; 
+        letter-spacing: 0.10em; 
+      }
+      .card-actions { 
+        padding-top: 12px; 
+      }
+      .site-footer { 
+        padding: 24px 16px; 
+      }
+      .footer-brand { 
+        font-size: 9px; 
+      }
     }
   </style>
 </head>
-
 <body>
 
   <nav class="site-nav" id="siteNav">
@@ -815,6 +860,34 @@
           </div>
           <div class="card-actions">
             <a href="tucson-streamers/dockets" class="card-cta" target="_blank">View Docket →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09 Nolan Wells -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="card-thumb" data-num="09">
+          <div class="cover-glow" style="background: radial-gradient(circle, #3e2436, transparent);"></div>
+          <div class="card-cover">
+            <div class="cover-rule"></div>
+            <span class="cover-cat">Mississippi · Jackson Co. Chancery Court · Probate</span>
+            <h3 class="cover-head">Nolan Wells</h3>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-meta">
+            <span class="card-number">09</span>
+            <span class="card-category">Mississippi · Jackson Co. Chancery Court · Probate</span>
+          </div>
+          <h2 class="card-title">Nolan Wells</h2>
+          <p class="card-desc">Nolan Wells estate probate docket. Jackson County Chancery Court case 30CH1:26-cv-01371-DNH with all filings and court documents.</p>
+          <div class="card-tags">
+            <span class="tag">Mississippi</span>
+            <span class="tag">Jackson Co. Chancery Court</span>
+            <span class="tag">Probate</span>
+          </div>
+          <div class="card-actions">
+            <a href="nolan-wells/docket" class="card-cta" target="_blank">View Docket →</a>
           </div>
         </div>
       </div>
