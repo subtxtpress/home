@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Drew Scott Cell Phone Locations</name>
+<description>Cell tower locations from Drew Scott (731-733-3992) call records</description>
+
+<Style id="tower">
+  <IconStyle>
+    <Icon><href>http://maps.google.com/mapfiles/kml/shapes/phone.png</href></Icon>
+    <scale>1.2</scale>
+  </IconStyle>
+</Style>
+
+<Placemark>
+  <name>Cell 10513: Decaturville</name>
+  <description>
+Address: 755 Pleasant, Decaturville, TN
+Cell ID: C:10513
+Call Count: 4349 calls
+  </description>
+  <styleUrl>#tower</styleUrl>
+  <Point>
+    <coordinates>-88.129,35.589,0</coordinates>
+  </Point>
+</Placemark>
+
+<Placemark>
+  <name>Cell 12531: Lexington</name>
+  <description>
+Address: 290 Old Darden-Chesterfield Rd, Lexington, TN
+Cell ID: C:12531
+Call Count: 3895 calls
+  </description>
+  <styleUrl>#tower</styleUrl>
+  <Point>
+    <coordinates>-88.378,35.655,0</coordinates>
+  </Point>
+</Placemark>
+
+<Placemark>
+  <name>Cell 12573: Parsons</name>
+  <description>
+Address: 1300 N. TN Ave, Parsons, TN
+Cell ID: C:12573
+Call Count: 1324 calls
+  </description>
+  <styleUrl>#tower</styleUrl>
+  <Point>
+    <coordinates>-88.126,35.657,0</coordinates>
+  </Point>
+</Placemark>
+
+<Placemark>
+  <name>Cell 12641: Decaturville</name>
+  <description>
+Address: 350 Hughes, Decaturville, TN
+Cell ID: C:12641
+Call Count: 1097 calls
+  </description>
+  <styleUrl>#tower</styleUrl>
+  <Point>
+    <coordinates>-88.12,35.585,0</coordinates>
+  </Point>
+</Placemark>
+
+<Placemark>
+  <name>Cell 31523: Holladay</name>
+  <description>
+Address: 50 Cox Rd, Holladay, TN
+Cell ID: C:31523
+Call Count: 12 calls
+  </description>
+  <styleUrl>#tower</styleUrl>
+  <Point>
+    <coordinates>-88.063,35.839,0</coordinates>
+  </Point>
+</Placemark>
+
+<Placemark>
+  <name>Cell 10962: Wildersville</name>
+  <description>
+Address: 1917 Shiloh Rd, Wildersville, TN
+Cell ID: C:10962
+Call Count: 4 calls
+  </description>
+  <styleUrl>#tower</styleUrl>
+  <Point>
+    <coordinates>-88.389,35.765,0</coordinates>
+  </Point>
+</Placemark>
+
+</Document>
+</kml>

@@ -37,8 +37,11 @@
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
     :root {
       --peach:   #E8956A;
       --cream:   #F4EDE3;
@@ -61,9 +64,9 @@
       --status-open:   #2E7D32;
       --status-closed: #B71C1C;
     }
-
-    html { scroll-behavior: smooth; }
-
+    html { 
+      scroll-behavior: smooth; 
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--surface-page);
@@ -71,7 +74,6 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6rem;
@@ -89,10 +91,15 @@
       height: 1px;
       background: var(--border-mid);
     }
-
     .site-nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      z-index: 100;
+      display: flex; 
+      align-items: center;
+      justify-content: space-between;
       padding: 22px 5vw;
       transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
       border-bottom: 1px solid transparent;
@@ -100,139 +107,254 @@
     .site-nav.scrolled {
       padding: 14px 5vw;
       background: rgba(244, 237, 227, 0.96);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px); 
+      -webkit-backdrop-filter: blur(12px);
       border-bottom-color: var(--border-light);
       box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
     }
     .nav-brand {
-      font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500;
-      color: #fff; letter-spacing: 0.10em; text-transform: uppercase;
-      text-decoration: none; transition: color 0.3s;
+      font-family: 'IBM Plex Mono', monospace; 
+      font-size: 14px; 
+      font-weight: 500;
+      color: #fff; 
+      letter-spacing: 0.10em; 
+      text-transform: uppercase;
+      text-decoration: none; 
+      transition: color 0.3s;
     }
-    .site-nav.scrolled .nav-brand { color: var(--ink); }
+    .site-nav.scrolled .nav-brand { 
+      color: var(--ink); 
+    }
     .nav-toggle {
-      display: none; background: none; border: none; font-size: 20px;
-      line-height: 1; cursor: pointer; padding: 4px;
-      color: rgba(255,255,255,0.8); margin-left: auto; transition: color 0.3s;
+      display: none; 
+      background: none; 
+      border: none; 
+      font-size: 20px;
+      line-height: 1; 
+      cursor: pointer; 
+      padding: 4px;
+      color: rgba(255,255,255,0.8); 
+      margin-left: auto; 
+      transition: color 0.3s;
     }
-    .site-nav.scrolled .nav-toggle { color: var(--ink); }
-    .nav-links { list-style: none; display: flex; gap: 40px; }
+    .site-nav.scrolled .nav-toggle { 
+      color: var(--ink); 
+    }
+    .nav-links { 
+      list-style: none; 
+      display: flex; 
+      gap: 40px; 
+    }
     .nav-links a {
-      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62); text-decoration: none; transition: color 0.2s;
+      font-family: 'IBM Plex Mono', monospace; 
+      font-size: 11px; 
+      font-weight: 500;
+      letter-spacing: 0.14em; 
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62); 
+      text-decoration: none; 
+      transition: color 0.2s;
     }
-    .nav-links a:hover  { color: #fff; }
-    .nav-links a.active { color: var(--peach); }
-    .site-nav.scrolled .nav-links a       { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover  { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active { color: var(--accent); }
-
+    .nav-links a:hover { 
+      color: #fff; 
+    }
+    .nav-links a.active { 
+      color: var(--peach); 
+    }
+    .site-nav.scrolled .nav-links a { 
+      color: var(--text-label); 
+    }
+    .site-nav.scrolled .nav-links a:hove { 
+      color: var(--ink); 
+    }
+    .site-nav.scrolled .nav-links a.active { 
+      color: var(--accent); 
+    }
     .masthead {
-      position: relative; height: 80vh; min-height: 520px; overflow: hidden;
+      position: relative; 
+      height: 80vh; 
+      min-height: 520px; 
+      overflow: hidden;
     }
     .masthead-img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: center 52%;
+      position: absolute; 
+      inset: 0; 
+      width: 100%; 
+      height: 100%;
+      object-fit: cover; 
+      object-position: center 52%;
     }
     .masthead::after {
-      content: ''; position: absolute; inset: 0;
+      content: ''; 
+      position: absolute; 
+      inset: 0;
       background: linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.38) 100%);
     }
-    .masthead-text { position: absolute; bottom: 72px; left: 5vw; z-index: 2; }
+    .masthead-text { 
+      position: absolute; 
+      bottom: 72px; 
+      left: 5vw; 
+      z-index: 2; 
+    }
     .masthead-kicker {
-      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
-      letter-spacing: 0.22em; text-transform: uppercase; color: var(--peach);
-      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+      font-family: 'IBM Plex Mono', monospace; 
+      font-size: 11px; 
+      font-weight: 500;
+      letter-spacing: 0.22em; 
+      text-transform: uppercase; 
+      color: var(--peach);
+      margin-bottom: 12px; 
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
     }
     .masthead-kicker::before {
-      content: ''; width: 22px; height: 1.5px; background: var(--peach); flex-shrink: 0;
+      content: ''; 
+      width: 22px; 
+      height: 1.5px; 
+      background: var(--peach); 
+      flex-shrink: 0;
     }
     .masthead-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; color: #fff;
-      line-height: 0.95; text-transform: uppercase; letter-spacing: 0.02em;
+      font-size: clamp(2.4rem, 5vw, 4rem); 
+      font-weight: 600; 
+      color: #fff;
+      line-height: 0.95; 
+      text-transform: uppercase; 
+      letter-spacing: 0.02em;
       text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
     }
-
-    .content-section { max-width: 960px; margin: 0 auto; padding: 56px 5vw 88px; }
-
+    .content-section { 
+      max-width: 960px; 
+      margin: 0 auto; 
+      padding: 56px 5vw 88px;
+    }
     .case-block {
-      background: var(--surface-card); border: 1px solid var(--border-mid);
-      border-radius: 10px; overflow: hidden;
+      background: var(--surface-card); 
+      border: 1px solid var(--border-mid);
+      border-radius: 10px; 
+      overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
     }
     .case-title-bar {
-      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
-      display: flex; align-items: center; justify-content: center; gap: 12px;
+      padding: 18px 28px; 
+      border-bottom: 1px solid var(--border-light);
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 12px;
     }
     .case-title-bar h2 {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 800;
-      color: var(--text-heading); text-align: center;
+      font-size: clamp(1.1rem, 1.6vw, 1.35rem); 
+      font-weight: 800;
+      color: var(--text-heading); 
+      text-align: center;
     }
     .status-badge {
-      font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 3px 10px; border-radius: 3px; flex-shrink: 0;
+      font-family: 'IBM Plex Mono', monospace; 
+      font-size: 9px; 
+      font-weight: 500;
+      letter-spacing: 0.14em; 
+      text-transform: uppercase;
+      padding: 3px 10px; 
+      border-radius: 3px; 
+      flex-shrink: 0;
     }
     .status-badge.open {
-      background: rgba(46, 125, 50, 0.10); border: 1px solid rgba(46, 125, 50, 0.35);
+      background: rgba(46, 125, 50, 0.10); 
+      border: 1px solid rgba(46, 125, 50, 0.35);
       color: var(--status-open);
     }
     .case-meta {
-      padding: 24px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px;
+      padding: 24px 28px; 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 10px 40px;
     }
-    .case-meta-item { font-size: 13px; line-height: 1.6; }
-    .case-meta-item strong { color: var(--text-heading); font-weight: 600; }
-
+    .case-meta-item { 
+      font-size: 13px; 
+      line-height: 1.6; 
+    }
+    .case-meta-item strong { 
+      color: var(--text-heading); 
+      font-weight: 600; 
+    }
     .docket-table-wrap {
-      background: var(--surface-card); border: 1px solid var(--border-mid);
-      border-radius: 10px; overflow: hidden;
+      background: var(--surface-card); 
+      border: 1px solid var(--border-mid);
+      border-radius: 10px; 
+      overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
     }
     .docket-table-header {
-      padding: 18px 28px; border-bottom: 1px solid var(--border-light);
+      padding: 18px 28px; 
+      border-bottom: 1px solid var(--border-light);
     }
     .docket-table-header h2 {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 700;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem); 
+      font-weight: 700;
       color: var(--text-heading);
     }
-    .docket-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .docket-table thead { background: var(--surface-elevated); }
+    .docket-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 13px; 
+    }
+    .docket-table thead { 
+      background: var(--surface-elevated); 
+    }
     .docket-table th {
-      padding: 10px 16px; font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--text-label); text-align: left;
+      padding: 10px 16px; 
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; 
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase; 
+      color: var(--text-label); 
+      text-align: left;
       border-bottom: 1px solid var(--border-light);
     }
     .docket-table td {
-      padding: 12px 16px; border-bottom: 1px solid var(--border-light);
-      color: var(--text-body); line-height: 1.5;
+      padding: 12px 16px; 
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-body); 
+      line-height: 1.5;
     }
     .docket-table th,
     .docket-table td {
       white-space: nowrap;
     }
-
     .docket-table td.wrap {
       white-space: normal;
       word-break: break-word;
     }
-    .docket-table tbody tr:last-child td { border-bottom: none; }
-    .docket-table tbody tr:hover { background: rgba(232, 149, 106, 0.04); }
-    .docket-table .doc-icon {
-      color: var(--accent); font-size: 14px; text-align: center; width: 32px;
+    .docket-table tbody tr:last-child td { 
+      border-bottom: none; 
     }
-
+    .docket-table tbody tr:hover { 
+      background: rgba(232, 149, 106, 0.04); 
+    }
+    .docket-table .doc-icon {
+      color: var(--accent); 
+      font-size: 14px; 
+      text-align: center; 
+      width: 32px;
+    }
     .drive-card {
-      background: var(--surface-card); border: 1px solid var(--border-mid);
-      border-radius: 10px; padding: 28px;
+      background: var(--surface-card); 
+      border: 1px solid var(--border-mid);
+      border-radius: 10px; 
+      padding: 28px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 32px; display: flex; align-items: center; gap: 20px;
+      margin-bottom: 32px; 
+      display: flex; 
+      align-items: center; 
+      gap: 20px;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
     .drive-card:hover {
@@ -240,77 +362,201 @@
       box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
     }
     .drive-icon {
-      width: 48px; height: 48px; border-radius: 8px; background: var(--surface-elevated);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; color: var(--accent); font-size: 20px;
+      width: 48px; 
+      height: 48px; 
+      border-radius: 8px; 
+      background: var(--surface-elevated);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      flex-shrink: 0; 
+      color: var(--accent); 
+      font-size: 20px;
     }
-    .drive-card-body { flex: 1; }
+    .drive-card-body { 
+      flex: 1; 
+    }
     .drive-card-title {
-      font-family: 'Raleway', sans-serif; font-size: 1.1rem; font-weight: 700;
-      color: var(--text-heading); margin-bottom: 4px;
+      font-family: 'Raleway', sans-serif; 
+      font-size: 1.1rem; 
+      font-weight: 700;
+      color: var(--text-heading); 
+      margin-bottom: 4px;
     }
-    .drive-card-desc { font-size: 13px; line-height: 1.6; color: var(--text-body); }
+    .drive-card-desc { 
+      font-size: 13px; 
+      line-height: 1.6; 
+      color: var(--text-body); 
+    }
     .drive-card-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
-      text-decoration: none; transition: color 0.2s, gap 0.2s; flex-shrink: 0;
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px;
+      font-family: 'IBM Plex Mono', monospace; 
+      font-size: 10px; 
+      font-weight: 500;
+      letter-spacing: 0.14em; 
+      text-transform: uppercase; 
+      color: var(--accent);
+      text-decoration: none; 
+      transition: color 0.2s, gap 0.2s; 
+      flex-shrink: 0;
     }
-    .drive-card-cta:hover { color: var(--ink); gap: 10px; }
-
+    .drive-card-cta:hover { 
+      color: var(--ink); 
+      gap: 10px;
+    }
     .site-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px; max-width: 100%; margin: 0 auto;
-      padding: 24px 5vw; border-top: 1px solid var(--border-light);
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      flex-wrap: wrap; 
+      gap: 12px; 
+      max-width: 100%; 
+      margin: 0 auto;
+      padding: 24px 5vw; 
+      border-top: 1px solid var(--border-light);
     }
     .footer-brand {
-      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace; 
+      font-size: 11px;
+      letter-spacing: 0.1em; 
+      text-transform: uppercase; 
+      color: var(--text-muted);
     }
-    .footer-social { display: flex; gap: 20px; }
-    .footer-social a { color: var(--text-muted); font-size: 15px; text-decoration: none; transition: color 0.2s; }
-    .footer-social a:hover { color: var(--carmine); }
-
+    .footer-social { 
+      display: flex; 
+      gap: 20px; 
+    }
+    .footer-social a { 
+      color: var(--text-muted); 
+      font-size: 15px; 
+      text-decoration: none; 
+      transition: color 0.2s; 
+    }
+    .footer-social a:hover { 
+      color: var(--carmine); 
+    }
     @media (max-width: 900px) {
-      .case-meta { grid-template-columns: 1fr; gap: 8px; }
-      .drive-card { flex-direction: column; align-items: flex-start; }
-      .docket-table { font-size: 12px; }
-      .docket-table th, .docket-table td { padding: 10px 12px; }
+      .case-meta { 
+        grid-template-columns: 1fr; 
+        gap: 8px; 
+      }
+      .drive-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+      }
+      .docket-table { 
+        font-size: 12px; 
+      }
+      .docket-table th, .docket-table td { 
+        padding: 10px 12px; 
+      }
     }
-
     @media (max-width: 720px) {
-      .nav-toggle { display: block; }
-      .site-nav, .site-nav.scrolled { padding: 12px 16px; }
+      .nav-toggle { 
+        display: block; 
+      }
+      .site-nav, .site-nav.scrolled { 
+        padding: 12px 16px; 
+      }
       .nav-links {
-        display: none; position: absolute; top: 100%; left: 0; right: 0;
-        flex-direction: column; background: var(--surface-page);
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        right: 0;
+        flex-direction: column; 
+        background: var(--surface-page);
         border-bottom: 1px solid var(--border-light);
-        padding: 12px 20px 16px; gap: 0;
+        padding: 12px 20px 16px; 
+        gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open { display: flex; }
-      .nav-links li { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
-      .nav-links li:last-child { border-bottom: none; }
-      .nav-links a { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active { color: var(--accent) !important; }
-      .nav-links a:hover  { color: var(--ink) !important; }
-      .masthead-text { left: 20px; bottom: 52px; }
-      .content-section { padding: 32px 16px 56px; }
-      .case-title-bar { padding: 14px 20px; flex-wrap: wrap; }
-      .case-meta { padding: 18px 20px; }
-      .case-meta-item { font-size: 12px; }
-      .docket-table-wrap {  }
-      .docket-table-header { padding: 14px 20px; }
-      .docket-table { font-size: 10px; }
-      .docket-table th { padding: 8px 8px; font-size: 8px; letter-spacing: 0.08em; }
-      .docket-table td { padding: 8px 8px; }
-      .drive-card { padding: 14px; gap: 12px; flex-direction: row !important; align-items: center !important; }
-      .drive-icon { width: 32px; height: 32px; font-size: 14px; flex-shrink: 0; }
-      .drive-card-body { flex: 1; }
-      .drive-card-title { font-size: 0.9rem; margin-bottom: 0px; }
-      .drive-card-desc { font-size: 11px; line-height: 1.4; }
-      .drive-card-cta { font-size: 8px; }
-      .site-footer { padding: 24px 20px; }
+      .nav-links.open { 
+        display: flex; 
+      }
+      .nav-links li { 
+        padding: 8px 0; 
+        border-bottom: 1px solid var(--border-mid); 
+      }
+      .nav-links li:last-child { 
+        border-bottom: none; 
+      }
+      .nav-links a { 
+        font-size: 10px !important; 
+        letter-spacing: 0.12em !important; 
+        color: var(--text-label) !important; 
+      }
+      .nav-links a.active { 
+        color: var(--accent) !important; 
+      }
+      .nav-links a:hover { 
+        color: var(--ink) !important; 
+      }
+      .masthead-text { 
+        left: 20px; 
+        bottom: 52px; 
+      }
+      .content-section { 
+        padding: 32px 16px 56px; 
+      }
+      .case-title-bar { 
+        padding: 14px 20px; 
+        flex-wrap: wrap; 
+      }
+      .case-meta { 
+        padding: 18px 20px; 
+      }
+      .case-meta-item { 
+        font-size: 12px; 
+      }
+      .docket-table-wrap {  
+
+      }
+      .docket-table-header { 
+        padding: 14px 20px; 
+      }
+      .docket-table { 
+        font-size: 10px; 
+      }
+      .docket-table th { 
+        padding: 8px 8px; 
+        font-size: 8px; 
+        letter-spacing: 0.08em; 
+      }
+      .docket-table td { 
+        padding: 8px 8px; 
+      }
+      .drive-card { 
+        padding: 14px; 
+        gap: 12px; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+      }
+      .drive-icon { 
+        width: 32px; 
+        height: 32px; 
+        font-size: 14px; 
+        flex-shrink: 0; 
+      }
+      .drive-card-body { 
+        flex: 1; 
+      }
+      .drive-card-title { 
+        font-size: 0.9rem; 
+        margin-bottom: 0px; 
+      }
+      .drive-card-desc { 
+        font-size: 11px; 
+        line-height: 1.4; 
+      }
+      .drive-card-cta { 
+        font-size: 8px; 
+      }
+      .site-footer { 
+        padding: 24px 20px; 
+      }
     }
   </style>
 </head>
@@ -371,145 +617,1062 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>08-22-2022</td><td class="wrap">Kristin Nolan Patrick Warrant for DV Cruelty to Children</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1vClfrMG7OzH-2kv2KVsqWEAK4CM5yTn3/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-24-2022</td><td class="wrap">James Brock Family Violence Ex Parte Protective Order against Kristin Patrick</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1INcvkJUv0lGwqT5fExZ_PU9F3XS3SqTX/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-25-2022</td><td class="wrap">James Brock Petition for Temporary Protective Order against Kristin Nolan Patrick</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1bjwChQCXqP_O3qeaufHGstvXNGHKOJ4b/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-25-2022</td><td class="wrap">Affidavit Regarding Companion and Related Actions</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1K1AVHAk7YDrKZNSl_GHdvv8IM4tsjiqG/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-25-2022</td><td class="wrap">Verification</td><td class="doc-icon"><a href="https://drive.google.com/file/d/14tRCuFvcIRme0A8cNOJih93zn7JVJAAW/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-14-2022</td><td class="wrap">James Brock Motion to Dismiss Charges</td><td class="doc-icon"><a href="https://drive.google.com/file/d/19q7hurqAfG6TTdtDs1mn8LjIlSZ5KZBP/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>02-21-2025</td><td class="wrap">Kristin Patrick Charges on Cruelty to Children Dismissed Due To Death</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DkRCaAy6BfJns7aBo4SMdUue2VjFbyhH/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-03-2025</td><td class="wrap">Warrant Jackson David Spradlin</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1IhvlMO8XutCLOcH44owO0eIuufwMMzaz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1UjINUaHYuwZhKXOybXegbXnmh0Hgps6h/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1hyWvJ4fZPaQaljvrB4NEkfUWhFBa3RxN/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qvn_FreSNEbNQaqh5suFpxuuC0dCOXEG/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-08-2025</td><td class="wrap">Interop-Warrant</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1RVY3XWlBhNnJPCKluEJQhBQZEPb1JB-P/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-09-2025</td><td class="wrap">Latoya Williams Appearance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1y8VndnCyD3TOw0ZzmOLhZ1AqtyRDUeT-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-09-2025</td><td class="wrap">Notice of Defendant's Election to Proceed Under Official Code of Georgia Annotated Section 17-16-1, Et Seq.</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Z163-95KC4eBkIJWDDlLgyJgo6V3sYX-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-11-2025</td><td class="wrap">Motion for Bond</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pXU5AJqrnKXfwQEteHo4hosYQGL6cXXh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-22-2025</td><td class="wrap">Rule Nisi</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1llsAa9IT149-rRpMDffyp5FlF4bSUS4p/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>07-23-2025</td><td class="wrap">Calendar: Motion for Bond  **Removed**</td><td class="doc-icon"></td></tr>
-          <tr><td>07-24-2025</td><td class="wrap">07-24-2025 Notice to Defendant and Clerk’s Certificate of Service</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10w0hO5IfjTOQPiDtanemLeJK370whq09/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-01-2025</td><td class="wrap">Amended Rule Nisi</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1UwAw8w_-cr9FRTP3uOsD24_xtSUu5d_d/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-11-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1okx6ucfvbTS7qbG_I9EWLcdHhFQJQShe/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-11-2025</td><td class="wrap">Request to Use A Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1jUmbHQK5l3fKJuikk8DqWwTdjV-pIfpI/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-11-2025</td><td class="wrap">Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ZLyXkjzBH6GM7uQN5x98Av11_UDDUm5C/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-13-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Times – Georgian Staff)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/11LjCqSSciP33Bf81303_rTHmsUm3Ezjo/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>08-18-2025</td><td class="wrap">Order Approving Fox 5 Photographer</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Ywg7PL4g6N3_WwZbEBvUy2fNjSEW7M5T/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-18-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1_gsgUmuDojslwEjtk5WwZnxpTskNkU-8/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-18-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Modified)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1j3CuHqLoITVVMspbefKFe_CdJo2Fj2lL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-19-2025</td><td class="wrap">Calendar: 11/17; 12/16; 1/5</td><td class="doc-icon"></td></tr>
-          <tr><td>08-19-2025</td><td class="wrap">Order: Bond Denied</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pNeQ7UUtjlKaGSca5KK85QF8Fd8gUWAD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>08-19-2025</td><td class="wrap">Bill of Indictment</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1_iq4PjDwB3Mtvh2cb93Z2cjyZchgIJVP/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-02-2025</td><td class="wrap">Second Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GzkR92kKNTJnE_-eV5pfz0pdsY914Jlh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-02-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WSB-TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1_5M4qk6kZrtmHo6Bi_sqdc2482Shj8xv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-09-2025</td><td class="wrap">Waiver of Arraignment</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10XfhVvlZ2fjc-fQwbtjtRb9LJkX5qn3n/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-09-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PbgRJRCFiQ4CNyYp5hSOeFRvOuHy8uET/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-10-2025</td><td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1lIk4qsbZoxpw91M9_cy1bE7pcwRZjy9R/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-10-2025</td><td class="wrap">Arraignment Notice</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1G0deZGgJ6F-YXK42hqUf8VMnnUWeK2pM/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded 911 audio call and logs (4 item)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1_MHgaztW6naJmfNAMhCqDxyldpOchm5l/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded cell phone extractions</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1awJ1tcyO3A9I2jAxLsTDdYJWaJmnwrXh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded cell phone extractions</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1awJ1tcyO3A9I2jAxLsTDdYJWaJmnwrXh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded overall timeline summary</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1cSSp9mcy0Ts0x6mXifKA9uNO8EcZsvJW/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded audio recording (6 folders and 49 additional recordings)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/17uu9znGzH_oisJ7G9wMGUiZnOtXhXQeE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded photos (26 folders, 5 additional documents)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1QqQbc4d55KCDEBWi2fBuG3IIwGZSrq8a/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded avigilon recording (17 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/16vsV0JTRcNSDv2ucbyBf15ZtJBdfjLRj/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded patrol statements (5 items)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1YtVU4iDhBOnKamzP4adXvCoF2J_YrWKB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded patrol car videos (3 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Fpk1ssEmWXlbM6yqRoLua3MAafcMRmlQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded off site videos (12 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Xxpy_gx3xCeWUTZfqnvIXn38XWMOhmAD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded scene scan file (1 folder)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/176c6HsDNngzj0OyknwYOYwDk9fnDnaUK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded scanned documents (11 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/14J8xABmlqI5-OKzBYQhXt3xhklK1whG9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded social media internet (Facebook – Google, 22 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1LGij1DQ-ephy5GBdbB8DDIINsA6CyZS-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>09-16-2025</td><td class="wrap">Certificate of Service – Discovery: loaded structured interviews (2 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fn7cYAyK5aPz7tEQcuHcwEf5aHY1mmAX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>09-22-2025</td><td class="wrap">Leave of Absence (LaToya Williams)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1BbWC4_xpfGqMgMkbP48yC6x1qovDxOY0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded off site videos (12 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1sF0AoMVYWUTMLXmNdeItUuVAdOJEZTQs/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded cell phone extractions (11 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1v80tyr85qlqSPEabn-EKC6wbacSDc2RZ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded avigilm recordings (17 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PnYG9TPvKi5Ux-00JvaNDke7x3GTDuaA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded patrol statements (5 items)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1eEH77qAuQSOT4v2Ig37apvCtl5tBarbc/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded audio recordings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Oyj1IinYMf0nbf9rj1A6eeahpSKv-BQ1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded 911 audio call and logs (4 items)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1NcDuXBuXakT1pmZigNr_DZQNxnO09dOE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded patrol car videos (3 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ZxVlM7RG4NbgT6YoBqlXYACMij3rQ5VB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded photos (26 folders, 5 additional)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1UGgwL7jigE-lj9Q7MJtKu97_l1_dGuB1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded scene scan file (1 folder)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1SmRUd6YS5F4RtzbLJv_3uJ9VHeqmLtWe/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded scanned documents (11 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1hfpyh9nnDimc9UgCQePQuRzcggapEd1v/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded structured interviews (2 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1G3X6WO8XBdPpeHf1E9wiv0Uh0sF_dwtu/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded social media – internet (22 folders)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1J_ZeI2qVByZXgEjGxP_MU-Eb1TFcQtzQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded main narrative</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1LejyqqDzE9JFceWRTj872Fto_fZaZa54/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded overall timeline summary</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1krpmIUNmzLy7FwdHGoucwVYZRt7IL5AR/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-02-2025</td><td class="wrap">Certificate of Service – Discovery: loaded timeline summary 3811</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PA6Jnh3qRQuO26_7NtwOqBepn2-7qivt/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>10-29-2025</td><td class="wrap">Electronic Discovery Certificate of Authenticity</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DDUut-4-QH8bMEczGUfM-T0CYFDkaK8u/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-06-2025</td><td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pnrv0bqyANVZz1HEWtoiqaxGesjLs44e/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-06-2025</td><td class="wrap">Bondsman &amp; Attorney Non-Jury Notice to Ragas Arnold</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Av2R-FsokVQVsHxCTZS50-XHHuDmqEeB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-06-2025</td><td class="wrap">Bondsman & Attorney Non-Jury Notice to LaToya Williams</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PBob5q8ONKIbzMzvHNtYNV4iMwC-6pSa/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-13-2025</td><td class="wrap">Third Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1EMse3naHJ1Hb-ajUIyn05i7wOhnp2U8u/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-13-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Moified)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1botGvLGVQw6NvFy9x9xMGlwEZHlbvEsT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-13-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1h0zvFb_SbfnkTVxHJT3MFiNuf7QBU5Ni/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-17-2025</td><td class="wrap">Certificate of Service – Discovery: loaded school records, DA jail call, audio, interview, Glove GSR</td><td class="doc-icon"><a href="https://drive.google.com/file/d/15lxgxnpr-1tIpJ6fuGjLTZnhOD2lZwRO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-19-2025</td><td class="wrap">Request for Continuance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/19LAfnep_-XTIsNMxCyUOpeL540MxWFfi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-19-2025</td><td class="wrap">Defendant&rsquo;s Motion to Change Venue</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1sn5m07kfvw-46XEo4oHv3jFh3fnWt6cb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-20-2025</td><td class="wrap">State’s Response to Defendant’s Motion for Continuance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1K1JhKqsYSJ_JH_WVVUVjC-raxhZcDZbX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-21-2025</td><td class="wrap">Order Denying Request for Continuance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1pvVBRqUMyjd-fDyOWm5O4WGSMVgg80e4/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-25-2025</td><td class="wrap">State&rsquo;s Response to the Defendant&rsquo;s Motion for Change Venue</td><td class="doc-icon"><a href="https://drive.google.com/file/d/13ZwQGoRdPMY6Hu9mBCCqEEM56YFvjI3E/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-25-2025</td><td class="wrap">Certificate of Service – Discovery: loaded 3 pages DOFS 2025 1000764, DNA typing 10/26/2025, 6 pages DOFS 2025 1005765, Autopsy Kristen Brock</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1d0aOLVoLpqQ49cMieiubWGIHFS5pPmM0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>11-26-2025</td><td class="wrap">Certificate of Service – Discovery: paper copy of autopsy report of Kristen Brock</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1TUuhxbxuFYbtIZrOgnKtusWjEuC9Qr-9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-01-2025</td><td class="wrap">Order Denying Motion to Change Venue</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Vmax4sQx3RhQjdopi4LBPV-FBsyHD71c/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-01-2025</td><td class="wrap">Notice to Defendants and Clerk’s Certificate of Service</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1DS6g-Sy3UWiCYvKQWxSfShoqc1XJUSYp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-01-2025</td><td class="wrap">Defendant&rsquo;s Request for Certificate of Immediate Review Emailed to JDH 12/2/25 KM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qlIYP_iGkGUnkfpzCNRrm_2g43fFnVzm/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-01-2025</td><td class="wrap">Motion in Limine</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1eKE5PmCJajNkljQv2s4_9Fxd1WSPpqaD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-03-2025</td><td class="wrap">State’s Response to Defendant’s Request for Certificate of Immediate Review</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1hEhUAwemIH6ekkJ7FxI-BIlIoX0rK9cw/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-03-2025</td><td class="wrap">Order Denying Certificate of Immediate Review</td><td class="doc-icon"><a href="https://drive.google.com/file/d/188yd7Or0DNUfGuUg435_9rfhgoQxmAZv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-09-2025</td><td class="wrap">Fourth Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/16gcaY6-KtU7pyWRpINF-m7AzfeHSJI0g/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-09-2025</td><td class="wrap">Order Concerning Use of Recording Device(s) in Courtroom Pursuant to USCA Rule 22 (48 Hours/CBS/Charlotte Fuller)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1H6w2dPW_SRxTJcXduJeO9sVBcZMVqo4B/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-09-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta News First)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1D19q2YQ-wmapcEMn8f23gL_udcnFyduz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-09-2025</td><td class="wrap">Order Limiting Access to Court File</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1VEngJckPE2auHpde3ruM8LCQf6u-Q3-H/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-11-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Law & Crime)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1g00K3zFudwwqafdi6n9exRzwGU9_-1Ce/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-15-2025</td><td class="wrap">Defendant&rsquo;s Notice Re: Expert Testimony of Dr. Robert Shaffery</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1q4IHaKqfNCI0TPtJCreQHvqNtJL0IGzh/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-15-2025</td><td class="wrap">Notice of Defendant's Discovery</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1S0afRxc8-nFyP0Aj8LQBL-mqAZePqckW/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-15-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1wm7CCEYmU80wWVivjqSKm4RVkcd_aVZK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-15-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Billy Heath, Kevyn Stewart, Stephon Herron, Fox 5)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1TCkKngex2fPxCylC0L0-i3_6ii0ohd3U/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-15-2025</td><td class="wrap">Order Concerning Use of Recording Device(s) in Courtroom Pursuant to Rule 22 (Kevyn Stewart, Stephon Herron, Michelle Mandell)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fR2-ANuYHpG1ivRdRHjtg7dDa5DRkrS6/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-15-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 (WXIA)</td><td class="doc-icon"><a href="" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-15-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 (Billy Heath Kevyn Steweart, Stephon Herron, Fox 5)</td><td class="doc-icon"><a href="" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-17-2025</td><td class="wrap">Certificate of Service – Discovery: loaded (main folder, narrative, warrants, scene sketch, scene logs, statement forms, ID docs presentation requests, evidence sub. Forms, April–July SWS, March SWS, February SWS (x2), another March SW)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/13L0WH0l86bLme9ReKvUQxwSqCEo7xb_6/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-19-2025</td><td class="wrap">Electronic Discovery Certificate of Authenticity </td><td class="doc-icon"><a href="https://drive.google.com/file/d/1FzBPkY0a3ww-fJG4S9dxYiicG3jjjmGA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-19-2025</td><td class="wrap">Electronic Discovery Certificate of Authenticity</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HZ9ylNzmH6YBG_ydfCnikfkGX-bpVnS7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-19-2025</td><td class="wrap">Electronic Discovery Certificate of Authenticity (3)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xCRpAiisdDmEr8xL2EijR5j14fM4t9Y4/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-23-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Law &amp; Crime)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1dJ-4bpqIj2yYHSrcEnmNIS-GdgDQ4_cY/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-23-2025</td><td class="wrap">Fifth Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1g-0cwGhi5d_CpeOYSIzhaKp3sHeDQ6J0/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-23-2025</td><td class="wrap">Certificate of Service – Discovery </td><td class="doc-icon"></td></tr>
-          <tr><td>12-23-2025</td><td class="wrap">Electronic Discovery Certificate of Authenticity – Discovery (1)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1SqGoTC0nPgcTk3-hrQE48ea_xixnBR3r/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-23-2025</td><td class="wrap">Electronic Discovery Certificate of Authenticity – Discovery (2)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1hU4fuagxp20M6zGOwyIQi523otUSjDVG/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-29-2025</td><td class="wrap">Attorney Michael Parrish is on leave from 04/04/2026 to 04/12/2016</td><td class="doc-icon"></td></tr>
-          <tr><td>12-29-2025</td><td class="wrap">Attorney Michael Parrish is on leave from 07/17/2026 to 07/24/2026</td><td class="doc-icon"></td></tr>
-          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WSB-TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PO56srNCLxMPxhqjS3avVw1WxM9OJ28_/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Fox 5)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/19ma9ZUcS-l4WXb5T6WIgYmQ04cmMzXOH/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta News First)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1gt9HyVNPc1lQjGb4KEhrz1E5j1WTJ7Kn/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-31-2025</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1SZ1dk7-tTVWW7_zeKuJ5KN9v91K8xLh0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>12-31-2025</td><td class="wrap">Certificate of Service – Discovery loaded: audio, interview, cell phone, cell phone, CDR’s, patrol, phone, scanned doc, scene photo, interviews, inmate, 911, audio, main narrative, overall timeline, report, witness</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1WQg7LUTIexLfGuyWxzLbFqx1em46O5jt/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-02-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA 11 Alive News)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1SjYuQBcYSAsPPu7w5Wypm-bG1tUCERJT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-02-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta Journal-Constitution)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ZrMsMzBZuPn1ffYfEDR84C9RpPlU1Inb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-05-2026</td><td class="wrap">8/3 (2nd CC)</td><td class="doc-icon"></td></tr>
-          <tr><td>01-05-2026</td><td class="wrap">Calendar</td><td class="doc-icon"></td></tr> 
-          <tr><td>01-05-2026</td><td class="wrap">Motion for Immediate Bond Reconsideration</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1t758qjV6_RYqPGR3vR0tW8Gl-0bgFu5F/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-05-2026</td><td class="wrap">Calendar: Motion for Bond Reconsideration 7/18; 8/3</td><td class="doc-icon"></td></tr> 
-          <tr><td>01-05-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/17HqZKhFXnK6kHkf-Flpzq6VEnO2Ak1Of/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-07-2026</td><td class="wrap">Rule Nisi (Motion for Immediate Bond Reconsideration)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XuSpmpWBcTDDwfjTwU5bI1IZbsjC6mQk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-13-2026</td><td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1mxNHkDji15ApqySwlwWycGnDn3-WCav7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-26-2026</td><td class="wrap">Sixth Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1kUjSPVBdCi9IGojQCew8wvVeeg7YI9hB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-26-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Law & Crime)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1EgNw1M0i1q8Swe6J-crIanJK32oTI0km/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-26-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Ladywell Films)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1lpiDeodnC-fUrj1pgYD04mW_XAxlC7nl/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-26-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1R9G-fYFUgC2jr5aT_t5JldfC9w5ee7fA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>01-29-2026</td><td class="wrap">Order Denying Bond</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XWfvwybFBesiyDjmkyx4NXCEbViqR1QK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>02-03-2026</td><td class="wrap">Notice of Substitution of Counsel</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zQjPdFKeTSB16SVXI4r83mIPUoMW1Xv2/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>02-19-2026</td><td class="wrap">Electronic Discovery Certificate of Authenticity</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1PpR9GCQzZztPo7eY4HWKf3sHRyj41pSO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-          <tr><td>05-06-2026</td><td class="wrap">Electronic Discovery Certificate of Authenticity</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1a4DL0kuyp6z_M4GFoZPO4AWPyIs8W6QF/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>05-28-2026</td><td class="wrap">Seventh Order on Requests to Record Proceedings</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1O40ay3kEzO-xUtnlPogTN157aZkMyMcI/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>05-28-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on July 13, 2026 – Hearing (WSB-TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1tqoCgZu43_Vcn5VKzFYoKWPfVonZMHvp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>05-28-2026</td><td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on August 3, 2026 – Trial (WSB-TV)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1c-9ttDfuM3hQfPJv-Mp2eEhgLvgrRPVU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>06-19-2026</td><td class="wrap">Order on Requests to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on August 3, 2026</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1sk7LcNlwlE7bt4OTdiiY8GxSa-PtsK1U/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>06-29-2026</td><td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1HH2kCzV6r_YvFweQqOeboguUGcdAiAka/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>07-01-2026</td><td class="wrap">Certificate of Service – Discovery (FB return Angela Burney, FB return DJ, jail calls)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1gAruiq2RN2fo6N3XUi7rfhRdZN6_HFgO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr> 
-          <tr><td>07-02-2026</td><td class="wrap">Mary Dayton files her Appearance</td><td class="doc-icon"><a href="https://drive.google.com/file/d/10zqQbfaosKYltwRFF7DwtpZoclbUaxnk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
-          <tr><td>07-02-2026</td><td class="wrap">Mary Dayton files a Notice of Leave of Absence</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1fNVj5hxnXZXC0LpVIsr1EN3NmmRuddqq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>  
+          <!-- August 2022 -->
+          <tr>
+            <td>08-22-2022</td>
+              <td class="wrap">Kristin Nolan Patrick Warrant for DV Cruelty to Children</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1vClfrMG7OzH-2kv2KVsqWEAK4CM5yTn3/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-24-2022</td>
+              <td class="wrap">James Brock Family Violence Ex Parte Protective Order against Kristin Patrick</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1INcvkJUv0lGwqT5fExZ_PU9F3XS3SqTX/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-25-2022</td>
+              <td class="wrap">James Brock Petition for Temporary Protective Order against Kristin Nolan Patrick</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1bjwChQCXqP_O3qeaufHGstvXNGHKOJ4b/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-25-2022</td>
+              <td class="wrap">Affidavit Regarding Companion and Related Actions</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1K1AVHAk7YDrKZNSl_GHdvv8IM4tsjiqG/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-25-2022</td>
+              <td class="wrap">Verification</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/14tRCuFvcIRme0A8cNOJih93zn7JVJAAW/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- September 2022 -->
+          <tr>
+            <td>09-14-2022</td>
+              <td class="wrap">James Brock Motion to Dismiss Charges</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/19q7hurqAfG6TTdtDs1mn8LjIlSZ5KZBP/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- February 2025 -->
+          <tr>
+            <td>02-21-2025</td>
+              <td class="wrap">Kristin Patrick Charges on Cruelty to Children Dismissed Due To Death</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1DkRCaAy6BfJns7aBo4SMdUue2VjFbyhH/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- July 2025 -->
+          <tr>
+            <td>07-03-2025</td>
+              <td class="wrap">Warrant Jackson David Spradlin</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1IhvlMO8XutCLOcH44owO0eIuufwMMzaz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-08-2025</td>
+              <td class="wrap">Interop-Warrant</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1UjINUaHYuwZhKXOybXegbXnmh0Hgps6h/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-08-2025</td>
+              <td class="wrap">Interop-Warrant</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1hyWvJ4fZPaQaljvrB4NEkfUWhFBa3RxN/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-08-2025</td>
+              <td class="wrap">Interop-Warrant</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1qvn_FreSNEbNQaqh5suFpxuuC0dCOXEG/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+              </tr>
+          <tr>
+            <td>07-08-2025</td>
+              <td class="wrap">Interop-Warrant</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1RVY3XWlBhNnJPCKluEJQhBQZEPb1JB-P/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-09-2025</td>
+              <td class="wrap">Latoya Williams Appearance</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1y8VndnCyD3TOw0ZzmOLhZ1AqtyRDUeT-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-09-2025</td>
+              <td class="wrap">Notice of Defendant's Election to Proceed Under Official Code of Georgia Annotated Section 17-16-1, Et Seq.</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Z163-95KC4eBkIJWDDlLgyJgo6V3sYX-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-11-2025</td>
+              <td class="wrap">Motion for Bond</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1pXU5AJqrnKXfwQEteHo4hosYQGL6cXXh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-22-2025</td>
+              <td class="wrap">Rule Nisi</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1llsAa9IT149-rRpMDffyp5FlF4bSUS4p/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-23-2025</td>
+              <td class="wrap">Calendar: Motion for Bond  **Removed**</td>
+                <td class="doc-icon"></td>
+          </tr>
+          <tr>
+            <td>07-24-2025</td>
+              <td class="wrap">07-24-2025 Notice to Defendant and Clerk’s Certificate of Service</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/10w0hO5IfjTOQPiDtanemLeJK370whq09/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- August 2025 -->
+          <tr>
+            <td>08-01-2025</td>
+              <td class="wrap">Amended Rule Nisi</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1UwAw8w_-cr9FRTP3uOsD24_xtSUu5d_d/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-11-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1okx6ucfvbTS7qbG_I9EWLcdHhFQJQShe/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-11-2025</td>
+              <td class="wrap">Request to Use A Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1jUmbHQK5l3fKJuikk8DqWwTdjV-pIfpI/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-11-2025</td>
+              <td class="wrap">Order on Requests to Record Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1ZLyXkjzBH6GM7uQN5x98Av11_UDDUm5C/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-13-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Times – Georgian Staff)</td><td class="doc-icon">
+                <a href="https://drive.google.com/file/d/11LjCqSSciP33Bf81303_rTHmsUm3Ezjo/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+              </td>
+          </tr> 
+          <tr>
+            <td>08-18-2025</td>
+              <td class="wrap">Order Approving Fox 5 Photographer</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Ywg7PL4g6N3_WwZbEBvUy2fNjSEW7M5T/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-18-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1_gsgUmuDojslwEjtk5WwZnxpTskNkU-8/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>08-18-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Modified)</td><td class="doc-icon">
+                <a href="https://drive.google.com/file/d/1j3CuHqLoITVVMspbefKFe_CdJo2Fj2lL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+              </td>
+          </tr>
+          <tr>
+            <td>08-19-2025</td>
+              <td class="wrap">Calendar: 11/17; 12/16; 1/5</td>
+                <td class="doc-icon"></td>
+          </tr>
+          <tr>
+            <td>08-19-2025</td>
+              <td class="wrap">Order: Bond Denied</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1pNeQ7UUtjlKaGSca5KK85QF8Fd8gUWAD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>08-19-2025</td><td class="wrap">Bill of Indictment</td>
+              <td class="doc-icon"><a href="https://drive.google.com/file/d/1_iq4PjDwB3Mtvh2cb93Z2cjyZchgIJVP/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+            </td>
+          </tr>
+          <!-- September 2025 -->
+          <tr>
+            <td>09-02-2025</td>
+              <td class="wrap">Second Order on Requests to Record Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1GzkR92kKNTJnE_-eV5pfz0pdsY914Jlh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-02-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WSB-TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1_5M4qk6kZrtmHo6Bi_sqdc2482Shj8xv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr><td>09-09-2025</td>
+              <td class="wrap">Waiver of Arraignment</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/10XfhVvlZ2fjc-fQwbtjtRb9LJkX5qn3n/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-09-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1PbgRJRCFiQ4CNyYp5hSOeFRvOuHy8uET/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-10-2025</td>
+              <td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1lIk4qsbZoxpw91M9_cy1bE7pcwRZjy9R/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-10-2025</td>
+              <td class="wrap">Arraignment Notice</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1G0deZGgJ6F-YXK42hqUf8VMnnUWeK2pM/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded 911 audio call and logs (4 item)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1_MHgaztW6naJmfNAMhCqDxyldpOchm5l/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded cell phone extractions</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1awJ1tcyO3A9I2jAxLsTDdYJWaJmnwrXh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded cell phone extractions</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1awJ1tcyO3A9I2jAxLsTDdYJWaJmnwrXh/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded overall timeline summary</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1cSSp9mcy0Ts0x6mXifKA9uNO8EcZsvJW/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded audio recording (6 folders and 49 additional recordings)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/17uu9znGzH_oisJ7G9wMGUiZnOtXhXQeE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded photos (26 folders, 5 additional documents)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1QqQbc4d55KCDEBWi2fBuG3IIwGZSrq8a/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded avigilon recording (17 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/16vsV0JTRcNSDv2ucbyBf15ZtJBdfjLRj/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded patrol statements (5 items)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1YtVU4iDhBOnKamzP4adXvCoF2J_YrWKB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded patrol car videos (3 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Fpk1ssEmWXlbM6yqRoLua3MAafcMRmlQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded off site videos (12 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Xxpy_gx3xCeWUTZfqnvIXn38XWMOhmAD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded scene scan file (1 folder)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/176c6HsDNngzj0OyknwYOYwDk9fnDnaUK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded scanned documents (11 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/14J8xABmlqI5-OKzBYQhXt3xhklK1whG9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded social media internet (Facebook – Google, 22 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1LGij1DQ-ephy5GBdbB8DDIINsA6CyZS-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>09-16-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded structured interviews (2 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1fn7cYAyK5aPz7tEQcuHcwEf5aHY1mmAX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>09-22-2025</td>
+              <td class="wrap">Leave of Absence (LaToya Williams)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1BbWC4_xpfGqMgMkbP48yC6x1qovDxOY0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- October 2025 -->
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded off site videos (12 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1sF0AoMVYWUTMLXmNdeItUuVAdOJEZTQs/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded cell phone extractions (11 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1v80tyr85qlqSPEabn-EKC6wbacSDc2RZ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded avigilm recordings (17 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1PnYG9TPvKi5Ux-00JvaNDke7x3GTDuaA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded patrol statements (5 items)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1eEH77qAuQSOT4v2Ig37apvCtl5tBarbc/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded audio recordings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Oyj1IinYMf0nbf9rj1A6eeahpSKv-BQ1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded 911 audio call and logs (4 items)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1NcDuXBuXakT1pmZigNr_DZQNxnO09dOE/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded patrol car videos (3 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1ZxVlM7RG4NbgT6YoBqlXYACMij3rQ5VB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>  
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded photos (26 folders, 5 additional)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1UGgwL7jigE-lj9Q7MJtKu97_l1_dGuB1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded scene scan file (1 folder)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1SmRUd6YS5F4RtzbLJv_3uJ9VHeqmLtWe/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded scanned documents (11 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1hfpyh9nnDimc9UgCQePQuRzcggapEd1v/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded structured interviews (2 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1G3X6WO8XBdPpeHf1E9wiv0Uh0sF_dwtu/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded social media – internet (22 folders)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1J_ZeI2qVByZXgEjGxP_MU-Eb1TFcQtzQ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>  
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded main narrative</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1LejyqqDzE9JFceWRTj872Fto_fZaZa54/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded overall timeline summary</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1krpmIUNmzLy7FwdHGoucwVYZRt7IL5AR/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-02-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded timeline summary 3811</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1PA6Jnh3qRQuO26_7NtwOqBepn2-7qivt/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>10-29-2025</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1DDUut-4-QH8bMEczGUfM-T0CYFDkaK8u/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- November 2025 -->
+          <tr>
+            <td>11-06-2025</td>
+              <td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1pnrv0bqyANVZz1HEWtoiqaxGesjLs44e/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-06-2025</td>
+              <td class="wrap">Bondsman &amp; Attorney Non-Jury Notice to Ragas Arnold</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Av2R-FsokVQVsHxCTZS50-XHHuDmqEeB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-06-2025</td>
+              <td class="wrap">Bondsman & Attorney Non-Jury Notice to LaToya Williams</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1PBob5q8ONKIbzMzvHNtYNV4iMwC-6pSa/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-13-2025</td>
+              <td class="wrap">Third Order on Requests to Record Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1EMse3naHJ1Hb-ajUIyn05i7wOhnp2U8u/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-13-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Moified)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1botGvLGVQw6NvFy9x9xMGlwEZHlbvEsT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-13-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1h0zvFb_SbfnkTVxHJT3MFiNuf7QBU5Ni/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-17-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded school records, DA jail call, audio, interview, Glove GSR</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/15lxgxnpr-1tIpJ6fuGjLTZnhOD2lZwRO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-19-2025</td>
+              <td class="wrap">Request for Continuance</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/19LAfnep_-XTIsNMxCyUOpeL540MxWFfi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-19-2025</td>
+              <td class="wrap">Defendant&rsquo;s Motion to Change Venue</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1sn5m07kfvw-46XEo4oHv3jFh3fnWt6cb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-20-2025</td>
+              <td class="wrap">State’s Response to Defendant’s Motion for Continuance</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1K1JhKqsYSJ_JH_WVVUVjC-raxhZcDZbX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-21-2025</td>
+              <td class="wrap">Order Denying Request for Continuance</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1pvVBRqUMyjd-fDyOWm5O4WGSMVgg80e4/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-25-2025</td>
+              <td class="wrap">State&rsquo;s Response to the Defendant&rsquo;s Motion for Change Venue</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/13ZwQGoRdPMY6Hu9mBCCqEEM56YFvjI3E/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-25-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded 3 pages DOFS 2025 1000764, DNA typing 10/26/2025, 6 pages DOFS 2025 1005765, Autopsy Kristen Brock</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1d0aOLVoLpqQ49cMieiubWGIHFS5pPmM0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>11-26-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: paper copy of autopsy report of Kristen Brock</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1TUuhxbxuFYbtIZrOgnKtusWjEuC9Qr-9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- December 2025 -->
+          <tr>
+            <td>12-01-2025</td>
+              <td class="wrap">Order Denying Motion to Change Venue</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Vmax4sQx3RhQjdopi4LBPV-FBsyHD71c/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-01-2025</td>
+              <td class="wrap">Notice to Defendants and Clerk’s Certificate of Service</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1DS6g-Sy3UWiCYvKQWxSfShoqc1XJUSYp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-01-2025</td>
+              <td class="wrap">Defendant&rsquo;s Request for Certificate of Immediate Review Emailed to JDH 12/2/25 KM</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1qlIYP_iGkGUnkfpzCNRrm_2g43fFnVzm/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-01-2025</td>
+              <td class="wrap">Motion in Limine</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1eKE5PmCJajNkljQv2s4_9Fxd1WSPpqaD/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-03-2025</td>
+              <td class="wrap">State’s Response to Defendant’s Request for Certificate of Immediate Review</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1hEhUAwemIH6ekkJ7FxI-BIlIoX0rK9cw/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-03-2025</td>
+              <td class="wrap">Order Denying Certificate of Immediate Review</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/188yd7Or0DNUfGuUg435_9rfhgoQxmAZv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-09-2025</td>
+              <td class="wrap">Fourth Order on Requests to Record Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/16gcaY6-KtU7pyWRpINF-m7AzfeHSJI0g/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-09-2025</td>
+              <td class="wrap">Order Concerning Use of Recording Device(s) in Courtroom Pursuant to USCA Rule 22 (48 Hours/CBS/Charlotte Fuller)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1H6w2dPW_SRxTJcXduJeO9sVBcZMVqo4B/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-09-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta News First)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1D19q2YQ-wmapcEMn8f23gL_udcnFyduz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-09-2025</td>
+              <td class="wrap">Order Limiting Access to Court File</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1VEngJckPE2auHpde3ruM8LCQf6u-Q3-H/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-11-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Law & Crime)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1g00K3zFudwwqafdi6n9exRzwGU9_-1Ce/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-15-2025</td>
+              <td class="wrap">Defendant&rsquo;s Notice Re: Expert Testimony of Dr. Robert Shaffery</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1q4IHaKqfNCI0TPtJCreQHvqNtJL0IGzh/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-15-2025</td>
+              <td class="wrap">Notice of Defendant's Discovery</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1S0afRxc8-nFyP0Aj8LQBL-mqAZePqckW/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-15-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1wm7CCEYmU80wWVivjqSKm4RVkcd_aVZK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-15-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Billy Heath, Kevyn Stewart, Stephon Herron, Fox 5)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1TCkKngex2fPxCylC0L0-i3_6ii0ohd3U/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-15-2025</td>
+              <td class="wrap">Order Concerning Use of Recording Device(s) in Courtroom Pursuant to Rule 22 (Kevyn Stewart, Stephon Herron, Michelle Mandell)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1fR2-ANuYHpG1ivRdRHjtg7dDa5DRkrS6/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-15-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 (WXIA)</td><td class="doc-icon">
+                <a href="" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+              </td>
+          </tr>
+          <tr>
+            <td>12-15-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 (Billy Heath Kevyn Steweart, Stephon Herron, Fox 5)</td>
+                <td class="doc-icon">
+                  <a href="" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-17-2025</td>
+              <td class="wrap">Certificate of Service – Discovery: loaded (main folder, narrative, warrants, scene sketch, scene logs, statement forms, ID docs presentation requests, evidence sub. Forms, April–July SWS, March SWS, February SWS (x2), another March SW)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/13L0WH0l86bLme9ReKvUQxwSqCEo7xb_6/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-19-2025</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1FzBPkY0a3ww-fJG4S9dxYiicG3jjjmGA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-19-2025</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1HZ9ylNzmH6YBG_ydfCnikfkGX-bpVnS7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-19-2025</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity (3)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1xCRpAiisdDmEr8xL2EijR5j14fM4t9Y4/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>12-23-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Law &amp; Crime)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1dJ-4bpqIj2yYHSrcEnmNIS-GdgDQ4_cY/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-23-2025</td>
+              <td class="wrap">Fifth Order on Requests to Record Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1g-0cwGhi5d_CpeOYSIzhaKp3sHeDQ6J0/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-23-2025</td>
+              <td class="wrap">Certificate of Service – Discovery</td>
+                <td class="doc-icon"></td>
+          </tr>
+          <tr>
+            <td>12-23-2025</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity – Discovery (1)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1SqGoTC0nPgcTk3-hrQE48ea_xixnBR3r/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-23-2025</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity – Discovery (2)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1hU4fuagxp20M6zGOwyIQi523otUSjDVG/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-29-2025</td>
+              <td class="wrap">Attorney Michael Parrish is on leave from 04/04/2026 to 04/12/2016</td>
+                <td class="doc-icon"></td>
+          </tr>
+          <tr>
+            <td>12-29-2025</td>
+              <td class="wrap">Attorney Michael Parrish is on leave from 07/17/2026 to 07/24/2026</td>
+                <td class="doc-icon"></td>
+          </tr>
+          <tr>
+            <td>12-31-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WSB-TV)</td>
+                <td class="doc-icon">
+                <a href="https://drive.google.com/file/d/1PO56srNCLxMPxhqjS3avVw1WxM9OJ28_/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+              </td>
+          </tr>
+          <tr>
+            <td>12-31-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Fox 5)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/19ma9ZUcS-l4WXb5T6WIgYmQ04cmMzXOH/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-31-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta News First)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1gt9HyVNPc1lQjGb4KEhrz1E5j1WTJ7Kn/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-31-2025</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1SZ1dk7-tTVWW7_zeKuJ5KN9v91K8xLh0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>12-31-2025</td>
+              <td class="wrap">Certificate of Service – Discovery loaded: audio, interview, cell phone, cell phone, CDR’s, patrol, phone, scanned doc, scene photo, interviews, inmate, 911, audio, main narrative, overall timeline, report, witness</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1WQg7LUTIexLfGuyWxzLbFqx1em46O5jt/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- January 2026 -->
+          <tr>
+            <td>01-02-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA 11 Alive News)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1SjYuQBcYSAsPPu7w5Wypm-bG1tUCERJT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-02-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Atlanta Journal-Constitution)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1ZrMsMzBZuPn1ffYfEDR84C9RpPlU1Inb/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-05-2026</td>
+              <td class="wrap">8/3 (2nd CC)</td>
+                <td class="doc-icon"></td>
+          </tr>
+          <tr>
+            <td>01-05-2026</td>
+              <td class="wrap">Calendar</td>
+                <td class="doc-icon"></td>
+          </tr> 
+          <tr>
+            <td>01-05-2026</td>
+              <td class="wrap">Motion for Immediate Bond Reconsideration</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1t758qjV6_RYqPGR3vR0tW8Gl-0bgFu5F/view?usp=drivesdk" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-05-2026</td>
+              <td class="wrap">Calendar: Motion for Bond Reconsideration 7/18; 8/3</td>
+                <td class="doc-icon"></td>
+          </tr> 
+          <tr>
+            <td>01-05-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/17HqZKhFXnK6kHkf-Flpzq6VEnO2Ak1Of/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-07-2026</td>
+              <td class="wrap">Rule Nisi (Motion for Immediate Bond Reconsideration)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1XuSpmpWBcTDDwfjTwU5bI1IZbsjC6mQk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-13-2026</td>
+              <td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1mxNHkDji15ApqySwlwWycGnDn3-WCav7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-26-2026</td>
+              <td class="wrap">Sixth Order on Requests to Record Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1kUjSPVBdCi9IGojQCew8wvVeeg7YI9hB/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-26-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Law & Crime)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1EgNw1M0i1q8Swe6J-crIanJK32oTI0km/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-26-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Ladywell Films)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1lpiDeodnC-fUrj1pgYD04mW_XAxlC7nl/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-26-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1R9G-fYFUgC2jr5aT_t5JldfC9w5ee7fA/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>01-29-2026</td>
+              <td class="wrap">Order Denying Bond</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1XWfvwybFBesiyDjmkyx4NXCEbViqR1QK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- February 2026 -->
+          <tr>
+            <td>02-03-2026</td>
+              <td class="wrap">Notice of Substitution of Counsel</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1zQjPdFKeTSB16SVXI4r83mIPUoMW1Xv2/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>02-19-2026</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1PpR9GCQzZztPo7eY4HWKf3sHRyj41pSO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- May 2026 -->
+          <tr>
+            <td>05-06-2026</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1a4DL0kuyp6z_M4GFoZPO4AWPyIs8W6QF/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>  
+          <tr>
+            <td>05-28-2026</td>
+              <td class="wrap">Seventh Order on Requests to Record Proceedings</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1O40ay3kEzO-xUtnlPogTN157aZkMyMcI/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>  
+          <tr>
+            <td>05-28-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on July 13, 2026 – Hearing (WSB-TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1tqoCgZu43_Vcn5VKzFYoKWPfVonZMHvp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>  
+          <tr>
+            <td>05-28-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on August 3, 2026 – Trial (WSB-TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1c-9ttDfuM3hQfPJv-Mp2eEhgLvgrRPVU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>  
+          <!-- June 2026 -->
+          <tr>
+            <td>06-19-2026</td>
+              <td class="wrap">Order on Requests to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on August 3, 2026</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1sk7LcNlwlE7bt4OTdiiY8GxSa-PtsK1U/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+              </td>
+          </tr> 
+          <tr>
+            <td>06-29-2026</td>
+              <td class="wrap">Notice to Defendant and Clerk’s Certificate of Service</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1HH2kCzV6r_YvFweQqOeboguUGcdAiAka/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <!-- July 2026 -->
+          <tr>
+            <td>07-01-2026</td>
+              <td class="wrap">Certificate of Service – Discovery (FB return Angela Burney, FB return DJ, jail calls)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1gAruiq2RN2fo6N3XUi7rfhRdZN6_HFgO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-02-2026</td>
+            <td class="wrap">Mary Dayton files her Appearance</td>
+              <td class="doc-icon">
+                <a href="https://drive.google.com/file/d/10zqQbfaosKYltwRFF7DwtpZoclbUaxnk/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+              </td>
+          </tr>  
+          <tr>
+            <td>07-02-2026</td>
+              <td class="wrap">Mary Dayton files a Notice of Leave of Absence</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1fNVj5hxnXZXC0LpVIsr1EN3NmmRuddqq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>  
+          <tr>
+            <td>07-07-2026</td>
+              <td class="wrap">Order to Amend Seventh Order on Requests to Record Proceedings; Designating New Pool Reporters</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1N9K9-rpdPeMjbNVQkSzvhtuXydAslCDU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-08-2026</td>
+              <td class="wrap">Exhibit A – Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on July 13, 2026 @ 9:00 AM (WXIA)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1l_W2PwkjnxDsrmR1ScbLcL13HQkQ5q-9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-14-2026</td>
+              <td class="wrap">Electronic Discovery Certificate of Authenticity</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1D6jho7LarC4nilh3oyb3FZ8YVPpue-CN/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-17-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings on Augst 3, 2026 (Atlanta Journal – Constitution)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/14VYQJsDwXgxXeGHlwAeyqdRW3PGoUh-2/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-24-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (News Nation)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Zmcu48_-XicVuxCaF3LSepjlGNKr_XCv/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-28-2026</td>
+              <td class="wrap">Certificate of Service – Discovery loaded: jail calls (April–June) loaded onto a 32 GB drive</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1eEFcwgK3gaIYlJ_0szqzuX5LJjWHRH6m/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-28-2026</td>
+              <td class="wrap">Certificate of Service – Discovery loaded: 250 pictures of evidence on a flash drive</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Dem9nirONlFueplZRnRjclGCYyUeAZk0/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-29-2026</td>
+              <td class="wrap">Order to Amend Rule 22 Media Order</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1XI-yjZC2ngJAA8ID025mBryK_NTKgwuz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-30-2026</td>
+              <td class="wrap">Order on Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Infamous Sylvia Media Services)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1eHFrPVttj1hySPQ25SNBQRJ3zTv7xw0U/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-30-2026</td>
+              <td class="wrap">Order on Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WSB Radio)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1k-iwupt2LrLdTV91jW2KFfymX4n0fm2v/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>07-31-2026</td>
+              <td class="wrap">Order on Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Fox 5 / WAGA TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/10Ln0yNvt9sEaEjulFgNeHE3VY8ehNO4q/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+            <td>07-31-2026</td>
+              <td class="wrap">Order on Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WSB Radio)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1eW27bC9A4zYlP2ghU3egkAohpo8DMIc9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+            <td>08-03-2026</td>
+              <td class="wrap">Order on Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings August 3–21, 2026 (Megan Butler / Courthouse News)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1TvqlO58a2v6_5drnN3_rebIgvZry-q7D/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
   
         </tbody>
       </table>
