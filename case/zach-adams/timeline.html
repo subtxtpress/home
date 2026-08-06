@@ -93,6 +93,60 @@
       --c-richie:    #B89060;
       --c-kidnapper: #796B5A;
       --c-judy:      #9BAAB5;
+      /* Additional characters */
+      /* Colorful palette - organized by appearance order with color families */
+      /* RED FAMILY */
+      --c-tina:      #C0392B;    /* Tina - dark red */
+      --c-boatguy:   #EF5350;    /* Boat guy - light red */
+      --c-britt:     #E57373;    /* Terry Britt - medium light red */
+      /* BLUE FAMILY */
+      --c-barnes:    #1F618D;    /* James Barnes - very dark blue */
+      --c-sheila:    #5DADE2;    /* Sheila Scott - light blue */
+      --c-inman:     #85C1E2;    /* Inman - lighter blue */
+      --c-dicus:     #B3E5FC;    /* Terry Dicus - very light blue */
+      --c-lbl:       #AED6F1;    /* Leslie Bailey Lindsey - pale blue */
+      /* GREEN FAMILY */
+      --c-keith:     #27AE60;    /* Keith Clark - dark green */
+      --c-kathy:     #52BE80;    /* Kathy Wise - light green */
+      --c-alexander: #73A580;    /* Alexander/"Petey" - muted green */
+      /* ORANGE FAMILY */
+      --c-drew:      #E67E22;    /* Drew - medium orange */
+      --c-Derrick:   #D35400;    /* Derrick Scott - dark orange */
+      --c-Derrick-hall: #E59866; /* Derrick Hall - light orange */
+      --c-dale:      #F5B041;    /* Dale King - light orange */
+      /* PURPLE FAMILY */
+      --c-clint:     #9B59B6;    /* Clint - medium purple */
+      --c-rebecca:   #8E44AD;    /* Rebecca - dark purple */
+      --c-chad:      #AF7AC5;    /* Chad Marshall - light purple */
+      --c-emily:     #D7BCC8;    /* Emily Pratt - lighter purple */
+      --c-dillan:    #C39BD3;    /* Dillan - pale purple */
+      --c-brenda:    #BA68C8;    /* Brenda Seagraves - medium purple */
+      /* TEAL/CYAN FAMILY */
+      --c-brasher:   #16A085;    /* Bo Brasher - dark teal */
+      --c-eason:     #A3E4D7;    /* Daniel Eason - light teal */
+      --c-dottie:    #26C6DA;    /* Dottie - cyan */
+      /* GOLD/WARM FAMILY */
+      --c-boo:       #F39C12;    /* "Boo" Scott - gold */
+      --c-billy:     #F9E79F;    /* Billy Bell - pale gold/yellow */
+      --c-mcgee:     #F8B88B;    /* Randy McGee - warm tan */
+      /* GRAY/NEUTRAL FAMILY */
+      --c-loudengine: #95A5A6;   /* Loud engine - medium gray */
+      --c-vitt:      #34495E;    /* Brian Vitt - dark slate */
+      --c-barnesGF:  #7F8C8D;    /* Barnes's girlfriend - gray */
+      --c-anita:     #E8B4B8;    /* Anita Sanders Ricketts - light pink */
+      --c-bartlett:  #F0D9E8;    /* Bartlett - pale pink */
+      --c-brandon:   #D7BCCB;    /* Brandon Singleton - light mauve */
+      --c-booth:     #F8BBD0;    /* Brent Booth - light pink */
+      /* VEHICLES & THINGS */
+      --c-white-truck: #ECF0F1;  /* White truck - light gray */
+      --c-chevy:     #81C784;    /* Dylan's grey Chevy - green */
+      --c-zachstruck: #FFB74D;   /* Zach's white truck - orange */
+      --c-shaynedealer: #64B5F6; /* Shayne's dealer - blue */
+      --c-threevehicles: #F06292; /* Britt's 3 vehicles - pink */
+      --c-blacktruck: #424242;   /* Black truck - very dark */
+      --c-debbie:    #FFA726;    /* Debbie Dorris - orange */
+      --c-brumley:   #52BE80;    /* Terry Brumley - green */
+      --c-judy:      #FFEE58;    /* Judy Evans - yellow */
       /* Locations */
       --c-scott-home: var(--c-drew);
       --c-evid:   #EBE2CD;
@@ -148,8 +202,6 @@
     }
     .nav-tag {
       background: rgba(6,11,20,0.97);
-      /*border: 1px solid rgba(224, 112, 112, 0.35);
-      color: #e07070;*/
       color: rgba(6,11,20,0.97);
       font-family: var(--mono); 
       font-size: 10px;
@@ -743,7 +795,9 @@
       }
     }
     @media (max-width: 480px) {
-      .step-embed iframe { height: 280px; }
+      .step-embed iframe { 
+        height: 280px; 
+      }
       .nav-tag {
         display: none;
       }
