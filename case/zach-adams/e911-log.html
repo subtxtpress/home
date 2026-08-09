@@ -1272,10 +1272,12 @@ function trClass(f) {
 }
 
 function render() {
-  const q     = getSearchBox().value.toLowerCase().trim();
-  const dFilt = getFilterDate().value;
-  const fFilt = getFilterFlag().value;
-  const sFilt = getFilterStatus().value;
+  console.log('render() called');
+  try {
+    const q     = getSearchBox().value.toLowerCase().trim();
+    const dFilt = getFilterDate().value;
+    const fFilt = getFilterFlag().value;
+    const sFilt = getFilterStatus().value;
 
   const rows = DATA.filter(r => {
     if (dFilt && r.date !== dFilt) return false;
@@ -1329,6 +1331,10 @@ function render() {
      <span class="stat"><strong>${shown}</strong> shown</span>`;
 
   document.getElementById('emptyState').classList.toggle('show', rows.length === 0);
+  } catch(err) {
+    console.error('render() error:', err);
+    document.getElementById('tbody').innerHTML = '<tr><td colspan="12" style="padding:20px">Error: ' + err.message + '</td></tr>';
+  }
 }
 
 function toggleNarr(el) {
@@ -1377,12 +1383,21 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
 /* ── Init ── */
 /* ── Initialize immediately ── */
-getSearchBox().addEventListener('input', render);
-getFilterDate().addEventListener('change', render);
-getFilterFlag().addEventListener('change', render);
-getFilterStatus().addEventListener('change', render);
-populateDateFilter();
-render();
+try {
+  const sb = getSearchBox();
+  const fd = getFilterDate();
+  const ff = getFilterFlag();
+  const fs = getFilterStatus();
+  console.log('Elements found:', {sb: !!sb, fd: !!fd, ff: !!ff, fs: !!fs});
+  if (sb) sb.addEventListener('input', render);
+  if (fd) fd.addEventListener('change', render);
+  if (ff) ff.addEventListener('change', render);
+  if (fs) fs.addEventListener('change', render);
+  populateDateFilter();
+  render();
+} catch(e) {
+  console.error('Init error:', e);
+}
 </script>
 </body>
 </html>
