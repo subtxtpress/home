@@ -2853,14 +2853,10 @@
       <li>The report notes Dillan's evasiveness about his precise whereabouts and timeline the morning Holly disappeared.</li>
     </ul>
     <p style="opacity:0.7;font-size:12px;">The state convicted Zach Adams on five minutes of cell tower overlap with Holly's phone on Cox Rd. But the phones that were actually moving with Holly's on that sector belonged to Drew's best friend Dillon Maxwell&mdash;not Zach Adams, whose phone sat parked on his own family's land the entire time.</p>
-      <div class="step-embed">
-        <div class="embed-placeholder" data-src="assets/imgs/2013-09-03-IR-1826.png" data-height="500px">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg>
-            <span>Click to view</span>
-        </div>
-      </div>
-      <div class="embed-caption">Dillon Maxwell TBI interview on Sep. 3, 2013
-    </div>
+    <figure class="step-figure">
+      <img src="assets/imgs/2013-09-03-IR-1826.png" alt="Shayne Austin phone records Apr. 13, 2011" loading="lazy" />
+      <figcaption>Dillon Maxwell TBI interview on Sep. 3, 2013</figcaption>
+    </figure>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where"><span class="arrow">&rarr;</span> Holladay tower <span class="arrow">&rarr;</span> phone starts moving @ 9:02 AM</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where"><span class="arrow">&rarr;</span> en route <span class="arrow">&rarr;</span> calls 911 @ 7:59 AM</span></div>
@@ -2931,13 +2927,10 @@
     <p><strong>Chad's phone: </strong>When investigators asked to examine Chad's phone for forensic analysis, he refused to let them keep it. His stated reason: he needed it for work.</p>
     <p style="opacity:0.7;font-size:12px;">The busiest handset in the entire case, the one relaying between the victim's brother, the boyfriend, and the dispatcher's family all morning, was never compelled and never forensically examined.</p>
     <p><strong>Who he is:</strong> Chad Marshall is Clint Bobo's close friend. They were described as "best friends" in prior investigation notes. In a TBI interview dated Dec. 20, 2012 (TBI IR 2858), Special Agent Valerie Troutt interviewed Chad about his relationship with Bethany Jowers, a woman connected to Clint Bobo. Chad denied having an affair with Bethany, claiming they were just friends. He acknowledged that Bethany and Clint "had tried to stir up things" between him and Clint during the time Bethany was separated from her then-husband. Chad stated he and Clint were still friends despite the tension. The report notes that Chad admitted he and Casey Jowers had "stopped hanging out," and Chad believed this was because Bethany had tried to cause friction during her marital separation.</p>
-      <div class="step-embed">
-        <div class="embed-placeholder" data-src="assets/imgs/2012-12-20-IR-624.png" data-height="500px">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="13" width="8" height="1"/><rect x="8" y="17" width="5" height="1"/></svg>
-            <span>Click to view</span>
-        </div>
-      </div>
-      <div class="embed-caption">Chad Marshall interview on Dec. 20, 2012</div>
+    <figure class="step-figure">
+      <img src="assets/imgs/2012-12-20-IR-624.png" alt="Shayne Austin phone records Apr. 13, 2011" loading="lazy" />
+      <figcaption>Chad Marshall interview on Dec. 20, 2012</figcaption>
+    </figure>
     <div class="loc-strip">
       <div class="loc-pill"><span class="dot" style="background:var(--c-holly)"></span><span class="who">Holly</span> <span class="where"><span class="arrow">&rarr;</span> Holladay tower <span class="arrow">&rarr;</span> @ 9:06 AM</span></div>
       <div class="loc-pill"><span class="dot" style="background:var(--c-karen)"></span><span class="who">Karen</span> <span class="where"><span class="arrow">&rarr;</span> en route <span class="arrow">&rarr;</span> calls 911 @ 7:59 AM</span></div>
@@ -6851,7 +6844,7 @@ const lightboxImg = document.getElementById('lightbox-img');
 const lightboxClose = document.querySelector('.lightbox-close');
 
 // Click-to-expand images
-document.querySelectorAll('.step-figure img, .step-gallery img').forEach(img => {
+document.querySelectorAll('.step-figure img, .step-gallery img, .step-embed img').forEach(img => {
   img.addEventListener('click', function() {
     lightboxImg.src = this.src;
     lightboxImg.alt = this.alt;
