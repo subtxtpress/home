@@ -1307,10 +1307,10 @@ function render() {
       <td data-label="Flag">${flagBadge(r.flag)}</td>
       <td data-label="Status">${statusBadge(r.status)}</td>
       <td data-label="Comments">
-        <span class="narr-short" onclick="toggleNarr(this)">${esc(short)}${hasMore ? '<span class="expand-btn">[expand]</span>' : ''}</span>
-        <span class="narr-full">${full}${hasMore ? ' <span class="expand-btn" onclick="toggleNarr(this)">[collapse]</span>' : ''}</span>
+        <span class="narr-short">${esc(short)}${hasMore ? '<span class="expand-btn">[expand]</span>' : ''}</span>
+        <span class="narr-full">${full}${hasMore ? ' <span class="expand-btn">[collapse]</span>' : ''}</span>
       </td>
-      <td><button class="del-btn" onclick="delRow('${esc(r.id)}')" title="Delete">✕</button></td>
+      <td><button class="del-btn" title="Delete">✕</button></td>
     </tr>`;
   }).join('');
 
@@ -1328,10 +1328,21 @@ function render() {
      <span class="stat"><strong>${shown}</strong> shown</span>`;
 
   document.getElementById('emptyState').classList.toggle('show', rows.length === 0);
+
+  // Re-attach event listeners after DOM update
+  document.getElementById('tbody').addEventListener('click', (e) => {
+    if (e.target.closest('.narr-short') || e.target.closest('.expand-btn')) {
+      toggleNarr(e.target.closest('tr'));
+    }
+    if (e.target.closest('.del-btn')) {
+      const id = e.target.closest('tr').dataset.id;
+      delRow(id);
+    }
+  });
 }
 
 function toggleNarr(el) {
-  el.closest('tr').classList.toggle('narr-open');
+  el.classList.toggle('narr-open');
 }
 
 function delRow(id) {
