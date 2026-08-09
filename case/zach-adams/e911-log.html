@@ -542,7 +542,7 @@ tr.narr-open .narr-full  {
    flag: 'Y'=yellow case tip, 'P'=pink high-interest, 'N'=routine
    status: 'T'=Transcribed, 'PA'=Partial, 'R'=Redacted, 'B'=Blank, 'NO'=Note
 ────────────────────────────────────────── */
-const SEED_VER = 11;
+const SEED_VER = 12;
 
 const SEED = [
       ["—","04-17-2011","1400–0000","D. Hale / Montgomery","0004","3911","731-358-8354","","Rick Morphs — welfare check on son at ex-wife's house at 72 Hunter's Circle","N","T","s372"],
@@ -888,18 +888,18 @@ const SEED = [
       ["—","04-19-2011","1600–0000","Montgomery/Woodward","2214","","D7","","Request we log that they received 3 calls in last 2 days from Cafe on Pentecostal Hill","N","T","s649"],
       ["—","04-19-2011","1600–0000","Woodward","2217","Call 911","733-7001","","Jim Hickman — tree across road at 6845 Blenches Chapel Rd; advised Henderson Co Hwy Dept","N","T","s596"],
       ["—","04-19-2011","1600–0000","Woodward","2306","Call 3911","865-397-6784","","Dale Sellars — noticing today that missing girl Holly has same features as Megan who was abducted from Newport a couple of years ago in April; said he wasn't sure her abductor had ever been located","P","T","s597"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1005","","1101","10-8","ER to Bussell Town.","N","T","s2"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1014","","D4","","[Redacted] Blacked out. FR 2374. 2002 Honda 2-door white. Exp 12-31-2011. Steven McGriff 375 Fisherdale Drive, Decaturville. Was unconscious in vehicle. 785 requested EMS.","N","R","s53"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1014","","D4","","[Redacted] Resp.","N","R","s52"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1014","","D4","","[Redacted] On scene.","N","R","s52"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1029","","D4","","[Redacted] Back <sic>. No transport.","N","R","s52"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1031","3913","785","10–6","[Redacted] a while, waiting on someone to come get subject…said it was a real heavy sleeper.","N","PA","s3"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1044","","785","10–6","[Redacted] Subject's brother came and picked him up, said he was a real heavy sleeper and he dozed off to sleep.","N","T","s54"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1105","3911","708-255-5441","—","Nancy Louise Garrett said officers had missed one sex offender that lives near Holly's house. He had her in basement at first but now she is dead and he has buried her in the woods behind his house. He is cleaning up the basement with Clorox now but we might be able to find the bed clothes and put him away.","Y","T","s4"],
-      ["00008701","04-20-2011","0800–1600","Sheila Carver","1157","3911","614-5074","","[Redacted] Tom Davis at 968-2575 going to repair vehicle at 215 Allen <sic> Ln. <sic> wants officer to go with him to look at vehicle.","N","PA","s57"],
-      ["00008700","04-20-2011","0800–1600","Sheila Carver","1507","3911","970-686-0631","—","\"Prayer Person\" — her husband is a pastor. Just came up from prayer. Man pulled Holly into woods in a thick area, raped her and hit her, not sure if it killed her or not. Then dragged her by feet a pretty far ways to an open camp like area with a fire pit and then he went over to another place that was a very dark place and he kept reaching over and pulling on something like it went to something else like a tunnel or cave.","Y","T","s5"],
-      ["00008700","04-20-2011","0800–1600","Sheila Carver","1517","3911","–","—","Been by place on Oak Wood Dr. Someone there waiting.","Y","T","s5"],
-      ["00008700","04-20-2011","0800–1600","Sheila Carver","1519","","","","[Partial/illegible] From the shore on look around Dr. S… about military. Entry partially illegible.","N","PA","s51"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1005","","1101","10-8","ER to Bussell Town.","N","T","s2"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1014","","D4","","[Redacted] Blacked out. FR 2374. 2002 Honda 2-door white. Exp 12-31-2011. Steven McGriff 375 Fisherdale Drive, Decaturville. Was unconscious in vehicle. 785 requested EMS.","N","R","s53"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1014","","D4","","[Redacted] Resp.","N","R","s52"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1014","","D4","","[Redacted] On scene.","N","R","s52"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1029","","D4","","[Redacted] Back <sic>. No transport.","N","R","s52"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1031","3913","785","10–6","[Redacted] a while, waiting on someone to come get subject…said it was a real heavy sleeper.","N","PA","s3"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1044","","785","10–6","[Redacted] Subject's brother came and picked him up, said he was a real heavy sleeper and he dozed off to sleep.","N","T","s54"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1105","3911","708-255-5441","—","Nancy Louise Garrett said officers had missed one sex offender that lives near Holly's house. He had her in basement at first but now she is dead and he has buried her in the woods behind his house. He is cleaning up the basement with Clorox now but we might be able to find the bed clothes and put him away.","Y","T","s4"],
+      ["00008701","04-20-2011","0800–1600","S. Carver","1157","3911","614-5074","","[Redacted] Tom Davis at 968-2575 going to repair vehicle at 215 Allen <sic> Ln. <sic> wants officer to go with him to look at vehicle.","N","PA","s57"],
+      ["00008700","04-20-2011","0800–1600","S. Carver","1507","3911","970-686-0631","—","\"Prayer Person\" — her husband is a pastor. Just came up from prayer. Man pulled Holly into woods in a thick area, raped her and hit her, not sure if it killed her or not. Then dragged her by feet a pretty far ways to an open camp like area with a fire pit and then he went over to another place that was a very dark place and he kept reaching over and pulling on something like it went to something else like a tunnel or cave.","Y","T","s5"],
+      ["00008700","04-20-2011","0800–1600","S. Carver","1517","3911","–","—","Been by place on Oak Wood Dr. Someone there waiting.","Y","T","s5"],
+      ["00008700","04-20-2011","0800–1600","S. Carver","1519","","","","[Partial/illegible] From the shore on look around Dr. S… about military. Entry partially illegible.","N","PA","s51"],
       ["00008699","04-20-2011","—","[unknown]","—","—","Sheila Hensley / Health Dept","—","NOTE from Sheila Hensley, nurse at Health Dept. ^may Check house at 175 Starbuck Ln. Vacant house & barn off Hwy 641 S and 112 Starbuck Ln. Vacant house for sale had a light on last few days. Dated 4-20-11.","Y","NO","s1"],
       ["00008725","04-21-2011","1600–0000","Woodward/Hale","1611","","D1","","On scene at Westwood.","N","T","s190"],
       ["00008725","04-21-2011","1600–0000","Woodward/Hale","1625","","D1","Trans","Hospital begin mile 249831.9.","N","T","s191"],
@@ -1142,14 +1142,14 @@ const SEED = [
       ["00008707","04-29-2011","0000–0800","Alexander","0750","","R2","","Bldg. & Available.","N","T","s92"],
       ["00008707","04-29-2011","0000–0800","Alexander","0751","","R3","","Bldg.","N","T","s93"],
       ["00008707","04-29-2011","0000–0800","Alexander","0753","","R1","","Bldg.","N","T","s94"],
-      ["00008708","05-03-2011","0800–1600","Sheila Carver","1301","","D1","","O/@ Westwood — 251721.5.","N","T","s95"],
-      ["00008708","05-03-2011","0800–1600","Sheila Carver","1311","","D1","","Back in Service.","N","T","s96"],
-      ["00008708","05-03-2011","0800–1600","Sheila Carver","1329","","733-2426","","Man said he pushed wrong # (older like man sounded like) — 670 Virginia Ave S.","N","T","s47"],
-      ["00008708","05-03-2011","0800–1600","Sheila Carver","1338","714","","10-6","670 Virginia Ave S","N","B","s97"],
-      ["00008708","05-03-2011","0800–1600","Sheila Carver","1340","714","","10-8","","N","B","s98"],
-      ["00008708","05-03-2011","0800–1600","Sheila Carver","1342","911","733-2426","","Disconnected. I called back, voice mailbox not set up.","N","T","s48"],
-      ["00008708","05-03-2011","0800–1600","Sheila Carver","1345","911","733-3699","—","Rita Power. 1940 Sulphur Springs Rd said they have a rent house at 2091 Sulphur Springs Rd. Renter is Wayne Holmes, works at Clayton Holmes in Jackson. He has not been back to this house since Holly went missing. He has run in and maybe get something and leave. He has lots of camoflauge clothing in the house. Her husband did go in the house & walk thru it when they were looking for Holly. He did not look in the attic & other places she could have been. Wayne's girlfriend works at the Mousse Lodge in Lexington and she has called & looked for him & cannot find him either. Rita told her they wanted his stuff out of the house and she said Wayne has not had that boat that he has at the house very long. There is a 4 wheeler there also. Wayne has a truck but he has the truck with him & he does not come home. They have called his place of work and he has not been to work since Holly went missing. Rita said her sister-in-law Janice Wyatt might be able to ask/tell them more about him. She owned the house before her brother bought it. Rita says they been watching this house ever since Holly left and Wayne is not doing things like he was before Holly went missing and she just had to call and tell us. Rita said they went to court house to get him out of house, but he is not staying there.","Y","T","s49"],
-      ["00008709","05-03-2011","0800–1600","Sheila Carver","1413","","709","10-6","Court House.","N","T","s99"],
+      ["00008708","05-03-2011","0800–1600","S. Carver","1301","","D1","","O/@ Westwood — 251721.5.","N","T","s95"],
+      ["00008708","05-03-2011","0800–1600","S. Carver","1311","","D1","","Back in Service.","N","T","s96"],
+      ["00008708","05-03-2011","0800–1600","S. Carver","1329","","733-2426","","Man said he pushed wrong # (older like man sounded like) — 670 Virginia Ave S.","N","T","s47"],
+      ["00008708","05-03-2011","0800–1600","S. Carver","1338","714","","10-6","670 Virginia Ave S","N","B","s97"],
+      ["00008708","05-03-2011","0800–1600","S. Carver","1340","714","","10-8","","N","B","s98"],
+      ["00008708","05-03-2011","0800–1600","S. Carver","1342","911","733-2426","","Disconnected. I called back, voice mailbox not set up.","N","T","s48"],
+      ["00008708","05-03-2011","0800–1600","S. Carver","1345","911","733-3699","—","Rita Power. 1940 Sulphur Springs Rd said they have a rent house at 2091 Sulphur Springs Rd. Renter is Wayne Holmes, works at Clayton Holmes in Jackson. He has not been back to this house since Holly went missing. He has run in and maybe get something and leave. He has lots of camoflauge clothing in the house. Her husband did go in the house & walk thru it when they were looking for Holly. He did not look in the attic & other places she could have been. Wayne's girlfriend works at the Mousse Lodge in Lexington and she has called & looked for him & cannot find him either. Rita told her they wanted his stuff out of the house and she said Wayne has not had that boat that he has at the house very long. There is a 4 wheeler there also. Wayne has a truck but he has the truck with him & he does not come home. They have called his place of work and he has not been to work since Holly went missing. Rita said her sister-in-law Janice Wyatt might be able to ask/tell them more about him. She owned the house before her brother bought it. Rita says they been watching this house ever since Holly left and Wayne is not doing things like he was before Holly went missing and she just had to call and tell us. Rita said they went to court house to get him out of house, but he is not staying there.","Y","T","s49"],
+      ["00008709","05-03-2011","0800–1600","S. Carver","1413","","709","10-6","Court House.","N","T","s99"],
       ["—","05-13-2011","1600–0000","Montgomery/Hale","1750","","705","10-8","Lengthy 10-4","N","T","s449"],
       ["—","05-13-2011","1600–0000","Montgomery/Hale","1756","","703","10-8","","N","T","s450"],
       ["—","05-13-2011","1600–0000","Montgomery/Hale","1810","","705","10-7","","N","T","s451"],
@@ -1232,21 +1232,17 @@ function save(data) {
 
 let DATA = load();
 let nextId = DATA.reduce((m,r) => {
-  const n = parseInt(r.id.replace(/\D/g,'')) || 0;
+  const n = parseInt((r.id || '').replace(/\D/g,'')) || 0;
   return Math.max(m, n);
 }, 100) + 1;
 
 /* ── Filters ── */
-function getSearchBox() { return document.getElementById('searchBox'); }
-function getFilterDate() { return document.getElementById('filterDate'); }
-function getFilterFlag() { return document.getElementById('filterFlag'); }
-function getFilterStatus() { return document.getElementById('filterStatus'); }
-
 function populateDateFilter() {
-  const filterDate = getFilterDate();
   const dates = [...new Set(DATA.map(r => r.date).filter(d => d && d !== '[unknown]' && d !== '—'))].sort();
-  filterDate.innerHTML = '<option value="">All dates</option>' +
-    dates.map(d => `<option value="${d}">${d}</option>`).join('');
+  if (window.filterDateEl) {
+    window.filterDateEl.innerHTML = '<option value="">All dates</option>' +
+      dates.map(d => `<option value="${d}">${d}</option>`).join('');
+  }
 }
 
 function esc(s) {
@@ -1272,12 +1268,11 @@ function trClass(f) {
 }
 
 function render() {
-  console.log('render() called');
   try {
-    const q     = getSearchBox().value.toLowerCase().trim();
-    const dFilt = getFilterDate().value;
-    const fFilt = getFilterFlag().value;
-    const sFilt = getFilterStatus().value;
+    const q     = window.searchBoxEl ? window.searchBoxEl.value.toLowerCase().trim() : '';
+    const dFilt = window.filterDateEl ? window.filterDateEl.value : '';
+    const fFilt = window.filterFlagEl ? window.filterFlagEl.value : '';
+    const sFilt = window.filterStatusEl ? window.filterStatusEl.value : '';
 
   const rows = DATA.filter(r => {
     if (dFilt && r.date !== dFilt) return false;
@@ -1383,21 +1378,18 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
 /* ── Init ── */
 /* ── Initialize immediately ── */
-try {
-  const sb = getSearchBox();
-  const fd = getFilterDate();
-  const ff = getFilterFlag();
-  const fs = getFilterStatus();
-  console.log('Elements found:', {sb: !!sb, fd: !!fd, ff: !!ff, fs: !!fs});
-  if (sb) sb.addEventListener('input', render);
-  if (fd) fd.addEventListener('change', render);
-  if (ff) ff.addEventListener('change', render);
-  if (fs) fs.addEventListener('change', render);
-  populateDateFilter();
-  render();
-} catch(e) {
-  console.error('Init error:', e);
-}
+window.searchBoxEl = document.getElementById('searchBox');
+window.filterDateEl = document.getElementById('filterDate');
+window.filterFlagEl = document.getElementById('filterFlag');
+window.filterStatusEl = document.getElementById('filterStatus');
+
+if (window.searchBoxEl) window.searchBoxEl.addEventListener('input', render);
+if (window.filterDateEl) window.filterDateEl.addEventListener('change', render);
+if (window.filterFlagEl) window.filterFlagEl.addEventListener('change', render);
+if (window.filterStatusEl) window.filterStatusEl.addEventListener('change', render);
+
+populateDateFilter();
+render();
 </script>
 </body>
 </html>
