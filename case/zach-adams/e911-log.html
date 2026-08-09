@@ -1237,10 +1237,10 @@ let nextId = DATA.reduce((m,r) => {
 }, 100) + 1;
 
 /* ── Filters ── */
-const searchBox   = document.getElementById('searchBox');
-const filterDate  = document.getElementById('filterDate');
-const filterFlag  = document.getElementById('filterFlag');
-const filterStatus= document.getElementById('filterStatus');
+const searchBox = document.getElementById('searchBox');
+const filterDate = document.getElementById('filterDate');
+const filterFlag = document.getElementById('filterFlag');
+const filterStatus = document.getElementById('filterStatus');
 
 function populateDateFilter() {
   const dates = [...new Set(DATA.map(r => r.date).filter(d => d && d !== '[unknown]' && d !== '—'))].sort();
@@ -1307,10 +1307,10 @@ function render() {
       <td data-label="Flag">${flagBadge(r.flag)}</td>
       <td data-label="Status">${statusBadge(r.status)}</td>
       <td data-label="Comments">
-        <span class="narr-short">${esc(short)}${hasMore ? '<span class="expand-btn">[expand]</span>' : ''}</span>
-        <span class="narr-full">${full}${hasMore ? ' <span class="expand-btn">[collapse]</span>' : ''}</span>
+        <span class="narr-short" onclick="toggleNarr(this)">${esc(short)}${hasMore ? '<span class="expand-btn">[expand]</span>' : ''}</span>
+        <span class="narr-full">${full}${hasMore ? ' <span class="expand-btn" onclick="toggleNarr(this)">[collapse]</span>' : ''}</span>
       </td>
-      <td><button class="del-btn" title="Delete">✕</button></td>
+      <td><button class="del-btn" onclick="delRow('${esc(r.id)}')" title="Delete">✕</button></td>
     </tr>`;
   }).join('');
 
@@ -1328,21 +1328,10 @@ function render() {
      <span class="stat"><strong>${shown}</strong> shown</span>`;
 
   document.getElementById('emptyState').classList.toggle('show', rows.length === 0);
-
-  // Re-attach event listeners after DOM update
-  document.getElementById('tbody').addEventListener('click', (e) => {
-    if (e.target.closest('.narr-short') || e.target.closest('.expand-btn')) {
-      toggleNarr(e.target.closest('tr'));
-    }
-    if (e.target.closest('.del-btn')) {
-      const id = e.target.closest('tr').dataset.id;
-      delRow(id);
-    }
-  });
 }
 
 function toggleNarr(el) {
-  el.classList.toggle('narr-open');
+  el.closest('tr').classList.toggle('narr-open');
 }
 
 function delRow(id) {
@@ -1385,13 +1374,12 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   });
 });
 
-/* ── Event listeners ── */
+/* ── Init ── */
+/* ── Initialize immediately ── */
 searchBox.addEventListener('input', render);
 filterDate.addEventListener('change', render);
 filterFlag.addEventListener('change', render);
 filterStatus.addEventListener('change', render);
-
-/* ── Init ── */
 populateDateFilter();
 render();
 </script>
