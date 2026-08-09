@@ -7,8 +7,11 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow+Condensed:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+  *, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+  }
   :root {
     --surface-page:     #F7F5F2;
     --surface-card:     #FFFFFF;
@@ -25,17 +28,15 @@
     --border-mid:       rgba(139, 100, 60, 0.20);
     --grad-neutral:     linear-gradient(to right, #C5B99A, #8B4513);
   }
-
   body {
     width: 900px;
-    height: 675px;
+    height: 720px;
     overflow: hidden;
     background: var(--surface-page);
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     position: relative;
   }
-
   body::before {
     content: '';
     position: absolute;
@@ -46,10 +47,11 @@
     background-size: 48px 48px;
     z-index: 0;
   }
-
   .nav {
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0; 
+    left: 0; 
+    right: 0;
     height: 60px;
     background:
       linear-gradient(rgba(247,245,242,0.97), rgba(247,245,242,0.97)) padding-box,
@@ -60,7 +62,6 @@
     padding: 0 40px;
     z-index: 20;
   }
-
   .nav-brand {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
@@ -69,7 +70,6 @@
     letter-spacing: 0.01em;
     margin-left: -20px;
   }
-
   .nav-sub {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 8px;
@@ -81,14 +81,12 @@
     padding-left: 16px;
     border-left: 1px solid var(--border-mid);
   }
-
   .nav-links {
     margin-left: auto;
     display: flex;
     gap: 28px;
     align-items: center;
   }
-
   .nav-link {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 9.5px;
@@ -97,7 +95,6 @@
     text-transform: uppercase;
     color: var(--text-label);
   }
-
   .nav-cta {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 10px;
@@ -109,16 +106,17 @@
     padding: 7px 16px;
     border-radius: 2px;
   }
-
   .main {
     position: absolute;
-    top: 60px; left: 0; right: 0; bottom: 0;
+    top: 60px; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr auto;
     z-index: 1;
   }
-
   .left {
     grid-row: 1;
     grid-column: 1;
@@ -129,20 +127,17 @@
     z-index: 5;
     padding-top: 12%;
   }
-
   .eyebrow-line {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 6%;
   }
-
   .eyebrow-dash {
     width: 32px;
     height: 1px;
     background: var(--accent);
   }
-
   .eyebrow {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 12px;
@@ -151,7 +146,6 @@
     text-transform: uppercase;
     color: var(--accent);
   }
-
   .headline {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
@@ -161,13 +155,11 @@
     letter-spacing: -0.01em;
     margin-bottom: 8%;
   }
-
   .headline em {
     font-style: italic;
     font-weight: 600;
     color: var(--accent);
   }
-
   .desc {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -176,14 +168,12 @@
     margin-bottom: 8%;
     letter-spacing: 0.005em;
   }
-
   .cta-row {
     display: flex;
     align-items: center;
     gap: 22px;
     margin-top: 10px;
   }
-
   .cta-primary {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 11px;
