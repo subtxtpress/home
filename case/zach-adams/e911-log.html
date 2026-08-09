@@ -1237,12 +1237,13 @@ let nextId = DATA.reduce((m,r) => {
 }, 100) + 1;
 
 /* ── Filters ── */
-const searchBox = document.getElementById('searchBox');
-const filterDate = document.getElementById('filterDate');
-const filterFlag = document.getElementById('filterFlag');
-const filterStatus = document.getElementById('filterStatus');
+function getSearchBox() { return document.getElementById('searchBox'); }
+function getFilterDate() { return document.getElementById('filterDate'); }
+function getFilterFlag() { return document.getElementById('filterFlag'); }
+function getFilterStatus() { return document.getElementById('filterStatus'); }
 
 function populateDateFilter() {
+  const filterDate = getFilterDate();
   const dates = [...new Set(DATA.map(r => r.date).filter(d => d && d !== '[unknown]' && d !== '—'))].sort();
   filterDate.innerHTML = '<option value="">All dates</option>' +
     dates.map(d => `<option value="${d}">${d}</option>`).join('');
@@ -1271,10 +1272,10 @@ function trClass(f) {
 }
 
 function render() {
-  const q     = searchBox.value.toLowerCase().trim();
-  const dFilt = filterDate.value;
-  const fFilt = filterFlag.value;
-  const sFilt = filterStatus.value;
+  const q     = getSearchBox().value.toLowerCase().trim();
+  const dFilt = getFilterDate().value;
+  const fFilt = getFilterFlag().value;
+  const sFilt = getFilterStatus().value;
 
   const rows = DATA.filter(r => {
     if (dFilt && r.date !== dFilt) return false;
@@ -1376,10 +1377,10 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
 /* ── Init ── */
 /* ── Initialize immediately ── */
-searchBox.addEventListener('input', render);
-filterDate.addEventListener('change', render);
-filterFlag.addEventListener('change', render);
-filterStatus.addEventListener('change', render);
+getSearchBox().addEventListener('input', render);
+getFilterDate().addEventListener('change', render);
+getFilterFlag().addEventListener('change', render);
+getFilterStatus().addEventListener('change', render);
 populateDateFilter();
 render();
 </script>
