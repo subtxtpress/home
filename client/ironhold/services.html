@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Ironhold — Premium Scaffold Solutions</title>
+  <meta name="description" content="Commercial scaffold installation engineered for the job site. Tube and fitting, modular frame, suspended access, and shoring systems.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/client/ironhold/services">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ironhold — Premium Scaffold Solutions">
+  <meta property="og:description" content="Commercial scaffold installation engineered for the job site.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/client/ironhold/services">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/client/ironhold/img/ironhold.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:site_name" content="Ironhold">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ironhold — Premium Scaffold Solutions">
+  <meta name="twitter:description" content="Commercial scaffold installation engineered for the job site.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/client/ironhold/img/ironhold.png">
+  <meta name="twitter:creator" content="@ironhold">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* === TOKENS: dark-first === */
+  :root {
+    --bg:      #07080F;
+    --bg2:     #0A0E1C;
+    --surface: #0E1525;
+    --lift:    #131E32;
+    --border:  rgba(255,255,255,.07);
+    --border2: rgba(255,255,255,.04);
+    --text:    #D6D1C8;
+    --text2:   #475870;
+    --text3:   #1D2A3C;
+    --hl:      #ECEAE2;
+    --acc:     #7AB4CC;
+    --nav-bg:  rgba(7,8,15,.93);
+    --fw-d: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif;
+    --fw-b: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --fw-m: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg:      #EDECEA;
+      --bg2:     #E5E2DC;
+      --surface: #F8F6F2;
+      --lift:    #F2EFE9;
+      --border:  rgba(0,0,0,.09);
+      --border2: rgba(0,0,0,.05);
+      --text:    #1A1E28;
+      --text2:   #5C6470;
+      --text3:   #B0B8C0;
+      --hl:      #0C1018;
+      --acc:     #1E5888;
+      --nav-bg:  rgba(237,236,234,.95);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:      #EDECEA;
+    --bg2:     #E5E2DC;
+    --surface: #F8F6F2;
+    --lift:    #F2EFE9;
+    --border:  rgba(0,0,0,.09);
+    --border2: rgba(0,0,0,.05);
+    --text:    #1A1E28;
+    --text2:   #5C6470;
+    --text3:   #B0B8C0;
+    --hl:      #0C1018;
+    --acc:     #1E5888;
+    --nav-bg:  rgba(237,236,234,.95);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--fw-b);
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  section[id], [id] { scroll-margin-top: 5rem; }
+
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 3.5rem);
+  }
+
+  /* === TYPE === */
+  .eyebrow {
+    font-family: var(--fw-m);
+    font-size: .68rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--acc);
+  }
+
+  .d1 {
+    font-family: var(--fw-d);
+    font-weight: 600;
+    font-size: clamp(3rem, 9vw, 8.5rem);
+    line-height: .95;
+    letter-spacing: -.01em;
+    color: var(--hl);
+    text-wrap: balance;
+  }
+
+  .d2 {
+    font-family: var(--fw-d);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4.5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -.005em;
+    color: var(--hl);
+    text-wrap: balance;
+  }
+
+  /* === BUTTONS === */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    font-family: var(--fw-m);
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .75rem 1.75rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s;
+    border-radius: 1px;
+    border: none;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--hl); color: var(--bg); }
+  .btn-primary:hover { background: #fff; }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,.22); color: var(--hl); }
+  .btn svg { transition: transform .2s; flex-shrink: 0; }
+  .btn:hover svg { transform: translateX(3px); }
+
+  /* === NAV === */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border2);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.25rem;
+  }
+  .nav-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: .65rem;
+  }
+  .nav-logo-name {
+    font-family: var(--fw-d);
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: .02em;
+    color: var(--hl);
+  }
+  .nav-logo-div {
+    width: 1px;
+    height: .9rem;
+    background: var(--border);
+    flex-shrink: 0;
+    align-self: center;
+  }
+  .nav-logo-sub {
+    font-family: var(--fw-m);
+    font-size: .58rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.75rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--fw-m);
+    font-size: .67rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--hl); }
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text);
+    transition: all .2s;
+  }
+  .nav-mobile {
+    display: none;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border2);
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile-links { list-style: none; }
+  .nav-mobile-links li { border-bottom: 1px solid var(--border2); }
+  .nav-mobile-links a {
+    display: block;
+    padding: .9rem clamp(1.5rem, 5vw, 3.5rem);
+    font-family: var(--fw-m);
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text2);
+    text-decoration: none;
+  }
+  .nav-mobile-links a:hover { color: var(--hl); }
+  .nav-mobile-cta { padding: 1.25rem clamp(1.5rem, 5vw, 3.5rem); }
+
+  @media (max-width: 760px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+  }
+
+  /* === HERO === */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    align-items: end;
+    padding-top: 4.25rem;
+    padding-bottom: 7rem;
+    overflow: hidden;
+  }
+  #cv {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-fade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, var(--bg) 20%, transparent 58%),
+      linear-gradient(to top, var(--bg) 0%, transparent 38%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 2.5rem;
+    height: 1px;
+    background: var(--acc);
+    flex-shrink: 0;
+  }
+  .hero-hl { margin-bottom: 2rem; }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text2);
+    max-width: 46ch;
+    line-height: 1.72;
+    margin-bottom: 3rem;
+  }
+  .hero-actions { display: flex; gap: .875rem; flex-wrap: wrap; }
+  .hero-aside {
+    position: absolute;
+    right: clamp(1.5rem, 5vw, 3.5rem);
+    bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .65rem;
+    opacity: .38;
+  }
+  .hero-tick {
+    width: 1px;
+    height: 2.75rem;
+    background: linear-gradient(to bottom, transparent, var(--text2));
+    animation: tick 2.6s ease-in-out infinite;
+  }
+  .hero-aside span {
+    font-family: var(--fw-m);
+    font-size: .58rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--text2);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  @keyframes tick { 0%,100%{opacity:.2} 55%{opacity:1} }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-tick { animation: none; }
+  }
+
+  /* === STATS === */
+  .stats {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border2);
+  }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat {
+    padding: 0 2.5rem;
+    border-left: 1px solid var(--border2);
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+  .stat:first-child { border-left: none; padding-left: 0; }
+  .stat-n {
+    font-family: var(--fw-d);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1;
+    color: var(--hl);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-l {
+    font-family: var(--fw-m);
+    font-size: .62rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+  @media (max-width: 640px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); row-gap: 2.5rem; }
+    .stat { padding: 0 1.5rem; }
+    .stat:first-child, .stat:nth-child(3) { border-left: none; padding-left: 0; }
+    .stat:nth-child(2), .stat:nth-child(4) { border-left: 1px solid var(--border2); }
+  }
+
+  /* === SECTION SHELL === */
+  .sec { padding: 8rem 0; }
+  .sec-alt {
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+  .sec-head { margin-bottom: 5rem; }
+  .sec-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .sec-eyebrow::before {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: var(--acc);
+  }
+
+  /* === SERVICES === */
+  .svc-list { display: flex; flex-direction: column; }
+  .svc-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    padding: 2.75rem 0;
+    border-top: 1px solid var(--border2);
+    align-items: start;
+  }
+  .svc-row:last-child { border-bottom: 1px solid var(--border2); }
+  .svc-head { display: flex; flex-direction: column; gap: .55rem; }
+  .svc-num {
+    font-family: var(--fw-m);
+    font-size: .6rem;
+    letter-spacing: .12em;
+    color: var(--acc);
+  }
+  .svc-name {
+    font-family: var(--fw-d);
+    font-weight: 500;
+    font-size: 1.3rem;
+    letter-spacing: .01em;
+    color: var(--hl);
+  }
+  .svc-tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--fw-m);
+    font-size: .58rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text2);
+    border: 1px solid var(--border2);
+    padding: .22rem .6rem;
+    border-radius: 1px;
+    margin-top: .5rem;
+    width: fit-content;
+  }
+  .svc-desc {
+    font-size: .925rem;
+    line-height: 1.78;
+    color: var(--text2);
+  }
+  @media (max-width: 640px) {
+    .svc-row { grid-template-columns: 1fr; gap: 1rem; }
+  }
+
+  /* === PROCESS === */
+  .proc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border2);
+  }
+  .proc-step {
+    background: var(--bg2);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .proc-step:first-child { background: var(--surface); }
+  .proc-n {
+    font-family: var(--fw-m);
+    font-size: .62rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--acc);
+  }
+  .proc-name {
+    font-family: var(--fw-d);
+    font-weight: 500;
+    font-size: 1.2rem;
+    letter-spacing: .01em;
+    color: var(--hl);
+  }
+  .proc-desc {
+    font-size: .875rem;
+    line-height: 1.78;
+    color: var(--text2);
+  }
+  @media (max-width: 700px) {
+    .proc-grid { grid-template-columns: 1fr; }
+    .proc-step { padding: 2rem; background: var(--bg2) !important; }
+  }
+
+  /* === PROJECTS === */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+  .proj { display: flex; flex-direction: column; gap: 1rem; }
+  .proj-img {
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+  }
+  .proj-img-1 { background: linear-gradient(155deg, #0B1A2C 0%, #14243E 55%, #0C1C34 100%); }
+  .proj-img-2 { background: linear-gradient(155deg, #14100A 0%, #221A0E 55%, #181008 100%); }
+  .proj-img-3 { background: linear-gradient(155deg, #090D1C 0%, #101828 55%, #0B1220 100%); }
+  .proj-canvas {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .proj-sheen {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, rgba(255,255,255,.03) 0%, transparent 55%);
+  }
+  .proj-meta { display: flex; flex-direction: column; gap: .3rem; }
+  .proj-type {
+    font-family: var(--fw-m);
+    font-size: .6rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--acc);
+  }
+  .proj-name {
+    font-family: var(--fw-d);
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: .01em;
+    color: var(--hl);
+  }
+  .proj-loc {
+    font-size: .8rem;
+    color: var(--text2);
+  }
+  @media (max-width: 760px) { .proj-grid { grid-template-columns: 1fr; } }
+  @media (min-width: 480px) and (max-width: 760px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* === CTA === */
+  .cta { padding: 10rem 0; }
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    border-top: 1px solid var(--border2);
+    padding-top: 5rem;
+  }
+  .cta-right { display: flex; flex-direction: column; gap: 1.5rem; }
+  .cta-note {
+    font-size: .9rem;
+    color: var(--text2);
+    line-height: 1.78;
+    max-width: 36ch;
+  }
+  @media (max-width: 760px) {
+    .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .cta { padding: 6rem 0; }
+  }
+
+  /* === FOOTER === */
+  .footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border2);
+    padding: 3.5rem 0;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand { flex: 1; min-width: 200px; }
+  .footer-name {
+    font-family: var(--fw-d);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: .02em;
+    color: var(--hl);
+    margin-bottom: .6rem;
+  }
+  .footer-tagline { font-size: .82rem; color: var(--text2); max-width: 30ch; line-height: 1.6; }
+  .footer-nav { display: flex; gap: 5rem; flex-wrap: wrap; }
+  .footer-col-head {
+    font-family: var(--fw-m);
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--acc);
+    margin-bottom: 1.1rem;
+  }
+  .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+  .footer-col-links a {
+    font-size: .82rem;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-col-links a:hover { color: var(--hl); }
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-copy, .footer-legal a {
+    font-family: var(--fw-m);
+    font-size: .6rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--text2);
+    text-decoration: none;
+  }
+  .footer-legal { display: flex; gap: 2rem; }
+  .footer-legal a:hover { color: var(--hl); }
+
+  /* === REVEAL === */
+  .rv { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+  .rv.in { opacity: 1; transform: none; }
+  .rv1 { transition-delay: .1s; }
+  .rv2 { transition-delay: .2s; }
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* === FOCUS === */
+  a:focus-visible, button:focus-visible {
+    outline: 1.5px solid var(--acc);
+    outline-offset: 3px;
+  }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-name">Ironhold</span>
+        <span class="nav-logo-div" aria-hidden="true"></span>
+        <span class="nav-logo-sub">Scaffold</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#process">How We Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-outline">Get a Quote</a>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul class="nav-mobile-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#process">How We Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-cta">
+      <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<main>
+<section class="hero" id="hero">
+  <canvas id="cv"></canvas>
+  <div class="hero-fade"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow">Commercial &amp; Industrial Access</span>
+      </div>
+      <div class="hero-hl">
+        <h1 class="d1">Precision access<br>for jobs that<br>demand it.</h1>
+      </div>
+      <p class="hero-sub">
+        We design, install, and inspect scaffold systems for commercial construction,
+        industrial maintenance, and infrastructure projects across 14 states.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Request a Quote
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="2" y1="7" x2="12" y2="7"/>
+            <polyline points="7,2 12,7 7,12"/>
+          </svg>
+        </a>
+        <a href="#projects" class="btn btn-outline">View Projects</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-aside" aria-hidden="true">
+    <div class="hero-tick"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats" id="stats">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-n" data-to="24" data-sfx="">0</div>
+        <div class="stat-l">Years in Operation</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" data-to="1400" data-sfx="+">0</div>
+        <div class="stat-l">Projects Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" data-to="14" data-sfx="">0</div>
+        <div class="stat-l">States Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" data-to="0" data-sfx="">0</div>
+        <div class="stat-l">Lost-Time Incidents</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="eyebrow">What We Do</span></div>
+      <h2 class="d2">Scaffold systems built<br>for the actual job.</h2>
+    </div>
+    <div class="svc-list rv">
+
+      <div class="svc-row">
+        <div class="svc-head">
+          <span class="svc-num">01</span>
+          <h3 class="svc-name">Tube &amp; Fitting</h3>
+          <span class="svc-tag">Custom Access</span>
+        </div>
+        <p class="svc-desc">Fully custom-configured for complex geometries, confined access, and non-standard structures. When the job doesn't fit a catalog frame, we engineer it from the tube up. No two projects are the same and our estimating reflects that.</p>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-head">
+          <span class="svc-num">02</span>
+          <h3 class="svc-name">Modular Frame</h3>
+          <span class="svc-tag">Commercial</span>
+        </div>
+        <p class="svc-desc">Rapid deployment across repetitive floor plans. Modular systems deliver speed and consistency for production-schedule-driven commercial builds. We stock deep to turn sites fast without cutting corners on inspection.</p>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-head">
+          <span class="svc-num">03</span>
+          <h3 class="svc-name">Suspended Access</h3>
+          <span class="svc-tag">Façade &amp; Overhead</span>
+        </div>
+        <p class="svc-desc">Swing stage and drop systems for façade rehabilitation, cladding replacement, and overhead work at elevation. Engineered for load, wind drift, and OSHA compliance — not just rigged and hoped for the best.</p>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-head">
+          <span class="svc-num">04</span>
+          <h3 class="svc-name">Shoring &amp; Falsework</h3>
+          <span class="svc-tag">Structural</span>
+        </div>
+        <p class="svc-desc">Engineered load-bearing systems for structural concrete pours, deck rehabilitation, and bridgework. Stamped drawings and load calculations provided on request. We work alongside your structural engineer, not around them.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec sec-alt" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="eyebrow">How We Work</span></div>
+      <h2 class="d2">No assumptions.<br>No surprises.</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step rv">
+        <div class="proc-n">Step 01</div>
+        <h3 class="proc-name">Site Assessment</h3>
+        <p class="proc-desc">We walk every project before quoting — no exceptions. Site conditions, load paths, adjacent work, and access constraints are all documented before a number is put to paper.</p>
+      </div>
+      <div class="proc-step rv rv1">
+        <div class="proc-n">Step 02</div>
+        <h3 class="proc-name">Engineered Design</h3>
+        <p class="proc-desc">Licensed plans, load calculations, and permit drawings on request. We work alongside your structural team, not around them. Complex sites get the engineer on site before the first tube goes up.</p>
+      </div>
+      <div class="proc-step rv rv2">
+        <div class="proc-n">Step 03</div>
+        <h3 class="proc-name">Install &amp; Monitor</h3>
+        <p class="proc-desc">OSHA-certified crews, phased inspection at every tier, and a single point of contact from erect to strip. Your schedule is our schedule — and we show up to keep it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow"><span class="eyebrow">Selected Projects</span></div>
+      <h2 class="d2">Work that holds up<br>under scrutiny.</h2>
+    </div>
+    <div class="proj-grid rv">
+
+      <div class="proj">
+        <div class="proj-img proj-img-1">
+          <div class="proj-canvas">
+            <svg width="84%" height="84%" viewBox="0 0 180 240" fill="none" stroke="rgba(150,195,230,.17)" stroke-width=".85" aria-hidden="true">
+              <line x1="30" y1="0" x2="30" y2="240"/>
+              <line x1="90" y1="0" x2="90" y2="240"/>
+              <line x1="150" y1="0" x2="150" y2="240"/>
+              <line x1="0" y1="40" x2="180" y2="40"/>
+              <line x1="0" y1="90" x2="180" y2="90"/>
+              <line x1="0" y1="140" x2="180" y2="140"/>
+              <line x1="0" y1="190" x2="180" y2="190"/>
+              <line x1="30" y1="40" x2="90" y2="90"/><line x1="90" y1="40" x2="30" y2="90"/>
+              <line x1="90" y1="90" x2="150" y2="140"/><line x1="150" y1="90" x2="90" y2="140"/>
+              <line x1="30" y1="140" x2="90" y2="190"/><line x1="90" y1="140" x2="30" y2="190"/>
+            </svg>
+          </div>
+          <div class="proj-sheen"></div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-type">Tube &amp; Fitting · Commercial</div>
+          <div class="proj-name">Commerce Tower Façade Restoration</div>
+          <div class="proj-loc">Downtown · 28-story high-rise</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-img proj-img-2">
+          <div class="proj-canvas">
+            <svg width="84%" height="84%" viewBox="0 0 180 240" fill="none" stroke="rgba(200,170,120,.14)" stroke-width=".85" aria-hidden="true">
+              <line x1="20" y1="0" x2="20" y2="240"/>
+              <line x1="70" y1="0" x2="70" y2="240"/>
+              <line x1="120" y1="0" x2="120" y2="240"/>
+              <line x1="160" y1="0" x2="160" y2="240"/>
+              <line x1="0" y1="35" x2="180" y2="35"/>
+              <line x1="0" y1="85" x2="180" y2="85"/>
+              <line x1="0" y1="135" x2="180" y2="135"/>
+              <line x1="0" y1="185" x2="180" y2="185"/>
+              <rect x="40" y="55" width="40" height="40"/>
+              <rect x="105" y="105" width="40" height="40"/>
+            </svg>
+          </div>
+          <div class="proj-sheen"></div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-type">Modular Frame · Industrial</div>
+          <div class="proj-name">Refinery Shutdown Access Platform</div>
+          <div class="proj-loc">Petrochemical · Planned outage scope</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-img proj-img-3">
+          <div class="proj-canvas">
+            <svg width="84%" height="84%" viewBox="0 0 180 240" fill="none" stroke="rgba(120,168,220,.17)" stroke-width=".85" aria-hidden="true">
+              <line x1="0" y1="88" x2="180" y2="88"/>
+              <line x1="0" y1="112" x2="180" y2="112"/>
+              <line x1="20" y1="0" x2="20" y2="88"/>
+              <line x1="65" y1="0" x2="65" y2="88"/>
+              <line x1="110" y1="0" x2="110" y2="88"/>
+              <line x1="155" y1="0" x2="155" y2="88"/>
+              <line x1="20" y1="112" x2="20" y2="240"/>
+              <line x1="65" y1="112" x2="65" y2="240"/>
+              <line x1="110" y1="112" x2="110" y2="240"/>
+              <line x1="155" y1="112" x2="155" y2="240"/>
+              <line x1="0" y1="45" x2="180" y2="45"/>
+              <line x1="0" y1="165" x2="180" y2="165"/>
+            </svg>
+          </div>
+          <div class="proj-sheen"></div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-type">Shoring · Infrastructure</div>
+          <div class="proj-name">Bridge Deck Rehabilitation</div>
+          <div class="proj-loc">TxDOT · Live traffic maintained</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div>
+        <div class="sec-eyebrow" style="margin-bottom:1.5rem">
+          <span class="eyebrow">Get Started</span>
+        </div>
+        <h2 class="d2">Ready to talk<br>access plans?</h2>
+      </div>
+      <div class="cta-right">
+        <p class="cta-note">Tell us what you're building — scope, site, schedule. We'll come back with a real quote, not a placeholder number.</p>
+        <div>
+          <a href="mailto:info@ironholdscaffold.com" class="btn btn-primary">
+            Request a Quote
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <line x1="2" y1="7" x2="12" y2="7"/>
+              <polyline points="7,2 12,7 7,12"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">Ironhold Scaffold</div>
+        <p class="footer-tagline">Premium scaffold systems for commercial, industrial, and infrastructure projects.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div>
+          <div class="footer-col-head">Services</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Tube &amp; Fitting</a></li>
+            <li><a href="#">Modular Frame</a></li>
+            <li><a href="#">Suspended Access</a></li>
+            <li><a href="#">Shoring &amp; Falsework</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Company</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">How We Work</a></li>
+            <li><a href="#">Safety Record</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Ironhold Scaffold</div>
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+(function () {
+  var btn = document.getElementById('nav-toggle');
+  var menu = document.getElementById('nav-mobile');
+  btn.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { menu.classList.remove('open'); });
+  });
+}());
+
+// Scaffold canvas
+(function () {
+  var cv = document.getElementById('cv');
+  if (!cv) return;
+
+  function dark() {
+    var t = document.documentElement.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return !window.matchMedia('(prefers-color-scheme: light)').matches;
+  }
+
+  function draw() {
+    var ctx = cv.getContext('2d');
+    var W = cv.width  = cv.offsetWidth;
+    var H = cv.height = cv.offsetHeight;
+    ctx.clearRect(0, 0, W, H);
+
+    var d = dark();
+    var pole  = d ? 'rgba(110,158,205,.036)' : 'rgba(50,75,108,.05)';
+    var joint = d ? 'rgba(110,158,205,.065)' : 'rgba(50,75,108,.085)';
+    var brace = d ? 'rgba(110,158,205,.015)' : 'rgba(50,75,108,.022)';
+
+    var cW = 105, rH = 78;
+    var cols = Math.ceil(W / cW) + 1;
+    var rows = Math.ceil(H / rH) + 1;
+    var ox = (W % cW) / 2, oy = (H % rH) / 2;
+
+    ctx.lineWidth = .9;
+    ctx.strokeStyle = pole;
+    for (var c = 0; c < cols; c++) {
+      var x = ox + c * cW;
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (var r = 0; r < rows; r++) {
+      var y = oy + r * rH;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+    ctx.lineWidth = .6;
+    ctx.strokeStyle = brace;
+    for (var c = 0; c < cols - 1; c++) {
+      for (var r = 0; r < rows - 1; r++) {
+        if ((c + r) % 2 === 0) {
+          var x1 = ox + c * cW, y1 = oy + r * rH, x2 = x1 + cW, y2 = y1 + rH;
+          ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(x2, y1); ctx.lineTo(x1, y2); ctx.stroke();
+        }
+      }
+    }
+    ctx.fillStyle = joint;
+    for (var c = 0; c < cols; c++) {
+      for (var r = 0; r < rows; r++) {
+        ctx.beginPath();
+        ctx.arc(ox + c * cW, oy + r * rH, 1.7, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  draw();
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(draw, 80); });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+}());
+
+// Stats count-up
+(function () {
+  var els = document.querySelectorAll('.stat-n[data-to]');
+  function run(el) {
+    var to  = parseInt(el.getAttribute('data-to'), 10);
+    var sfx = el.getAttribute('data-sfx') || '';
+    if (to === 0) { el.textContent = '0' + sfx; return; }
+    var dur = 1500, t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(e * to) + sfx;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { run(e.target); obs.unobserve(e.target); }
+    });
+  }, { threshold: .5 });
+  els.forEach(function (el) { obs.observe(el); });
+}());
+
+// Scroll reveal
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .1 });
+  document.querySelectorAll('.rv').forEach(function (el) { obs.observe(el); });
+}());
+</script>
+</body>
+</html>
