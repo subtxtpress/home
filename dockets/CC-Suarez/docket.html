@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
  <meta charset="utf-8">
  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
  <title>CC Suarez Docket | Subtxt Press</title>
  <meta name="description" content="A federal defamation and assault case initiated by a pro se plaintiff against three defendants in the U.S. District Court for Nebraska. The docket reflects active motions to dismiss, ongoing discovery disputes, and the evolving procedural posture of the litigation.">
  <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/CC-Suarez/docket">
@@ -29,13 +27,12 @@
  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
  <link rel="manifest" href="../../icons/site.webmanifest">
-
+ <!-- Styles-->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
   <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
-
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -43,28 +40,30 @@
       padding: 0;
     }
     :root {
-      --peach:   #E8956A;
-      --cream:   #F4EDE3;
-      --sand:    #DDD0BC;
-      --plum:    #3E2436;
-      --carmine: #7A5063;
-      --ink:     #241620;
+      --peach:            #E8956A;
+      --cream:            #F4EDE3;
+      --sand:             #DDD0BC;
+      --plum:             #3E2436;
+      --carmine:          #7A5063;
+      --ink:              #241620;
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-      --text-heading: #241620;
-      --text-body:    #44373C;
-      --text-label:   #7A5063;
-      --text-muted:   rgba(68, 55, 60, 0.45);
-      --accent:        #E8956A;
-      --accent-border: rgba(232, 149, 106, 0.40);
-      --border-light:  rgba(221, 208, 188, 0.55);
-      --border-mid:    rgba(180, 140, 100, 0.22);
-      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
-      --status-open:   #2E7D32;
-      --status-closed: #B71C1C;
+      --text-heading:     #241620;
+      --text-body:        #44373C;
+      --text-label:       #7A5063;
+      --text-muted:       rgba(68, 55, 60, 0.45);
+      --accent:           #E8956A;
+      --accent-border:    rgba(232, 149, 106, 0.40);
+      --border-light:     rgba(221, 208, 188, 0.55);
+      --border-mid:       rgba(180, 140, 100, 0.22);
+      --grad-neutral:     linear-gradient(to right, #DDD0BC, #E8956A);
+      --status-open:      #2E7D32;
+      --status-closed:    #B71C1C;
     }
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--surface-page);
@@ -92,7 +91,9 @@
     /* ─── Nav ───────────────────────────────────────────────── */
     .site-nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0; 
+      left: 0; 
+      right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
@@ -119,7 +120,9 @@
       text-decoration: none;
       transition: color 0.3s;
     }
-    .site-nav.scrolled .nav-brand { color: var(--ink); }
+    .site-nav.scrolled .nav-brand { 
+      color: var(--ink); 
+    }
     .nav-toggle {
       display: none;
       background: none;
@@ -132,7 +135,9 @@
       margin-left: auto;
       transition: color 0.3s;
     }
-    .site-nav.scrolled .nav-toggle { color: var(--ink); }
+    .site-nav.scrolled .nav-toggle { 
+      color: var(--ink); 
+    }
     .nav-links {
       list-style: none;
       display: flex;
@@ -148,11 +153,21 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover  { color: #fff; }
-    .nav-links a.active { color: var(--peach); }
-    .site-nav.scrolled .nav-links a { color: var(--text-label); }
-    .site-nav.scrolled .nav-links a:hover { color: var(--ink); }
-    .site-nav.scrolled .nav-links a.active { color: var(--accent); }
+    .nav-links a:hover  { 
+      color: #fff; 
+    }
+    .nav-links a.active { 
+      color: var(--peach); 
+    }
+    .site-nav.scrolled .nav-links a { 
+      color: var(--text-label); 
+    }
+    .site-nav.scrolled .nav-links a:hover { 
+      color: var(--ink); 
+    }
+    .site-nav.scrolled .nav-links a.active { 
+      color: var(--accent); 
+    }
     /* ─── Masthead ──────────────────────────────────────────── */
     .masthead {
       position: relative;
@@ -310,7 +325,9 @@
       line-height: 1.7;
       align-items: baseline;
     }
-    .filing:last-child { border-bottom: none; }
+    .filing:last-child { 
+      border-bottom: none; 
+    }
     .filing-date {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
@@ -327,13 +344,17 @@
       text-align: right;
       white-space: nowrap;
     }
-.filing-content { flex: 1; }
+    .filing-content { 
+      flex: 1; 
+    }
     .filing-link {
       color: var(--carmine);
       font-weight: 600;
       text-underline-offset: 2px;
     }
-    .filing-link:hover { color: var(--ink); }
+    .filing-link:hover { 
+      color: var(--ink); 
+    }
     .filing-bold {
       font-weight: 600;
       color: var(--text-heading);
@@ -377,7 +398,9 @@
       color: var(--accent);
       font-size: 20px;
     }
-    .drive-card-body { flex: 1; }
+    .drive-card-body { 
+      flex: 1; 
+    }
     .drive-card-title {
       font-family: 'Raleway', sans-serif;
       font-size: 1.1rem;
@@ -404,7 +427,10 @@
       transition: color 0.2s, gap 0.2s;
       flex-shrink: 0;
     }
-    .drive-card-cta:hover { color: var(--ink); gap: 10px; }
+    .drive-card-cta:hover { 
+      color: var(--ink); 
+      gap: 10px; 
+    }
     /* ─── Footer ────────────────────────────────────────────── */
     .site-footer {
       display: flex;
@@ -424,29 +450,48 @@
       text-transform: uppercase;
       color: var(--text-muted);
     }
-    .footer-social { display: flex; gap: 20px; }
+    .footer-social { 
+      display: flex; 
+      gap: 20px; 
+    }
     .footer-social a {
       color: var(--text-muted);
       font-size: 15px;
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-social a:hover { color: var(--carmine); }
+    .footer-social a:hover { 
+      color: var(--carmine); 
+    }
     /* ─── Tablet ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .case-meta { grid-template-columns: 1fr; gap: 8px; }
-      .drive-card { flex-direction: column; align-items: flex-start; }
-      .filing { grid-template-columns: 78px 26px 1fr; font-size: 13px; }
+      .case-meta { 
+        grid-template-columns: 1fr; 
+        gap: 8px; 
+      }
+      .drive-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+      }
+      .filing { 
+        grid-template-columns: 78px 26px 1fr; 
+        font-size: 13px; 
+      }
     }
     /* ─── Mobile ─────────────────────────────────────────────── */
     @media (max-width: 720px) {
-      .nav-toggle { display: block; }
-      .site-nav, .site-nav.scrolled { padding: 12px 16px; }
+      .nav-toggle { 
+        display: block; 
+      }
+      .site-nav, .site-nav.scrolled { 
+        padding: 12px 16px; 
+      }
       .nav-links {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0; right: 0;
+        left: 0; 
+        right: 0;
         flex-direction: column;
         background: var(--surface-page);
         border-bottom: 1px solid var(--border-light);
@@ -454,18 +499,46 @@
         gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open { display: flex; }
-      .nav-links li { padding: 8px 0; border-bottom: 1px solid var(--border-mid); }
-      .nav-links li:last-child { border-bottom: none; }
-      .nav-links a { font-size: 10px !important; letter-spacing: 0.12em !important; color: var(--text-label) !important; }
-      .nav-links a.active { color: var(--accent) !important; }
-      .nav-links a:hover { color: var(--ink) !important; }
-      .masthead-text { left: 20px; bottom: 52px; }
-      .content-section { padding: 32px 16px 56px; }
-      .case-title-bar { padding: 14px 20px; }
-      .case-meta { padding: 18px 20px; }
-      .case-meta-item { font-size: 12px; }
-      .filings-header { padding: 14px 20px; }
+      .nav-links.open { 
+        display: flex; 
+      }
+      .nav-links li { 
+        padding: 8px 0; 
+        border-bottom: 1px solid var(--border-mid); 
+      }
+      .nav-links li:last-child { 
+        border-bottom: none; 
+      }
+      .nav-links a { 
+        font-size: 10px !important; 
+        letter-spacing: 0.12em !important; 
+        color: var(--text-label) !important; 
+      }
+      .nav-links a.active { 
+        color: var(--accent) !important; 
+      }
+      .nav-links a:hover { 
+        color: var(--ink) !important; 
+      }
+      .masthead-text { 
+        left: 20px; 
+        bottom: 52px; 
+      }
+      .content-section { 
+        padding: 32px 16px 56px; 
+      }
+      .case-title-bar { 
+        padding: 14px 20px; 
+      }
+      .case-meta { 
+        padding: 18px 20px; 
+      }
+      .case-meta-item { 
+        font-size: 12px; 
+      }
+      .filings-header { 
+        padding: 14px 20px; 
+      }
       /* 3-col → 2-row stacked on mobile */
       .filing {
         grid-template-columns: 1fr auto;
@@ -490,13 +563,36 @@
         grid-row: 2;
         padding-top: 2px;
       }
-      .filing-note { padding: 10px 14px; font-size: 12px; }
-      .drive-card { padding: 14px; gap: 12px; flex-direction: row !important; align-items: center !important; }
-      .drive-icon { width: 32px; height: 32px; font-size: 14px; flex-shrink: 0; }
-      .drive-card-title { font-size: 0.9rem; margin-bottom: 0; }
-      .drive-card-desc { font-size: 11px; line-height: 1.4; }
-      .drive-card-cta { font-size: 8px; }
-      .site-footer { padding: 24px 20px; }
+      .filing-note { 
+        padding: 10px 14px; 
+        font-size: 12px; 
+      }
+      .drive-card { 
+        padding: 14px; 
+        gap: 12px; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+      }
+      .drive-icon { 
+        width: 32px; 
+        height: 32px; 
+        font-size: 14px; 
+        flex-shrink: 0; 
+      }
+      .drive-card-title { 
+        font-size: 0.9rem; 
+        margin-bottom: 0; 
+      }
+      .drive-card-desc { 
+        font-size: 11px; 
+        line-height: 1.4; 
+      }
+      .drive-card-cta { 
+        font-size: 8px; 
+      }
+      .site-footer { 
+        padding: 24px 20px; 
+      }
     }
   </style>
 </head>
@@ -553,585 +649,742 @@
         <h2>Filings &amp; Activity</h2>
       </div>
 
-            <div class="filing">
-        <div class="filing-date">10-30-2025</div>
-        <div class="filing-num">1</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1WLI9PLgcU5EEN7Wo5ikN_3e2RKg0Lkqy/view?usp=drivesdk" target="_blank">COMPLAINT</a> with jury demand against Danesh Noshirvan filed on behalf of Jeromy Wilson. (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">10-30-2025</div>
-        <div class="filing-num">2</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1A7y_TnxhGqBKX2w5BEEdzPwgPqs7g8M1/view?usp=drivesdk" target="_blank">MOTION for Leave to Proceed in forma pauperis</a> on behalf of Plaintiff Jeromy Wilson. (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">10-30-2025</div>
-        <div class="filing-num">3</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1udiTcgZoT1ZZE8zIHKgn9XSR8pnpgzlW/view?usp=drivesdk" target="_blank">NOTICE by Clerk</a> acknowledging receipt of complaint filed by a pro se party. (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">10-30-2025</div>
-        <div class="filing-num">4</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1GG5ZhLLmZzCUuf7bWdn_-rYpPXvLDQH7/view?usp=drivesdk" target="_blank">GENERAL ORDER NO. 2025-01</a>: This general order provides for the management and assignment of cases filed by a plaintiff or petitioner without counsel. This general order also includes the definition of the pro se docket, responsibilities of the pro se law clerks and scheduling and discovery requirements in pro se cases. Ordered by Chief Judge Robert F. Rossiter, Jr. (Copy mailed to pro se party) (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">10-31-2025</div>
-        <div class="filing-num">5</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/12ro4KLzm_sUdy-M7gqN5bh8h22EWLnUs/view?usp=drivesdk" target="_blank">ORDER</a> — Leave to proceed in forma pauperis 2 is granted, and the Complaint shall be filed without payment of fees. Plaintiff is advised that the next step in his case will be for the Court to conduct an initial review of his claims to determine whether summary dismissal is appropriate under 28 U.S.C. § 1915(e)(2). The Court will conduct this initial review in its normal course of business. Ordered by Senior Judge Joseph F. Bataillon. (Copy mailed to pro se party) (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">11-03-2025</div>
-        <div class="filing-num">6</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Cs_IlqQbdXluivCULQ08duWdNLShLiMv/view?usp=drivesdk" target="_blank">MOTION for Exemption From PACER Fees</a> on behalf of Plaintiff Jeromy Wilson. (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">11-07-2025</div>
-        <div class="filing-num">7</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1EpkyTPsIAORVL8zelkcbg9ELYYxsxczM/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff's Motion for Exemption from PACER Fees, Filing No. 6, is denied. Ordered by Senior Judge Joseph F. Bataillon. (Copy mailed to pro se party) (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">11-17-2025</div>
-        <div class="filing-num"></div>
-        <div class="filing-content"><span class="filing-bold">Remark — Public</span>: CM/ECF NextGen electronic filing request received from pro se plaintiff Jeromy Wilson. Access granted on 11/17/25. (JLS)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">12-09-2025</div>
-        <div class="filing-num">8</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/18dZN9PTpOvMusRqluw9sASxeIOkTvem9/view?usp=drivesdk" target="_blank">MOTION for Service by United States Marshals</a> on behalf of Plaintiff Jeromy Wilson. (JES)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">12-23-2025</div>
-        <div class="filing-num"></div>
-        <div class="filing-content"><span class="filing-bold">FILING FEE PAID</span> on behalf of Plaintiff Jeromy Wilson. Receipt number 8074125, in the amount of $405.00. (RJS)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">12-23-2025</div>
-        <div class="filing-num">9</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/13Za5wO0gPue8NOoD1MRv-yO447Uz9Rk7/view?usp=drivesdk" target="_blank">Summons Issued (COPY)</a> as to defendant Danesh Noshirvan regarding Complaint - Pro Se 1. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">12-29-2025</div>
-        <div class="filing-num">10</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1m2bmUM7ag4Sz0Vguset4IaUmkQcyswHS/view?usp=drivesdk" target="_blank">MOTION for Order directing service by United State Marshal</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-02-2026</div>
-        <div class="filing-num">11</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drivesdk" target="_blank">TEXT ORDER</a> — The filing fee has been paid in this case. At the direction of the Court, this case is removed from the pro se docket. The clerk’s office shall randomly assign new judges to this case and request a reassignment order from the Chief Judge. Ordered by Senior Judge Joseph F. Bataillon. Copy e-mailed to pro se party. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-05-2026</div>
-        <div class="filing-num">12</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Oq1Mmi-5hVp9xfMnoZyXtZ0XBXnciTn-/view?usp=drivesdk" target="_blank">REASSIGNMENT ORDER</a> — Pursuant to the supervising pro se judge’s order of January 2, 2026 (Filing No. 11), this case is reassigned to Senior District Judge John M. Gerrard for disposition and Magistrate Judge Jacqueline M. DeLuca for judicial supervision. Ordered by Chief Judge Robert F. Rossiter, Jr. Copy e-mailed to pro se party. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-09-2026</div>
-        <div class="filing-num">13</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1n9vO700RDLq1yp0bDt8ZRUDnp6T512ox/view?usp=drivesdk" target="_blank">ORDER</a> granting the Plaintiff’s Motions for service by United States Marshal 8 and 10. The Clerk of Court is ordered to re-issue the summons as to Defendant Danesh Noshirvan. For service of process on Defendant Danesh Noshirvan the Clerk is directed to complete a USM-285 form using this address: Danesh Noshirvan, 2411 Charleston Road, Mansfield, Pennsylvania 16933. The Clerk shall forward the completed USM-285 form and summons along with a copy of the Complaint, Filing No. 1, to the United States Marshals Service for service upon Defendant by certified mail or other authorized method. The Marshal shall serve the summons and Complaint without payment of costs or fees. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copy e-mailed to pro se party and USM as directed. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-09-2026</div>
-        <div class="filing-num">14</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/10gt4cs-qwiD1JeYjqVNj10HDdrZIKXD4/view?usp=drivesdk" target="_blank">Summons Issued (COPY)</a> as to defendant Danesh Noshirvan regarding Complaint - Pro Se 1. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-21-2026</div>
-        <div class="filing-num">15</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1-nUJzXsBev2w0oLog1y_vIP5ZpnXWi6K/view?usp=drivesdk" target="_blank">MOTION for Expedited Discovery and Leave to Serve Rule 45 Subpoena on Meta Platforms, Inc.</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-21-2026</div>
-        <div class="filing-num">16</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/198C8r_QiSG3HR7ByXd511t0ODQRuCoFs/view?usp=drivesdk" target="_blank">Certificate of Service</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-23-2026</div>
-        <div class="filing-num">17</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1yeMY4HmpV6NKjY14bmbgYqp60I74vAP8/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff did not show good cause to obtain discovery from Meta prior to Defendant being served and the resolution of any pre-answer motions. Plaintiff’s motion for expedited discovery, Filing No. 15, is denied. Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party) (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-27-2026</div>
-        <div class="filing-num">18</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Ev3EJpuREeHuUp4txgedgLeWOC__xBp8/view?usp=drivesdk" target="_blank">SUMMONS Returned Executed</a> upon defendant Danesh Noshirvan on 1/23/2026. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">01-28-2026</div>
-        <div class="filing-num">19</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/11aNzc2_bd891RlsLHqsB5W3_YikgsEMQ/view?usp=drivesdk" target="_blank">NOTICE of Appearance</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan (Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-13-2026</div>
-        <div class="filing-num">20</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1d4IY-ogWb91394bGBdZkdM92sMU1nZga/view?usp=drivesdk" target="_blank">MOTION for Clerk’s Entry of Default</a> against Danesh Noshirvan on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-13-2026</div>
-        <div class="filing-num">21</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/12QEMIVZupEloesQOSysUoXUKRywQyRG5/view?usp=drivesdk" target="_blank">TEXT ORDER</a> denying 20 Motion for Clerk’s Entry of Default. Upon review of the docket, Defendant has not failed to plead or otherwise defend in accordance with Federal Rule of Civil Procedure 55(a). See FRCP 6(a)(4); NECivR 5.1(e) (rules on timely filing). Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party) (KLM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-13-2026</div>
-        <div class="filing-num">22</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/18ORbQZ7wyrYlxVc8VOhjHFz7Va_Tcwgc/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-20-2026</div>
-        <div class="filing-num">23</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1pxDsltwgqH-uTDruCc49HUP42C2XrlRi/view?usp=drivesdk" target="_blank">AMENDED COMPLAINT</a> with jury demand against Defendant Danesh Noshirvan by Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-20-2026</div>
-        <div class="filing-num">24</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1bYCmdpSCEQvGsXhvfU3QOv7Y9-8N6_NF/view?usp=drivesdk" target="_blank">MOTION for Leave to file First Amended Complaint</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-20-2026</div>
-        <div class="filing-num">25</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1SEGm6qfJJX9qPUl3zQDEIe3HhKkUeTYa/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION for Leave to file first amended complaint 24</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-20-2026</div>
-        <div class="filing-num">26</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1A_ebBM1QbZ1xZRQcU9QVPJkEDhK0fHpV/view?usp=drivesdk" target="_blank">REPLY in opposition to Defendant’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM 22</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-20-2026</div>
-        <div class="filing-num">27</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/120R3fR1183Y7ycOr59HTQ3Zh7VFya0hM/view?usp=drivesdk" target="_blank">TEXT ORDER</a> granting 24 Plaintiff’s Motion for Leave to File First Amended Complaint. Plaintiff is permitted to amend as a matter of course. See FRCP 15(a)(1). The amended complaint is located at Filing No. 23. Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party) (KLM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-20-2026</div>
-        <div class="filing-num">28</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1PQ5FIHDsbffKTQ8ZSl_1c5_jsR4YkdRv/view?usp=drivesdk" target="_blank">TEXT ORDER</a> denying as moot 22 Motion to Dismiss for Failure to State a Claim. The defendant’s 22 motion to dismiss is denied as moot in light of the plaintiff’s 23 amended complaint. The defendant shall answer or otherwise respond to the amended complaint on or before March 6, 2026. See Fed. R. Civ. P. 15(a)(3). The defendant’s counsel is advised to review this Court’s local rules, particularly NECivR 7.1, before filing any responsive motion. Ordered by Senior Judge John M. Gerrard. (DCD)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-25-2026</div>
-        <div class="filing-num">29</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1m-ps59adF4kV85h4kBWcILa0SgOxrYhh/view?usp=drivesdk" target="_blank">MOTION for Permission to use electronic devices during court proceedings</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-25-2026</div>
-        <div class="filing-num">30</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1otJT3L6cn4fVdt-4lpveoB2t6PvN7jw9/view?usp=drivesdk" target="_blank">STRICKEN — NOTICE of Supplemental Authority</a> on behalf of Plaintiff Jeromy Wilson. (MKR) Modified on 2/25/2026 (DCD).</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">02-25-2026</div>
-        <div class="filing-num">31</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1rGLdDWnkOr2wHT1zKxaI5wOJ1pXxVAm4/view?usp=drivesdk" target="_blank">TEXT ORDER</a>: The plaintiff’s 29 Motion for Permission to Use Electronic Devices During Court Proceedings is denied as premature. If an in-court proceeding is scheduled in this case, the plaintiff may request permission to bring devices into the courthouse for that proceeding using the “Authorization Allowing Electronic Device(s) in the Courthouse/Courtroom” form available on the Court’s website. The plaintiff’s 30 “Notice of Supplemental Authority” is stricken. Nothing is pending on the docket which requires a citation to authority. The plaintiff is free to cite any relevant authority in his brief when and if a motion is filed. Ordered by Senior Judge John M. Gerrard. (DCD)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-06-2026</div>
-        <div class="filing-num">32</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/14K0LD6ue_pYTUGwR3KnSgomwwNKwqNF2/view?usp=drivesdk" target="_blank">ANSWER to Amended Complaint 23</a> by Danesh Noshirvan (Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-09-2026</div>
-        <div class="filing-num">33</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1fDeCrB9Pspr9uSirRqgqU-xidlweTqeA/view?usp=drivesdk" target="_blank">FINAL PROGRESSION ORDER</a> — Depositions due January 4, 2027. Status Conference set for 1/5/2027 at 09:00 AM by Telephone before Magistrate Judge Jacqueline M. DeLuca. Ordered by Magistrate Judge Jacqueline M. DeLuca. (E-mailed to pro se party). (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-09-2026</div>
-        <div class="filing-num">34</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1gh7TXIkYEKuS-JD1k173ZYVIkEDAMnio/view?usp=drivesdk" target="_blank">CASE CONFERENCE INSTRUCTIONS</a> — WebEx. Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party). (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-22-2026</div>
-        <div class="filing-num">35</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Ca7X8zGb8hLPla-KoKHqfFeIthim1iV8/view?usp=drivesdk" target="_blank">MOTION to Amend Answers</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Attachments: #1 Exhibit Amended Answers)(Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">36</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1zcaOSYFJumVwE6MRoT6Tk2TWAiI-VEhW/view?usp=drivesdk" target="_blank">TEXT ORDER</a> granting 35 Motion for Leave to Amend Defendant’s Answer. Defendant is permitted to amend as a matter of course. See FRCP 15(a)(1). Defendant may file the Amended Answer attached to his motion within the time set forth by FRCP 15. Ordered by Magistrate Judge Jacqueline M. DeLuca. (KLM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">37</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drivesdk" target="_blank">MOTION for Leave to File Second Amended Complaint</a> filed on behalf of Plaintiff Jeromy Wilson. (Attachments: #1 Plaintiff’s Proposed Second Amended Complaint [RESTRICTED]; #2 Exhibit Plaintiff’s Proposed Second Amended Complaint (Redacted)) (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">38</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/19uwFU2pjbRrGu9Qvlqgc5VM35OBAdHPn/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION for Leave to File Second Amended Complaint 37</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">39</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1JBqEbJncfPmM1y4wLGLT6j3sfM3EzC1R/view?usp=drivesdk" target="_blank">DECLARATION of Jeromy Wilson</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">40</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1_jrSy7wrPNNC0wqU68dUMW2uIb5CwGXN/view?usp=drivesdk" target="_blank">MOTION to Appoint Counsel for Minor A.D.W.</a> pursuant to FRCP 17(e) and 28 U.S.C. § 1915(e)(1) on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">41</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/12dVke6ZioeBbb-dLePFilqoNEQuOPTge/view?usp=drivesdk" target="_blank">MOTION for Summons</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">42</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1_0QWG-msKxMy6MVpa0iQ6SSelCT4Q228/view?usp=drivesdk" target="_blank">MOTION for Service by United States Marshal</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-23-2026</div>
-        <div class="filing-num">43</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1iUdwOAYTNXZwr2DyLUcjksiF7H6FoFZT/view?usp=drivesdk" target="_blank">AMENDED ANSWER to Complaint</a> regarding: Answer to Amended Complaint 32 by Danesh Noshirvan (Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-24-2026</div>
-        <div class="filing-num">44</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1hJiY9jjCPvK9epTgLBW1kHJX2krYQ20g/view?usp=drivesdk" target="_blank">MOTION to Strike paragraph 58 of Defendant’s Amended Answer 32</a> and Plaintiff’s Brief in Support filed on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-26-2026</div>
-        <div class="filing-num">45</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1kEKIEJF3nCZFb3TUK4QJwlQzVUIye3uq/view?usp=drivesdk" target="_blank">NOTICE of Errata</a> regarding MOTION to Strike Answer to Amended Complaint 32 44 on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">03-26-2026</div>
-        <div class="filing-num">46</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1VqCgxDV8kAXcKDJa4HpBKozhfCZ7RLGo/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff’s Motion to Strike Paragraph 58 of Defendant’s Amended Answer, Filing No. 44, is denied. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copy e-mailed to pro se party. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-03-2026</div>
-        <div class="filing-num">47</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1nxsLMQwPrMSqW1ILUaO3_PVL5PmWvjau/view?usp=drivesdk" target="_blank">MOTION to Intervene</a> filed on behalf of Interested Party Joseph Anthony Camp. (MKR) Modified on 4/3/2026 to reflect document is filed by Interested Party Joseph Anthony Camp (MKR).</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-06-2026</div>
-        <div class="filing-num">48</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1VlwvjpnHpHB3uh7M-0SadUyr_jspR-iA/view?usp=drivesdk" target="_blank">ORDER</a> — Camp’s motion to intervene, Filing No. 47, is denied. The Clerk of the Court shall mail a copy of this Order to Camp at his address of record. The Clerk shall then terminate Camp from the docket. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copies mailed as directed and copy e-mailed to pro se party. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-07-2026</div>
-        <div class="filing-num">49</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/15Ry2FpKeztx-wydrBRhmtgjt1kFE2vuC/view?usp=drivesdk" target="_blank">NOTICE</a> that Plaintiff’s Motion for Leave to File Second Amended Complaint is Unopposed filed by pro se Plaintiff Jeromy Wilson. (KLF)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-13-2026</div>
-        <div class="filing-num">50</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1xvrcuCt2REastH8Rqg0WIlYSF8zf9zj8/view?usp=drivesdk" target="_blank">MOTION for Exemption from PACER User Fees</a> on behalf of Plaintiff Jeromy Wilson. (SLP)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-13-2026</div>
-        <div class="filing-num">51</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1GjytxHUIDhWzY0nRGbn8xPrboYoa7cVp/view?usp=drivesdk" target="_blank">TEXT ORDER</a> denying 50 Motion for Exemption from PACER User Fees. For the reasons stated in filing 7 the plaintiff’s motion is denied. Ordered by Senior Judge John M. Gerrard. (DCD)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-13-2026</div>
-        <div class="filing-num">52</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Hf2YaippOoTI1soR11VPoDagbE9N4RZ8/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff’s Motion for Leave to File Second Amended Complaint, Filing 37, is granted. Plaintiff shall file a copy of the proposed Second Amended Complaint attached to his motion, Filing No. 37-1, on or before April 20, 2026. Plaintiff’s Motion for Service by United States Marshal, Filing 42, is granted. Plaintiff’s request for the Clerk to issue summons, Filing 41, is denied. For service of process on Chelsea Suarez, the Clerk is directed to complete a USM-285 form. For service of process on Table Rock Management, LLC, the Clerk is directed to complete a USM-285 form. Once the Second Amended Complaint is filed and summons issued, the Clerk shall forward the completed USM-285 forms and summons along with a copy of the Second Amended Complaint to the United States Marshals Service for service upon Chelsea Suarez and Table Rock Management, LLC by certified mail or other authorized method. The Marshal shall serve the summons and Second Amended Complaint without payment of costs or fees. Plaintiff’s Motion for Appointment of Counsel for Minor A.D.W., Filing 40, is denied. Ordered by Magistrate Judge Jacqueline M. DeLuca. (SLP)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-14-2026</div>
-        <div class="filing-num">53</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1uK1lIq6MypOEUppn6VPVhHjvsjMwEIJF/view?usp=drivesdk" target="_blank">*STRICKEN* SECOND AMENDED COMPLAINT</a> with jury demand against Defendants Danesh Noshirvan, Chelsea Suarez, and Table Rock Management, LLC filed by pro se Plaintiff Jeromy Wilson. (KLF) Modified on 4/15/2026 to strike per Doc. 54 (KLM).</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-15-2026</div>
-        <div class="filing-num">54</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1htjoWpCHXPJc1lhjJcoZHbQnE6e8Obrp/view?usp=drivesdk" target="_blank">TEXT ORDER</a> striking 53 Plaintiff’s Second Amended Complaint. Upon review, Plaintiff improperly filed a version that is different from the proposed Second Amended Complaint [37-1] that was approved by the Court. Plaintiff is only granted leave to file an amended complaint that is identical to the proposed Second Amended Complaint [37-1] and must do so in compliance with the directives in the Court’s Memorandum and Order 52 on or before April 20, 2026. Ordered by Magistrate Judge Jacqueline M. DeLuca. (KLM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-15-2026</div>
-        <div class="filing-num">55</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1j0Y6XSJWKkbObWi5DGCoDUPv_fFJwxoD/view?usp=drivesdk" target="_blank">SECOND AMENDED COMPLAINT</a> with jury demand against Defendant Danesh Noshirvan, Chelsea Suarez and Table Rock Management, LLC filed by Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-17-2026</div>
-        <div class="filing-num">56</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1rRzG_mdMv67IsHPe46vDWjhP3xSIl8CT/view?usp=drivesdk" target="_blank">TEXT ORDER</a>. Upon the filing of the Second Amended Complaint, the deadlines in the Final Progression Order 33 are stayed pending further order of the Court. The parties shall meet and confer and email chambers (deluca@ned.uscourts.gov) proposed amended case progression deadlines within 14 days after all Defendants have answered. Ordered by Magistrate Judge Jacqueline M. DeLuca. (KLM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-23-2026</div>
-        <div class="filing-num"></div>
-        <div class="filing-content"><span class="filing-bold">Remark — Public</span>: CM/ECF NextGen electronic filing request received from pro se defendant Chelsea Suarez. Access granted on 4/23/26. (JLS)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-27-2026</div>
-        <div class="filing-num">57</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1w_hzM6WFJoFP_4nUxFKS06lTJCKYTXCf/view?usp=drivesdk" target="_blank">Subpoena Returned</a> as to Google LLC. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">04-27-2026</div>
-        <div class="filing-num">58</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1vmCh0Ng9JX3_oQduNpZE2IzlPyEKsHPl/view?usp=drivesdk" target="_blank">Summons Issued</a> as to defendants Chelsea Suarez and Table Rock Management, LLC. YOU MUST PRINT YOUR ISSUED SUMMONS, WHICH ARE ATTACHED TO THIS DOCUMENT. PAPER COPIES WILL NOT BE MAILED. (GR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-07-2026</div>
-        <div class="filing-num">59</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1jQ804sMjzeYhmIciGaKlyVVAim1JSS1G/view?usp=drivesdk" target="_blank">STRICKEN — MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Attachments: #1 Brief in Support)(Wemhoff, Taylor) Modified on 5/7/2026 (DCD).</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-07-2026</div>
-        <div class="filing-num">60</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1hGT83CT9-LFjiCu6SBOksxqmD5nX-YsQ/view?usp=drivesdk" target="_blank">Mail Returned as Undeliverable</a> addressed to Joseph Anthony Camp regarding Order on Motion to Intervene 48. NOT REMAILED-NOT DELIVERABLE AS ADDRESSED. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-07-2026</div>
-        <div class="filing-num">61</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1t8Yg3q8Ofl72883L2mFh1zlRdOw2ccSn/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Attachments: #1 Brief in Support)(Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-07-2026</div>
-        <div class="filing-num">62</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1mo8nEIq3nYmfLlO3Ar3ayM8wQizzd19m/view?usp=drivesdk" target="_blank">TEXT STRIKE ORDER</a> that pursuant to NEGenR 1.3(a)(4), filing 59 is stricken for the following reason: Documents unsigned. Ordered by Senior Judge John M. Gerrard. (DCD)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-12-2026</div>
-        <div class="filing-num">63</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1bZk7CqwtEDgZCengaTxOayI_EnLFLbjK/view?usp=drivesdk" target="_blank">SUMMONS Returned Executed</a> upon defendant Chelsea Suarez on 4/30/2026. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-12-2026</div>
-        <div class="filing-num">64</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1hpo6TCaQoOlnCvY42NFn_N22vzMDL3ln/view?usp=drivesdk" target="_blank">SUMMONS Returned Executed</a> upon defendant Table Rock Management, LLC on 4/30/2026. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-13-2026</div>
-        <div class="filing-num">65</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1zRjkeDSiAsQLzGVVfZxZ-vD4mLmBlXtt/view?usp=drivesdk" target="_blank">MOTION for Orders Authorizing Platform and Third-Party Discovery</a> and for Court Order Under 18 U.S.C. 2703(d) on behalf of Plaintiff Jeromy Wilson. (LKO)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-13-2026</div>
-        <div class="filing-num">66</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/10gfEvdcLvVrcUlEkX19et8MrKK_jS1jO/view?usp=drivesdk" target="_blank">MOTION for Extension of Time to File a Responsive Pleading</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-14-2026</div>
-        <div class="filing-num">67</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1ccTNGcju-0OdJ69MqK6O1FpvTrs5l3W2/view?usp=drivesdk" target="_blank">TEXT ORDER</a>: Any response in opposition to Defendant Table Rock Management, LLC’s motion for extension of time to file a responsive pleading, Filing No. 66, must be filed on or before May 20, 2026. Ordered by Magistrate Judge Jacqueline M. DeLuca. (TMM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-20-2026</div>
-        <div class="filing-num">68</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1b-9BlFRNaCytD-PywIqnprWsMXBAW2V7/view?usp=drivesdk" target="_blank">NOTICE of Appearance of Counsel</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Chelsea Suarez (Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-20-2026</div>
-        <div class="filing-num">69</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Gg5T4VKdwbHhPZz8ZlJocBlUcAeclDOL/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> upon which relief can be granted by Attorney Taylor J. Wemhoff on behalf of Defendant Chelsea Suarez. (Attachments: #1 Exhibit Brief in Support)(Wemhoff, Taylor)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-21-2026</div>
-        <div class="filing-num">70</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1epWCNpLD5HMBCUanK9_h1HsG_8uW5_PN/view?usp=drivesdk" target="_blank">TEXT ORDER</a> granting 66 Motion for Extension of Time to File a Responsive Pleading. Table Rock Management, LLC shall file an answer or other responsive pleading on or before June 4, 2026. Ordered by Magistrate Judge Jacqueline M. DeLuca. (TMM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-21-2026</div>
-        <div class="filing-num">71</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1K6-2EbqxC41KJzBKoGaHcO3kFbMfWiSf/view?usp=drivesdk" target="_blank">ORDER</a> denying the Plaintiff’s 65 Motion for third-party discovery. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copy e-mailed to pro se party.</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-22-2026</div>
-        <div class="filing-num">72</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1OsxV14BLncmL4Z18Z9c1_ZE9nIV_9gAX/view?usp=drivesdk" target="_blank">MOTION to Disqualify Counsel Taylor J. Wemhoff and Liberty Law Group, LLC</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-22-2026</div>
-        <div class="filing-num">73</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1_E-tqqpP2xxTxvLwbCaVTvUkxvsl5xMW/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION to Disqualify Counsel Taylor J. Wemhoff and Liberty Law Group, LLC 72</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-22-2026</div>
-        <div class="filing-num">74</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/102qwbIrz1ecO5e513nAe-ogIVUN_SO-X/view?usp=drivesdk" target="_blank">BRIEF in opposition to Defendant Suarez’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM upon which relief can be granted 69</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-22-2026</div>
-        <div class="filing-num">75</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1SsWykCxxqV0emVEOHVUNchzJC__4B826/view?usp=drivesdk" target="_blank">BRIEF in opposition to Defendant Noshirvan’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM 61</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-26-2026</div>
-        <div class="filing-num">76</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1U8foq3rn8Vd-3jvs3N8J-AND1iZAiEEm/view?usp=drivesdk" target="_blank">TEXT NOTICE REGARDING CORPORATE DISCLOSURE STATEMENT</a> by Deputy Clerk as to Defendant Table Rock Management, LLC. Pursuant to Fed. R. Civ. P. 7.1, non-governmental corporate parties are required to file Corporate Disclosure Statements. The parties shall use the form Corporate Disclosure Statement, available on the Web site of the court at http://www.ned.uscourts.gov/forms/. If you have not filed your Statement, you must do so within 15 days of the date of this notice. (KMM)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-26-2026</div>
-        <div class="filing-num">77</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1SbLRBHVFIsMD1StMbIC2b2vL-thkOspt/view?usp=drivesdk" target="_blank">NOTICE of Supplemental Authority</a> in opposition to defendant Noshirvan’s Motion to Strike and Dismiss Second Amended Complaint on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">05-26-2026</div>
-        <div class="filing-num">78</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Qqje9BudQNJGAUmAqO_eSAWxhsj0faeY/view?usp=drivesdk" target="_blank">CORPORATE DISCLOSURE STATEMENT</a> pursuant to Fed. R. Civ. P. 7.1 identifying Corporate Parent Veritone, Inc for Table Rock Management, LLC. by Attorney Jeremy T. Fitzpatrick on behalf of Defendants Table Rock Management, LLC, Veritone, Inc. (Fitzpatrick, Jeremy)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-04-2026</div>
-        <div class="filing-num">79</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1C3o5HiyM4IRum2AmYt9i55MKR-zjGwo0/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-04-2026</div>
-        <div class="filing-num">80</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1_degp5DZoEGMFGtJu-rLSIGFWWkK7rnI/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-04-2026</div>
-        <div class="filing-num">81</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/14Qy0tSvxJN1iTeBdrHdX7DEYycCiqt34/view?usp=drivesdk" target="_blank">INDEX in support of MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (Attachments: #1 Exhibit A - Declaration)(McLeay, Bartholomew)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-08-2026</div>
-        <div class="filing-num">82</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1d92dVXNx9CipGS8y4j565St5rBt9X9cG/view?usp=drivesdk" target="_blank">PLAINTIFF’S BRIEF in opposition to MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-08-2026</div>
-        <div class="filing-num">83</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1adRyblgISiDW2Wv4pAK1NbbtR1_GlMy5/view?usp=drivesdk" target="_blank">PLAINTIFF’S INDEX in opposition to MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-08-2026</div>
-        <div class="filing-num">84</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1KOOzXoSwYtsUTVFe277S-zwp0r99FAoJ/view?usp=drivesdk" target="_blank">DECLARATION of Jeromy Wilson</a> in opposition to Table Rock Management, LLC’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79 on behalf of Plaintiff Jeromy Wilson. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-12-2026</div>
-        <div class="filing-num">85</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1FPUQ3K7sAEHoU-ikan6Evhy0D45U4pi5/view?usp=drivesdk" target="_blank">ORDER</a> denying the Plaintiff’s 72 Motion to Disqualify Counsel for Defendants. Ordered by Magistrate Judge Jacqueline M. DeLuca. e-mailed to pro se party. (MKR)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-18-2026</div>
-        <div class="filing-num">86</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/14T54MBHKHEAfONoWskQb6Mvuzche5Kvn/view?usp=drivesdk" target="_blank">MOTION for Leave to File Reply Brief Out of Time</a> by Attorney Jeremy T. Fitzpatrick on behalf of Defendant Table Rock Management, LLC. (Attachments: #1 Exhibit A - Reply Brief)(Fitzpatrick, Jeremy)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-18-2026</div>
-        <div class="filing-num">87</div>
-        <div class="filing-content"><span class="filing-bold">TEXT ORDER</span> granting 86 Motion for Leave. Table Rock may reply in support of its motion to dismiss 79 on or before June 22, 2026. Ordered by Senior Judge John M. Gerrard. (DCD)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-19-2026</div>
-        <div class="filing-num">88</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1cBogdiEE0IlGgy9z8X6iHlbUdNTvvJOi/view?usp=drivesdk" target="_blank">REPLY BRIEF in support of MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-22-2026</div>
-        <div class="filing-num">89</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1n3P2Hnd1typauVC1l6umsyN3D0d4nKhO/view?usp=drivesdk" target="_blank">*STRICKEN* PLAINTIFF’S SURREPLY BRIEF in opposition to MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> on behalf of Plaintiff Jeromy Wilson. (LKO) Modified on 6/22/2026 to strike per Order 91 (LKO).</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-22-2026</div>
-        <div class="filing-num">90</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1c1xCK1tmznNI3aKDlBmadsbYxSEPq-yW/view?usp=drivesdk" target="_blank">NOTICE of Counsel Change of Firm and Procedural Non-Compliance</a> on behalf of Plaintiff Jeromy Wilson. (LKO)</div>
-      </div>
-
-            <div class="filing">
-        <div class="filing-date">06-22-2026</div>
-        <div class="filing-num">91</div>
-        <div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Wmd8eRBV0KDMw6kwLIzF_VD23zr5UjTK/view?usp=drivesdk" target="_blank">ORDER</a> — The “Plaintiff’s Surreply Brief in Opposition to Defendant Table Rock Management LLC’s Motion to Dismiss” (filing 89) is stricken. To the extent it was intended as a motion, the plaintiff’s “Notice of Counsel Change of Firm and Procedural Non-Compliance” (filing 90) is denied. Ordered by Senior Judge John M. Gerrard. (Copy e-mailed to pro se party) (LKO)</div>
-      </div>
-
-    </div>
-
+        <div class="filing">
+          <div class="filing-date">10-30-2025</div>
+            <div class="filing-num">1</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1WLI9PLgcU5EEN7Wo5ikN_3e2RKg0Lkqy/view?usp=drivesdk" target="_blank">COMPLAINT</a> with jury demand against Danesh Noshirvan filed on behalf of Jeromy Wilson. (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">10-30-2025</div>
+            <div class="filing-num">2</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1A7y_TnxhGqBKX2w5BEEdzPwgPqs7g8M1/view?usp=drivesdk" target="_blank">MOTION for Leave to Proceed in forma pauperis</a> on behalf of Plaintiff Jeromy Wilson. (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">10-30-2025</div>
+            <div class="filing-num">3</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1udiTcgZoT1ZZE8zIHKgn9XSR8pnpgzlW/view?usp=drivesdk" target="_blank">NOTICE by Clerk</a> acknowledging receipt of complaint filed by a pro se party. (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">10-30-2025</div>
+            <div class="filing-num">4</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1GG5ZhLLmZzCUuf7bWdn_-rYpPXvLDQH7/view?usp=drivesdk" target="_blank">GENERAL ORDER NO. 2025-01</a>: This general order provides for the management and assignment of cases filed by a plaintiff or petitioner without counsel. This general order also includes the definition of the pro se docket, responsibilities of the pro se law clerks and scheduling and discovery requirements in pro se cases. Ordered by Chief Judge Robert F. Rossiter, Jr. (Copy mailed to pro se party) (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">10-31-2025</div>
+            <div class="filing-num">5</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/12ro4KLzm_sUdy-M7gqN5bh8h22EWLnUs/view?usp=drivesdk" target="_blank">ORDER</a> — Leave to proceed in forma pauperis 2 is granted, and the Complaint shall be filed without payment of fees. Plaintiff is advised that the next step in his case will be for the Court to conduct an initial review of his claims to determine whether summary dismissal is appropriate under 28 U.S.C. § 1915(e)(2). The Court will conduct this initial review in its normal course of business. Ordered by Senior Judge Joseph F. Bataillon. (Copy mailed to pro se party) (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">11-03-2025</div>
+            <div class="filing-num">6</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Cs_IlqQbdXluivCULQ08duWdNLShLiMv/view?usp=drivesdk" target="_blank">MOTION for Exemption From PACER Fees</a> on behalf of Plaintiff Jeromy Wilson. (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">11-07-2025</div>
+            <div class="filing-num">7</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1EpkyTPsIAORVL8zelkcbg9ELYYxsxczM/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff's Motion for Exemption from PACER Fees, Filing No. 6, is denied. Ordered by Senior Judge Joseph F. Bataillon. (Copy mailed to pro se party) (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">11-17-2025</div>
+            <div class="filing-num"></div>
+              <div class="filing-content">
+                <span class="filing-bold">Remark — Public</span>: CM/ECF NextGen electronic filing request received from pro se plaintiff Jeromy Wilson. Access granted on 11/17/25. (JLS).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">12-09-2025</div>
+            <div class="filing-num">8</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/18dZN9PTpOvMusRqluw9sASxeIOkTvem9/view?usp=drivesdk" target="_blank">MOTION for Service by United States Marshals</a> on behalf of Plaintiff Jeromy Wilson. (JES).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">12-23-2025</div>
+            <div class="filing-num"></div>
+              <div class="filing-content">
+                <span class="filing-bold">FILING FEE PAID</span> on behalf of Plaintiff Jeromy Wilson. Receipt number 8074125, in the amount of $405.00. (RJS).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">12-23-2025</div>
+            <div class="filing-num">9</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/13Za5wO0gPue8NOoD1MRv-yO447Uz9Rk7/view?usp=drivesdk" target="_blank">Summons Issued (COPY)</a> as to defendant Danesh Noshirvan regarding Complaint - Pro Se 1. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">12-29-2025</div>
+            <div class="filing-num">10</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1m2bmUM7ag4Sz0Vguset4IaUmkQcyswHS/view?usp=drivesdk" target="_blank">MOTION for Order directing service by United State Marshal</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-02-2026</div>
+            <div class="filing-num">11</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/18Y4m-R_a6tlOYWyp14WRtcJaXaZGeQ9S/view?usp=drivesdk" target="_blank">TEXT ORDER</a> — The filing fee has been paid in this case. At the direction of the Court, this case is removed from the pro se docket. The clerk’s office shall randomly assign new judges to this case and request a reassignment order from the Chief Judge. Ordered by Senior Judge Joseph F. Bataillon. Copy e-mailed to pro se party. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-05-2026</div>
+            <div class="filing-num">12</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Oq1Mmi-5hVp9xfMnoZyXtZ0XBXnciTn-/view?usp=drivesdk" target="_blank">REASSIGNMENT ORDER</a> — Pursuant to the supervising pro se judge’s order of January 2, 2026 (Filing No. 11), this case is reassigned to Senior District Judge John M. Gerrard for disposition and Magistrate Judge Jacqueline M. DeLuca for judicial supervision. Ordered by Chief Judge Robert F. Rossiter, Jr. Copy e-mailed to pro se party. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-09-2026</div>
+            <div class="filing-num">13</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1n9vO700RDLq1yp0bDt8ZRUDnp6T512ox/view?usp=drivesdk" target="_blank">ORDER</a> granting the Plaintiff’s Motions for service by United States Marshal 8 and 10. The Clerk of Court is ordered to re-issue the summons as to Defendant Danesh Noshirvan. For service of process on Defendant Danesh Noshirvan the Clerk is directed to complete a USM-285 form using this address: Danesh Noshirvan, 2411 Charleston Road, Mansfield, Pennsylvania 16933. The Clerk shall forward the completed USM-285 form and summons along with a copy of the Complaint, Filing No. 1, to the United States Marshals Service for service upon Defendant by certified mail or other authorized method. The Marshal shall serve the summons and Complaint without payment of costs or fees. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copy e-mailed to pro se party and USM as directed. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-09-2026</div>
+            <div class="filing-num">14</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/10gt4cs-qwiD1JeYjqVNj10HDdrZIKXD4/view?usp=drivesdk" target="_blank">Summons Issued (COPY)</a> as to defendant Danesh Noshirvan regarding Complaint - Pro Se 1. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-21-2026</div>
+            <div class="filing-num">15</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1-nUJzXsBev2w0oLog1y_vIP5ZpnXWi6K/view?usp=drivesdk" target="_blank">MOTION for Expedited Discovery and Leave to Serve Rule 45 Subpoena on Meta Platforms, Inc.</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-21-2026</div>
+            <div class="filing-num">16</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/198C8r_QiSG3HR7ByXd511t0ODQRuCoFs/view?usp=drivesdk" target="_blank">Certificate of Service</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-23-2026</div>
+            <div class="filing-num">17</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1yeMY4HmpV6NKjY14bmbgYqp60I74vAP8/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff did not show good cause to obtain discovery from Meta prior to Defendant being served and the resolution of any pre-answer motions. Plaintiff’s motion for expedited discovery, Filing No. 15, is denied. Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party) (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-27-2026</div>
+            <div class="filing-num">18</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Ev3EJpuREeHuUp4txgedgLeWOC__xBp8/view?usp=drivesdk" target="_blank">SUMMONS Returned Executed</a> upon defendant Danesh Noshirvan on 1/23/2026. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">01-28-2026</div>
+            <div class="filing-num">19</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/11aNzc2_bd891RlsLHqsB5W3_YikgsEMQ/view?usp=drivesdk" target="_blank">NOTICE of Appearance</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan (Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-13-2026</div>
+            <div class="filing-num">20</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1d4IY-ogWb91394bGBdZkdM92sMU1nZga/view?usp=drivesdk" target="_blank">MOTION for Clerk’s Entry of Default</a> against Danesh Noshirvan on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-13-2026</div>
+            <div class="filing-num">21</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/12QEMIVZupEloesQOSysUoXUKRywQyRG5/view?usp=drivesdk" target="_blank">TEXT ORDER</a> denying 20 Motion for Clerk’s Entry of Default. Upon review of the docket, Defendant has not failed to plead or otherwise defend in accordance with Federal Rule of Civil Procedure 55(a). See FRCP 6(a)(4); NECivR 5.1(e) (rules on timely filing). Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party) (KLM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-13-2026</div>
+            <div class="filing-num">22</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/18ORbQZ7wyrYlxVc8VOhjHFz7Va_Tcwgc/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-20-2026</div>
+            <div class="filing-num">23</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1pxDsltwgqH-uTDruCc49HUP42C2XrlRi/view?usp=drivesdk" target="_blank">AMENDED COMPLAINT</a> with jury demand against Defendant Danesh Noshirvan by Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-20-2026</div>
+            <div class="filing-num">24</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1bYCmdpSCEQvGsXhvfU3QOv7Y9-8N6_NF/view?usp=drivesdk" target="_blank">MOTION for Leave to file First Amended Complaint</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-20-2026</div>
+            <div class="filing-num">25</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1SEGm6qfJJX9qPUl3zQDEIe3HhKkUeTYa/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION for Leave to file first amended complaint 24</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-20-2026</div>
+            <div class="filing-num">26</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1A_ebBM1QbZ1xZRQcU9QVPJkEDhK0fHpV/view?usp=drivesdk" target="_blank">REPLY in opposition to Defendant’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM 22</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-20-2026</div>
+            <div class="filing-num">27</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/120R3fR1183Y7ycOr59HTQ3Zh7VFya0hM/view?usp=drivesdk" target="_blank">TEXT ORDER</a> granting 24 Plaintiff’s Motion for Leave to File First Amended Complaint. Plaintiff is permitted to amend as a matter of course. See FRCP 15(a)(1). The amended complaint is located at Filing No. 23. Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party) (KLM).</div>
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-20-2026</div>
+            <div class="filing-num">28</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1PQ5FIHDsbffKTQ8ZSl_1c5_jsR4YkdRv/view?usp=drivesdk" target="_blank">TEXT ORDER</a> denying as moot 22 Motion to Dismiss for Failure to State a Claim. The defendant’s 22 motion to dismiss is denied as moot in light of the plaintiff’s 23 amended complaint. The defendant shall answer or otherwise respond to the amended complaint on or before March 6, 2026. See Fed. R. Civ. P. 15(a)(3). The defendant’s counsel is advised to review this Court’s local rules, particularly NECivR 7.1, before filing any responsive motion. Ordered by Senior Judge John M. Gerrard. (DCD).</div>
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-25-2026</div>
+            <div class="filing-num">29</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1m-ps59adF4kV85h4kBWcILa0SgOxrYhh/view?usp=drivesdk" target="_blank">MOTION for Permission to use electronic devices during court proceedings</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-25-2026</div>
+            <div class="filing-num">30</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1otJT3L6cn4fVdt-4lpveoB2t6PvN7jw9/view?usp=drivesdk" target="_blank">STRICKEN — NOTICE of Supplemental Authority</a> on behalf of Plaintiff Jeromy Wilson. (MKR) Modified on 2/25/2026 (DCD).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">02-25-2026</div>
+            <div class="filing-num">31</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1rGLdDWnkOr2wHT1zKxaI5wOJ1pXxVAm4/view?usp=drivesdk" target="_blank">TEXT ORDER</a>: The plaintiff’s 29 Motion for Permission to Use Electronic Devices During Court Proceedings is denied as premature. If an in-court proceeding is scheduled in this case, the plaintiff may request permission to bring devices into the courthouse for that proceeding using the “Authorization Allowing Electronic Device(s) in the Courthouse/Courtroom” form available on the Court’s website. The plaintiff’s 30 “Notice of Supplemental Authority” is stricken. Nothing is pending on the docket which requires a citation to authority. The plaintiff is free to cite any relevant authority in his brief when and if a motion is filed. Ordered by Senior Judge John M. Gerrard. (DCD).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-06-2026</div>
+            <div class="filing-num">32</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/14K0LD6ue_pYTUGwR3KnSgomwwNKwqNF2/view?usp=drivesdk" target="_blank">ANSWER to Amended Complaint 23</a> by Danesh Noshirvan (Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-09-2026</div>
+            <div class="filing-num">33</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1fDeCrB9Pspr9uSirRqgqU-xidlweTqeA/view?usp=drivesdk" target="_blank">FINAL PROGRESSION ORDER</a> — Depositions due January 4, 2027. Status Conference set for 1/5/2027 at 09:00 AM by Telephone before Magistrate Judge Jacqueline M. DeLuca. Ordered by Magistrate Judge Jacqueline M. DeLuca. (E-mailed to pro se party). (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-09-2026</div>
+            <div class="filing-num">34</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1gh7TXIkYEKuS-JD1k173ZYVIkEDAMnio/view?usp=drivesdk" target="_blank">CASE CONFERENCE INSTRUCTIONS</a> — WebEx. Ordered by Magistrate Judge Jacqueline M. DeLuca. (Copy e-mailed to pro se party). (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-22-2026</div>
+            <div class="filing-num">35</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Ca7X8zGb8hLPla-KoKHqfFeIthim1iV8/view?usp=drivesdk" target="_blank">MOTION to Amend Answers</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Attachments: #1 Exhibit Amended Answers)(Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">36</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1zcaOSYFJumVwE6MRoT6Tk2TWAiI-VEhW/view?usp=drivesdk" target="_blank">TEXT ORDER</a> granting 35 Motion for Leave to Amend Defendant’s Answer. Defendant is permitted to amend as a matter of course. See FRCP 15(a)(1). Defendant may file the Amended Answer attached to his motion within the time set forth by FRCP 15. Ordered by Magistrate Judge Jacqueline M. DeLuca. (KLM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">37</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1uhXMYu8DXSx9IYcVVI_rOi64wqYtQfLT/view?usp=drivesdk" target="_blank">MOTION for Leave to File Second Amended Complaint</a> filed on behalf of Plaintiff Jeromy Wilson. (Attachments: #1 Plaintiff’s Proposed Second Amended Complaint [RESTRICTED]; #2 Exhibit Plaintiff’s Proposed Second Amended Complaint (Redacted)) (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">38</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/19uwFU2pjbRrGu9Qvlqgc5VM35OBAdHPn/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION for Leave to File Second Amended Complaint 37</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">39</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1JBqEbJncfPmM1y4wLGLT6j3sfM3EzC1R/view?usp=drivesdk" target="_blank">DECLARATION of Jeromy Wilson</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">40</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1_jrSy7wrPNNC0wqU68dUMW2uIb5CwGXN/view?usp=drivesdk" target="_blank">MOTION to Appoint Counsel for Minor A.D.W.</a> pursuant to FRCP 17(e) and 28 U.S.C. § 1915(e)(1) on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">41</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/12dVke6ZioeBbb-dLePFilqoNEQuOPTge/view?usp=drivesdk" target="_blank">MOTION for Summons</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">42</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1_0QWG-msKxMy6MVpa0iQ6SSelCT4Q228/view?usp=drivesdk" target="_blank">MOTION for Service by United States Marshal</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-23-2026</div>
+            <div class="filing-num">43</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1iUdwOAYTNXZwr2DyLUcjksiF7H6FoFZT/view?usp=drivesdk" target="_blank">AMENDED ANSWER to Complaint</a> regarding: Answer to Amended Complaint 32 by Danesh Noshirvan (Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-24-2026</div>
+            <div class="filing-num">44</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1hJiY9jjCPvK9epTgLBW1kHJX2krYQ20g/view?usp=drivesdk" target="_blank">MOTION to Strike paragraph 58 of Defendant’s Amended Answer 32</a> and Plaintiff’s Brief in Support filed on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-26-2026</div>
+            <div class="filing-num">45</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1kEKIEJF3nCZFb3TUK4QJwlQzVUIye3uq/view?usp=drivesdk" target="_blank">NOTICE of Errata</a> regarding MOTION to Strike Answer to Amended Complaint 32 44 on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">03-26-2026</div>
+            <div class="filing-num">46</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1VqCgxDV8kAXcKDJa4HpBKozhfCZ7RLGo/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff’s Motion to Strike Paragraph 58 of Defendant’s Amended Answer, Filing No. 44, is denied. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copy e-mailed to pro se party. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-03-2026</div>
+            <div class="filing-num">47</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1nxsLMQwPrMSqW1ILUaO3_PVL5PmWvjau/view?usp=drivesdk" target="_blank">MOTION to Intervene</a> filed on behalf of Interested Party Joseph Anthony Camp. (MKR) Modified on 4/3/2026 to reflect document is filed by Interested Party Joseph Anthony Camp (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-06-2026</div>
+            <div class="filing-num">48</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1VlwvjpnHpHB3uh7M-0SadUyr_jspR-iA/view?usp=drivesdk" target="_blank">ORDER</a> — Camp’s motion to intervene, Filing No. 47, is denied. The Clerk of the Court shall mail a copy of this Order to Camp at his address of record. The Clerk shall then terminate Camp from the docket. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copies mailed as directed and copy e-mailed to pro se party. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-07-2026</div>
+            <div class="filing-num">49</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/15Ry2FpKeztx-wydrBRhmtgjt1kFE2vuC/view?usp=drivesdk" target="_blank">NOTICE</a> that Plaintiff’s Motion for Leave to File Second Amended Complaint is Unopposed filed by pro se Plaintiff Jeromy Wilson. (KLF).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-13-2026</div>
+            <div class="filing-num">50</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1xvrcuCt2REastH8Rqg0WIlYSF8zf9zj8/view?usp=drivesdk" target="_blank">MOTION for Exemption from PACER User Fees</a> on behalf of Plaintiff Jeromy Wilson. (SLP).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-13-2026</div>
+            <div class="filing-num">51</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1GjytxHUIDhWzY0nRGbn8xPrboYoa7cVp/view?usp=drivesdk" target="_blank">TEXT ORDER</a> denying 50 Motion for Exemption from PACER User Fees. For the reasons stated in filing 7 the plaintiff’s motion is denied. Ordered by Senior Judge John M. Gerrard. (DCD).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-13-2026</div>
+            <div class="filing-num">52</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Hf2YaippOoTI1soR11VPoDagbE9N4RZ8/view?usp=drivesdk" target="_blank">MEMORANDUM AND ORDER</a> — Plaintiff’s Motion for Leave to File Second Amended Complaint, Filing 37, is granted. Plaintiff shall file a copy of the proposed Second Amended Complaint attached to his motion, Filing No. 37-1, on or before April 20, 2026. Plaintiff’s Motion for Service by United States Marshal, Filing 42, is granted. Plaintiff’s request for the Clerk to issue summons, Filing 41, is denied. For service of process on Chelsea Suarez, the Clerk is directed to complete a USM-285 form. For service of process on Table Rock Management, LLC, the Clerk is directed to complete a USM-285 form. Once the Second Amended Complaint is filed and summons issued, the Clerk shall forward the completed USM-285 forms and summons along with a copy of the Second Amended Complaint to the United States Marshals Service for service upon Chelsea Suarez and Table Rock Management, LLC by certified mail or other authorized method. The Marshal shall serve the summons and Second Amended Complaint without payment of costs or fees. Plaintiff’s Motion for Appointment of Counsel for Minor A.D.W., Filing 40, is denied. Ordered by Magistrate Judge Jacqueline M. DeLuca. (SLP).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-14-2026</div>
+            <div class="filing-num">53</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1uK1lIq6MypOEUppn6VPVhHjvsjMwEIJF/view?usp=drivesdk" target="_blank">*STRICKEN* SECOND AMENDED COMPLAINT</a> with jury demand against Defendants Danesh Noshirvan, Chelsea Suarez, and Table Rock Management, LLC filed by pro se Plaintiff Jeromy Wilson. (KLF) Modified on 4/15/2026 to strike per Doc. 54 (KLM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-15-2026</div>
+            <div class="filing-num">54</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1htjoWpCHXPJc1lhjJcoZHbQnE6e8Obrp/view?usp=drivesdk" target="_blank">TEXT ORDER</a> striking 53 Plaintiff’s Second Amended Complaint. Upon review, Plaintiff improperly filed a version that is different from the proposed Second Amended Complaint [37-1] that was approved by the Court. Plaintiff is only granted leave to file an amended complaint that is identical to the proposed Second Amended Complaint [37-1] and must do so in compliance with the directives in the Court’s Memorandum and Order 52 on or before April 20, 2026. Ordered by Magistrate Judge Jacqueline M. DeLuca. (KLM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-15-2026</div>
+            <div class="filing-num">55</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1j0Y6XSJWKkbObWi5DGCoDUPv_fFJwxoD/view?usp=drivesdk" target="_blank">SECOND AMENDED COMPLAINT</a> with jury demand against Defendant Danesh Noshirvan, Chelsea Suarez and Table Rock Management, LLC filed by Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-17-2026</div>
+            <div class="filing-num">56</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1rRzG_mdMv67IsHPe46vDWjhP3xSIl8CT/view?usp=drivesdk" target="_blank">TEXT ORDER</a>. Upon the filing of the Second Amended Complaint, the deadlines in the Final Progression Order 33 are stayed pending further order of the Court. The parties shall meet and confer and email chambers (deluca@ned.uscourts.gov) proposed amended case progression deadlines within 14 days after all Defendants have answered. Ordered by Magistrate Judge Jacqueline M. DeLuca. (KLM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-23-2026</div>
+            <div class="filing-num"></div>
+              <div class="filing-content">
+                <span class="filing-bold">Remark — Public</span>: CM/ECF NextGen electronic filing request received from pro se defendant Chelsea Suarez. Access granted on 4/23/26. (JLS).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-27-2026</div>
+            <div class="filing-num">57</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1w_hzM6WFJoFP_4nUxFKS06lTJCKYTXCf/view?usp=drivesdk" target="_blank">Subpoena Returned</a> as to Google LLC. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">04-27-2026</div>
+            <div class="filing-num">58</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1vmCh0Ng9JX3_oQduNpZE2IzlPyEKsHPl/view?usp=drivesdk" target="_blank">Summons Issued</a> as to defendants Chelsea Suarez and Table Rock Management, LLC. YOU MUST PRINT YOUR ISSUED SUMMONS, WHICH ARE ATTACHED TO THIS DOCUMENT. PAPER COPIES WILL NOT BE MAILED. (GR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-07-2026</div>
+            <div class="filing-num">59</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1jQ804sMjzeYhmIciGaKlyVVAim1JSS1G/view?usp=drivesdk" target="_blank">STRICKEN — MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Attachments: #1 Brief in Support)(Wemhoff, Taylor) Modified on 5/7/2026 (DCD).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-07-2026</div>
+            <div class="filing-num">60</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1hGT83CT9-LFjiCu6SBOksxqmD5nX-YsQ/view?usp=drivesdk" target="_blank">Mail Returned as Undeliverable</a> addressed to Joseph Anthony Camp regarding Order on Motion to Intervene 48. NOT REMAILED-NOT DELIVERABLE AS ADDRESSED. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-07-2026</div>
+            <div class="filing-num">61</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1t8Yg3q8Ofl72883L2mFh1zlRdOw2ccSn/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan. (Attachments: #1 Brief in Support)(Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-07-2026</div>
+            <div class="filing-num">62</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1mo8nEIq3nYmfLlO3Ar3ayM8wQizzd19m/view?usp=drivesdk" target="_blank">TEXT STRIKE ORDER</a> that pursuant to NEGenR 1.3(a)(4), filing 59 is stricken for the following reason: Documents unsigned. Ordered by Senior Judge John M. Gerrard. (DCD).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-12-2026</div>
+            <div class="filing-num">63</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1bZk7CqwtEDgZCengaTxOayI_EnLFLbjK/view?usp=drivesdk" target="_blank">SUMMONS Returned Executed</a> upon defendant Chelsea Suarez on 4/30/2026. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-12-2026</div>
+            <div class="filing-num">64</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1hpo6TCaQoOlnCvY42NFn_N22vzMDL3ln/view?usp=drivesdk" target="_blank">SUMMONS Returned Executed</a> upon defendant Table Rock Management, LLC on 4/30/2026. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-13-2026</div>
+            <div class="filing-num">65</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1zRjkeDSiAsQLzGVVfZxZ-vD4mLmBlXtt/view?usp=drivesdk" target="_blank">MOTION for Orders Authorizing Platform and Third-Party Discovery</a> and for Court Order Under 18 U.S.C. 2703(d) on behalf of Plaintiff Jeromy Wilson. (LKO).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-13-2026</div>
+            <div class="filing-num">66</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/10gfEvdcLvVrcUlEkX19et8MrKK_jS1jO/view?usp=drivesdk" target="_blank">MOTION for Extension of Time to File a Responsive Pleading</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-14-2026</div>
+            <div class="filing-num">67</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1ccTNGcju-0OdJ69MqK6O1FpvTrs5l3W2/view?usp=drivesdk" target="_blank">TEXT ORDER</a>: Any response in opposition to Defendant Table Rock Management, LLC’s motion for extension of time to file a responsive pleading, Filing No. 66, must be filed on or before May 20, 2026. Ordered by Magistrate Judge Jacqueline M. DeLuca. (TMM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-20-2026</div>
+            <div class="filing-num">68</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1b-9BlFRNaCytD-PywIqnprWsMXBAW2V7/view?usp=drivesdk" target="_blank">NOTICE of Appearance of Counsel</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Chelsea Suarez (Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-20-2026</div>
+            <div class="filing-num">69</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Gg5T4VKdwbHhPZz8ZlJocBlUcAeclDOL/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM</a> upon which relief can be granted by Attorney Taylor J. Wemhoff on behalf of Defendant Chelsea Suarez. (Attachments: #1 Exhibit Brief in Support)(Wemhoff, Taylor).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-21-2026</div>
+            <div class="filing-num">70</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1epWCNpLD5HMBCUanK9_h1HsG_8uW5_PN/view?usp=drivesdk" target="_blank">TEXT ORDER</a> granting 66 Motion for Extension of Time to File a Responsive Pleading. Table Rock Management, LLC shall file an answer or other responsive pleading on or before June 4, 2026. Ordered by Magistrate Judge Jacqueline M. DeLuca. (TMM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-21-2026</div>
+            <div class="filing-num">71</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1K6-2EbqxC41KJzBKoGaHcO3kFbMfWiSf/view?usp=drivesdk" target="_blank">ORDER</a> denying the Plaintiff’s 65 Motion for third-party discovery. Ordered by Magistrate Judge Jacqueline M. DeLuca. Copy e-mailed to pro se party.
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-22-2026</div>
+            <div class="filing-num">72</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1OsxV14BLncmL4Z18Z9c1_ZE9nIV_9gAX/view?usp=drivesdk" target="_blank">MOTION to Disqualify Counsel Taylor J. Wemhoff and Liberty Law Group, LLC</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-22-2026</div>
+            <div class="filing-num">73</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1_E-tqqpP2xxTxvLwbCaVTvUkxvsl5xMW/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION to Disqualify Counsel Taylor J. Wemhoff and Liberty Law Group, LLC 72</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-22-2026</div>
+            <div class="filing-num">74</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/102qwbIrz1ecO5e513nAe-ogIVUN_SO-X/view?usp=drivesdk" target="_blank">BRIEF in opposition to Defendant Suarez’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM upon which relief can be granted 69</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-22-2026</div>
+            <div class="filing-num">75</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1SsWykCxxqV0emVEOHVUNchzJC__4B826/view?usp=drivesdk" target="_blank">BRIEF in opposition to Defendant Noshirvan’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM 61</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-26-2026</div>
+            <div class="filing-num">76</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1U8foq3rn8Vd-3jvs3N8J-AND1iZAiEEm/view?usp=drivesdk" target="_blank">TEXT NOTICE REGARDING CORPORATE DISCLOSURE STATEMENT</a> by Deputy Clerk as to Defendant Table Rock Management, LLC. Pursuant to Fed. R. Civ. P. 7.1, non-governmental corporate parties are required to file Corporate Disclosure Statements. The parties shall use the form Corporate Disclosure Statement, available on the Web site of the court at http://www.ned.uscourts.gov/forms/. If you have not filed your Statement, you must do so within 15 days of the date of this notice. (KMM).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-26-2026</div>
+            <div class="filing-num">77</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1SbLRBHVFIsMD1StMbIC2b2vL-thkOspt/view?usp=drivesdk" target="_blank">NOTICE of Supplemental Authority</a> in opposition to defendant Noshirvan’s Motion to Strike and Dismiss Second Amended Complaint on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">05-26-2026</div>
+            <div class="filing-num">78</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Qqje9BudQNJGAUmAqO_eSAWxhsj0faeY/view?usp=drivesdk" target="_blank">CORPORATE DISCLOSURE STATEMENT</a> pursuant to Fed. R. Civ. P. 7.1 identifying Corporate Parent Veritone, Inc for Table Rock Management, LLC. by Attorney Jeremy T. Fitzpatrick on behalf of Defendants Table Rock Management, LLC, Veritone, Inc. (Fitzpatrick, Jeremy).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-04-2026</div>
+            <div class="filing-num">79</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1C3o5HiyM4IRum2AmYt9i55MKR-zjGwo0/view?usp=drivesdk" target="_blank">MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-04-2026</div>
+            <div class="filing-num">80</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1_degp5DZoEGMFGtJu-rLSIGFWWkK7rnI/view?usp=drivesdk" target="_blank">BRIEF in support of MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-04-2026</div>
+            <div class="filing-num">81</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/14Qy0tSvxJN1iTeBdrHdX7DEYycCiqt34/view?usp=drivesdk" target="_blank">INDEX in support of MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (Attachments: #1 Exhibit A - Declaration)(McLeay, Bartholomew).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-08-2026</div>
+            <div class="filing-num">82</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1d92dVXNx9CipGS8y4j565St5rBt9X9cG/view?usp=drivesdk" target="_blank">PLAINTIFF’S BRIEF in opposition to MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-08-2026</div>
+            <div class="filing-num">83</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1adRyblgISiDW2Wv4pAK1NbbtR1_GlMy5/view?usp=drivesdk" target="_blank">PLAINTIFF’S INDEX in opposition to MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-08-2026</div>
+            <div class="filing-num">84</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1KOOzXoSwYtsUTVFe277S-zwp0r99FAoJ/view?usp=drivesdk" target="_blank">DECLARATION of Jeromy Wilson</a> in opposition to Table Rock Management, LLC’s MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79 on behalf of Plaintiff Jeromy Wilson. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-12-2026</div>
+            <div class="filing-num">85</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1FPUQ3K7sAEHoU-ikan6Evhy0D45U4pi5/view?usp=drivesdk" target="_blank">ORDER</a> denying the Plaintiff’s 72 Motion to Disqualify Counsel for Defendants. Ordered by Magistrate Judge Jacqueline M. DeLuca. e-mailed to pro se party. (MKR).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-18-2026</div>
+            <div class="filing-num">86</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/14T54MBHKHEAfONoWskQb6Mvuzche5Kvn/view?usp=drivesdk" target="_blank">MOTION for Leave to File Reply Brief Out of Time</a> by Attorney Jeremy T. Fitzpatrick on behalf of Defendant Table Rock Management, LLC. (Attachments: #1 Exhibit A - Reply Brief)(Fitzpatrick, Jeremy).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-18-2026</div>
+            <div class="filing-num">87</div>
+              <div class="filing-content">
+                <span class="filing-bold">TEXT ORDER</span> granting 86 Motion for Leave. Table Rock may reply in support of its motion to dismiss 79 on or before June 22, 2026. Ordered by Senior Judge John M. Gerrard. (DCD).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-19-2026</div>
+            <div class="filing-num">88</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1cBogdiEE0IlGgy9z8X6iHlbUdNTvvJOi/view?usp=drivesdk" target="_blank">REPLY BRIEF in support of MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> by Attorney Bartholomew L. McLeay on behalf of Defendant Table Rock Management, LLC. (McLeay, Bartholomew).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-22-2026</div>
+            <div class="filing-num">89</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1n3P2Hnd1typauVC1l6umsyN3D0d4nKhO/view?usp=drivesdk" target="_blank">*STRICKEN* PLAINTIFF’S SURREPLY BRIEF in opposition to MOTION TO DISMISS FOR FAILURE TO STATE A CLAIM AND SECOND AMENDED COMPLAINT 79</a> on behalf of Plaintiff Jeromy Wilson. (LKO) Modified on 6/22/2026 to strike per Order 91 (LKO).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-22-2026</div>
+            <div class="filing-num">90</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1c1xCK1tmznNI3aKDlBmadsbYxSEPq-yW/view?usp=drivesdk" target="_blank">NOTICE of Counsel Change of Firm and Procedural Non-Compliance</a> on behalf of Plaintiff Jeromy Wilson. (LKO).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">06-22-2026</div>
+            <div class="filing-num">91</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Wmd8eRBV0KDMw6kwLIzF_VD23zr5UjTK/view?usp=drivesdk" target="_blank">ORDER</a> — The “Plaintiff’s Surreply Brief in Opposition to Defendant Table Rock Management LLC’s Motion to Dismiss” (filing 89) is stricken. To the extent it was intended as a motion, the plaintiff’s “Notice of Counsel Change of Firm and Procedural Non-Compliance” (filing 90) is denied. Ordered by Senior Judge John M. Gerrard. (Copy e-mailed to pro se party) (LKO).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-20-2026</div>
+            <div class="filing-num">92</div>
+              <div class="filing-content">
+                <a class="filing-link" href="" target="_blank">NOTICE of Change of Address</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan (Wemhoff, Taylor) (Entered: 07/20/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-20-2026</div>
+            <div class="filing-num">93</div>
+              <div class="filing-content">
+                <a class="filing-link" href="" target="_blank">NOTICE of Change of Address</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Chelsea Suarez (Wemhoff, Taylor) (Entered: 07/20/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-21-2026</div>
+            <div class="filing-num">94</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1_zKltiork4PMV9lIa2Xf-EfrcQDOXrtU/view?usp=drive_link" target="_blank">MOTION for Extension of Time to File a Responsive Pleading Motion for Leave to File Reply Brief Out of Time</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan.(Wemhoff, Taylor) (Entered: 07/21/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-21-2026</div>
+            <div class="filing-num">95</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1pLMgqf-tI6qi7-pt3dYud3CIsptbgvTK/view?usp=drive_link" target="_blank">MOTION for Extension of Time to File a Responsive Pleading Motion for Leave to File Reply Brief Out of Time</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Chelsea Suarez.(Wemhoff, Taylor) (Entered: 07/21/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-28-2026</div>
+            <div class="filing-num">96</div>
+              <div class="filing-content">
+                <span class="filing-bold">TEXT ORDER granting 94 95 Motions for Leave</span>. The defendants may reply in support of their respective motions to dismiss 61 69 on or before July 28, 2026. Ordered by Senior Judge John M. Gerrard. (DCD) (Entered: 07/21/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-28-2026</div>
+            <div class="filing-num">97</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1PNjKY4V6IVmla3b5qydgLNEt0O3-v3WX/view?usp=drive_link" target="_blank">REPLY BRIEF in support of Motion to Strike and Dismiss Plaintiff's Second Amended Complaint</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Danesh Noshirvan.(Wemhoff, Taylor) (Entered: 07/28/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-28-2026</div>
+            <div class="filing-num">98</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1s5gJu8wdbs37DDxxle1_mBBW-4socbcq/view?usp=drive_link" target="_blank">REPLY BRIEF in support of Motion to Dismiss Plaintiff's Second Amended Complaint for Failure to State a Claim</a> by Attorney Taylor J. Wemhoff on behalf of Defendant Chelsea Suarez.(Wemhoff, Taylor) (Entered: 07/28/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-29-2026</div>
+            <div class="filing-num">99</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1BV29CehvJblV0y59-QlOprtf9V1u-5PQ/view?usp=drive_link" target="_blank">MOTION for Leave to File a Surreply to Defendant Suarez's Reply Brief</a> (Doc. # 98) on behalf of Plaintiff Jeromy Wilson. (MKR) (Entered: 07/29/2026).
+              </div>
+        </div>
+        <div class="filing">
+          <div class="filing-date">07-29-2026</div>
+            <div class="filing-num">100</div>
+              <div class="filing-content">
+                <span class="filing-bold">TEXT ORDER granting 99 Motion for Leave</span>. The plaintiff's proposed sur-reply brief, filing 99 at 3, is considered filed instanter and need not be refiled. Briefing on the defendant's motion to dismiss 69 is closed and the matter is submitted to the Court for disposition. Ordered by Senior Judge John M. Gerrard. (DCD) (Entered: 07/29/2026).
+              </div>
+        </div>
+
+    </div><!-- /.filings -->
 
     <div class="section-label">Source Files</div>
-
-    <a class="drive-card" href="hhttps://drive.google.com/drive/folders/1kZOyhl8Xyitd7BtHYQxpJMgR6r8clJ1q?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
-      <div class="drive-icon">
-        <i class="bi bi-folder2-open"></i>
-      </div>
-      <div class="drive-card-body">
-        <h3 class="drive-card-title">Google Drive Folder</h3>
-        <p class="drive-card-desc">All filings and documents for Wilson v. Noshirvan et al., 8:25-cv-00635.</p>
-      </div>
-      <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
-    </a>
+      <a class="drive-card" href="hhttps://drive.google.com/drive/folders/1kZOyhl8Xyitd7BtHYQxpJMgR6r8clJ1q?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
+        <div class="drive-icon">
+          <i class="bi bi-folder2-open"></i>
+        </div>
+        <div class="drive-card-body">
+          <h3 class="drive-card-title">Google Drive Folder</h3>
+            <p class="drive-card-desc">All filings and documents for Wilson v. Noshirvan et al., 8:25-cv-00635.</p>
+        </div>
+            <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
+      </a>
 
   </section>
 
