@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Sarah Grace Patrick Docket | Subtxt Press</title>
   <meta name="description" content="Georgia criminal‑case filings for Sarah Grace Patrick, whose prosecution has been flagged for potential wrongful‑conviction indicators. The docket includes charging documents, motions, hearings, and other records relevant to evaluating the integrity of the case.">
   <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/SGP/docket">
@@ -29,13 +27,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
   <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
   <link rel="manifest" href="../../icons/site.webmanifest">
-
+  <!-- Styles -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
   <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
-
   <style>
     *, *::before, *::after { 
       box-sizing: border-box; 
@@ -43,26 +40,26 @@
       padding: 0; 
     }
     :root {
-      --peach:   #E8956A;
-      --cream:   #F4EDE3;
-      --sand:    #DDD0BC;
-      --plum:    #3E2436;
-      --carmine: #7A5063;
-      --ink:     #241620;
+      --peach:            #E8956A;
+      --cream:            #F4EDE3;
+      --sand:             #DDD0BC;
+      --plum:             #3E2436;
+      --carmine:          #7A5063;
+      --ink:              #241620;
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-      --text-heading: #241620;
-      --text-body:    #44373C;
-      --text-label:   #7A5063;
-      --text-muted:   rgba(68, 55, 60, 0.45);
-      --accent:        #E8956A;
-      --accent-border: rgba(232, 149, 106, 0.40);
-      --border-light:  rgba(221, 208, 188, 0.55);
-      --border-mid:    rgba(180, 140, 100, 0.22);
-      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
-      --status-open:   #2E7D32;
-      --status-closed: #B71C1C;
+      --text-heading:     #241620;
+      --text-body:        #44373C;
+      --text-label:       #7A5063;
+      --text-muted:       rgba(68, 55, 60, 0.45);
+      --accent:           #E8956A;
+      --accent-border:    rgba(232, 149, 106, 0.40);
+      --border-light:     rgba(221, 208, 188, 0.55);
+      --border-mid:       rgba(180, 140, 100, 0.22);
+      --grad-neutral:     linear-gradient(to right, #DDD0BC, #E8956A);
+      --status-open:      #2E7D32;
+      --status-closed:    #B71C1C;
     }
     html { 
       scroll-behavior: smooth; 
@@ -437,6 +434,73 @@
     .footer-social a:hover { 
       color: var(--carmine); 
     }
+    .filings {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .filings-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+    }
+    .filings-header h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      text-align: left;
+      margin: 0;
+    }
+    .filing {
+      display: flex;
+      gap: 24px;
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .filing:last-child {
+      border-bottom: none;
+    }
+    .filing-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-label);
+      font-weight: 500;
+      flex-shrink: 0;
+      min-width: 75px;
+      letter-spacing: 0.05em;
+    }
+    .filing-content {
+      flex: 1;
+    }
+    .filing-link {
+      color: var(--carmine);
+      font-weight: 600;
+      text-underline-offset: 2px;
+    }
+    .filing-link:hover {
+      color: var(--ink);
+    }
+    .filing-bold {
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .filing-note {
+      margin-top: 8px;
+      padding: 14px 20px;
+      background: var(--surface-elevated);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
     @media (max-width: 900px) {
       .case-meta { 
         grid-template-columns: 1fr; 
@@ -554,8 +618,24 @@
       .drive-card-cta { 
         font-size: 8px; 
       }
-      .site-footer { 
-        padding: 24px 20px; 
+      .site-footer {
+        padding: 24px 20px;
+      }
+      .filings-header {
+        padding: 14px 20px;
+      }
+      .filing {
+        padding: 14px 20px;
+        font-size: 13px;
+        gap: 16px;
+      }
+      .filing-date {
+        font-size: 11px;
+        min-width: 65px;
+      }
+      .filing-note {
+        padding: 12px 16px;
+        font-size: 12px;
       }
     }
   </style>
@@ -1665,6 +1745,13 @@
                 <td class="doc-icon">
                   <a href="https://drive.google.com/file/d/1eW27bC9A4zYlP2ghU3egkAohpo8DMIc9/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
                 </td>
+          </tr>
+          <tr>
+          <td>08-01-2026</td>
+              <td class="wrap">Order Approving Amdended Rule Nisi</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1UskRQjyNZMCCuL1McLuvqBAKvAwSX4Nq/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
           </tr> 
           <tr>
             <td>08-03-2026</td>
@@ -1672,6 +1759,60 @@
                 <td class="doc-icon">
                   <a href="https://drive.google.com/file/d/1TvqlO58a2v6_5drnN3_rebIgvZry-q7D/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
                 </td>
+          </tr> 
+          <tr>
+          <td>08-11-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Court TV)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1Kp_Ruor8hP7hdWlMHBShrSkJXCoN7h9B/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+          <td>08-11-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (WXIA)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1RwthqGg24vEQgXXyR8Qd7zVy5VpFeeJT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+          <td>08-13-2026</td>
+              <td class="wrap">Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (TIME)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1eib_uR1TrLAB4M-ZQ7LqZiSlp-uOo7Ia/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr> 
+          <tr>
+          <td>08-18-2026</td>
+              <td class="wrap">Order on Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Daily Mail)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1mlmtWzCqWxV87p7ATHmR1wkK7w34ilAJ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+          <td>08-18-2026</td>
+              <td class="wrap">Order on Request to Use a Recording Device Pursuant to Rule 22 on Recording of Judicial Proceedings (Fox News)</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1PUbCgVgKg5EqV_aX37kqk8jT716MnMec/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+          <td>08-18-2026</td>
+              <td class="wrap">Order Assigning Fox 5 Photographer.pdf</td>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1zbvZ2pQXKWnjFkryRinbP4TqzoGlYZfM/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+          </tr>
+          <tr>
+          <td>08-19-2026</td>
+            <td class="wrap">Order Denying Bond
+              <div class="filing-note">
+                After hearing evidence presented regarding Defendant's Motion for Bond, this Court finds that the Defendant is a risk to flee the jurisdiction and not appear for future court appearances, Defendant is a risk to influence witnesses, and Defendant is a threat to the community and family members as testified to at Defendant's hearing regarding Bond.<br>
+                Wherefore, Bond for the Defendant in this matter is hereby Denied.<br> 
+              </div>
+                <td class="doc-icon">
+                  <a href="https://drive.google.com/file/d/1VhpOzkKt-KLCvBDVWIbyNo_d8kM-JVbO/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a>
+                </td>
+            </td>
           </tr> 
   
         </tbody>
