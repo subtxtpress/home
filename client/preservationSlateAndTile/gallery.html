@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Preservation Slate and Tile</title>
+  <meta name="description" content="Completed slate, tile, and copper roofing projects. Historical structures, heritage-grade residential, and preservation-designated properties.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* Gallery photo */
+    .gallery-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: saturate(0.72) brightness(0.82);
+      transition: filter 0.45s ease, transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-photo {
+      filter: saturate(0.9) brightness(0.9);
+      transform: scale(1.03);
+    }
+    .gallery-item { cursor: pointer; }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(27,25,22,0.96);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: 860px;
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+    .lightbox-caption {
+      margin-top: 20px;
+      text-align: center;
+      max-width: 680px;
+    }
+    .lightbox-caption .caption-type {
+      display: block;
+      margin-bottom: 6px;
+    }
+    .lightbox-caption .caption-text {
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: 1px solid var(--stone);
+      color: var(--stone-light);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .lightbox-close:hover {
+      border-color: var(--parchment);
+      color: var(--parchment);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" role="navigation" aria-label="Main">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo" aria-label="Preservation Slate and Tile — Home">
+        <span class="name">Preservation Slate and Tile</span>
+        <span class="descriptor">Historic Slate &amp; Tile Roofing</span>
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html" class="active" aria-current="page">Projects</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-labelledby="page-heading">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Projects</span>
+        <h1 id="page-heading">Completed Slate, Tile, and Copper Roofing Projects</h1>
+        <p>Each entry includes material type, project scope, and notable preservation details. All photographs are from completed sites.</p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="gallery-header">
+          <span class="eyebrow">Project Record</span>
+          <h2 id="gallery-heading">Recent Work</h2>
+          <p>Click any image to expand. All projects were reviewed and accepted based on preservation or heritage-grade qualification criteria.</p>
+        </div>
+
+        <div class="gallery-grid" role="list" aria-label="Project photographs">
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/Vermont Blend Slate.jpg"
+               data-type="Residential — Vermont Blend Slate"
+               data-caption="Vermont blend slate in random pattern. Mixed green-gray and purple slates sourced from the same quarry region as the original roof. Nails and hooks matched to original gauge specifications."
+               aria-label="Vermont blend slate, random-pattern installation">
+            <img class="gallery-photo" src="assets/roof-photos/Vermont Blend Slate.jpg"
+                 alt="Vermont blend slate close-up, random pattern installation" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Residential — Vermont Blend Slate</span>
+              <p class="caption-text">Vermont blend, random-pattern installation — quarry-matched green-gray and purple mix</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/English Tile and Copper Gutter.PNG"
+               data-type="Heritage — English Tile &amp; Copper Gutter"
+               data-caption="English-profile terra cotta tile installation on a brick heritage building with full copper box gutter replacement. Gutter fabricated on-site to match original profile and slope. Tile sourced to match existing field color and glaze characteristics."
+               aria-label="English-profile terra cotta tile with copper box gutter">
+            <img class="gallery-photo" src="assets/roof-photos/English Tile and Copper Gutter.PNG"
+                 alt="English-profile terra cotta tile with new copper box gutter on brick heritage building" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Heritage — English Tile &amp; Copper</span>
+              <p class="caption-text">English-profile terra cotta with copper box gutter — brick heritage building</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/Chimey Flashing.PNG"
+               data-type="Residential — Copper Chimney Saddle"
+               data-caption="Custom-fabricated copper chimney saddle on S-profile clay tile at a stone chimney. Saddle designed to match the existing copper patina tone. Tile field restored with matched terracotta and dark-blend pieces to preserve the original color distribution."
+               aria-label="Custom copper chimney saddle on S-profile clay tile">
+            <img class="gallery-photo" src="assets/roof-photos/Chimey Flashing.PNG"
+                 alt="Custom-fabricated copper chimney saddle at stone chimney on S-profile clay tile roof" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Residential — Copper Chimney Saddle</span>
+              <p class="caption-text">Custom-fabricated copper saddle at stone chimney — S-profile clay tile field</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/Classic and Snow Guards.png"
+               data-type="Residential — Slate with Snow Guards"
+               data-caption="Classic-profile slate installation with period snow guards. Guards spaced to original architectural specification, fabricated in matching copper. Snow retention designed for the roof pitch and regional snow load without penetrating the slate field."
+               aria-label="Classic slate with period copper snow guards">
+            <img class="gallery-photo" src="assets/roof-photos/Classic and Snow Guards.png"
+                 alt="Classic-profile natural slate with period copper snow guards" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Residential — Slate with Snow Guards</span>
+              <p class="caption-text">Classic slate with period copper snow guards — installed to original spacing specification</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/Vermont Blend Slate 2.jpg"
+               data-type="Residential — Vermont Blend Slate"
+               data-caption="Vermont blend slate field showing quarry-matched replacement slates integrated into an existing installation. Color, thickness, and texture matched to original. Fasteners replaced in-kind with copper nails and hooks."
+               aria-label="Vermont blend slate, quarry-matched replacement in existing field">
+            <img class="gallery-photo" src="assets/roof-photos/Vermont Blend Slate 2.jpg"
+                 alt="Vermont blend slate field with quarry-matched replacement slates" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Residential — Vermont Blend Slate</span>
+              <p class="caption-text">Vermont blend — quarry-matched replacement integrated into existing field</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/Tile and Copper Skylight Flashing.PNG"
+               data-type="Heritage — Copper Skylight Flashing"
+               data-caption="Clay tile roof with custom-fabricated copper skylight flashing. Flashing integrated with the existing tile field and soldered at all joints. Skylight curb height set to preserve the original tile drainage plane without cutting or modifying the surrounding field."
+               aria-label="Clay tile with custom-fabricated copper skylight flashing">
+            <img class="gallery-photo" src="assets/roof-photos/Tile and Copper Skylight Flashing.PNG"
+                 alt="Clay tile roof with custom-fabricated copper skylight flashing, soldered joints" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Heritage — Copper Skylight Flashing</span>
+              <p class="caption-text">Clay tile with in-place copper skylight flashing — custom-fabricated and soldered at site</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/Slate and Gutter.png"
+               data-type="Residential — Slate &amp; Period Gutter"
+               data-caption="Natural slate roof with period gutter installation showing copper fascia and apron flashing at eave. Slate laid to original exposure and coursing. Gutter profile matched to heritage-grade specification for the structure's period and region."
+               aria-label="Natural slate with period copper gutter and apron flashing">
+            <img class="gallery-photo" src="assets/roof-photos/Slate and Gutter.png"
+                 alt="Natural slate field with period copper gutter and apron flashing at eave" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Residential — Slate &amp; Period Gutter</span>
+              <p class="caption-text">Natural slate with period copper gutter — fascia and apron fabricated to original profile</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/Classic.PNG"
+               data-type="Residential — Classic Slate"
+               data-caption="Classic-profile natural slate installation on a heritage residential structure. Uniform exposure and coursing maintained throughout. Replacement slates sized and trimmed to match the original field. All flashings replaced in copper."
+               aria-label="Classic-profile natural slate, uniform coursing on heritage residential">
+            <img class="gallery-photo" src="assets/roof-photos/Classic.PNG"
+                 alt="Classic-profile natural slate, uniform coursing on heritage residential structure" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Residential — Classic Slate</span>
+              <p class="caption-text">Classic-profile natural slate — uniform coursing, heritage residential structure</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" role="listitem" tabindex="0"
+               data-src="assets/roof-photos/French Roof.png"
+               data-type="Heritage — French Profile Clay Tile"
+               data-caption="French-profile clay tile installation on a heritage property. Original tile profile documented and reinstated using period-compatible materials. Ridge and hip details fabricated to match the building's original clay tile specifications."
+               aria-label="French-profile clay tile on heritage property, original profile reinstated">
+            <img class="gallery-photo" src="assets/roof-photos/French Roof.png"
+                 alt="French-profile clay tile installation on heritage property, ridge and hip details" loading="lazy">
+            <div class="gallery-caption">
+              <span class="caption-type">Heritage — French Profile Clay Tile</span>
+              <p class="caption-text">French-profile clay tile — original tile profile documented and reinstated</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-strip" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Have a Preservation or Heritage-Grade Project?</h2>
+        <p>Provide the building type, roof material, location, and required scope. We will confirm whether the project meets our acceptance criteria before scheduling.</p>
+        <a href="contact.html" class="btn btn-outline-dark">Request a Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-caption" hidden>
+    <button class="lightbox-close" id="lb-close" aria-label="Close image">Close</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="" aria-hidden="true">
+    <div class="lightbox-caption" id="lb-caption">
+      <span class="caption-type" id="lb-type"></span>
+      <p class="caption-text" id="lb-text"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-main">
+      <div class="footer-logo">
+        <span class="name">Preservation Slate and Tile</span>
+        <span class="descriptor">Historic Slate &amp; Tile Roofing</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>Historical and heritage-grade structures only. General residential and commercial construction not accepted.</p>
+      <span>&copy; 2026 Preservation Slate and Tile</span>
+    </div>
+  </footer>
+
+  <script>
+    // Nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Lightbox
+    const lb      = document.getElementById('lightbox');
+    const lbClose = document.getElementById('lb-close');
+    const lbType  = document.getElementById('lb-type');
+    const lbText  = document.getElementById('lb-text');
+    const lbImg   = document.getElementById('lb-img');
+    const items   = document.querySelectorAll('.gallery-item');
+
+    function openLightbox(item) {
+      lbType.textContent = item.dataset.type || '';
+      lbText.textContent = item.dataset.caption || '';
+      lbImg.src = item.dataset.src || '';
+      lbImg.alt = item.getAttribute('aria-label') || '';
+      lb.removeAttribute('hidden');
+      lb.classList.add('open');
+      lbClose.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lb.classList.remove('open');
+      lb.setAttribute('hidden', '');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => openLightbox(item));
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(item); }
+      });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
+</body>
+</html>
