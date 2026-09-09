@@ -1,12 +1,76 @@
+<!--
+  ============================================================
+  GALLERY PAGE — Preservation Slate and Tile
+  ============================================================
+  SECTIONS ON THIS PAGE:
+    1. Navigation (shared)
+    2. Page Hero
+    3. Gallery Grid: 3-column photo grid with lightbox
+    4. CTA Strip
+    5. Footer (shared)
+  HOW THE GALLERY WORKS:
+    Each photo is a .gallery-item div. When clicked, it opens a full-screen lightbox overlay with the larger image and a caption. The lightbox is controlled by the JavaScript at the bottom of this file.
+    Each gallery item has these data attributes:
+      data-src     = path to the image file
+      data-type    = caption header (category label)
+      data-caption = full description shown in lightbox
+  TO ADD A NEW PHOTO:
+    1. Copy one of the existing .gallery-item blocks
+    2. Update the data-src, data-type, data-caption, and aria-label attributes
+    3. Update the <img> src and alt attributes
+    4. The grid handles layout automatically
+  TO REMOVE A PHOTO:
+    Delete the entire .gallery-item div for that entry.
+  PHOTOS IN USE (all in assets/roof-photos/):
+    - vermont-blend-slate.jpg
+    - english-tile-copper-gutter.png
+    - chimney-flashing.png
+    - classic-snow-guards.png
+    - vermont-blend-slate-2.jpg
+    - tile-copper-skylight-flashing.png
+    - slate-gutter.png
+    - classic.png
+    - french-roof.png
+  FOR THE WIX DEVELOPER:
+    Wix has a built-in Pro Gallery widget that handles lightbox behavior natively. The recommended approach is to use that instead of the custom JS lightbox here. Upload all photos to Wix Media Manager and configure the Pro Gallery with the captions from the data-caption attributes in this file.
+  ON MOBILE (≤640px):
+    The grid collapses to 2 columns and captions are always visible (no hover required).
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery: Preservation Slate and Tile</title>
-  <meta name="description" content="Completed slate, tile, and copper roofing projects. Historical structures, heritage-grade residential, and preservation-designated properties.">
-  <!-- OG -->
-  <meta property="og:description" content="Completed slate, tile, and copper roofing projects. Historical structures, heritage-grade residential, and preservation-designated properties.">
+  <meta name="robots" content="index, follow">
+  <!-- Primary -->
+  <title>Projects — Preservation Slate and Tile</title>
+  <meta name="description" content="Completed slate, tile, and copper roofing projects on historical structures, heritage-grade residential properties, and preservation-designated buildings.">
+  <!-- TODO: Replace [YOUR-DOMAIN] with the live Wix domain before launch -->
+  <link rel="canonical" href="https://[YOUR-DOMAIN]/projects">
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Preservation Slate and Tile">
+  <meta property="og:title"       content="Projects — Preservation Slate and Tile">
+  <meta property="og:description" content="Completed slate, tile, and copper roofing projects on historical structures, heritage-grade residential properties, and preservation-designated buildings.">
+  <meta property="og:url"         content="https://[YOUR-DOMAIN]/projects">
+  <meta property="og:image"       content="https://[YOUR-DOMAIN]/assets/roof-photos/english-tile-copper-gutter.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="English-profile terra cotta tile with copper box gutter on a brick heritage building">
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Projects — Preservation Slate and Tile">
+  <meta name="twitter:description" content="Completed slate, tile, and copper roofing projects on historical and heritage-grade structures.">
+  <meta name="twitter:image"       content="https://[YOUR-DOMAIN]/assets/roof-photos/english-tile-copper-gutter.png">
+  <meta name="twitter:image:alt"   content="English-profile terra cotta tile with copper box gutter on a brick heritage building">
+  <!-- Theme color -->
+  <meta name="theme-color" content="#967244">
+  <!-- Favicon -->
+  <link rel="icon"             href="icons/favicon.ico"         sizes="any">
+  <link rel="icon"             href="icons/icon-192.png"        type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest"         href="icons/site.webmanifest">
   <!-- Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +93,9 @@
       filter: saturate(0.9) brightness(0.9);
       transform: scale(1.03);
     }
-    .gallery-item { cursor: pointer; }
-
+    .gallery-item { 
+      cursor: pointer; 
+    }
     /* Lightbox */
     .lightbox {
       display: none;
@@ -43,7 +108,9 @@
       flex-direction: column;
       padding: 24px;
     }
-    .lightbox.open { display: flex; }
+    .lightbox.open { 
+      display: flex; 
+    }
     .lightbox-img {
       max-width: 860px;
       width: 100%;
@@ -130,11 +197,11 @@
         <div class="gallery-grid" role="list" aria-label="Project photographs">
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/Vermont Blend Slate.jpg"
+               data-src="assets/roof-photos/vermont-blend-slate.jpg"
                data-type="Residential: Vermont Blend Slate"
                data-caption="Vermont blend slate in random pattern. Mixed green-gray and purple slates sourced from the same quarry region as the original roof. Nails and hooks matched to original gauge specifications."
                aria-label="Vermont blend slate, random-pattern installation">
-            <img class="gallery-photo" src="assets/roof-photos/Vermont Blend Slate.jpg"
+            <img class="gallery-photo" src="assets/roof-photos/vermont-blend-slate.jpg"
                  alt="Vermont blend slate close-up, random pattern installation" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Residential: Vermont Blend Slate</span>
@@ -143,11 +210,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/English Tile and Copper Gutter.PNG"
+               data-src="assets/roof-photos/english-tile-copper-gutter.png"
                data-type="Heritage: English Tile &amp; Copper Gutter"
                data-caption="English-profile terra cotta tile installation on a brick heritage building with full copper box gutter replacement. Gutter fabricated on-site to match original profile and slope. Tile sourced to match existing field color and glaze characteristics."
                aria-label="English-profile terra cotta tile with copper box gutter">
-            <img class="gallery-photo" src="assets/roof-photos/English Tile and Copper Gutter.PNG"
+            <img class="gallery-photo" src="assets/roof-photos/english-tile-copper-gutter.png"
                  alt="English-profile terra cotta tile with new copper box gutter on brick heritage building" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Heritage: English Tile &amp; Copper</span>
@@ -156,11 +223,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/Chimey Flashing.PNG"
+               data-src="assets/roof-photos/chimney-flashing.png"
                data-type="Residential: Copper Chimney Saddle"
                data-caption="Custom-fabricated copper chimney saddle on S-profile clay tile at a stone chimney. Saddle designed to match the existing copper patina tone. Tile field restored with matched terracotta and dark-blend pieces to preserve the original color distribution."
                aria-label="Custom copper chimney saddle on S-profile clay tile">
-            <img class="gallery-photo" src="assets/roof-photos/Chimey Flashing.PNG"
+            <img class="gallery-photo" src="assets/roof-photos/chimney-flashing.png"
                  alt="Custom-fabricated copper chimney saddle at stone chimney on S-profile clay tile roof" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Residential: Copper Chimney Saddle</span>
@@ -169,11 +236,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/Classic and Snow Guards.png"
+               data-src="assets/roof-photos/classic-snow-guards.png"
                data-type="Residential: Slate with Snow Guards"
                data-caption="Classic-profile natural slate installation with period-matched copper snow guards. Guards spaced to original architectural specification, fabricated in matching copper. Snow retention designed for the roof pitch and regional snow load without penetrating the slate field."
                aria-label="Classic slate with period copper snow guards">
-            <img class="gallery-photo" src="assets/roof-photos/Classic and Snow Guards.png"
+            <img class="gallery-photo" src="assets/roof-photos/classic-snow-guards.png"
                  alt="Classic-profile natural slate with period copper snow guards" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Residential: Slate with Snow Guards</span>
@@ -182,11 +249,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/Vermont Blend Slate 2.jpg"
+               data-src="assets/roof-photos/vermont-blend-slate-2.jpg"
                data-type="Residential: Vermont Blend Slate"
                data-caption="Vermont blend slate field showing quarry-matched replacement slates integrated into an existing installation. Color, thickness, and texture matched to original. Fasteners replaced in-kind with copper nails and hooks."
                aria-label="Vermont blend slate, quarry-matched replacement in existing field">
-            <img class="gallery-photo" src="assets/roof-photos/Vermont Blend Slate 2.jpg"
+            <img class="gallery-photo" src="assets/roof-photos/vermont-blend-slate-2.jpg"
                  alt="Vermont blend slate field with quarry-matched replacement slates" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Residential: Vermont Blend Slate</span>
@@ -195,11 +262,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/Tile and Copper Skylight Flashing.PNG"
+               data-src="assets/roof-photos/tile-copper-skylight-flashing.png"
                data-type="Heritage: Copper Skylight Flashing"
                data-caption="Clay tile roof with existing copper skylight assemblies retained in place. Flashing integrated with the existing tile field and soldered at all joints. Skylight curb height set to preserve the original tile drainage plane without cutting or modifying the surrounding field."
                aria-label="Clay tile with custom-fabricated copper skylight flashing">
-            <img class="gallery-photo" src="assets/roof-photos/Tile and Copper Skylight Flashing.PNG"
+            <img class="gallery-photo" src="assets/roof-photos/tile-copper-skylight-flashing.png"
                  alt="Clay tile roof with custom-fabricated copper skylight flashing, soldered joints" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Heritage: Copper Skylight Flashing</span>
@@ -208,11 +275,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/Slate and Gutter.png"
+               data-src="assets/roof-photos/slate-gutter.png"
                data-type="Residential: Slate &amp; Period Gutter"
                data-caption="Natural slate roof with period gutter installation showing copper fascia and apron flashing at eave. Slate laid to original exposure and coursing. Gutter profile matched to heritage-grade specification for the structure's period and region."
                aria-label="Natural slate with period copper gutter and apron flashing">
-            <img class="gallery-photo" src="assets/roof-photos/Slate and Gutter.png"
+            <img class="gallery-photo" src="assets/roof-photos/slate-gutter.png"
                  alt="Natural slate field with period copper gutter and apron flashing at eave" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Residential: Slate &amp; Period Gutter</span>
@@ -221,11 +288,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/Classic.PNG"
+               data-src="assets/roof-photos/classic.png"
                data-type="Residential: Classic Slate"
                data-caption="Classic-profile natural slate installation on a heritage residential structure. Uniform exposure and coursing maintained throughout. Replacement slates sized and trimmed to match the original field. All flashings replaced in copper."
                aria-label="Classic-profile natural slate, uniform coursing on heritage residential">
-            <img class="gallery-photo" src="assets/roof-photos/Classic.PNG"
+            <img class="gallery-photo" src="assets/roof-photos/classic.png"
                  alt="Classic-profile natural slate, uniform coursing on heritage residential structure" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Residential: Classic Slate</span>
@@ -234,11 +301,11 @@
           </div>
 
           <div class="gallery-item" role="listitem" tabindex="0"
-               data-src="assets/roof-photos/French Roof.png"
+               data-src="assets/roof-photos/french-roof.png"
                data-type="Heritage: French Profile Clay Tile"
                data-caption="French-profile clay tile installation on a heritage property. Original tile profile documented and reinstated using period-compatible materials. Ridge and hip details fabricated to match the building's original clay tile specifications."
                aria-label="French-profile clay tile on heritage property, original profile reinstated">
-            <img class="gallery-photo" src="assets/roof-photos/French Roof.png"
+            <img class="gallery-photo" src="assets/roof-photos/french-roof.png"
                  alt="French-profile clay tile installation on heritage property, ridge and hip details" loading="lazy">
             <div class="gallery-caption">
               <span class="caption-type">Heritage: French Profile Clay Tile</span>

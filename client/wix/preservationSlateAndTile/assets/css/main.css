@@ -1,0 +1,993 @@
+/* ================================================================
+   MAIN STYLESHEET — Preservation Slate and Tile
+   ================================================================
+   This file covers all four pages: home, about, gallery, contact.
+
+   DESIGN TOKENS (CSS custom properties) are defined in :root below.
+   To change a color site-wide, update the hex value in :root.
+   Do not change individual selectors — change the token instead.
+
+   COLOR TOKENS:
+     --parchment   #F0E8D6   warm off-white, hero/parchment text
+     --bg          #F7F3EB   page background
+     --cream       #E4D8C2   CTA strip background
+     --stone-light #BEB6A6   secondary text on dark backgrounds
+     --stone       #8C8080   muted labels, secondary text
+     --copper      #967244   primary accent, buttons, borders
+     --copper-dark #7A5C38   hover state for copper elements
+     --charcoal    #2E2A26   primary body text
+     --ink         #1B1916   headings, dark backgrounds
+
+   FONTS:
+     Cormorant Garamond — headings (var(--serif))
+     Source Sans 3      — body, labels, UI (var(--sans))
+     Both are loaded from Google Fonts in each HTML <head>.
+     For print, embed the OTF/TTF files directly.
+
+   PRINT STYLES:
+     A @media print block at the bottom handles basic print
+     output. CMYK equivalents for each color are noted in
+     the token comments. Profile: US Web Coated (SWOP) v2.
+     Bleed 3mm, safe margin 12mm, min body 8pt.
+
+   GALLERY PLACEHOLDER CLASSES:
+     .ph-1 through .ph-9 are gradient placeholders used during
+     development before real photos were available. The gallery
+     now uses real images, so these classes are no longer active
+     but are kept in case any fallback is needed.
+   ================================================================ */
+
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+html { 
+  font-size: 16px; 
+  scroll-behavior: smooth; 
+}
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--charcoal);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { 
+  display: block; 
+  max-width: 100%; 
+}
+a { 
+  color: inherit; 
+  text-decoration: none; 
+}
+ul { 
+  list-style: none; 
+}
+/* ----------------------------------------------------------------
+   TOKENS
+   ---------------------------------------------------------------- */
+:root {
+  /* Parchment White   #F0E8D6   CMYK C:0  M:6  Y:16 K:6  */
+  --parchment:   #F0E8D6;
+  /* Page Background   #F7F3EB   CMYK C:0  M:3  Y:8  K:3  */
+  --bg:          #F7F3EB;
+  /* Cream             #E4D8C2   CMYK C:0  M:6  Y:18 K:11 */
+  --cream:       #E4D8C2;
+  /* Stone Light       #BEB6A6   CMYK C:0  M:5  Y:12 K:25 */
+  --stone-light: #BEB6A6;
+  /* Muted Stone       #8C8070   CMYK C:0  M:8  Y:16 K:45 */
+  --stone:       #8C8070;
+  /* Aged Copper       #967244   CMYK C:0  M:24 Y:54 K:41 */
+  --copper:      #967244;
+  /* Copper Dark       #7A5C38   CMYK C:0  M:25 Y:54 K:52 */
+  --copper-dark: #7A5C38;
+  /* Charcoal          #2E2A26   CMYK C:0  M:6  Y:14 K:82 */
+  --charcoal:    #2E2A26;
+  /* Archival Black    #1B1916   CMYK C:0  M:5  Y:13 K:89 */
+  --ink:         #1B1916;
+  /* Rule              #D8D0C0 */
+  --rule:        #D8D0C0;
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+
+  --max-w:    1080px;
+  --nav-h:    70px;
+  --sec-v:    88px;
+}
+/* ----------------------------------------------------------------
+   LAYOUT
+   ---------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+/* ----------------------------------------------------------------
+   TYPE
+   ---------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+}
+h1 {
+  font-size: clamp(2.6rem, 5vw, 4.2rem); 
+  font-weight: 600; 
+}
+h2 { 
+  font-size: clamp(1.9rem, 3vw, 2.75rem); 
+}
+h3 { 
+  font-size: 1.5rem; 
+}
+h4 { 
+  font-size: 1.1rem; 
+}
+p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--copper);
+  display: block;
+}
+/* ----------------------------------------------------------------
+   NAV
+   ---------------------------------------------------------------- */
+.site-nav {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0;
+  z-index: 200;
+  height: var(--nav-h);
+  background: #fff;
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+}
+.nav-logo .name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+.nav-logo .descriptor {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  transition: color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { 
+  color: var(--copper); 
+}
+.nav-links .nav-cta {
+  border: 1px solid var(--copper);
+  color: var(--copper);
+  padding: 8px 16px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-links .nav-cta:hover {
+  background: var(--copper);
+  color: #fff;
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-toggle.open span:nth-child(1) { 
+  transform: translateY(6.5px) rotate(45deg); 
+}
+.nav-toggle.open span:nth-child(2) { 
+  opacity: 0; 
+}
+.nav-toggle.open span:nth-child(3) { 
+  transform: translateY(-6.5px) rotate(-45deg); 
+}
+/* ----------------------------------------------------------------
+   BUTTONS
+   ---------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  line-height: 1;
+}
+.btn-outline {
+  color: var(--parchment);
+  border-color: var(--parchment);
+  background: transparent;
+}
+.btn-outline:hover {
+  background: var(--parchment);
+  color: var(--ink);
+}
+.btn-primary {
+  background: var(--copper);
+  color: #fff;
+  border-color: var(--copper);
+}
+.btn-primary:hover {
+  background: var(--copper-dark);
+  border-color: var(--copper-dark);
+}
+.btn-outline-dark {
+  color: var(--copper);
+  border-color: var(--copper);
+  background: transparent;
+}
+.btn-outline-dark:hover {
+  background: var(--copper);
+  color: #fff;
+}
+/* ----------------------------------------------------------------
+   HERO (landing)
+   Can use background-color or background-image for production.
+   Recommended: high-contrast archival B&W photo, ~1920px wide,
+   300 DPI source for print version.
+   ---------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  background-color: #1e1c18;
+  /* background-image: url('../img/hero.jpg'); */
+  background-size: cover;
+  background-position: center top;
+  padding-top: var(--nav-h);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    130deg,
+    rgba(27,25,22,0.92) 0%,
+    rgba(27,25,22,0.74) 55%,
+    rgba(120,90,52,0.28) 100%
+  );
+  z-index: 1;
+}
+/* Subtle film-grain texture */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+}
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: 96px 24px 80px;
+}
+.hero .eyebrow { 
+  margin-bottom: 22px; 
+}
+.hero h1 {
+  color: var(--parchment);
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+.hero-sub {
+  color: var(--stone-light);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin-bottom: 48px;
+  line-height: 1.75;
+}
+/* ----------------------------------------------------------------
+   KEY POINTS
+   ---------------------------------------------------------------- */
+.key-points {
+  background: #fff;
+  padding-block: var(--sec-v);
+  border-bottom: 1px solid var(--rule);
+}
+.kp-header {
+  margin-bottom: 52px;
+}
+.kp-header h2 { 
+  margin-top: 14px; 
+}
+.kp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 28px;
+}
+.kp-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.kp-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+/* ----------------------------------------------------------------
+   CREDENTIALS STRIP (landing page — membership logos)
+   ---------------------------------------------------------------- */
+.credentials-strip {
+  background: #fff;
+  border-bottom: 1px solid var(--rule);
+  padding-block: 44px;
+}
+.cr-inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+.cr-label { 
+  text-align: center; 
+}
+.cr-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.cr-logos img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.3s ease;
+}
+.cr-logos img:hover { 
+  filter: grayscale(0) opacity(1); 
+}
+@media (max-width: 640px) {
+  .cr-logos { 
+    gap: 28px; 
+  }
+  .cr-logos img { 
+    height: 52px; 
+  }
+}
+/* ----------------------------------------------------------------
+   CTA STRIP
+   ---------------------------------------------------------------- */
+.cta-strip {
+  background: var(--cream);
+  padding-block: 72px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+.cta-strip h2 { 
+  margin-bottom: 16px; 
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem); 
+}
+.cta-strip p  {
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: 36px;
+  color: var(--stone);
+}
+/* ----------------------------------------------------------------
+   PAGE HERO (interior)
+   ---------------------------------------------------------------- */
+.page-hero {
+  background: var(--ink);
+  padding: calc(var(--nav-h) + 64px) 24px 64px;
+}
+.page-hero-inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+.page-hero .eyebrow { 
+  margin-bottom: 18px; 
+}
+.page-hero h1 {
+  color: var(--parchment);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+.page-hero p {
+  color: var(--stone-light);
+  max-width: 520px;
+  font-size: 1rem;
+}
+/* ----------------------------------------------------------------
+   CONTENT SECTIONS (about)
+   ---------------------------------------------------------------- */
+.content-section {
+  padding-block: var(--sec-v);
+}
+.content-section.alt { 
+  background: #fff; 
+}
+.content-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.cs-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  padding-top: 6px;
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+}
+.cs-body h2 { 
+  margin-bottom: 20px; 
+}
+.cs-body p { 
+  margin-bottom: 18px; 
+}
+.cs-body p:last-child { 
+  margin-bottom: 0; 
+}
+.approach-list {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.approach-item {
+  display: flex;
+  gap: 0;
+  padding: 18px 20px;
+  background: var(--bg);
+  border-left: 2px solid var(--copper); 
+}
+.approach-item p { 
+  margin: 0; 
+  font-size: 0.95rem; 
+}
+/* ----------------------------------------------------------------
+   COMMITMENT BLOCK
+   ---------------------------------------------------------------- */
+.commitment {
+  background: var(--ink);
+  padding-block: var(--sec-v);
+}
+.commitment .container { 
+  max-width: 720px; 
+}
+.commitment h2 {
+  color: var(--parchment);
+  margin-bottom: 24px;
+}
+.commitment p {
+  color: var(--stone-light);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+/* ----------------------------------------------------------------
+   GALLERY
+   ---------------------------------------------------------------- */
+.gallery-section {
+  padding-block: var(--sec-v);
+}
+.gallery-header {
+  margin-bottom: 40px;
+}
+.gallery-header h2 { 
+  margin-top: 12px; 
+}
+.gallery-header p {
+  max-width: 540px;
+  margin-top: 14px;
+  color: var(--stone);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--charcoal);
+  cursor: default;
+}
+/* Placeholder photo backgrounds — replace with <img> tags for production.
+   Each image should be 800 × 800 px minimum, 300 DPI for print use. */
+.gallery-item .photo-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover .photo-bg { 
+  transform: scale(1.03); 
+}
+.ph-1 { background: linear-gradient(160deg, #2e2c28 0%, #3c3428 60%, #2a2820 100%); }
+.ph-2 { background: linear-gradient(140deg, #2c3030 0%, #383630 60%, #26282a 100%); }
+.ph-3 { background: linear-gradient(165deg, #302e28 0%, #3a3220 60%, #282620 100%); }
+.ph-4 { background: linear-gradient(150deg, #28302e 0%, #34382e 60%, #242c28 100%); }
+.ph-5 { background: linear-gradient(155deg, #2e2a24 0%, #3a3428 60%, #242018 100%); }
+.ph-6 { background: linear-gradient(145deg, #2c2e32 0%, #363630 60%, #222228 100%); }
+.ph-7 { background: linear-gradient(170deg, #302c24 0%, #3e3828 60%, #262218 100%); }
+.ph-8 { background: linear-gradient(138deg, #28302c 0%, #363c34 60%, #202820 100%); }
+.ph-9 { background: linear-gradient(158deg, #2e2c2a 0%, #3c3630 60%, #282420 100%); }
+/* Archival texture overlay on each cell */
+.gallery-item .photo-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+.gallery-caption {
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  background: linear-gradient(to top, rgba(22,18,14,0.95) 0%, rgba(22,18,14,0.6) 60%, transparent 100%);
+  padding: 40px 16px 18px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.gallery-item:hover .gallery-caption { 
+  opacity: 1; 
+}
+.caption-type {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 4px;
+}
+.caption-text {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--parchment);
+  line-height: 1.4;
+  margin: 0;
+}
+/* ----------------------------------------------------------------
+   CONTACT
+   ---------------------------------------------------------------- */
+.contact-section {
+  padding-block: var(--sec-v);
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-info { 
+  padding-top: 2px; 
+}
+.contact-info h3 { 
+  margin-bottom: 14px; 
+}
+.contact-info p {
+  font-size: 0.95rem;
+  color: var(--stone);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+.contact-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 4px;
+  border-top: 1px solid var(--rule);
+}
+.meta-entry .meta-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 3px;
+}
+.meta-entry .meta-value {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--charcoal);
+}
+/* Form */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.form-group label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--rule);
+  padding: 12px 14px;
+  outline: none;
+  border-radius: 0;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--copper);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-notice {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--stone);
+  line-height: 1.55;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--rule);
+  background: var(--bg);
+}
+/* ----------------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------------- */
+.site-footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-main {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: 48px 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+.footer-logo .name {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--parchment);
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 4px;
+}
+.footer-logo .descriptor {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+.footer-nav a {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--stone);
+  transition: color 0.2s;
+}
+.footer-nav a:hover { 
+  color: var(--parchment); 
+}
+.footer-bottom {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.footer-bottom p,
+.footer-bottom span {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--stone);
+  line-height: 1.5;
+  margin: 0;
+}
+/* ----------------------------------------------------------------
+   RESPONSIVE
+   ---------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .kp-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .content-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+  }
+  .cs-label { 
+    position: static; 
+  }
+  .contact-layout { 
+    grid-template-columns: 1fr; 
+    gap: 48px; 
+  }
+  .footer-main { 
+    flex-direction: column; 
+  }
+  .footer-nav { 
+    align-items: flex-start; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 16px; 
+  }
+}
+/* Tablet: 2-column structures strip */
+@media (max-width: 720px) {
+  .ss-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .ss-item { 
+    aspect-ratio: 4 / 3; 
+  }
+  /* Hide third cell on 2-col layout to avoid an orphan */
+  .ss-item:nth-child(3) { 
+    display: none; 
+  }
+}
+@media (max-width: 640px) {
+  :root { 
+    --sec-v: 56px;
+    --nav-h: 62px; 
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; 
+    right: 0;
+    flex-direction: column;
+    background: #fff;
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid var(--rule);
+    z-index: 150;
+  }
+  .nav-links.open { 
+    display: flex; 
+  }
+  .nav-links .nav-cta { 
+    align-self: flex-start; 
+  }
+  .nav-toggle { 
+    display: flex; 
+  }
+  /* Buttons go full-width block on mobile */
+  .btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 0.06em;
+  }
+  /* Nav CTA is inline in the mobile menu — revert to inline */
+  .nav-links .nav-cta {
+    display: inline-block;
+    width: auto;
+  }
+  /* Tighten hero vertical padding */
+  .hero-inner { 
+    padding-top: 48px; 
+    padding-bottom: 56px; 
+  }
+  /* Reduce eyebrow letter-spacing to prevent cramped wrapping */
+  .eyebrow { 
+    letter-spacing: 0.1em; 
+  }
+  .kp-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .gallery-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .form-row { 
+    grid-template-columns: 1fr; 
+  }
+  .gallery-caption { 
+    opacity: 1; 
+  }
+  .footer-bottom { 
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  /* Restore full structures strip on mobile */
+  .ss-item:nth-child(3) { 
+    display: block; 
+  }
+  .ss-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .ss-item { 
+    aspect-ratio: 16 / 9; 
+  }
+}
+/* ----------------------------------------------------------------
+   STRUCTURES STRIP (landing page)
+   ---------------------------------------------------------------- */
+.structures-strip {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+}
+.ss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.ss-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.ss-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.65) brightness(0.78);
+  transition: filter 0.45s ease, transform 0.5s ease;
+}
+.ss-item:hover img {
+  filter: saturate(0.82) brightness(0.88);
+  transform: scale(1.04);
+}
+.ss-label {
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  padding: 56px 22px 20px;
+  background: linear-gradient(to top, rgba(22,18,14,0.88) 0%, transparent 100%);
+  pointer-events: none;
+}
+.ss-label .eyebrow { 
+  color: var(--stone-light); 
+}
+@media (max-width: 640px) {
+  .ss-grid  { 
+    grid-template-columns: 1fr; 
+  }
+  .ss-item  { 
+    aspect-ratio: 16 / 9; 
+  }
+}
+/* ----------------------------------------------------------------
+   PRINT
+   CMYK output: use profile US Web Coated (SWOP) v2 or ISO Coated.
+   Bleed: 3mm all sides. Safe margin: 12mm. Body min: 8pt.
+   ---------------------------------------------------------------- */
+@media print {
+  .site-nav, .nav-toggle, .btn, .hero::after { 
+    display: none !important; 
+  }
+  body { 
+    background: #fff; 
+    color: #000; 
+    font-size: 10pt; 
+  }
+  h1 { 
+    font-size: 28pt; 
+  }
+  h2 { 
+    font-size: 20pt; 
+  }
+  h3 { 
+    font-size: 14pt; 
+  }
+  .hero {
+    min-height: auto;
+    padding: 48pt 24pt;
+    background-color: #1B1916;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .gallery-caption { 
+    opacity: 1; 
+  }
+  .content-grid, .kp-grid { 
+    gap: 24pt; 
+  }
+}

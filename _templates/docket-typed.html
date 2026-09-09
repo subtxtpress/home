@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Page_Title | Subtxt Press</title>
   <meta name="description" content="Meta_Description">
   <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/{{FOLDER_SLUG}}/docket">
@@ -29,13 +27,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
   <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
   <link rel="manifest" href="../../icons/site.webmanifest">
-
+  <!-- Fonts-->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <!-- Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
   <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
-
   <style>
     *, *::before, *::after { 
       box-sizing: border-box; 
@@ -43,32 +41,32 @@
       padding: 0; 
     }
     :root {
-      --peach:   #E8956A;
-      --cream:   #F4EDE3;
-      --sand:    #DDD0BC;
-      --plum:    #3E2436;
-      --carmine: #7A5063;
-      --ink:     #241620;
+      --peach:               #E8956A;
+      --cream:               #F4EDE3;
+      --sand:                #DDD0BC;
+      --plum:                #3E2436;
+      --carmine:             #7A5063;
+      --ink:                 #241620;
       /* Surface colors */
-      --surface-page:     #F4EDE3;
-      --surface-card:     #FFFFFF;
-      --surface-elevated: #EDE5D8;
+      --surface-page:        #F4EDE3;
+      --surface-card:        #FFFFFF;
+      --surface-elevated:    #EDE5D8;
       /* Text colors */
-      --text-heading: #241620;
-      --text-body:    #44373C;
-      --text-label:   #7A5063;
-      --text-muted:   rgba(68, 55, 60, 0.45);
+      --text-heading:        #241620;
+      --text-body:           #44373C;
+      --text-label:          #7A5063;
+      --text-muted:          rgba(68, 55, 60, 0.45);
       /* Accent colors */
-      --accent:        #E8956A;
-      --accent-border: rgba(232, 149, 106, 0.40);
+      --accent:              #E8956A;
+      --accent-border:       rgba(232, 149, 106, 0.40);
       /* Border colors */
-      --border-light:  rgba(221, 208, 188, 0.55);
-      --border-mid:    rgba(180, 140, 100, 0.22);
+      --border-light:        rgba(221, 208, 188, 0.55);
+      --border-mid:          rgba(180, 140, 100, 0.22);
       /* Gradient colors */
-      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+      --grad-neutral:        linear-gradient(to right, #DDD0BC, #E8956A);
       /* Badge colors */
-      --status-open:   #2E7D32;
-      --status-closed: #B71C1C;
+      --status-open:         #2E7D32;
+      --status-closed:       #B71C1C;
     }
     html { 
       scroll-behavior: smooth; 
@@ -90,6 +88,7 @@
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
+      padding: 10px 13px;
     }
     .section-label::after {
       content: '';
@@ -258,7 +257,7 @@
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 12px;
     }
     .case-title-bar h2 {
@@ -266,7 +265,8 @@
       font-size: clamp(1.1rem, 1.6vw, 1.35rem);
       font-weight: 800;
       color: var(--text-heading);
-      text-align: center;
+      text-align: left;
+      flex: 1;
     }
     .case-title-bar h2 a {
       color: var(--carmine);
@@ -317,7 +317,7 @@
       margin-bottom: 32px;
     }
     .filings-header {
-      padding: 18px 28px;
+      padding: 15px 25px;
       border-bottom: 1px solid var(--border-light);
     }
     .filings-header {
@@ -377,6 +377,67 @@
       line-height: 1.75;
       color: var(--text-body);
     }
+    /* ─── Collapsible Case Block ───────────────────────────── */
+    details.case-details {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      transition: box-shadow 0.3s;
+    }
+    details.case-details:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10), 0 0 0 1px var(--accent-border);
+    }
+    summary.case-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 25px 20px 16px;
+      background: var(--surface-card);
+      border-bottom: 1px solid var(--border-light);
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+    }
+    summary.case-summary::-webkit-details-marker { 
+      display: none; 
+    }
+    summary.case-summary::before {
+      content: '▼';
+      display: inline-flex;
+      width: 10px;
+      color: var(--accent);
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      margin-right: 5px;
+    }
+    details.case-details[open] > summary.case-summary::before { 
+      transform: rotate(0deg); 
+    }
+    details.case-details:not([open]) > summary.case-summary::before { 
+      transform: rotate(-90deg); 
+    }
+    summary.case-summary h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(0.95rem, 1.6vw, 1.35rem);
+      font-weight: 800;
+      color: var(--text-heading);
+      text-align: left;
+      flex: 1;
+      margin: 0;
+    }
+    summary.case-summary h2 a {
+      color: var(--carmine);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .case-details-body { 
+      margin-top: 0; 
+    }
     /* ─── Docket Table ──────────────────────────────────────── */
     .docket-table-wrap {
       background: var(--surface-card);
@@ -387,7 +448,7 @@
       margin-bottom: 32px;
     }
     .docket-table-header {
-      padding: 24px 28px;
+      padding: 25px 15px;
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
@@ -438,22 +499,42 @@
       text-align: center;
       white-space: nowrap;
     }
+    /* Variant C — 5-col state court table: pin fixed columns, align numbers */
+    .docket-table.doc-table.col-5 th:nth-child(1),
+    .docket-table.doc-table.col-5 td:nth-child(1) {
+      width: 96px;
+      white-space: nowrap;
+    }
+    .docket-table.doc-table.col-5 th:nth-child(2),
+    .docket-table.doc-table.col-5 td:nth-child(2) {
+      width: 60px;
+      text-align: center;
+    }
+    .docket-table.doc-table.col-5 th:nth-child(4),
+    .docket-table.doc-table.col-5 td:nth-child(4) {
+      width: 56px;
+      text-align: center;
+    }
+    .docket-table.doc-table.col-5 th:nth-child(5),
+    .docket-table.doc-table.col-5 td:nth-child(5) {
+      width: 36px;
+    }
     .docket-table tbody tr:last-child td {
       border-bottom: none;
     }
     .docket-table tbody tr:hover {
       background: rgba(232, 149, 106, 0.04);
     }
-    /* Mobile table card layout */
+    /* Mobile table — Variant A card layout (multi-col event tables with data-label) */
     @media (max-width: 720px) {
-      .docket-table {
+      .docket-table:not(.doc-table) {
         border-collapse: separate;
         border-spacing: 0 12px;
       }
-      .docket-table thead {
+      .docket-table:not(.doc-table) thead {
         display: none;
       }
-      .docket-table tbody tr {
+      .docket-table:not(.doc-table) tbody tr {
         display: flex;
         flex-direction: column;
         background: var(--surface-card);
@@ -464,19 +545,19 @@
         padding: 16px;
         gap: 12px;
       }
-      .docket-table tbody tr:hover {
+      .docket-table:not(.doc-table) tbody tr:hover {
         background: var(--surface-card);
       }
-      .docket-table td {
+      .docket-table:not(.doc-table) td {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 0;
+        padding: 0 4px 0 0;
         border: none;
         font-size: 14px;
         line-height: 1.5;
       }
-      .docket-table td::before {
+      .docket-table:not(.doc-table) td::before {
         content: attr(data-label);
         font-family: 'IBM Plex Mono', monospace;
         font-size: 10px;
@@ -487,9 +568,209 @@
         min-width: 80px;
         flex-shrink: 0;
       }
-      .docket-table td.wrap {
+      .docket-table:not(.doc-table) td.wrap {
         word-break: normal;
       }
+      /* Mobile table — Variant B compact layout (date + doc + icon, no card flip) */
+      .docket-table.doc-table {
+        font-size: 11px;
+      }
+      .docket-table.doc-table th {
+        padding: 8px 10px;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+      }
+      .docket-table.doc-table td {
+        padding: 10px 10px;
+        font-size: 11px;
+      }
+      .docket-table.doc-table .doc-icon {
+        width: 28px;
+        font-size: 13px;
+      }
+    }
+    /* ─── Numbered Filings (Federal/PACER 3-col layout) ────── */
+    /* Add class="numbered" to .filings to activate */
+    .filings.numbered .filing {
+      display: grid;
+      grid-template-columns: 82px 28px 1fr;
+      gap: 0 14px;
+      padding: 14px 28px;
+      align-items: baseline;
+    }
+    .filing-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-align: right;
+      white-space: nowrap;
+    }
+    @media (max-width: 900px) {
+      .filings.numbered .filing {
+        grid-template-columns: 78px 26px 1fr;
+        font-size: 13px;
+      }
+    }
+    @media (max-width: 720px) {
+      .filings.numbered .filing {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 4px 8px;
+        padding: 12px 16px;
+        font-size: 13px;
+      }
+      .filing-num {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 11px;
+        text-align: right;
+      }
+      .filings.numbered .filing-date {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .filings.numbered .filing-content {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        padding-top: 2px;
+      }
+    }
+    /* ─── Table Variant D — CSS Grid div-based document table ── */
+    .docket-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      font-size: 13px;
+    }
+    .docket-row {
+      display: grid;
+      grid-template-columns: 110px 60px 1fr 40px;
+      gap: 0 14px;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 14px;
+      line-height: 1.7;
+      align-items: baseline;
+    }
+    .docket-row.header-row {
+      background: var(--surface-elevated);
+      padding: 10px 28px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-label);
+    }
+    .docket-row:last-child { 
+      border-bottom: none; 
+    }
+    .docket-row:not(.header-row):hover { 
+      background: rgba(232, 149, 106, 0.04); 
+    }
+    .docket-cell { 
+      white-space: nowrap; 
+      overflow: hidden; 
+    }
+    .docket-cell.date { 
+      white-space: nowrap; 
+    }
+    .docket-cell.description { 
+      white-space: normal; 
+      word-break: break-word; 
+    }
+    .docket-cell.doc-num,
+    .docket-cell.doc-num-header { 
+      text-align: center; 
+      white-space: nowrap; 
+    }
+    .docket-cell.icon-cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+    }
+    .docket-cell.icon-cell a { 
+      color: var(--accent); 
+      text-decoration: none; 
+    }
+    .docket-cell.icon-cell a:hover { 
+      color: var(--ink); 
+    }
+    @media (max-width: 900px) {
+      .docket-row {
+        grid-template-columns: 90px 55px 1fr 35px;
+        font-size: 13px;
+        padding: 12px 24px;
+      }
+    }
+    @media (max-width: 720px) {
+      .docket-row {
+        grid-template-columns: 50px 1fr 40px;
+        gap: 0 8px;
+        padding: 12px 16px;
+        font-size: 12px;
+      }
+      .docket-row.header-row { 
+        display: none; 
+      }
+      .docket-cell { 
+        white-space: normal; 
+      }
+      .docket-cell.date { 
+        display: none; 
+      }
+      .docket-cell.doc-num {
+        grid-column: 1;
+        font-size: 11px;
+        text-align: center;
+        font-weight: 600;
+      }
+      .docket-cell.description { 
+        grid-column: 2; 
+        font-size: 12px; 
+        line-height: 1.4; 
+      }
+      .docket-cell.icon-cell { 
+        grid-column: 3; 
+        justify-content: center; 
+        font-size: 14px; 
+      }
+    }
+    /* ─── Note Card (editorial/privacy notices) ────────────── */
+    .note-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .note-card-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .note-card-body {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+    .note-card-body p { 
+      margin-bottom: 8px; 
+    }
+    .note-card-body a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .note-card-body a:hover { 
+      color: var(--ink); 
+      text-decoration: underline; 
     }
     /* ─── Drive Link Card ───────────────────────────────────── */
     .drive-card {
@@ -663,7 +944,7 @@
         font-size: 12px;
       }
       .filings-header {
-        padding: 14px 20px;
+        padding: 15px 20px;
       }
       .filing {
         padding: 14px 20px;
@@ -678,22 +959,22 @@
         padding: 12px 16px;
         font-size: 12px;
       }
-      .docket-table-wrap {
-
+      .section-label {
+        padding: 10px 13px;
       }
       .docket-table-header {
-        padding: 14px 20px;
+        padding: 15px 15px;
       }
-      .docket-table {
+      .docket-table.doc-table {
         font-size: 10px;
       }
-      .docket-table th {
-        padding: 8px 8px;
+      .docket-table.doc-table th {
+        padding: 8px 8px 8px 16px;
         font-size: 8px;
         letter-spacing: 0.08em;
       }
-      .docket-table td {
-        padding: 8px 8px;
+      .docket-table.doc-table td {
+        padding: 8px 8px 8px 16px;
       }
       .drive-card {
         padding: 14px;
@@ -752,9 +1033,23 @@
 
   <section class="content-section">
 
+    <!-- ════════════════════════════════════════════════════════
+         NOTE CARD — editorial notice, privacy caveat, or
+         explanatory context before the docket entries.
+         Thick accent left border distinguishes it from case blocks.
+         .note-card-body supports <p>, <a>, <strong> inline.
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="note-card" data-aos="fade-up">
+      <h3 class="note-card-title">Note on Case Names and Document Redactions</h3>
+      <div class="note-card-body">
+        <p>Editorial context, privacy notice, or sourcing explanation. Use for cases where pseudonyms are used, documents are redacted, or readers need framing before reading the docket. Link to the original source if applicable: <a href="{{COURT_SEARCH_URL}}" target="_blank" style="font-weight:bold;text-decoration:underline;">Court Name Case Search</a> using case number <strong>Case_Number</strong>.</p>
+      </div>
+    </div>
 
     <!-- ════════════════════════════════════════════════════════
-         CASE HEADER — one per case/sub-case on this page.
+         STATIC CASE HEADER — use for single-case dockets, or
+         for standalone filing sections with no parent case.
          Use "open" or "closed" class on the status-badge.
          ════════════════════════════════════════════════════════ -->
 
@@ -775,17 +1070,56 @@
         <div class="case-meta-item"><strong>Respondent:</strong> Respondent_Name</div>
         <div class="case-meta-item"><strong>Status:</strong> Status_Text</div>
         <div class="case-meta-item"><strong>Attorney for Respondent:</strong> Attorney_Respondent</div>
+        <!-- OPTIONAL: source link in meta grid -->
+        <div class="case-meta-item"><strong>Source:</strong> <a class="filing-link" href="{{COURT_DOCKET_URL}}" target="_blank">Court Docket</a></div>
         <!-- Add/remove rows as needed. The grid auto-fills two columns. -->
       </div>
-    </div>
-
+    </div><!-- /.case-block -->
 
     <!-- ════════════════════════════════════════════════════════
-         CASE SUMMARY — filing entries, one <div class="filing"> per entry.
-         Mix and match from the examples below.
+         COLLAPSIBLE CASE BLOCK — for multi-case dockets (like
+         JLR). Each details element collapses independently.
+         Include case-meta inside .case-details-body.
          ════════════════════════════════════════════════════════ -->
 
-    <div class="section-label">Case Summary</div>
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
+        <h2>Case_Caption — Collapsible Variant</h2>
+        <span class="status-badge closed">Closed</span>
+      </summary>
+
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Case Number:</strong> Case_Number</div>
+          <div class="case-meta-item"><strong>Judge:</strong> Judge_Name</div>
+          <div class="case-meta-item"><strong>Filing Date:</strong> Filing_Date</div>
+          <div class="case-meta-item"><strong>Court:</strong> Court_Name</div>
+          <div class="case-meta-item"><strong>Petitioner:</strong> Petitioner_Name</div>
+          <div class="case-meta-item"><strong>Respondent:</strong> Respondent_Name</div>
+        </div>
+
+        <div class="section-label">Case Summary</div>
+
+        <div class="filings">
+          <div class="filings-header">
+            <h2>Filings &amp; Activity</h2>
+          </div>
+          <!-- filing entries go here -->
+          <div class="filing"><div class="filing-date">MM-DD-YYYY</div><div class="filing-content">
+            <span class="filing-bold">Example entry inside a collapsible block</span>.
+          </div></div>
+        </div><!-- /.filings -->
+
+      </div><!-- /.case-details-body -->
+    </details><!-- /.case-details -->
+
+    <!-- ════════════════════════════════════════════════════════
+         STANDALONE FILINGS BLOCK — for background records,
+         incident reports, or docs not tied to a specific case.
+         Use a section-label above but no case-block header.
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="section-label">Background Records</div>
 
     <div class="filings" data-aos="fade-up">
       <div class="filings-header">
@@ -807,7 +1141,7 @@
 
       <!-- ── ENTRY TYPE 3: Bold text (no link) + date ── -->
       <div class="filing"><div class="filing-date">MM-DD-YYYY</div><div class="filing-content">
-        <span class="filing-bold">Title</span>.
+        <span class="filing-bold">Filing or Event Title</span> filed.
       </div></div>
 
       <!-- ── ENTRY TYPE 4: Bold text + date + note ── -->
@@ -823,7 +1157,7 @@
         Freeform_Text_Entry about some case event, with no linked document and no special formatting.
       </div></div>
 
-      <!-- ── ENTRY TYPE 6: Judge issues order (mixed link + bold) ── -->
+      <!-- ── ENTRY TYPE 6: Judge issues order (mixed inline text + link) ── -->
       <div class="filing"><div class="filing-date">MM-DD-YYYY</div><div class="filing-content">
         Judge_Name issues an <a class="filing-link" href="{{DOC_URL}}" target="_blank">Order</a>.
         <div class="filing-note">
@@ -831,13 +1165,38 @@
         </div>
       </div></div>
 
-      <!-- Copy more .filing divs as needed -->
-    </div>
+      <!-- ── ENTRY TYPE 7: Multiple links in one entry ── -->
+      <div class="filing"><div class="filing-date">MM-DD-YYYY</div><div class="filing-content">
+        <a class="filing-link" href="{{DOC_URL}}" target="_blank">Petition for Order of Protection</a> and <a class="filing-link" href="{{DOC_URL_2}}" target="_blank">Exhibits</a> filed.
+      </div></div>
 
+      <!-- ── ENTRY TYPE 8: Named filer + bold action (no link) ── -->
+      <div class="filing"><div class="filing-date">MM-DD-YYYY</div><div class="filing-content">
+        Attorney_Name files a <span class="filing-bold">Notice of Appearance</span>.
+      </div></div>
+
+      <!-- ── ENTRY TYPE 9: Named filer + linked document ── -->
+      <div class="filing"><div class="filing-date">MM-DD-YYYY</div><div class="filing-content">
+        Attorney_Name files a <a class="filing-link" href="{{DOC_URL}}" target="_blank">Motion for Contempt</a>.
+        <div class="filing-note">
+          <a class="filing-link" href="{{EXHIBIT_LIST_URL}}" target="_blank">Exhibit List</a> | <a class="filing-link" href="{{EXHIBITS_URL}}" target="_blank">Exhibits</a>
+        </div>
+      </div></div>
+
+      <!-- ── ENTRY TYPE 10: Docket detail / clerk note ── -->
+      <div class="filing"><div class="filing-date">MM-DD-YYYY</div><div class="filing-content">
+        Docket Detail
+        <div class="filing-note">
+          Clerk_Note_or_Docket_Activity
+        </div>
+      </div></div>
+
+    </div><!-- /.filings -->
 
     <!-- ════════════════════════════════════════════════════════
-         TABLE — for case events, documents, citations, etc.
-         Add/remove columns and rows as needed.
+         TABLE — VARIANT A: standalone (multi-column event table)
+         For case events, hearing schedules, citations, etc.
+         Add/remove columns as needed.
          ════════════════════════════════════════════════════════ -->
 
     <div class="docket-table-wrap" data-aos="fade-up">
@@ -859,27 +1218,576 @@
             <td data-label="Date">MM-DD-YYYY</td>
             <td data-label="Time">HH:MM AM/PM</td>
             <td data-label="Matter">Matter Type</td>
-            <td data-label="Event">Event Description</td>
+            <td data-label="Event" class="wrap">Event Description</td>
             <td data-label="Result">Result</td>
           </tr>
-          <!-- Copy more <tr> rows as needed. Add data-label to each td for mobile responsiveness -->
+          <!-- Copy more <tr> rows as needed. Add data-label to each td for mobile card layout. -->
+          <!-- Use class="wrap" on td for columns that need text wrapping (e.g. Event, Description). -->
         </tbody>
       </table>
     </div>
 
-
     <!-- ════════════════════════════════════════════════════════
-         REPEAT: For multi-case dockets (like JLR), add another
-         case-block + filings section + tables below.
+         TABLE — VARIANT B: inside a collapsible block, with
+         doc-icon column for linked media (state court XChange
+         style). Three icon types based on media:
+           bi-file-earmark-text  — documents / declarations
+           bi-camera-video-fill  — bodycam / video
+           bi-volume-up-fill     — audio recordings
+           bi-file-image         — screenshots / photos
+         Rows without a linked document omit the icon td
+         (or include an empty td to preserve column alignment).
+         Partial dates (MM-YYYY) are valid in filing-date.
          ════════════════════════════════════════════════════════ -->
 
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
+        <h2>Civil Suit Filings &amp; Activity — Collapsible Table</h2>
+      </summary>
+      <div class="case-details-body">
+
+        <div class="docket-table-wrap">
+          <table class="docket-table doc-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th class="wrap">Document</th>
+                <th class="doc-icon"></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- Row with linked document (text/declaration) -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Declaration of Witness_Name</td>
+                <td class="doc-icon"><a href="{{DOC_URL}}" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td>
+              </tr>
+
+              <!-- Row with linked video (bodycam / recording) -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">HH:MM:SS PM Bodycam 1 — Axon Body (00 min 00 sec)</td>
+                <td class="doc-icon"><a href="{{DOC_URL}}" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td>
+              </tr>
+
+              <!-- Row with linked audio -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Hearing — audio</td>
+                <td class="doc-icon"><a href="{{DOC_URL}}" target="_blank" style="color:var(--accent)"><i class="bi bi-volume-up-fill"></i></a></td>
+              </tr>
+
+              <!-- Row with linked image / screenshot -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Screenshot of Document_Description</td>
+                <td class="doc-icon"><a href="{{DOC_URL}}" target="_blank" style="color:var(--accent)"><i class="bi bi-file-image"></i></a></td>
+              </tr>
+
+              <!-- Row with NO linked document (sealed / private / no doc) -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">**** PRIVATE **** Sealed_Document_Description</td>
+              </tr>
+
+              <!-- HTML comment date-group markers — invisible to users,
+                   used to organize long tables by month/period in source -->
+              <!-- Month YYYY -->
+
+              <!-- Row with filing-note blockquote inside the cell (SGP pattern):
+                   court order text quoted directly below the filing title -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Order_Title
+                  <div class="filing-note">
+                    Quoted language from the order or relevant excerpt. Use for court orders,
+                    rulings, or findings where the verbatim text adds value.
+                  </div>
+                </td>
+                <td class="doc-icon"><a href="{{DOC_URL}}" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td>
+              </tr>
+
+              <!-- Calendar / scheduling entry (no linked doc).
+                   Cancellation suffix variants: **Removed** or — CANCELED -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Calendar: Hearing_Type MM-DD-YYYY **Removed**</td>
+                <td class="doc-icon"></td>
+              </tr>
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Hearing Title &mdash; CANCELED</td>
+                <td class="doc-icon"></td>
+              </tr>
+
+              <!-- Row truncation: omit trailing cells when no pages/icon exist.
+                   Browser renders gracefully; missing cells stay empty on mobile. -->
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Clerk note or internal remark with no document or page count</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div><!-- /.docket-table-wrap -->
+
+      </div><!-- /.case-details-body -->
+    </details>
 
     <!-- ════════════════════════════════════════════════════════
-         SOURCE FILES — optional Drive folder link
+         COLLAPSIBLE WITH SUB-SECTION LABEL — use section-label
+         inside case-details-body as a visual divider between
+         the case-meta block and the docket entry table.
+         ════════════════════════════════════════════════════════ -->
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary">
+        <h2>Case_Caption — Collapsible with Sub-Label</h2>
+        <span class="status-badge open">Open</span>
+      </summary>
+      <div class="case-details-body">
+        <div class="case-meta">
+          <div class="case-meta-item"><strong>Case Number:</strong> Case_Number</div>
+          <div class="case-meta-item"><strong>Judge:</strong> Judge_Name</div>
+        </div>
+
+        <!-- section-label inside case-details-body acts as a visual sub-section divider -->
+        <div class="section-label" style="padding-left:15px;">Docket Entries</div>
+
+        <div class="docket-table-wrap">
+          <div class="docket-table-header">
+            <h2>Filings &amp; Activity</h2>
+          </div>
+          <table class="docket-table doc-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th class="wrap">Document</th>
+                <th class="doc-icon"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MM-DD-YYYY</td>
+                <td class="wrap">Filing_Title</td>
+                <td class="doc-icon"><a href="{{DOC_URL}}" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><!-- /.case-details-body -->
+    </details>
+
+    <!-- ════════════════════════════════════════════════════════
+         NUMBERED FILINGS — for federal PACER/ECF dockets where
+         each entry has a document number. Add class="numbered"
+         to .filings to activate the 3-column grid layout.
+         Leave .filing-num empty ("") for non-docketed entries
+         like remarks, fee payments, and clerk notations.
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="section-label">Case Summary — Federal Docket</div>
+
+    <div class="filings numbered" data-aos="fade-up">
+      <div class="filings-header">
+        <h2>Filings &amp; Activity</h2>
+      </div>
+
+      <!-- ── Numbered entry: linked document ── -->
+      <div class="filing">
+        <div class="filing-date">MM-DD-YYYY</div>
+        <div class="filing-num">1</div>
+        <div class="filing-content">
+          <a class="filing-link" href="{{DOC_URL}}" target="_blank">COMPLAINT</a> with jury demand against Defendant_Name filed on behalf of Plaintiff_Name. (Clerk_Initials).
+        </div>
+      </div>
+
+      <!-- ── Numbered entry: order with full text ── -->
+      <div class="filing">
+        <div class="filing-date">MM-DD-YYYY</div>
+        <div class="filing-num">2</div>
+        <div class="filing-content">
+          <a class="filing-link" href="{{DOC_URL}}" target="_blank">ORDER</a> — Order_Text. Ordered by Judge_Name. (Copy mailed to pro se party) (Clerk_Initials).
+        </div>
+      </div>
+
+      <!-- ── Non-docketed entry: remark / clerk note (no doc number) ── -->
+      <div class="filing">
+        <div class="filing-date">MM-DD-YYYY</div>
+        <div class="filing-num"></div>
+        <div class="filing-content">
+          <span class="filing-bold">Remark — Public</span>: Clerk_Note_Text. (Clerk_Initials).
+        </div>
+      </div>
+
+      <!-- ── Non-docketed entry: fee payment ── -->
+      <div class="filing">
+        <div class="filing-date">MM-DD-YYYY</div>
+        <div class="filing-num"></div>
+        <div class="filing-content">
+          <span class="filing-bold">FILING FEE PAID</span> on behalf of Plaintiff_Name. Receipt number Receipt_Number, in the amount of $Fee_Amount. (Clerk_Initials).
+        </div>
+      </div>
+
+      <!-- ── Stricken entry (prefixed in title) ── -->
+      <div class="filing">
+        <div class="filing-date">MM-DD-YYYY</div>
+        <div class="filing-num">3</div>
+        <div class="filing-content">
+          <a class="filing-link" href="{{DOC_URL}}" target="_blank">*STRICKEN* MOTION TO DISMISS</a> by Attorney_Name on behalf of Defendant_Name. Modified on MM-DD-YYYY (Clerk_Initials).
+        </div>
+      </div>
+
+    </div><!-- /.filings.numbered -->
+
+    <!-- ════════════════════════════════════════════════════════
+         TABLE VARIANT C — 5-column numbered docket table.
+         State court format (e.g. California Superior Court):
+         Date | Docket # | Filing | Pages | doc-icon
+         Standalone (not collapsible). Uses doc-table class so
+         mobile stays compact (no card flip).
+         Pages column: use number, "NV" (no value), or "–".
+         Empty doc-icon cells are fine — leave <td class="doc-icon"></td>
+         for rows with no linked document.
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="section-label">Docket Entries — State Court</div>
+
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Filings &amp; Activity</h2>
+      </div>
+      <table class="docket-table doc-table col-5">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Docket #</th>
+            <th class="wrap">Filing</th>
+            <th>Pages</th>
+            <th class="doc-icon"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- Row with linked document -->
+          <tr>
+            <td>MM-DD-YYYY</td>
+            <td>1</td>
+            <td class="wrap">Complaint (Demand for Jury Trial) filed by Petitioner_Name</td>
+            <td>32</td>
+            <td class="doc-icon"><a href="{{DOC_URL}}" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td>
+          </tr>
+
+          <!-- Row with no linked document (empty icon cell) -->
+          <tr>
+            <td>MM-DD-YYYY</td>
+            <td>2</td>
+            <td class="wrap">Summons issued and filed by Petitioner_Name</td>
+            <td>1</td>
+            <td class="doc-icon"></td>
+          </tr>
+
+          <!-- Payment / clerk notation row (no doc, dash for pages) -->
+          <tr>
+            <td>MM-DD-YYYY</td>
+            <td>3</td>
+            <td class="wrap">Payment received by LEGALCONNECT for 194 — Complaint or other first paper in the amount of 435.00, transaction number XXXXXXXX and receipt number XXXXXXXX.</td>
+            <td>1</td>
+            <td class="doc-icon"></td>
+          </tr>
+
+          <!-- E-filing transaction row (NV for pages) -->
+          <tr>
+            <td>MM-DD-YYYY</td>
+            <td>4</td>
+            <td class="wrap">E-Filing transaction XXXXXXXX received on MM-DD-YYYY at HH:MM:SS AM/PM.</td>
+            <td>NV</td>
+            <td class="doc-icon"></td>
+          </tr>
+
+          <!-- Court scheduling row (no doc, dash for pages) -->
+          <tr>
+            <td>MM-DD-YYYY</td>
+            <td>5</td>
+            <td class="wrap">Case Management Conference Scheduled for MM-DD-YYYY at HH:MM AM in Dept_XX at Court_Name</td>
+            <td>2</td>
+            <td class="doc-icon"></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         TABLE VARIANT D — CSS Grid div-based document table.
+         Use when every row has a linked document (e.g. probate,
+         discovery, subpoena sets). Structure: div.docket-grid >
+         div.docket-row > div.docket-cell.
+         Columns: Date | Doc # | Description | icon (bi-file-pdf).
+         Mobile: date column hidden; collapses to 3-col grid
+         (doc# / description / icon). No card flip.
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="section-label">Documents — Grid Table</div>
+
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Documents</h2>
+      </div>
+      <div class="docket-grid">
+
+        <div class="docket-row header-row">
+          <div class="docket-cell">Date</div>
+          <div class="docket-cell doc-num-header">Doc #</div>
+          <div class="docket-cell">Description</div>
+          <div class="docket-cell icon-cell"></div>
+        </div>
+
+        <!-- Row: linked PDF document -->
+        <div class="docket-row">
+          <div class="docket-cell date">MM-DD-YYYY</div>
+          <div class="docket-cell doc-num">1</div>
+          <div class="docket-cell description">Document_Title</div>
+          <div class="docket-cell icon-cell"><a href="{{DOC_URL}}" target="_blank" title="View document"><i class="bi bi-file-pdf"></i></a></div>
+        </div>
+
+        <!-- Row: another linked PDF -->
+        <div class="docket-row">
+          <div class="docket-cell date">MM-DD-YYYY</div>
+          <div class="docket-cell doc-num">2</div>
+          <div class="docket-cell description">Document_Title</div>
+          <div class="docket-cell icon-cell"><a href="{{DOC_URL}}" target="_blank" title="View document"><i class="bi bi-file-pdf"></i></a></div>
+        </div>
+
+        <!-- Row: linked PDF, longer description -->
+        <div class="docket-row">
+          <div class="docket-cell date">MM-DD-YYYY</div>
+          <div class="docket-cell doc-num">3</div>
+          <div class="docket-cell description">Subject_Name Subpoena Duces Tecum</div>
+          <div class="docket-cell icon-cell"><a href="{{DOC_URL}}" target="_blank" title="View document"><i class="bi bi-file-pdf"></i></a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         TABLE VARIANT E — Criminal charges + events, stacked.
+         Justice court / misdemeanor format. Each defendant block
+         uses one or more of these sub-patterns:
+
+         SUB-PATTERN 1: Case sub-header block
+           docket-table-wrap with docket-table-header (titled
+           "Case N: Charge Type (Case#) — Status") + case-meta
+           inside the same wrap. No table inside this wrap.
+
+         SUB-PATTERN 2: Charges table (5-col, no doc-icon)
+           Citation # | Count | Violation/Description | DV | Charge Class
+           Omit DV column if not applicable. Add Disposition column
+           in place of DV+Class when case is resolved.
+
+         SUB-PATTERN 3: Events table (4-col)
+           Date | Time | Event | Result (drop Matter Type for brevity)
+           Second table inside the same wrap as Charges, separated
+           by style="margin-top: 8px;" on the table element.
+
+         SUB-PATTERN 4: docket-table-wrap with no header
+           Bare wrap — goes straight to the table, no header div.
+
+         SUB-PATTERN 5: Documents table (3-col with Case column,
+           or 2-col without). Some rows have a filing-link in the
+           Case column with empty Type/Date cells (linked report).
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="section-label">Justice Court — Criminal Cases</div>
+
+    <!-- SUB-PATTERN 1: Sub-case header block (case-meta inside docket-table-wrap) -->
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Case 1: Charge_Type (Case_Number) &mdash; Open</h2>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Case Number:</strong> Case_Number</div>
+        <div class="case-meta-item"><strong>Judge:</strong> Judge_Name</div>
+        <div class="case-meta-item"><strong>Filed:</strong> Month DD, YYYY</div>
+        <div class="case-meta-item"><strong>Case Status:</strong> Open</div>
+        <div class="case-meta-item"><strong>Next Court Date:</strong> Day, Month DD, YYYY at HH:MM AM</div>
+        <div class="case-meta-item"><strong>Source:</strong> <a class="filing-link" href="{{COURT_SEARCH_URL}}" target="_blank">Court Name Case Search</a></div>
+      </div>
+    </div>
+
+    <!-- SUB-PATTERN 2+3: Charges table + Events table stacked in one wrap -->
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Charges</h2>
+      </div>
+      <!-- Charges table: Citation # | Count | Violation | DV | Charge Class -->
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Citation #</th>
+            <th>Count</th>
+            <th>Violation/Description</th>
+            <th>DV</th>
+            <th>Charge Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Citation">Citation_Number</td>
+            <td data-label="Count">001: Filed</td>
+            <td class="wrap" data-label="Violation">Statute_Code: Violation Description</td>
+            <td data-label="DV">N</td>
+            <td data-label="Class">M2</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Events table: 4-col (no Matter Type), stacked below charges -->
+      <table class="docket-table" style="margin-top: 8px;">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Event</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Date">MM-DD-YYYY</td>
+            <td data-label="Time">HH:MM AM</td>
+            <td class="wrap" data-label="Event">Case Management Conference</td>
+            <td data-label="Result"></td>
+          </tr>
+          <tr>
+            <td data-label="Date">MM-DD-YYYY</td>
+            <td data-label="Time">HH:MM AM</td>
+            <td class="wrap" data-label="Event">Criminal Arraignment</td>
+            <td data-label="Result">Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUB-PATTERN 2 (Disposition variant): Charges table with Disposition column
+         Use when case is resolved — replaces DV + Charge Class with Disposition -->
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Case 1: Charge_Type (Case_Number) &mdash; Closed</h2>
+      </div>
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Citation #</th>
+            <th>Filed</th>
+            <th>Violation/Description</th>
+            <th>Class</th>
+            <th>Disposition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Citation">Citation_Number</td>
+            <td data-label="Filed">MM-DD-YYYY</td>
+            <td class="wrap" data-label="Violation">Statute_Code: Violation Description</td>
+            <td data-label="Class">M2</td>
+            <td class="wrap" data-label="Disposition">Dismissed on motion/request of prosecutor</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUB-PATTERN 4: docket-table-wrap with NO header div (bare wrap) -->
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Event</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Date">MM-DD-YYYY</td>
+            <td data-label="Time">HH:MM AM</td>
+            <td class="wrap" data-label="Event">Event Description</td>
+            <td data-label="Result">Result</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUB-PATTERN 5A: Documents table — 3-col with Case column
+         Row variant: link in Case column (incident report), Type + Date empty -->
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Documents</h2>
+      </div>
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Case</th>
+            <th>Document Type</th>
+            <th>File Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Case">Case_Number</td>
+            <td data-label="Type">CRM – Minute Entry</td>
+            <td data-label="Date">MM-DD-YYYY</td>
+          </tr>
+          <tr>
+            <td data-label="Case">Case_Number</td>
+            <td data-label="Type"><a class="filing-link" href="{{DOC_URL}}" target="_blank">Linked Document Title</a></td>
+            <td data-label="Date">MM-DD-YYYY</td>
+          </tr>
+          <!-- Linked report: link in Case column, Type + Date cells empty -->
+          <tr>
+            <td data-label="Case"><a class="filing-link" href="{{DOC_URL}}" target="_blank">Incident Report #Report_Number</a></td>
+            <td data-label="Type"></td>
+            <td data-label="Date">MM-DD-YYYY</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUB-PATTERN 5B: Documents table — 2-col (no Case column) -->
+    <div class="docket-table-wrap" data-aos="fade-up">
+      <div class="docket-table-header">
+        <h2>Documents</h2>
+      </div>
+      <table class="docket-table">
+        <thead>
+          <tr>
+            <th>Document Type</th>
+            <th>File Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Type">CRM – Minute Entry</td>
+            <td data-label="Date">MM-DD-YYYY</td>
+          </tr>
+          <tr>
+            <td data-label="Type"><a class="filing-link" href="{{DOC_URL}}" target="_blank">Linked Document Title</a></td>
+            <td data-label="Date">MM-DD-YYYY</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         LINK CARDS — two variants:
+         1. Google Drive folder (external, bi-folder2-open)
+         2. Internal page link (bi-signpost-split or any BI icon)
          ════════════════════════════════════════════════════════ -->
 
     <div class="section-label">Source Files</div>
 
+    <!-- VARIANT A: Google Drive folder -->
     <a class="drive-card" href="https://drive.google.com/drive/folders/{{GOOGLE_DRIVE_FOLDER_ID}}?usp=drive_link" target="_blank" data-aos="fade-up" style="text-decoration:none;">
       <div class="drive-icon">
         <i class="bi bi-folder2-open"></i>
@@ -889,6 +1797,18 @@
         <p class="drive-card-desc">All filings and documents for Case_Name.</p>
       </div>
       <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
+    </a>
+
+    <!-- VARIANT B: Internal page link (e.g. case timeline) -->
+    <a class="drive-card" href="../../case/{{SLUG}}/timeline" target="_blank" data-aos="fade-up" style="text-decoration:none;">
+      <div class="drive-icon">
+        <i class="bi bi-signpost-split"></i>
+      </div>
+      <div class="drive-card-body">
+        <h3 class="drive-card-title">Case Timeline</h3>
+        <p class="drive-card-desc">Card_Description</p>
+      </div>
+      <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
     </a>
 
   </section>

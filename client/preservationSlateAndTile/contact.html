@@ -1,12 +1,80 @@
+<!--
+  ============================================================
+  CONTACT PAGE — Preservation Slate and Tile
+  ============================================================
+  SECTIONS ON THIS PAGE:
+    1. Navigation (shared)
+    2. Page Hero
+    3. Contact Section — two-column layout:
+         Left: info sidebar (response time, service area, etc.)
+         Right: project request form
+    4. Footer (shared)
+
+  !! OPEN ITEMS — MUST BE RESOLVED BEFORE LAUNCH !!
+
+    1. SERVICE AREA (line ~82 in this file):
+       Currently shows: [Service Region]
+       Replace with the actual geographic service area. Example: "Texas, Louisiana, and Oklahoma"
+
+    2. CONTACT FORM — BACKEND NOT CONNECTED:
+       The form currently runs a demo-only submit handler. On submit it hides the form and shows a success message, but NO DATA IS SENT ANYWHERE.
+
+       Options for connecting the form:
+         A. Wix Forms (recommended for Wix): Replace this entire form with a Wix Form widget in the Wix editor. Wix handles submission, email notifications, and storage natively.
+         B. Formspree (works with static hosting): Add action="https://formspree.io/f/{YOUR_ID}" and method="POST" to the <form> tag. Create a free account at formspree.io.
+         C. Custom backend endpoint: Replace the // TODO comment in the submit handler (near the bottom of this file) with a fetch() POST call to your API endpoint.
+
+  FORM FIELDS:
+    - Full Name (required)
+    - Organization (optional)
+    - Project Address (required)
+    - Preservation/Heritage Status (dropdown, optional)
+    - Scope Summary (required, textarea)
+    - Email Address (required)
+    - Phone Number (optional)
+
+  FORM VALIDATION:
+    Client-side only. Required fields show an error message if left blank. No email format validation is currently implemented beyond the browser's built-in type="email" check.
+
+  FOR THE WIX DEVELOPER:
+    If using Wix Forms, the dropdown options for preservation status are listed in the <select id="status"> element. Use those exact options when configuring the Wix Form.
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact: Preservation Slate and Tile</title>
-  <meta name="description" content="Request a preservation-qualified consultation. We review each project to confirm it meets our preservation or heritage-grade criteria before scheduling.">
-  <!-- OG -->
-  <meta property="og:description" content="Request a preservation-qualified consultation. We review each project to confirm it meets our preservation or heritage-grade criteria before scheduling.">
+  <!-- Contact/form pages are indexable but shouldn't carry duplicate content weight -->
+  <meta name="robots" content="index, follow">
+  <!-- Primary -->
+  <title>Contact — Preservation Slate and Tile</title>
+  <meta name="description" content="Request a preservation-qualified project review. We review each project to confirm it meets our preservation or heritage-grade criteria before scheduling.">
+  <!-- TODO: Replace [YOUR-DOMAIN] with the live Wix domain before launch -->
+  <link rel="canonical" href="https://[YOUR-DOMAIN]/contact">
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Preservation Slate and Tile">
+  <meta property="og:title"       content="Contact — Preservation Slate and Tile">
+  <meta property="og:description" content="Request a preservation-qualified project review. We confirm each project meets preservation or heritage-grade criteria before scheduling.">
+  <meta property="og:url"         content="https://[YOUR-DOMAIN]/contact">
+  <meta property="og:image"       content="https://[YOUR-DOMAIN]/assets/roof-photos/vermont-blend-slate.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="Vermont blend slate field, natural random-pattern installation">
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Contact — Preservation Slate and Tile">
+  <meta name="twitter:description" content="Request a preservation-qualified project review. Historic and heritage-grade structures only.">
+  <meta name="twitter:image"       content="https://[YOUR-DOMAIN]/assets/roof-photos/vermont-blend-slate.jpg">
+  <meta name="twitter:image:alt"   content="Vermont blend slate field, natural random-pattern installation">
+  <!-- Theme color -->
+  <meta name="theme-color" content="#967244">
+  <!-- Favicon -->
+  <link rel="icon"             href="icons/favicon.ico"         sizes="any">
+  <link rel="icon"             href="icons/icon-192.png"        type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest"         href="icons/site.webmanifest">
   <!-- Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +88,16 @@
       background: var(--bg);
       border-left: 2px solid var(--copper);
     }
-    .form-success.visible { display: block; }
-    .form-success h3 { margin-bottom: 10px; }
-    .form-success p  { font-size: 0.95rem; color: var(--stone); }
+    .form-success.visible { 
+      display: block; 
+    }
+    .form-success h3 { 
+      margin-bottom: 10px; 
+    }
+    .form-success p  { 
+      font-size: 0.95rem; 
+      color: var(--stone); 
+    }
   </style>
 </head>
 <body>
@@ -79,6 +154,7 @@
               <div class="meta-entry" role="listitem">
                 <span class="meta-label">Service area</span>
                 <!-- PLACEHOLDER: Replace with actual service region -->
+                <!-- TODO: Replace [Service Region] with the actual service area before launch -->
                 <span class="meta-value">[Service Region]</span>
               </div>
               <div class="meta-entry" role="listitem">
@@ -97,10 +173,7 @@
             </div>
 
             <!--
-              BACKEND NOTE: Connect this form to your preferred handler.
-              Options: Formspree (action="https://formspree.io/f/{id}"),
-              Netlify Forms (add netlify attribute), or a custom POST endpoint.
-              For static GitHub Pages hosting, Formspree is recommended.
+              BACKEND NOTE: Connect this form to preferred handler. Options: Formspree (action="https://formspree.io/f/{id}"), Netlify Forms (add netlify attribute), or a custom POST endpoint. For static GitHub Pages hosting, Formspree is recommended.
             -->
             <form id="consultation-form" novalidate aria-labelledby="form-heading">
 

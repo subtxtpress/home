@@ -1,0 +1,241 @@
+<!--
+  ============================================================
+  HOME PAGE — Preservation Slate and Tile
+  ============================================================
+  SECTIONS ON THIS PAGE:
+    1. Navigation (shared across all pages)
+    2. Hero: full-viewport background photo + headline
+    3. Credentials Strip: membership/certification logos
+    4. Key Points: four scope-of-work items
+    5. Structures Strip: three-column photo feature
+    6. CTA Strip: call to action before footer
+    7. Footer (shared across all pages)
+  FOR WIX:
+    - Fonts used: Cormorant Garamond (headings), Source Sans 3 (body). Both are available in the Wix Font Manager.
+    - The hero background image is set inline on the <section> tag via a style attribute. In Wix, set this as the section background image.
+    - The credentials strip logos are in assets/association-memberships/. Upload to Wix Media Manager and link from there.
+    - The three structure photos are in assets/roof-photos/ and assets/. See img src attributes for filenames.
+    - The nav CTA link goes to contact.html — in Wix this becomes the Contact page URL.
+  OPEN ITEMS:
+    - Hero image: currently clay-shingle-2.png. Client can swap to a different primary image. In Wix: set in section background settings.
+    - assets/stock-1.png through stock-4.png are not referenced in any page — either unused alternates or leftover. Confirm with client before discarding.
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <!-- Primary -->
+  <title>Preservation Slate and Tile: Historic Slate &amp; Tile Roofing</title>
+  <meta name="description" content="Natural slate, clay tile, and period copper roof systems for historic and heritage-grade structures. Preservation-qualified materials, installation methods, and documentation.">
+  <!-- Replace [YOUR-DOMAIN] with the live Wix domain before launch -->
+  <link rel="canonical" href="https://[YOUR-DOMAIN]/">
+  <!-- Open Graph (Facebook, LinkedIn, iMessage, Slack previews) -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Preservation Slate and Tile">
+  <meta property="og:title"       content="Preservation Slate and Tile: Historic Slate &amp; Tile Roofing">
+  <meta property="og:description" content="Natural slate, clay tile, and period copper roof systems for historic and heritage-grade structures. Preservation-qualified materials, installation methods, and documentation.">
+  <meta property="og:url"         content="https://[YOUR-DOMAIN]/">
+  <!-- TODO: Create a 1200×630 px branded image and upload to Wix Media Manager. Replace the src below with the full Wix CDN URL for that image. Until then, the preview will fall back to any image the crawler finds. -->
+  <meta property="og:image"       content="https://[YOUR-DOMAIN]/assets/roof-photos/vermont-blend-slate.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="Vermont blend slate field, natural random-pattern installation">
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Preservation Slate and Tile: Historic Slate &amp; Tile Roofing">
+  <meta name="twitter:description" content="Natural slate, clay tile, and period copper roof systems for historic and heritage-grade structures.">
+  <meta name="twitter:image"       content="https://[YOUR-DOMAIN]/assets/roof-photos/vermont-blend-slate.jpg">
+  <meta name="twitter:image:alt"   content="Vermont blend slate field, natural random-pattern installation">
+  <!-- Theme color (mobile browser chrome) -->
+  <meta name="theme-color" content="#967244">
+  <!-- Favicon -->
+  <!-- TODO: Create icon-192.png and icon-512.png and place them in icons/ 
+             Upload a 512×512 PNG of the logo. -->
+  <link rel="icon"             href="icons/favicon.ico"         sizes="any">
+  <link rel="icon"             href="icons/icon-192.png"        type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest"         href="icons/site.webmanifest">
+  <!-- Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <!-- ==========================================
+       NAVIGATION
+       Appears on every page. In Wix, build once as a Header component and set it to "fixed to top" so it stays visible on scroll. The "Contact" link has class="nav-cta" which gives it the outlined button appearance.
+       ========================================== -->
+  <!-- NAVIGATION -->
+  <nav class="site-nav" role="navigation" aria-label="Main">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo" aria-label="Preservation Slate and Tile, Home">
+        <span class="name">Preservation Slate and Tile</span>
+        <span class="descriptor">Historic Slate &amp; Tile Roofing</span>
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="home.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ==========================================
+         HERO SECTION
+         Full-viewport background photo with dark overlay and headline text. To change the background image, update the style attribute on the <section> tag below (background-image: url(...)). In Wix: use a full-width section with background image set to cover, position center 30%.
+         The dark overlay gradient is handled by .hero::before in main.css.
+         ========================================== -->
+    <!-- HERO -->
+    <section class="hero" style="background-image: url('assets/roof-photos/clay-shingle-2.png'); background-position: center 30%;" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <span class="eyebrow">Slate · Tile · Copper · Heritage-Grade Restoration</span>
+        <h1 id="hero-heading">Historic Slate and Tile Roofing for Preservation-Grade Structures</h1>
+        <p class="hero-sub">We install and restore natural slate, clay tile, and period copper roof systems on historic and heritage-grade structures. All work follows preservation-qualified standards for materials, installation methods, and documentation.</p>
+        <a href="contact.html" class="btn btn-outline">Request a Project Review</a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CREDENTIALS STRIP
+         Four association/certification logos displayed in a horizontal row. Logos are in assets/association-memberships/
+         They render grayscale at 55% opacity and reveal full color on hover. To add a new logo: add another <img> tag in the .cr-logos div with the same structure.
+         ========================================== -->
+    <!-- CREDENTIALS STRIP -->
+    <section class="credentials-strip" aria-label="Industry memberships and certifications">
+      <div class="cr-inner">
+        <span class="eyebrow cr-label">Memberships &amp; Certifications</span>
+        <div class="cr-logos">
+          <img src="assets/association-memberships/membership-ludowici-fit.jpg" alt="Ludowici Factory Install Trained" loading="lazy">
+          <img src="assets/association-memberships/membership-tria.png" alt="Tile Roofing Industry Alliance" loading="lazy">
+          <img src="assets/association-memberships/membership-national-slate-association.png" alt="National Slate Association" loading="lazy">
+          <img src="assets/association-memberships/membership-srca-logo.jpg" alt="Slate Roofing Contractors Association" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         KEY POINTS (Scope of Work)
+         Four-item 2x2 grid. Each item has a numbered eyebrow label and a paragraph. To edit text: change the <p> content inside each <li class="kp-item">. To add a fifth item: add another <li> — the grid will flow to a third row.
+         ========================================== -->
+    <!-- KEY POINTS -->
+    <section class="key-points" aria-labelledby="kp-heading">
+      <div class="container">
+        <div class="kp-header">
+          <span class="eyebrow">Scope of Work</span>
+          <h2 id="kp-heading">What We Provide</h2>
+        </div>
+        <ul class="kp-grid" role="list">
+          <li class="kp-item">
+            <span class="eyebrow">01</span>
+            <p>Installation and restoration of natural slate, clay tile, and period copper roof systems. Replacement materials are sourced to match original quarry region, tile profile, and material thickness.</p>
+          </li>
+          <li class="kp-item">
+            <span class="eyebrow">02</span>
+            <p>Training and certification through Ludowici FIT, TRI Alliance, the National Slate Association, and the Slate Roofing Contractors Association in the specific systems we install.</p>
+          </li>
+          <li class="kp-item">
+            <span class="eyebrow">03</span>
+            <p>Copper flashings, valleys, gutters, chimney saddles, and ridgework fabricated on-site. Profiles and patina matched to existing historic metalwork wherever possible.</p>
+          </li>
+          <li class="kp-item">
+            <span class="eyebrow">04</span>
+            <p>Historic and heritage-grade structures only. General residential, commercial, and new construction are not accepted. Each project is reviewed before scheduling.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         STRUCTURES STRIP
+         Three-column photo feature. Each photo has a label that appears over a dark gradient at the bottom of the image.
+         Photos used (in assets/roof-photos/ and assets/):
+           - assets/stock-5.png
+           - assets/roof-photos/linda-smith.png
+           - assets/roof-photos/water-droplets.png
+         To swap a photo: change the src attribute. On tablet (≤720px), the third item hides to keep an even 2-column layout. On mobile it stacks to a single column.
+         ========================================== -->
+    <!-- STRUCTURES STRIP -->
+    <section class="structures-strip" aria-label="Types of structures served">
+      <div class="ss-grid">
+        <div class="ss-item">
+          <img src="assets/stock-5.png" alt="Beaux-Arts estate, landmark and institutional structures" loading="lazy">
+          <div class="ss-label">
+            <span class="eyebrow">Landmark &amp; Institutional</span>
+          </div>
+        </div>
+        <div class="ss-item">
+          <img src="assets/roof-photos/linda-smith.png" alt="Craftsman brick home with clay tile roof and copper gutters, heritage-grade residential" loading="lazy" style="object-position: center 25%;">
+          <div class="ss-label">
+            <span class="eyebrow">Heritage-Grade Residential</span>
+          </div>
+        </div>
+        <div class="ss-item">
+          <img src="assets/roof-photos/water-droplets.png" alt="Copper slate hook and dark slate field with rain beading, slate and copper detail" loading="lazy" style="object-position: center 40%;">
+          <div class="ss-label">
+            <span class="eyebrow">Slate and Copper Assemblies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CTA STRIP
+         Centered call to action on a cream background. Button links to contact.html. To change the button text or link, edit the <a class="btn btn-outline-dark"> tag.
+         ========================================== -->
+    <!-- CTA STRIP -->
+    <section class="cta-strip" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Every Project Reviewed Before Acceptance</h2>
+        <p>We confirm that each project qualifies under preservation or heritage-grade criteria before scheduling. Provide the building type, location, and required scope when you contact us.</p>
+        <a href="contact.html" class="btn btn-outline-dark">Request a Project Review</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       Dark background footer with logo wordmark on the left and nav links on the right. Bottom bar has a disclaimer and copyright year. Update the copyright year as needed. In Wix, build as a Footer component so it appears consistently on every page.
+       ========================================== -->
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-main">
+      <div class="footer-logo">
+        <span class="name">Preservation Slate and Tile</span>
+        <span class="descriptor">Historic Slate &amp; Tile Roofing</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>Historic and heritage-grade structures only. General residential and commercial construction not accepted.</p>
+      <span>&copy; 2026 Preservation Slate and Tile</span>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+</body>
+</html>

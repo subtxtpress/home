@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ellis County Property Tax Levy Discrepancy Timeline FY2021–FY2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: { DEFAULT: '#0c0f18', light: '#131826', mid: '#1a2133', border: '#252e44' },
+                        levy: { amber: '#a8936a', amberDark: '#8a7452', amberLight: '#d4bfa0' },
+                        budget: { blue: '#7095ac', blueDark: '#4f7490', blueLight: '#96b8cc' },
+                        gap: { red: '#c07a68', redDark: '#9a5a4a', redLight: '#d49e90' },
+                        txt: { primary: '#cfc8b8', secondary: '#7a88a0', muted: '#6d7e92' }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        :root {
+            --bg-primary:     #0c0f18;
+            --bg-card:        #131826;
+            --bg-card-hover:  #1a2133;
+            --border:         #252e44;
+            --amber:          #a8936a;
+            --blue:           #7095ac;
+            --red:            #c07a68;
+            --text-primary:   #cfc8b8;
+            --text-secondary: #7a88a0;
+            --text-muted:     #6d7e92;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        canvas {
+            max-width: 100%;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+            overflow-x: hidden;
+        }
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .timeline-spine {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+            opacity: 1;
+        }
+        @media (min-width: 768px) {
+            .timeline-spine { 
+                left: 32px; 
+            }
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -22px;
+            top: 16px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--border);
+            border: 2px solid var(--text-muted);
+            z-index: 2;
+        }
+        @media (min-width: 768px) {
+            .timeline-dot {
+                left: -30px;
+            }
+        }
+        .variance-bar-bg {
+            background: rgba(192, 122, 104, 0.15);
+            border-radius: 6px;
+            height: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .variance-bar-fill {
+            background: linear-gradient(90deg, var(--red), #d49e90);
+            height: 100%;
+            border-radius: 6px;
+            transition: width 1s ease;
+        }
+        .kpi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.1);
+        }
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            transition: color 0.2s, background 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.06);
+        }
+        .table-highlight {
+            background: rgba(192, 122, 104, 0.12) !important;
+        }
+        .table-row-selected {
+            outline: 2px solid var(--red);
+            outline-offset: -2px;
+        }
+        .callout-banner {
+            background: linear-gradient(135deg, rgba(192, 122, 104, 0.15), rgba(192, 122, 104, 0.05));
+            border-left: 3px solid var(--red);
+            border-radius: 0 8px 8px 0;
+            padding: 0.75rem 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.8125rem;
+            line-height: 1.5;
+        }
+        .narrative-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: border-color 0.2s;
+        }
+        .narrative-card:hover {
+            border-color: rgba(255,255,255,0.08);
+        }
+        .methodology-toggle {
+            cursor: pointer;
+            user-select: none;
+        }
+        @media print {
+            @page { margin: 0.75in; }
+
+            /* Force canvas and backgrounds to render */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Hide chrome */
+            nav, .sticky-nav, #mobile-menu, #mobile-menu-btn, #copy-btn,
+            .copy-btn-wrap, .no-print {
+                display: none !important;
+            }
+
+            /* Show desktop table, hide mobile cards */
+            .md\:hidden { display: none !important; }
+            .hidden.md\:block { display: block !important; }
+
+            /* Light background base */
+            html, body {
+                background: #fff !important;
+                color: #1a1a1a !important;
+            }
+
+            /* Section labels */
+            .text-txt-primary   { color: #1a1a1a !important; }
+            .text-txt-secondary { color: #444 !important; }
+            .text-txt-muted     { color: #666 !important; }
+
+            /* Data value colors — darkened for white bg */
+            .text-levy-amber, .text-levy-amberDark, .text-levy-amberLight { color: #6b5c38 !important; }
+            .text-budget-blue, .text-budget-blueDark, .text-budget-blueLight { color: #2e5c7a !important; }
+            .text-gap-red, .text-gap-redDark, .text-gap-redLight { color: #8a3e2e !important; }
+
+            /* Cards — light backgrounds */
+            .kpi-card, .narrative-card {
+                background: #f7f5f2 !important;
+                border-color: #d0c8bc !important;
+            }
+            .bg-charcoal-light, .bg-charcoal-mid {
+                background: #f0ede8 !important;
+            }
+            .border-charcoal-border { border-color: #ccc6ba !important; }
+
+            /* Timeline cards */
+            .timeline-card > div {
+                background: #f7f5f2 !important;
+                border-color: #d0c8bc !important;
+            }
+            .timeline-spine { background: #bbb !important; }
+            .timeline-dot {
+                background: #bbb !important;
+                border-color: #999 !important;
+            }
+
+            /* Variance bar */
+            .variance-bar-bg { background: #e8d8d4 !important; }
+            .variance-bar-fill { background: #8a3e2e !important; }
+
+            /* Callout banners */
+            .callout-banner {
+                background: #fdf0ed !important;
+                border-left-color: #8a3e2e !important;
+            }
+
+            /* Table — fit to page */
+            .overflow-x-auto { overflow: visible !important; width: 100% !important; }
+            #findings-table {
+                width: 100% !important;
+                table-layout: fixed !important;
+                font-size: 0.72rem !important;
+                break-inside: auto;
+            }
+            #findings-table tr { break-inside: avoid; }
+            #findings-table th,
+            #findings-table td {
+                white-space: normal !important;
+                word-break: break-word !important;
+                padding: 6px 8px !important;
+            }
+            /* Hide "Notable Context" column */
+            #findings-table th:nth-child(6),
+            #findings-table td:nth-child(6) { display: none !important; }
+            #findings-table thead tr { background: #eee !important; }
+            .table-highlight { background: #fdf0ed !important; }
+
+            /* Methodology — always expand in print */
+            #methodology-content, #methodology-content.hidden {
+                display: block !important;
+                max-height: none !important;
+            }
+            .methodology-toggle { cursor: default !important; }
+
+            /* Page breaks */
+            section { break-inside: auto; }
+            .timeline-card, .kpi-card { break-inside: avoid; }
+            .narrative-card { break-inside: auto; }
+            /* Force single-column for narrative grid regardless of viewport */
+            #analysis .grid { grid-template-columns: 1fr !important; }
+            .overflow-x-auto { break-inside: auto; }
+            h2, h3 { break-after: avoid; }
+
+            /* Charts */
+            canvas { display: block !important; max-width: 100% !important; }
+        }
+    </style>
+</head>
+<body data-id="0" class="bg-charcoal">
+    <app-icon data-id="1" hidden data-icon="search" data-palette="Red"></app-icon>
+    <app-disclaimer data-id="2" intent="tax"></app-disclaimer>
+
+    <!-- STICKY NAV -->
+    <nav data-id="3" class="sticky-nav fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur border-b border-charcoal-border" id="main-nav">
+        <div data-id="4" class="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between h-14">
+            <span data-id="5" class="text-sm font-semibold text-txt-primary tracking-tight truncate mr-4">Ellis County Tax Levy Analysis</span>
+            <div data-id="6" class="hidden md:flex items-center gap-1">
+                <a data-id="7" href="#overview" class="nav-link" data-nav="overview">Overview</a>
+                <a data-id="8" href="#chart" class="nav-link" data-nav="chart">Chart</a>
+                <a data-id="9" href="#timeline" class="nav-link" data-nav="timeline">Timeline</a>
+                <a data-id="10" href="#trend" class="nav-link" data-nav="trend">Trend</a>
+                <a data-id="11" href="#data-table" class="nav-link" data-nav="data-table">Data Table</a>
+                <a data-id="12" href="#analysis" class="nav-link" data-nav="analysis">Analysis</a>
+            </div>
+            <button data-id="13" id="mobile-menu-btn" class="md:hidden p-2 text-txt-secondary hover:text-txt-primary">
+                <i data-id="14" data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <nav data-id="15" id="mobile-menu" class="hidden fixed inset-0 bg-charcoal z-[60] flex flex-col p-6">
+        <div data-id="16" class="flex justify-between items-center mb-8">
+            <span data-id="17" class="text-lg font-semibold text-txt-primary">Navigation</span>
+            <button data-id="18" id="mobile-menu-close" class="p-2 text-txt-secondary hover:text-txt-primary">
+                <i data-id="19" data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div data-id="20" class="flex flex-col gap-2">
+            <a data-id="21" href="#overview" class="mobile-nav-link text-txt-secondary text-base py-3 px-4 rounded-xl hover:bg-charcoal-light hover:text-txt-primary">Overview</a>
+            <a data-id="22" href="#chart" class="mobile-nav-link text-txt-secondary text-base py-3 px-4 rounded-xl hover:bg-charcoal-light hover:text-txt-primary">Chart</a>
+            <a data-id="23" href="#timeline" class="mobile-nav-link text-txt-secondary text-base py-3 px-4 rounded-xl hover:bg-charcoal-light hover:text-txt-primary">Timeline</a>
+            <a data-id="24" href="#trend" class="mobile-nav-link text-txt-secondary text-base py-3 px-4 rounded-xl hover:bg-charcoal-light hover:text-txt-primary">Trend</a>
+            <a data-id="25" href="#data-table" class="mobile-nav-link text-txt-secondary text-base py-3 px-4 rounded-xl hover:bg-charcoal-light hover:text-txt-primary">Data Table</a>
+            <a data-id="26" href="#analysis" class="mobile-nav-link text-txt-secondary text-base py-3 px-4 rounded-xl hover:bg-charcoal-light hover:text-txt-primary">Analysis</a>
+        </div>
+    </nav>
+
+    <main data-id="27" class="pt-14">
+
+        <!-- ========== SECTION 1: HERO ========== -->
+        <section data-id="28" id="overview" class="px-4 md:px-6 pt-12 md:pt-20 pb-12 md:pb-16 max-w-6xl mx-auto">
+            <div data-id="29" class="max-w-4xl">
+                <p data-id="30" class="text-xs font-semibold uppercase tracking-[0.2em] text-txt-muted mb-4">Investigative Analysis · Ellis County, TX</p>
+                <h1 data-id="31" class="font-display text-2xl md:text-5xl lg:text-[3.5rem] font-bold text-txt-primary leading-[1.15] mb-6">The Hidden Levy:<br data-id="32" class="hidden md:block"> Ellis County's Five-Year<br data-id="33" class="hidden md:block"> Property Tax Gap</h1>
+                <p data-id="34" class="text-base md:text-lg text-txt-secondary leading-relaxed max-w-3xl mb-10">A cross-fund analysis of FY2021–FY2025 showing how the General Fund budget consistently understated total property tax collections, by a cumulative <span data-id="35" class="text-gap-red font-semibold">$88.67 million</span>.</p>
+            </div>
+
+            <!-- KPI CARDS -->
+            <div data-id="36" class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+                <div data-id="37" class="kpi-card">
+                    <p data-id="38" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">5-Year Actual Levy Total</p>
+                    <p data-id="39" class="text-2xl md:text-4xl font-bold text-levy-amber tabular-nums">$401.57<span data-id="40" class="text-base md:text-lg">M</span></p>
+                    <p data-id="41" class="text-xs text-txt-muted mt-1">All funds combined · AFR/ACFR</p>
+                </div>
+                <div data-id="42" class="kpi-card">
+                    <p data-id="43" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">5-Year GF Budget Total</p>
+                    <p data-id="44" class="text-2xl md:text-4xl font-bold text-budget-blue tabular-nums">$312.90<span data-id="45" class="text-base md:text-lg">M</span></p>
+                    <p data-id="46" class="text-xs text-txt-muted mt-1">General Fund only · Adopted budgets</p>
+                </div>
+                <div data-id="47" class="kpi-card" style="border-color: rgba(192,122,104,0.3);">
+                    <p data-id="48" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">Cumulative Cross-Fund Gap</p>
+                    <p data-id="49" class="text-2xl md:text-4xl font-bold text-gap-red tabular-nums">$88.67<span data-id="50" class="text-base md:text-lg">M</span></p>
+                    <p data-id="51" class="text-xs text-txt-muted mt-1">28.3% avg understatement per year</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 2: METHODOLOGY (collapsible) ========== -->
+        <section data-id="52" class="px-4 md:px-6 pb-10 max-w-6xl mx-auto">
+            <div data-id="53" class="bg-charcoal-light border border-charcoal-border rounded-2xl overflow-hidden">
+                <button data-id="54" id="methodology-toggle" class="methodology-toggle w-full flex items-center justify-between px-5 py-4 text-left">
+                    <span data-id="57" class="text-sm font-semibold text-txt-primary">Methodology & Data Sources</span>
+                    <i data-id="58" data-lucide="chevron-down" class="w-4 h-4 text-txt-muted transition-transform duration-300" id="methodology-chevron"></i>
+                </button>
+                <div data-id="59" id="methodology-content" class="hidden px-5 pb-5">
+                    <div data-id="60" class="border-t border-charcoal-border pt-4">
+                        <p data-id="61" class="text-sm text-txt-secondary leading-relaxed mb-3"><strong data-id="62" class="text-txt-primary">"Actual Total Levy"</strong> is sourced from Ellis County's Annual Financial Reports (AFR/ACFR), representing all funds: General Fund, Debt Service Fund, and any Special Purpose funds that levy property taxes. This figure reflects total property tax revenue assessed against Ellis County property owners.</p>
+                        <p data-id="63" class="text-sm text-txt-secondary leading-relaxed mb-3"><strong data-id="64" class="text-txt-primary">"GF Budgeted Levy"</strong> is the property tax levy figure adopted in the county's annual General Fund budget. This is the figure most commonly cited in public budget presentations and county communications.</p>
+                        <p data-id="65" class="text-sm text-txt-secondary leading-relaxed"><strong data-id="66" class="text-txt-primary">"Cross-Fund Variance"</strong> represents the difference: the property tax revenue collected across all funds that exceeds what was disclosed in the General Fund budget alone. This variance does not by itself indicate misappropriation; rather, it reflects a structural gap between public-facing budget communications and actual total collections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 3: DUAL-AXIS BAR CHART ========== -->
+        <section data-id="67" id="chart" class="px-4 md:px-6 pb-16 max-w-6xl mx-auto">
+            <div data-id="68" class="mb-6">
+                <p data-id="69" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">Comparative Analysis</p>
+                <h2 data-id="70" class="font-display text-xl md:text-3xl font-bold text-txt-primary">Levy by Year: Budgeted vs. Actual</h2>
+                <p data-id="71" class="text-sm text-txt-secondary mt-2">Grouped bars show the full levy (amber) against the GF budget (blue). The red line traces the cross-fund gap.</p>
+            </div>
+            <div data-id="72" class="bg-charcoal-light border border-charcoal-border rounded-2xl p-4 md:p-6 overflow-hidden">
+                <div data-id="73" class="relative h-64 md:h-96">
+                    <canvas data-id="74" id="levy-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 4: TIMELINE ========== -->
+        <section data-id="75" id="timeline" class="px-4 md:px-6 pb-16 max-w-6xl mx-auto">
+            <div data-id="76" class="mb-8">
+                <p data-id="77" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">Year-by-Year</p>
+                <h2 data-id="78" class="font-display text-xl md:text-3xl font-bold text-txt-primary">Chronological Timeline</h2>
+                <p data-id="79" class="text-sm text-txt-secondary mt-2">Each fiscal year's actual levy versus the General Fund budget, with the cross-fund gap highlighted.</p>
+            </div>
+            <div data-id="80" class="relative pl-10 md:pl-14">
+                <div data-id="81" class="timeline-spine"></div>
+
+                <!-- FY2021 -->
+                <div data-id="82" class="relative mb-8 timeline-card cursor-pointer" data-year="FY2021">
+                    <div data-id="83" class="timeline-dot"></div>
+                    <div data-id="84" class="bg-charcoal-light border border-charcoal-border rounded-2xl p-5 md:p-6 hover:border-charcoal-mid transition-colors">
+                        <div data-id="85" class="flex items-center gap-3 mb-4">
+                            <span data-id="86" class="inline-block bg-charcoal-mid border border-charcoal-border text-txt-primary text-xs font-bold px-3 py-1 rounded-full">FY 2021</span>
+                            <span data-id="87" class="text-xs text-txt-muted font-medium">Largest proportional gap</span>
+                        </div>
+                        <div data-id="88" class="grid grid-cols-2 gap-4 mb-4">
+                            <div data-id="89">
+                                <p data-id="90" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">Actual AFR/ACFR Levy</p>
+                                <p data-id="91" class="text-xl md:text-2xl font-bold text-levy-amber tabular-nums">$78.95M</p>
+                            </div>
+                            <div data-id="92">
+                                <p data-id="93" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">GF Budgeted Levy</p>
+                                <p data-id="94" class="text-xl md:text-2xl font-bold text-budget-blue tabular-nums">$51.10M</p>
+                            </div>
+                        </div>
+                        <div data-id="95">
+                            <div data-id="96" class="flex items-center justify-between mb-1">
+                                <span data-id="97" class="text-xs font-semibold text-gap-red">Cross-Fund Gap: $27.85M</span>
+                                <span data-id="98" class="text-xs font-semibold text-gap-red">54.5%</span>
+                            </div>
+                            <div data-id="99" class="variance-bar-bg">
+                                <div data-id="100" class="variance-bar-fill" style="width: 54.5%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FY2022 -->
+                <div data-id="101" class="relative mb-8 timeline-card cursor-pointer" data-year="FY2022">
+                    <div data-id="102" class="timeline-dot"></div>
+                    <div data-id="103" class="bg-charcoal-light border border-charcoal-border rounded-2xl p-5 md:p-6 hover:border-charcoal-mid transition-colors">
+                        <div data-id="104" class="flex items-center gap-3 mb-4">
+                            <span data-id="105" class="inline-block bg-charcoal-mid border border-charcoal-border text-txt-primary text-xs font-bold px-3 py-1 rounded-full">FY 2022</span>
+                            <span data-id="106" class="text-xs text-txt-muted font-medium">Gap narrows, actual levy dips</span>
+                        </div>
+                        <div data-id="107" class="grid grid-cols-2 gap-4 mb-4">
+                            <div data-id="108">
+                                <p data-id="109" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">Actual AFR/ACFR Levy</p>
+                                <p data-id="110" class="text-xl md:text-2xl font-bold text-levy-amber tabular-nums">$69.45M</p>
+                            </div>
+                            <div data-id="111">
+                                <p data-id="112" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">GF Budgeted Levy</p>
+                                <p data-id="113" class="text-xl md:text-2xl font-bold text-budget-blue tabular-nums">$55.00M</p>
+                            </div>
+                        </div>
+                        <div data-id="114">
+                            <div data-id="115" class="flex items-center justify-between mb-1">
+                                <span data-id="116" class="text-xs font-semibold text-gap-red">Cross-Fund Gap: $14.45M</span>
+                                <span data-id="117" class="text-xs font-semibold text-gap-red">26.3%</span>
+                            </div>
+                            <div data-id="118" class="variance-bar-bg">
+                                <div data-id="119" class="variance-bar-fill" style="width: 26.3%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FY2023 -->
+                <div data-id="120" class="relative mb-8 timeline-card cursor-pointer" data-year="FY2023">
+                    <div data-id="121" class="timeline-dot"></div>
+                    <div data-id="122" class="bg-charcoal-light border border-charcoal-border rounded-2xl p-5 md:p-6 hover:border-charcoal-mid transition-colors">
+                        <div data-id="123" class="flex items-center gap-3 mb-4">
+                            <span data-id="124" class="inline-block bg-charcoal-mid border border-charcoal-border text-txt-primary text-xs font-bold px-3 py-1 rounded-full">FY 2023</span>
+                            <span data-id="125" class="text-xs text-txt-muted font-medium">⚠ ~$8.3M Discrepancy Year</span>
+                        </div>
+                        <div data-id="126" class="grid grid-cols-2 gap-4 mb-4">
+                            <div data-id="127">
+                                <p data-id="128" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">Actual AFR/ACFR Levy</p>
+                                <p data-id="129" class="text-xl md:text-2xl font-bold text-levy-amber tabular-nums">$75.12M</p>
+                            </div>
+                            <div data-id="130">
+                                <p data-id="131" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">GF Budgeted Levy</p>
+                                <p data-id="132" class="text-xl md:text-2xl font-bold text-budget-blue tabular-nums">$66.30M</p>
+                            </div>
+                        </div>
+                        <div data-id="133">
+                            <div data-id="134" class="flex items-center justify-between mb-1">
+                                <span data-id="135" class="text-xs font-semibold text-gap-red">Cross-Fund Gap: $8.82M</span>
+                                <span data-id="136" class="text-xs font-semibold text-gap-red">13.3%</span>
+                            </div>
+                            <div data-id="137" class="variance-bar-bg">
+                                <div data-id="138" class="variance-bar-fill" style="width: 13.3%;"></div>
+                            </div>
+                        </div>
+                        <div data-id="139" class="callout-banner">
+                            <span data-id="140" class="font-semibold text-gap-red">⚠ ~$8.3M Discrepancy Year</span>
+                            <span data-id="141" class="text-txt-secondary"> Variance narrowed but still significant. The narrowing was later cited as evidence of "accuracy," obscuring the larger pattern.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FY2024 -->
+                <div data-id="142" class="relative mb-8 timeline-card cursor-pointer" data-year="FY2024">
+                    <div data-id="143" class="timeline-dot"></div>
+                    <div data-id="144" class="bg-charcoal-light border border-charcoal-border rounded-2xl p-5 md:p-6 hover:border-charcoal-mid transition-colors">
+                        <div data-id="145" class="flex items-center gap-3 mb-4">
+                            <span data-id="146" class="inline-block bg-charcoal-mid border border-charcoal-border text-txt-primary text-xs font-bold px-3 py-1 rounded-full">FY 2024</span>
+                            <span data-id="147" class="text-xs text-txt-muted font-medium">Gap widens again as levy climbs</span>
+                        </div>
+                        <div data-id="148" class="grid grid-cols-2 gap-4 mb-4">
+                            <div data-id="149">
+                                <p data-id="150" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">Actual AFR/ACFR Levy</p>
+                                <p data-id="151" class="text-xl md:text-2xl font-bold text-levy-amber tabular-nums">$85.72M</p>
+                            </div>
+                            <div data-id="152">
+                                <p data-id="153" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">GF Budgeted Levy</p>
+                                <p data-id="154" class="text-xl md:text-2xl font-bold text-budget-blue tabular-nums">$68.70M</p>
+                            </div>
+                        </div>
+                        <div data-id="155">
+                            <div data-id="156" class="flex items-center justify-between mb-1">
+                                <span data-id="157" class="text-xs font-semibold text-gap-red">Cross-Fund Gap: $17.02M</span>
+                                <span data-id="158" class="text-xs font-semibold text-gap-red">24.8%</span>
+                            </div>
+                            <div data-id="159" class="variance-bar-bg">
+                                <div data-id="160" class="variance-bar-fill" style="width: 24.8%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FY2025 -->
+                <div data-id="161" class="relative mb-8 timeline-card cursor-pointer" data-year="FY2025">
+                    <div data-id="162" class="timeline-dot"></div>
+                    <div data-id="163" class="bg-charcoal-light border border-charcoal-border rounded-2xl p-5 md:p-6 hover:border-charcoal-mid transition-colors">
+                        <div data-id="164" class="flex items-center gap-3 mb-4">
+                            <span data-id="165" class="inline-block bg-charcoal-mid border border-charcoal-border text-txt-primary text-xs font-bold px-3 py-1 rounded-full">FY 2025</span>
+                            <span data-id="166" class="text-xs text-txt-muted font-medium">⚠ ~$20M Discrepancy Year</span>
+                        </div>
+                        <div data-id="167" class="grid grid-cols-2 gap-4 mb-4">
+                            <div data-id="168">
+                                <p data-id="169" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">Actual AFR/ACFR Levy</p>
+                                <p data-id="170" class="text-xl md:text-2xl font-bold text-levy-amber tabular-nums">$92.33M</p>
+                            </div>
+                            <div data-id="171">
+                                <p data-id="172" class="text-xs font-semibold text-txt-muted uppercase tracking-[0.15em] mb-1">GF Budgeted Levy</p>
+                                <p data-id="173" class="text-xl md:text-2xl font-bold text-budget-blue tabular-nums">$71.80M</p>
+                            </div>
+                        </div>
+                        <div data-id="174">
+                            <div data-id="175" class="flex items-center justify-between mb-1">
+                                <span data-id="176" class="text-xs font-semibold text-gap-red">Cross-Fund Gap: $20.53M</span>
+                                <span data-id="177" class="text-xs font-semibold text-gap-red">28.6%</span>
+                            </div>
+                            <div data-id="178" class="variance-bar-bg">
+                                <div data-id="179" class="variance-bar-fill" style="width: 28.6%;"></div>
+                            </div>
+                        </div>
+                        <div data-id="180" class="callout-banner">
+                            <span data-id="181" class="font-semibold text-gap-red">⚠ ~$20M Discrepancy Year</span>
+                            <span data-id="182" class="text-txt-secondary"> Gap widened to its largest since FY2021 as multi-fund levies surged. GF budget showed $71.8M while total collections reached $92.33M.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 5: VARIANCE TREND LINE CHART ========== -->
+        <section data-id="183" id="trend" class="px-4 md:px-6 pb-16 max-w-6xl mx-auto">
+            <div data-id="184" class="mb-6">
+                <p data-id="185" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">Trend Analysis</p>
+                <h2 data-id="186" class="font-display text-xl md:text-3xl font-bold text-txt-primary">Cross-Fund Variance Over Time</h2>
+                <p data-id="187" class="text-sm text-txt-secondary mt-2">The gap dipped in FY2023 then resurged; the dashed line marks the five-year average ($17.73M).</p>
+            </div>
+            <div data-id="188" class="bg-charcoal-light border border-charcoal-border rounded-2xl p-4 md:p-6 overflow-hidden">
+                <div data-id="189" class="relative h-56 md:h-80">
+                    <canvas data-id="190" id="variance-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 6: KEY FINDINGS TABLE ========== -->
+        <section data-id="191" id="data-table" class="px-4 md:px-6 pb-16 max-w-6xl mx-auto">
+            <div data-id="192" class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+                <div data-id="193">
+                    <p data-id="194" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">Detailed Data</p>
+                    <h2 data-id="195" class="font-display text-xl md:text-3xl font-bold text-txt-primary">Key Findings</h2>
+                </div>
+                <div data-id="196" class="copy-btn-wrap no-print">
+                    <button data-id="197" id="copy-findings" class="flex items-center bg-charcoal-light hover:bg-charcoal-mid border border-charcoal-border text-txt-secondary hover:text-txt-primary text-sm font-medium px-4 py-2.5 rounded-xl transition-colors">
+                        <span data-id="199" id="copy-btn-text">Copy findings to clipboard</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Desktop table -->
+            <div class="hidden md:block overflow-x-auto rounded-2xl border border-charcoal-border">
+                <table data-id="201" class="w-full text-sm" id="findings-table">
+                    <thead data-id="202">
+                        <tr data-id="203" class="bg-charcoal-mid text-left">
+                            <th data-id="204" class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-txt-muted whitespace-nowrap">Fiscal Year</th>
+                            <th data-id="205" class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-levy-amber whitespace-nowrap">Actual Levy</th>
+                            <th data-id="206" class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-budget-blue whitespace-nowrap">GF Budget</th>
+                            <th data-id="207" class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gap-red whitespace-nowrap">Cross-Fund Gap</th>
+                            <th data-id="208" class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gap-red whitespace-nowrap">% Understatement</th>
+                            <th data-id="209" class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-txt-muted">Notable Context</th>
+                        </tr>
+                    </thead>
+                    <tbody data-id="210">
+                        <tr data-id="211" class="border-t border-charcoal-border hover:bg-charcoal-mid/50 transition-colors" id="row-FY2021" data-row-year="FY2021">
+                            <td data-id="212" class="px-4 py-3 font-semibold text-txt-primary whitespace-nowrap">FY2021</td>
+                            <td data-id="213" class="px-4 py-3 text-levy-amber tabular-nums">$78.95M</td>
+                            <td data-id="214" class="px-4 py-3 text-budget-blue tabular-nums">$51.10M</td>
+                            <td data-id="215" class="px-4 py-3 text-gap-red font-semibold tabular-nums">$27.85M</td>
+                            <td data-id="216" class="px-4 py-3 text-gap-red tabular-nums">54.5%</td>
+                            <td data-id="217" class="px-4 py-3 text-txt-secondary text-xs">Largest proportional gap in the period</td>
+                        </tr>
+                        <tr data-id="218" class="border-t border-charcoal-border bg-charcoal-light/30 hover:bg-charcoal-mid/50 transition-colors" id="row-FY2022" data-row-year="FY2022">
+                            <td data-id="219" class="px-4 py-3 font-semibold text-txt-primary whitespace-nowrap">FY2022</td>
+                            <td data-id="220" class="px-4 py-3 text-levy-amber tabular-nums">$69.45M</td>
+                            <td data-id="221" class="px-4 py-3 text-budget-blue tabular-nums">$55.00M</td>
+                            <td data-id="222" class="px-4 py-3 text-gap-red font-semibold tabular-nums">$14.45M</td>
+                            <td data-id="223" class="px-4 py-3 text-gap-red tabular-nums">26.3%</td>
+                            <td data-id="224" class="px-4 py-3 text-txt-secondary text-xs">Gap narrows, actual levy dips</td>
+                        </tr>
+                        <tr data-id="225" class="border-t border-charcoal-border table-highlight hover:bg-charcoal-mid/50 transition-colors" id="row-FY2023" data-row-year="FY2023">
+                            <td data-id="226" class="px-4 py-3 font-semibold text-txt-primary whitespace-nowrap">⚠ FY2023</td>
+                            <td data-id="227" class="px-4 py-3 text-levy-amber tabular-nums">$75.12M</td>
+                            <td data-id="228" class="px-4 py-3 text-budget-blue tabular-nums">$66.30M</td>
+                            <td data-id="229" class="px-4 py-3 text-gap-red font-semibold tabular-nums">$8.82M</td>
+                            <td data-id="230" class="px-4 py-3 text-gap-red tabular-nums">13.3%</td>
+                            <td data-id="231" class="px-4 py-3 text-txt-secondary text-xs">Narrowest gap, cited as "$8.3M discrepancy"</td>
+                        </tr>
+                        <tr data-id="232" class="border-t border-charcoal-border bg-charcoal-light/30 hover:bg-charcoal-mid/50 transition-colors" id="row-FY2024" data-row-year="FY2024">
+                            <td data-id="233" class="px-4 py-3 font-semibold text-txt-primary whitespace-nowrap">FY2024</td>
+                            <td data-id="234" class="px-4 py-3 text-levy-amber tabular-nums">$85.72M</td>
+                            <td data-id="235" class="px-4 py-3 text-budget-blue tabular-nums">$68.70M</td>
+                            <td data-id="236" class="px-4 py-3 text-gap-red font-semibold tabular-nums">$17.02M</td>
+                            <td data-id="237" class="px-4 py-3 text-gap-red tabular-nums">24.8%</td>
+                            <td data-id="238" class="px-4 py-3 text-txt-secondary text-xs">Gap widens again as levy climbs</td>
+                        </tr>
+                        <tr data-id="239" class="border-t border-charcoal-border table-highlight hover:bg-charcoal-mid/50 transition-colors" id="row-FY2025" data-row-year="FY2025">
+                            <td data-id="240" class="px-4 py-3 font-semibold text-txt-primary whitespace-nowrap">⚠ FY2025</td>
+                            <td data-id="241" class="px-4 py-3 text-levy-amber tabular-nums">$92.33M</td>
+                            <td data-id="242" class="px-4 py-3 text-budget-blue tabular-nums">$71.80M</td>
+                            <td data-id="243" class="px-4 py-3 text-gap-red font-semibold tabular-nums">$20.53M</td>
+                            <td data-id="244" class="px-4 py-3 text-gap-red tabular-nums">28.6%</td>
+                            <td data-id="245" class="px-4 py-3 text-txt-secondary text-xs">Largest dollar gap since FY2021, "$20M discrepancy"</td>
+                        </tr>
+                        <tr data-id="246" class="border-t-2 border-gap-red/40 bg-charcoal-mid font-bold" id="row-TOTAL">
+                            <td data-id="247" class="px-4 py-3 text-txt-primary whitespace-nowrap">TOTAL</td>
+                            <td data-id="248" class="px-4 py-3 text-levy-amber tabular-nums">$401.57M</td>
+                            <td data-id="249" class="px-4 py-3 text-budget-blue tabular-nums">$312.90M</td>
+                            <td data-id="250" class="px-4 py-3 text-gap-red tabular-nums">$88.67M</td>
+                            <td data-id="251" class="px-4 py-3 text-gap-red tabular-nums">28.3% avg</td>
+                            <td data-id="252" class="px-4 py-3 text-txt-secondary text-xs font-normal">Cumulative 5-year cross-fund gap</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile stacked cards -->
+            <div class="md:hidden flex flex-col gap-3">
+                <!-- FY2021 -->
+                <div class="bg-charcoal-light border border-charcoal-border rounded-2xl p-4">
+                    <div class="mb-3">
+                        <span class="font-bold text-txt-primary">FY2021</span>
+                        <p class="text-xs text-txt-muted mt-0.5">Largest proportional gap</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2 mb-2">
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Actual Levy</p>
+                            <p class="text-sm font-semibold text-levy-amber tabular-nums">$78.95M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">GF Budget</p>
+                            <p class="text-sm font-semibold text-budget-blue tabular-nums">$51.10M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Cross-Fund Gap</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">$27.85M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Understatement</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">54.5%</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FY2022 -->
+                <div class="bg-charcoal-light border border-charcoal-border rounded-2xl p-4">
+                    <div class="mb-3">
+                        <span class="font-bold text-txt-primary">FY2022</span>
+                        <p class="text-xs text-txt-muted mt-0.5">Gap narrows, actual levy dips</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Actual Levy</p>
+                            <p class="text-sm font-semibold text-levy-amber tabular-nums">$69.45M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">GF Budget</p>
+                            <p class="text-sm font-semibold text-budget-blue tabular-nums">$55.00M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Cross-Fund Gap</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">$14.45M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Understatement</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">26.3%</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FY2023 -->
+                <div class="bg-charcoal-light border border-charcoal-border rounded-2xl p-4" style="border-color: rgba(192,122,104,0.35);">
+                    <div class="mb-3">
+                        <span class="font-bold text-txt-primary">⚠ FY2023</span>
+                        <p class="text-xs text-txt-muted mt-0.5">Narrowest gap</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Actual Levy</p>
+                            <p class="text-sm font-semibold text-levy-amber tabular-nums">$75.12M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">GF Budget</p>
+                            <p class="text-sm font-semibold text-budget-blue tabular-nums">$66.30M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Cross-Fund Gap</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">$8.82M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Understatement</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">13.3%</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-txt-muted mt-2">Cited as "$8.3M discrepancy"</p>
+                </div>
+                <!-- FY2024 -->
+                <div class="bg-charcoal-light border border-charcoal-border rounded-2xl p-4">
+                    <div class="mb-3">
+                        <span class="font-bold text-txt-primary">FY2024</span>
+                        <p class="text-xs text-txt-muted mt-0.5">Gap widens again</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Actual Levy</p>
+                            <p class="text-sm font-semibold text-levy-amber tabular-nums">$85.72M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">GF Budget</p>
+                            <p class="text-sm font-semibold text-budget-blue tabular-nums">$68.70M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Cross-Fund Gap</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">$17.02M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Understatement</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">24.8%</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FY2025 -->
+                <div class="bg-charcoal-light border border-charcoal-border rounded-2xl p-4" style="border-color: rgba(192,122,104,0.35);">
+                    <div class="mb-3">
+                        <span class="font-bold text-txt-primary">⚠ FY2025</span>
+                        <p class="text-xs text-txt-muted mt-0.5">Largest dollar gap</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Actual Levy</p>
+                            <p class="text-sm font-semibold text-levy-amber tabular-nums">$92.33M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">GF Budget</p>
+                            <p class="text-sm font-semibold text-budget-blue tabular-nums">$71.80M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Cross-Fund Gap</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">$20.53M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Understatement</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">28.6%</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-txt-muted mt-2">"$20M discrepancy"</p>
+                </div>
+                <!-- Total -->
+                <div class="bg-charcoal-mid border-2 rounded-2xl p-4" style="border-color: rgba(192,122,104,0.4);">
+                    <div class="mb-3">
+                        <span class="font-bold text-txt-primary">5-Year Total</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Actual Levy</p>
+                            <p class="text-sm font-bold text-levy-amber tabular-nums">$401.57M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">GF Budget</p>
+                            <p class="text-sm font-bold text-budget-blue tabular-nums">$312.90M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Cumulative Gap</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">$88.67M</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-txt-muted uppercase tracking-wider mb-0.5">Avg Understatement</p>
+                            <p class="text-sm font-bold text-gap-red tabular-nums">28.3%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 7: NARRATIVE ANALYSIS ========== -->
+        <section data-id="253" id="analysis" class="px-4 md:px-6 pb-16 max-w-6xl mx-auto">
+            <div data-id="254" class="mb-8">
+                <p data-id="255" class="text-xs font-semibold uppercase tracking-[0.15em] text-txt-muted mb-2">In-Depth</p>
+                <h2 data-id="256" class="font-display text-xl md:text-3xl font-bold text-txt-primary">Understanding the Discrepancy</h2>
+            </div>
+
+            <div data-id="257" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Card A -->
+                <div data-id="258" class="narrative-card">
+                    <h3 data-id="261" class="text-base md:text-lg font-semibold text-txt-primary mb-4">The Mechanism</h3>
+                    <p data-id="262" class="text-sm text-txt-secondary leading-relaxed">Ellis County's annual General Fund budget captures only a portion of the total property tax levy. Additional funds, including Debt Service and Special Purpose funds, collect property taxes independently. When only the GF figure is reported publicly or cited in budget presentations, the total tax burden on property owners is systematically understated. Over five fiscal years, this gap totaled <span data-id="263" class="text-gap-red font-semibold">$88.67 million</span>, an average of <span data-id="264" class="text-gap-red font-semibold">$17.73 million per year</span> that was collected but not reflected in the headline budget figure.</p>
+                </div>
+
+                <!-- Card B -->
+                <div data-id="265" class="narrative-card" style="border-color: rgba(168,147,106,0.3);">
+                    <h3 data-id="268" class="text-base md:text-lg font-semibold text-txt-primary mb-4">The $8.3M "Discrepancy" <span data-id="269" class="text-xs font-normal text-txt-muted">(FY2023)</span></h3>
+                    <p data-id="270" class="text-sm text-txt-secondary leading-relaxed">In FY2023, the cross-fund variance narrowed to $8.82 million, the smallest gap in the review period. However, this narrowing did not indicate accuracy; it reflected a convergence between GF budget growth ($66.3M, up 20.6% from FY2022) and actual levy growth ($75.12M, up 8.2%). The $8.3M figure emerged as an investigative reference point: the amount by which total collections exceeded the GF budget even in the county's "best" year. This number has been cited as a <span data-id="271" class="text-levy-amber font-semibold">minimum floor of the discrepancy</span>.</p>
+                </div>
+
+                <!-- Card C -->
+                <div data-id="272" class="narrative-card" style="border-color: rgba(192,122,104,0.3);">
+                    <h3 data-id="275" class="text-base md:text-lg font-semibold text-txt-primary mb-4">The $20M "Discrepancy" <span data-id="276" class="text-xs font-normal text-txt-muted">(FY2025)</span></h3>
+                    <p data-id="277" class="text-sm text-txt-secondary leading-relaxed">By FY2025, the cross-fund gap had widened to <span data-id="278" class="text-gap-red font-semibold">$20.53 million</span>. With actual levy collections reaching $92.33M against a GF budget of $71.80M, the county collected 28.6% more in property taxes than the publicly adopted budget reflected. This $20M figure represents the most recent and largest absolute dollar discrepancy in the dataset, occurring as property valuations in Ellis County surged amid rapid residential and commercial development.</p>
+                </div>
+
+                <!-- Card D -->
+                <div data-id="279" class="narrative-card">
+                    <h3 data-id="282" class="text-base md:text-lg font-semibold text-txt-primary mb-4">Cumulative Impact</h3>
+                    <p data-id="283" class="text-sm text-txt-secondary leading-relaxed">Across all five fiscal years (FY2021–FY2025), Ellis County collected <span data-id="284" class="text-levy-amber font-semibold">$401.57 million</span> in actual property tax levy revenue. The General Fund budget, the figure most frequently cited in public documents and presentations, totaled only <span data-id="285" class="text-budget-blueLight font-semibold">$312.90 million</span> over the same period. The <span data-id="286" class="text-gap-red font-semibold">$88.67 million difference</span>, nearly one year's worth of total levy revenue, represents the cumulative scale of the cross-fund reporting gap. Property owners, taxpayers, and oversight bodies relying solely on GF budget figures would have had no visibility into <span data-id="287" class="text-gap-red font-semibold">22%</span> of all property tax collections during this period.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== SECTION 8: FOOTER ========== -->
+    <footer data-id="288" class="border-t border-charcoal-border px-4 md:px-6 py-10 max-w-6xl mx-auto">
+        <div data-id="289" class="mb-6">
+            <p data-id="290" class="text-xs text-txt-secondary leading-relaxed mb-3"><strong data-id="291" class="text-txt-muted">Data Sources:</strong> Ellis County Annual Financial Reports (AFR/ACFR), FY2021–FY2025; Ellis County Adopted General Fund Budgets, FY2021–FY2025. Analysis prepared for investigative reporting purposes. All figures in USD millions.</p>
+            <p data-id="292" class="text-xs text-txt-muted leading-relaxed italic">Cross-fund variance does not by itself indicate malfeasance; it reflects structural separation of county fund accounting. The significance lies in whether the total levy burden was adequately disclosed in public-facing budget documents.</p>
+        </div>
+    </footer>
+
+    <script>
+    // === LUCIDE ICONS ===
+    if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+        lucide.createIcons();
+    }
+
+    // === MOBILE MENU ===
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    if (mobileMenuBtn && mobileMenu && mobileMenuClose) {
+        mobileMenuBtn.addEventListener('click', function() { mobileMenu.classList.remove('hidden'); });
+        mobileMenuClose.addEventListener('click', function() { mobileMenu.classList.add('hidden'); });
+        document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+            link.addEventListener('click', function() { mobileMenu.classList.add('hidden'); });
+        });
+    }
+
+    // === METHODOLOGY TOGGLE ===
+    const methodologyToggle = document.getElementById('methodology-toggle');
+    const methodologyContent = document.getElementById('methodology-content');
+    const methodologyChevron = document.getElementById('methodology-chevron');
+    if (methodologyToggle && methodologyContent) {
+        methodologyToggle.addEventListener('click', function() {
+            const isHidden = methodologyContent.classList.contains('hidden');
+            methodologyContent.classList.toggle('hidden');
+            if (methodologyChevron) {
+                methodologyChevron.style.transform = isHidden ? 'rotate(180deg)' : '';
+            }
+        });
+    }
+
+    // === CHART 1: DUAL-AXIS BAR CHART ===
+    const years = ['FY2021', 'FY2022', 'FY2023', 'FY2024', 'FY2025'];
+    const actualLevy = [78.95, 69.45, 75.12, 85.72, 92.33];
+    const gfBudget = [51.10, 55.00, 66.30, 68.70, 71.80];
+    const variance = [27.85, 14.45, 8.82, 17.02, 20.53];
+
+    const levyCtx = document.getElementById('levy-chart');
+    if (levyCtx) {
+        new Chart(levyCtx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Actual Total Levy ($M)',
+                        data: actualLevy,
+                        backgroundColor: '#a8936a',
+                        borderColor: '#a8936a',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        order: 2,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'GF Budgeted Levy ($M)',
+                        data: gfBudget,
+                        backgroundColor: '#7095ac',
+                        borderColor: '#7095ac',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        order: 3,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Cross-Fund Gap ($M)',
+                        data: variance,
+                        type: 'line',
+                        borderColor: '#c07a68',
+                        backgroundColor: 'rgba(192, 122, 104, 0.08)',
+                        pointBackgroundColor: '#c07a68',
+                        pointBorderColor: '#0c0f18',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.3,
+                        order: 1,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#7a88a0',
+                            font: { family: 'Inter', size: 11 },
+                            padding: 20,
+                            usePointStyle: true,
+                            pointStyleWidth: 12
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#131826',
+                        titleColor: '#cfc8b8',
+                        bodyColor: '#7a88a0',
+                        borderColor: '#252e44',
+                        borderWidth: 1,
+                        cornerRadius: 12,
+                        padding: 14,
+                        titleFont: { family: 'Inter', weight: '600', size: 13 },
+                        bodyFont: { family: 'Inter', size: 12 },
+                        callbacks: {
+                            label: function(ctx) {
+                                return ' ' + ctx.dataset.label + ': $' + ctx.parsed.y.toFixed(2) + 'M';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#7a88a0', font: { family: 'Inter', size: 12, weight: '600' } },
+                        grid: { color: 'rgba(46,53,72,0.5)' }
+                    },
+                    y: {
+                        position: 'left',
+                        title: { display: window.innerWidth >= 768, text: 'Levy Amount ($M)', color: '#7a88a0', font: { family: 'Inter', size: 11 } },
+                        ticks: {
+                            color: '#7a88a0',
+                            font: { family: 'Inter', size: 11 },
+                            callback: function(v) { return '$' + v + 'M'; }
+                        },
+                        grid: { color: 'rgba(46,53,72,0.3)' },
+                        min: 0,
+                        max: 100
+                    },
+                    y1: {
+                        position: 'right',
+                        title: { display: window.innerWidth >= 768, text: 'Cross-Fund Gap ($M)', color: '#c07a68', font: { family: 'Inter', size: 11 } },
+                        ticks: {
+                            color: '#c07a68',
+                            font: { family: 'Inter', size: 11 },
+                            callback: function(v) { return '$' + v + 'M'; }
+                        },
+                        grid: { drawOnChartArea: false },
+                        min: 0,
+                        max: 35
+                    }
+                }
+            }
+        });
+    }
+
+    // === CHART 2: VARIANCE TREND LINE CHART ===
+    const varianceCtx = document.getElementById('variance-chart');
+    if (varianceCtx) {
+        const annotationPlugin = window['chartjs-plugin-annotation'] || (Chart && Chart.registry && Chart.registry.getPlugin('annotation'));
+        const pluginsConfig = {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: '#131826',
+                titleColor: '#cfc8b8',
+                bodyColor: '#7a88a0',
+                borderColor: '#252e44',
+                borderWidth: 1,
+                cornerRadius: 12,
+                padding: 14,
+                titleFont: { family: 'Inter', weight: '600', size: 13 },
+                bodyFont: { family: 'Inter', size: 12 },
+                callbacks: {
+                    label: function(ctx) { return 'Variance: $' + ctx.parsed.y.toFixed(2) + 'M'; }
+                }
+            }
+        };
+        // Add annotations if plugin is available
+        if (typeof ChartjsPluginAnnotation !== 'undefined' || (Chart.registry && Chart.registry.plugins.get('annotation'))) {
+            pluginsConfig.annotation = {
+                annotations: {
+                    avgLine: {
+                        type: 'line',
+                        yMin: 17.73,
+                        yMax: 17.73,
+                        borderColor: 'rgba(241, 241, 244, 0.35)',
+                        borderWidth: 2,
+                        borderDash: [8, 5],
+                        label: {
+                            display: true,
+                            content: '5-Year Avg: $17.73M',
+                            position: 'end',
+                            backgroundColor: 'rgba(19,24,38,0.9)',
+                            color: '#7a88a0',
+                            font: { family: 'Inter', size: 10, weight: '500' },
+                            padding: { top: 4, bottom: 4, left: 8, right: 8 },
+                            borderRadius: 6
+                        }
+                    },
+                    fy2023Label: {
+                        type: 'label',
+                        xValue: 2,
+                        yValue: 5.5,
+                        content: ['Narrowing cited', 'as "accuracy"'],
+                        color: '#a8936a',
+                        font: { family: 'Inter', size: 9, weight: '600' },
+                        backgroundColor: 'rgba(19,24,38,0.85)',
+                        padding: { top: 4, bottom: 4, left: 6, right: 6 },
+                        borderRadius: 6
+                    },
+                    fy2025Label: {
+                        type: 'label',
+                        xValue: 4,
+                        yValue: 24,
+                        content: ['Gap resurges', 'to $20.53M'],
+                        color: '#c07a68',
+                        font: { family: 'Inter', size: 9, weight: '600' },
+                        backgroundColor: 'rgba(19,24,38,0.85)',
+                        padding: { top: 4, bottom: 4, left: 6, right: 6 },
+                        borderRadius: 6
+                    }
+                }
+            };
+        }
+        new Chart(varianceCtx.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Cross-Fund Variance ($M)',
+                    data: variance,
+                    borderColor: '#c07a68',
+                    backgroundColor: function(ctx) {
+                        const chart = ctx.chart;
+                        const { ctx: c, chartArea } = chart;
+                        if (!chartArea) return 'rgba(192,122,104,0.1)';
+                        const gradient = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+                        gradient.addColorStop(0, 'rgba(192, 122, 104, 0.25)');
+                        gradient.addColorStop(1, 'rgba(192, 122, 104, 0.02)');
+                        return gradient;
+                    },
+                    fill: true,
+                    tension: 0.35,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#c07a68',
+                    pointBorderColor: '#0c0f18',
+                    pointBorderWidth: 3,
+                    pointRadius: 6,
+                    pointHoverRadius: 9
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: pluginsConfig,
+                scales: {
+                    x: {
+                        ticks: { color: '#7a88a0', font: { family: 'Inter', size: 12, weight: '600' } },
+                        grid: { color: 'rgba(46,53,72,0.3)' }
+                    },
+                    y: {
+                        title: { display: true, text: 'Variance ($M)', color: '#7a88a0', font: { family: 'Inter', size: 11 } },
+                        ticks: {
+                            color: '#7a88a0',
+                            font: { family: 'Inter', size: 11 },
+                            callback: function(v) { return '$' + v + 'M'; }
+                        },
+                        grid: { color: 'rgba(46,53,72,0.3)' },
+                        min: 0,
+                        max: 32
+                    }
+                }
+            }
+        });
+    }
+
+    // === TIMELINE CARD CLICK → HIGHLIGHT TABLE ROW & SCROLL ===
+    document.querySelectorAll('.timeline-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+            const year = card.getAttribute('data-year');
+            // Remove all selected states
+            document.querySelectorAll('[data-row-year]').forEach(function(row) {
+                row.classList.remove('table-row-selected');
+            });
+            // Add selected state to matching row
+            const targetRow = document.getElementById('row-' + year);
+            if (targetRow) {
+                targetRow.classList.add('table-row-selected');
+                targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    });
+
+    // === COPY FINDINGS ===
+    const copyBtn = document.getElementById('copy-findings');
+    const copyBtnText = document.getElementById('copy-btn-text');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const text = [
+                'ELLIS COUNTY PROPERTY TAX LEVY DISCREPANCY: KEY FINDINGS (FY2021–FY2025)',
+                '═══════════════════════════════════════════════════════════════════════════',
+                '',
+                'FY2021: Actual Levy $78.95M | GF Budget $51.10M | Gap $27.85M (54.5%) - Largest proportional gap',
+                'FY2022: Actual Levy $69.45M | GF Budget $55.00M | Gap $14.45M (26.3%) - Gap narrows, actual levy dips',
+                'FY2023: Actual Levy $75.12M | GF Budget $66.30M | Gap $8.82M (13.3%) ⚠ Narrowest gap, "$8.3M discrepancy"',
+                'FY2024: Actual Levy $85.72M | GF Budget $68.70M | Gap $17.02M (24.8%) - Gap widens again',
+                'FY2025: Actual Levy $92.33M | GF Budget $71.80M | Gap $20.53M (28.6%) ⚠ Largest dollar gap since FY2021',
+                '',
+                'TOTALS: Actual $401.57M | GF Budget $312.90M | Cumulative Gap $88.67M (28.3% avg)',
+                '',
+                'Sources: Ellis County AFR/ACFR and Adopted GF Budgets, FY2021–FY2025.'
+            ].join('\n');
+            navigator.clipboard.writeText(text).then(function() {
+                if (copyBtnText) {
+                    copyBtnText.textContent = 'Copied!';
+                    setTimeout(function() { copyBtnText.textContent = 'Copy findings to clipboard'; }, 2500);
+                }
+            }).catch(function() {
+                if (copyBtnText) copyBtnText.textContent = 'Copy failed. Try selecting manually.';
+            });
+        });
+    }
+
+    // === ACTIVE NAV TRACKING ===
+    const sections = ['overview', 'chart', 'timeline', 'trend', 'data-table', 'analysis'];
+    const navLinks = document.querySelectorAll('[data-nav]');
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(function(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= 100) current = id;
+            }
+        });
+        navLinks.forEach(function(link) {
+            if (link.getAttribute('data-nav') === current) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+    </script>
+</body>
+</html>
