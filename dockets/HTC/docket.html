@@ -29,13 +29,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
   <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
   <link rel="manifest" href="../../icons/site.webmanifest">
-
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Styles -->
   <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
-
   <style>
     *, *::before, *::after { 
       box-sizing: border-box; 
@@ -43,26 +43,26 @@
       padding: 0; 
     }
     :root {
-      --peach:   #E8956A;
-      --cream:   #F4EDE3;
-      --sand:    #DDD0BC;
-      --plum:    #3E2436;
-      --carmine: #7A5063;
-      --ink:     #241620;
+      --peach:            #E8956A;
+      --cream:            #F4EDE3;
+      --sand:             #DDD0BC;
+      --plum:             #3E2436;
+      --carmine:          #7A5063;
+      --ink:              #241620;
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
       --surface-elevated: #EDE5D8;
-      --text-heading: #241620;
-      --text-body:    #44373C;
-      --text-label:   #7A5063;
-      --text-muted:   rgba(68, 55, 60, 0.45);
-      --accent:        #E8956A;
-      --accent-border: rgba(232, 149, 106, 0.40);
-      --border-light:  rgba(221, 208, 188, 0.55);
-      --border-mid:    rgba(180, 140, 100, 0.22);
-      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
-      --status-open:   #2E7D32;
-      --status-closed: #B71C1C;
+      --text-heading:     #241620;
+      --text-body:        #44373C;
+      --text-label:       #7A5063;
+      --text-muted:       rgba(68, 55, 60, 0.45);
+      --accent:           #E8956A;
+      --accent-border:    rgba(232, 149, 106, 0.40);
+      --border-light:     rgba(221, 208, 188, 0.55);
+      --border-mid:       rgba(180, 140, 100, 0.22);
+      --grad-neutral:     linear-gradient(to right, #DDD0BC, #E8956A);
+      --status-open:      #2E7D32;
+      --status-closed:    #B71C1C;
     }
     html { 
       scroll-behavior: smooth; 
@@ -107,7 +107,8 @@
     .site-nav.scrolled {
       padding: 14px 5vw;
       background: rgba(244, 237, 227, 0.96);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px); 
+      -webkit-backdrop-filter: blur(12px);
       border-bottom-color: var(--border-light);
       box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
     }
@@ -176,7 +177,8 @@
     }
     .masthead-img {
       position: absolute; 
-      inset: 0; width: 100%; 
+      inset: 0; 
+      width: 100%; 
       height: 100%;
       object-fit: cover; 
       object-position: center 52%;
@@ -195,7 +197,8 @@
     }
     .masthead-kicker {
       font-family: 'IBM Plex Mono', monospace; 
-      font-size: 11px; font-weight: 500;
+      font-size: 11px; 
+      font-weight: 500;
       letter-spacing: 0.22em; 
       text-transform: uppercase; 
       color: var(--peach);
@@ -330,15 +333,16 @@
     .docket-table td {
       white-space: nowrap;
     }
-
     .docket-table td.wrap {
       white-space: normal;
       word-break: break-word;
     }
     .docket-table tbody tr:last-child td { 
-      border-bottom: none; }
+      border-bottom: none; 
+    }
     .docket-table tbody tr:hover { 
-      background: rgba(232, 149, 106, 0.04); }
+      background: rgba(232, 149, 106, 0.04); 
+    }
     .docket-table .doc-icon {
       color: var(--accent);
       font-size: 14px;
@@ -422,6 +426,39 @@
       text-align: left;
       margin: 0;
     }
+    .note-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .note-card-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .note-card-body {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+    .note-card-body p {
+      margin-bottom: 8px;
+    }
+    .note-card-body a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .note-card-body a:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
     .filing {
       display: flex;
       gap: 24px;
@@ -501,7 +538,8 @@
       align-items: center; 
       gap: 6px;
       font-family: 'IBM Plex Mono', monospace; 
-      font-size: 10px; font-weight: 500;
+      font-size: 10px; 
+      font-weight: 500;
       letter-spacing: 0.14em; 
       text-transform: uppercase; 
       color: var(--accent);
@@ -560,88 +598,132 @@
         padding: 10px 12px; 
       }
     }
-
     @media (max-width: 720px) {
-      .nav-toggle { 
-        display: block; 
+      .nav-toggle {
+        display: block;
       }
-      .site-nav, .site-nav.scrolled { 
-        padding: 12px 16px; 
+      .site-nav,
+      .site-nav.scrolled {
+        padding: 12px 16px;
       }
       .nav-links {
-        display: none; 
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
         right: 0;
-        flex-direction: column; 
+        flex-direction: column;
         background: var(--surface-page);
         border-bottom: 1px solid var(--border-light);
-        padding: 12px 20px 16px; 
+        padding: 12px 20px 16px;
         gap: 0;
         box-shadow: 0 4px 16px rgba(36,22,32,0.08);
       }
-      .nav-links.open { 
-        display: flex; 
+      .nav-links.open {
+        display: flex;
       }
-      .nav-links li { 
-        padding: 8px 0; 
-        border-bottom: 1px solid var(--border-mid); 
+      .nav-links li {
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border-mid);
       }
-      .nav-links li:last-child { 
-        border-bottom: none; 
+      .nav-links li:last-child {
+        border-bottom: none;
       }
-      .nav-links a { 
-        font-size: 10px !important; 
-        letter-spacing: 0.12em !important; 
-        color: var(--text-label) !important; 
+      .nav-links a {
+        font-size: 10px !important;
+        letter-spacing: 0.12em !important;
+        color: var(--text-label) !important;
       }
-      .nav-links a.active { 
-        color: var(--accent) !important; 
+      .nav-links a.active {
+        color: var(--accent) !important;
       }
-      .nav-links a:hover { 
-        color: var(--ink) !important; 
+      .nav-links a:hover {
+        color: var(--ink) !important;
       }
-      .masthead-text { 
-        left: 20px; 
-        bottom: 52px; 
+      .masthead-text {
+        left: 20px;
+        bottom: 52px;
       }
-      .content-section { 
-        padding: 32px 16px 56px; 
+      .content-section {
+        padding: 32px 16px 56px;
       }
-      .case-title-bar { 
-        padding: 14px 20px; 
-        flex-wrap: wrap; 
+      .case-title-bar {
+        padding: 14px 20px;
+        flex-wrap: wrap;
       }
-      .case-meta { 
-        padding: 18px 20px; 
+      .case-meta {
+        padding: 18px 20px;
       }
-      .case-meta-item { 
-        font-size: 12px; 
+      .case-meta-item {
+        font-size: 12px;
       }
-      .docket-table-wrap {  
-
+      .filings-header {
+        padding: 15px 20px;
       }
-      .docket-table-header { 
-        padding: 14px 20px; 
+      .filing {
+        padding: 14px 20px;
+        font-size: 13px;
+        gap: 16px;
       }
-      .docket-table { 
-        font-size: 10px; 
+      .filing-date {
+        font-size: 11px;
+        min-width: 65px;
       }
-      .docket-table th { 
-        padding: 8px 8px; 
-        font-size: 8px; 
-        letter-spacing: 0.08em; 
+      .filing-note {
+        padding: 12px 16px;
+        font-size: 12px;
       }
-      .docket-table td { 
-        padding: 8px 8px; 
+      .section-label {
+        padding: 10px 13px;
       }
-      .drive-card { 
-        padding: 20px; 
+      .docket-table-header {
+        padding: 15px 15px;
       }
-      .site-footer { 
-        padding: 24px 20px; 
+      .docket-table.doc-table {
+        font-size: 10px;
       }
+      .docket-table.doc-table th {
+        padding: 8px 8px 8px 16px;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+      }
+      .docket-table.doc-table td {
+        padding: 8px 8px 8px 16px;
+      }
+      .drive-card {
+        padding: 14px;
+        gap: 12px;
+        flex-direction: row !important;
+        align-items: center !important;
+      }
+      .drive-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      .drive-card-body {
+        flex: 1;
+      }
+      .drive-card-title {
+        font-size: 0.9rem;
+        margin-bottom: 0px;
+      }
+      .drive-card-desc {
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      .drive-card-cta {
+        font-size: 8px;
+      }
+      .site-footer {
+        padding: 24px 20px;
+      }
+    }
+    .list-of-things {
+      display: block;
+      list-style-type: none;
+      margin-left: 3%;
     }
   </style>
 </head>
@@ -670,21 +752,22 @@
   <section class="content-section">
 
     <!-- ════════════════════════════════════════════════════════
-         CASE: Lauren Matthias and Grayson Yohr v. Reality
+         NOTE: Case names and redactions
          ════════════════════════════════════════════════════════ -->
 
-    <div class="case-block" data-aos="fade-up">
-      <div class="case-title-bar">
-        <h2>Lauren Matthias v. Reality</h2>
-        <span class="status-badge closed">Closed</span>
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-item"><strong>Case No.:</strong> 250404055</div>
-        <div class="case-meta-item"><strong>Judge:</strong> Kasey L. Wright</div>
-        <div class="case-meta-item"><strong>Court:</strong> Fourth District Court, Utah County</div>
-        <div class="case-meta-item"><strong>Source:</strong> <a class="filing-link" href="https://drive.google.com/file/d/1JGH8WOAIBNC7BEZDmpdY5KKh_t_nzULG/view?usp=drive_link" target="_blank">XChange Docket Sheet</a></div>
-      </div>
-    </div>
+    <div class="note-card" data-aos="fade-up">
+      <h3 class="note-card-title">Items are grouped in three sections:</h3>
+      <div class="note-card-body">
+        <p style="padding-top:1%;">
+          <ul class="list-of-things">
+            <li><strong>01 –</strong> Prior to the Civil Suit (April 2022)</li>
+            <li><strong>02 –</strong> The Civil Suit Docket (August 2025)</li>
+            <li><strong>03 –</strong> After the Civil Suit (October 2026)</li>
+          </ul>
+        </p> 
+        <p style="padding-top:2%;"><strong>Expand the sections and utilize Control+F for quick searching this page</strong> ("Bobbi Jo", "metaglasses", "reddit", "call", "Crime Con", etc.)</p>
+      </div> 
+    </div>  
 
     <!-- ════════════════════════════════════════════════════════
          BACKGROUND RECORDS (pre-civil suit)
@@ -692,276 +775,503 @@
 
     <details class="case-details" data-aos="fade-up">
       <summary class="case-summary">
-        <h2>Background Records</h2>
+        <h2>Prior to the Civil Suit</h2>
       </summary>
       <div class="case-details-body">
         <div class="filings">
 
           <!-- APRIL 2022 -->
-          <div class="filing"><div class="filing-date">04-18-2022</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1F2U9mu33Cd1_MEClaN2lNUBgbDVo0qPf/view?usp=drive_link" target="_blank">HTC 'We we hacked' post</a>
-          </div></div>
-          
+          <div class="filing">
+            <div class="filing-date">04-18-2022</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1F2U9mu33Cd1_MEClaN2lNUBgbDVo0qPf/view?usp=drive_link" target="_blank">HTC 'We we hacked' post</a>
+            </div>
+          </div>
           <!-- MARCH 2023 -->
-          <div class="filing"><div class="filing-date">03-22-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/139TxfqsTg_RCRZ4fhIC00-kskB61vnav/view?usp=drive_link" target="_blank">Lauren shit talking Tricia Griffith in a group chat</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">03-22-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/139TxfqsTg_RCRZ4fhIC00-kskB61vnav/view?usp=drive_link" target="_blank">Lauren shit talking Tricia Griffith in a group chat</a>
+            </div>
+          </div>
 
           <!-- APRIL 2023 -->
-          <div class="filing"><div class="filing-date">04-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1pxCjePace-giAEdpkpkhRSP_596MhCWz/view?usp=drive_link" target="_blank">Lauren shit talking Annie Cushing, Lori Hellis and Kresha in a group chat</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">04-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1pxCjePace-giAEdpkpkhRSP_596MhCWz/view?usp=drive_link" target="_blank">Lauren shit talking Annie Cushing, Lori Hellis and Kresha in a group chat</a>
+            </div>
+          </div>
 
           <!-- MAY 2023 -->
-          <div class="filing"><div class="filing-date">05-24-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1oc9beFClsG6BGP1Tc-9xgbZxm7zUWUVs/view?usp=drive_link" target="_blank">Email from Shane Bishop </a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">05-24-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1oc9beFClsG6BGP1Tc-9xgbZxm7zUWUVs/view?usp=drive_link" target="_blank">Email from Shane Bishop </a>
+            </div>
+          </div>
 
           <!-- AUGUST 2023 -->
-          <div class="filing"><div class="filing-date">08-16-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1qy-5w-d25yc9WA7fXTvR673djYaKe8td/view?usp=drive_link" target="_blank">Lauren shit talking Summer in a group chat</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">08-16-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1qy-5w-d25yc9WA7fXTvR673djYaKe8td/view?usp=drive_link" target="_blank">Lauren shit talking Summer in a group chat</a>
+            </div>
+          </div>
 
           <!-- SEPTEMBER 2023 -->
-          <div class="filing"><div class="filing-date">09-24-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1U3wJTfgR6JOfFtiCU7ldh6I81e0WpRRf/view?usp=drive_link" target="_blank">Lauren 'besties with the enemies' group text</a>
-          </div></div>
-          
+          <div class="filing">
+            <div class="filing-date">09-24-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1U3wJTfgR6JOfFtiCU7ldh6I81e0WpRRf/view?usp=drive_link" target="_blank">Lauren 'besties with the enemies' group text</a>
+            </div>
+          </div>
+
           <!-- NOVEMBER 2023 -->
-           <div class="filing"><div class="filing-date">11-04-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1wJ43OmSKzIuobBFylr6grYhs2YD3iEV-/view?usp=drive_link" target="_blank">Email from Rod Medlrum</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">11-09-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/view?usp=drive_link" target="_blank">Christina 'how's it goin' text to Lauren at 02:02 PM</a>
-          </div></div>
+           <div class="filing">
+            <div class="filing-date">11-04-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1wJ43OmSKzIuobBFylr6grYhs2YD3iEV-/view?usp=drive_link" target="_blank">Email from Rod Medlrum</a>
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">11-09-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/view?usp=drive_link" target="_blank">Christina 'how's it goin' text to Lauren at 02:02 PM</a>
+            </div>
+          </div>
 
           <!-- DECEMBER 2023 -->
-          <div class="filing"><div class="filing-date">12-16-2023</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1Z109AepIFaJnsPnKxp-wRL7t6WoF93Vy/view?usp=drive_link" target="_blank">Lauren shit talking Gigi in a group chat</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">12-16-2023</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1Z109AepIFaJnsPnKxp-wRL7t6WoF93Vy/view?usp=drive_link" target="_blank">Lauren shit talking Gigi in a group chat</a>
+            </div>
+          </div>
 
           <!-- JANUARY 2024 -->
-          <div class="filing"><div class="filing-date">01-09-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1vLZkvZtTfmedrtrrLuHilOkIvSmYRxth/view?usp=drive_link" target="_blank">LAUREN to a group chat: Should I start promoting every DM I get?</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">01-09-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1vLZkvZtTfmedrtrrLuHilOkIvSmYRxth/view?usp=drive_link" target="_blank">LAUREN to a group chat: Should I start promoting every DM I get?</a>
+            </div>
+          </div>
 
           <!-- FEBRUARY 2024 -->
-          <div class="filing"><div class="filing-date">02-25-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1_rBTq9bQmtqVVaZzG-J_GZAIN67rS8Y1/view?usp=drive_link" target="_blank">Lauren shit talking Lori Helis and Mandy Matney in a group chat</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">02-27-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1lwJIBxM_6YoTqXJHe6OFxAt3dSpTCv14/view?usp=drive_link" target="_blank">Lauren shit talking Lori Hellis in a different group chat</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">02-25-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1_rBTq9bQmtqVVaZzG-J_GZAIN67rS8Y1/view?usp=drive_link" target="_blank">Lauren shit talking Lori Helis and Mandy Matney in a group chat</a>
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">02-27-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1lwJIBxM_6YoTqXJHe6OFxAt3dSpTCv14/view?usp=drive_link" target="_blank">Lauren shit talking Lori Hellis in a different group chat</a>
+            </div>
+          </div>
 
           <!-- MARCH 2024 -->
-          <div class="filing"><div class="filing-date">03-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1Ahy9Cp49zmhfHkot9D6sygzEDsu83XoO/view?usp=drive_link" target="_blank">Lauren shit talking Rex and Megan Conner in a group chat</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">03-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1Ahy9Cp49zmhfHkot9D6sygzEDsu83XoO/view?usp=drive_link" target="_blank">Lauren shit talking Rex and Megan Conner in a group chat</a>
+            </div>
+          </div>
 
           <!-- APRIL 2024 -->
-          <div class="filing"><div class="filing-date">04-19-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1vpPRP1xW2XaqvZjdomRy3DWrW74K9ZnQ/view?usp=drive_link" target="_blank">Lauren “anonymous” post re: Annie Cushing</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">04-19-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1vpPRP1xW2XaqvZjdomRy3DWrW74K9ZnQ/view?usp=drive_link" target="_blank">Lauren “anonymous” post re: Annie Cushing</a>
+            </div>
+          </div>
 
           <!-- JUNE 2024 -->
-          <div class="filing"><div class="filing-date">06-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1VPAHHNZYKV2CY5WqhOis401BmkvAJVa9/view?usp=drive_link" target="_blank">Lauren shit talking Annie Cushing in a group chat</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">06-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1VPAHHNZYKV2CY5WqhOis401BmkvAJVa9/view?usp=drive_link" target="_blank">Lauren shit talking Annie Cushing in a group chat</a>
+            </div>
+          </div>
 
           <!-- JULY 2024 -->
-          <div class="filing"><div class="filing-date">07-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1w-PjszOsT5MtG9fNIUsYyERurOZ9Wv7G/view?usp=drive_link" target="_blank">Lauren shit talking Annie Cushing in a group chat, again</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">07-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1w-PjszOsT5MtG9fNIUsYyERurOZ9Wv7G/view?usp=drive_link" target="_blank">Lauren shit talking Annie Cushing in a group chat, again</a>
+            </div>
+          </div>
 
           <!-- OCTOBER 2024 -->
-          <div class="filing"><div class="filing-date">10-21-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1X6jy5WBs2GiQ7knYjnus8fl4GSUH9hGo/view?usp=drive_link" target="_blank">Lauren shit talking YTers at Delphi trial in a group text</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">10-30-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1g7L6Snz5SoUfs16irIJhFZx74PnZs1mW/view?usp=drive_link" target="_blank">Lauren still shit talking YTers at Delphi trial in a group text</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">10-21-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1X6jy5WBs2GiQ7knYjnus8fl4GSUH9hGo/view?usp=drive_link" target="_blank">Lauren shit talking YTers at Delphi trial in a group text</a>
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-30-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1g7L6Snz5SoUfs16irIJhFZx74PnZs1mW/view?usp=drive_link" target="_blank">Lauren still shit talking YTers at Delphi trial in a group text</a>
+            </div>
+          </div>
 
           <!-- DECEMBER 2024 -->
-          <div class="filing"><div class="filing-date">12-30-2024</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1_tSiivG3UFwOZDp-NH0hh-30Bjq_MiUE/view?usp=drive_link" target="_blank">HTC email to Baldwin and Rozzi for interview request</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">12-30-2024</div>
+            <div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1_tSiivG3UFwOZDp-NH0hh-30Bjq_MiUE/view?usp=drive_link" target="_blank">HTC email to Baldwin and Rozzi for interview request</a>
+            </div>
+          </div>
 
           <!-- MARCH 2025 -->
-          <div class="filing"><div class="filing-date">03-11-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1xiWiz7wtIvytQE6RESOdO1Gffb4xXTLc/view?usp=drive_link" target="_blank">Lori Hellis vs. East Idaho News, Lauren Matthias</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">03-13-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1PdPV7zCImxOnwkaYiFd81aTqenY4NnGD/view?usp=drive_link" target="_blank">True Crime Underground PSA post</a>
-          </div></div>
-
+          <div class="filing">
+            <div class="filing-date">03-11-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1xiWiz7wtIvytQE6RESOdO1Gffb4xXTLc/view?usp=drive_link" target="_blank">Lori Hellis vs. East Idaho News, Lauren Matthias</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">03-13-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1PdPV7zCImxOnwkaYiFd81aTqenY4NnGD/view?usp=drive_link" target="_blank">True Crime Underground PSA post</a>
+              </div>
+          </div>
           <!-- APRIL 2025 -->
-          <div class="filing"><div class="filing-date">04-09-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1fxpJV5nGLOXhW0QXj-ZRo4YuTryj_4CS/view?usp=drive_link" target="_blank">Lauren love bombs Christina while humble bragging at 09:52 AM</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-09-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1P8UCjl6LVXx3hiJXO6TiVGRqKhSWR3Mx/view?usp=drive_link" target="_blank">Lauren Cease-and-Decist letter to Stephanie</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-09-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1FCcX7dTdmEygoNXoENaIzBin6oVOAS_O/view?usp=drive_link" target="_blank">Voicemail from Liz to Lauren (01 min 55 sec) &mdash; audio</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-09-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/13m8Qzy5VFWyatCTyfwu0SPEjFWMnMj0q/view?usp=drive_link" target="_blank">Voicemail from Liz to Lauren &mdash; transcript</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-09-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1-huEs_Z4W68nNNtIVF5EylXUXoIS5LGs/view?usp=drive_link" target="_blank">Lauren texts Christina false accusations and then threatens legal action at 08:50 PM</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-13-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1Bm2Cjnhdz4WiedwPBv4WWuyeDNlN9Dby/view?usp=drive_link" target="_blank">Stephanie's reply to the Apr. 9th Cease-and-Decist letter</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-15-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1MFHdKpvwQgxVndS4D_ORK6G5jiOnDbhQ/view?usp=drive_link" target="_blank">Janeese tries to confront Lauren about lies Lauren has been spreading at 09:08 AM (00 min 36 sec)</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-15-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1WGyE0jwR0oXjQe-H4gWpb7KFqF7J_Kp6/view?usp=drive_link" target="_blank">Janeese tries to confront Lauren about lies Lauren has been spreading at 09:08 AM  (00 min 39 sec)</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-15-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1fIBOSzUkOhNu6CuWM05cp3jCgQ08EuRP/view?usp=drive_link" target="_blank">Janeese tries to confront Lauren about lies Lauren has been spreading at 09:08 AM &mdash; transcript</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-21-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1OW1tXCxErLjdrRZepGAR1MqZ4_tIYOAr/view?usp=drive_link" target="_blank">iMessages between Christina and Lauren re: Reddit post about Lauren poaching Annie Elise's employee and recycling 10 to Life scripts at 11:45 AM</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-21-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1zLIn3v1WpWoSLb7t9O79ew1vkeLc4zdY/view?usp=drive_link" target="_blank">Email from Christina to Lauren at 7:08 PM</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-22-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1T7Oysv--bxOpWwnCnl_KTu6gJywpjjLp/view?usp=drive_link" target="_blank">Email from Lauren to Christina at 2:32 PM</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">04-22-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/10ZJOmuUw0-llm1vILi_cc7YgB_Xb-Rup/view?usp=drive_link" target="_blank">Lauren and Grayson in front of Maricopa County Courthouse</a>
-          </div></div>
-          
-
+          <div class="filing">
+            <div class="filing-date">04-09-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1fxpJV5nGLOXhW0QXj-ZRo4YuTryj_4CS/view?usp=drive_link" target="_blank">Lauren love bombs Christina while humble bragging at 09:52 AM</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-09-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1P8UCjl6LVXx3hiJXO6TiVGRqKhSWR3Mx/view?usp=drive_link" target="_blank">Lauren Cease-and-Decist letter to Stephanie</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-09-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1FCcX7dTdmEygoNXoENaIzBin6oVOAS_O/view?usp=drive_link" target="_blank">Voicemail from Liz to Lauren (01 min 55 sec) &mdash; audio</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-09-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/13m8Qzy5VFWyatCTyfwu0SPEjFWMnMj0q/view?usp=drive_link" target="_blank">Voicemail from Liz to Lauren &mdash; transcript</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-09-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1-huEs_Z4W68nNNtIVF5EylXUXoIS5LGs/view?usp=drive_link" target="_blank">Lauren texts Christina false accusations and then threatens legal action at 08:50 PM</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-13-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Bm2Cjnhdz4WiedwPBv4WWuyeDNlN9Dby/view?usp=drive_link" target="_blank">Stephanie's reply to the Apr. 9th Cease-and-Decist letter</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-15-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1MFHdKpvwQgxVndS4D_ORK6G5jiOnDbhQ/view?usp=drive_link" target="_blank">Janeese tries to confront Lauren about lies Lauren has been spreading at 09:08 AM (00 min 36 sec)</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-15-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1WGyE0jwR0oXjQe-H4gWpb7KFqF7J_Kp6/view?usp=drive_link" target="_blank">Janeese tries to confront Lauren about lies Lauren has been spreading at 09:08 AM  (00 min 39 sec)</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-15-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1fIBOSzUkOhNu6CuWM05cp3jCgQ08EuRP/view?usp=drive_link" target="_blank">Janeese tries to confront Lauren about lies Lauren has been spreading at 09:08 AM &mdash; transcript</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-21-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1OW1tXCxErLjdrRZepGAR1MqZ4_tIYOAr/view?usp=drive_link" target="_blank">iMessages between Christina and Lauren re: Reddit post about Lauren poaching Annie Elise's employee and recycling 10 to Life scripts at 11:45 AM</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-21-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1zLIn3v1WpWoSLb7t9O79ew1vkeLc4zdY/view?usp=drive_link" target="_blank">Email from Christina to Lauren at 7:08 PM</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-22-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1T7Oysv--bxOpWwnCnl_KTu6gJywpjjLp/view?usp=drive_link" target="_blank">Email from Lauren to Christina at 2:32 PM</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-22-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/10ZJOmuUw0-llm1vILi_cc7YgB_Xb-Rup/view?usp=drive_link" target="_blank">Lauren and Grayson in front of Maricopa County Courthouse</a>
+              </div>
+          </div>
           <!-- MAY 2025 -->
-          <div class="filing"><div class="filing-date">05-01-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1Y8N54A20knaC7HfA9Q222PX3enGzlsWS/view?usp=drive_link" target="_blank">Lauren leaves group chat on Messenger</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">05-10-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1DrqWQemo401wnko0xeJl1Hw3S7dIO6YS/view?usp=drive_link" target="_blank">LAUREN: "I just told Larry and Kay via text..."</a>
-          </div></div>
-
-
+          <div class="filing">
+            <div class="filing-date">05-01-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1Y8N54A20knaC7HfA9Q222PX3enGzlsWS/view?usp=drive_link" target="_blank">Lauren leaves group chat on Messenger</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">05-10-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1DrqWQemo401wnko0xeJl1Hw3S7dIO6YS/view?usp=drive_link" target="_blank">LAUREN: "I just told Larry and Kay via text..."</a>
+              </div>
+          </div>
           <!-- JUNE 2025 -->
-          <div class="filing"><div class="filing-date">06-09-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/112UPkv5NyFuZjfXdZres8cZYU6Ctsh_v/view?usp=drive_link" target="_blank">Anonymous Protonmail email sent to HTC</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <span class="filing-bold">Pt 1 Henderson bodycam (48 min 23 sec) &mdash; video (still need to add!)</span>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <span class="filing-bold">Pt 1 Henderson bodycam (48 min 23 sec) &mdash; transcript (still need to add!)</span>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1tVSMLphluB_SWiuuOkoIAt_M0IQKCUeu/view?usp=drive_link" target="_blank">Gigi call from Henderson PD (23 min 36 sec) &mdash; video</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1q1XyAIXd0h_vB_9oKHuFIRi1EJHfRMx5/view?usp=drive_link" target="_blank">Gigi call from Henderson PD &mdash; transcript</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1JfpOOG7NsFVMLnNaCDY20teaCX5dpuWv/view?usp=drive_link" target="_blank">Stephanie call from Henderson PD (13 min 53 sec) &mdash; video</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1I6etWf_KDHMhAs0TAu4cXG3JrAQCfd59/view?usp=drive_link" target="_blank">Stephanie call from Henderson PD &mdash; transcript</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1GGIHo76qBiOcxsfpXxDlcQGfp5HpzVv3/view?usp=drive_link" target="_blank">Pt 2 Henderson bodycam (48 min 23 sec) &mdash; video</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-19-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1ci2FRoHbk0pEVvTC7equLWIPZpeFJsjt/view?usp=drive_link" target="_blank">Henderson Incident Report HP250619000420 at 14:50:38 PM</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">06-25-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1sD7392B0R-alkiWqBsORMC1QX4zMoNhx/view?usp=drive_link" target="_blank">Lauren messages Mr. Breakfast to ask for a 'helpful voice'</a>
-          </div></div>
-
+          <div class="filing">
+            <div class="filing-date">06-09-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/112UPkv5NyFuZjfXdZres8cZYU6Ctsh_v/view?usp=drive_link" target="_blank">Anonymous Protonmail email sent to HTC</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <span class="filing-bold">Pt 1 Henderson bodycam (48 min 23 sec) &mdash; video (still need to add!)</span>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <span class="filing-bold">Pt 1 Henderson bodycam (48 min 23 sec) &mdash; transcript (still need to add!)</span>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1tVSMLphluB_SWiuuOkoIAt_M0IQKCUeu/view?usp=drive_link" target="_blank">Gigi call from Henderson PD (23 min 36 sec) &mdash; video</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1q1XyAIXd0h_vB_9oKHuFIRi1EJHfRMx5/view?usp=drive_link" target="_blank">Gigi call from Henderson PD &mdash; transcript</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1JfpOOG7NsFVMLnNaCDY20teaCX5dpuWv/view?usp=drive_link" target="_blank">Stephanie call from Henderson PD (13 min 53 sec) &mdash; video</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1I6etWf_KDHMhAs0TAu4cXG3JrAQCfd59/view?usp=drive_link" target="_blank">Stephanie call from Henderson PD &mdash; transcript</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1GGIHo76qBiOcxsfpXxDlcQGfp5HpzVv3/view?usp=drive_link" target="_blank">Pt 2 Henderson bodycam (48 min 23 sec) &mdash; video</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-19-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1ci2FRoHbk0pEVvTC7equLWIPZpeFJsjt/view?usp=drive_link" target="_blank">Henderson Incident Report HP250619000420 at 14:50:38 PM</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-25-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1sD7392B0R-alkiWqBsORMC1QX4zMoNhx/view?usp=drive_link" target="_blank">Lauren messages Mr. Breakfast to ask for a 'helpful voice'</a>
+              </div>
+          </div>
           <!-- JULY 2025 -->
-          <div class="filing"><div class="filing-date">07-03-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1FF0TypSv-PRxWa8QzTl71cApqRxp-64C/view?usp=drive_link" target="_blank">Christina call from Henderson PD (41 min 49 sec) &mdash; video</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-03-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1xYcAo8MWu797jcRXaxfW_JGityHuXy0O/view?usp=drive_link" target="_blank">Christina call from Henderson PD &mdash; transcript</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-03-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1ZxjzNTakX7914AVknjS816OaNol6xv_R/view?usp=drive_link" target="_blank">Henderson Incident Report HP250703000578 at 16:03:45 PM</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-06-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1rlFuk4JDCsTOlXMZ3ByJ1qW1O860nR-v/view?usp=drive_link" target="_blank">TikTok video of Christina recounting the story Lauren told her about her brother</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-07-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1GHk9wt_xKsztiu0N4nhxkqPcDgf0Vh_b/view?usp=drive_link" target="_blank">Jawn's iMessage blaming his health on the stalking situation that Lauren and Grayson made up</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-09-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1NBkR6cUnRqNW4h1qip3N6D0x__nhtj8G/view?usp=drive_link" target="_blank">TikTok video of Christina talking to officer who can't explain what Nevada law she 'broke'</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-12-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1U9ACbLdYwDfVRSRK63ydQMSVBNd0hK-5/view?usp=drive_link" target="_blank">TikTok video of Christina talking about an ex-friend who was a fake friend</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-13-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1ctBppmwVzi48adaLL21qVWnVnrf08r8B/view?usp=drive_link" target="_blank">Christina TikTok video of Lauren with a clown sticker redacting her bozo head bc Lauren was 'poking the bear'</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-14-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1thufoLI0ot5ycf1Af6GPIc3qmT_cku_y/view?usp=drive_link" target="_blank">Christina comments "👀👀👀" on Hidden True Crime's Lauren Matthias Pt. 1 'Early Years' Journalism Career | Ep. 2040</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-16-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank">Felicia O'Shields emails with John Dehlin at 10:17 PM re: Christina's TikTok videos</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1ZMpd9m7jIbPTlCEmqT3mjwxbflwxhhcU/view?usp=drive_link" target="_blank">Photo showing Grayson standing one row in front of the girlies she such super in fear of at Kohberger sentencing</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/10jpcLAg4wFdhqHItWoE-pLYBcdx7hrVD/view?usp=drive_link" target="_blank">Grayson chilling at the Kohberger sentencing hearing (00 min 18 sec) &mdash; video</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank">Lauren confronted by Sarah P and Lori D about making false claims against people and then hitting them with a Cease-and-Desist to obstruct them from clearing shit it up (02 min 55 sec) &mdash; video</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1C-4XqTofgStM_Qnd-7UzyE_IDuY-3gLO/view?usp=drive_link" target="_blank">Lauren confronted by Sarah P and Lori D &mdash; transcript</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1W6YhNtVkRWZqNN4oaeEMD7oM5pNifilC/view?usp=drive_link" target="_blank">Lauren filming Grayson crying at Bittercreek Ale House (00 min 39 sec) &mdash; video 1</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1W6YhNtVkRWZqNN4oaeEMD7oM5pNifilC/view?usp=drive_link" target="_blank">Lauren filming Grayson crying at Bittercreek Ale House (00 min 36 sec) &mdash; video 2</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1n1j-mZeq68JekVK-e3Y5Cn1ztSP0OpR8/view?usp=drive_link" target="_blank">Lauren and Grayson deciding whether to call Boise PD about the exactly zero danger they're in (01 min 12 sec) &mdash; video</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1A2L9hOAei0bzi_HkoYsKgs2n5RV2pWwm/view?usp=drive_link" target="_blank">Lauren and Grayson at dinner &mdash; transcript</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-23-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank">Lauren files a police report at 23:27 PM against her former colleagues about an incident she says happened on 04-09-2025</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-29-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1-nLVIWxLnury-f3w2yeenSdl7A1ZuFPb/view?usp=drive_link" target="_blank">TikTok video of Christina playing audio of Lauren talking with a friend about 'weaponized' kindness</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-30-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/16pLBUjRx_bwRFAnFNksNh34uRpWFJiZ1/view?usp=drive_link" target="_blank">Janeese call from Boise PD (13 min 31 sec) &mdash; audio</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">07-30-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1nDuXNCfwsAtH3oAszMCc4MiC62qrqGKF/view?usp=drive_link" target="_blank">Janeese call from Boise PD &mdash; transcript</a>
-          </div></div>
-
-          <!-- AUGUST 2025 -->
-          <div class="filing"><div class="filing-date">08-06-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1QR0Q61kcAoMXvrQfdt-dvOHpq3kz1mJJ/view?usp=drive_link" target="_blank">TikTok video re: Lauren using Jawn's credentials for street cred</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">08-07-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/193wb8CC5gvfbJRauUAvBZkcw0vLWECEy/view?usp=drive_link" target="_blank">Grayson reaches out to Lauren during a panic attack at 12:17 AM and Lauren kinda just suggests Grayson get back to work</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">08-08-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1WsRD8yRQcMq2Bj7yJLCT0cnZ7cpoZC3I/view?usp=drive_link" target="_blank">TikTok video of Christina's recap of Lauren's stalking and manipulation tactics</a>
-          </div></div>
-          <div class="filing"><div class="filing-date">08-13-2025</div><div class="filing-content">
-            <a class="filing-link" href="https://drive.google.com/file/d/1csYn8pVWLyB44k4O-QAsEUEDu4QoS5nr/view?usp=drive_link" target="_blank">Another TikTok video of Christina talking to officer who can't explain what Nevada law she 'broke'</a>
-          </div></div>
+          <div class="filing">
+            <div class="filing-date">07-03-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1FF0TypSv-PRxWa8QzTl71cApqRxp-64C/view?usp=drive_link" target="_blank">Christina call from Henderson PD (41 min 49 sec) &mdash; video</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-03-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1xYcAo8MWu797jcRXaxfW_JGityHuXy0O/view?usp=drive_link" target="_blank">Christina call from Henderson PD &mdash; transcript</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-03-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1ZxjzNTakX7914AVknjS816OaNol6xv_R/view?usp=drive_link" target="_blank">Henderson Incident Report HP250703000578 at 16:03:45 PM</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-06-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1rlFuk4JDCsTOlXMZ3ByJ1qW1O860nR-v/view?usp=drive_link" target="_blank">TikTok video of Christina recounting the story Lauren told her about her brother</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-07-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1GHk9wt_xKsztiu0N4nhxkqPcDgf0Vh_b/view?usp=drive_link" target="_blank">Jawn's iMessage blaming his health on the stalking situation that Lauren and Grayson made up</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-09-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1NBkR6cUnRqNW4h1qip3N6D0x__nhtj8G/view?usp=drive_link" target="_blank">TikTok video of Christina talking to officer who can't explain what Nevada law she 'broke'</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-12-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1U9ACbLdYwDfVRSRK63ydQMSVBNd0hK-5/view?usp=drive_link" target="_blank">TikTok video of Christina talking about an ex-friend who was a fake friend</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-13-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1ctBppmwVzi48adaLL21qVWnVnrf08r8B/view?usp=drive_link" target="_blank">Christina TikTok video of Lauren with a clown sticker redacting her bozo head bc Lauren was 'poking the bear'</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-14-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1thufoLI0ot5ycf1Af6GPIc3qmT_cku_y/view?usp=drive_link" target="_blank">Christina comments "👀👀👀" on Hidden True Crime's Lauren Matthias Pt. 1 'Early Years' Journalism Career | Ep. 2040</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-16-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank">Felicia O'Shields emails with John Dehlin at 10:17 PM re: Christina's TikTok videos</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1ZMpd9m7jIbPTlCEmqT3mjwxbflwxhhcU/view?usp=drive_link" target="_blank">Photo showing Grayson standing one row in front of the girlies she such super in fear of at Kohberger sentencing</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/10jpcLAg4wFdhqHItWoE-pLYBcdx7hrVD/view?usp=drive_link" target="_blank">Grayson chilling at the Kohberger sentencing hearing (00 min 18 sec) &mdash; video</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank">Lauren confronted by Sarah P and Lori D about making false claims against people and then hitting them with a Cease-and-Desist to obstruct them from clearing shit it up (02 min 55 sec) &mdash; video</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1C-4XqTofgStM_Qnd-7UzyE_IDuY-3gLO/view?usp=drive_link" target="_blank">Lauren confronted by Sarah P and Lori D &mdash; transcript</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1W6YhNtVkRWZqNN4oaeEMD7oM5pNifilC/view?usp=drive_link" target="_blank">Lauren filming Grayson crying at Bittercreek Ale House (00 min 39 sec) &mdash; video 1</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1W6YhNtVkRWZqNN4oaeEMD7oM5pNifilC/view?usp=drive_link" target="_blank">Lauren filming Grayson crying at Bittercreek Ale House (00 min 36 sec) &mdash; video 2</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1n1j-mZeq68JekVK-e3Y5Cn1ztSP0OpR8/view?usp=drive_link" target="_blank">Lauren and Grayson deciding whether to call Boise PD about the exactly zero danger they're in (01 min 12 sec) &mdash; video</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1A2L9hOAei0bzi_HkoYsKgs2n5RV2pWwm/view?usp=drive_link" target="_blank">Lauren and Grayson at dinner &mdash; transcript</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-23-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/view?usp=drive_link" target="_blank">Lauren files a police report at 23:27 PM against her former colleagues about an incident she says happened on 04-09-2025</a>
+              </div>
+          </div> 
+          <div class="filing">
+            <div class="filing-date">07-29-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1-nLVIWxLnury-f3w2yeenSdl7A1ZuFPb/view?usp=drive_link" target="_blank">TikTok video of Christina playing audio of Lauren talking with a friend about 'weaponized' kindness</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-30-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/16pLBUjRx_bwRFAnFNksNh34uRpWFJiZ1/view?usp=drive_link" target="_blank">Janeese call from Boise PD (13 min 31 sec) &mdash; audio</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-30-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1nDuXNCfwsAtH3oAszMCc4MiC62qrqGKF/view?usp=drive_link" target="_blank">Janeese call from Boise PD &mdash; transcript</a>
+              </div>
+          </div>
+          <!-- AUGUST 2025 --> 
+          <div class="filing">
+            <div class="filing-date">08-06-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1QR0Q61kcAoMXvrQfdt-dvOHpq3kz1mJJ/view?usp=drive_link" target="_blank">TikTok video re: Lauren using Jawn's credentials for street cred</a>
+              </div>
+          </div> 
+          <div class="filing">
+            <div class="filing-date">08-07-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/193wb8CC5gvfbJRauUAvBZkcw0vLWECEy/view?usp=drive_link" target="_blank">Grayson reaches out to Lauren during a panic attack at 12:17 AM and Lauren kinda just suggests Grayson get back to work</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-08-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1WsRD8yRQcMq2Bj7yJLCT0cnZ7cpoZC3I/view?usp=drive_link" target="_blank">TikTok video of Christina's recap of Lauren's stalking and manipulation tactics</a>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-13-2025</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1csYn8pVWLyB44k4O-QAsEUEDu4QoS5nr/view?usp=drive_link" target="_blank">Another TikTok video of Christina talking to officer who can't explain what Nevada law she 'broke'</a>
+              </div>
+          </div>
 
         </div><!-- End of .filings -->
       </div><!-- End of .case-details-body -->
     </details>
+
+        <!-- ════════════════════════════════════════════════════════
+         CASE: Lauren Matthias and Grayson Yohr v. Reality
+         ════════════════════════════════════════════════════════ -->
+
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>Lauren Matthias v. Reality</h2>
+        <span class="status-badge closed">Dismissed</span>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Case No.:</strong> 250404055</div>
+        <div class="case-meta-item"><strong>Judge:</strong> Kasey L. Wright</div>
+        <div class="case-meta-item"><strong>Case Opened:</strong> August 28, 2025</div>
+        <div class="case-meta-item"><strong>Case Closed:</strong> October 15, 2025</div>
+        <div class="case-meta-item"><strong>Court:</strong> Fourth District Court, Utah County</div>
+        <div class="case-meta-item"><strong>Source:</strong> <a class="filing-link" href="https://drive.google.com/file/d/1JGH8WOAIBNC7BEZDmpdY5KKh_t_nzULG/view?usp=drive_link" target="_blank">XChange Docket Sheet</a></div>
+      </div>
+    </div>
 
     <!-- ════════════════════════════════════════════════════════
          FILINGS & ACTIVITY (court filings and evidence)
@@ -969,7 +1279,7 @@
 
     <details class="case-details" data-aos="fade-up">
       <summary class="case-summary">
-        <h2>Civil Suit Filings &amp; Activity</h2>
+        <h2>Civil Suit Filings & Activity</h2>
       </summary>
       <div class="case-details-body">
         
@@ -999,7 +1309,7 @@
 
             <!-- SEPTEMBER 2025 -->
             <tr><td>09-04-2025</td><td class="wrap">Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1d4Q5Edu6D09uo6rwMyHs4iZIX_idZG93/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>   
-            <tr><td>09-04-2025</td><td class="wrap">Email from Bobbi Olson re: Threat to Crime Con vendor</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+            <tr><td>09-04-2025</td><td class="wrap"><a class="filing-link" href="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/view?usp=drive_link" target="_blank">Email from Bobbi Olson re: Threat to Crime Con vendor</a></td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
             <tr><td>09-05-2025</td><td class="wrap">15:07:06 PM Bodycam 1 -600 Axon Body 4 D01A0526G (08 min 21 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12wyviTt2M-cn9uPveVACC7R1T2wEOusT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
             <tr><td>09-05-2025</td><td class="wrap">15:27:20 PM Bodycam 2 -600 Axon Body 4 D01A0288H (14 min 12 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Px5OStWgTfoN7gBD3z9a8YJ_HoNNhjvT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
             <tr><td>09-05-2025</td><td class="wrap">15:27:14 PM Bodycam 3 -600 Axon Body 4 D01A0576G (14 min 17 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qS4wlbTAePehis-HT6RZhn6KP5mdnrVK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
@@ -1110,7 +1420,7 @@
             <tr><td>09-24-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
             <tr><td>09-24-2025</td><td class="wrap">**** PRIVATE **** Completed Request for Audio Recording (3)</td></tr>
             <tr><td>09-25-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-25-2025</td><td class="wrap">Christina CORA request to Aurora Police Department</td><td class="doc-icon"><a href="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+            <tr><td>09-25-2025</td><td class="wrap"><a class="filing-link" href="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/view?usp=drive_link" target="_blank">Christina CORA request to Aurora Police Department</a></td><td class="doc-icon"><a href="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
 
             <!-- OCTOBER 2025 -->
             <tr><td>10-08-2025</td><td class="wrap">Certificate of Service Amended Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zkcsBjZW3kCaGY7OlENt3fuJxKwopqRr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
@@ -1172,63 +1482,91 @@
 
           <details class="case-details" data-aos="fade-up">
             <summary class="case-summary">
-              <h2>Post-Civil Suit Activity</h2>
+              <h2>After the Civil Suit</h2>
             </summary>
       
             <div class="case-details-body">
               <div class="filings">
 
                 <!-- OCTOBER 2025 -->
-                <div class="filing"><div class="filing-date">10-17-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1WTfnRwBc40x4iDsAN0btm506Mv783iVc/view?usp=drive_link" target="_blank">Lauren emails Mr. Breakfast</a>
-                </div></div>
-                <div class="filing"><div class="filing-date">10-20-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1M52nULY-AaQ_kn2T68pdV2ztwQ9czqZY/view?usp=drive_link" target="_blank">Screenshot of Christina commenting on Lori Hellis video</a>
-                </div></div>
-                <div class="filing"><div class="filing-date">10-20-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1FxN1gOndgLS1uaGUO8pcfas4EBKPNMI_/view?usp=drive_link" target="_blank">Lori Hellis posts on other pages that Lauren and/or Grayson screenshot</a>
-                </div></div>
-                <div class="filing"><div class="filing-date">10-26-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1vLLjtjkmkZOsuejx9y3FzIszh_370bme/view?usp=drive_link" target="_blank">HTC strikes Kresha's livestream with Kay</a>
-                </div></div>
-
+                <div class="filing">
+                  <div class="filing-date">10-17-2025</div>
+                    <div class="filing-content">
+                      <a class="filing-link" href="https://drive.google.com/file/d/1WTfnRwBc40x4iDsAN0btm506Mv783iVc/view?usp=drive_link" target="_blank">Lauren emails Mr. Breakfast</a>
+                    </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">10-20-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1M52nULY-AaQ_kn2T68pdV2ztwQ9czqZY/view?usp=drive_link" target="_blank">Screenshot of Christina commenting on Lori Hellis video</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">10-20-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1FxN1gOndgLS1uaGUO8pcfas4EBKPNMI_/view?usp=drive_link" target="_blank">Lori Hellis posts on other pages that Lauren and/or Grayson screenshot</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">10-24-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1kCaSsEgRx96IfnAC1eTzNYUVGayGEQFN/view?usp=drive_link" target="_blank">Grayson calls Henderson PD to preemptively report nonexistent SWAT attempts</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">10-24-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/12kUfjGN-m8gLwpWex5Rk4EjNSMBXE11h/view?usp=drive_link" target="_blank">HP251024000562 CAD log sheet for Grayson's call</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">10-24-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1InFTqL4IP2fu7Mz-k9ZBIVExFaK6z6gO/view?usp=drive_link" target="_blank">HP251024000564 CAD log sheet for Grayson's call</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">10-26-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1vLLjtjkmkZOsuejx9y3FzIszh_370bme/view?usp=drive_link" target="_blank">HTC strikes Kresha's livestream with Kay</a>
+                  </div>
+                </div>
                 <!-- NOVEMBER 2025 -->
-                <div class="filing"><div class="filing-date">11-25-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1nAe6kboFHXtih_6heV1RQCrtjMB1-MI-/view?usp=drive_link" target="_blank">Boise PD letter to Christina re: her records request</a>
-                </div></div>
-                <div class="filing"><div class="filing-date">11-25-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/10nI3BU77n9v8Nfy-LPwAD8j5tlD6dnvA/view?usp=drive_link" target="_blank">Bonkerz letters to Christina’s husband and mom</a>
-                </div></div>
-
+                <div class="filing">
+                  <div class="filing-date">11-25-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1nAe6kboFHXtih_6heV1RQCrtjMB1-MI-/view?usp=drive_link" target="_blank">Boise PD letter to Christina re: her records request</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">11-25-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/10nI3BU77n9v8Nfy-LPwAD8j5tlD6dnvA/view?usp=drive_link" target="_blank">Bonkerz letters to Christina’s husband and mom</a>
+                  </div>
+                </div>
                 <!-- DECEMBER 2025 -->
-                <div class="filing"><div class="filing-date">12-04-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1C7APUUfgMZ_man7516flXDqRhz97bf63/view?usp=drive_link" target="_blank">Copyright Claims Board Order of Intent to Dismiss for Unsuitability!</a>
-                </div></div>
-                <div class="filing"><div class="filing-date">12-12-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1Ln4KRiMmIo7jT_wAY5Ay7tBwUpU_Cz29/view?usp=drive_link" target="_blank">REDDIT: Dear HTC - please stop sending anonymous letters and emails and calling my employer.</a>
-                </div></div>
-                <div class="filing"><div class="filing-date">12-24-2025</div><div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1ckvYTo41vfbF1RqNE6oiSzv6uu-pADr8/view?usp=drive_link" target="_blank">REDDIT: 2025-12-24 HTC deletes 700+ comments</a>
-                </div></div>
+                <div class="filing">
+                  <div class="filing-date">12-04-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1C7APUUfgMZ_man7516flXDqRhz97bf63/view?usp=drive_link" target="_blank">Copyright Claims Board Order of Intent to Dismiss for Unsuitability!</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">12-12-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1Ln4KRiMmIo7jT_wAY5Ay7tBwUpU_Cz29/view?usp=drive_link" target="_blank">REDDIT: Dear HTC - please stop sending anonymous letters and emails and calling my employer.</a>
+                  </div>
+                </div>
+                <div class="filing">
+                  <div class="filing-date">12-24-2025</div>
+                  <div class="filing-content">
+                    <a class="filing-link" href="https://drive.google.com/file/d/1ckvYTo41vfbF1RqNE6oiSzv6uu-pADr8/view?usp=drive_link" target="_blank">REDDIT: 2025-12-24 HTC deletes 700+ comments</a>
+                  </div>
+                </div>
 
               </div><!-- End of .filings -->
             </div><!-- End of .case-details-body -->
           </details>
-
-    <!-- ════════════════════════════════════════════════════════
-         CASE TIMELINE LINK
-         ════════════════════════════════════════════════════════ -->
-
-    <a class="drive-card" href="../../case/HTC/timeline" data-aos="fade-up" style="text-decoration:none;">
-      <div class="drive-icon">
-        <i class="bi bi-signpost-split"></i>
-      </div>
-      <div class="drive-card-body">
-        <h3 class="drive-card-title">Case Timeline</h3>
-        <p class="drive-card-desc">A civil stalking case in seven acts. Dual-narrative timeline of Matthias v. Reality (Case No. 250404055) &mdash; tracks contested events from both sides, color-coded by party, with exhibit references and split-view panels for disputed incidents.</p>
-      </div>
-      <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
-    </a>
 
     <!-- ════════════════════════════════════════════════════════
          SOURCE FILES
@@ -1242,9 +1580,24 @@
       </div>
       <div class="drive-card-body">
         <h3 class="drive-card-title">Google Drive Folder</h3>
-        <p class="drive-card-desc">All filings and documents for Lauren Matthias and Grayson Yohr v. Reality as well as a folder of dissertations written by students supervised by Jawn Matthias.</p>
+        <p class="drive-card-desc">Source files and dissertations written by students supervised by Jawn Matthias.</p>
       </div>
       <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
+    </a>
+
+        <!-- ════════════════════════════════════════════════════════
+         CASE TIMELINE LINK
+         ════════════════════════════════════════════════════════ -->
+
+    <a class="drive-card" href="../../case/HTC/timeline" data-aos="fade-up" style="text-decoration:none;">
+      <div class="drive-icon">
+        <i class="bi bi-signpost-split"></i>
+      </div>
+      <div class="drive-card-body">
+        <h3 class="drive-card-title">Case Timeline</h3>
+        <p class="drive-card-desc"><strong>To the point scrolly timeline</strong>. Color-coded by party with exhibit references.</p>
+      </div>
+      <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
     </a>
 
   </section>
