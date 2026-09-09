@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ellis County Property Tax Levy Discrepancy Timeline FY2021–FY2025</title>
+    <title>The Hidden Levy: Ellis County's Five-Year Property Tax Gap</title>
+    <meta name="description" content="A cross-fund analysis of FY2021–FY2025 showing how Ellis County's General Fund budget understated total property tax collections by a cumulative $88.67 million — an average of 28.3% per year." />
+    <!-- Open Graph -->
+    <meta property="og:type"        content="article" />
+    <meta property="og:site_name"   content="Subtxt Press" />
+    <meta property="og:title"       content="The Hidden Levy: Ellis County's Five-Year Property Tax Gap" />
+    <meta property="og:description" content="A cross-fund analysis of FY2021–FY2025 showing how Ellis County's General Fund budget understated total property tax collections by a cumulative $88.67 million — an average of 28.3% per year." />
+    <meta property="og:url"         content="https://subtxtpress.github.io/home/ellis-county/timeline.html" />
+    <meta property="og:image"       content="https://subtxtpress.github.io/home/ellis-county/img/ellis-county-preview.png" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"   content="Chart: Ellis County actual property tax levy vs. General Fund budget, FY2021–FY2025, showing a cumulative $88.67M cross-fund gap." />
+    <!-- Twitter / X -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="The Hidden Levy: Ellis County's Five-Year Property Tax Gap" />
+    <meta name="twitter:description" content="Ellis County collected $88.67M more in property taxes than its publicly adopted General Fund budget reflected over five fiscal years. A Subtxt Press analysis." />
+    <meta name="twitter:image"       content="https://subtxtpress.github.io/home/ellis-county/img/ellis-county-preview.png" />
+    <meta name="twitter:image:alt"   content="Bar chart showing Ellis County actual levy vs. GF budget FY2021–FY2025 with cumulative $88.67M gap." />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
@@ -160,40 +177,51 @@
             user-select: none;
         }
         @media print {
-            @page { margin: 0.75in; }
-
+            @page { 
+                margin: 0.75in; 
+            }
             /* Force canvas and backgrounds to render */
             * {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-
             /* Hide chrome */
             nav, .sticky-nav, #mobile-menu, #mobile-menu-btn, #copy-btn,
             .copy-btn-wrap, .no-print {
                 display: none !important;
             }
-
             /* Show desktop table, hide mobile cards */
-            .md\:hidden { display: none !important; }
-            .hidden.md\:block { display: block !important; }
-
+            .md\:hidden { 
+                display: none !important; 
+            }
+            .hidden.md\:block { 
+                display: block !important; 
+            }
             /* Light background base */
             html, body {
                 background: #fff !important;
                 color: #1a1a1a !important;
             }
-
             /* Section labels */
-            .text-txt-primary   { color: #1a1a1a !important; }
-            .text-txt-secondary { color: #444 !important; }
-            .text-txt-muted     { color: #666 !important; }
-
+            .text-txt-primary   { 
+                color: #1a1a1a !important; 
+            }
+            .text-txt-secondary { 
+                color: #444 !important; 
+            }
+            .text-txt-muted     { 
+                color: #666 !important; 
+            }
             /* Data value colors — darkened for white bg */
-            .text-levy-amber, .text-levy-amberDark, .text-levy-amberLight { color: #6b5c38 !important; }
-            .text-budget-blue, .text-budget-blueDark, .text-budget-blueLight { color: #2e5c7a !important; }
-            .text-gap-red, .text-gap-redDark, .text-gap-redLight { color: #8a3e2e !important; }
-
+            .text-levy-amber, .text-levy-amberDark, .text-levy-amberLight { 
+                color: #6b5c38 !important; 
+            }
+            .text-budget-blue, .text-budget-blueDark, .text-budget-blueLight { 
+                color: #2e5c7a !important; 
+            }
+            .text-gap-red, .text-gap-redDark, .text-gap-redLight { 
+                color: #8a3e2e !important; 
+            }
             /* Cards — light backgrounds */
             .kpi-card, .narrative-card {
                 background: #f7f5f2 !important;
@@ -202,38 +230,47 @@
             .bg-charcoal-light, .bg-charcoal-mid {
                 background: #f0ede8 !important;
             }
-            .border-charcoal-border { border-color: #ccc6ba !important; }
-
+            .border-charcoal-border { 
+                border-color: #ccc6ba !important; 
+            }
             /* Timeline cards */
             .timeline-card > div {
                 background: #f7f5f2 !important;
                 border-color: #d0c8bc !important;
             }
-            .timeline-spine { background: #bbb !important; }
+            .timeline-spine { 
+                background: #bbb !important; 
+            }
             .timeline-dot {
                 background: #bbb !important;
                 border-color: #999 !important;
             }
-
             /* Variance bar */
-            .variance-bar-bg { background: #e8d8d4 !important; }
-            .variance-bar-fill { background: #8a3e2e !important; }
-
+            .variance-bar-bg { 
+                background: #e8d8d4 !important; 
+            }
+            .variance-bar-fill { 
+                background: #8a3e2e !important; 
+            }
             /* Callout banners */
             .callout-banner {
                 background: #fdf0ed !important;
                 border-left-color: #8a3e2e !important;
             }
-
             /* Table — fit to page */
-            .overflow-x-auto { overflow: visible !important; width: 100% !important; }
+            .overflow-x-auto { 
+                overflow: visible !important; 
+                width: 100% !important; 
+            }
             #findings-table {
                 width: 100% !important;
                 table-layout: fixed !important;
                 font-size: 0.72rem !important;
                 break-inside: auto;
             }
-            #findings-table tr { break-inside: avoid; }
+            #findings-table tr { 
+                break-inside: avoid; 
+            }
             #findings-table th,
             #findings-table td {
                 white-space: normal !important;
@@ -242,28 +279,48 @@
             }
             /* Hide "Notable Context" column */
             #findings-table th:nth-child(6),
-            #findings-table td:nth-child(6) { display: none !important; }
-            #findings-table thead tr { background: #eee !important; }
-            .table-highlight { background: #fdf0ed !important; }
-
+            #findings-table td:nth-child(6) { 
+                display: none !important; 
+            }
+            #findings-table thead tr { 
+                background: #eee !important; 
+            }
+            .table-highlight { 
+                background: #fdf0ed !important; 
+            }
             /* Methodology — always expand in print */
             #methodology-content, #methodology-content.hidden {
                 display: block !important;
                 max-height: none !important;
+            } 
+            .methodology-toggle { 
+                cursor: default !important; 
             }
-            .methodology-toggle { cursor: default !important; }
-
             /* Page breaks */
-            section { break-inside: auto; }
-            .timeline-card, .kpi-card { break-inside: avoid; }
-            .narrative-card { break-inside: auto; }
+            section { 
+                break-inside: auto; 
+            }
+            .timeline-card, .kpi-card { 
+                break-inside: avoid; 
+            }
+            .narrative-card { 
+                break-inside: auto; 
+            }
             /* Force single-column for narrative grid regardless of viewport */
-            #analysis .grid { grid-template-columns: 1fr !important; }
-            .overflow-x-auto { break-inside: auto; }
-            h2, h3 { break-after: avoid; }
-
+            #analysis .grid { 
+                grid-template-columns: 1fr !important; 
+            }
+            .overflow-x-auto { 
+                break-inside: auto; 
+            }
+            h2, h3 { 
+                break-after: avoid; 
+            }
             /* Charts */
-            canvas { display: block !important; max-width: 100% !important; }
+            canvas { 
+                display: block !important; 
+                max-width: 100% !important; 
+            }
         }
     </style>
 </head>
