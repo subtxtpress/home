@@ -86,7 +86,9 @@ const CASE_PAGES = [
       transition: opacity .15s;
       font-family: inherit;
     }
-    .case-nav-btn:hover { opacity: .75; }
+    .case-nav-btn:hover { 
+      opacity: .75; 
+    }
     .theme-toggle-btn {
       padding: 6px 10px;
       background: var(--bg3);
@@ -103,7 +105,9 @@ const CASE_PAGES = [
       transition: opacity .15s;
       font-family: inherit;
     }
-    .theme-toggle-btn:hover { opacity: .75; }
+    .theme-toggle-btn:hover { 
+      opacity: .75; 
+    }
   `;
   document.head.appendChild(style);
 })();

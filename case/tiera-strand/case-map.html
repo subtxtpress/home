@@ -80,7 +80,8 @@
       height: 3px;
       background: var(--c-tiera); 
       z-index: 1300;
-      width: 0; transition: width 0.15s ease-out;
+      width: 0; 
+      transition: width 0.15s ease-out;
     }
     /* ── NAV ── */
     .nav {
@@ -91,11 +92,13 @@
       height: var(--nav-h);
       background: rgba(6,11,20,0.97);
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: center;
+      display: flex; 
+      align-items: center;
       padding: 0 20px; 
       z-index: 1200; 
       gap: 12px;
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px); 
+      -webkit-backdrop-filter: blur(8px);
     }
     .nav-title {
       font-family: var(--head); 
@@ -279,7 +282,8 @@
       margin-bottom: 5px;
     }
     .details li::before { 
-      content: '· '; color: var(--border2); 
+      content: '· '; 
+      color: var(--border2); 
     }
     /* ── VIDEO BUTTONS ── */
     .video-btn-row { 
@@ -307,7 +311,8 @@
     }
     .video-btn:hover { 
       background: rgba(192,78,1,0.32); 
-      border-color: rgba(192,78,1,0.6); }
+      border-color: rgba(192,78,1,0.6); 
+    }
     .video-btn svg { 
       width: 12px; 
       height: 12px; 
@@ -685,12 +690,12 @@
 
   <!-- STEP 0: Title -->
   <div class="step title-card is-active" data-step="0" style="border-color: transparent;">
-    <div class="eyebrow">April 2023 — Austin, Texas</div>
+    <div class="eyebrow">April 2023 in Austin, Texas</div>
     <h1>The Disappearance &amp; Death of Tiera Strand</h1>
-    <p class="subtitle">On the night of April 15–16, 2023, Tiera Strand, 25, went out with friends to Austin's 6th Street. She was beaten at a bar, left without her phone or wallet, and encountered an unknown man. She was never seen alive again. Five days later her body was found in a ditch 75 miles away.</p>
+    <p class="subtitle">On the night of Apr. 15th, 2023, Tiera Strand, 25, went out with friends to Austin's 6th Street. She was beaten at a bar, left without her phone or wallet, and encountered an unknown man. She was never seen alive again. Five days later her body was found in a ditch 75 miles away.</p>
     <div class="title-stats">
-      <div class="stat-box"><div class="stat-label">Last Seen</div><div class="stat-value">Apr 16 · 2:40 AM</div></div>
-      <div class="stat-box"><div class="stat-label">Found</div><div class="stat-value">Apr 21 · Bell Co.</div></div>
+      <div class="stat-box"><div class="stat-label">Last Seen</div><div class="stat-value">Apr. 16th @ 2:40 AM</div></div>
+      <div class="stat-box"><div class="stat-label">Found</div><div class="stat-value">Apr. 21st in Bell Co.</div></div>
       <div class="stat-box"><div class="stat-label">Distance</div><div class="stat-value">75 miles</div></div>
       <div class="stat-box"><div class="stat-label">Case Status</div><div class="stat-value unsolved">UNSOLVED</div></div>
     </div>
@@ -700,36 +705,46 @@
   <!-- STEP 1: Tiera Photographed -->
   <div class="step" data-step="1" style="border-color: #C04E01;">
     <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 15, 2023 — Evening</div>
+    <div class="step-time">Apr. 15, 2023 in the Evening</div>
     <h2 class="step-title">Tiera Photographed</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
     </div>
-    <p>Tiera Strand, 25, goes out with a group of friends to Austin's 6th Street entertainment district. A photograph taken this night is the last known image of Tiera alive.</p>
-    <p>She is described by her family as full of life — bubbly, sassy, expressive. She had plans to finish school and join the Navy. She was a mother to a 6-year-old daughter.</p>
+    <p>Tiera goes out with a group of friends to Austin's 6th Street entertainment district. A photograph taken this night is the last known image of Tiera alive.</p>
+    <p>She is described by her family as full of life. Bubbly, sassy, expressive. She had plans to finish school and join the Navy. She was a mother to a 6-year-old daughter.</p>
   </div>
 
   <!-- STEP 2: POI Body Cam -->
   <div class="step" data-step="2" style="border-color: #9D4EDD;">
     <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 16, 2023 — 1:44 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ 1:44 AM</div>
     <h2 class="step-title">POI Captured on Body Cam</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>Footage screened at APD's press conference shows an officer's Axon body camera capturing a man on the 300 block of E 6th Street performing what's described as a military-style facing movement.</p>
-    <p>This is the first documented appearance of the Person of Interest (POI) on 6th Street — approximately 45 minutes before he will approach Tiera. The exact venue doorway is unconfirmed; APD has not released the source footage.</p>
+    <p>Footage screened at APD's press conference shows an officer's Axon body camera capturing a man on the 300 block of East 6th Street performing what they described as a "military-style facing movement."</p>
+    <p>This is the first documented appearance of the Person of Interest (POI) on 6th Street, approximately 45 minutes before he will approach Tiera. The exact venue doorway is unconfirmed; APD has not released the source footage.</p>
+    <div class="video-btn-row">
+      <button class="video-btn" onclick="openVideo('public/videos/poi-shakespeares-144am.mp4','POI — Shakespeare\'s · 1:44 AM')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play Footage
+      </button>
+    </div>
     <ul class="details">
-      <li>Footage source: APD press conference screen capture — original file not publicly released</li>
+      <li>Footage source: APD press conference screen capture (original file not publicly released)</li>
     </ul>
+    <button class="venue-thumb" onclick="openPhoto('public/venues/shakespeares-pub.jpg','Shakespeare\'s Pub · 314 E 6th St')">
+      <img src="public/venues/shakespeares-pub.jpg" alt="Shakespeare's Pub" onerror="this.parentElement.style.display='none'">
+      <div class="venue-thumb-caption">Shakespeare's Pub · 314 E 6th St</div>
+    </button>
     <div class="poi-card">
-      <div class="poi-card-header">Person of Interest — Physical Profile</div>
+      <div class="poi-card-header">Person of Interest: Physical Profile</div>
       <div class="poi-card-body">
         <div>
           <div class="poi-section-label">Appearance</div>
           <ul class="poi-list">
             <li>Broad shoulders, muscular build</li>
-            <li>Light gray sweatshirt — small chest emblem</li>
+            <li>Light gray sweatshirt, small chest emblem</li>
             <li>Light wash jeans, dark sneakers</li>
             <li>Military-style 5A frames glasses</li>
             <li>Both ears pierced</li>
@@ -739,31 +754,21 @@
         <div>
           <div class="poi-section-label">Behavioral Observations</div>
           <ul class="poi-list">
-            <li>Military-style facing movement at 1:44 AM — suggests training</li>
-            <li>On 6th Street ~45 min before approaching Tiera — not believed to be a random encounter</li>
-            <li>Conspicuously absent during the Mooseknuckle altercation</li>
-            <li>Made contact only after Tiera was isolated and stripped of her belongings</li>
-            <li>Chain-smoking began immediately upon contact — not observed before</li>
+            <li>Military-style facing movement at 1:44 AM, suggests training.</li>
+            <li>On 6th Street ~45 min before approaching Tiera, not believed to be a random encounter.</li>
+            <li>Conspicuously absent during the Mooseknuckle altercation.</li>
+            <li>Made contact only after Tiera was isolated and stripped of her belongings.</li>
+            <li>Chain-smoking began immediately upon contact, not observed before.</li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="video-btn-row">
-      <button class="video-btn" onclick="openVideo('public/videos/poi-shakespeares-144am.mp4','POI — Shakespeare\'s · 1:44 AM')">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        Play Footage
-      </button>
-    </div>
-    <button class="venue-thumb" onclick="openPhoto('public/venues/shakespeares-pub.jpg','Shakespeare\'s Pub · 314 E 6th St')">
-      <img src="public/venues/shakespeares-pub.jpg" alt="Shakespeare's Pub" onerror="this.parentElement.style.display='none'">
-      <div class="venue-thumb-caption">Shakespeare's Pub · 314 E 6th St</div>
-    </button>
   </div>
 
   <!-- STEP 3: Blind Pig -->
   <div class="step" data-step="3" style="border-color: #9D4EDD;">
     <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 16, 2023 — 1:45 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ 1:45 AM</div>
     <h2 class="step-title">Blind Pig Footage</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
@@ -785,28 +790,28 @@
   <!-- STEP 4: Trinity Street -->
   <div class="step" data-step="4" style="border-color: #EBE2CD;">
     <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 16, 2023 — ~1:50 AM</div>
-    <h2 class="step-title">Trinity Street — Between 6th &amp; 7th</h2>
+    <div class="step-time">Apr. 16, 2023 @ ~1:50 AM</div>
+    <h2 class="step-title">Trinity Between 6th &amp; 7th Street</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>The POI is observed on Trinity Street between 6th and 7th Streets. Investigators, including Sgt. Powell, place him in this mid-block location heading north — toward 7th Street — before returning south to the 6th Street corridor.</p>
+    <p>The POI is observed on Trinity Street between 6th and 7th Street. Investigators, including Sgt. Powell, place him in this mid-block location heading north, toward 7th Street, before returning south to the 6th Street corridor.</p>
     <ul class="details">
-      <li>Location per Sgt. Powell: Trinity Street between E 6th and E 7th</li>
-      <li>Direction: heading north away from 6th Street</li>
-      <li>Near Tellers nightclub on Trinity</li>
+      <li>Location per Sgt. Powell: Trinity Street between East 6th and East 7th.</li>
+      <li>Direction: heading north away from 6th Street.</li>
+      <li>Near Tellers nightclub on Trinity.</li>
     </ul>
   </div>
 
   <!-- STEP 46: 6th & Trinity St. — POD146 -->
   <div class="step" data-step="46" style="border-color: #EBE2CD;">
     <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 16, 2023 — 2:00 AM</div>
-    <h2 class="step-title">6th & Trinity — Old School Bar</h2>
+    <div class="step-time">Apr. 16, 2023 @ 2:00 AM</div>
+    <h2 class="step-title">6th & Trinity Street</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>Surveillance footage from POD146 (6th and Trinity — Old School Bar) shows the POI walking with a group of people. A woman in the group lunges at him; she is pulled back by friends.</p>
+    <p>Surveillance footage from POD146 (6th and Trinity) shows the POI walking with a group of people. A woman in the group lunges at him; she is pulled back by friends.</p>
     <p>Two unidentified women near a rickshaw also speak with the POI around this time. It appears that the POI hands his phone to one of the women, perhaps so she can give him her phone number.</p>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/pod146-old-school-bar-200am.mp4','POD146 — Old School Bar · ~2:00 AM')">
@@ -816,34 +821,34 @@
     </div>
     <button class="venue-thumb" onclick="openPhoto('public/venues/old-school-bar.jpg','Old School Bar · 6th &amp; Trinity St')">
       <img src="public/venues/old-school-bar.jpg" alt="Old School Bar" onerror="this.parentElement.style.display='none'">
-      <div class="venue-thumb-caption">Old School Bar · 6th &amp; Trinity St</div>
+      <div class="venue-thumb-caption">6th &amp; Trinity St</div>
     </button>
   </div>
 
   <!-- STEP 45: IH-35 Departure -->
   <div class="step" data-step="45" style="border-color: #EBE2CD;">
     <div class="act-label">Act I — The Night Out</div>
-    <div class="step-time">April 16, 2023 — 2:09 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ 2:09 AM</div>
     <h2 class="step-title">POI Departs Under IH-35</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>POD102, a camera mounted on the 600 block of IH-35 captures the POI walking east under the Interstate 35 overpass at 2:09 AM — moving away from the 6th Street corridor.</p>
+    <p>POD102, a camera mounted on the 600 block of IH-35 captures the POI walking east under the overpass at 2:09 AM, moving away from the 6th Street corridor.</p>
     <p>He will reappear at Mooseknuckle Pub approximately 20 minutes later. What he did in that interval, and how he returned, is not explained by any currently available footage.</p>
     <ul class="details">
-      <li>Camera: POD102, 600 block IH-35, west-facing</li>
-      <li>Direction of travel: east — away from 6th Street entertainment district</li>
-      <li>9 minutes after 6th &amp; Trinity sighting</li>
-      <li>Reappears at Mooseknuckle ~20 minutes later — gap unaccounted for</li>
+      <li>Camera: POD102, 600 block IH-35, west-facing.</li>
+      <li>Direction of travel: east, away from 6th Street entertainment district.</li>
+      <li>9 minutes after 6th &amp; Trinity sighting.</li>
+      <li>Reappears at Mooseknuckle ~20 minutes later, gap unaccounted for.</li>
     </ul>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/pod102-ih35-209am-a.mp4','POD102 — IH-35 · 2:09:39 AM')">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        Clip 1 — 2:09:39 AM
+        Clip 1 @ 2:09:39 AM
       </button>
       <button class="video-btn" onclick="openVideo('public/videos/pod102-ih35-209am-b.mp4','POD102 — IH-35 · 2:09:50 AM')">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        Clip 2 — 2:09:50 AM
+        Clip 2 @ 2:09:50 AM
       </button>
     </div>
   </div>
@@ -851,20 +856,20 @@
   <!-- STEP 5: Mooseknuckle Altercation -->
   <div class="step" data-step="5" style="border-color: #C04E01;">
     <div class="act-label">Act II — The Altercation</div>
-    <div class="step-time">April 16, 2023 — ~2:30 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ ~2:30 AM</div>
     <h2 class="step-title">Altercation at Mooseknuckle Pub</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
     </div>
-    <p>Inside Mooseknuckle Pub at 406 E. 6th Street, a group of girls begin beating Tiera. She is kicked out of the bar. The fight continues outside.</p>
+    <p>Inside Mooseknuckle Pub at 406 East 6th Street, a group of girls begin beating Tiera. She is kicked out of the bar. The fight continues outside.</p>
     <p>The friends who came with her are present but do not intervene. A witness records the tail end of the fight on a cell phone.</p>
-    <p>After the incident, Tiera angrily storms off — leaving behind her cell phone, purse, and car keys. She has no way to call for help and no way to pay for transportation.</p>
+    <p>After the incident, Tiera angrily storms off, leaving behind her cell phone, purse, and car keys. She has no way to call for help and no way to pay for transportation.</p>
     <ul class="details">
-      <li>Assault begins inside the club, continues outside after she is kicked out</li>
-      <li>Friends present but did not assist — confirmed by witness video</li>
-      <li>Left without phone, purse, wallet, bank card, car keys</li>
-      <li>Later that night, Tiera's friends depart in her van without reporting her missing</li>
-      <li>Family not notified until the following day (April 17)</li>
+      <li>Assault begins inside the club, continues outside after she is kicked out.</li>
+      <li>Friends present but did not assist, confirmed by witness video.</li>
+      <li>Left without phone, purse, wallet, bank card, car keys.</li>
+      <li>Later that night, Tiera's friends depart in her van without reporting her missing.</li> 
+      <li>Family not notified until the following day (Apr. 17)</li> 
     </ul>
     <button class="venue-thumb" onclick="openPhoto('public/venues/mooseknuckle.webp','Mooseknuckle Pub · 406 E 6th St')">
       <img src="public/venues/mooseknuckle.webp" alt="Mooseknuckle Pub" onerror="this.parentElement.style.display='none'">
@@ -875,19 +880,19 @@
   <!-- STEP 6: POI Approaches Tiera -->
   <div class="step" data-step="6" style="border-color: #9D4EDD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — ~2:30 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ ~2:30 AM</div>
     <h2 class="step-title">POI Approaches Tiera</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
     <p>Now alone and without her belongings, Tiera is approached by the POI on 6th Street near San Jacinto. This is the first documented contact between them. They appear crossing the intersections with Tiera walking behind the POI away from I-35 and toward San Jacinto.</p>
-    <p>At this point, investigators note the POI begins chain-smoking — a behavior that was not observed during his 45 minutes on 6th Street before meeting Tiera.</p>
+    <p>At this point, investigators note the POI begins chain-smoking, a behavior that was not observed during his 45 minutes on 6th Street before meeting Tiera.</p>
     <p>The POI had been on 6th Street for approximately 45 minutes before this approach. It remains unknown if he was present during the Mooseknuckle altercation or if he only made contact after Tiera was isolated and vulnerable.</p>
     <ul class="details">
-      <li>POI had been observed on 6th Street for ~45 min before this contact</li>
-      <li>Tiera appears comfortable in the initial video footage</li>
-      <li>Prior to meeting Tiera, POI was not observed smoking at any point</li>
+      <li>POI had been observed on 6th Street for ~45 min before this contact.</li>
+      <li>Tiera appears comfortable in the initial video footage.</li>
+      <li>Prior to meeting Tiera, POI was not observed smoking at any point.</li>
     </ul>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/poi-tiera-san-jacinto.mp4','POI + Tiera — San Jacinto')">
@@ -900,28 +905,28 @@
   <!-- STEP 67: Turning Around -->
   <div class="step" data-step="67" style="border-color: #9D4EDD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — ~2:35 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ ~2:35 AM</div>
     <h2 class="step-title">Turning Around</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
-    <p>Near San Jacinto Boulevard, the pair stops and reverses direction — now heading back east toward IH-35. The direction change is captured by surveillance cameras in the corridor.</p>
+    <p>Near San Jacinto Boulevard, the pair stops and reverses direction, now heading back east toward IH-35. The direction change is captured by surveillance cameras in the corridor.</p>
   </div>
 
   <!-- STEP 7: Direction Change / Bijou Lounge -->
   <div class="step" data-step="7" style="border-color: #9D4EDD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — 2:38 AM</div>
-    <h2 class="step-title">Direction Change</h2>
+    <div class="step-time">Apr. 16, 2023 @ 2:38 AM</div>
+    <h2 class="step-title">Back Toward IH-35</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
       <span class="person-pill"><span class="dot" style="background:#9D4EDD;"></span>PERSON OF INTEREST</span>
     </div>
     <p>The pair reverses direction, now walking back toward I-35. Horse camera footage (Bijou Lounge to their left) records them moving northeast.</p>
     <ul class="details">
-      <li>Chain-smoking began immediately after contact with Tiera</li>
-      <li>Behavioral change noted as potentially significant by investigators</li>
+      <li>Chain-smoking began immediately after contact with Tiera.</li>
+      <li>Behavioral change noted as potentially significant by investigators.</li>
     </ul>
     <div class="video-btn-row">
       <button class="video-btn" onclick="openVideo('public/videos/horse-cam-bijou-lounge.mp4','Horse Cam — Bijou Lounge · ~2:35 AM')">
@@ -931,14 +936,14 @@
     </div>
     <button class="venue-thumb" onclick="openPhoto('public/venues/bijou-lounge.jpg','Bijou Lounge · ~500 E 6th St')">
       <img src="public/venues/bijou-lounge.jpg" alt="Bijou Lounge" onerror="this.parentElement.style.display='none'">
-      <div class="venue-thumb-caption">Bijou Lounge · ~500 E 6th St</div>
+      <div class="venue-thumb-caption">Bijou Lounge · ~500 East 6th St</div>
     </button>
   </div>
 
   <!-- STEP 75: Chevron -->
   <div class="step" data-step="75" style="border-color: #EBE2CD;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — ~2:40 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ ~2:40 AM</div>
     <h2 class="step-title">Passing the Chevron</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND</span>
@@ -950,7 +955,7 @@
   <!-- STEP 8: Last Sighting -->
   <div class="step" data-step="8" style="border-color: #C04E01;">
     <div class="act-label">Act III — The Last Hours</div>
-    <div class="step-time">April 16, 2023 — 2:40 AM</div>
+    <div class="step-time">Apr. 16, 2023 @ 2:40 AM</div>
     <h2 class="step-title">Last Confirmed Sighting</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#C04E01;"></span>TIERA STRAND — LAST SIGNAL</span>
@@ -958,13 +963,13 @@
     <p>POD145 footage (6th and Brushy) captures the pair crossing under I-35 and walking into a Wendy's parking lot north of downtown Austin at 2:40 AM. This is the last recovered footage of Tiera alive.</p>
     <p>The Wendy's drive-through camera did not capture activity in the parking lot. No witnesses from Wendy's staff or customers came forward. No video or physical evidence of what occurred next has been recovered.</p>
     <ul class="details">
-      <li>Last verified location: Wendy's parking lot, north of I-35</li>
-      <li>Drive-through camera did not cover parking lot area</li>
-      <li>No witnesses came forward from Wendy's</li>
-      <li>No evidence recovered of what occurred after this point</li>
+      <li>Last verified location: Wendy's parking lot, north of I-35.</li>
+      <li>Drive-through camera did not cover parking lot area.</li>
+      <li>No witnesses came forward from Wendy's.</li>
+      <li>No evidence recovered of what occurred after this point.</li>
     </ul>
     <div class="video-btn-row">
-      <button class="video-btn" onclick="openVideo('public/videos/pod145-wendys-240am.mp4','POD145 — Wendy\'s · 2:40 AM')">
+      <button class="video-btn" onclick="openVideo('public/videos/pod145-wendys-240am.mp4','POD145 — Wendy\'s @ 2:40 AM')">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         Play Footage
       </button>
@@ -974,41 +979,41 @@
   <!-- STEP 9: Missing Person Report -->
   <div class="step" data-step="9" style="border-color: #EBE2CD;">
     <div class="act-label">Act IV — Gone</div>
-    <div class="step-time">April 17, 2023 — Daytime</div>
+    <div class="step-time">Apr. 17, 2023 in the daytime</div>
     <h2 class="step-title">Missing Person Report Filed</h2>
     <p>The friends who left Tiera on 6th Street finally contact her family the following day. When the family tried to reach Tiera, the friends answered her phone and said they had her belongings — which the family says is completely out of character for Tiera.</p>
     <p>Tiera's family immediately reports her missing to the Austin Police Department. But by this point, Tiera has been missing for approximately 14 hours.</p>
     <p>"She would not have gone to that area without someone that knows and loves her," said Tiera's aunt, Jordaya Dorris.</p>
     <ul class="details">
-      <li>Family tried to call — friends answered Tiera's phone</li>
-      <li>Friends said they had her belongings — family said this was out of character</li>
-      <li>APD missing persons report filed April 17</li>
-      <li>Approximately 14 hours had passed since her last sighting</li>
+      <li>Family tried to call,friends answered Tiera's phone.</li> 
+      <li>Friends said they had her belongings, family said this was out of character.</li>
+      <li>APD missing persons report filed Apr. 17.</li>
+      <li>Approximately 14 hours had passed since her last sighting.</li>
     </ul>
     <button class="venue-thumb" onclick="openPhoto('public/venues/tiera-strand-flyer.webp','Missing Person — Tiera Strand · Filed April 17, 2023')">
       <img src="public/venues/tiera-strand-flyer.webp" alt="Tiera Strand Missing Person Flyer" onerror="this.parentElement.style.display='none'">
-      <div class="venue-thumb-caption">Missing Person Flyer — Filed April 17, 2023</div>
+      <div class="venue-thumb-caption">Missing Person Flyer filed Apr. 17, 2023</div>
     </button>
   </div>
 
   <!-- STEP 10: Body Found -->
   <div class="step" data-step="10" style="border-color: #E63946;">
     <div class="act-label">Act V — Found</div>
-    <div class="step-time">April 21, 2023 — Morning</div>
-    <h2 class="step-title">Body Discovered — Bell County</h2>
+    <div class="step-time">Apr. 21, 2023 in the morning</div>
+    <h2 class="step-title">Body Discovered in Bell County</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#E63946;"></span>BELL COUNTY, TX</span>
     </div>
-    <p>Heavy rain on Thursday night (April 20) washes roadside grass flat. A citizen driving to work the next morning discovers Tiera's body in a ditch at the 1300 block of Berger Road, just north of Temple — approximately 75 miles from where she was last seen in Austin.</p>
-    <p>Tiera's family has confirmed she had no known connection to Bell County. There is no reason she would have traveled there voluntarily — without her belongings, without someone she knew.</p>
+    <p>Heavy rain on Thursday night (Apr. 20) washes roadside grass flat. A citizen driving to work the next morning discovers Tiera's body in a ditch at the 1300 block of Berger Road, just north of Temple, approximately 75 miles from where she was last seen in Austin.</p>
+    <p>Tiera's family has confirmed she had no known connection to Bell County. There is no reason she would have traveled there voluntarily without her belongings, without someone she knew.</p>
     <p>"She would not have gone to that area without someone that knows and loves her." — Jordaya Dorris, aunt</p>
     <ul class="details">
-      <li>75 miles north of Austin on the I-35 corridor</li>
-      <li>No known connection to Bell County — family confirms</li>
+      <li>75 miles north of Austin on the I-35 corridor.</li>
+      <li>No known connection to Bell County, family confirms.</li>
       <li>Body in advanced decomposition (~5 days exposure)</li>
-      <li>Rain runoff exposed body by washing down roadside grass</li>
-      <li>Partial DNA profile recovered but not CODIS-eligible</li>
-      <li>Investigation opened as homicide by Bell County Sheriff's Department</li>
+      <li>Rain runoff exposed body by washing down roadside grass.</li>
+      <li>Partial DNA profile recovered but not CODIS-eligible.</li>
+      <li>Investigation opened as homicide by Bell County Sheriff's Department.</li>
     </ul>
     <button class="venue-thumb" onclick="openPhoto('public/venues/body-found-kdhnews.jpg','Scene — 1300 block Berger Rd, Bell County · Photo: KDH News')">
       <img src="public/venues/body-found-kdhnews.jpg" alt="Scene — Berger Road, Bell County" onerror="this.parentElement.style.display='none'">
@@ -1019,36 +1024,36 @@
   <!-- STEP 11: Autopsy -->
   <div class="step" data-step="11" style="border-color: #EBE2CD;">
     <div class="act-label">Act V — Found</div>
-    <div class="step-time">July 27, 2023</div>
+    <div class="step-time">Jul. 27, 2023</div>
     <h2 class="step-title">Autopsy: Cause of Death Undetermined</h2>
     <p>An autopsy performed by the Dallas County Medical Examiner rules the cause of death as "undetermined." The report notes no visible trauma to the body, but acknowledges that the level of decomposition may have obscured fatal injuries.</p>
     <p>"The events that occurred between the time the decedent was last known alive and the time her remains were discovered are currently unknown. Furthermore, the level of decomposition may have obscured an injury or injuries that caused or contributed to her death." — Autopsy report</p>
     <p>The investigation continues to be treated as a homicide by the Bell County Sheriff's Department and the Austin Police Department Homicide Unit.</p>
     <ul class="details">
-      <li>Cause of death classified as "undetermined"</li>
-      <li>No visible trauma noted on remains</li>
+      <li>Cause of death classified as "undetermined".</li>
+      <li>No visible trauma noted on remain.s</li>
       <li>Decomposition likely obscured cause of fatal injury</li>
-      <li>Investigation treated as homicide — case remains active</li>
-      <li>Numerous individuals questioned; no definitive suspects named</li>
+      <li>Investigation treated as homicide, case remains active.</li>
+      <li>Numerous individuals questioned; no definitive suspects named.</li>
     </ul>
   </div>
 
   <!-- STEP 12: The Investigation -->
   <div class="step" data-step="12" style="border-color: #4A8A7C;">
     <div class="act-label">Act V — Found</div>
-    <div class="step-time">2023 — Present</div>
+    <div class="step-time">Jul. 27, 2023 to Present</div>
     <h2 class="step-title">The Investigation</h2>
     <div class="pills">
       <span class="person-pill"><span class="dot" style="background:#4A8A7C;"></span>CASE ACTIVE</span>
     </div>
     <p>The Bell County Sheriff's Office Criminal Investigations Division and the Austin Police Department Homicide Unit are jointly investigating Tiera's death. The case is classified as a homicide.</p>
-    <p>A partial DNA profile was recovered from evidence but does not meet the threshold for CODIS database matching. Investigators are exploring whether the profile qualifies for Investigative Genetic Genealogy (IGG) — the same technique used to identify the Golden State Killer.</p>
-    <p>The Person of Interest captured on multiple surveillance cameras on the night of April 15–16 has never been publicly identified. Investigators believe someone in the public knows who he is.</p>
+    <p>A partial DNA profile was recovered from evidence but does not meet the threshold for CODIS database matching. Investigators are exploring whether the profile qualifies for Investigative Genetic Genealogy (IGG), the same technique used to identify the Golden State Killer.</p>
+    <p>The Person of Interest captured on multiple surveillance cameras on the night of Apr. 15–16 has never been publicly identified. Investigators believe someone in the public knows who he is.</p>
     <ul class="details">
-      <li>Partial DNA profile recovered — not CODIS-eligible at current threshold</li>
-      <li>IGG (investigative genetic genealogy) being evaluated as next step</li>
-      <li>POI appears on APD body cam, Axon footage, and multiple private cameras</li>
-      <li>POI: broad shoulders, muscular, light gray sweatshirt w/ chest emblem, light wash jeans, dark sneakers, military 5A frames, both ears pierced</li>
+      <li>Partial DNA profile recovered, not CODIS-eligible at current threshold.</li>
+      <li>IGG (investigative genetic genealogy) being evaluated as next step.</li>
+      <li>POI appears on APD body cam, Axon footage, and multiple private cameras.</li>
+      <li>POI: broad shoulders, muscular, light gray sweatshirt w/ chest emblem, light wash jeans, dark sneakers, military 5A frames, both ears pierced.</li>
       <li>BCSD CID: 254-933-5442</li>
       <li>APD Homicide: 512-472-8477</li>
     </ul>
@@ -1058,14 +1063,14 @@
   <div class="step" data-step="13" style="border-color: #EBE2CD;">
     <div class="act-label">If You Were There</div>
     <h2 class="step-title">Were You on 6th Street That Night?</h2>
-    <p>If you were on Austin's 6th Street in the early hours of April 16, 2023 — near Shakespeare's Pub, The Blind Pig, the Old School Bar, or Mooseknuckle Pub — you may have seen something that could break this case open.</p>
+    <p>If you were on Austin's 6th Street in the early hours of Apr. 16, 2023 near Shakespeare's Pub, The Blind Pig, the Old School Bar, or Mooseknuckle Pub, you may have seen something that could break this case open.</p>
     <p>Investigators are specifically looking for anyone who saw the altercation at Mooseknuckle Pub around 2:30 AM, witnessed Tiera after she was separated from her group, or recognized the Person of Interest.</p>
     <p>Tiera's daughter is growing up without her mother. Her family deserves answers. No detail is too small.</p>
     <ul class="details">
       <li>Bell County Sheriff's Office CID: 254-933-5442</li>
       <li>Austin Police Department Homicide: 512-472-8477</li>
       <li>Tips can be submitted anonymously</li>
-      <li>Any information — even if you're unsure it matters — could help</li>
+      <li>Any information, even if you're unsure it matters, could help.</li>
     </ul>
   </div>
 
@@ -1094,20 +1099,20 @@
 <script>
 /* ── Coordinates ── */
 /* All bar/street coords snapped to E 6th centerline (interpolated from OSM geometry below) */
-const BLIND_PIG     = [30.26724, -97.73984]; /* 317 E 6th — GE lng, lat snapped to E 6th centerline */
-const SHAKESPEARES  = [30.26728, -97.73984]; /* 314 E 6th — GE lng, lat snapped to E 6th centerline */
-const TRINITY_POI   = [30.26758, -97.73906]; /* Trinity St mid-block bet. E6–E7 — Google Earth exact */
-const CHUPACABRA    = [30.26707, -97.73924]; /* 6th & Trinity — GE lng, lat snapped to E 6th centerline */
-const MOOSEKNUCKLE  = [30.26705, -97.73896]; /* 406 E 6th — Google Earth exact */
-const BIJOU_LOUNGE  = [30.26699, -97.73894]; /* Bijou Lounge — GE lng, lat snapped to E 6th centerline */
-const SAN_JAC       = [30.26780, -97.74000]; /* San Jacinto & E 6th — landmark reference */
-const TOWARD_SJ     = [30.26703, -97.73946]; /* Toward San Jacinto — Google Earth exact */
-const TURN_AROUND   = [30.26707, -97.73921]; /* Turning Around — GE lng, lat snapped to E 6th centerline */
-const I35_CROSS     = [30.26573, -97.73497]; /* E 6th at IH-35 — Google Earth exact: 30°15'56.62"N 97°44'5.90"W */
-const IH35_601      = [30.26579, -97.73401]; /* Chevron — Google Earth exact */
-const WENDYS        = [30.26618, -97.73389]; /* Wendy's — Google Earth exact: 30°15'58.24"N 97°44'2.00"W */
-const AUSTIN_CITY   = [30.2672, -97.7431];
-const BERGER_RD     = [31.1260, -97.3405];
+const BLIND_PIG     = [30.267078, -97.739817]; /* 317 E 6th — GeoJSON verified */
+const SHAKESPEARES  = [30.267353, -97.739792]; /* 314 E 6th — GeoJSON verified */
+const TRINITY_POI   = [30.267353, -97.739103]; /* Trinity St mid-block bet. E6–E7 — GeoJSON verified */
+const CHUPACABRA    = [30.266933, -97.739225]; /* 6th & Trinity / Old School Bar — GeoJSON verified */
+const MOOSEKNUCKLE  = [30.267103, -97.738931]; /* 406 E 6th — GeoJSON verified */
+const BIJOU_LOUNGE  = [30.266817, -97.738681]; /* Bijou Lounge — GeoJSON verified */
+const SAN_JAC       = [30.2674,   -97.740203]; /* San Jacinto & E 6th — GeoJSON verified */
+const TOWARD_SJ     = [30.26703,  -97.73946];  /* Toward San Jacinto — Google Earth exact */
+const TURN_AROUND   = [30.26707,  -97.73921];  /* Turning Around — GE lng, lat snapped to E 6th centerline */
+const I35_CROSS     = [30.26573,  -97.73497];  /* E 6th at IH-35 — Google Earth exact */
+const IH35_601      = [30.265669, -97.734044]; /* Chevron — GeoJSON verified */
+const WENDYS        = [30.26618,  -97.73389];  /* Wendy's — Google Earth exact */
+const AUSTIN_CITY   = [30.2672,   -97.7431];
+const BERGER_RD     = [31.155981, -97.307803]; /* 1300 block Berger Rd, Bell County — GeoJSON verified */
 const SIXTH_ST      = [30.2671, -97.7390]; /* center of corrected bar corridor */
 const OVERVIEW      = [30.69,   -97.54];
 
@@ -1151,7 +1156,6 @@ const STEP_STATES = {
       { lat: AUSTIN_CITY[0], lng: AUSTIN_CITY[1], color: '#C04E01', label: 'Last seen: Downtown Austin, April 16', shortLabel: 'Austin — Last seen Apr 16', size: 13 },
       { lat: BERGER_RD[0],   lng: BERGER_RD[1],   color: '#E63946', label: 'Body found: Berger Rd, Bell County, April 21', shortLabel: 'Bell County — Found Apr 21', size: 13 },
     ],
-    routes: [{ coords: [AUSTIN_CITY, BERGER_RD], color: '#E63946' }],
   },
   1: {
     center: AUSTIN_CITY, zoom: 13, date: 'APRIL 15, 2023', time: 'EVENING',
@@ -1293,7 +1297,6 @@ const STEP_STATES = {
       { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', shortLabel: 'Last seen — Austin', size: 13 },
       { lat: BERGER_RD[0], lng: BERGER_RD[1], color: '#E63946', label: 'Body found: 1300 block of Berger Rd, north of Temple', shortLabel: 'Bell County — Found', pulse: true, size: 16 },
     ],
-    routes: [{ coords: [WENDYS, BERGER_RD], color: '#E63946' }],
   },
   11: {
     center: BERGER_RD, zoom: 13, date: 'JULY 27, 2023', time: '',
@@ -1307,7 +1310,6 @@ const STEP_STATES = {
       { lat: WENDYS[0],    lng: WENDYS[1],    color: '#C04E01', shortLabel: 'Last seen — Austin', size: 13 },
       { lat: BERGER_RD[0], lng: BERGER_RD[1], color: '#E63946', shortLabel: 'Found — Bell County', size: 13 },
     ],
-    routes: [{ coords: [WENDYS, BERGER_RD], color: '#4A8A7C' }],
   },
   13: {
     center: SIXTH_ST, zoom: 16, date: 'APRIL 15–16, 2023', time: '',
@@ -1322,9 +1324,9 @@ const STEP_STATES = {
 
 /* ── Map init ── */
 const map = L.map('map', { center: OVERVIEW, zoom: 8, zoomControl: true, attributionControl: true });
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  subdomains: 'abcd', maxZoom: 20,
+L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=3987cab3-bd6b-48da-a7c6-59d632fb165d', {
+  attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 20,
 }).addTo(map);
 
 /* ── Persistent camera layer (not cleared between steps) ── */
@@ -1340,6 +1342,104 @@ CAMERAS.forEach(c => {
     .addTo(cameraLayer);
 });
 cameraLayer.addTo(map);
+
+/* ── GeoJSON route system ── */
+const R = {
+  shahToBP:     '5666b4f0-c0f8-11f1-9b36-bbaed281745f',
+  bpToTrinity:  'ac83feb0-c0f8-11f1-9b36-bbaed281745f',
+  trinityTo6th: '05e189e0-c0fa-11f1-9b36-bbaed281745f',
+  departIH35:   '3d1f6260-c0fa-11f1-9b36-bbaed281745f',  /* POI departs east under I-35 */
+  returnMoose:  '138f03a0-c0fb-11f1-9b36-bbaed281745f',  /* POI returns to Mooseknuckle */
+  mooseToSJa:   'ac5b87c0-c0fb-11f1-9b36-bbaed281745f',  /* Mooseknuckle ↔ San Jacinto */
+  mooseToSJb:   '0fc9efe0-c0fc-11f1-9b36-bbaed281745f',  /* alternate path to San Jacinto */
+  sJacToBijou:  '420a2a10-c0fc-11f1-9b36-bbaed281745f',
+  bijouToChev:  '77a8d180-c0fc-11f1-9b36-bbaed281745f',
+  chevToWendys: 'f5d25590-c0fc-11f1-9b36-bbaed281745f',
+  i35Route:     'f41228a0-c0f4-11f1-9b36-bbaed281745f',  /* last seen → body found */
+};
+
+const C_POI  = 'rgba(157,78,221,0.75)';   /* purple — POI only */
+const C_BOTH = 'rgba(192,78,1,0.75)';     /* orange — POI + Tiera */
+const C_BODY = '#E63946';                  /* red — body recovery */
+const C_INV  = '#4A8A7C';                 /* teal — investigation overview */
+
+/* Which routes to show per step — ids are cumulative for 6th St corridor */
+const STEP_GEO = {
+  0:  { ids: [R.i35Route], color: C_INV },
+  2:  { ids: [R.shahToBP], color: C_POI },
+  3:  { ids: [R.shahToBP, R.bpToTrinity], color: C_POI },
+  4:  { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th], color: C_POI },
+  46: { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th], color: C_POI },
+  45: { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35], color: C_POI },
+  5:  { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35, R.returnMoose], color: C_POI },
+  6:  { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35, R.returnMoose, R.mooseToSJb], color: C_BOTH },
+  67: { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35, R.returnMoose, R.mooseToSJb, R.mooseToSJa], color: C_BOTH },
+  7:  { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35, R.returnMoose, R.mooseToSJb, R.mooseToSJa, R.sJacToBijou], color: C_BOTH },
+  75: { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35, R.returnMoose, R.mooseToSJb, R.mooseToSJa, R.sJacToBijou, R.bijouToChev], color: C_BOTH },
+  8:  { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35, R.returnMoose, R.mooseToSJb, R.mooseToSJa, R.sJacToBijou, R.bijouToChev, R.chevToWendys], color: C_BOTH },
+  9:  { ids: [R.shahToBP, R.bpToTrinity, R.trinityTo6th, R.departIH35, R.returnMoose, R.mooseToSJb, R.mooseToSJa, R.sJacToBijou, R.bijouToChev, R.chevToWendys], color: C_BOTH },
+  10: { ids: [R.i35Route], color: C_BODY, animate: true },
+  11: { ids: [R.i35Route], color: C_BODY },
+  12: { ids: [R.i35Route], color: C_INV },
+};
+
+const GEO_COORDS = {
+  "f41228a0-c0f4-11f1-9b36-bbaed281745f": [[30.265568,-97.733623],[30.265511,-97.733459],[30.265591,-97.733423],[30.265598,-97.73342],[30.265605,-97.733416],[30.26561,-97.73341],[30.265613,-97.733408],[30.265623,-97.733402],[30.265629,-97.733399],[30.265636,-97.733397],[30.265642,-97.733397],[30.265784,-97.733338],[30.26585,-97.73331],[30.265876,-97.733303],[30.26574,-97.732865],[30.265714,-97.732784],[30.266089,-97.732626],[30.266193,-97.732586],[30.266399,-97.733201],[30.266579,-97.733838],[30.267508,-97.733504],[30.268644,-97.733119],[30.269713,-97.732977],[30.27046,-97.732745],[30.270895,-97.732639],[30.271798,-97.732303],[30.273188,-97.731834],[30.27456,-97.731411],[30.275642,-97.731087],[30.276826,-97.730599],[30.27861,-97.72975],[30.279829,-97.729206],[30.280922,-97.728552],[30.282077,-97.727799],[30.283035,-97.72717],[30.286581,-97.724826],[30.287877,-97.724032],[30.28916,-97.723205],[30.290407,-97.722414],[30.291654,-97.721609],[30.294281,-97.719922],[30.296398,-97.718584],[30.298786,-97.717117],[30.300368,-97.716123],[30.301909,-97.715169],[30.305674,-97.712718],[30.309431,-97.710264],[30.310987,-97.709334],[30.312543,-97.708592],[30.313654,-97.708146],[30.314946,-97.707758],[30.315318,-97.707667],[30.315748,-97.707598],[30.316563,-97.707462],[30.318157,-97.707232],[30.321587,-97.706744],[30.324957,-97.706289],[30.326609,-97.706052],[30.328272,-97.705739],[30.329617,-97.705421],[30.330644,-97.705065],[30.331561,-97.704677],[30.332186,-97.704366],[30.332738,-97.704049],[30.333582,-97.703541],[30.334438,-97.702959],[30.336173,-97.701881],[30.337611,-97.70094],[30.33915,-97.699985],[30.340336,-97.699215],[30.340964,-97.698868],[30.341519,-97.698514],[30.343883,-97.696977],[30.345612,-97.695833],[30.347253,-97.694771],[30.348966,-97.693692],[30.350931,-97.692465],[30.352733,-97.691336],[30.354546,-97.69018],[30.356321,-97.689048],[30.358166,-97.687941],[30.362592,-97.685207],[30.365919,-97.683111],[30.367974,-97.681793],[30.370029,-97.680517],[30.372665,-97.678807],[30.373837,-97.677958],[30.375278,-97.677023],[30.377013,-97.67592],[30.37783,-97.675405],[30.378637,-97.674951],[30.379503,-97.674564],[30.380381,-97.67423],[30.381222,-97.673981],[30.382839,-97.673589],[30.385299,-97.673057],[30.388199,-97.672403],[30.391011,-97.671676],[30.391833,-97.671501],[30.392735,-97.671409],[30.39437,-97.671444],[30.395665,-97.671725],[30.396932,-97.672101],[30.399334,-97.673278],[30.400781,-97.674023],[30.401577,-97.674371],[30.402037,-97.674545],[30.402762,-97.67473],[30.403885,-97.674884],[30.405,-97.674922],[30.405628,-97.674881],[30.406362,-97.674758],[30.408531,-97.674357],[30.41167,-97.673875],[30.41598,-97.67303],[30.42029,-97.672211],[30.422792,-97.671706],[30.42495,-97.671326],[30.432142,-97.669974],[30.436242,-97.669209],[30.438795,-97.668697],[30.440956,-97.668315],[30.446726,-97.66719],[30.449581,-97.666657],[30.451163,-97.66634],[30.452066,-97.666208],[30.452985,-97.666126],[30.454016,-97.666105],[30.454908,-97.666161],[30.455989,-97.666302],[30.456728,-97.666441],[30.45785,-97.666754],[30.458966,-97.667114],[30.460165,-97.667488],[30.461481,-97.667906],[30.463562,-97.668589],[30.466104,-97.669369],[30.467764,-97.669895],[30.473546,-97.671717],[30.476865,-97.672763],[30.478624,-97.673315],[30.480159,-97.673796],[30.484961,-97.675323],[30.487932,-97.676251],[30.489109,-97.676597],[30.490531,-97.677006],[30.493005,-97.677782],[30.495058,-97.678614],[30.497057,-97.679587],[30.498341,-97.680351],[30.502177,-97.682646],[30.503435,-97.683408],[30.504566,-97.683944],[30.505849,-97.684507],[30.507595,-97.685195],[30.50986,-97.686069],[30.510729,-97.686362],[30.511593,-97.686583],[30.513312,-97.68701],[30.515205,-97.687476],[30.516358,-97.687742],[30.517035,-97.687903],[30.520538,-97.68874],[30.522262,-97.689146],[30.524054,-97.68957],[30.527983,-97.690496],[30.530337,-97.691046],[30.531686,-97.691368],[30.532733,-97.691617],[30.534009,-97.691824],[30.534627,-97.691919],[30.535225,-97.691981],[30.536405,-97.692073],[30.537901,-97.692171],[30.539438,-97.692189],[30.541175,-97.69222],[30.544707,-97.692265],[30.546265,-97.692283],[30.547825,-97.692306],[30.552954,-97.692376],[30.555497,-97.692405],[30.556977,-97.692423],[30.55825,-97.692442],[30.566983,-97.692549],[30.57196,-97.692612],[30.57426,-97.692655],[30.575753,-97.69269],[30.577277,-97.692726],[30.58097,-97.692782],[30.582835,-97.692804],[30.58375,-97.692791],[30.584669,-97.692732],[30.585634,-97.692637],[30.586552,-97.692507],[30.587531,-97.692345],[30.588503,-97.692162],[30.592451,-97.691084],[30.593514,-97.690768],[30.594877,-97.690328],[30.596719,-97.689569],[30.599254,-97.688526],[30.600819,-97.687891],[30.602379,-97.687222],[30.603389,-97.686865],[30.604863,-97.686496],[30.605904,-97.686348],[30.607272,-97.686252],[30.607976,-97.686274],[30.609101,-97.686362],[30.609944,-97.686487],[30.612184,-97.687066],[30.615531,-97.688012],[30.618382,-97.688808],[30.619811,-97.689231],[30.621246,-97.689629],[30.623821,-97.690354],[30.626445,-97.691115],[30.627464,-97.691386],[30.628341,-97.6916],[30.629075,-97.691695],[30.629765,-97.691741],[30.630351,-97.691726],[30.630882,-97.69169],[30.631375,-97.69163],[30.631977,-97.691523],[30.633058,-97.691191],[30.63458,-97.690728],[30.635318,-97.690488],[30.636139,-97.690245],[30.63768,-97.689748],[30.638457,-97.689463],[30.639109,-97.689161],[30.639943,-97.68874],[30.640431,-97.688468],[30.640829,-97.688196],[30.641573,-97.687674],[30.642371,-97.687059],[30.6431,-97.686397],[30.643763,-97.685727],[30.64482,-97.684526],[30.645948,-97.683197],[30.647074,-97.681899],[30.647722,-97.681191],[30.648272,-97.680624],[30.649006,-97.679967],[30.649481,-97.679565],[30.64994,-97.679216],[30.652782,-97.677398],[30.655857,-97.675509],[30.661219,-97.672204],[30.663846,-97.670565],[30.666703,-97.668804],[30.668477,-97.667702],[30.670356,-97.666547],[30.673994,-97.664282],[30.677404,-97.66217],[30.679636,-97.660813],[30.680344,-97.660438],[30.681297,-97.659952],[30.682469,-97.659396],[30.688244,-97.657105],[30.691675,-97.655749],[30.69357,-97.655001],[30.695502,-97.654242],[30.701569,-97.651837],[30.704752,-97.650605],[30.706407,-97.650032],[30.707914,-97.649506],[30.714861,-97.6471],[30.721493,-97.644809],[30.728112,-97.642516],[30.731926,-97.641204],[30.733854,-97.64055],[30.735589,-97.639957],[30.73986,-97.638464],[30.741871,-97.63776],[30.744112,-97.637024],[30.748819,-97.635593],[30.751203,-97.634865],[30.753521,-97.634134],[30.755242,-97.633481],[30.756937,-97.632783],[30.760325,-97.631361],[30.763712,-97.629949],[30.76533,-97.629283],[30.767186,-97.628633],[30.772614,-97.626967],[30.778031,-97.625391],[30.784579,-97.623512],[30.788041,-97.622502],[30.789776,-97.622013],[30.791414,-97.62148],[30.79507,-97.619949],[30.798747,-97.618394],[30.802543,-97.616768],[30.804413,-97.615981],[30.806289,-97.615131],[30.809627,-97.613596],[30.812809,-97.612097],[30.81549,-97.61087],[30.817424,-97.609838],[30.818536,-97.609155],[30.819497,-97.608488],[30.823903,-97.605464],[30.824826,-97.604844],[30.82587,-97.604134],[30.827,-97.603341],[30.828428,-97.602452],[30.830645,-97.60125],[30.832964,-97.600182],[30.837745,-97.59797],[30.842401,-97.595824],[30.844533,-97.594839],[30.847419,-97.593535],[30.851754,-97.591646],[30.856011,-97.58975],[30.85778,-97.588922],[30.858377,-97.588622],[30.859475,-97.58801],[30.861771,-97.58689],[30.86417,-97.585787],[30.871659,-97.582337],[30.876263,-97.580203],[30.87859,-97.579121],[30.880524,-97.578203],[30.881605,-97.577608],[30.882198,-97.57727],[30.882992,-97.576753],[30.883817,-97.576221],[30.884618,-97.575601],[30.886135,-97.574348],[30.887665,-97.573038],[30.895518,-97.566179],[30.899002,-97.56313],[30.900853,-97.561505],[30.902126,-97.560383],[30.903702,-97.559001],[30.907375,-97.555812],[30.910869,-97.55274],[30.913876,-97.550119],[30.915036,-97.549091],[30.915948,-97.54828],[30.916898,-97.547526],[30.917948,-97.546725],[30.919116,-97.546027],[30.920329,-97.545381],[30.920972,-97.545079],[30.921544,-97.544867],[30.924582,-97.543741],[30.927694,-97.542687],[30.929434,-97.542124],[30.93115,-97.54165],[30.932622,-97.541277],[30.933909,-97.541017],[30.936488,-97.540517],[30.938024,-97.540327],[30.938683,-97.540264],[30.939551,-97.54009],[30.94716,-97.538929],[30.94884,-97.538489],[30.950468,-97.538005],[30.951523,-97.53761],[30.952704,-97.537117],[30.954812,-97.536134],[30.955634,-97.535675],[30.956576,-97.535032],[30.958358,-97.533462],[30.96012,-97.531804],[30.961814,-97.530173],[30.962706,-97.529259],[30.963561,-97.528295],[30.965892,-97.525559],[30.967022,-97.524185],[30.968206,-97.522812],[30.970615,-97.520076],[30.971779,-97.518718],[30.972927,-97.517409],[30.975066,-97.514949],[30.977209,-97.512441],[30.979671,-97.509646],[30.980911,-97.508302],[30.982189,-97.506937],[30.984154,-97.504985],[30.986399,-97.502921],[30.988278,-97.501343],[30.989638,-97.50026],[30.991311,-97.498946],[31.003165,-97.49095],[31.006244,-97.488869],[31.009277,-97.486873],[31.012336,-97.484804],[31.015318,-97.482797],[31.018044,-97.481002],[31.020788,-97.479204],[31.023533,-97.477432],[31.024964,-97.476595],[31.026401,-97.475794],[31.028384,-97.474768],[31.029442,-97.47428],[31.030565,-97.473848],[31.034712,-97.472246],[31.038893,-97.470584],[31.041305,-97.46945],[31.043159,-97.46845],[31.045023,-97.467529],[31.046024,-97.466892],[31.046568,-97.466476],[31.047106,-97.465989],[31.047458,-97.465595],[31.047767,-97.465187],[31.048134,-97.46465],[31.04847,-97.464077],[31.050935,-97.459448],[31.052159,-97.457101],[31.053346,-97.454731],[31.054657,-97.45182],[31.055881,-97.448713],[31.057233,-97.444901],[31.058974,-97.439565],[31.059495,-97.438279],[31.060066,-97.437047],[31.060645,-97.436021],[31.061281,-97.434994],[31.063151,-97.432626],[31.065141,-97.430216],[31.067215,-97.427783],[31.069101,-97.425571],[31.073095,-97.420799],[31.075095,-97.418393],[31.077159,-97.415983],[31.080462,-97.412005],[31.082232,-97.409894],[31.083175,-97.40873],[31.083551,-97.408242],[31.084089,-97.407372],[31.084588,-97.406255],[31.084944,-97.405164],[31.085563,-97.403206],[31.08686,-97.398985],[31.087784,-97.396012],[31.088699,-97.393004],[31.089657,-97.389935],[31.090593,-97.386965],[31.092272,-97.381571],[31.09322,-97.378793],[31.094077,-97.375903],[31.095038,-97.372292],[31.095951,-97.368767],[31.096321,-97.367291],[31.096616,-97.366522],[31.097164,-97.365348],[31.097635,-97.364397],[31.097945,-97.363856],[31.098327,-97.363338],[31.099119,-97.362337],[31.09957,-97.361881],[31.100004,-97.361455],[31.100483,-97.36102],[31.101149,-97.360523],[31.102043,-97.359958],[31.102939,-97.359476],[31.104653,-97.358711],[31.106624,-97.357963],[31.109788,-97.356748],[31.112055,-97.355953],[31.114272,-97.355101],[31.115677,-97.354522],[31.117246,-97.353933],[31.11881,-97.353361],[31.119451,-97.3531],[31.119982,-97.35281],[31.120633,-97.352347],[31.121038,-97.352032],[31.121605,-97.351458],[31.12229,-97.350689],[31.122681,-97.350143],[31.12309,-97.349413],[31.123433,-97.348707],[31.12368,-97.348091],[31.124092,-97.346344],[31.124495,-97.344194],[31.125046,-97.341437],[31.12545,-97.339286],[31.125714,-97.33835],[31.12609,-97.337495],[31.126487,-97.336741],[31.127038,-97.335894],[31.127671,-97.335131],[31.128626,-97.334202],[31.129166,-97.333805],[31.129798,-97.333429],[31.13054,-97.333057],[31.131763,-97.332578],[31.135272,-97.331251],[31.137083,-97.330541],[31.13894,-97.329848],[31.146905,-97.326731],[31.151405,-97.325148],[31.153063,-97.3246],[31.155064,-97.323888],[31.152168,-97.31336],[31.152033,-97.312881],[31.152019,-97.312743],[31.152042,-97.312612],[31.152074,-97.312508],[31.152144,-97.312422],[31.1523,-97.312306],[31.152444,-97.312232],[31.152574,-97.31218],[31.153021,-97.312008],[31.156305,-97.310761],[31.156447,-97.310704],[31.156528,-97.310649],[31.156595,-97.310594],[31.156665,-97.310502],[31.156706,-97.31043],[31.156731,-97.310353],[31.156742,-97.310273],[31.15674,-97.310223],[31.156729,-97.310144],[31.156048,-97.307778]],
+  "5666b4f0-c0f8-11f1-9b36-bbaed281745f": [[30.267318,-97.739799],[30.267123,-97.739792]],
+  "ac83feb0-c0f8-11f1-9b36-bbaed281745f": [[30.267123,-97.739792],[30.267045,-97.73949],[30.267194,-97.739425],[30.267206,-97.739387],[30.267412,-97.739304],[30.267368,-97.739146]],
+  "05e189e0-c0fa-11f1-9b36-bbaed281745f": [[30.267368,-97.739146],[30.267177,-97.739264]],
+  "3d1f6260-c0fa-11f1-9b36-bbaed281745f": [[30.267177,-97.739264],[30.267149,-97.739222],[30.26701,-97.738684],[30.2669,-97.738345],[30.266845,-97.738136],[30.26668,-97.737498],[30.266606,-97.737302],[30.266537,-97.737058],[30.266406,-97.737112],[30.26582,-97.73515],[30.265773,-97.735009],[30.265746,-97.734927]],
+  "138f03a0-c0fb-11f1-9b36-bbaed281745f": [[30.265746,-97.734927],[30.266406,-97.737111],[30.266538,-97.737055],[30.266609,-97.737301],[30.266684,-97.737497],[30.266905,-97.738345],[30.267014,-97.738685],[30.26708,-97.738935]],
+  "ac5b87c0-c0fb-11f1-9b36-bbaed281745f": [[30.267081,-97.738935],[30.267149,-97.739222],[30.267207,-97.739419],[30.267328,-97.739855]],
+  "0fc9efe0-c0fc-11f1-9b36-bbaed281745f": [[30.267081,-97.738935],[30.267385,-97.740206],[30.267288,-97.740412]],
+  "420a2a10-c0fc-11f1-9b36-bbaed281745f": [[30.267288,-97.740412],[30.266817,-97.738681]],
+  "77a8d180-c0fc-11f1-9b36-bbaed281745f": [[30.266817,-97.738681],[30.266731,-97.738377],[30.26668,-97.738185],[30.266528,-97.737628],[30.26646,-97.737334],[30.266396,-97.737114],[30.265987,-97.73574],[30.26578,-97.735053],[30.265582,-97.734362],[30.265786,-97.734282],[30.265706,-97.73403]],
+  "f5d25590-c0fc-11f1-9b36-bbaed281745f": [[30.265706,-97.73403],[30.265568,-97.733623]],
+};
+
+let activeGeoLayers = [];
+let geoAnimTimer = null;
+
+function clearGeoRoutes() {
+  activeGeoLayers.forEach(l => map.removeLayer(l));
+  activeGeoLayers = [];
+  if (geoAnimTimer) { clearInterval(geoAnimTimer); geoAnimTimer = null; }
+}
+
+function showGeoRoutes(stepId) {
+  clearGeoRoutes();
+  const cfg = STEP_GEO[stepId];
+  if (!cfg || !cfg.ids.length) return;
+  if (!cfg.ids.every(id => GEO_COORDS[id])) return;
+
+  const baseStyle = { weight: 2, opacity: 0.7, dashArray: '6 4' };
+
+  if (cfg.animate) {
+    const coords = GEO_COORDS[cfg.ids[0]];
+    const layer = L.polyline([coords[0]], { ...baseStyle, weight: 2.5, opacity: 0.85, color: cfg.color }).addTo(map);
+    activeGeoLayers.push(layer);
+    let i = 1;
+    const batch = Math.max(1, Math.floor(coords.length / 100));
+    geoAnimTimer = setInterval(() => {
+      i = Math.min(i + batch, coords.length);
+      layer.setLatLngs(coords.slice(0, i));
+      if (i >= coords.length) { clearInterval(geoAnimTimer); geoAnimTimer = null; }
+    }, 20);
+  } else {
+    cfg.ids.forEach((id, idx) => {
+      const coords = GEO_COORDS[id];
+      if (!coords) return;
+      const isLatest = idx === cfg.ids.length - 1;
+      const layer = L.polyline(coords, {
+        ...baseStyle,
+        color: cfg.color,
+        weight: isLatest ? 2.5 : 1.5,
+        opacity: isLatest ? 0.8 : 0.3,
+      }).addTo(map);
+      activeGeoLayers.push(layer);
+    });
+  }
+}
 
 let activeMarkers = [];
 let activeRoutes  = [];
@@ -1377,17 +1477,13 @@ function makeMarkerIcon(m) {
 /* POI stayed on 6th Street all night; straight polylines between verified
    coords trace the corridor accurately. OSRM foot routing was detouring
    because 6th is flagged as pedestrian-closed in OSM. */
-function renderState(state) {
+function renderState(state, stepId) {
   activeMarkers.forEach(m => map.removeLayer(m));
   activeRoutes.forEach(r => map.removeLayer(r));
   activeMarkers = [];
   activeRoutes  = [];
 
-  const style = { weight: 2.5, opacity: 0.75, dashArray: '7 5' };
-
-  (state.routes || []).forEach(r => {
-    activeRoutes.push(L.polyline(r.coords, { ...style, color: r.color }).addTo(map));
-  });
+  showGeoRoutes(stepId);
 
   (state.markers || []).forEach(m => {
     if (m.size === 0) return;
@@ -1411,6 +1507,7 @@ const steps = document.querySelectorAll('.step');
 const narrative = document.getElementById('narrative');
 const progressBar = document.getElementById('progress-bar');
 let currentStepId = null;
+showGeoRoutes(0);
 
 function handleStepEnter(element) {
   steps.forEach(s => s.classList.remove('is-active'));
@@ -1419,7 +1516,7 @@ function handleStepEnter(element) {
   if (id !== currentStepId) {
     currentStepId = id;
     const state = STEP_STATES[id];
-    if (state) { renderState(state); updateClock(state); }
+    if (state) { renderState(state, id); updateClock(state); }
   }
 }
 
@@ -1452,7 +1549,7 @@ narrative.addEventListener('scroll', () => {
 window.addEventListener('resize', () => { scroller.resize(); map.invalidateSize(); });
 
 /* ── Initial state ── */
-renderState(STEP_STATES[0]);
+renderState(STEP_STATES[0], 0);
 updateClock(STEP_STATES[0]);
 setTimeout(() => {
   const first = document.querySelector('.step[data-step="0"]');
