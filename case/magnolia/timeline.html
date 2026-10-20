@@ -3,30 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>The Magnolia Timeline | Subtxt Press</title>
+  <title>The Magnolia Timeline</title>
   <meta name="description" content="A chronological reconstruction of the JLR domestic violence incident in Leavenworth, WA — built from Chelan County Sheriff's Office records, dispatch logs, phone records, and text messages. December 24–28, 2025.">
   <link rel="canonical" href="https://subtxtpress.github.io/home/case/magnolia/timeline">
   <!-- Open Graph -->
-  <meta property="og:title" content="The Magnolia Timeline | Subtxt Press">
+  <meta property="og:title" content="The Magnolia Timeline">
   <meta property="og:description" content="A chronological reconstruction of the JLR domestic violence incident in Leavenworth, WA — built from Chelan County Sheriff's Office records, dispatch logs, phone records, and text messages. December 24–28, 2025.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/case/magnolia/timeline">
-  <meta property="og:image" content="https://subtxtpress.github.io/home/case/magnolia/img/magnolia-timeline.png">
-  <meta property="og:site_name" content=" Case Maps | Subtxt Press">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/magnolia-timeline.png">
+  <meta property="og:site_name" content="Subtxt Press | Case Maps">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Magnolia Timeline | Subtxt Press">
+  <meta name="twitter:title" content="The Magnolia Timeline">
   <meta name="twitter:description" content="A chronological reconstruction of the JLR domestic violence incident in Leavenworth, WA — built from Chelan County Sheriff's Office records, dispatch logs, phone records, and text messages. December 24–28, 2025.">
-  <meta name="twitter:image" content="https://subtxtpress.github.io/home/case/magnolia/img/magnolia-timeline.png">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/magnolia-timeline.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:creator" content="@subtxtpress">
-  <!-- Style Sheets -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <!-- Styles -->
   <style>
     *, *::before, *::after { 
       box-sizing: border-box; 
@@ -34,37 +34,37 @@
       padding: 0; 
     }
     :root {
-      --bg: #060B14;
-      --surface: rgba(18,64,60,0.22);
-      --surface2: #12403C;
-      --border: rgba(244,229,196,0.10);
-      --border2: rgba(244,229,196,0.26);
+      --bg:            #060B14;
+      --surface:       rgba(18,64,60,0.22);
+      --surface2:      #12403C;
+      --border:        rgba(244,229,196,0.10);
+      --border2:       rgba(244,229,196,0.26);
       --border-subtle: rgba(18,64,60,0.45);
       /* Borders */
-      --red: #C04E01;
-      --red-dim: rgba(192,78,1,0.10);
-      --red-border: rgba(192,78,1,0.55);
-      --amber: #ebe2cd;
-      --amber-dim: rgba(235,226,205,0.10);
-      --blue: #D8DADB;
-      --blue-dim: rgba(216,218,219,0.10);
-      --green: #4a8a7c;
-      --green-dim: rgba(18,64,60,0.22);
+      --red:           #C04E01;
+      --red-dim:       rgba(192,78,1,0.10);
+      --red-border:    rgba(192,78,1,0.55);
+      --amber:         #ebe2cd;
+      --amber-dim:     rgba(235,226,205,0.10);
+      --blue:          #D8DADB;
+      --blue-dim:      rgba(216,218,219,0.10);
+      --green:         #4a8a7c;
+      --green-dim:     rgba(18,64,60,0.22);
       /* Text */
-      --text: #F5F5F5;
-      --text2: #D8DADB;
-      --text-label: #ebe2cd;
-      --muted: rgba(216,218,219,0.50);
+      --text:          #F5F5F5;
+      --text2:         #D8DADB;
+      --text-label:    #ebe2cd;
+      --muted:         rgba(216,218,219,0.50);
       /* Gradients */
-      --card-bg: rgba(6,11,20,0.45);
-      --grad-g03: linear-gradient(to right, #D8DADB, #C04E01);
-      --grad-teal: linear-gradient(to bottom, #F5F5F5, #12403C);
+      --card-bg:       rgba(6,11,20,0.45);
+      --grad-g03:      linear-gradient(to right, #D8DADB, #C04E01);
+      --grad-teal:     linear-gradient(to bottom, #F5F5F5, #12403C);
       /* Fonts */
-      --mono: 'IBM Plex Mono', monospace;
-      --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --head: 'Barlow Condensed', sans-serif;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --nav-h: 48px;
+      --mono:          'IBM Plex Mono', monospace;
+      --body:          'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --head:          'Barlow Condensed', sans-serif;
+      --serif:         'Cormorant Garamond', Georgia, serif;
+      --nav-h:         48px;
     }
     html, body {
       width: 100%;

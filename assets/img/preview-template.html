@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <!-- Required-->
-  <title>Preview Img Template</title>
-  <meta name="description" content="Preview image template and boiler plate meta tag info">
-  <link rel="canonical" href="https://subtxtpress.github.io/home/">
+  <title>Sandra Birchmore</title>
+  <meta name="description" content="Template and boiler plate meta tag info">
+  <link rel="canonical" href="https://subtxpress.github.io/home/case/sandra-birchmore/timeline">
   <!-- Open Graph -->
-  <meta property="og:title" content="Preview Img Template">
-  <meta property="og:description" content="Preview image template and boiler plate meta tag info">
+  <meta property="og:title" content="Sandra Birchmore">
+  <meta property="og:description" content="Template and boiler plate meta tag info">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://subtxtpress.github.io/home/">
-  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/sandra-birchmore.png">
+  <meta property="og:url" content="https://subtxpress.github.io/home/case/sandra-birchmore/timeline">
+  <meta property="og:image" content="https://subtxpress.github.io/home/assets/img/sandra-birchmore.png">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="675">
-  <meta property="og:site_name" content="Subtxt Press">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Subtxt Press | Case Maps">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Preview Img Template">
-  <meta name="twitter:description" content="Preview image template and boiler plate meta tag info">
-  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/sandra-birchmore.png">
+  <meta name="twitter:title" content="Sandra Birchmore">
+  <meta name="twitter:description" content="Template and boiler plate meta tag info">
+  <meta name="twitter:image" content="https://subtxpress.github.io/home/assets/img/sandra-birchmore.png">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
@@ -33,6 +32,10 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+  <!-- Styles -->
 <style>
   *, *::before, *::after { 
     box-sizing: border-box; 
@@ -55,7 +58,8 @@
     --surface-elevated:    #EBEBED;
     --cream:               #F2F2F4;
     --sand:                #DCDCDF;
-    --red:                 #9b1c1c;
+    --red:                 #bc5f3a;
+    --orange:              #9b681c;
     --lightBlue:           #4c7bd4;
     --mediumBlue:          #2D5FBF;
     --grayBlue:            #4A5A80;
@@ -89,9 +93,9 @@
     inset: 0;
     background: linear-gradient(
       160deg,
-      rgba(8, 5, 7, 0.70) 70%,
+      rgba(8, 5, 7, 0.7) 70%,
       rgba(8, 5, 7, 0.75) 75%,
-      rgba(8, 5, 7, 0.80) 80%
+      rgba(8, 5, 7, 0.8) 80%
     );
   }
   /* ── Main content ── */
@@ -102,7 +106,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 23%;
+    padding-bottom: 21%;
     padding-left: 6%;
   }
   .cover-eyebrow {
@@ -119,15 +123,15 @@
   }
   .eyebrow-label {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.17em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(242, 242, 244, 0.7);
   }
   .lowercase {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 800;
     padding: 0;
     margin: 0;
@@ -135,13 +139,25 @@
   }
   .cover-head {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 6rem;
+    font-size: 4.5rem;
     font-weight: 600;
     color: var(--paper);
-    line-height: 1.0;
+    margin-top: 0.5%;
+    letter-spacing: 0.001em;
   }
-  .cover-head span {
-    color: var(--red);
+  .sub-head {
+    display: inline-block;
+    vertical-align: baseline;
+    background: linear-gradient(to left, rgb(129, 46, 46), rgb(159, 74, 74), rgb(150, 91, 91));
+    font-family: "Playfair", serif;
+    font-weight: 600;
+    font-size: 4.6rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    font-style: none;
+    padding: 0 1%;
+    margin: 0 1%;
+    font-style: italic;
   }
 </style>
 </head>
@@ -154,9 +170,9 @@
     <div class="main">
       <div class="cover-eyebrow">
         <div class="eyebrow-rule"></div>
-        <div class="eyebrow-label">Irreverant Journalism</div>
+        <div class="eyebrow-label">Tennessee <span class="lowercase"> vs. </span>Zachary Rye Adams</div>
       </div>
-      <div class="cover-head">Subtxt Press</div>
+      <div class="cover-head">Who<span class="sub-head">kidnapped</span>Holly Bobo?</div>
     </div>
 
 </body>
