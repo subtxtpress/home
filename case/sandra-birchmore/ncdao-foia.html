@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NCDAO Email Production | Sandra Birchmore</title>
+  <meta name="description" content="Investigation timeline drawn from the Norfolk DA Office (NCDAO) email production (FOIA), Feb. 2021 through Apr. 2024. US v. Matthew Farwell.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/sandra-birchmore/ncdao-foia">
+  <!-- Open Graph -->
+  <meta property="og:title" content="NCDAO Email Production — Sandra Birchmore FOIA">
+  <meta property="og:description" content="Investigation timeline drawn from the Norfolk DA's email production (FOIA), Feb. 2021 through Apr. 2024. US v. Matthew Farwell.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/sandra-birchmore/ncdao-foia">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/sandra-birchmore.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Subtxt Press | Case Maps">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NCDAO Email Production — Sandra Birchmore FOIA">
+  <meta name="twitter:description" content="Investigation timeline drawn from the Norfolk DA's email production (FOIA), Feb. 2021 through Apr. 2024. US v. Matthew Farwell.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/sandra-birchmore.png">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="512x512" href="../../icons/icon-512.png">
+  <link rel="icon" type="image/png" sizes="190x190" href="../../icons/icon-190.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <style>
+  /* ═══════════════════════════════════════════════════════════════
+     THEME: DARK (default) — matches sandra-birchmore/timeline.html
+     ═══════════════════════════════════════════════════════════════ */
+  :root {
+    --bg:               #0f0f0f;
+    --surface:          #181818;
+    --surface-elevated: #202020;
+    --border:           rgba(235, 226, 205, 0.10);
+    --border-strong:    rgba(235, 226, 205, 0.22);
+    --text:             #d4cfc8;
+    --text-body:        #a8a8a8;
+    --text-dim:         #8a8a8a;
+    --petitioner:       #ce773e;
+    --respondent:       #739e94;
+    --neutral:          #8a8a8a;
+    --accent:           #d4cfc8;
+    --disputed:         #b3995c;
+    --grad-header:      linear-gradient(160deg, #181818, #0f0f0f);
+    --grad-accent:      linear-gradient(to right, #1f4e44, #c16f38);
+    --shadow:           0 2px 12px rgba(0,0,0,0.50);
+    --shadow-hover:     0 8px 28px rgba(0,0,0,0.60);
+    --timeline-track:  rgba(38, 87, 76, 0.35);
+  }
+  [data-theme="light"] {
+    --bg:               #f4ede3;
+    --surface:          #f0eded;
+    --surface-elevated: #ece5d9;
+    --border:           rgba(62, 36, 54, 0.14);
+    --border-strong:    rgba(62, 36, 54, 0.28);
+    --text:             #353434;
+    --text-body:        #444444;
+    --text-dim:         #595959;
+    --petitioner:       #9e4817;
+    --respondent:       #3f6b62;
+    --neutral:          #595959;
+    --accent:           #333333;
+    --disputed:         #bf9d40;
+    --grad-header:      linear-gradient(160deg, #f4ede3, #ece5d9);
+    --grad-accent:      linear-gradient(to right, #4a8a7c, #C04E01);
+    --shadow:           0 2px 12px rgba(0,0,0,0.06);
+    --shadow-hover:     0 8px 28px rgba(0,0,0,0.10);
+    --timeline-track:   rgba(62, 36, 54, 0.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .top-bar {
+    position: fixed; top: 0; left: 0; right: 0; height: 1px;
+    background: var(--grad-accent); z-index: 9999; pointer-events: none;
+  }
+  .hero {
+    padding: 2.5rem 1.25rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--grad-header);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    transition: color 0.3s ease;
+  }
+  .hero .sub {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.85rem;
+    color: var(--text-dim);
+    margin-top: 0.1%;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+  .source-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    letter-spacing: 0.07em;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+    width: 65%;
+    margin: 0.75rem auto 0;
+  }
+  .source-note strong { color: var(--text); }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--respondent);
+    text-decoration: none;
+    margin-top: 0.75rem;
+    transition: color 0.2s ease;
+  }
+  .back-link:hover { color: var(--accent); }
+  /* ─── Notable items ─── */
+  .notable-items {
+    padding: 1.5rem 0 0.25rem;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.3s ease;
+  }
+  .notable-grid {
+    margin-top: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+  }
+  .notable-item {
+    padding: 0.65rem 0;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.3s ease;
+  }
+  .notable-item a {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 0.2rem;
+    transition: color 0.2s;
+  }
+  .notable-item a:hover { color: var(--respondent); }
+  .notable-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+    transition: color 0.3s ease;
+  }
+  .notable-desc {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    transition: color 0.3s ease;
+  }
+  /* ─── Legend ─── */
+  .legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.7rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .legend-items {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+  }
+  .legend-dot.foia  { background: var(--respondent); }
+  .legend-dot.flag  { background: var(--disputed); }
+  .legend-dot.redacted { background: var(--neutral); }
+  .theme-toggle {
+    position: absolute; right: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.3rem 0.65rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1;
+    transition: all 0.25s ease;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface-elevated);
+  }
+  /* ─── Nav pills ─── */
+  .nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: none;
+    transition: border-color 0.3s ease;
+  }
+  .nav-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0;
+    padding: 0.4rem 0.75rem;
+    border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .pill:hover, .pill.active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  /* ─── Timeline ─── */
+  .timeline {
+    padding: 0 1%;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .chapter { padding-top: 1.5rem; }
+  .chapter-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.3s ease;
+  }
+  .chapter-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    transition: background-color 0.3s ease;
+  }
+  .event {
+    position: relative;
+    padding: 1rem 0 1rem 1.5rem;
+    border-left: 2px solid var(--timeline-track);
+    margin-left: 0.25rem;
+    border-radius: 0 8px 8px 0;
+    transition: background-color 0.2s ease, border-color 0.3s ease;
+  }
+  .event:hover { background: color-mix(in srgb, var(--surface) 50%, transparent); }
+  .event::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 1.05rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--neutral);
+    transition: background-color 0.3s ease;
+    z-index: 1;
+  }
+  .event.foia::before  { background: var(--respondent); }
+  .event.flagged::before { background: var(--disputed); }
+  .event.redacted::before { background: var(--neutral); }
+  .event.key { border-left-color: var(--respondent); }
+  .event.key.flagged { border-left-color: var(--disputed); }
+  .event.key::before { width: 10px; height: 10px; left: -6px; top: 1rem; }
+  .event.flagged { border-left-color: color-mix(in srgb, var(--disputed) 45%, transparent); }
+  .event.flagged:hover { background: color-mix(in srgb, var(--disputed) 5%, transparent); }
+  .event-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+  }
+  .event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    transition: color 0.3s ease;
+  }
+  .event-body {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+    transition: color 0.3s ease;
+  }
+  .flag-note {
+    margin-top: 0.6rem;
+    padding: 0.55rem 0.75rem;
+    background: color-mix(in srgb, var(--disputed) 9%, transparent);
+    border-left: 3px solid var(--disputed);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.82rem;
+    color: var(--text-body);
+    line-height: 1.55;
+  }
+  .flag-note strong { color: var(--disputed); }
+  /* ─── Tags ─── */
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0.15rem 0.15rem 0.15rem 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .tag.foia {
+    background: color-mix(in srgb, var(--respondent) 14%, transparent);
+    color: var(--respondent);
+    border-color: color-mix(in srgb, var(--respondent) 35%, transparent);
+  }
+  .tag.redacted {
+    background: color-mix(in srgb, var(--neutral) 14%, transparent);
+    color: var(--neutral);
+    border-color: color-mix(in srgb, var(--neutral) 35%, transparent);
+  }
+  .tag.flag {
+    background: color-mix(in srgb, var(--disputed) 14%, transparent);
+    color: var(--disputed);
+    border-color: color-mix(in srgb, var(--disputed) 35%, transparent);
+  }
+  .tag.filing {
+    background: color-mix(in srgb, var(--text-dim) 15%, transparent);
+    color: var(--text-dim);
+  }
+  /* ─── Expandable ─── */
+  details { margin-top: 0.4rem; }
+  details summary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.3s ease;
+  }
+  details summary::before { content: '+ '; }
+  details[open] summary::before { content: '- '; }
+  details .detail-body {
+    padding: 0.5rem 0;
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  details .detail-body ul { margin: 0.25rem 0 0 0.9rem; padding: 0; }
+  details .detail-body li { margin-bottom: 0.3rem; }
+  /* ─── Footer ─── */
+  .footer {
+    margin: 0 auto;
+    padding: 1%;
+    margin-bottom: 2%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.75rem;
+  }
+  .footer-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    transition: color 0.2s ease;
+  }
+  .footer-link:hover { color: var(--respondent); }
+  .footer p { margin-top: 0.5%; }
+  /* ─── Desktop ─── */
+  @media (min-width: 768px) {
+    .hero h1 { font-size: 2.4rem; }
+    .timeline { padding: 0 1%; width: 90%; }
+    .event-title { font-size: 1.2rem; }
+  }
+  /* ─── Mobile ─── */
+  @media (max-width: 580px) {
+    .hero { padding: 2rem 1rem 1.25rem; }
+    .hero h1 { font-size: 1.45rem; }
+    .hero .sub { font-size: 1.2rem; }
+    .legend { padding: 0.6rem 0.75rem; }
+    .legend-items { gap: 0.6rem; }
+    .theme-toggle { right: 0.5rem; padding: 0.2rem 0.5rem; font-size: 0.7rem; }
+    .nav-pills { justify-content: flex-start; padding: 0.6rem 0.75rem; }
+    .pill { font-size: 0.63rem; padding: 0.35rem 0.6rem; }
+    .source-note { font-size: 0.6rem; letter-spacing: 0.07em; line-height: 1.8; width: 98%; padding: 1%; }
+    .timeline { padding: 0; width: 100%; }
+    .event { padding: 0.75rem 0 0.75rem 1.1rem; }
+    .event-title { font-size: 1.15rem; }
+    .event-body { font-size: 0.82rem; }
+    .event-date { font-size: 0.71rem; }
+    .chapter-label { font-size: 0.58rem; }
+    .tag { font-size: 0.5rem; }
+    .notable-grid { grid-template-columns: 1fr; }
+  }
+  .source-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .source-link:hover { color: var(--respondent); }
+  </style>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<div class="hero">
+  <h1>NCDAO Email Production</h1>
+  <div class="sub">Sandra Birchmore · Investigation Record</div>
+  <div class="source-note">
+    <strong>Source:</strong> Norfolk District Attorney's Office (NDAO) email production, obtained via Massachusetts Public Records Law G.L. c. 66 § 10. 443 unique email blocks, Feb. 2021 thru Apr. 2024. Deduped from 887 total blocks (~50% duplication from PDF-to-text conversion).
+  </div>
+  <a class="back-link" href="timeline">← Back to Case Timeline</a>
+</div>
+
+<div class="legend">
+  <div class="legend-items">
+    <div class="legend-item"><div class="legend-dot foia"></div> FOIA production</div>
+    <div class="legend-item"><div class="legend-dot flag"></div> Flagged / open question</div>
+    <div class="legend-item"><div class="legend-dot redacted"></div> Redacted content</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
+</div>
+
+<nav class="nav-pills">
+  <a href="#ch1" class="pill">1. OCME + DNA (Feb–Aug 2021)</a>
+  <a href="#ch2" class="pill">2. Globe PRR Battle (Aug–Dec 2021)</a>
+  <a href="#ch3" class="pill">3. ALS + IA Report (Jan–Sep 2022)</a>
+  <a href="#ch4" class="pill">4. Barstool + Multiple PRRs (Oct–Dec 2022)</a>
+  <a href="#ch5" class="pill">5. Family Attorney + Civil Suit (2023)</a>
+  <a href="#ch6" class="pill">6. End of Production (2024)</a>
+</nav>
+
+<div class="timeline">
+
+  <div class="notable-items">
+    <div class="chapter-label">Items of note in this production</div>
+    <div class="notable-grid">
+      <div class="notable-item">
+        <div class="notable-date">09-23-2022</div>
+        <a href="#no-case">NDAO's public "no prosecutable case" statement</a>
+        <div class="notable-desc">Traub's official statement to three outlets: "investigation to date has not developed a prosecutable statutory rape case against any individual." Sent to GBH, Boston 25, and the Globe in a single coordinated response.</div>
+      </div>
+      <div class="notable-item">
+        <div class="notable-date">02-10-2022</div>
+        <a href="#spr-camera">SPR21/3034 in-camera determination</a>
+        <div class="notable-desc">After a closed inspection, Supervisor Rebecca Murray upholds NDAO's withholding. Stoughton IA investigation — still described as active 11 months after Sandra's death — remains the legal shield for all records.</div>
+      </div>
+      <div class="notable-item">
+        <div class="notable-date">05-12-2021</div>
+        <a href="#roofies">Fanning asks if tox covered "knockout" drugs</a>
+        <div class="notable-desc">Fanning asked OCME if the standard panel would detect "roofies." OCME explained that a specific drug must be ordered separately. No record in this production that such a test was ever requested.</div>
+      </div>
+      <div class="notable-item">
+        <div class="notable-date">03-31-2021</div>
+        <a href="#globe-denied">Globe PRR denied the day it was filed</a>
+        <div class="notable-desc">The first formal Crimaldi PRR was denied the same day it was filed. A denial chain running through SPR21/0846, SPR21/2185, SPR21/2518, and SPR21/3034 — four SPR appeals — followed before records began releasing in 2022.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CHAPTER 1 ====== -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-label">Act 1 · OCME Coordination, DNA, First Records Request / Feb – Aug 2021</div>
+
+    <div class="event foia">
+      <div class="event-date">02-04-2021</div>
+      <div class="event-title">Fanning Briefs NDAO Leadership on the Case</div>
+      <div class="event-body">
+        Fanning briefs DA Morrissey, ADA Beland, and spokesman Traub. Characterization: "more investigative work needed." Sandra described in internal notes as a teacher from Sharon.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">02-09-2021</div>
+      <div class="event-title">Fanning Contacts OCME — DNA Interest</div>
+      <div class="event-body">
+        Fanning contacts OCME to arrange a call with Dr. Capo Martinez regarding "some issues that came up." Specific interest in DNA.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">02-17-2021</div>
+      <div class="event-title">Sandra's Cousin Finds Letters and Notebooks — Then Hands Them to an Attorney</div>
+      <div class="event-body">
+        Dunne reports: Sandra's cousin found letters and notebooks at the Stoughton family home, initially offered to bring them to Dunne, then called back and gave them to an attorney instead.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event redacted">
+      <div class="event-date">02-24-2021</div>
+      <div class="event-title">Fanning's Final Request to OCME Before Body Released</div>
+      <div class="event-body">
+        Fanning tells OCME what they are looking for before Sandra's body is released to the family. Content and OCME's response both redacted in full.
+        <span class="tag foia">NCDAO FOIA</span><span class="tag redacted">Fully redacted</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">03/2021</div>
+      <div class="event-title">DNA Lab Coordination; MSP Can't Do Testing — Transfer to Bodie Labs</div>
+      <div class="event-body">
+        MSP Crime Lab forensic scientist Waite asks Dunne and Fanning what specific DNA testing they want <em>"in light of the results I gave to Trooper Dunne yesterday."</em> MSP cannot perform the requested testing; Fanning to facilitate transfer "likely to Bodie Labs." Case number assigned: 2021-112-0039.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">03-13-2021</div>
+      <div class="event-title">OCME Photos — "Horrible Pics"</div>
+      <div class="event-body">
+        Internal exchange between Fanning and ADA Mattaliano regarding the scene photographs from OCME. Mattaliano: <em>"At least they seem to be fine with DNA."</em>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">03-16-2021</div>
+      <div class="event-title">OCME Confirms Blood Tube Chain of Custody</div>
+      <div class="event-body">
+        OCME confirms grey-top blood tube exists with other items [redacted]; Fanning to coordinate lab transfer. Associated case reference: Sandra Birchmore / 2021-2032.
+        <span class="tag foia">NCDAO FOIA</span><span class="tag redacted">Items redacted</span>
+      </div>
+    </div>
+
+    <div class="event foia key" id="roofies">
+      <div class="event-date">05-12-2021</div>
+      <div class="event-title">Fanning Asks OCME Whether Tox Panel Covered "Knockout" Drugs</div>
+      <div class="event-body">
+        Fanning asks OCME whether the standard tox panel would detect drugs that could <em>"knock someone out"</em> — specifically naming "roofies" (flunitrazepam/GHB). OCME (Kelly) explains: standard tox panel detects and quantifies a range of synthetic drugs, but a specific compound must be separately ordered and tested for individually.
+        <span class="tag foia">NCDAO FOIA</span><span class="tag flag">Flagged</span>
+        <div class="flag-note">
+          <strong>Open question:</strong> The standard tox report on Sandra Birchmore is back by this date. Fanning explicitly asked whether a GHB-type drug would appear. Kelly's answer was that it would not unless specifically ordered. No record in this production that a targeted GHB/flunitrazepam test was ever requested or run.
+        </div>
+      </div>
+    </div>
+
+    <div class="event redacted">
+      <div class="event-date">05-25-2021</div>
+      <div class="event-title">Lab Results Forwarded</div>
+      <div class="event-body">
+        Lab results PDF forwarded Dunne to Fanning; Fanning confirms receipt. Attachment redacted in full in this production.
+        <span class="tag foia">NCDAO FOIA</span><span class="tag redacted">Redacted</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">07-20 to 07-21-2021</div>
+      <div class="event-title">Globe Asks for Update; Fanning Schedules NDAO Connect</div>
+      <div class="event-body">
+        Crimaldi asks Traub about the Birchmore report status. Traub: <em>"Not time to submit yet."</em> Separately, Fanning emails Beland, Morrissey, and Mattaliano to <em>"connect on this case."</em>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia key" id="globe-denied">
+      <div class="event-date">08-06 to 08-20-2021</div>
+      <div class="event-title">Globe Files Comprehensive PRR — Denied 14 Days Later</div>
+      <div class="event-body">
+        Globe (Crimaldi) files a formal PRR (2021-60) for all records concerning the Birchmore death investigation (08-06-2021). NDAO acknowledges receipt 08-09, citing a 10-business-day response window. Formal denial sent 08-20-2021: active investigation exemption (G.L. c. 4, §7(26)(f)).
+        <span class="tag foia">NCDAO FOIA</span><span class="tag filing">Exemption (f)</span>
+        <div class="flag-note">
+          <strong>Note:</strong> This denial (and a prior one on 03-31-2021) triggered a four-appeal chain: SPR21/0846 → SPR21/2185 → SPR21/2518 → SPR21/3034. The Supervisor of Records upheld NDAO's withholding each time. Records did not begin releasing until after Farwell's resignation in March 2022.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end ch1 -->
+
+  <!-- ====== CHAPTER 2 ====== -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-label">Act 2 · Globe PRR Battle &amp; SPR Appeals / Aug – Dec 2021</div>
+
+    <div class="event foia">
+      <div class="event-date">08-16-2021</div>
+      <div class="event-title">Brady Trigger — "Officer Matthew G. Farwell"</div>
+      <div class="event-body">
+        Monahan emails Alford: subject line <em>"Birchmore/Stoughton PD Investigation — Officer Matthew G. Farwell."</em> This email initiates the Brady disclosure chain internally; Alford forwards to ADA Connolly 08-19-2021.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">08-26-2021</div>
+      <div class="event-title">Globe Files First SPR Appeal: SPR21/2185</div>
+      <div class="event-body">
+        Globe appeals NDAO's 08-20-2021 denial to the Supervisor of Public Records. SPR21/2185 determination issued 09-10-2021.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">09-29-2021</div>
+      <div class="event-title">Second Globe Appeal: SPR21/2518</div>
+      <div class="event-body">
+        Globe files a second SPR appeal. SPR21/2518 determination issued 10-14-2021.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">10-19-2021</div>
+      <div class="event-title">Stoughton PD Counsel Confirms IA Still Active — Interviews Expected Dec. 2021</div>
+      <div class="event-body">
+        Stoughton PD's counsel confirms the IA investigation of Farwell remains active. Officer interviews anticipated in December 2021. NDAO uses this to justify continued withholding.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">11-17 to 11-18-2021</div>
+      <div class="event-title">Third Globe Appeal: SPR21/3034</div>
+      <div class="event-body">
+        Globe files a third SPR appeal. NDAO forwards to Beland, Alford, and Fanning.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia key" id="spr-camera">
+      <div class="event-date">12-20-2021 to 02-10-2022</div>
+      <div class="event-title">Supervisor Orders In-Camera Review — Then Upholds NDAO Withholding</div>
+      <div class="event-body">
+        Supervisor Rebecca Murray orders an in-camera inspection of NDAO's withheld records (12-20-2021). In-camera conference call held 01-21-2022. Determination issued 02-10-2022: Supervisor upholds NDAO's Exemption (f) withholding in full. Stoughton PD IA investigation — described as still active — remains the justification. Monahan forwards to Beland, Alford, Fanning, and Traub.
+        <span class="tag foia">NCDAO FOIA</span><span class="tag filing">SPR21/3034</span>
+        <div class="flag-note">
+          <strong>Context:</strong> Sandra Birchmore died 02-01-2021. This determination came 12+ months later. At this point the Stoughton PD IA investigation has not resulted in officer interviews, and Farwell has not yet resigned. The in-camera review itself is sealed — what the Supervisor saw is not in this production.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end ch2 -->
+
+  <!-- ====== CHAPTER 3 ====== -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-label">Act 3 · ALS Testing, Farwell Resignation, IA Report / Jan – Sep 2022</div>
+
+    <div class="event flagged key">
+      <div class="event-date">01-14-2022</div>
+      <div class="event-title">MSP Crime Lab Tests Farwell's Workplace — NEGATIVE</div>
+      <div class="event-body">
+        MSP Crime Scene Services (Forensic Scientist Jennifer Preisig) conducts an ALS (Alternate Light Source) exam at 499 West Street, Stoughton — the Stoughton Animal Control building and Farwell's workplace. Directed to a specific room; surfaces tested: a couch and an office chair. ALS for [REDACTED substance]: <strong>NEGATIVE on both surfaces</strong>. No evidence collected or submitted. MSP lab: 22-01049; incident: 21-1-IA.
+        <span class="tag foia">NCDAO FOIA</span><span class="tag redacted">Substance redacted</span><span class="tag flag">Flagged</span>
+        <div class="flag-note">
+          <strong>Open question:</strong> The tested substance is fully redacted. This building is also where Joshua Heal worked — identified at trial (Kelsch, Day 6) as the biological father of Sandra's unborn baby. The exam occurs 11+ months after Sandra's death and one month before the SPR21/3034 in-camera determination.
+        </div>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">03-11 to 04-05-2022</div>
+      <div class="event-title">Farwell Resigns; NDAO Begins Releasing Records</div>
+      <div class="event-body">
+        Farwell resigns from Stoughton PD 03-11-2022. Crimaldi asks about Brady list status and additional record releases. NDAO coordinates with Stoughton PD on lifting the withholding objection. By 03-31: initial response to renewed PRR (2022-22) sent. By 04-05: supplemental response with additional reports.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">04-01-2022</div>
+      <div class="event-title">Globe Asks Three Questions — NDAO Declines Comment</div>
+      <div class="event-body">
+        Crimaldi asks: (1) criminal charges? (2) statutory rape? (3) what did the investigation find about Farwell's relationship with Birchmore? NDAO (Traub): <em>"The office declines comment."</em>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">04-13-2022</div>
+      <div class="event-title">Globe: "Scandal Widens in Stoughton Police Department"</div>
+      <div class="event-body">
+        Globe reports William Farwell (Matthew's father) and Robert Devine placed on paid administrative leave. Matthew's 2010 employment questionnaire listed Devine as his supervisor. Traub circulates article to all NDAO leadership; Morrissey forwards to personal contacts.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">05-06 to 05-16-2022</div>
+      <div class="event-title">MSP Legal Coordinates Globe's Separate PRR With Tully and NDAO</div>
+      <div class="event-body">
+        MSP legal (Noone) contacts Monahan about Globe's PRR for MSP Birchmore records. D.Lt. Brian Tully (SPDU) loops in Monahan and Fanning to coordinate.
+        <div class="flag-note">
+          <strong>Note:</strong> Tully personally invited Farwell to the Oct. 2019 Norfolk DA MSP Homicide Conference (trial evidence, Ex. 296 / Beckstrom Day 5) and subsequently cleared Farwell of involvement in Sandra's death. He is now coordinating the Globe's records requests.
+        </div>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">08-02-2022</div>
+      <div class="event-title">William Farwell Resigns; Both Farwells and Devine on Brady List</div>
+      <div class="event-body">
+        William Farwell resigns. Globe confirms both William Farwell and Robert Devine are on the NDAO Brady/officer disclosure list. Traub to Crimaldi: <em>"Yes, both are on officer disclosure list."</em>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia key" id="no-case">
+      <div class="event-date">09-22 to 09-23-2022</div>
+      <div class="event-title">Stoughton Releases IA Report; NDAO Issues "No Prosecutable Case" Statement</div>
+      <div class="event-body">
+        Stoughton PD releases its 60-page IA report. Globe publishes: "Three Stoughton police officers had inappropriate relationships with a young woman." GBH News, Boston 25, and other outlets contact NDAO for comment. Traub issues a coordinated statement to all three:
+        <span class="tag foia">NCDAO FOIA</span>
+        <details open>
+          <summary>Full statement text</summary>
+          <div class="detail-body">
+            <em>"After State Police detectives and the medical examiner found no evidence of foul play in the death of Ms. Birchmore, the Norfolk District Attorney's Office referred information developed in the death investigation to the Stoughton Police Department for action... investigation to date has not developed a prosecutable statutory rape case against any individual."</em>
+            <br><br>
+            Traub to Crimaldi after her story ran: <em>"Kudos for your story today."</em>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div><!-- end ch3 -->
+
+  <!-- ====== CHAPTER 4 ====== -->
+  <div class="chapter" id="ch4">
+    <div class="chapter-label">Act 4 · Barstool, Comprehensive PRRs, Saylor Release / Sept – Dec 2022</div>
+
+    <div class="event flagged key">
+      <div class="event-date">09-27-2022</div>
+      <div class="event-title">Barstool Sports PRR Names Joshua Heal — Three Years Before Patriot Ledger Story</div>
+      <div class="event-body">
+        Barstool Sports reporter Dave Cullinane files a PRR for records on Birchmore, Devine, Matthew Farwell, William Farwell, and <strong>Joshua Heal</strong>. First appearance of Heal's name in the NCDAO production. The same day Globe files its own PRR for William Farwell's MSP statement.
+        <span class="tag foia">NCDAO FOIA</span><span class="tag flag">Flagged</span>
+        <div class="flag-note">
+          <strong>Why it matters:</strong> Heal is identified at trial (Kelsch, Day 6) as the biological father of Sandra's unborn baby. The Patriot Ledger ran its "fourth ex-cop implicated" story on 07-27-2025 — nearly three years after Cullinane named Heal in this PRR. Globe and other outlets' concurrent PRRs do not name Heal at this date.
+        </div>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">09-28-2022</div>
+      <div class="event-title">Globe Comprehensive PRR; Morrissey Texts Monahan</div>
+      <div class="event-body">
+        Globe files a comprehensive PRR for all remaining investigation materials. DA Morrissey texts ADA Monahan: <em>"when you get a chance could you give me a call. No rush."</em>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">10-12-2022</div>
+      <div class="event-title">NDAO Responds to Globe and Cullinane PRRs; Serial #1 Text Disclosed</div>
+      <div class="event-body">
+        NDAO responds to Globe's 09-28 PRR (2022-81) and to Cullinane's 09-27 PRR. Globe response includes the full text of Dunne's Report Serial #1: no signs of struggle; Birchmore found on bedroom floor; cell phone 12 inches from right hand.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">10-20 to 10-25-2022</div>
+      <div class="event-title">Marullo (Estate Attorney) Signals Records Request; Saylor PRR Released</div>
+      <div class="event-body">
+        Dunne notifies Beland and Fanning: Atty. Steve Marullo (representing the Birchmore estate) intends to file records requests. Separately, Laura Saylor (private requester who had previously met with Fanning) files a PRR; NDAO responds 11-08 with all 25 MSP serial reports (2021-112-39, Serials 1-25). Statutory rape references withheld under G.L. c. 41, §97D; Sandra's personal messages withheld as criminal investigation ongoing.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">11-08-2022</div>
+      <div class="event-title">Cullinane Files Sweeping MSP Email PRR</div>
+      <div class="event-body">
+        Cullinane (Barstool) files a PRR for all MSP emails and memos mentioning "Birchmore," "Sandra Birchmore," or "Farwell" from Feb. 1, 2021 to present. NDAO forwards to leadership; ADA Brandon Hunt assigned to coordinate response on return.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">11-14 to 12-21-2022</div>
+      <div class="event-title">NDAO Coordinates Marullo Records Release</div>
+      <div class="event-body">
+        Monahan reaches out to Marullo to confirm representation; requests written confirmation before proceeding with production. Records response (2022-100) sent to Marullo 12-21-2022 after leadership approval.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+  </div><!-- end ch4 -->
+
+  <!-- ====== CHAPTER 5 ====== -->
+  <div class="chapter" id="ch5">
+    <div class="chapter-label">Act 5 · Family Attorney, Civil Suit, Meta-PRRs / 2023</div>
+
+    <div class="event foia">
+      <div class="event-date">03-01-2023</div>
+      <div class="event-title">Traub Forwards Change.org Petition to Morrissey</div>
+      <div class="event-body">
+        Change.org petition forwarded internally: 88 signatures. Traub: <em>"I get a Facebook comment or two a week asking why the Birchmore matter is still outstanding. [Crimaldi] asks for an update every Tuesday."</em>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">03-23-2023</div>
+      <div class="event-title">Marullo Formally Requests Autopsy Report for Next of Kin</div>
+      <div class="event-body">
+        Atty. Marullo submits a formal request under 505 CMR 1.03 for NDAO to provide a letter releasing Sandra Birchmore's autopsy report to next of kin. Hunt forwards to Beland.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">04-25-2023</div>
+      <div class="event-title">Canton PD Asks NDAO About Release for Smith v. Farwell</div>
+      <div class="event-body">
+        Canton PD Deputy Chief Patty Sherrill contacts Hunt: Boyle/Shaughnessy Law filed a PRR representing William Farwell in <em>Smith v. Farwell</em> (2282CV01197) — brought by Darlene Smith, Sandra's aunt. PRR covers logs, call recordings, reports, photos, statements, and surveillance. NDAO: <em>"Our office does not object to the release of the below referenced records related to the death investigation."</em>
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">05-16-2023</div>
+      <div class="event-title">NDAO Releases 25 Serials, 8 Surveillance Clips, and Stoughton IA Report to Civil Attorneys</div>
+      <div class="event-body">
+        Hunt sends formal response to Boyle/Shaughnessy PRR (2023-56): MSP Reports Serials 1-25 (2021-112-39), apartment surveillance video from 02-01-2021 (8 motion-triggered clips; DVR time stamp 13 minutes fast), and the 60-page Stoughton PD IA report. Still withheld: statutory rape references (§97D) and Sandra's personal messages. No interview audio or video in NDAO possession. Matthew Farwell's cell phone records noted as nonresponsive.
+        <span class="tag foia">NCDAO FOIA</span>
+        <details>
+          <summary>Surveillance clips released</summary>
+          <div class="detail-body">
+            Eight motion-triggered clips from 02-01-2021: 13:04:01, 13:04:42, 17:14:10, 17:14:24, 17:14:27, 17:14:41, 17:15:03, 17:15:19, 17:44:22, 17:44:50, 21:27:51, 21:56:26 (DVR timestamps; actual times 13 minutes earlier per Serial No. 7).
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">06-16 to 07-12-2023</div>
+      <div class="event-title">Meta-PRR: Researcher Requests Crimaldi's 2021 PRR Records and All SPR Appeal Packets</div>
+      <div class="event-body">
+        Nathaniel Story (statereference.com) files a PRR for all NDAO responses to Crimaldi's 2021 PRR, including the three SPR appeal packets (SPR21/2185, SPR21/2518, SPR21/3034). NDAO (Hunt) provides full response 07-12-2023.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+    <div class="event foia">
+      <div class="event-date">Late 2023</div>
+      <div class="event-title">Multiple Additional PRRs — Marshall Project, Individuals</div>
+      <div class="event-body">
+        The Marshall Project and additional individual requesters file PRRs in this window. NDAO issues rolling responses continuing through late 2023.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+  </div><!-- end ch5 -->
+
+  <!-- ====== CHAPTER 6 ====== -->
+  <div class="chapter" id="ch6">
+    <div class="chapter-label">Act 6 · End of Production / 2024</div>
+
+    <div class="event foia">
+      <div class="event-date">Early 2024</div>
+      <div class="event-title">NDAO Continues PRR Processing; Production Ends April 2024</div>
+      <div class="event-body">
+        Additional records requests and rolling responses continue into early 2024. Globe newsletter clippings appear in NDAO inboxes; Google Alerts forwarded to Morrissey. Last records in this production are sent in April 2024 — roughly three years after Birchmore's death and about 18 months before the federal trial opened.
+        <span class="tag foia">NCDAO FOIA</span>
+      </div>
+    </div>
+
+  </div><!-- end ch6 -->
+
+</div><!-- end timeline -->
+
+<div class="footer">
+  <p><strong>Source:</strong> Norfolk District Attorney's Office (NDAO) email production via Massachusetts Public Records Law G.L. c. 66 § 10. 443 unique email blocks, Feb. 2021 – Apr. 2024.</p>
+  <p><a class="footer-link" href="timeline">← Case Timeline</a> &nbsp;·&nbsp; <a class="footer-link" href="fanning-foia">Fanning FOIA Production →</a> &nbsp;·&nbsp; <a class="footer-link" href="../../index">Subtxt Press</a></p>
+</div>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  const saved = (() => { try { return localStorage.getItem('theme'); } catch(e) { return null; } })();
+  if (saved) { root.setAttribute('data-theme', saved); toggle.textContent = saved === 'light' ? '🌙' : '☀'; }
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    toggle.textContent = next === 'light' ? '🌙' : '☀';
+    try { localStorage.setItem('theme', next); } catch(e) {}
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
