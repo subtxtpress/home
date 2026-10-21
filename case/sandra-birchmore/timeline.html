@@ -539,9 +539,19 @@
     letter-spacing: 0.04em;
     color: var(--accent);
     transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-right: 1rem;
+  }
+  .footer-link:last-child {
+    margin-right: 0;
   }
   .footer-link:hover {
     color: var(--respondent);
+  }
+  .footer-link .bi {
+    font-size: 0.75rem;
   }
   .footer p {
     margin-top: 0.5%;
@@ -629,11 +639,18 @@
     .case-info { 
       width: 100%;
       margin: 1.5% 0 1% 0;
-    }
+    }/*
     .observers-info { 
       width: 100%;
       margin: 0 auto;
-    }
+    }*/
+    .observers-info {
+      font-size: 0.6rem;
+      letter-spacing: 0.07em;
+      line-height: 1.8;
+      width: 98%;
+      padding: 0.75rem 1rem;
+    } 
     details summary {
       padding: 0.5rem 0;
       min-height: 44px;
@@ -643,6 +660,10 @@
     .footer {
       padding: 1rem;
       margin-bottom: 1.5rem;
+      font-size: 0.82rem;
+    }
+    .footer-link {
+      font-size: 0.78rem;
     }
     .footer p {
       line-height: 1.8;
@@ -654,6 +675,10 @@
       padding: 0;
       width: 100%;
       margin-bottom: 5%;
+    }
+    .case-info {
+      width: 95%;
+      margin: 3%; auto;
     }
     .case-info-link {
       font-size: 0.68rem;
@@ -667,13 +692,15 @@
       color: var(--accent);
     }
     .observers-info {
-      padding: 0 0.1%;
+      /*padding: 0 0.1%;*/
+      line-height: 1.8;
+      width: 95%;
     }
     .observers-info-link {
-      font-size: 0.63rem;
+      font-size: 0.55rem;
     }
     .observers-info p {
-      font-size: 0.68rem;
+      font-size: 0.55rem;
     }
   }
 </style>
@@ -694,7 +721,7 @@
     </div><!-- end of case-info -->
 
     <div class="observers-info">
-      <p>Courtroom Observers / Librarians: 
+      <p>Observers / Librarians: 
         <a class="observers-info-link" href="https://x.com/GrantSmithEllis" target="_blank">@GrantSmithEllis</a>
         <a class="observers-info-link" href="https://x.com/TheEmilySee" target="_blank">@Theemilysee</a>
         <a class="observers-info-link" href="https://x.com/Estey617" target="_blank">@Estey617</a>
@@ -705,7 +732,6 @@
         <a class="observers-info-link" href="https://x.com/KyleSharkey8" target="_blank">@KyleSharkey8</a>
         <a class="observers-info-link" href="https://x.com/suspiciousauce" target="_blank">@suspiciousauce</a>
         <a class="observers-info-link" href="https://x.com/JusticeServedTV" target="_blank">@JusticeServedTV</a>
-        <a class="observers-info-link" href="" target="_blank" style="color:var(--text-dim);font-size:0.715rem;letter-spacing:0.04em;">Will add others as I find them...</a>
       </p>
     </div><!-- end of observers-info -->
 
@@ -1379,8 +1405,12 @@
 </div><!-- end of timeline -->
 
 <div class="footer">
-  <p><strong>Sources: </strong>Docket 1:24-cr-10259-DJC (D. Mass) &amp; Trial testimony per <a class="footer-link" href="https://x.com/GrantSmithEllis?s=20" target="_blank">Grant Smith Ellis</a> live-tweet coverage.</p>
-  <p><a class="footer-link" href="fanning-foia">Fanning FOIA →</a> &nbsp;·&nbsp; <a class="footer-link" href="ncdao-foia">NCDAO Emails →</a> &nbsp;·&nbsp; <a class="footer-link" href="../../index">← Subtxt Press</a></p>
+  <p><strong>Sources: </strong>Docket 1:24-cr-10259-DJC (D. Mass) &amp; Trial testimony per <a href="https://x.com/GrantSmithEllis?s=20" target="_blank">Grant Smith Ellis</a> live-tweet coverage.</p>
+  <p>
+    <a class="footer-link" href="fanning-foia">Fanning FOIA<i class="bi bi-box-arrow-up-right"></i></a>
+    <a class="footer-link" href="ncdao-foia">NCDAO Emails<i class="bi bi-box-arrow-up-right"></i></a>
+    <a class="footer-link" href="../../index">Subtxt Press<i class="bi bi-box-arrow-up-right"></i></a>
+  </p>
 </div><!-- end of footer-->
 
 <script>
