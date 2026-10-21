@@ -22,38 +22,41 @@
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/sandra-birchmore.png">
   <meta name="twitter:creator" content="@subtxtpress">
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
-  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-  <link rel="manifest" href="icons/site.webmanifest">
+   <link rel="icon" type="image/png" sizes="512x512" href="../../icons/icon-512.png">
+  <link rel="icon" type="image/png" sizes="190x190" href="../../icons/icon-190.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <!-- Styles -->
-<style>
+  <style>
   /* ═══════════════════════════════════════════════════════════════
      THEME: DARK (default)
      Subtxt Press case maps palette
      bg #060B14 · teal #4a8a7c · red #C04E01 · accent #ebe2cd
      ═══════════════════════════════════════════════════════════════ */
   :root {
-    --bg:               #090909;
-    --surface:          #111111;
-    --surface-elevated: #1a1a1a;
+    --bg:               #0f0f0f;
+    --surface:          #181818;
+    --surface-elevated: #202020;
     --border:           rgba(235, 226, 205, 0.10);
     --border-strong:    rgba(235, 226, 205, 0.22);
-    --text:             #e8e8e8;
+    --text:             #d4cfc8;
     --text-body:        #a8a8a8;
-    --text-dim:         #7c7c7c;
+    --text-dim:         #8a8a8a;
     --petitioner:       #ce773e;
     --respondent:       #739e94;
-    --neutral:          #7c7c7c;
-    --accent:           #e8e8e8;
+    --neutral:          #8a8a8a;
+    --accent:           #d4cfc8;
     --disputed:         #b3995c;
-    --grad-header:      linear-gradient(160deg, #111111, #090909);
+    --grad-header:      linear-gradient(160deg, #181818, #0f0f0f);
     --grad-accent:      linear-gradient(to right, #1f4e44, #c16f38);
     --shadow:            0 2px 12px rgba(0,0,0,0.50);
     --shadow-hover:      0 8px 28px rgba(0,0,0,0.60);
@@ -70,10 +73,10 @@
     --border-strong:    rgba(62, 36, 54, 0.28);
     --text:             #353434;
     --text-body:        #444444;
-    --text-dim:         #6c6c6c;
-    --petitioner:       #b6561f;
-    --respondent:       #57796e;
-    --neutral:          #6c6c6c;
+    --text-dim:         #595959;
+    --petitioner:       #9e4817;
+    --respondent:       #3f6b62;
+    --neutral:          #595959;
     --accent:           #333333;
     --disputed:         #bf9d40;
     --grad-header:      linear-gradient(160deg, #f4ede3, #ece5d9);
@@ -115,59 +118,89 @@
     transition: background 0.3s ease, border-color 0.3s ease;
   }
   .hero h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.6rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
     color: var(--text);
-    margin-bottom: 0.2rem;
+    line-height: 1;
     transition: color 0.3s ease;
   }
   .hero .sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.85rem;
     color: var(--text-dim);
-    margin-bottom: 1rem;
     transition: color 0.3s ease;
-    font-style: italic;
+    margin-top: 0.1%;
+    letter-spacing: 0.05em;
   }
   .hero .case-info {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     color: var(--text-dim);
     line-height: 1.6;
     letter-spacing: 0.06em;
     transition: color 0.3s ease;
     font-weight: 600;
+    text-align: left;
   }
-  .observers-info {
-    text-align: center;
-    width: 35%;
-    margin: 0 auto;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.63rem;
-    color: var(--text-dim);
-    line-height: 2;
-    letter-spacing: 0.06em;
-    transition: color 0.3s ease;
-    font-weight: 600;
+  .case-info {
+    width: 71%;
+    margin: 1% auto 0.25% auto;
   }
-  .observers-info a {
-    color: var(--accent);
+  .case-info a {
+    color: var(--respondent);
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
     margin: 0 0.75%;
+    font-size: 0.7rem;
+    letter-spacing: 0.01em;
+  }
+  .case-info-link {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    transition: color 0.2s ease;
+  }
+  .case-info-link .bi {
+    font-size: 0.75rem;
+    vertical-align: middle;
+    margin-left: 0.35em;
+  }
+  .case-info-link:hover {
+    color: var(--accent);
+  }
+  .observers-info {
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.63rem;
+    color: var(--text);
+    line-height: 2;
+    letter-spacing: 0.06em;
+    transition: color 0.3s ease;
+    font-weight: 600;
+    width: 70%;
+    margin: 0 auto;
+  }
+  .observers-info p {
+    color: var(--text-dim);
+    font-size: 0.73rem;
+    letter-spacing: 0.04em;
+    margin-top: 0.5%;
+  }
+  .observers-info a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    margin: 0 0.25%;
   }
   .observers-info-link {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     letter-spacing: 0.02em;
     color: var(--accent);
     transition: color 0.2s ease;
   }
-  .observers-info:hover {
+  .observers-info-link:hover {
     color: var(--respondent);
   }
   /* --- LEGEND --- */
@@ -271,8 +304,8 @@
   }
   /* --- TIMELINE --- */
   .timeline {
-    padding: 0 1rem 3rem;
-    max-width: 640px;
+    padding: 0 1%;
+    max-width: 80%;
     margin: 0 auto;
   }
   .chapter {
@@ -301,7 +334,7 @@
   }
   .event {
     position: relative;
-    padding: 0.75rem 0 0.75rem 1.25rem;
+    padding: 1rem 0 1rem 1.5rem;
     border-left: 2px solid var(--timeline-track);
     margin-left: 0.25rem;
     border-radius: 0 8px 8px 0;
@@ -342,26 +375,27 @@
   }
   .event-date {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 500;
     color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 0.2rem;
-    transition: color 0.3s ease;
-  }
-  .event-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
     margin-bottom: 0.3rem;
     transition: color 0.3s ease;
   }
+  .event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    transition: color 0.3s ease;
+  }
   .event-body {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     color: var(--text-dim);
-    line-height: 1.55;
+    line-height: 1.65;
     transition: color 0.3s ease;
   }
   /* --- SPLIT VIEW --- */
@@ -374,7 +408,7 @@
   .split-side {
     padding: 0.75rem 0.875rem;
     border-radius: 10px;
-    font-size: 0.72rem;
+    font-size: 0.84rem;
     line-height: 1.5;
     box-shadow: var(--shadow);
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -424,7 +458,7 @@
   }
   details .detail-body {
     padding: 0.5rem 0;
-    font-size: 0.72rem;
+    font-size: 0.84rem;
     color: var(--text-dim);
     line-height: 1.55;
   }
@@ -482,9 +516,11 @@
   }
   /* --- FOOTER --- */
   .footer {
-    padding: 2rem 1.25rem;
+    margin: 0 auto;
+    padding: 1%;
+    margin-bottom: 2%;
     text-align: center;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--text-dim);
     border-top: 1px solid var(--border);
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -493,27 +529,32 @@
     color: var(--accent);
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.75rem;
   }
   .footer-link {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     letter-spacing: 0.04em;
-    color: var(--respondent);
+    color: var(--accent);
     transition: color 0.2s ease;
   }
   .footer-link:hover {
-    color: var(--petitioner);
+    color: var(--respondent);
+  }
+  .footer p {
+    margin-top: 0.5%;
   }
   /* --- DESKTOP --- */
   @media (min-width: 768px) {
     .hero h1 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
     }
     .timeline {
-      padding: 0 2rem 3rem;
+      padding: 0 1%;
+      width: 90%;
     }
     .event-title {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
   /* --- MOBILE --- */
@@ -525,10 +566,10 @@
       padding: 2rem 1rem 1.25rem;
     }
     .hero h1 {
-      font-size: 1.3rem;
+      font-size: 1.45rem;
     }
     .hero .sub {
-      font-size: 0.75rem;
+      font-size: 1.2rem;
     }
     .legend {
       padding: 0.6rem 0.75rem;
@@ -537,8 +578,8 @@
       gap: 0.6rem;
     }
     .legend-item {
-      font-size: 0.5rem;
-      gap: 0.25rem;
+      font-size: 0.7rem;
+      gap: 0.3.5rem;
     }
     .legend-dot {
       width: 6px;
@@ -554,37 +595,77 @@
       padding: 0.6rem 0.75rem;
     }
     .pill {
-      font-size: 0.55rem;
+      font-size: 0.63rem;
       padding: 0.35rem 0.6rem;
     }
     .timeline {
-      padding: 0 0.75rem 2rem;
+      padding: 0;
+      width: 100%;
     }
     .event {
-      padding: 0.6rem 0 0.6rem 1rem;
+      padding: 0.75rem 0 0.75rem 1.1rem;
     }
     .event-title {
-      font-size: 0.82rem;
+      font-size: 1.15rem;
     }
     .event-body {
-      font-size: 0.72rem;
+      font-size: 0.82rem;
     }
     .event-date {
-      font-size: 0.55rem;
+      font-size: 0.71rem;
     }
     .chapter-label {
-      font-size: 0.5rem;
+      font-size: 0.58rem;
     }
     .split-side {
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       padding: 0.65rem 0.75rem;
     }
     .tag {
       font-size: 0.5rem;
     }
+    .case-info { 
+      width: 100%;
+      margin: 1.5% 0 1% 0;
+    }
     .observers-info { 
       width: 100%;
-      margin: auto;
+      margin: 0 auto;
+    }
+    .footer {
+      width: 80%;
+      margin: 0 auto;
+      padding-bottom: 3%;
+    }
+    .footer p {
+      margin-top: 1%;
+    }
+  }
+  /* --- MOBILE --- */
+  @media (max-width: 450px) {
+    .timeline {
+      padding: 0;
+      width: 100%;
+    }
+    .case-info-link {
+      font-size: 0.68rem;
+    }
+    .case-info a {
+      margin: 0 0.25%;
+      letter-spacing: 0.01em;
+      color: var(--respondent);
+    }
+    .case-info-link:hover {
+      color: var(--accent);
+    }
+    .observers-info {
+      padding: 0 0.1%;
+    }
+    .observers-info-link {
+      font-size: 0.63rem;
+    }
+    .observers-info p {
+      font-size: 0.68rem;
     }
   }
 </style>
@@ -593,23 +674,32 @@
 <div class="top-bar"></div>
 
 <div class="hero">
-  <h1>Sandra Birchmore</h1>
-  <div class="sub">United States v. Matthew Farwell</div>
-  <div class="case-info">
-    <a class="summary-link" href="https://drive.google.com/drive/folders/1KKCrgHogAFLqpp3_QYQXQ_9MpwzmwkF6?usp=drive_link" target="_blank">GSE's Live Tweet Threads</a> | <a class="summary-link" href="https://drive.google.com/drive/folders/1Vk87v16hCK8XhtyKQKV1hpQjqKsEYh13?usp=drive_link" target="_blank">Exhibits</a> | <a class="summary-link" href="https://drive.google.com/drive/folders/1MHJMrFutk_FFllpW6bmlKXEvI-xF6Udr?usp=drive_link" target="_blank">Drive Folder</a>
-  </div>
-  <div class="observers-info">
-    <p style="margin-top:2%;">Courtroom Observers / Librarians:</p>
-    <a class="observers-info-link" href="https://x.com/GrantSmithEllis" target="_blank">@GrantSmithElliss</a>
-    <a class="observers-info-link" href="https://x.com/TheEmilySee" target="_blank">@Theemilysee</a>
-    <a class="observers-info-link" href="https://x.com/Estey617" target="_blank">@Estey617</a>
-    <a class="observers-info-link" href="https://x.com/BoozeyBeauty" target="_blank">@BoozeyBeauty</a>
-    <a class="observers-info-link" href="https://x.com/ameliarstern1" target="_blank">@ameliarstern1</a>
-    <a class="observers-info-link" href="https://x.com/MicheleMcPhee" target="_blank">@MicheleMcPhee</a>
-    <a class="observers-info-link" href="https://x.com/KarenGoldbergME" target="_blank">@KarenGoldbergME</a>
-    <a class="observers-info-link" href="https://x.com/KyleSharkey8" target="_blank">@KyleSharkey8</a>
-    <a class="observers-info-link" href="https://x.com/suspiciousauce" target="_blank">@suspiciousauce</a>
-</div>
+  <h1>Sandra Birchmore Timeline</h1>
+    <div class="sub">United States v. Matthew Farwell</div>
+      
+    <div class="case-info">
+      <a class="case-info-link" href="https://drive.google.com/drive/folders/1KKCrgHogAFLqpp3_QYQXQ_9MpwzmwkF6?usp=drive_link" target="_blank">GSE's Live Tweet Threads <i class="bi bi-box-arrow-up-right"></i></a>
+      <a class="case-info-link" href="https://drive.google.com/drive/folders/1Vk87v16hCK8XhtyKQKV1hpQjqKsEYh13?usp=drive_link" target="_blank">Exhibits <i class="bi bi-box-arrow-up-right"></i></a>
+      <a class="case-info-link" href="https://drive.google.com/drive/folders/1MHJMrFutk_FFllpW6bmlKXEvI-xF6Udr?usp=drive_link" target="_blank">Drive Folder <i class="bi bi-box-arrow-up-right"></i></a>
+    </div><!-- end of case-info -->
+
+    <div class="observers-info">
+      <p>Courtroom Observers / Librarians: 
+        <a class="observers-info-link" href="https://x.com/GrantSmithEllis" target="_blank">@GrantSmithEllis</a>
+        <a class="observers-info-link" href="https://x.com/TheEmilySee" target="_blank">@Theemilysee</a>
+        <a class="observers-info-link" href="https://x.com/Estey617" target="_blank">@Estey617</a>
+        <a class="observers-info-link" href="https://x.com/BoozeyBeauty" target="_blank">@BoozeyBeauty</a>
+        <a class="observers-info-link" href="https://x.com/ameliarstern1" target="_blank">@ameliarstern1</a>       
+        <a class="observers-info-link" href="https://x.com/MicheleMcPhee" target="_blank">@MicheleMcPhee</a>
+        <a class="observers-info-link" href="https://x.com/KarenGoldbergME" target="_blank">@KarenGoldbergME</a>
+        <a class="observers-info-link" href="https://x.com/KyleSharkey8" target="_blank">@KyleSharkey8</a>
+        <a class="observers-info-link" href="https://x.com/suspiciousauce" target="_blank">@suspiciousauce</a>
+        <a class="observers-info-link" href="https://x.com/JusticeServedTV" target="_blank">@JusticeServedTV</a>
+        <a class="observers-info-link" href="" target="_blank" style="color:var(--text-dim);font-size:0.715rem;letter-spacing:0.04em;">Will add others as I find them...</a>
+      </p>
+    </div><!-- end of observers-info -->
+
+</div><!-- end of hero-->
 
 <div class="legend">
   <div class="legend-items">
@@ -618,7 +708,7 @@
     <div class="legend-item"><div class="legend-dot both"></div> Disputed / Both</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
-</div>
+</div><!-- end of legend-->
 
 <nav class="nav-pills">
   <a href="#ch1" class="pill">1. Grooming</a>
@@ -627,7 +717,7 @@
   <a href="#ch4" class="pill">4. Investigation</a>
   <a href="#ch5" class="pill">5. Federal Case</a>
   <a href="#ch6" class="pill">6. Trial</a>
-</nav>
+</nav><!-- end of nav -->
 
 <div class="timeline">
 
@@ -703,7 +793,7 @@
       </div>
     </div>
 
-  </div>
+  </div><!-- end of chapter 1 -->
 
   <!-- ====== CHAPTER 2 ====== -->
   <div class="chapter" id="ch2">
@@ -791,7 +881,7 @@
       <div class="event-body">On the same day as Farwell's violent visit, Sandra reaches out to childhood friend Mackenzie Palma (RN and artist) via Instagram. Sandra tells Palma she had found out she was pregnant "the day before." They had known each other since 2nd grade; Palma's mother had babysat Sandra. Sandra commissions custom painted onesies and a wooden sign for her baby announcement. Palma testified as an unscheduled government witness on Day 7. <span class="tag police">Palma, Day 7</span></div>
     </div>
 
-  </div>
+  </div><!-- end of chapter 2 -->
 
   <!-- ====== CHAPTER 3 ====== -->
   <div class="chapter" id="ch3">
@@ -955,7 +1045,7 @@
       </div>
     </div>
 
-  </div>
+  </div><!-- end of chapter 3 -->
 
   <!-- ====== CHAPTER 4 ====== -->
   <div class="chapter" id="ch4">
@@ -1067,7 +1157,7 @@
       <div class="event-body">Norfolk DA's external hard drive fails approximately 5 days before Farwell's arrest. The Black Bag extraction of Sandra's MacBook (and possibly other files) is lost. Guarino personally informs Sgt. Fanning and Brian Tully; no written report filed. Defense raised this as a spoliation issue; Judge Casper denied voir dire and ruled no basis for exclusion. <span class="tag police">Guarino, Day 4</span> <span class="tag disputed">Spoliation issue</span></div>
     </div>
 
-  </div>
+  </div><!-- end of chapter 4 -->
 
   <!-- ====== CHAPTER 5 ====== -->
   <div class="chapter" id="ch5">
@@ -1115,7 +1205,7 @@
       <div class="event-body">DNA sample collected from Farwell pursuant to search warrant. Bode Technology later conducts paternity testing. Result: Jayson Pickard (an army recruiter Sandra met around December 2019) is the biological father. Matthew Farwell is excluded as the biological father. Government learned this only after arresting Farwell in August 2024. Parties later stipulated to these facts at trial. <span class="tag police">Kelsch, Day 6; trial stipulation</span> <span class="tag filing">Doc 181</span></div>
     </div>
 
-  </div>
+  </div><!-- end of chapter 5 -->
 
   <!-- ====== CHAPTER 6 ====== -->
   <div class="chapter" id="ch6">
@@ -1272,14 +1362,14 @@
       </div>
     </div>
 
-  </div>
+  </div><!-- end of chapter 6 -->
 
-</div>
+</div><!-- end of timeline -->
 
 <div class="footer">
-  <p>Sources: Docket 1:24-cr-10259-DJC (D. Mass.) Filings<br>Trial testimony per <a class="footer-link" href="https://x.com/GrantSmithEllis?s=20" target="_blank">Grant Smith Ellis</a> live-tweet coverage.</p>
-  <p style="margin-top:0.75rem"><a  class="footer-link" href="../../index">← Subtxt Press</a></p>
-</div>
+  <p><strong>Sources: </strong>Docket 1:24-cr-10259-DJC (D. Mass) &amp; Trial testimony per <a class="footer-link" href="https://x.com/GrantSmithEllis?s=20" target="_blank">Grant Smith Ellis</a> live-tweet coverage.</p>
+  <p><a  class="footer-link" href="../../index">← Subtxt Press</a></p>
+</div><!-- end of footer-->
 
 <script>
   // Theme toggle
