@@ -7,7 +7,7 @@
   <meta name="description" content="Investigation timeline drawn from the Norfolk DA Office (NCDAO) email production (FOIA), Feb. 2021 through Apr. 2024. US v. Matthew Farwell.">
   <link rel="canonical" href="https://subtxtpress.github.io/home/case/sandra-birchmore/ncdao-foia">
   <!-- Open Graph -->
-  <meta property="og:title" content="NCDAO Email Production, Sandra Birchmore FOIA">
+  <meta property="og:title" content="Norfolk DA Office (NCDAO) email production (FOIA)">
   <meta property="og:description" content="Investigation timeline drawn from the Norfolk DA's email production (FOIA), Feb. 2021 through Apr. 2024. US v. Matthew Farwell.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://subtxtpress.github.io/home/case/sandra-birchmore/ncdao-foia">
@@ -17,7 +17,7 @@
   <meta property="og:site_name" content="Subtxt Press | Case Maps">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NCDAO Email Production, Sandra Birchmore FOIA">
+  <meta name="twitter:title" content="Norfolk DA Office (NCDAO) email production (FOIA)">
   <meta name="twitter:description" content="Investigation timeline drawn from the Norfolk DA's email production (FOIA), Feb. 2021 through Apr. 2024. US v. Matthew Farwell.">
   <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/sandra-birchmore.png">
   <meta name="twitter:creator" content="@subtxtpress">
@@ -79,7 +79,11 @@
     --shadow-hover:     0 8px 28px rgba(0,0,0,0.10);
     --timeline-track:   rgba(62, 36, 54, 0.18);
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+  }
   body {
     font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
     background: var(--bg);
@@ -89,8 +93,14 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   .top-bar {
-    position: fixed; top: 0; left: 0; right: 0; height: 1px;
-    background: var(--grad-accent); z-index: 9999; pointer-events: none;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    height: 1px;
+    background: var(--grad-accent); 
+    z-index: 9999; 
+    pointer-events: none;
   }
   .hero {
     padding: 2.5rem 1.25rem 1.5rem;
@@ -106,6 +116,7 @@
     color: var(--text);
     line-height: 1.15;
     transition: color 0.3s ease;
+    margin-bottom: 1%;
   }
   .hero .sub {
     font-family: "Barlow Condensed", sans-serif;
@@ -123,9 +134,12 @@
     line-height: 1.8;
     transition: color 0.3s ease;
     width: 65%;
-    margin: 0.75rem auto 0;
+    text-align: left;
+    margin: 1% auto;
   }
-  .source-note strong { color: var(--text); }
+  .source-note strong { 
+    color: var(--text); 
+  }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -139,7 +153,9 @@
     margin-top: 0.75rem;
     transition: color 0.2s ease;
   }
-  .back-link:hover { color: var(--accent); }
+  .back-link:hover { 
+    color: var(--accent); 
+  }
   /* ─── Notable items ─── */
   .notable-items {
     padding: 1.5rem 0 0.25rem;
@@ -167,7 +183,9 @@
     margin-bottom: 0.2rem;
     transition: color 0.2s;
   }
-  .notable-item a:hover { color: var(--respondent); }
+  .notable-item a:hover { 
+    color: var(--respondent); 
+  }
   .notable-date {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.58rem;
@@ -220,9 +238,15 @@
     transition: background-color 0.3s ease;
     flex-shrink: 0;
   }
-  .legend-dot.foia  { background: var(--respondent); }
-  .legend-dot.flag  { background: var(--disputed); }
-  .legend-dot.redacted { background: var(--neutral); }
+  .legend-dot.foia  { 
+    background: var(--respondent); 
+  }
+  .legend-dot.flag  { 
+    background: var(--disputed); 
+  }
+  .legend-dot.redacted { 
+    background: var(--neutral); 
+  }
   .theme-toggle {
     position: absolute; right: 1rem;
     background: var(--surface);
@@ -252,7 +276,9 @@
     scrollbar-width: none;
     transition: border-color 0.3s ease;
   }
-  .nav-pills::-webkit-scrollbar { display: none; }
+  .nav-pills::-webkit-scrollbar { 
+    display: none; 
+  }
   .pill {
     flex-shrink: 0;
     padding: 0.4rem 0.75rem;
@@ -279,7 +305,9 @@
     max-width: 80%;
     margin: 0 auto;
   }
-  .chapter { padding-top: 1.5rem; }
+  .chapter { 
+    padding-top: 1.5rem; 
+  }
   .chapter-label {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.6rem;
@@ -309,7 +337,9 @@
     border-radius: 0 8px 8px 0;
     transition: background-color 0.2s ease, border-color 0.3s ease;
   }
-  .event:hover { background: color-mix(in srgb, var(--surface) 50%, transparent); }
+  .event:hover { 
+    background: color-mix(in srgb, var(--surface) 50%, transparent); 
+  }
   .event::before {
     content: '';
     position: absolute;
@@ -320,14 +350,33 @@
     transition: background-color 0.3s ease;
     z-index: 1;
   }
-  .event.foia::before  { background: var(--respondent); }
-  .event.flagged::before { background: var(--disputed); }
-  .event.redacted::before { background: var(--neutral); }
-  .event.key { border-left-color: var(--respondent); }
-  .event.key.flagged { border-left-color: var(--disputed); }
-  .event.key::before { width: 10px; height: 10px; left: -6px; top: 1rem; }
-  .event.flagged { border-left-color: color-mix(in srgb, var(--disputed) 45%, transparent); }
-  .event.flagged:hover { background: color-mix(in srgb, var(--disputed) 5%, transparent); }
+  .event.foia::before  { 
+    background: var(--respondent); 
+  }
+  .event.flagged::before { 
+    background: var(--disputed); 
+  }
+  .event.redacted::before { 
+    background: var(--neutral); 
+  }
+  .event.key { 
+    border-left-color: var(--respondent); 
+  }
+  .event.key.flagged { 
+    border-left-color: var(--disputed); 
+  }
+  .event.key::before { 
+    width: 10px; 
+    height: 10px; 
+    left: -6px; 
+    top: 1rem; 
+  }
+  .event.flagged { 
+    border-left-color: color-mix(in srgb, var(--disputed) 45%, transparent); 
+  }
+  .event.flagged:hover { 
+    background: color-mix(in srgb, var(--disputed) 5%, transparent); 
+  }
   .event-date {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
@@ -363,7 +412,9 @@
     color: var(--text-body);
     line-height: 1.55;
   }
-  .flag-note strong { color: var(--disputed); }
+  .flag-note strong { 
+    color: var(--disputed); 
+  }
   /* ─── Tags ─── */
   .tag {
     display: inline-block;
@@ -398,7 +449,9 @@
     color: var(--text-dim);
   }
   /* ─── Expandable ─── */
-  details { margin-top: 0.4rem; }
+  details { 
+    margin-top: 0.4rem; 
+  }
   details summary {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -408,16 +461,24 @@
     list-style: none;
     transition: color 0.3s ease;
   }
-  details summary::before { content: '+ '; }
-  details[open] summary::before { content: '- '; }
+  details summary::before { 
+    content: '+ '; 
+  }
+  details[open] summary::before { 
+    content: '- '; 
+  }
   details .detail-body {
     padding: 0.5rem 0;
     font-size: 0.84rem;
     color: var(--text-dim);
     line-height: 1.55;
   }
-  details .detail-body ul { margin: 0.25rem 0 0 0.9rem; padding: 0; }
-  details .detail-body li { margin-bottom: 0.3rem; }
+  details .detail-body ul { 
+    margin: 0.25rem 0 0 0.9rem; padding: 0; 
+  }
+  details .detail-body li { 
+    margin-bottom: 0.3rem; 
+  }
   /* ─── Footer ─── */
   .footer {
     margin: 0 auto;
@@ -442,40 +503,97 @@
     color: var(--accent);
     transition: color 0.2s ease;
   }
-  .footer-link:hover { color: var(--respondent); }
-  .footer p { margin-top: 0.5%; }
+  .footer-link:hover { 
+    color: var(--respondent); 
+  }
+  .footer p { 
+    margin-top: 0.5%; 
+  }
   /* ─── Desktop ─── */
   @media (min-width: 768px) {
-    .hero h1 { font-size: 2.4rem; }
-    .timeline { padding: 0 1%; width: 90%; }
-    .event-title { font-size: 1.2rem; }
+    .hero h1 { 
+      font-size: 2.4rem; 
+    }
+    .timeline { 
+      padding: 0 1%; 
+      width: 90%; 
+    }
+    .event-title { 
+      font-size: 1.2rem; 
+    }
   }
   /* ─── Mobile ─── */
   @media (max-width: 580px) {
-    .hero { padding: 2rem 1rem 1.25rem; }
-    .hero h1 { font-size: 1.45rem; }
-    .hero .sub { font-size: 1.2rem; }
-    .legend { padding: 0.6rem 0.75rem; }
-    .legend-items { gap: 0.6rem; }
-    .theme-toggle { right: 0.5rem; padding: 0.2rem 0.5rem; font-size: 0.7rem; }
-    .nav-pills { justify-content: flex-start; padding: 0.6rem 0.75rem; }
-    .pill { font-size: 0.63rem; padding: 0.35rem 0.6rem; }
-    .source-note { font-size: 0.6rem; letter-spacing: 0.07em; line-height: 1.8; width: 98%; padding: 1%; }
-    .timeline { padding: 0; width: 100%; }
-    .event { padding: 0.75rem 0 0.75rem 1.1rem; }
-    .event-title { font-size: 1.15rem; }
-    .event-body { font-size: 0.82rem; }
-    .event-date { font-size: 0.71rem; }
-    .chapter-label { font-size: 0.58rem; }
-    .tag { font-size: 0.5rem; }
-    .notable-grid { grid-template-columns: 1fr; }
+    .hero { 
+      padding: 2rem 1rem 1.25rem; 
+    }
+    .hero h1 { 
+      font-size: 1.45rem; 
+      margin-bottom: 4%;
+    }
+    .hero .sub { 
+      font-size: 1.2rem; 
+    }
+    .legend { 
+      padding: 0.6rem 0.75rem; 
+    }
+    .legend-items { 
+      gap: 0.6rem; 
+    }
+    .theme-toggle { 
+      right: 0.5rem; 
+      padding: 0.2rem 0.5rem; 
+      font-size: 0.7rem; 
+    }
+    .nav-pills { 
+      justify-content: flex-start; 
+      padding: 0.6rem 0.75rem; 
+    }
+    .pill { 
+      font-size: 0.63rem; 
+      padding: 0.35rem 0.6rem; 
+    }
+    .source-note {
+      font-size: 0.6rem;
+      letter-spacing: 0.07em;
+      line-height: 1.8;
+      width: 98%;
+      padding: 1%;
+    }
+    .timeline { 
+      padding: 0; 
+      width: 100%; 
+    }
+    .event { 
+      padding: 0.75rem 0 0.75rem 1.1rem; 
+    }
+    .event-title { 
+      font-size: 1.15rem; 
+    }
+    .event-body { 
+      font-size: 0.82rem; 
+    }
+    .event-date { 
+      font-size: 0.71rem; 
+    }
+    .chapter-label { 
+      font-size: 0.58rem; 
+    }
+    .tag { 
+      font-size: 0.5rem; 
+    }
+    .notable-grid { 
+      grid-template-columns: 1fr; 
+    }
   }
   .source-link {
     color: var(--accent);
     text-decoration: none;
     font-weight: 500;
   }
-  .source-link:hover { color: var(--respondent); }
+  .source-link:hover { 
+    color: var(--respondent); 
+  }
   </style>
 </head>
 <body>
@@ -483,7 +601,6 @@
 
 <div class="hero">
   <h1>NCDAO Email Production</h1>
-  <div class="sub">Sandra Birchmore · Investigation Record</div>
   <div class="source-note">
     <strong>Source:</strong> Norfolk District Attorney's Office (NDAO) email production, obtained via Massachusetts Public Records Law G.L. c. 66 § 10. 443 unique email blocks, Feb. 2021 thru Apr. 2024. Deduped from 887 total blocks (~50% duplication from PDF-to-text conversion).
   </div>
@@ -493,8 +610,8 @@
 <div class="legend">
   <div class="legend-items">
     <div class="legend-item"><div class="legend-dot foia"></div> FOIA production</div>
-    <div class="legend-item"><div class="legend-dot flag"></div> Flagged / open question</div>
-    <div class="legend-item"><div class="legend-dot redacted"></div> Redacted content</div>
+    <div class="legend-item"><div class="legend-dot flag"></div> Flagged</div>
+    <div class="legend-item"><div class="legend-dot redacted"></div> Redacted</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
 </div>
