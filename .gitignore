@@ -11,3 +11,13 @@ __pycache__/
 # Large files — host externally, not in Git
 *.mov
 *.avi
+*.mp4
+
+# Build artifacts — never commit
+node_modules/
+
+# Case media — large assets tracked separately, not deployed via Pages
+case/nancy-guthrie/assets/
+
+# Client work — separate projects, not part of subtxtpress Pages deployment
+client/
