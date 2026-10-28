@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NDT Crash Course</title>
+  <meta name="description" content="A five-week pre-program crash course for NDT technician trainees in math, physics, materials science, technical drawing, and industry orientation.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/NDT.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="NDT Pre-Program Crash Course">
+  <meta property="og:description" content="A five-week pre-program crash course for NDT technician trainees in math, physics, materials science, technical drawing, and industry orientation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/NDT.html">
+  <meta property="og:image" content="">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NDT Pre-Program Crash Course">
+  <meta name="twitter:description" content="A five-week pre-program crash course for NDT technician trainees in math, physics, materials science, technical drawing, and industry orientation.">
+  <meta name="twitter:image" content="">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --cream:   #F4EDE3;
+      --peach:   #E8956A;
+      --plum:    #3E2436;
+      --carmine: #7A5063;
+      --ink:     #241620;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4% 5%;
+      line-height: 1.65;
+    }
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      color: var(--plum);
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+    h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      color: var(--plum);
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--peach);
+      padding-bottom: 0.25rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    h3 {
+      font-family: 'Inter', sans-serif;
+      color: var(--carmine);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      margin: 0.5rem 0 1rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 1rem;
+    }
+    li {
+      padding-left: 1.2rem;
+      margin-bottom: 0.4rem;
+      position: relative;
+    }
+    li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--peach);
+    }
+    ul.sub {
+      margin: 0.3rem 0 0.3rem 0.6rem;
+    }
+    ul.sub li::before {
+      content: '◦';
+      color: var(--carmine);
+    }
+    .goal {
+      background-color: rgba(62, 36, 54, 0.05);
+      border-left: 3px solid var(--peach);
+      padding: 0.65rem 1rem;
+      margin-top: 1.2rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .goal h3 {
+      margin-top: 0;
+      margin-bottom: 0.3rem;
+    }
+    .goal p {
+      margin: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+    }
+    th {
+      font-family: 'IBM Plex Mono', monospace;
+      background-color: var(--plum);
+      color: var(--cream);
+      padding: 0.55rem 0.8rem;
+      text-align: left;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid rgba(62, 36, 54, 0.12);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background-color: rgba(232, 149, 106, 0.08);
+    }
+    td:first-child {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+    }
+    a {
+      color: var(--carmine);
+    }
+    a:hover {
+      color: var(--peach);
+    }
+    .related-link {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--peach);
+      border-radius: 3px;
+      color: var(--carmine);
+      text-decoration: none;
+      margin-top: 2rem;
+    }
+    .related-link:hover {
+      background-color: var(--peach);
+      color:            white;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0d1117;
+        color:            #c9bfb3;
+      }
+      h1, h2 { 
+        color: #ebe2cd; 
+      }
+      h2 { 
+        border-bottom-color: #4a8a7c; 
+      }
+      h3 { 
+        color: #7ab5ad; 
+      }
+      ul li::before { 
+        color: #4a8a7c; 
+      }
+      ul.sub li::before { 
+        color: #7ab5ad; 
+      }
+      .goal {
+        background-color:  rgba(235, 226, 205, 0.04);
+        border-left-color: #4a8a7c;
+      }
+      .goal h3 { 
+        color: #7ab5ad; 
+      }
+      th {
+        background-color: #1c2533;
+        color:            #ebe2cd;
+      }
+      td { 
+        border-bottom-color: rgba(235, 226, 205, 0.08); 
+      }
+      tr:nth-child(even) td { 
+        background-color: rgba(74, 138, 124, 0.06); 
+      }
+      td:first-child { 
+        font-family: 'IBM Plex Mono', monospace; 
+        font-size: 0.82rem; 
+      }
+      a { 
+        color: #7ab5ad; 
+      }
+      a:hover { 
+        color: #4a8a7c; 
+      }
+      .related-link {
+        border-color: #4a8a7c;
+        color:        #7ab5ad;
+      }
+      .related-link:hover {
+        background-color: #4a8a7c;
+        color:            #0d1117;
+      }
+    }
+    @media (max-width: 680px) {
+      .table-wrap { 
+        overflow-x: visible; 
+      }
+      table, tbody { 
+        min-width: 0; 
+        display: block; 
+      }
+      thead { 
+        display: none; 
+      }
+      tbody tr {
+        display: block;
+        border: 1px solid rgba(62, 36, 54, 0.15);
+        border-radius: 4px;
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+      }
+      td {
+        display: block;
+        position: relative;
+        padding: 0.45rem 0.65rem 0.45rem calc(38% + 0.8rem);
+        border-bottom: 1px solid rgba(62, 36, 54, 0.08);
+        font-weight: normal;
+        min-height: 2.1rem;
+      }
+      td:last-child { 
+        border-bottom: none; 
+      }
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.65rem;
+        top: 0.45rem;
+        width: 36%;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--carmine);
+        line-height: 1.4;
+      }
+      tr:nth-child(even) td { 
+        background-color: transparent; 
+      }
+      tbody tr:nth-child(even) { 
+        background-color: rgba(232, 149, 106, 0.07); 
+      }
+    }
+    @media (prefers-color-scheme: dark) and (max-width: 680px) {
+      tbody tr { 
+        border-color: rgba(235, 226, 205, 0.1); 
+      }
+      td { 
+        border-bottom-color: rgba(235, 226, 205, 0.05); 
+      }
+      td::before { 
+        color: #7ab5ad; 
+      }
+      tbody tr:nth-child(even) { 
+        background-color: rgba(74, 138, 124, 0.06); 
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>NDT Pre-Program Crash Course</h1>
+
+<p><strong>Before You Start:</strong> Get a proper Ishihara color vision test. An optometrist can do it for $20–30, and some Walmart Vision Centers carry it too. Color deficiency is a hard disqualifier for NDT per ASNT guidelines, and the program materials say so outright. Confirm you pass, then work through the five weeks below.</p>
+<p><strong>Pace:</strong> This syllabus assumes 1–2 hours per day. Compress or stretch as your schedule allows. The order matters more than the speed.</p>
+
+
+<h2>Week 1: Math Foundations</h2>
+<p>NDT involves real calculation, especially Ultrasonic Testing, where you compute sound velocity, beam angles, and time-of-flight distances. Rusty math will slow you down on day one.</p>
+
+<h3>Topics to cover</h3>
+<ul>
+  <li>Fractions, decimals, percentages, and unit conversions (inches to mm, for example)</li>
+  <li>Basic algebra: solving for an unknown variable</li>
+  <li>Ratios and proportions</li>
+  <li>Introduction to trigonometry: what sine, cosine, and tangent mean, and how to use them for angle calculations (UT beam angles depend on this)</li>
+  <li>Scientific notation and reading measurement scales</li>
+</ul>
+
+<h3>Where to study</h3>
+<ul>
+  <li>Khan Academy (khanacademy.org); work through the Algebra Basics and Trigonometry Basics units. Free, self-paced, and you can pick up wherever you left off.</li>
+  <li>Focus on the trig unit circle and the sin/cos/tan relationships. You do not need calculus.</li>
+</ul>
+
+<div class="goal">
+  <h3>Goal by end of Week 1</h3>
+  <p>Solve a basic angle problem using a sine or cosine formula without needing to look up what those mean.</p>
+</div>
+
+
+<h2>Week 2: Physics Foundations</h2>
+<p>Each of the five NDT methods is applied physics. Understanding the underlying principle before class means you are building skill in training, not catching up on concepts.</p>
+
+<h3>Sound waves: Ultrasonic Testing</h3>
+<ul>
+  <li>What a wave is: frequency, wavelength, amplitude, velocity</li>
+  <li>How sound travels through solid materials vs. liquids vs. air</li>
+  <li>What happens at a material boundary: reflection, refraction, and mode conversion</li>
+  <li>Why flaws reflect sound (impedance mismatch)</li>
+  <li>Search: "ultrasonic testing physics basics"; Olympus NDT's online resources are particularly good here</li>
+</ul>
+
+<h3>Electromagnetism: Magnetic Particle Testing</h3>
+<ul>
+  <li>What makes a material ferromagnetic (iron, nickel, cobalt and their alloys)</li>
+  <li>How a magnetic field is created and what magnetic flux lines look like</li>
+  <li>Why a surface or near-surface crack disrupts a magnetic field (flux leakage)</li>
+  <li>Khan Academy's "Magnetic forces" unit covers this at the right level</li>
+</ul>
+
+<h3>Radiation: Radiographic Testing</h3>
+<ul>
+  <li>What X-rays and gamma rays are (electromagnetic radiation, very short wavelength)</li>
+  <li>How they penetrate materials and why denser material absorbs more</li>
+  <li>Why a void or crack shows as a dark area on radiographic film</li>
+  <li>Conceptual only; you do not need to know how to operate radiographic equipment yet</li>
+</ul>
+
+<h3>Capillary action: Liquid Penetrant Testing</h3>
+<ul>
+  <li>Why liquid is drawn into tight cracks by surface tension</li>
+  <li>How a developer draws the penetrant back out and makes it visible</li>
+  <li>This one is intuitive once you look it up; 20 minutes is enough</li>
+</ul>
+
+<h3>Light and optics: Visual Testing</h3>
+<ul>
+  <li>How lighting angle affects the visibility of surface features</li>
+  <li>Contrast: why a flaw visible under one light is invisible under another</li>
+  <li>VT is deceptively technical; it is not just looking at something</li>
+</ul>
+
+<div class="goal">
+  <h3>Goal by end of Week 2</h3>
+  <p>You can explain in plain language what physical principle each of the five NDT methods relies on, and why a flaw in a material would be detectable by each method.</p>
+</div>
+
+
+<h2>Week 3: Materials Science and Weld Defects</h2>
+<p>NDT exists to find defects before they cause failures. Understanding what defects look like, why they form, and why they matter in submarine manufacturing gives everything else context.</p>
+
+<h3>What to learn</h3>
+<ul>
+  <li>Common weld defects and what causes each one:
+    <ul class="sub">
+      <li>Porosity (gas trapped in weld metal)</li>
+      <li>Cracks (solidification cracks, hydrogen-induced cracks)</li>
+      <li>Lack of fusion (weld metal didn't bond to the base metal)</li>
+      <li>Lack of penetration (weld didn't reach the root)</li>
+      <li>Undercut, overlap, inclusions</li>
+    </ul>
+  </li>
+  <li>Why these matter in a pressure vessel or submarine hull; the stakes of a missed defect</li>
+  <li>Basic metals: what steel is, what stainless steel is, why different alloys behave differently under inspection</li>
+  <li>What a heat-affected zone (HAZ) is and why it is often where defects hide</li>
+</ul>
+
+<h3>Where to study</h3>
+<ul>
+  <li>TWI (The Welding Institute) at twi-global.com; search "weld defects" in their Knowledge section. Free articles written for practitioners, not academics.</li>
+  <li>Lincoln Electric's Welding Academy (lincolnelectric.com/en/education-center) covers defect types clearly with visuals.</li>
+  <li>Search YouTube for "weld defect types explained"; there are several 10–15 minute videos that cover the visuals better than text can.</li>
+</ul>
+
+<div class="goal">
+  <h3>Goal by end of Week 3</h3>
+  <p>You can name the six most common weld defects, describe what causes each, and explain why each one is dangerous in a submarine hull component.</p>
+</div>
+
+
+<h2>Week 4: Technical Drawing Basics</h2>
+<p>NDT technicians work from engineering drawings to know where to inspect, what method to use, and what acceptance criteria apply. You do not need to read complex design drawings; you need the basics.</p>
+
+<h3>Topics to cover</h3>
+<ul>
+  <li>Orthographic projection: how a 3D object is shown in 2D from multiple views (front, top, side)</li>
+  <li>How to read dimensions and units on a drawing</li>
+  <li>What tolerance callouts mean (±0.005", for example) and why they matter in precision manufacturing</li>
+  <li>What weld symbols look like on a drawing and what they indicate</li>
+  <li>How to find a revision block and understand that drawings are versioned documents</li>
+  <li>What a section view is and how to read it</li>
+</ul>
+
+<h3>Where to study</h3>
+<ul>
+  <li>YouTube: search "how to read engineering drawings for beginners"; pick any result with 100k+ views, they are mostly solid</li>
+  <li>GD&amp;T basics: you do not need to be fluent, but knowing what a flatness or concentricity callout is will help</li>
+  <li>Search: "weld symbols explained engineering drawings"</li>
+</ul>
+
+<div class="goal">
+  <h3>Goal by end of Week 4</h3>
+  <p>Given a simple part drawing, you can identify where a weld is located, what the tolerance is, and understand what a section view is showing you.</p>
+</div>
+
+
+<h2>Week 5: NDT Methods and Industry Orientation</h2>
+<p>Now that you have the foundations, spend the final week orienting yourself to the industry, the credentialing structure, and getting a preview of actual NDT procedures.</p>
+
+<h3>The ASNT credentialing ladder</h3>
+<ul>
+  <li>Go to asnt.org and read through their overview of SNT-TC-1A (the recommended practice that governs most employer-based certification programs) and CP-189 (the standard for ASNT's own certification program)</li>
+  <li>Understand the three levels: Level I (performs tests under supervision), Level II (interprets results, writes procedures, supervises Level I), Level III (develops programs, trains and certifies others, approves procedures)</li>
+  <li>The ATDM program positions you for Level I and II classroom hours. Level III is years of work and testing away, but knowing the ladder helps you understand where you are entering</li>
+</ul>
+
+<h3>Preview each NDT method</h3>
+<ul>
+  <li>Olympus NDT encyclopedia (olympus-ims.com/en/ndt-tutorials/): read the intro pages for UT, MT, PT, RT, and VT. These are written for practitioners and will feel relevant, not abstract, after four weeks of prep.</li>
+  <li>Search YouTube for short demos of each method; watching someone actually run a UT scan or do a PT inspection makes the classroom procedures land immediately</li>
+</ul>
+
+<h3>NAVSEA context</h3>
+<ul>
+  <li>The ATDM program is specifically calibrated to NAVSEA (Naval Sea Systems Command) NDT requirements. Search "NAVSEA T9074-AS-GIB-010/271"; this is the document that governs NDT on submarine components. You do not need to read it, but knowing it exists and what it covers will make you sound like you did your homework.</li>
+  <li>Buildsubmarines.com is worth browsing; it gives context on the defense industrial base you are preparing to enter.</li>
+</ul>
+
+<div class="goal">
+  <h3>Goal by end of Week 5</h3>
+  <p>You can explain the ASNT Level I/II/III ladder, name the five NDT methods and their physical principles, and describe the difference between a surface flaw and a subsurface flaw and which methods find each.</p>
+</div>
+
+
+<h2>Quick Reference Resources</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>What it covers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Resource">Khan Academy (khanacademy.org)</td>
+      <td data-label="What it covers">Algebra basics, trig basics, physics/waves, magnetism</td>
+    </tr>
+    <tr>
+      <td data-label="Resource">Olympus NDT Tutorials (olympus-ims.com/en/ndt-tutorials/)</td>
+      <td data-label="What it covers">All five NDT methods, written for practitioners</td>
+    </tr>
+    <tr>
+      <td data-label="Resource">TWI Knowledge Base (twi-global.com)</td>
+      <td data-label="What it covers">Weld defects, materials, NDT overview articles</td>
+    </tr>
+    <tr>
+      <td data-label="Resource">Lincoln Electric Welding Academy (lincolnelectric.com/en/education-center)</td>
+      <td data-label="What it covers">Weld defect visuals, welding process basics</td>
+    </tr>
+    <tr>
+      <td data-label="Resource">YouTube: "how to read engineering drawings for beginners"</td>
+      <td data-label="What it covers">Orthographic projection, dimensions, weld symbols</td>
+    </tr>
+    <tr>
+      <td data-label="Resource">ASNT website (asnt.org)</td>
+      <td data-label="What it covers">SNT-TC-1A overview, certification levels, Level I/II/III</td>
+    </tr>
+    <tr>
+      <td data-label="Resource">Buildsubmarines.com</td>
+      <td data-label="What it covers">Defense industrial base context, career info</td>
+    </tr>
+    <tr>
+      <td data-label="Resource">YouTube: search each NDT method name + "procedure" or "demo"</td>
+      <td data-label="What it covers">Visual walk-through of actual inspection techniques</td>
+    </tr>
+    <tr>
+      <td data-label="Resource"><em>Introduction to Nondestructive Testing</em> by Paul E. Mix</td>
+      <td data-label="What it covers">Everything in this syllabus and more at a depth that will serve you well through Level II</td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="related-link" href="DIB-programs.html">Paid Training-to-Hire Programs Comparable to ATDM (October 2026) →</a>
+
+</body>
+</html>
