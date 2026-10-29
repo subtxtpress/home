@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Piker v. Jennings — The Anatomy of a Fabrication</title>
+  <meta name="description" content="A forensic analysis of three layered distortions at the center of Piker v. Jennings (1:26-cv-03770) — from the original Twitch broadcast through the manipulated clip to Scott Jennings' fabricated caption and accusations.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/case/piker-v-jennings/lawsuit">
+  <meta property="og:title" content="Piker v. Jennings — The Anatomy of a Fabrication">
+  <meta property="og:description" content="Forensic analysis of the manipulated clip, Jennings' fabricated caption, and the defamation lawsuit that followed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/case/piker-v-jennings/lawsuit">
+  <meta property="og:site_name" content="Subtxt Press | Case Maps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Piker v. Jennings — The Anatomy of a Fabrication">
+  <meta name="twitter:description" content="Forensic analysis of the manipulated clip, Jennings' fabricated caption, and the defamation lawsuit that followed.">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #060B14;
+  --surface:         rgba(18,64,60,0.22);
+  --surface2:        #12403C;
+  --border:          rgba(244,229,196,0.10);
+  --border2:         rgba(244,229,196,0.26);
+  --border-subtle:   rgba(18,64,60,0.45);
+  --text:            #F5F5F5;
+  --text-dim:        rgba(216,218,219,0.62);
+  --text-label:      #ebe2cd;
+  --card-bg:         rgba(6,11,20,0.45);
+  --layer-original:  #4a8a7c;
+  --layer-manip:     #ebe2cd;
+  --layer-jennings:  #D45A00;
+  --layer-after:     #D8DADB;
+  --dim-original:    rgba(74,138,124,0.12);
+  --dim-manip:       rgba(235,226,205,0.10);
+  --dim-jennings:    rgba(212,90,0,0.10);
+  --dim-after:       rgba(216,218,219,0.08);
+  --border-original: rgba(74,138,124,0.45);
+  --border-manip:    rgba(235,226,205,0.30);
+  --border-jennings: rgba(212,90,0,0.55);
+  --border-after:    rgba(216,218,219,0.30);
+  --grad-dark:       linear-gradient(160deg, #060B14 0%, #12403C 100%);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+header {
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 40px;
+}
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.disclaimer {
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--dim-manip);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  margin-bottom: 32px;
+  align-items: flex-start;
+}
+.disclaimer-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.disclaimer-content { font-size: 0.82rem; color: var(--text-dim); line-height: 1.7; }
+.disclaimer-content strong { color: var(--text-label); }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 48px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-dim); }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+/* Timeline strip */
+.timeline-strip {
+  display: flex;
+  margin-bottom: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.timeline-node {
+  flex: 1;
+  padding: 14px 16px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.timeline-node + .timeline-node { border-left: 1px solid var(--border); }
+.timeline-node .tn-date { font-weight: 600; font-size: 0.7rem; letter-spacing: 0.04em; margin-bottom: 4px; }
+.timeline-node .tn-label { color: var(--text-dim); }
+.timeline-node.n-original { background: rgba(74,138,124,0.15); }
+.timeline-node.n-manip    { background: rgba(235,226,205,0.06); }
+.timeline-node.n-jennings { background: rgba(192,78,1,0.12); }
+.timeline-node.n-after    { background: rgba(216,218,219,0.05); }
+/* Layers */
+.layer { margin-bottom: 56px; }
+.layer-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.layer-marker { width: 4px; height: 36px; border-radius: 2px; flex-shrink: 0; }
+.layer-title { font-family: 'Instrument Serif', serif; font-size: 1.5rem; font-weight: 400; }
+.layer-date { color: var(--text-dim); font-size: 0.82rem; margin-left: auto; white-space: nowrap; }
+/* Accordion */
+.topic-grid { display: grid; gap: 16px; }
+.topic-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.topic-card:hover { border-color: var(--border2); }
+.topic-header {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+.topic-indicator { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.topic-label { font-weight: 600; font-size: 0.9rem; flex: 1; }
+.topic-tag {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--bg);
+  color: inherit;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.topic-toggle { color: var(--text-dim); font-size: 1.2rem; transition: transform 0.3s; width: 20px; text-align: center; }
+.topic-card.open .topic-toggle { transform: rotate(45deg); }
+.topic-body { display: none; padding: 0 20px 20px; }
+.topic-card.open .topic-body { display: block; }
+/* Content blocks */
+.quote-block {
+  padding: 14px 16px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 3px solid var(--border-subtle);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+.quote-block .source { color: var(--text-dim); font-size: 0.75rem; margin-top: 8px; font-style: italic; }
+.analysis { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; padding: 12px 0 0; }
+.analysis strong { color: var(--text); font-weight: 500; }
+.contrast-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.contrast-side {
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  line-height: 1.6;
+}
+.contrast-side .side-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; font-weight: 600; }
+.contrast-side.c-original  { background: var(--dim-original);  border: 1px solid var(--border-original); }
+.contrast-side.c-original .side-label  { color: var(--layer-original); }
+.contrast-side.c-distorted { background: var(--dim-jennings); border: 1px solid var(--border-jennings); }
+.contrast-side.c-distorted .side-label { color: var(--layer-jennings); }
+.fabricated-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--layer-jennings);
+  background: var(--dim-jennings);
+  border: 1px solid var(--border-jennings);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+/* Takeaway */
+.takeaway {
+  margin-top: 60px;
+  padding: 32px;
+  background: var(--grad-dark);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+}
+.takeaway h2 { font-family: 'Instrument Serif', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 20px; }
+.takeaway p { font-size: 0.9rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 14px; }
+.takeaway p:last-child { margin-bottom: 0; }
+.takeaway p strong { color: var(--text); }
+/* Tabs */
+.tab-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+}
+.tab-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--text-label); border-bottom-color: var(--layer-original); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+/* Legal */
+.legal-section { margin-top: 60px; padding-top: 60px; border-top: 1px solid var(--border); }
+.legal-section > h2 { font-family: 'Instrument Serif', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 400; margin-bottom: 12px; letter-spacing: -0.02em; }
+.legal-section > .section-subtitle { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; margin-bottom: 48px; }
+.legal-step { margin-bottom: 48px; }
+.step-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
+.step-number { font-family: 'Instrument Serif', serif; font-size: 2.4rem; color: var(--layer-original); opacity: 0.75; line-height: 1; flex-shrink: 0; }
+.step-title { font-family: 'Instrument Serif', serif; font-size: 1.35rem; font-weight: 400; }
+.step-body p { font-size: 0.88rem; line-height: 1.75; color: var(--text-dim); margin-bottom: 16px; }
+.step-body p strong { color: var(--text); }
+.legal-callout {
+  padding: 24px 28px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  margin: 20px 0;
+}
+.legal-callout .callout-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 10px; }
+.legal-callout p { font-size: 0.85rem; line-height: 1.7; color: var(--text-dim); }
+.legal-callout p strong { color: var(--text); }
+.argument-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+.argument-side { padding: 18px 20px; border-radius: 10px; font-size: 0.83rem; line-height: 1.65; }
+.argument-side .arg-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; font-weight: 700; }
+.argument-side.a-plaintiff { background: var(--dim-original); border: 1px solid var(--border-original); }
+.argument-side.a-plaintiff .arg-label { color: var(--layer-original); }
+.argument-side.a-defendant { background: var(--dim-jennings); border: 1px solid var(--border-jennings); }
+.argument-side.a-defendant .arg-label { color: var(--layer-jennings); }
+.claim-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+.claim-card .claim-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.claim-card .claim-text { font-size: 0.88rem; line-height: 1.6; margin-bottom: 8px; font-weight: 500; }
+.claim-card .claim-note { font-size: 0.82rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 12px; }
+.strength-bar { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.strength-label { font-size: 0.72rem; color: var(--text-dim); white-space: nowrap; }
+.strength-track { flex: 1; height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; }
+.strength-fill { height: 100%; border-radius: 2px; }
+/* Sources */
+.source-category { margin-bottom: 40px; }
+.source-category-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.source-list { list-style: none; display: grid; gap: 8px; }
+.source-item { display: flex; align-items: baseline; gap: 12px; padding: 10px 16px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; transition: border-color 0.2s; }
+.source-item:hover { border-color: var(--border2); }
+.source-item a { color: var(--text); text-decoration: none; font-size: 0.85rem; line-height: 1.5; flex: 1; }
+.source-item a:hover { color: var(--text-label); }
+.source-ref { font-size: 0.7rem; color: var(--layer-original); font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+.source-type { font-size: 0.65rem; padding: 2px 8px; border-radius: 12px; background: var(--bg); color: var(--text-dim); border: 1px solid var(--border); white-space: nowrap; flex-shrink: 0; }
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 32px 16px; }
+  header { margin-bottom: 36px; padding-bottom: 24px; }
+  .subtitle { font-size: 0.88rem; }
+  .legend { gap: 14px; padding: 16px 18px; flex-direction: column; }
+  .layer { margin-bottom: 36px; }
+  .layer-header { flex-wrap: wrap; gap: 10px; }
+  .layer-date { margin-left: 20px; width: 100%; }
+  .contrast-box { grid-template-columns: 1fr; }
+  .argument-pair { grid-template-columns: 1fr; }
+  .timeline-strip { flex-direction: column; }
+  .timeline-node + .timeline-node { border-left: none; border-top: 1px solid var(--border); }
+  .topic-header { padding: 14px 16px; gap: 10px; }
+  .topic-label { font-size: 0.85rem; }
+  .topic-tag { font-size: 0.65rem; padding: 2px 8px; }
+  .topic-body { padding: 0 16px 16px; }
+  .takeaway { padding: 24px 20px; margin-top: 40px; }
+  .tab-btn { font-size: 0.82rem; padding: 8px 14px; }
+  .legal-section { margin-top: 40px; padding-top: 40px; }
+  .step-number { font-size: 1.8rem; }
+  .step-title { font-size: 1.15rem; }
+  .legal-callout { padding: 18px 20px; }
+  .claim-card { padding: 16px 18px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 24px 14px; }
+  h1 { font-size: 1.65rem; margin-bottom: 12px; }
+  .layer-title { font-size: 1.25rem; }
+  .layer-marker { height: 28px; }
+  .topic-header { padding: 12px 14px; }
+  .topic-tag { display: none; }
+  .strength-bar { flex-wrap: wrap; gap: 6px; }
+  .strength-track { width: 100%; order: 3; }
+}
+  </style>
+</head>
+<body>
+
+<div style="background:var(--surface);border-bottom:1px solid var(--border);padding:10px 24px;">
+  <a href="../../dockets/hasan-piker-vs-scott-jennings/docket" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:var(--text-dim);text-decoration:none;text-transform:uppercase;">&#8592; Court Docket</a>
+</div>
+
+<div class="container">
+  <header>
+    <h1>The Anatomy of a Fabrication</h1>
+    <p class="subtitle"><em>Piker v. Jennings</em>, No. 1:26-cv-03770 (D.D.C.) &mdash; A forensic analysis of three layered distortions: how a sarcastic Twitch clip became a manipulated political weapon, how Scott Jennings then added fabrications beyond even the manipulated footage, and what the resulting defamation lawsuit can and can't prove.</p>
+  </header>
+
+  <div class="disclaimer">
+    <div class="disclaimer-icon">&#9888;</div>
+    <div class="disclaimer-content">
+      <strong>Work in progress.</strong> This document is at the complaint stage &mdash; filed 10-27-2026. No answer has been entered, no discovery has occurred, and no judicial findings have been made. Analysis here draws from the complaint's factual allegations, which are not yet proven in court. This is a framework for following the case, not a verdict.
+    </div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="analysis">Analysis</button>
+    <button class="tab-btn" data-tab="legal">Legal</button>
+    <button class="tab-btn" data-tab="sources">Sources</button>
+  </div>
+
+  <!-- ANALYSIS TAB -->
+  <div class="tab-panel active" id="tab-analysis">
+
+    <div class="timeline-strip">
+      <div class="timeline-node n-original">
+        <div class="tn-date" style="color:var(--layer-original)">Oct 29, 2024</div>
+        <div class="tn-label">Original Twitch broadcast</div>
+      </div>
+      <div class="timeline-node n-manip">
+        <div class="tn-date" style="color:var(--layer-manip)">Aug 06, 2026</div>
+        <div class="tn-label">Manipulated video circulates on X</div>
+      </div>
+      <div class="timeline-node n-jennings">
+        <div class="tn-date" style="color:var(--layer-jennings)">Aug 11, 2026</div>
+        <div class="tn-label">Jennings broadcasts + fabricates caption</div>
+      </div>
+      <div class="timeline-node n-after">
+        <div class="tn-date" style="color:var(--layer-after)">Aug 14 &ndash; Oct 27</div>
+        <div class="tn-label">Snopes, retraction demand, lawsuit filed</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--layer-original)"></div> Source material &mdash; what Piker actually said</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--layer-manip)"></div> Manipulated video &mdash; third-party edits</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--layer-jennings)"></div> Jennings' additions &mdash; beyond the manipulated footage</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--layer-after)"></div> Aftermath &mdash; notice, refusal, lawsuit</div>
+    </div>
+
+    <!-- LAYER 1 -->
+    <div class="layer">
+      <div class="layer-header">
+        <div class="layer-marker" style="background:var(--layer-original)"></div>
+        <div class="layer-title">Layer 1: The Source Material</div>
+        <div class="layer-date">Oct 29, 2024</div>
+      </div>
+      <div class="topic-grid">
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-original)"></div>
+            <div class="topic-label">"He Said" &mdash; The Attribution That Changed Everything</div>
+            <div class="topic-tag">Load-bearing</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block">
+              Piker paused a YouTube debate he was watching on stream, laughed, and said: <em>"He said, 'We need more Klansmen, okay? Can we go back to a better time when lynchings were happening? This is what I like as a Black man. Also, there's no real racism in America.' My man said, 'woke DAs,' dude. What are you saying?"</em>
+              <div class="source">Complaint &para; 44 &mdash; HasanAbi VODs, Oct. 29, 2024 (~6:52:00)</div>
+            </div>
+            <p class="analysis">The two words <strong>"He said"</strong> are the entire case in miniature. They identify whose views are being paraphrased &mdash; not Piker's, but those of the conservative commentator he was mocking. Remove them, and the statement appears to be Piker's own. The Manipulated Video removed them. Jennings then went further, converting Piker's sarcastic question ("Can we go back?") into a first-person declaration. Every downstream distortion flows from stripping that attribution.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-original)"></div>
+            <div class="topic-label">The Sarcastic Confession &mdash; Chronological Context</div>
+            <div class="topic-tag">Sequence matters</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block">
+              Later in the same broadcast, a viewer accused Piker of racism. Piker blocked the viewer, then responded sarcastically: <em>"Yes, dude &mdash; it's because I'm racist. That's why. It's because I'm fucking racist, dude. You got me, okay, you got me. Because I'm a fucking racist person."</em>
+              <div class="source">Complaint &para; 54 &mdash; HasanAbi VODs, Oct. 29, 2024 (~6:53:34)</div>
+            </div>
+            <p class="analysis">In the original broadcast, this exchange came <strong>after</strong> the lynchings parody &mdash; Piker was sarcastically accepting a false accusation from a viewer who missed the joke. The Manipulated Video reversed the sequence, placing this clip first. Positioned first, the "I'm racist" moment appears to set up the lynchings clip as elaboration. <strong>The chronological reversal changes the narrative logic entirely:</strong> what was sarcasm directed at a viewer's misreading becomes a self-introduction followed by elaboration.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-original)"></div>
+            <div class="topic-label">The Audience Saw It Coming</div>
+            <div class="topic-tag">Contemporaneous evidence</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block">
+              While Piker was still live, viewers wrote in the chat: "CLIP," "oh someone clip that and send it to cnn," "can't wait for this to get clipped out of context," "CLIPPED AND SHIPPED," and "CNN salivating with that clip."
+              <div class="source">Complaint &para; 59</div>
+            </div>
+            <p class="analysis">This is significant not as commentary but as <strong>contemporaneous documentary evidence of meaning.</strong> Viewers watching in real time recognized the sarcasm &mdash; so clearly that they immediately predicted and joked about the clip being weaponized out of context. Two years later, someone did exactly what they predicted. In a case that turns partly on what Piker's words actually meant to a reasonable viewer, the live audience reaction is a data point that can't be manufactured after the fact.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LAYER 2 -->
+    <div class="layer">
+      <div class="layer-header">
+        <div class="layer-marker" style="background:var(--layer-manip)"></div>
+        <div class="layer-title">Layer 2: The Manipulated Video</div>
+        <div class="layer-date">Aug 06, 2026</div>
+      </div>
+      <div class="topic-grid">
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-manip)"></div>
+            <div class="topic-label">Three Edits, One Transformation</div>
+            <div class="topic-tag">Core distortions</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="contrast-box">
+              <div class="contrast-side c-original">
+                <div class="side-label">Original broadcast</div>
+                Debate visible on screen. Piker laughs. <em>"He said, 'Can we go back to a better time when lynchings were happening?'"</em> Audience chat: viewers mock the debate's conservative commentator. Later: sarcastic "I'm racist" directed at a viewer who accused him.
+              </div>
+              <div class="contrast-side c-distorted">
+                <div class="side-label">Manipulated Video (42 sec.)</div>
+                "I'm racist" clip placed <em>first</em>. Debate removed. Laughter removed. "He said" removed. Audience context removed. Then the lynchings clip &mdash; out of order, stripped bare. Combined with clips from two other Twitch broadcasts.
+              </div>
+            </div>
+            <p class="analysis">The three specific operations: <strong>(1)</strong> Strip "He said" &mdash; removes attribution, makes the quote appear self-referential. <strong>(2)</strong> Reverse chronological order &mdash; places the sarcastic racism admission before the lynchings clip, creating false narrative logic. <strong>(3)</strong> Strip context &mdash; debate footage, laughter, audience commentary, all gone. Each operation independently changes meaning. Together they invert it. The 42-second video combines fragments of three separate Twitch broadcasts &mdash; the production effort required to splice three streams, crop, reorder, and strip audio is not the work of someone who stumbled on a damning clip.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-manip)"></div>
+            <div class="topic-label">The Political Frame</div>
+            <div class="topic-tag">Targeting</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block">
+              The X post that introduced the Manipulated Video read: <em>"How does Abdul El-Sayed's campaign surrogate Hasan Piker feel about Black Americans? Watch for yourself."</em>
+              <div class="source">Complaint &para; 61</div>
+            </div>
+            <p class="analysis">The Manipulated Video wasn't circulating as a general observation about Piker &mdash; it was a targeted political operation aimed at Abdul El-Sayed's Democratic Senate campaign. Linking Piker to El-Sayed was the mechanism that made the distortion politically useful during a midterm cycle. Jennings dropped the El-Sayed frame in his broadcast but kept everything else, and later reintroduced it in the same sentence as the "calling for Black voters to be lynched" accusation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LAYER 3 -->
+    <div class="layer">
+      <div class="layer-header">
+        <div class="layer-marker" style="background:var(--layer-jennings)"></div>
+        <div class="layer-title">Layer 3: Jennings' Additions</div>
+        <div class="layer-date">Aug 11, 2026</div>
+      </div>
+      <div class="topic-grid">
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-jennings)"></div>
+            <div class="topic-label">The Fabricated Caption</div>
+            <div class="topic-tag">Strongest malice evidence</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="fabricated-tag">Words Piker Never Said</div>
+            <div class="quote-block" style="border-left-color:var(--layer-jennings)">
+              Jennings placed this caption on screen over the Manipulated Video:<br><br>
+              <strong style="color:var(--text-label);font-size:0.95rem;">PIKER: "LET'S GO BACK TO A BETTER TIME WHEN LYNCHINGS WERE HAPPENING"</strong>
+              <div class="source">Complaint &para;&para; 81, 84&ndash;87</div>
+            </div>
+            <p class="analysis">This is the single most important fact in the complaint for purposes of actual malice. <strong>The captioned quotation does not appear in the original Twitch broadcast. It does not appear in the Manipulated Video that Jennings was supposedly reporting on. Jennings invented it.</strong> The differences are not incidental: "He said, 'Can we go back'" becomes "LET'S GO BACK." Attribution stripped. Question becomes declaration. Sarcasm erased. A commentator who carelessly passes on a false clip can claim ignorance. A commentator who invents a quotation that does not exist in any prior version of the source material cannot.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-jennings)"></div>
+            <div class="topic-label">The False Attribution</div>
+            <div class="topic-tag">Source fabrication</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block" style="border-left-color:var(--layer-jennings)">
+              Jennings added "@HasanAbi" to the top-left corner of the Manipulated Video, representing to viewers that the footage was sourced directly from Piker's own Twitch channel.
+              <div class="source">Complaint &para;&para; 82&ndash;83</div>
+            </div>
+            <p class="analysis">Jennings knew he did not obtain the footage from Piker's Twitch stream. He got it from political social media accounts. Adding "@HasanAbi" to the overlay was a deliberate false authentication &mdash; it made the clip look like something Jennings pulled firsthand from Piker's channel, lending it credibility it didn't have. <strong>"We got it straight from his channel"</strong> is a materially different claim than "this is a clip circulating on X from partisan accounts." The complaint treats this as evidence of intent to deceive rather than editorial carelessness.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-jennings)"></div>
+            <div class="topic-label">The Verbal Accusations</div>
+            <div class="topic-tag">Beyond the footage</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block" style="border-left-color:var(--layer-jennings)">
+              <em>"Did you ever notice, by the way, how violent these people are? You have Jewish Americans saying they're feeling constantly threatened by El-Sayed supporters. Now El-Sayed's best friend is out there <strong>calling for Black voters to be lynched</strong>. Beneath all the smiles and dancing videos, there's nothing but hate and violence in the hearts of these communists."</em>
+              <div class="source">Complaint &para; 91</div>
+            </div>
+            <div class="quote-block" style="border-left-color:var(--layer-jennings)">
+              Jennings also coined <strong>"the Piker plan of returning our country to lynchings"</strong> &mdash; a phrase he invented with no basis in either version of the footage.
+              <div class="source">Complaint &para; 90</div>
+            </div>
+            <p class="analysis">The verbal accusations escalate significantly beyond what even the Manipulated Video showed. That video showed someone saying words about lynchings out of context. Jennings converted it into: an affirmative "plan" attributed to Piker personally; a desire to see Black voters murdered for exercising their vote; evidence of systemic violent intent "in the hearts" of the left. None of those inferences follow from either version of the footage. Jennings <strong>specifically directed Black listeners to pay attention</strong> before delivering these accusations &mdash; a deliberate rhetorical escalation that amplified the harm.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-jennings)"></div>
+            <div class="topic-label">Social Media Amplification</div>
+            <div class="topic-tag">~2.75M combined views</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block" style="border-left-color:var(--layer-jennings)">
+              That evening, Jennings posted on X (@ScottJenningsKY): <em>"Abdul El-Sayed's best pal and campaign partner <strong>says the USA should resume lynchings against black people</strong>. Listen for yourself and understand what the socialists have in store for the black community."</em>
+              <div class="source">Complaint &para;&para; 105&ndash;106 &mdash; ~2.5M views on X, ~250K on Instagram/Facebook</div>
+            </div>
+            <p class="analysis">The X post is arguably the most actionable statement &mdash; it's the cleanest, most direct, and most widely seen. It also shows escalation: the broadcast referred to a "Piker plan" and "calling for" lynchings; the X post says flatly that Piker <em>says</em> the United States should resume lynchings. The instruction to "listen for yourself" is particularly notable: Jennings told his audience the Manipulated Video was proof &mdash; knowing it did not contain the fabricated caption he had placed on it during the broadcast, and knowing neither version contained Piker saying the USA should resume anything.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LAYER 4 -->
+    <div class="layer">
+      <div class="layer-header">
+        <div class="layer-marker" style="background:var(--layer-after)"></div>
+        <div class="layer-title">Layer 4: Aftermath</div>
+        <div class="layer-date">Aug 14 &ndash; Oct 27, 2026</div>
+      </div>
+      <div class="topic-grid">
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-after)"></div>
+            <div class="topic-label">Snopes Investigation</div>
+            <div class="topic-tag">Aug 14, 2026</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block">
+              On 08-14-2026, Snopes published a fact-check examining the original Twitch broadcasts alongside the Manipulated Video. The investigation confirmed the clip was misleadingly edited and Jennings' characterization of Piker's statements was false. Snopes stated it would update if Jennings provided additional information. As of the complaint's filing date, no response from Jennings had been reflected in the published report.
+              <div class="source">Complaint &para;&para; 141&ndash;147</div>
+            </div>
+            <p class="analysis">The Snopes investigation matters primarily as evidence of <strong>actual notice.</strong> After 08-14-2026, Jennings could not claim ignorance of the fact-check's conclusions. A named, public investigation found his characterization of Piker's statements to be false, examined the original broadcasts, and gave him an explicit opportunity to respond. He did not retract. His silence after that publication strengthens both the actual malice claim and the case for punitive damages.</p>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="topic-indicator" style="background:var(--layer-after)"></div>
+            <div class="topic-label">Retraction Demand and Refusal</div>
+            <div class="topic-tag">Aug 31 &ndash; Oct 27</div>
+            <div class="topic-toggle">+</div>
+          </div>
+          <div class="topic-body">
+            <div class="quote-block">
+              08-31-2026: Piker's counsel sent a written retraction demand identifying each challenged statement and explaining why it was false. ~09-14-2026: Jennings' counsel acknowledged receipt and represented that a response would follow. 10-27-2026: Complaint filed. No retraction ever issued. All posts remain publicly accessible.
+              <div class="source">Complaint &para;&para; 149&ndash;156</div>
+            </div>
+            <p class="analysis">The gap between "a response will follow" and the filing of the complaint is approximately six weeks. No response came. Under D.C. defamation law, a refusal to retract after formal notice is relevant to punitive damages and actual malice. <strong>The posts had approximately 2.75 million combined views at the time of filing and remained unretracted for over two months after Jennings' lawyers acknowledged formal notice of the specific falsehoods.</strong> That's not a complicated editorial situation. It's a choice.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAKEAWAY -->
+    <div class="takeaway">
+      <h2>The Pattern</h2>
+      <p>The complaint describes three discrete actors in sequence &mdash; an anonymous X account that manipulated the video, Jennings who aired it, and Jennings again who added fabrications beyond it. The lawsuit only targets Jennings. But the architecture of what he did matters: he didn't merely pass along a false clip. He added a caption that didn't exist in any prior version of the footage, falsely attributed the source, and then made verbal accusations that went beyond even the fabricated caption he had just placed on screen.</p>
+      <p><strong>The strongest factual argument in the complaint is not that Jennings aired a misleading clip.</strong> It's that the quotation he placed on screen &mdash; the one he told viewers was Piker's own words &mdash; does not appear in the original Twitch broadcast or the Manipulated Video. That's not a mischaracterization of a real clip. That's fabrication. You can't accidentally create a quotation that doesn't exist in your source material.</p>
+      <p>Whether that survives the defenses available to a commentator on a political matter &mdash; the opinion privilege, the actual malice standard, the First Amendment's broad protection of aggressive political speech &mdash; is what the litigation will determine. But the record as laid out in the complaint describes something more deliberate than careless editing. It describes a series of additions to an already-false source, each one taking the false portrayal further than the last.</p>
+    </div>
+
+  </div><!-- /tab-analysis -->
+
+  <!-- LEGAL TAB -->
+  <div class="tab-panel" id="tab-legal">
+    <div class="legal-section" style="margin-top:0;padding-top:0;border-top:none;">
+      <h2>How to Read This Lawsuit</h2>
+      <p class="section-subtitle"><em>Piker v. Jennings</em> is a federal defamation action on diversity jurisdiction &mdash; Piker in California, Jennings in Kentucky, filed in the District of Columbia because that's where Jennings was sitting when he broadcast the relevant episode. Three counts, one defendant, and a set of legal questions that will determine whether the factual record the complaint describes ever reaches a jury.</p>
+
+      <div class="legal-step">
+        <div class="step-header">
+          <div class="step-number">01</div>
+          <div class="step-title">The Public Figure Problem</div>
+        </div>
+        <div class="step-body">
+          <p>Hasan Piker &mdash; 3.1 million Twitch followers, 8.9 million total across platforms &mdash; is a public figure. That's not in dispute. The legal consequence is significant: <strong>he has to prove actual malice.</strong> Under <em>New York Times Co. v. Sullivan</em> and its progeny, a public figure cannot recover for defamation by showing the defendant was merely careless or mistaken. He has to show Jennings published the statements <em>knowing they were false</em> or with <em>reckless disregard</em> for their truth or falsity. That's a high bar. It's also the bar the entire case has to clear.</p>
+          <p>The complaint's actual malice theory runs on several independent tracks: the fabricated caption (Jennings invented a quotation not present in any source material), the false source attribution (Jennings knew he didn't pull the clip from Piker's stream), the accusations that exceeded even the manipulated footage, the political and financial incentives, and the refusal to retract after Snopes and formal notice. The fabricated caption is the strongest because it resists any explanation short of knowing fabrication.</p>
+        </div>
+      </div>
+
+      <div class="legal-step">
+        <div class="step-header">
+          <div class="step-number">02</div>
+          <div class="step-title">The Three Counts</div>
+        </div>
+        <div class="step-body">
+          <div class="claim-card">
+            <div class="claim-label">Count One</div>
+            <div class="claim-text">Defamation Per Se</div>
+            <div class="claim-note">Accusing someone of supporting racially motivated murder is defamatory on its face &mdash; no additional context needed to establish that it injures reputation. Per se status matters because it allows Piker to recover presumed damages without proving specific dollar amounts. This is the primary count.</div>
+            <div class="strength-bar">
+              <span class="strength-label">Strength at pleading</span>
+              <div class="strength-track"><div class="strength-fill" style="width:80%;background:var(--layer-original)"></div></div>
+              <span class="strength-label" style="color:var(--layer-original)">Strong</span>
+            </div>
+          </div>
+          <div class="claim-card">
+            <div class="claim-label">Count Two</div>
+            <div class="claim-text">Defamation by Implication Per Se</div>
+            <div class="claim-note">Even if individual statements survive as protected opinion, the cumulative presentation &mdash; Manipulated Video + fabricated caption + verbal accusations + false attribution &mdash; creates a false factual implication about Piker. Covers the presentation as a whole rather than requiring each statement to stand alone.</div>
+            <div class="strength-bar">
+              <span class="strength-label">Strength at pleading</span>
+              <div class="strength-track"><div class="strength-fill" style="width:65%;background:var(--layer-manip)"></div></div>
+              <span class="strength-label" style="color:var(--layer-manip)">Moderate</span>
+            </div>
+          </div>
+          <div class="claim-card">
+            <div class="claim-label">Count Three</div>
+            <div class="claim-text">False Light (in the alternative)</div>
+            <div class="claim-note">A privacy tort as backstop: if the statements somehow don't qualify as defamation, the false light portrayal of Piker as a violent racist supporter of lynching would be highly offensive to any reasonable person. Weakest of the three counts but functions as a fallback if the defamation claims fail on a technical element.</div>
+            <div class="strength-bar">
+              <span class="strength-label">Strength at pleading</span>
+              <div class="strength-track"><div class="strength-fill" style="width:45%;background:var(--layer-jennings)"></div></div>
+              <span class="strength-label" style="color:var(--layer-jennings)">Supplemental</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-step">
+        <div class="step-header">
+          <div class="step-number">03</div>
+          <div class="step-title">Fact vs. Opinion &mdash; Where the Arguments Will Collide</div>
+        </div>
+        <div class="step-body">
+          <p>Jennings will almost certainly argue that his characterizations of Piker's statements are protected opinion &mdash; political commentary on a matter of public concern involving a public figure. Courts protect robust political speech, including speech that is harsh, sarcastic, and inflammatory. That's a real defense, and the First Amendment's protection for political speech is broad.</p>
+
+          <div class="argument-pair">
+            <div class="argument-side a-plaintiff">
+              <div class="arg-label">Piker's Position</div>
+              "These are false statements of fact, not opinion. Whether I said specific words, whether I advocated lynching, whether I proposed a plan &mdash; those are provable true or false. Jennings didn't just characterize my position. He fabricated a quotation, falsely attributed its source, and told viewers the manipulated footage was proof. Fabricated quotations attributed to real people are actionable defamation, full stop."
+            </div>
+            <div class="argument-side a-defendant">
+              <div class="arg-label">Jennings' Likely Position</div>
+              "I was doing political commentary on a matter of intense public concern. My characterizations of Piker's rhetoric were opinion based on disclosed footage. The First Amendment protects commentators from liability for aggressive characterizations of public figures' political speech. A reasonable viewer would understand my editorial read as opinion, not a transcript."
+            </div>
+          </div>
+
+          <div class="legal-callout">
+            <div class="callout-title">The Key Legal Question</div>
+            <p>The fabricated caption is Jennings' biggest problem here. Courts have consistently held that <strong>a fabricated quotation attributed to a real person is actionable defamation when it materially alters the meaning of what they actually said.</strong> The caption <em>PIKER: "LET'S GO BACK TO A BETTER TIME WHEN LYNCHINGS WERE HAPPENING"</em> doesn't appear in the original broadcast or the Manipulated Video. It's not a summary, a paraphrase, or an interpretation &mdash; it's a made-up statement placed in quotation marks over Piker's name. The opinion defense has a hard time reaching that.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-step">
+        <div class="step-header">
+          <div class="step-number">04</div>
+          <div class="step-title">Jurisdiction and Venue</div>
+        </div>
+        <div class="step-body">
+          <p>Filed in D.C. federal court on diversity jurisdiction (Piker/CA, Jennings/KY, amount in controversy exceeds $75,000). The jurisdictional hook is that Jennings <strong>physically hosted and broadcast the relevant episode from Washington, D.C.</strong> He said so himself at the top of the show: "I'm Scott Jennings... and we come to you live from Washington, DC." The claims arise directly from activities Jennings performed in the District, and Piker alleges business losses involving D.C.-based entities and viewers.</p>
+          <p>This is a stronger personal jurisdiction basis than the typical "effects test" argument &mdash; it's not just that the publication's effects were felt in D.C., it's that it was <strong>produced</strong> there. Venue follows under 28 U.S.C. &sect; 1391(b)(2) for the same reason.</p>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /tab-legal -->
+
+  <!-- SOURCES TAB -->
+  <div class="tab-panel" id="tab-sources">
+
+    <div class="source-category">
+      <div class="source-category-title">Court Filings</div>
+      <ul class="source-list">
+        <li class="source-item">
+          <span class="source-ref">Doc 1</span>
+          <a href="../../dockets/hasan-piker-vs-scott-jennings/docket">Complaint with Jury Demand &mdash; Piker v. Jennings, 1:26-cv-03770 (D.D.C. Oct. 27, 2026)</a>
+          <span class="source-type">38 pp.</span>
+        </li>
+        <li class="source-item">
+          <span class="source-ref">Doc 1-1</span>
+          <a href="../../dockets/hasan-piker-vs-scott-jennings/docket">Civil Cover Sheet (JS-44)</a>
+          <span class="source-type">Filing</span>
+        </li>
+        <li class="source-item">
+          <span class="source-ref">Doc 1-2</span>
+          <a href="../../dockets/hasan-piker-vs-scott-jennings/docket">Summons (AO 440) &mdash; Served to: 9907 Glen Vista Drive, Prospect, KY 40059</a>
+          <span class="source-type">Filing</span>
+        </li>
+        <li class="source-item">
+          <span class="source-ref">Doc 2</span>
+          <a href="../../dockets/hasan-piker-vs-scott-jennings/docket">Sealed Motion for Leave to File Residential Address Under Seal</a>
+          <span class="source-type">Sealed</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="source-category">
+      <div class="source-category-title">Primary Sources Referenced in Complaint</div>
+      <ul class="source-list">
+        <li class="source-item">
+          <span class="source-ref">S1</span>
+          <a>HasanAbi VODs &mdash; Oct. 29, 2024 broadcast ("1 Week to Election, MSG Rally, Trump Puerto Rico Fallout, Greg Casar") &mdash; original source stream, ~6:52:00 mark</a>
+          <span class="source-type">Twitch / YouTube</span>
+        </li>
+        <li class="source-item">
+          <span class="source-ref">S2</span>
+          <a>Anonymous X post &mdash; Aug. 6, 2026 (first circulation of manipulated video)</a>
+          <span class="source-type">X</span>
+        </li>
+        <li class="source-item">
+          <span class="source-ref">S3</span>
+          <a>The Scott Jennings Show &mdash; Aug. 11, 2026 episode (broadcast from Washington, D.C.)</a>
+          <span class="source-type">Podcast</span>
+        </li>
+        <li class="source-item">
+          <span class="source-ref">S4</span>
+          <a>@ScottJenningsKY &mdash; X post, Aug. 11, 2026 (~2.5M views)</a>
+          <span class="source-type">X</span>
+        </li>
+        <li class="source-item">
+          <span class="source-ref">S5</span>
+          <a>Snopes fact-check &mdash; Aug. 14, 2026 (investigation of the Piker clip allegations)</a>
+          <span class="source-type">Fact-check</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="source-category">
+      <div class="source-category-title">Docket</div>
+      <ul class="source-list">
+        <li class="source-item">
+          <span class="source-ref">CL</span>
+          <a href="../../dockets/hasan-piker-vs-scott-jennings/docket">PIKER v. JENNINGS, 1:26-cv-03770 &mdash; CourtListener / PACER (D.D.C.)</a>
+          <span class="source-type">Federal docket</span>
+        </li>
+      </ul>
+    </div>
+
+  </div><!-- /tab-sources -->
+
+</div><!-- /container -->
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
