@@ -28,6 +28,7 @@
   <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
   <link rel="manifest" href="../../icons/site.webmanifest">
   <!-- Fonts -->
+  <link rel="stylesheet" href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -130,7 +131,7 @@
     letter-spacing: 0.05em;
   }
   .hero .case-info {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     color: var(--text-dim);
     line-height: 1.6;
     letter-spacing: 0.06em;
@@ -366,8 +367,19 @@
   .split-side.pet-side .split-label { 
     color: var(--petitioner); 
   }
-  .split-side.res-side .split-label { 
-    color: var(--respondent); 
+  .split-side.res-side .split-label {
+    color: var(--respondent);
+  }
+  .split-side ul {
+    margin: 0.4rem 0 0 0;
+    padding-left: 1.1rem;
+  }
+  .split-side li {
+    margin-bottom: 0.35rem;
+    line-height: 1.45;
+  }
+  .split-side li:last-child {
+    margin-bottom: 0;
   }
   /* --- EXPANDABLE --- */
   details {
@@ -447,6 +459,21 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 0.75rem;
+    transition: color 0.2s ease;
+  }
+  .footer a:hover {
+    color: var(--text);
+  }
+  .footer a .bi-box-arrow-up-right {
+    font-size: 0.95em;
+    color: var(--text-dim);
+    vertical-align: middle;
+    margin-left: 0.2em;
+    margin-right: 0.5em;
+    transition: color 0.2s ease;
+  }
+  .footer a:hover .bi-box-arrow-up-right {
+    color: var(--respondent);
   }
   .footer-link {
     font-family: 'IBM Plex Mono', monospace;
@@ -480,11 +507,14 @@
       padding: 2rem 1rem 1.25rem; 
     }
     .hero h1 { 
-      font-size: 1.3rem; 
+      font-size: 1.8rem; 
     }
     .hero .sub { 
-      font-size: 0.75rem; 
-      
+      font-size: 1.5rem; 
+      margin: 1% 0;
+    }
+    .here .case-info {
+      font-size: 0.65rem; 
     }
     .legend { 
       padding: 0.6rem 0.75rem; 
@@ -514,7 +544,8 @@
       padding: 0.35rem 0.6rem; 
     }
     .timeline { 
-      padding: 0 0.75rem 2rem; }
+      padding: 0 0.75rem 2rem; 
+    }
     .event { 
       padding: 0.6rem 0 0.6rem 1rem; 
     }
@@ -545,11 +576,9 @@
 
 <div class="hero">
   <h1>Matthias v. Reality</h1>
-  <div class="sub">What really happened in seven acts</div>
+  <div class="sub">What Really Happened</div>
   <div class="case-info">
-    Case No. 250404055<br>
-    Fourth District Court, Utah County<br>
-    Judge Kasey L. Wright · Filed 2025
+    Case No. 250404055 ・ Fourth District Court, Utah County
   </div>
 </div>
 
@@ -570,18 +599,19 @@
   <a href="#ch5" class="pill">5. The Injunction</a>
   <a href="#ch6" class="pill">6. CrimeCon</a>
   <a href="#ch7" class="pill">7. The Courts</a>
+  <a href="#ch8" class="pill">8. Expungement</a>
 </nav>
 
 <div class="timeline">
 
   <!-- ====== CHAPTER 1 ====== -->
   <div class="chapter" id="ch1">
-    <div class="chapter-label">Act 1 · The Friendship (2023 – Early 2025)</div>
+    <div class="chapter-label">Act 1 · The Friendship (2023 , Early 2025)</div>
 
     <div class="event">
       <div class="event-date">March 2023</div>
       <div class="event-title">Lauren's brother injured in ATV accident</div>
-      <div class="event-body">Medical discussions about sperm preservation follow. Lauren later states her brother was not in a coma during these conversations — context that becomes sharply contested when Christina posts a video about him in July 2025.</div>
+      <div class="event-body">Medical discussions about sperm preservation follow. Lauren later states her brother was not in a coma during these conversations, context that becomes sharply contested when Christina posts a video about him in July 2025.</div>
     </div>
 
     <div class="event res">
@@ -593,7 +623,7 @@
     <div class="event">
       <div class="event-date">April 2024</div>
       <div class="event-title">Lauren and Christina meet</div>
-      <div class="event-body">They connect through mutual interest in a criminal case. Over the following summer, Christina begins doing graphic design work for Lauren — thumbnails and graphics for her true crime content. Grayson Yohr, Lauren's producer/assistant, ends up briefly crossing professional paths a bit more with Christina. Christina also meets Janeese and Lindzie on the first day of the Chad Daybell trial.</div>
+      <div class="event-body">They connect through mutual interest in a criminal case. Over the following summer, Christina begins doing graphic design work for Lauren, thumbnails and graphics for her true crime content. Grayson Yohr, Lauren's producer/assistant, ends up briefly crossing professional paths a bit more with Christina. Christina also meets Janeese and Lindzie on the first day of the Chad Daybell trial.</div>
     </div>
 
     <div class="event res">
@@ -605,17 +635,17 @@
     <div class="event res">
       <div class="event-date">June 1, 2024</div>
       <div class="event-title">CrimeCon Nashville / Chad Daybell sentencing</div>
-      <div class="event-body">Chad Daybell is sentenced in Boise, Idaho. The same weekend, CrimeCon is in Nashville. Christina and Lori D run into Tom Evans and his wife Sadie at CrimeCon — they share a cafeteria experience and exchange numbers. This is the origin of the social friendship that leads to a dinner invite in April 2025, and its abrupt cancellation.</div>
+      <div class="event-body">Chad Daybell is sentenced in Boise, Idaho. The same weekend, CrimeCon is in Nashville. Christina and Lori D run into Tom Evans and his wife Sadie at CrimeCon, they share a cafeteria experience and exchange numbers. This is the origin of the social friendship that leads to a dinner invite in April 2025, and its abrupt cancellation.</div>
     </div>
 
     <div class="event">
       <div class="event-date">Summer 2024</div>
       <div class="event-title">Christina reads Tom Evans' book</div>
-      <div class="event-body">As Christina does graphic design work for Lauren, she begins reading Tom Evans's book. She finds facts amiss and lets Lauren know — since Lauren has been publicly promoting his work. The flag goes nowhere.</div>
+      <div class="event-body">As Christina does graphic design work for Lauren, she begins reading Tom Evans's book. She finds facts amiss and lets Lauren know, since Lauren has been publicly promoting his work. The flag goes nowhere.</div>
     </div>
 
     <div class="event">
-      <div class="event-date">Fall 2024 – Jan 2025</div>
+      <div class="event-date">Fall 2024 , Jan 2025</div>
       <div class="event-title">The circle deepens</div>
       <div class="event-body">Grayson starts full-time with Lauren in October of 2024. Grayson shares a bit of TMI re: Lauren's mental health with Christina while Lauren's mother and brother are both on hospice at the same time. Grayson connects Christina to Susan Hendricks (former CNN/HLN anchor) for design work; they exchange texts but nothing is finalized. Lindzie sends Lauren two friendly texts about a potential podcast collaboration.</div>
     </div>
@@ -629,19 +659,19 @@
     <div class="event">
       <div class="event-date">March 6, 2025</div>
       <div class="event-title">Lauren's brother dies</div>
-      <div class="event-body">After a 2023 ATV accident and extended medical care. This becomes central to later events — a social media post about him in July becomes one of the most contested pieces of evidence.</div>
+      <div class="event-body">After a 2023 ATV accident and extended medical care. This becomes central to later events, a social media post about him in July becomes one of the most contested pieces of evidence.</div>
     </div>
 
     <div class="event res">
       <div class="event-date">March 2025</div>
       <div class="event-title">Janeese learns Lauren has been talking about her</div>
-      <div class="event-body">Janeese learns that Lauren has been making false statements about her to others — including that "Janeese is a swinger" and that her "husband left her because of stuff." All of it made up. Janeese has screenshots of Lauren admitting she doesn't even know her while making these claims. This sets up the April 15 courthouse confrontation.</div>
+      <div class="event-body">Janeese learns that Lauren has been making false statements about her to others, including that "Janeese is a swinger" and that her "husband left her because of stuff." All of it made up. Janeese has screenshots of Lauren admitting she doesn't even know her while making these claims. This sets up the April 15 courthouse confrontation.</div>
     </div>
 
     <div class="event res">
       <div class="event-date">Week of March 24, 2025</div>
       <div class="event-title">Tom Evans texts Christina</div>
-      <div class="event-body">Tom Evans texts Christina: "Hi Christina. We're just getting the word out that my second book is finally available on Amazon. Hope you're doing well. We'll see you at CrimeCon if not before." Friendly and routine — less than two weeks before everything changes.</div>
+      <div class="event-body">Tom Evans texts Christina: "Hi Christina. We're just getting the word out that my second book is finally available on Amazon. Hope you're doing well. We'll see you at CrimeCon if not before." Friendly and routine, less than two weeks before everything changes.</div>
     </div>
   </div>
 
@@ -652,7 +682,7 @@
     <div class="event res">
       <div class="event-date">April 7, 2025</div>
       <div class="event-title">Lindzie and Lauren cross paths at Lori Vallow-Daybell trial</div>
-      <div class="event-body">Lindzie is at the Lori Vallow-Daybell trial in Phoenix for work. She and Lauren greet each other while in line at the courthouse — a brief, friendly exchange with no further interaction that day.</div>
+      <div class="event-body">Lindzie is at the Lori Vallow-Daybell trial in Phoenix for work. She and Lauren greet each other while in line at the courthouse, a brief, friendly exchange with no further interaction that day.</div>
     </div>
 
     <div class="event both key">
@@ -662,11 +692,11 @@
       <div class="split">
         <div class="split-side pet-side">
           <div class="split-label">Lauren's side</div>
-          Christina confronted her. Lauren had a panic attack — Grayson had "never seen anything like that before." She texted Susan Hendricks to come to their AirBnB. Susan arrived to find Lauren "extremely emotional" in a state she'd "never seen her in before."
+          Christina confronted her. Lauren had a panic attack, Grayson had "never seen anything like that before." She texted Susan Hendricks to come to their AirBnB. Susan arrived to find Lauren "extremely emotional" in a state she'd "never seen her in before."
         </div>
         <div class="split-side res-side">
           <div class="split-label">Christina's side</div>
-          Christina had a conversation with Lauren about statements Lauren had been making behind her back to mutual friends and colleagues. Not a confrontation&mdash;just Christina wanting a clean break.
+          Christina had a conversation with Lauren about statements Lauren had been making behind her back to mutual friends and colleagues. Not a confrontation, just Christina wanting a clean break.
         </div>
       </div>
       <div class="event-body" style="margin-top:0.5rem">By 8:50 PM that evening, Lauren texted Christina threatening legal action. <span class="tag disputed">Both sides agree this happened</span></div>
@@ -682,7 +712,7 @@
     </div>
 
     <div class="event pet">
-      <div class="event-date">April 9, 2025 — evening</div>
+      <div class="event-date">April 9, 2025, evening</div>
       <div class="event-title">Friend gathering: Lauren says she's been hacked</div>
       <div class="event-body">That night at a gathering of friends, Lauren tells people she's been hacked and being extorted.</div>
     </div>
@@ -733,7 +763,7 @@
         </div>
         <div class="split-side res-side">
           <div class="split-label">Janeese's account</div>
-          Janeese wanted to talk to Lauren about lies Lauren spread about her — claiming "Janeese is a swinger" and her "husband left her because of stuff" (all false).<br>
+          Janeese wanted to talk to Lauren about lies Lauren spread about her, claiming "Janeese is a swinger" and her "husband left her because of stuff" (all false).<br>
           Janeese has screenshots of Lauren admitting she doesn't even know Janeese while making these statements. When Janeese approached to talk, Lauren freaked out, asking "Are you recording me?", then ran into courthouse shouting: "She's recording me! You are a bully! I feel threatened by you! Stay away from me!"<br>
           Cops took Janeese into a room; they found Lauren's claims laughable and remained friendly with Janeese for rest of trial. Officers even wanted to take a picture with her (inside running joke: Lauren was the joke). <span class="tag police">Boise PD, July 30 call</span>
         </div>
@@ -741,7 +771,7 @@
     </div>
 
     <div class="event both">
-      <div class="event-date">April – May 2025</div>
+      <div class="event-date">April , May 2025</div>
       <div class="event-title">Reddit post and hacking claims circulate</div>
       <div class="event-body">A Reddit post referencing Lauren appears. Around the same time, Lindzie learns Lauren has been making false claims to people that her iCloud account was hacked and that she is being extorted. <span class="tag exhibit">Ex 05</span></div>
     </div>
@@ -755,16 +785,16 @@
     <div class="event">
       <div class="event-date">May 10, 2025</div>
       <div class="event-title">Stephanie removed from iCloud</div>
-      <div class="event-body">Stephanie is removed from a shared iCloud conversation with Lauren — a detail that becomes significant when Officer Boeve later confronts her about a text "copied six weeks before" his June 19 call, predating Lauren's own accusations that Stephanie was spreading messages.</div>
+      <div class="event-body">Stephanie is removed from a shared iCloud conversation with Lauren, a detail that becomes significant when Officer Boeve later confronts her about a text "copied six weeks before" his June 19 call, predating Lauren's own accusations that Stephanie was spreading messages.</div>
     </div>
   </div>
 
   <!-- ====== CHAPTER 3 ====== -->
   <div class="chapter" id="ch3">
-    <div class="chapter-label">Act 3 · Going Public (Jun. – Aug. 2025)</div>
+    <div class="chapter-label">Act 3 · Going Public (Jun. , Aug. 2025)</div>
 
     <div class="event both">
-      <div class="event-date">April – June 2025</div>
+      <div class="event-date">April , June 2025</div>
       <div class="event-title">Escalating proximity</div>
       <div class="event-body">Both sides accuse the other of deliberately positioning themselves nearby at court proceedings in Phoenix.</div>
       <div class="split">
@@ -774,27 +804,27 @@
         </div>
         <div class="split-side res-side">
           <div class="split-label">Christina's side</div>
-          Lauren and Grayson intentionally positioned themselves close to Lindzie on several occasions — sitting beside her, standing next to her, appearing to read her phone screen.
+          Lauren and Grayson intentionally positioned themselves close to Lindzie on several occasions, sitting beside her, standing next to her, appearing to read her phone screen.
         </div>
       </div>
     </div>
 
     <div class="event res">
-      <div class="event-date">May – June 2025</div>
+      <div class="event-date">May , June 2025</div>
       <div class="event-title">Liz and Christina connect</div>
-      <div class="event-body">Liz and Christina get in touch about a wallpaper design Liz had asked Janeese about. Lauren never comes up in these conversations — the subject of Lauren doesn't arise until after the Henderson PD situation begins.</div>
+      <div class="event-body">Liz and Christina get in touch about a wallpaper design Liz had asked Janeese about. Lauren never comes up in these conversations, the subject of Lauren doesn't arise until after the Henderson PD situation begins.</div>
     </div>
 
     <div class="event res">
       <div class="event-date">June 5, 2025</div>
       <div class="event-title">Christina's brief trip to Arizona</div>
-      <div class="event-body">Christina flies to Arizona for approximately 24 hours. At the courthouse, Lauren waves at her — Christina does not acknowledge her.</div>
+      <div class="event-body">Christina flies to Arizona for approximately 24 hours. At the courthouse, Lauren waves at her, Christina does not acknowledge her.</div>
     </div>
 
     <div class="event both">
       <div class="event-date">June 9, 2025</div>
       <div class="event-title">"If you only knew" emails</div>
-      <div class="event-body">An email with the subject line "If you only knew" is sent to multiple people involved in the prosecution of the Lori Vallow-Daybell case, informing them that Lauren has been talking negatively about them. Two batches are sent — one in the morning, one in the afternoon — with the same content. The Hidden True Crime info address and prosecutor Rachel Smith's email are the only recipients not BCCed.
+      <div class="event-body">An email with the subject line "If you only knew" is sent to multiple people involved in the prosecution of the Lori Vallow-Daybell case, informing them that Lauren has been talking negatively about them. Two batches are sent, one in the morning, one in the afternoon, with the same content. The Hidden True Crime info address and prosecutor Rachel Smith's email are the only recipients not BCCed.
       <div class="split">
         <div class="split-side pet-side">
           <div class="split-label">Lauren's side</div>
@@ -811,7 +841,7 @@
     <div class="event both">
       <div class="event-date">June 10, 2025</div>
       <div class="event-title">Janeese in courtroom; Christina in the Bahamas</div>
-      <div class="event-body">At trial, Janeese is in the courtroom. During a break, Lauren and Grayson move up two rows to sit directly behind Janeese — despite Lauren having previously claimed to feel threatened by her presence. Separately, while this is happening, Christina is in the Bahamas. Grayson calls Christina twice and sends a lengthy text message; Christina does not respond.</div>
+      <div class="event-body">At trial, Janeese is in the courtroom. During a break, Lauren and Grayson move up two rows to sit directly behind Janeese, despite Lauren having previously claimed to feel threatened by her presence. Separately, while this is happening, Christina is in the Bahamas. Grayson calls Christina twice and sends a lengthy text message; Christina does not respond.</div>
     </div>
 
     <div class="event res">
@@ -821,7 +851,7 @@
     </div>
 
     <div class="event res">
-      <div class="event-date">June 2025 — Phoenix</div>
+      <div class="event-date">June 2025, Phoenix</div>
       <div class="event-title">Grayson tells Lindzie she won't be at CrimeCon</div>
       <div class="event-body">Grayson approaches Lindzie's area at the courthouse and starts a conversation with the friend next to her. Lindzie overhears Grayson say that neither she nor Lauren have plans to attend CrimeCon. Around the same time, Lindzie becomes aware that Lauren has called police regarding at least two friends, including Christina.</div>
     </div>
@@ -829,13 +859,13 @@
     <div class="event pet">
       <div class="event-date">June 16, 2025</div>
       <div class="event-title">Lauren and Grayson try to reach Gigi</div>
-      <div class="event-body">Lauren calls Gigi — no answer. Lauren texts Gigi requesting a callback. Grayson also calls Gigi. Whether they actually speak, and whether the call was recorded, is unclear.</div>
+      <div class="event-body">Lauren calls Gigi, no answer. Lauren texts Gigi requesting a callback. Grayson also calls Gigi. Whether they actually speak, and whether the call was recorded, is unclear.</div>
     </div>
 
     <div class="event pet">
       <div class="event-date">June 19, 2025</div>
       <div class="event-title">The warning call & police investigation</div>
-      <div class="event-body">Earlier that day, Lauren calls Liz — no message left. Later, Grayson receives a call from an unidentified woman warning her things were going to "go public" and people "wanted Lauren's head on a platter." Grayson tells Lauren and then contacts Henderson PD. Officer Boeve contacts two sources directly.</div>
+      <div class="event-body">Earlier that day, Lauren calls Liz, no message left. Later, Grayson receives a call from an unidentified woman warning her things were going to "go public" and people "wanted Lauren's head on a platter." Grayson tells Lauren and then contacts Henderson PD. Officer Boeve contacts two sources directly.</div>
       <details>
         <summary style="margin-bottom: 5px;">What the officer learned</summary>
         <div class="detail-body">
@@ -843,14 +873,14 @@
           An anonymous Proton email sent to prosecutors (Lori Vallow case), media people (Gigi included), and victim family members stated "she's talked crap about you, you, and you and she's going to be exposed." Gigi refused to go public with the information and had no idea who sent it. Lauren's assistant called her that day pressing her.<br>
           Gigi told Officer Boeve: "I've defended her in the past...I don't have time for that like my cup is empty."<br>
           Officer Boeve concluded Gigi wanted nothing to do with the situation.<br><br>
-          <strong>From Stephanie:</strong> Was friends with Lauren at one point; worked for her. Relationship "fizzled out" — no contact for over a year.<br>
+          <strong>From Stephanie:</strong> Was friends with Lauren at one point; worked for her. Relationship "fizzled out", no contact for over a year.<br>
           Lauren's other friends approached Stephanie asking about the falling out, and Stephanie shared ONE screenshot of her conversation with Lauren via Facebook chat (not directly sent to them).<br>
-          Stephanie claims she explicitly told people "absolutely not" when they asked for screenshots — has proof in writing.<br>
+          Stephanie claims she explicitly told people "absolutely not" when they asked for screenshots, has proof in writing.<br>
           Stephanie denies spreading messages: "Lauren is blaming the wrong people… Lauren doesn't even know who's doing this."<br>
           Officer Boeve confronted her with a text allegedly copied May 10: "Stephanie Budge removed from iCloud. Yes I just told Larry and K via text. While that is scary don't let her follow you home."<br>
           Stephanie says she doesn't remember it; officer clarified it was COPIED six weeks before the call (not originally sent then).<br>
           Stephanie points out contradiction: Lauren accused her of HACKING before May 10 and sent cease-and-desist letter, but never reported hacking to police.<br>
-          Stephanie: "If it was hacking, wouldn't you report that instead of just text sharing?" Admits she shared texts with friend Colette (privately) but 100% denies sharing with any media. Suggests Lauren might be doing this herself — "There's a pattern here."<br>
+          Stephanie: "If it was hacking, wouldn't you report that instead of just text sharing?" Admits she shared texts with friend Colette (privately) but 100% denies sharing with any media. Suggests Lauren might be doing this herself, "There's a pattern here."<br>
           Christina (described as contractor who worked with Lauren) keeps friend requesting Stephanie, who won't accept. Stephanie believes this is "stemming from this girl."<br>
           Officer Boeve warned her about Nevada law on sharing texts without permission and criminal vs. civil liability. <span class="tag exhibit">Henderson PD bodycam</span><br><br>
         </div>
@@ -891,7 +921,7 @@
           <strong>On Lauren:</strong> Uses stark language about Lauren having done "terrible things" and "pretty freaking awful things" and being "scrambling." Says Lauren is "terrified that the things she has done and what she has said is going to become public." Describes the "level of harassment going on from Lauren to others" as "unmatched." Suggests officer run background checks on Lauren and her family.<br><br>
           <strong>Christina's core theory:</strong> Lauren is using police as a "pawn" to scare people into silence. States she's identified a "pattern and a history of this." Reveals she's talking to people from Lauren's past ("years ago") to confirm: "is this a pattern?" This suggests a broader pattern of behavior beyond current events.<br><br>
           <strong>Her values:</strong> "I made it very clear from the beginning I don't talk shit on people." Claims she's being used as "a pawn in her game." Frustrated with her own local police department; impressed with Henderson PD's handling and thoroughness.<br><br>
-          <strong>Key insight:</strong> Challenges officer's framing, noting that if Lauren sued for defamation, discovery would expose Lauren's phone — "the opposite of what she wants in this situation." This suggests Lauren's real concern may not be vindication, but preventing exposure.<br><br>
+          <strong>Key insight:</strong> Challenges officer's framing, noting that if Lauren sued for defamation, discovery would expose Lauren's phone, "the opposite of what she wants in this situation." This suggests Lauren's real concern may not be vindication, but preventing exposure.<br><br>
           <strong>Officer's findings:</strong> "There's nothing I had at this time to say that a crime had been committed." Christina is NOT subject to official investigation. This is a "candid conversation," not an investigation. Officer warns that IF she did share texts, it could result in criminal charges and civil liability. Provides incident numbers so Christina can obtain bodycam footage and records. <span class="tag police">Henderson PD bodycam</span></div>
       </details>
     </div>
@@ -900,7 +930,7 @@
       <div class="event-date">July 7, 2025</div>
       <div class="event-title">Two events collide on the same day</div>
       <div class="event-body">Christina posts a video about Lauren's deceased brother with the caption "without his consent," which Lauren says falsely insinuated sexual assault. The video gets 33,000+ views. <span class="tag exhibit">Ex 08</span></div>
-      <div class="event-body" style="margin-top:0.4rem">That same morning at 5 AM, Lauren's husband John — a forensic psychologist — wakes to find her rocking in bed in fetal position. She tells him she doesn't want to live. First suicidal ideation in their 10-year marriage. John took Grayson aside that day and cried while explaining what happened. Three-way corroboration: John (witnessed it), Grayson (told same day), and Lauren's texts to Grayson. After this, they made sure Lauren was never alone. <span class="tag exhibit">Ex 40</span></div>
+      <div class="event-body" style="margin-top:0.4rem">That same morning at 5 AM, Lauren's husband John, a forensic psychologist, wakes to find her rocking in bed in fetal position. She tells him she doesn't want to live. First suicidal ideation in their 10-year marriage. John took Grayson aside that day and cried while explaining what happened. Three-way corroboration: John (witnessed it), Grayson (told same day), and Lauren's texts to Grayson. After this, they made sure Lauren was never alone. <span class="tag exhibit">Ex 40</span></div>
     </div>
 
     <div class="event pet">
@@ -948,7 +978,7 @@
     <div class="event pet">
       <div class="event-date">July 30, 2025</div>
       <div class="event-title">Christina and Lori Hellis speak</div>
-      <div class="event-body">After Christina reached out to Lori Hellis 2–3 weeks earlier via DM, they speak for the first time via phone.</div>
+      <div class="event-body">After Christina reached out to Lori Hellis 2,3 weeks earlier via DM, they speak for the first time via phone.</div>
     </div>
 
     <div class="event pet">
@@ -1008,7 +1038,7 @@
     <div class="event pet">
       <div class="event-date">August 27, 2025</div>
       <div class="event-title">Lauren's first declaration signed</div>
-      <div class="event-body">Declaration of Lauren Matthias — 81 paragraphs, 11 pages — signed by counsel with permission via email.</div>
+      <div class="event-body">Declaration of Lauren Matthias, 81 paragraphs, 11 pages, signed by counsel with permission via email.</div>
     </div>
 
     <div class="event pet">
@@ -1020,23 +1050,23 @@
 
   <!-- ====== CHAPTER 4 ====== -->
   <div class="chapter" id="ch4">
-    <div class="chapter-label">Act 4 · Boise (Jul. 21–25, 2025)</div>
+    <div class="chapter-label">Act 4 · Boise (Jul. 21,25, 2025)</div>
 
     <div class="event res">
       <div class="event-date">July 21, 2025</div>
       <div class="event-title">Lindzie arrives in Boise (day one)</div>
-      <div class="event-body">Lindzie is in Boise on a work trip for the Bryan Kohberger sentencing. While outside the courthouse under the media tent with Lori D, Lauren and Grayson walk into her immediate vicinity — approximately four feet — and remain there. Later, at the press conference, Lauren approaches Lindzie's area and asks about open seats. Lindzie does not respond, given the C&D. Janeese also attended that day.</div>
+      <div class="event-body">Lindzie is in Boise on a work trip for the Bryan Kohberger sentencing. While outside the courthouse under the media tent with Lori D, Lauren and Grayson walk into her immediate vicinity, approximately four feet, and remain there. Later, at the press conference, Lauren approaches Lindzie's area and asks about open seats. Lindzie does not respond, given the C&D. Janeese also attended that day.</div>
     </div>
 
     <div class="event both">
       <div class="event-date">July 22, 2025</div>
       <div class="event-title">Lauren waves; both groups in Boise</div>
-      <div class="event-body">Lauren waves at Lindzie and Lori while in line — they ignore her.</div>
+      <div class="event-body">Lauren waves at Lindzie and Lori while in line, they ignore her.</div>
     </div>
 
     <div class="event both key">
       <div class="event-date">July 23, 2025</div>
-      <div class="event-title">The Boise incident — courthouse</div>
+      <div class="event-title">The Boise incident, courthouse</div>
       <div class="event-body">Both sides are in Boise for the Bryan Kohberger sentencing. What happens at the courthouse:</div>
       <div class="split">
         <div class="split-side pet-side">
@@ -1051,8 +1081,8 @@
     </div>
 
     <div class="event both key">
-      <div class="event-date">July 23, 2025 — evening</div>
-      <div class="event-title">The Boise incident — restaurant (Bittercreek Ale House)</div>
+      <div class="event-date">July 23, 2025, evening</div>
+      <div class="event-title">The Boise incident, restaurant (Bittercreek Ale House)</div>
       <div class="event-body">The confrontation moves to Bittercreek Ale House:</div>
       <div class="split">
         <div class="split-side pet-side">
@@ -1072,7 +1102,7 @@
           <strong>When Lindzie came out, Lori told Lauren:</strong> "You sent her a Cease-and-Desist, stop following her, stop talking to her."<br>
           <stong>Lauren responded:</stong> "I can talk to her, it's a press conference, I can do that."<br>
           Entire conversation recorded by Sarah.<br>
-          <strong>Lauren told Sarah:</strong> "I don't know who you are, get away from me, you make me feel uncomfortable" — yet they've known each other for years (Sarah was going to do her eyelashes).<br>
+          <strong>Lauren told Sarah:</strong> "I don't know who you are, get away from me, you make me feel uncomfortable", yet they've known each other for years (Sarah was going to do her eyelashes).<br>
           <strong>Janeese notes:</strong> Lauren knew this was Lindzie's favorite restaurant (they used to go there together when friends); restaurant is self-seating, so Lauren likely saw them inside and stayed anyway, positioning herself by the door. <span class="tag police">Boise PD, July 30 call</span>
         </div>
       </div>
@@ -1083,7 +1113,7 @@
     <div class="event pet">
       <div class="event-date">July 24, 2025</div>
       <div class="event-title">The morning after</div>
-      <div class="event-body">Susan Hendricks meets Lauren and Grayson for breakfast. She describes them in "an absolute panicked state" — what she'd call "fight or flight." They kept watching the door at every noise.</div>
+      <div class="event-body">Susan Hendricks meets Lauren and Grayson for breakfast. She describes them in "an absolute panicked state", what she'd call "fight or flight." They kept watching the door at every noise.</div>
     </div>
 
     <div class="event pet">
@@ -1093,7 +1123,7 @@
     </div>
 
     <div class="event both">
-      <div class="event-date">July 25, 2025 — Lori Daybell sentencing</div>
+      <div class="event-date">July 25, 2025, Lori Daybell sentencing</div>
       <div class="event-title">Hot mic at Vallow-Daybell sentencing</div>
       <div class="event-body">Lauren and Trista Hale are caught on a hot mic talking about Summer Shiftlet at the Lori Vallow-Daybell sentencing. Separately, a witness on a contemporaneous livestream claims Lauren was cutting in line and telling people she had a "stalker."</div>
     </div>
@@ -1105,7 +1135,7 @@
       <details>
         <summary>Janeese's full account</summary>
         <div class="detail-body">
-          <strong>On the lies Lauren told about her:</strong> Lauren falsely told people "Janeese is a swinger" and her "husband left her because of stuff" — all made up. Janeese has screenshots of Lauren admitting she doesn't even know Janeese while making these statements about her.<br><br>
+          <strong>On the lies Lauren told about her:</strong> Lauren falsely told people "Janeese is a swinger" and her "husband left her because of stuff", all made up. Janeese has screenshots of Lauren admitting she doesn't even know Janeese while making these statements about her.<br><br>
           <strong>On contradictory behavior:</strong> At an earlier Arizona trial (after the Apr. 15 incident), Lauren claimed to feel threatened by Janeese, yet when Janeese sat closer (invited by detective's wife to media row), Lauren moved up two rows to sit RIGHT BEHIND Janeese at break.<br><br>
           <strong>Janeese:</strong> "If you feel so threatened by me, why would you get that close to me?"<br><br>
           <strong>On the restaurant:</strong> Janeese notes Lauren knew that restaurant was Lindzie's favorite (they used to go there together when they were friends). Restaurant is self-seating, so Lauren likely saw them inside and deliberately stayed, positioning herself by the door. "There's no stalking...she showed up to our locations."<br><br>
@@ -1127,19 +1157,19 @@
     </div>
 
     <div class="event pet key">
-      <div class="event-date">September 4, 2025 — ~6:00 AM</div>
+      <div class="event-date">September 4, 2025, ~6:00 AM</div>
       <div class="event-title">Civil Stalking Injunction issued</div>
       <div class="event-body">The court grants a temporary CSI. Christina's husband Conner is served at their home. The order prohibits contact, requires 500 feet distance, names specific stay-away locations including CrimeCon and "online forums and social media accounts," and lists protected persons including Lauren, John, Grayson, their son, and extended family/co-workers. Lindzie is present when Christina learns from Conner that police came to their home with the injunction.</div>
     </div>
 
     <div class="event pet">
-      <div class="event-date">September 4 — that evening</div>
+      <div class="event-date">September 4, that evening</div>
       <div class="event-title">The "Whoops" video</div>
       <div class="event-body">Within hours of service, Christina posts: "Whoops, you messed up, ran around and then you got caught." A commenter writes: "Time to tell the REAL STORY!" Christina responds: "As you wish." <span class="tag exhibit">Ex 22</span> <span class="tag exhibit">Ex 37</span></div>
     </div>
 
     <div class="event res">
-      <div class="event-date">September 4 — hotel bar</div>
+      <div class="event-date">September 4, hotel bar</div>
       <div class="event-title">Lauren and Grayson in Lindzie's space at the hotel bar</div>
       <div class="event-body">That evening, Lindzie is setting up a table in the hotel bar for her employer's podcast with Lori D. Lauren and Grayson arrive and repeatedly position themselves within a five-foot radius. Grayson comes within approximately two feet of Lindzie's table. Lindzie finds this striking given that Lauren has listed her as an "accomplice" in the injunction filings.</div>
     </div>
@@ -1147,21 +1177,21 @@
 
   <!-- ====== CHAPTER 6 ====== -->
   <div class="chapter" id="ch6">
-    <div class="chapter-label">Act 6 · CrimeCon (Sep. 5–7, 2025)</div>
+    <div class="chapter-label">Act 6 · CrimeCon (Sep. 5,7, 2025)</div>
 
     <div class="event both key">
       <div class="event-date">September 5, 2025</div>
-      <div class="event-title">CrimeCon — the injunction is tested</div>
+      <div class="event-title">CrimeCon, the injunction is tested</div>
       <div class="event-body">Both sides are at the Gaylord Rockies Resort in Aurora, Colorado. CrimeCon was specifically named as a stay-away location in the injunction. Christina records the encounter via Meta glasses.</div>
       <div class="split">
         <div class="split-side pet-side">
           <div class="split-label">Lauren's side</div>
-          <strong>Christina was 'caught':</strong> She told CrimeCon security she knew about the injunction but intended to attend anyway. Officers found her near Lauren, served her a physical copy, and removed her — told to leave or face arrest.<br>
+          <strong>Christina was 'caught':</strong> She told CrimeCon security she knew about the injunction but intended to attend anyway. Officers found her near Lauren, served her a physical copy, and removed her, told to leave or face arrest.<br>
           <strong>Christian 'knew':</strong> She acknowledged her husband had sent her the order. After removal, she posted videos including one with Eminem's "Worms" lyrics. That evening at 10:17 PM, she stood ~20 feet from Lauren in the hotel bar wearing socks and holding a camera.
         </div>
         <div class="split-side res-side">
           <div class="split-label">Christina's account (Meta glasses)</div>
-          <strong>Christina was there FIRST</strong> — had been at CrimeCon for 2 hours before Lauren arrived. Says "Grayson is right there, she just walked past me, she just ID'd me just now."<br>
+          <strong>Christina was there FIRST</strong>, had been at CrimeCon for 2 hours before Lauren arrived. Says "Grayson is right there, she just walked past me, she just ID'd me just now."<br>
           <strong>Officer informs her:</strong> "You are the restrained party in the state of Colorado."<br>
           <strong>Christina points out:</strong> "Me being here for the past two hours doesn't matter if she wants to come down here?"<br>
           <strong>Officer confirms the burden falls on her:</strong> "the burden does fall on you a lot...and I'm not saying it's right, I'm not saying it's wrong, I'm just saying that's the way it is."<br>
@@ -1177,15 +1207,15 @@
     </div>
 
     <div class="event">
-      <div class="event-date">September 6–7</div>
+      <div class="event-date">September 6,7</div>
       <div class="event-title">Proximity continues</div>
-      <div class="event-body">Grayson reports Christina was escorted by security into a restaurant directly behind them — within 500 feet, he estimates ~75 feet. Janeese takes a video showing Lauren chatting calmly in a restaurant, which she says contradicts Lauren's claims of immediate danger. <span class="tag exhibit">D-13</span></div>
+      <div class="event-body">Grayson reports Christina was escorted by security into a restaurant directly behind them, within 500 feet, he estimates ~75 feet. Janeese takes a video showing Lauren chatting calmly in a restaurant, which she says contradicts Lauren's claims of immediate danger. <span class="tag exhibit">D-13</span></div>
     </div>
   </div>
 
   <!-- ====== CHAPTER 7 ====== -->
   <div class="chapter" id="ch7">
-    <div class="chapter-label">Act 7 · The Courts (Sep. – Oct. 2025)</div>
+    <div class="chapter-label">Act 7 · The Courts (Sep. , Oct. 2025)</div>
 
     <div class="event pet">
       <div class="event-date">September 10, 2025</div>
@@ -1202,13 +1232,13 @@
     <div class="event pet">
       <div class="event-date">September 16, 2025</div>
       <div class="event-title">Paul C witness affidavit filed</div>
-      <div class="event-body">Paul C files his witness affidavit — a wet signature on a paper filing, making it one of the few signed declarations on the petitioner's side. Paul C was at CrimeCon on September 5 and documented Christina's proximity to Lauren in the hotel bar with timestamped photos.</div>
+      <div class="event-body">Paul C files his witness affidavit, a wet signature on a paper filing, making it one of the few signed declarations on the petitioner's side. Paul C was at CrimeCon on September 5 and documented Christina's proximity to Lauren in the hotel bar with timestamped photos.</div>
     </div>
 
     <div class="event pet">
       <div class="event-date">September 17, 2025</div>
       <div class="event-title">Enforcement motion filed</div>
-      <div class="event-body">Lauren files an ex parte motion alleging 6 specific violations between Sep 4–10. Seeks contempt ($1,000 per violation), up to 30 days jail, permanent injunction, GPS monitoring, and — for the first time — a criminal prosecution referral. <span class="tag filing">Ex Parte Motion</span></div>
+      <div class="event-body">Lauren files an ex parte motion alleging 6 specific violations between Sep 4,10. Seeks contempt ($1,000 per violation), up to 30 days jail, permanent injunction, GPS monitoring, and, for the first time, a criminal prosecution referral. <span class="tag filing">Ex Parte Motion</span></div>
     </div>
 
     <div class="event pet">
@@ -1237,19 +1267,19 @@
     <div class="event res">
       <div class="event-date">September 29, 2025</div>
       <div class="event-title">Defense countermove</div>
-      <div class="event-body">Christina's lawyers serve an amended CSI with significantly narrower terms — stripping the social media/online activity restrictions, removing CrimeCon as a stay-away location, narrowing protected persons from broad categories to just 3 named individuals, and softening the 500-foot rule with "where reasonably possible."</div>
+      <div class="event-body">Christina's lawyers serve an amended CSI with significantly narrower terms, stripping the social media/online activity restrictions, removing CrimeCon as a stay-away location, narrowing protected persons from broad categories to just 3 named individuals, and softening the 500-foot rule with "where reasonably possible."</div>
     </div>
 
     <div class="event res">
       <div class="event-date">October 8, 2025</div>
       <div class="event-title">Procedural chess</div>
-      <div class="event-body">Defense files a Request to Submit, arguing Lauren didn't respond to the amended CSI in time — asking the court to enter the weaker version by default. Defense adds a second attorney (Jaussi). An unidentified media entity requests access to the evidentiary hearing. Lauren's lawyers object in a 14-page filing requesting the hearing be closed.</div>
+      <div class="event-body">Defense files a Request to Submit, arguing Lauren didn't respond to the amended CSI in time, asking the court to enter the weaker version by default. Defense adds a second attorney (Jaussi). An unidentified media entity requests access to the evidentiary hearing. Lauren's lawyers object in a 14-page filing requesting the hearing be closed.</div>
     </div>
 
     <div class="event both">
       <div class="event-date">October 10, 2025</div>
       <div class="event-title">Procedural chess</div>
-      <div class="event-body">Deiss files a motion to continue — but with the wrong court header ("Third Judicial District Court, Salt Lake County" instead of Fourth District, Utah County). <span class="tag filing">Motion to Continue</span></div></div>
+      <div class="event-body">Deiss files a motion to continue, but with the wrong court header ("Third Judicial District Court, Salt Lake County" instead of Fourth District, Utah County). <span class="tag filing">Motion to Continue</span></div></div>
     </div>
 
     <div class="event pet">
@@ -1261,7 +1291,7 @@
     <div class="event both key">
       <div class="event-date">October 16, 2025</div>
       <div class="event-title">Hearing cancelled</div>
-      <div class="event-body">The evidentiary hearing scheduled before Judge Wright is cancelled. Lauren backed out. Both sides had expanded their legal teams — Lauren with two law firms (Pace Johnson + Deiss Law), Christina with two attorneys (Dunkelberger + Jaussi). An enforcement motion, media objection, and default-entry motion on the amended CSI were all pending.</div>
+      <div class="event-body">The evidentiary hearing scheduled before Judge Wright is cancelled. Lauren backed out. Both sides had expanded their legal teams, Lauren with two law firms (Pace Johnson + Deiss Law), Christina with two attorneys (Dunkelberger + Jaussi). An enforcement motion, media objection, and default-entry motion on the amended CSI were all pending.</div>
     </div>
 
     <div class="event pet">
@@ -1285,7 +1315,7 @@
 
   <!-- ====== POST-ACT ====== -->
   <div class="chapter">
-    <div class="chapter-label">Post-Injunction Saga · (Nov. 2025 – May 2026)</div>
+    <div class="chapter-label">Post-Injunction Saga · (Nov. 2025 , May 2026)</div>
 
     <div class="event both">
       <div class="event-date">November 11, 2025</div>
@@ -1310,26 +1340,81 @@
     </div>
 
     <div class="event res">
-      <div class="event-date">May 29, 2026 — CrimeCon Day 1</div>
+      <div class="event-date">May 29, 2026, CrimeCon Day 1</div>
       <div class="event-title">The "naughty list"</div>
       <div class="event-body">Louie pulls Christina aside and patronizes her about conduct at the event. Then pulls Jay aside for the same treatment. Tells both they are allowed to record and stream in hallways but not in official CrimeCon sessions with speakers.</div>
     </div>
 
     <div class="event both">
-      <div class="event-date">May 30, 2026 — CrimeCon Day 2</div>
+      <div class="event-date">May 30, 2026, CrimeCon Day 2</div>
       <div class="event-title">CrimeCon2026 The convention unravels</div>
       <div class="event-body">
         <strong>Morning:</strong> Lauren and Grayson spotted on JLR's livestream prior to JLR confronting Dali. JLR is subsequently removed from CrimeCon. <span class="tag police">Livestream</span><br><br>
         <strong>Afternoon:</strong> Lauren and Jawn spotted on Gigi's livestream. Lauren texts Louie a screenshot of Christina appearing on Jay's livestream; Louie immediately locates Christina to pull her aside again for undisclosed reasons. Ms. Woozy appears on a 360 livestream positioned behind Christina and allies. <span class="tag police">Livestream</span><br><br>
-        <strong>Incident:</strong> Aspen Conner follows Christina and attempts to surreptitiously record her — caught in the act. <span class="tag disputed">Recording without consent; confrontation documented</span>
+        <strong>Incident:</strong> Aspen Conner follows Christina and attempts to surreptitiously record her, caught in the act. <span class="tag disputed">Recording without consent; confrontation documented</span>
       </div>
     </div>
 
     <div class="event">
-      <div class="event-date">May 31, 2026 — CrimeCon Day 3</div>
+      <div class="event-date">May 31, 2026, CrimeCon Day 3</div>
       <div class="event-title">Last day of CrimeCon 2026</div>
       <div class="event-body">Convention concludes.</div>
     </div>
+  </div>
+
+  <div class="chapter" id="ch8">
+    <div class="chapter-label">Act 8 · Expungement (Sep. , Oct. 2026)</div>
+
+    <div class="event res key">
+      <div class="event-date">September 25, 2026</div>
+      <div class="event-title">Christina petitions to expunge her record</div>
+      <div class="event-body">
+        Christina files a Petition to Expunge Civil Protective Order or Civil Stalking Injunction under Utah Code 78B-7-1003, along with a Certificate of Service and proposed order. The temporary injunction was issued ex parte on September 4, 2025, Mac had no opportunity to respond or submit evidence, and was never made final. Matthias herself moved to dismiss the case on October 14, 2025 and never took the stand. Her claims were never tested under cross-examination.
+        <br><br>
+        Under Utah law, expungement does not erase the underlying facts: courts may still consider the same circumstances in any future case (Utah Code 78B-7-1004(8)).
+        <span class="tag filing">Utah Code 78B-7-1003</span>
+      </div>
+    </div>
+
+    <div class="event pet key">
+      <div class="event-date">October 26, 2026</div>
+      <div class="event-title">Matthias files opposition, one year after dismissing her own case</div>
+      <div class="event-body">
+        Lauren Matthias files opposition to the expungement petition. The filing relies primarily on Mac's public videos, social media posts, and a clip from an interview, not on any new contact or conduct. Key claims in the filing vs. the record:
+
+        <div class="split" style="margin-top:0.75rem">
+          <div class="split-side pet-side">
+            <div class="split-label">Matthias's filing claims</div>
+            <ul>
+              <li>The order shows Mac <em>"was the stalker"</em></li>
+              <li>Expungement should be denied because Mac continues to talk publicly about the case</li>
+              <li><em>"No evidentiary hearing on the request was held"</em></li>
+            </ul>
+          </div>
+          <div class="split-side res-side">
+            <div class="split-label">The record</div>
+            <ul>
+              <li>That language comes from the preprinted temporary order form, signed on Matthias's paperwork alone and never tested</li>
+              <li>Judge Wright, Sept. 22, 2025: <em>"This civil stalking injunction was in no way meant to silence what Ms. Mac is doing"</em></li>
+              <li>Sept. 22, 2025 minutes show two witnesses testified under oath and were cross-examined</li>
+            </ul>
+          </div>
+        </div>
+
+        <details>
+          <summary>Double standard</summary>
+          <div class="detail-body">Matthias built her channel covering trials and hearings open to the public. In her own case, she asked the court to close the October 16, 2025 hearing. On the morning of October 14, Judge Wright denied that motion, <em>"the presumption is openness to allow the public access to court proceedings to preserve transparency and public confidence in the justice system"</em>, and approved Law &amp; Crime's request to cover the hearing. That afternoon, Matthias's attorney moved to dismiss the case.</div>
+        </details>
+
+        <blockquote style="margin-top:0.85rem;padding:0.6rem 0.9rem;border-left:3px solid var(--respondent);font-style:italic;font-size:0.88rem;color:var(--text-body)">
+          "I asked for a hearing because I wanted to prove her accusations false. Two days before I could do that in court, she dismissed her own case. A year later, she's still calling me a stalker in court papers and using my videos as the reason to keep that label on me. The judge said this order was never meant to silence me. She's still actively trying to make it do exactly that."
+          <br><span style="display:block;margin-top:0.4rem;font-style:normal;font-size:0.8rem;color:var(--text-dim)">Christina Mac</span>
+        </blockquote>
+
+        <span class="tag filing">Opposition filed</span> <span class="tag disputed">Claims contradicted by record</span>
+      </div>
+    </div>
+
   </div>
 
   </div>
@@ -1337,12 +1422,11 @@
 </div>
 
 <div class="footer">
-  <p style="font-size:0.70rem;">Compiled from court filings in Case No. 250404055</p>
-  <p style="margin-top:0.75rem"><a href="../../dockets/HTC/docket">Docket →</a> · <a href="../../index.html">← Subtxt Press</a></p>
+  <p style="margin-top:0.75rem"><a href="../../dockets/HTC/docket">Back to the HTC Docket <i class="bi bi-box-arrow-up-right"></i></a></p>
 </div>
 
 <div style="text-align:center;padding:2rem 1.5rem;margin-top:1rem;border-top:1px solid var(--border);color: var(--text-dim);font-size: 0.70rem;">
-  <em>This is a living document:<br>Updated as new information becomes available.</em>
+  <em>Updated as new information becomes available.</em>
 </div>
 
 <script>
