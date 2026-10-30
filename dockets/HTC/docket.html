@@ -488,6 +488,31 @@
     .filing-link:hover {
       color: var(--ink);
     }
+    .filing-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-label);
+      font-weight: 500;
+      min-width: 24px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .filings-docket .filing {
+      display: grid;
+      grid-template-columns: 82px 28px 1fr;
+      gap: 0 14px;
+      align-items: baseline;
+    }
+    @media (max-width: 720px) {
+      .filings-docket .filing {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 2px 8px;
+      }
+      .filings-docket .filing .filing-date { grid-column: 1; grid-row: 1; }
+      .filings-docket .filing .filing-num  { grid-column: 2; grid-row: 1; text-align: right; }
+      .filings-docket .filing .filing-content { grid-column: 1 / -1; grid-row: 2; }
+    }
     .drive-card {
       background: var(--surface-card); 
       border: 1px solid var(--border-mid);
@@ -753,8 +778,9 @@
          NOTE: Case names and redactions
          ════════════════════════════════════════════════════════ -->
 
-    <div class="note-card" data-aos="fade-up">
-      <h3 class="note-card-title">Items are grouped in three sections:</h3>
+<!--     <div class="note-card" data-aos="fade-up">
+
+            <h3 class="note-card-title">Items are grouped in three sections:</h3>
       <div class="note-card-body">
         <p style="padding-top:1%;">
           <ul class="list-of-things">
@@ -763,9 +789,9 @@
             <li><strong>03 –</strong> After the Civil Suit (October 2026)</li>
           </ul>
         </p> 
-        <p style="padding-top:2%;"><strong>Expand the sections and utilize Control+F for quick searching this page</strong> ("Bobbi Jo", "metaglasses", "reddit", "call", "Crime Con", etc.)</p>
+        <p style="padding-top:2%;"><strong>Expand the sections and utilize Control+F for quick searching</strong> ("Bobbi Jo", "metaglasses", "reddit", "call", "Crime Con", etc.)</p>
       </div> 
-    </div>  
+    </div>  -->
 
     <!-- ════════════════════════════════════════════════════════
          BACKGROUND RECORDS (pre-civil suit)
@@ -773,7 +799,7 @@
 
     <details class="case-details" data-aos="fade-up">
       <summary class="case-summary">
-        <h2>Prior to the Civil Suit</h2>
+        <h2>Pre–Civil Suit</h2>
       </summary>
       <div class="case-details-body">
         <div class="filings">
@@ -1259,13 +1285,14 @@
     <div class="case-block" data-aos="fade-up">
       <div class="case-title-bar">
         <h2>Lauren Matthias v. Reality</h2>
-        <span class="status-badge closed">Dismissed</span>
+        <span class="status-badge open">Reopened</span>
       </div>
       <div class="case-meta">
         <div class="case-meta-item"><strong>Case No.:</strong> 250404055</div>
         <div class="case-meta-item"><strong>Judge:</strong> Kasey L. Wright</div>
         <div class="case-meta-item"><strong>Case Opened:</strong> August 28, 2025</div>
         <div class="case-meta-item"><strong>Case Closed:</strong> October 15, 2025</div>
+        <div class="case-meta-item"><strong>Case Reopened:</strong> September 25, 2026</div>
         <div class="case-meta-item"><strong>Court:</strong> Fourth District Court, Utah County</div>
         <div class="case-meta-item"><strong>Source:</strong> <a class="filing-link" href="https://drive.google.com/file/d/1JGH8WOAIBNC7BEZDmpdY5KKh_t_nzULG/view?usp=drive_link" target="_blank">XChange Docket Sheet</a></div>
       </div>
@@ -1281,196 +1308,191 @@
       </summary>
       <div class="case-details-body">
         
-        <div class="docket-table-wrap">
-          <table class="docket-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Document</th>
-                <th class="doc-icon"></th>
-              </tr>
-            </thead>
-          
-          <tbody>
-          
-            <!-- AUGUST 2025 -->
-            <tr><td>08-28-2025</td><td class="wrap">**** SAFEGUARDED **** Filed: Request for Civil Stalking Injunction</td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">Declaration of Lauren Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1gKPrLw8Ca6k-_n-YBgCiQxTUy6lQ-4o-/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">Declaration of Grayson Yohr</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xDm8nd993QXjHO2pdDhdwPEYE4WN9pSp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">**** SAFEGUARDED **** (Proposed) Temporary Civil Stalking Injunction</td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">**** SAFEGUARDED **** (Proposed) Civil Stalking Injunction</td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">Petition filed by luisa</td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">**** PRIVATE **** (Proposed) Return of Service (Blank)</td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">**** PRIVATE **** (Proposed) Request for Hearing (Blank)</td></tr>
-            <tr><td>08-28-2025</td><td class="wrap">**** SAFEGUARDED **** Safeguarded Contact Information</td></tr>
-            <tr><td>08-29-2025</td><td class="wrap">**** PRIVATE **** Filed: Appearance of Counsel/Notice of Limited Appearance</td></tr>
+        <div class="filings filings-docket">
+          <!-- AUGUST 2025 -->
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num">1</div><div class="filing-content">**** SAFEGUARDED **** Filed: Request for Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1gKPrLw8Ca6k-_n-YBgCiQxTUy6lQ-4o-/view?usp=drive_link" target="_blank">Declaration of Lauren Matthias</a></div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num">2</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1xDm8nd993QXjHO2pdDhdwPEYE4WN9pSp/view?usp=drive_link" target="_blank">**** PRIVATE **** Declaration of Grayson Yohr</a></div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num">3</div><div class="filing-content">**** SAFEGUARDED **** Filed: (Proposed) Temporary Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num">4</div><div class="filing-content">**** SAFEGUARDED **** Filed: (Proposed) Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num"></div><div class="filing-content">**** PRIVATE **** Petition filed by luisa</div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num">5</div><div class="filing-content">**** PRIVATE **** Filed: (Proposed) Return of Service (Blank)</div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num">6</div><div class="filing-content">**** PRIVATE **** Filed: (Proposed) Request for Hearing (Blank)</div></div>
+          <div class="filing"><div class="filing-date">08-28-2025</div><div class="filing-num">7</div><div class="filing-content">**** SAFEGUARDED **** Filed: Safeguarded Contact Information</div></div>
+          <div class="filing"><div class="filing-date">08-29-2025</div><div class="filing-num">9</div><div class="filing-content">**** PRIVATE **** Filed: Appearance of Counsel/Notice of Limited Appearance</div></div>
 
-            <!-- SEPTEMBER 2025 -->
-            <tr><td>09-04-2025</td><td class="wrap">Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1d4Q5Edu6D09uo6rwMyHs4iZIX_idZG93/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>   
-            <tr><td>09-04-2025</td><td class="wrap"><a class="filing-link" href="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/view?usp=drive_link" target="_blank">Email from Bobbi Olson re: Threat to Crime Con vendor</a></td><td class="doc-icon"><a href="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">15:07:06 PM Bodycam 1 -600 Axon Body 4 D01A0526G (08 min 21 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12wyviTt2M-cn9uPveVACC7R1T2wEOusT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">15:27:20 PM Bodycam 2 -600 Axon Body 4 D01A0288H (14 min 12 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Px5OStWgTfoN7gBD3z9a8YJ_HoNNhjvT/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">15:27:14 PM Bodycam 3 -600 Axon Body 4 D01A0576G (14 min 17 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qS4wlbTAePehis-HT6RZhn6KP5mdnrVK/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">15:51:41 PM Bodycam 4 -600 Axon Body 4 D01A0288H (09 min 09 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/11T_BPVV3CHHFCIeMhtUb5QJ0bKMhBkuj/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">15:53:35 PM Bodycam 5 -600 Axon Body 4 D01A0576G (07 min 15 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1LGYfFLRC6dREnxnujXVToO1Xab2rlHQ7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">Christina metaglasses conversation with officer (05 min 19 sec)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1tHChPedmvALnl_rCmY4kQYF0JtCd0aP7/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-camera-video-fill"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">Christina metaglasses conversation with officer &mdash; transcript</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1aPzxdMGeDZcOHuNJbMrMpo6ZisRLDEfX/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">Texts from Joe Schmoe at 10:17 PM</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xwmqX8U27pMyHiQb2ciTqKizrM5EhJr_/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-image"></i></a></td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">Amended Temporary Civil Stalking Injunction</td></tr>
-            <tr><td>09-05-2025</td><td class="wrap">Amended Temporary Civil Stalking Injunction</td></tr>
-            <tr><td>09-06-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-08-2025</td><td class="wrap">**** PRIVATE **** Request for Hearing</td></tr>
-            <tr><td>09-09-2025</td><td class="wrap">IP Civil Stalking Injunction 09/17/2025</td></tr>
-            <tr><td>09-09-2025</td><td class="wrap">NOTICE for Case 250404055 ID 25695055</td></tr>
-            <tr><td>09-09-2025</td><td class="wrap">**** PRIVATE **** Notice for Case 250404055 SK Judge: Kasey L Wright</td></tr>
-            <tr><td>09-09-2025</td><td class="wrap">**** PRIVATE **** Return of Service</td></tr>
-            <tr><td>09-10-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">Posts on HTC pages that Grayson screenshot</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1mbjm0XRbs34upgDv_U11ar9ImmCJCGSp/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-image"></i></a></td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">**** PRIVATE **** Ex Parte Order (Proposed) for Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">**** PRIVATE **** Request/Notice to Submit Petitioner s Ex Parte Motion for Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">**** PRIVATE **** Appearance of Counsel/Notice of Limited Appearance (BTJD)</td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">**** PRIVATE **** Request for Hearing Evidentiary</td></tr>
-            <tr><td>09-11-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-12-2025</td><td class="wrap">**** PRIVATE **** Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>09-12-2025</td><td class="wrap">**** PRIVATE **** Request/Notice to Submit for Decision Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>09-12-2025</td><td class="wrap">**** PRIVATE **** Order (Proposed) Granting Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>09-12-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification Filed: Order Granting Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>09-13-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-13-2025</td><td class="wrap">**** PRIVATE **** Other - Not Signed Ex Parte Order (Proposed) for Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-13-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-13-2025</td><td class="wrap">IP Civil Stalking Injunction 09/22/2025</td></tr>
-            <tr><td>09-16-2025</td><td class="wrap">NOTICE for Case 250404055 ID 25707801</td></tr>
-            <tr><td>09-16-2025</td><td class="wrap">**** PRIVATE **** Notice for Case 250404055 SK Judge: Kasey L Wright</td></tr>
-            <tr><td>09-16-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Request/Notice to Submit Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Ex Parte Order (Proposed) Granting Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>   
-            <tr><td>09-17-2025</td><td class="wrap">Second Declaration of Lauren Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/15h01W4D9uhZYJz7xv3iRV4-B0joVxbP5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>       
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Request/Notice to Submit Ex Parte Motion to Enforce 9/4/25 Civil Stalking Injunction and for Sanctions</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">Ex Parte Motion to Enforce 09-04-2025 Civil Stalking Injunction and for Sanctions</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ghcK7dWANUmMl-IJ4H25y6G-0K0dSu8_/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Ex Parte Order (Proposed) Granting Ex Parte Motion to Enforce 9/4/25 Civil Stalking Injunction and for Sanctions</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-17-2025</td><td class="wrap">Paul C. Witness Affidavit</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zUq3iPUNG5o0vVpgUuGOCjc5p44IX8Xm/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-18-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Ex Parte Motion for Out-of-State Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Ex Parte Order (Proposed) Granting Ex Parte Motion for Out-of-State Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Request/Notice to Submit for Decision Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Order (Proposed) Granting Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Second Declaration of Grayson Yohr</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1W4FvKeT7pvP5fUEBe2NUSPdKuUewpExG/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Declaration of Sarah N</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1tIKfd2ugfMb7mCsNbT0llYWCs_h2edLi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Declaration of John Matthias</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1XSXE7H_8jHDZfltWP1T3mjM2we1Vaqtd/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Declaration of Susan Hendricks</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ciOo-96Djx8CGgE37s4_OGFvtdOp0oeI/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Respondent Christina M (1) Memorandum in Opposition to Request for Civil Stalking Injunction and (2) Prehearing Brief</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1Ts_jXtOGxfgvD3q1ZWTsgkZw7Hinxoqi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>   
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Affidavit/Declaration of Christina MacArthur</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Declaration of Janeese S</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1qfV7BXqPSPoMGMqdIXSkDXN4n7aQyLA3/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Declaration of Lindzie H</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1rBXn-4m4m0S7PeNcuIFPko1EIU7eeyxC/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">Declaration of Lori D</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1ylnKKku02Rzk2dKyhOr9jgC37Y6y3KDH/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Acceptance of Trial Subpoena (Lori Hellis)</td></tr>
-            <tr><td>09-19-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-20-2025</td><td class="wrap">Ex Parte Order Granting Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-20-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-21-2025</td><td class="wrap">Reply Memorandum in Support of Request for Civil Stalking and Petitioner’s Pretrial Brief</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12wfumLVSEUYCA2zIFe7ZtOv4RO5nnHs1/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-21-2025</td><td class="wrap">Affidavit/Declaration Third Declaration of Lauren Matthias (Petitioner)</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1cK1liz2oElMOlb_0F475ytixaUiHThpL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-21-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Objection to Declarations filed by Petitioner</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Affidavit/Declaration of Joseph Dalu</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">IP Civil Stalking Injunction 10/16/2025</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Civil Stalking Injunction</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Order Granting Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Ex Parte Order (Proposed) Granting Ex Parte Motion for Out-of-State Witness to Appear Remotely at CSI Hearing</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Request for Audio Recording</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Fee Account created</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Fee Payment</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Request for Audio Recording</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Fee Account created</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Fee Payment</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Respondent Christina M Objection to Declarations Filed by Petitioner</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1xSrCkUgM10OQbUQCxtGNYwFlO1yQs7Gu/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Hearing &mdash; audio</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1VNmVg0s0DpZ3Ra1ymDlEaqx9ZntYqlOL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-volume-up-fill"></i></a></td></tr>
-            <tr><td>09-22-2025</td><td class="wrap">Hearing &mdash; transcript</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1i9aBlIgCheVr4rwgao86rZarkngN7_VZ/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-23-2025</td><td class="wrap">**** PRIVATE **** Request for Copy of Audio Recording</td></tr>
-            <tr><td>09-23-2025</td><td class="wrap">Fee Account created</td></tr>
-            <tr><td>09-23-2025</td><td class="wrap">Fee Payment</td></tr>
-            <tr><td>09-23-2025</td><td class="wrap">Petitioner's Objections to Respondent's Declarations</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1kV0-8uolwSFl9b6yvj6gMm5RdATrGpJM/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>09-23-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-23-2025</td><td class="wrap">**** PRIVATE **** Other - Not Signed Ex Parte Order (Proposed) Granting Ex Parte Motion to Enforce 9/4/25 Civil Stalking Injunction and for Sanctions</td></tr>
-            <tr><td>09-23-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-24-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-24-2025</td><td class="wrap">**** PRIVATE **** Completed Request for Audio Recording (3)</td></tr>
-            <tr><td>09-25-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>09-25-2025</td><td class="wrap"><a class="filing-link" href="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/view?usp=drive_link" target="_blank">Christina CORA request to Aurora Police Department</a></td><td class="doc-icon"><a href="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
+          <!-- SEPTEMBER 2025 -->
+          <div class="filing"><div class="filing-date">09-04-2025</div><div class="filing-num">11</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1d4Q5Edu6D09uo6rwMyHs4iZIX_idZG93/view?usp=drive_link" target="_blank">Temporary Civil Stalking Injunction</a></div></div>
+          <div class="filing"><div class="filing-date">09-04-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/view?usp=drive_link" target="_blank">Email from Bobbi Olson re: Threat to Crime Con vendor</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/12wyviTt2M-cn9uPveVACC7R1T2wEOusT/view?usp=drive_link" target="_blank">15:07:06 PM Bodycam 1 &mdash; Axon Body 4 D01A0526G (08 min 21 sec)</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Px5OStWgTfoN7gBD3z9a8YJ_HoNNhjvT/view?usp=drive_link" target="_blank">15:27:20 PM Bodycam 2 &mdash; Axon Body 4 D01A0288H (14 min 12 sec)</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1qS4wlbTAePehis-HT6RZhn6KP5mdnrVK/view?usp=drive_link" target="_blank">15:27:14 PM Bodycam 3 &mdash; Axon Body 4 D01A0576G (14 min 17 sec)</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/11T_BPVV3CHHFCIeMhtUb5QJ0bKMhBkuj/view?usp=drive_link" target="_blank">15:51:41 PM Bodycam 4 &mdash; Axon Body 4 D01A0288H (09 min 09 sec)</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1LGYfFLRC6dREnxnujXVToO1Xab2rlHQ7/view?usp=drive_link" target="_blank">15:53:35 PM Bodycam 5 &mdash; Axon Body 4 D01A0576G (07 min 15 sec)</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1tHChPedmvALnl_rCmY4kQYF0JtCd0aP7/view?usp=drive_link" target="_blank">Christina metaglasses conversation with officer (05 min 19 sec)</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1aPzxdMGeDZcOHuNJbMrMpo6ZisRLDEfX/view?usp=drive_link" target="_blank">Christina metaglasses conversation with officer &mdash; transcript</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1xwmqX8U27pMyHiQb2ciTqKizrM5EhJr_/view?usp=drive_link" target="_blank">Texts from Joe Schmoe at 10:17 PM</a></div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num">12</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num">13</div><div class="filing-content">Amended Temporary Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">09-05-2025</div><div class="filing-num">14</div><div class="filing-content">Amended Temporary Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">09-06-2025</div><div class="filing-num">15</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-08-2025</div><div class="filing-num">16</div><div class="filing-content">**** PRIVATE **** Request for Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-09-2025</div><div class="filing-num"></div><div class="filing-content">IP Civil Stalking Injunction 09/17/2025</div></div>
+          <div class="filing"><div class="filing-date">09-09-2025</div><div class="filing-num"></div><div class="filing-content">NOTICE for Case 250404055 ID 25695055</div></div>
+          <div class="filing"><div class="filing-date">09-09-2025</div><div class="filing-num">17</div><div class="filing-content">**** PRIVATE **** Notice for Case 250404055 SK Judge: Kasey L Wright</div></div>
+          <div class="filing"><div class="filing-date">09-09-2025</div><div class="filing-num">18</div><div class="filing-content">**** PRIVATE **** Return of Service</div></div>
+          <div class="filing"><div class="filing-date">09-10-2025</div><div class="filing-num">19</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1mbjm0XRbs34upgDv_U11ar9ImmCJCGSp/view?usp=drive_link" target="_blank">Posts on HTC pages that Grayson screenshot</a></div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num">20</div><div class="filing-content">**** PRIVATE **** Ex Parte Order (Proposed) for Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num">21</div><div class="filing-content">**** PRIVATE **** Request/Notice to Submit Petitioner's Ex Parte Motion for Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num">22</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num">23</div><div class="filing-content">**** PRIVATE **** Appearance of Counsel/Notice of Limited Appearance (BTJD)</div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num">24</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num">25</div><div class="filing-content">**** PRIVATE **** Request for Hearing Evidentiary</div></div>
+          <div class="filing"><div class="filing-date">09-11-2025</div><div class="filing-num">26</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-12-2025</div><div class="filing-num">27</div><div class="filing-content">**** PRIVATE **** Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-12-2025</div><div class="filing-num">28</div><div class="filing-content">**** PRIVATE **** Request/Notice to Submit for Decision Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-12-2025</div><div class="filing-num">29</div><div class="filing-content">**** PRIVATE **** Order (Proposed) Granting Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-12-2025</div><div class="filing-num">30</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification Filed: Order Granting Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-13-2025</div><div class="filing-num">31</div><div class="filing-content">Filed: Order Granting Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-13-2025</div><div class="filing-num">33</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-13-2025</div><div class="filing-num">32</div><div class="filing-content">**** PRIVATE **** Other - Not Signed Ex Parte Order (Proposed) for Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-13-2025</div><div class="filing-num">34</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-13-2025</div><div class="filing-num"></div><div class="filing-content">IP Civil Stalking Injunction 09/22/2025</div></div>
+          <div class="filing"><div class="filing-date">09-16-2025</div><div class="filing-num"></div><div class="filing-content">NOTICE for Case 250404055 ID 25707801</div></div>
+          <div class="filing"><div class="filing-date">09-16-2025</div><div class="filing-num">35</div><div class="filing-content">**** PRIVATE **** Notice for Case 250404055 SK Judge: Kasey L Wright</div></div>
+          <div class="filing"><div class="filing-date">09-16-2025</div><div class="filing-num">36</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">37</div><div class="filing-content">**** PRIVATE **** Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">38</div><div class="filing-content">**** PRIVATE **** Request/Notice to Submit Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">39</div><div class="filing-content">**** PRIVATE **** Ex Parte Order (Proposed) Granting Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">40</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">41</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/15h01W4D9uhZYJz7xv3iRV4-B0joVxbP5/view?usp=drive_link" target="_blank">**** PRIVATE **** Second Declaration of Lauren Matthias</a></div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">42</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">43</div><div class="filing-content">**** PRIVATE **** Request/Notice to Submit Ex Parte Motion to Enforce 9/4/25 Civil Stalking Injunction and for Sanctions</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">44</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1ghcK7dWANUmMl-IJ4H25y6G-0K0dSu8_/view?usp=drive_link" target="_blank">Ex Parte Motion to Enforce 09-04-2025 Civil Stalking Injunction and for Sanctions</a></div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">45</div><div class="filing-content">**** PRIVATE **** Ex Parte Order (Proposed) Granting Ex Parte Motion to Enforce 9/4/25 Civil Stalking Injunction and for Sanctions</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num">46</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-17-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1zUq3iPUNG5o0vVpgUuGOCjc5p44IX8Xm/view?usp=drive_link" target="_blank">Paul C. Witness Affidavit</a></div></div>
+          <div class="filing"><div class="filing-date">09-18-2025</div><div class="filing-num">47</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">49</div><div class="filing-content">**** PRIVATE **** Ex Parte Motion for Out-of-State Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">51</div><div class="filing-content">**** PRIVATE **** Ex Parte Order (Proposed) Granting Ex Parte Motion for Out-of-State Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">52</div><div class="filing-content">**** PRIVATE **** Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">53</div><div class="filing-content">**** PRIVATE **** Request/Notice to Submit for Decision Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">54</div><div class="filing-content">**** PRIVATE **** Order (Proposed) Granting Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">55</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">56</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">57</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1W4FvKeT7pvP5fUEBe2NUSPdKuUewpExG/view?usp=drive_link" target="_blank">**** PRIVATE **** Second Declaration of Grayson Yohr</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">58</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">59</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1tIKfd2ugfMb7mCsNbT0llYWCs_h2edLi/view?usp=drive_link" target="_blank">**** PRIVATE **** Declaration of Sarah N</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">60</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">61</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1XSXE7H_8jHDZfltWP1T3mjM2we1Vaqtd/view?usp=drive_link" target="_blank">**** PRIVATE **** Declaration of John Matthias</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">62</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1ciOo-96Djx8CGgE37s4_OGFvtdOp0oeI/view?usp=drive_link" target="_blank">**** PRIVATE **** Declaration of Susan Hendricks</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">63</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">64</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">65</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">65</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1Ts_jXtOGxfgvD3q1ZWTsgkZw7Hinxoqi/view?usp=drive_link" target="_blank">Respondent Christina M (1) Memorandum in Opposition to Request for Civil Stalking Injunction and (2) Prehearing Brief</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">66</div><div class="filing-content">**** PRIVATE **** Affidavit/Declaration of Christina MacArthur</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">67</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1qfV7BXqPSPoMGMqdIXSkDXN4n7aQyLA3/view?usp=drive_link" target="_blank">**** PRIVATE **** Declaration of Janeese S</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">68</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1rBXn-4m4m0S7PeNcuIFPko1EIU7eeyxC/view?usp=drive_link" target="_blank">**** PRIVATE **** Declaration of Lindzie H</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">69</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1ylnKKku02Rzk2dKyhOr9jgC37Y6y3KDH/view?usp=drive_link" target="_blank">**** PRIVATE **** Declaration of Lori D</a></div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">70</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">71</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">72</div><div class="filing-content">**** PRIVATE **** Acceptance of Trial Subpoena (Lori Hellis)</div></div>
+          <div class="filing"><div class="filing-date">09-19-2025</div><div class="filing-num">73</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-20-2025</div><div class="filing-num">74</div><div class="filing-content">Ex Parte Order Granting Ex Parte Motion for Disabled Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-20-2025</div><div class="filing-num">75</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-21-2025</div><div class="filing-num">76</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/12wfumLVSEUYCA2zIFe7ZtOv4RO5nnHs1/view?usp=drive_link" target="_blank">Reply Memorandum in Support of Request for Civil Stalking Injunction and Petitioner's Pretrial Brief</a></div></div>
+          <div class="filing"><div class="filing-date">09-21-2025</div><div class="filing-num">77</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1cK1liz2oElMOlb_0F475ytixaUiHThpL/view?usp=drive_link" target="_blank">Affidavit/Declaration Third Declaration of Lauren Matthias (Petitioner)</a></div></div>
+          <div class="filing"><div class="filing-date">09-21-2025</div><div class="filing-num">78</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">79</div><div class="filing-content">**** PRIVATE **** Objection to Declarations filed by Petitioner</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">80</div><div class="filing-content">**** PRIVATE **** Affidavit/Declaration of Joseph Dalu</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">81</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content">IP Civil Stalking Injunction 10/16/2025</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content">Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">82</div><div class="filing-content">Order Granting Motion to Allow Nonparty Witnesses to Appear and Testify Remotely</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">83</div><div class="filing-content">Ex Parte Order (Proposed) Granting Ex Parte Motion for Out-of-State Witness to Appear Remotely at CSI Hearing</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">84</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">85</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">86</div><div class="filing-content">**** PRIVATE **** Request for Audio Recording</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content">Fee Account created</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content">Fee Payment</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">87</div><div class="filing-content">**** PRIVATE **** Request for Audio Recording</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content">Fee Account created</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content">Fee Payment</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">88</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num">89</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1xSrCkUgM10OQbUQCxtGNYwFlO1yQs7Gu/view?usp=drive_link" target="_blank">Respondent Christina M Objection to Declarations Filed by Petitioner</a></div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1VNmVg0s0DpZ3Ra1ymDlEaqx9ZntYqlOL/view?usp=drive_link" target="_blank">Hearing &mdash; audio</a></div></div>
+          <div class="filing"><div class="filing-date">09-22-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1i9aBlIgCheVr4rwgao86rZarkngN7_VZ/view?usp=drive_link" target="_blank">Hearing &mdash; transcript</a></div></div>
+          <div class="filing"><div class="filing-date">09-23-2025</div><div class="filing-num">90</div><div class="filing-content">**** PRIVATE **** Request for Copy of Audio Recording</div></div>
+          <div class="filing"><div class="filing-date">09-23-2025</div><div class="filing-num"></div><div class="filing-content">Fee Account created</div></div>
+          <div class="filing"><div class="filing-date">09-23-2025</div><div class="filing-num"></div><div class="filing-content">Fee Payment</div></div>
+          <div class="filing"><div class="filing-date">09-23-2025</div><div class="filing-num">91</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1kV0-8uolwSFl9b6yvj6gMm5RdATrGpJM/view?usp=drive_link" target="_blank">Petitioner's Objections to Respondent's Declarations</a></div></div>
+          <div class="filing"><div class="filing-date">09-23-2025</div><div class="filing-num">92</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-23-2025</div><div class="filing-num">93</div><div class="filing-content">**** PRIVATE **** Other - Not Signed Ex Parte Order (Proposed) Granting Ex Parte Motion to Enforce 9/4/25 Civil Stalking Injunction and for Sanctions</div></div>
+          <div class="filing"><div class="filing-date">09-23-2025</div><div class="filing-num">94</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-24-2025</div><div class="filing-num">95</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-24-2025</div><div class="filing-num">96</div><div class="filing-content">**** PRIVATE **** Completed Request for Audio Recording (3)</div></div>
+          <div class="filing"><div class="filing-date">09-25-2025</div><div class="filing-num">97</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">09-25-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/view?usp=drive_link" target="_blank">Christina CORA request to Aurora Police Department</a></div></div>
 
-            <!-- OCTOBER 2025 -->
-            <tr><td>10-08-2025</td><td class="wrap">Certificate of Service Amended Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1zkcsBjZW3kCaGY7OlENt3fuJxKwopqRr/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">Request to Submit for Decision Amended Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1su0QIeR_vLFGOuBQsc_UMWYXj6kar4GL/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">Temporary Civil Stalking Injunction</td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">Proposed Temporary Civil Stalking Injunction</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1YBTW-BY_29dZcGqZraf5qt0DyUWJJrZg/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">**** PRIVATE **** Order (Proposed) Order Denying Media Request</td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">Objection to Unspecified, Unverified Media Request for Attendance at Evidentiary Hearing and Access to Court Records</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1AA5U3kjuaDH_79nInbvvbdMnRJyz8C_5/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">**** PRIVATE **** Certificate of Service of Petitioner's Counter-Proposed Amended Civil Stalking Injunction</td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">**** PRIVATE **** Order (Proposed) Petitioner’s Counter Proposed Amended Civil Stalking Injunction</td></tr>
-            <tr><td>10-08-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">Order Amended Temporary Civil Stalking Injunction</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Other - Not Signed Order (Proposed) Petitioner’s Counter Proposed Amended Civil Stalking Injunction</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Appearance of Counsel/Notice of Limited Appearance of Andrew G. Deiss and Robert A. Tensmeyer</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">Motion to Continue Evidentiary Hearing</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1nBAdh3VXrl61WXZPAKT2ZRmNKIqyX0Mi/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-earmark-text"></i></a></td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Order (Proposed) Granting Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Request/Notice to Submit for Decision on Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>10-10-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-13-2025</td><td class="wrap">Memorandum in Opposition to Motion to Continue Evidentiary Hearing</td><td class="doc-icon"><a href="https://drive.google.com/file/d/1RsTVFSg9E6TCLYX-utlxKmO-yG0Mjz6n/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-image"></i></a></td></tr>
-            <tr><td>10-13-2025</td><td class="wrap">**** PRIVATE **** Request/Notice to Submit for Decision (Respondent’s Memorandum in Opposition to Motion to Continuing Evidentiary Hearing)</td></tr>
-            <tr><td>10-13-2025</td><td class="wrap">**** PRIVATE **** Order (Proposed) Denying Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>10-13-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-13-2025</td><td class="wrap">**** PRIVATE **** Other – Not Signed Order (Proposed) Order Denying Media Request</td></tr>
-            <tr><td>10-13-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">Ruling and Order re: Request to Close Courtroom</td><td class="doc-icon"><a href="https://drive.google.com/file/d/12VgCExENrYJ4HbcVWUrN6GDuzqSbMC4S/view?usp=drive_link" target="_blank" style="color:var(--accent)"><i class="bi bi-file-image"></i></a></td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">Request and Order for Electronic Media Coverage of Court Proceedings</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">Amended Temporary Civil Stalking Injunction</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">NOTICE for Case 250404055 ID 25777451</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">WBX Motion to Continue on 10/14/2025</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">**** PRIVATE **** Notice for Case 250404055 SK Judge: Kasey L Wright</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">Motion to Continue</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">Motion to Continue</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">**** PRIVATE **** Other – Not Signed Order (Proposed) Denying Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">**** PRIVATE **** Other – Not Signed Order (Proposed) Granting Motion to Continue Evidentiary Hearing</td></tr>
-            <tr><td>10-14-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-15-2025</td><td class="wrap">**** PRIVATE **** Return of Electronic Notification</td></tr>
-            <tr><td>10-15-2025</td><td class="wrap">Case Disposition is Dismissed</td></tr>
-          
-          </tbody>
-          </table><!-- End of .docket-table -->
-        </div><!-- End of .docket-table-wrap -->
+          <!-- OCTOBER 2025 -->
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">99</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1zkcsBjZW3kCaGY7OlENt3fuJxKwopqRr/view?usp=drive_link" target="_blank">Certificate of Service Amended Temporary Civil Stalking Injunction</a></div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">98</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1su0QIeR_vLFGOuBQsc_UMWYXj6kar4GL/view?usp=drive_link" target="_blank">Request to Submit for Decision Amended Temporary Civil Stalking Injunction</a></div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">100</div><div class="filing-content">**** PRIVATE **** Order (Proposed) Amended Temporary Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num"></div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1YBTW-BY_29dZcGqZraf5qt0DyUWJJrZg/view?usp=drive_link" target="_blank">Proposed Temporary Civil Stalking Injunction</a></div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">101</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">102</div><div class="filing-content">**** PRIVATE **** Order (Proposed) Order Denying Media Request</div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">103</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1AA5U3kjuaDH_79nInbvvbdMnRJyz8C_5/view?usp=drive_link" target="_blank">Objection to Unspecified, Unverified Media Request for Attendance at Evidentiary Hearing and Access to Court Records</a></div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">105</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">104</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">106</div><div class="filing-content">**** PRIVATE **** Certificate of Service of Petitioner's Counter-Proposed Amended Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">107</div><div class="filing-content">**** PRIVATE **** Order (Proposed) Petitioner's Counter Proposed Amended Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">10-08-2025</div><div class="filing-num">108</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">109</div><div class="filing-content">Order Amended Temporary Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">110</div><div class="filing-content">**** PRIVATE **** Other - Not Signed Order (Proposed) Petitioner's Counter Proposed Amended Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">111</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">112</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">113</div><div class="filing-content">**** PRIVATE **** Appearance of Counsel/Notice of Limited Appearance of Andrew G. Deiss and Robert A. Tensmeyer</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">114</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">115</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1nBAdh3VXrl61WXZPAKT2ZRmNKIqyX0Mi/view?usp=drive_link" target="_blank">Motion to Continue Evidentiary Hearing</a></div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">116</div><div class="filing-content">**** PRIVATE **** Order (Proposed) Granting Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">117</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">118</div><div class="filing-content">**** PRIVATE **** Request/Notice to Submit for Decision on Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">10-10-2025</div><div class="filing-num">119</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-13-2025</div><div class="filing-num">120</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/1RsTVFSg9E6TCLYX-utlxKmO-yG0Mjz6n/view?usp=drive_link" target="_blank">Memorandum in Opposition to Motion to Continue Evidentiary Hearing</a></div></div>
+          <div class="filing"><div class="filing-date">10-13-2025</div><div class="filing-num">121</div><div class="filing-content">**** PRIVATE **** Request/Notice to Submit for Decision (Respondent's Memorandum in Opposition to Motion to Continuing Evidentiary Hearing)</div></div>
+          <div class="filing"><div class="filing-date">10-13-2025</div><div class="filing-num">122</div><div class="filing-content">**** PRIVATE **** Order (Proposed) Denying Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">10-13-2025</div><div class="filing-num">123</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-13-2025</div><div class="filing-num">124</div><div class="filing-content">**** PRIVATE **** Other &ndash; Not Signed Order (Proposed) Order Denying Media Request</div></div>
+          <div class="filing"><div class="filing-date">10-13-2025</div><div class="filing-num">125</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">126</div><div class="filing-content"><a class="filing-link" href="https://drive.google.com/file/d/12VgCExENrYJ4HbcVWUrN6GDuzqSbMC4S/view?usp=drive_link" target="_blank">Ruling and Order re: Request to Close Courtroom</a></div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">127</div><div class="filing-content">Request and Order for Electronic Media Coverage of Court Proceedings</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">128</div><div class="filing-content">Amended Temporary Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num"></div><div class="filing-content">NOTICE for Case 250404055 ID 25777451</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num"></div><div class="filing-content">WBX Motion to Continue on 10/14/2025</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">129</div><div class="filing-content">**** PRIVATE **** Notice for Case 250404055 SK Judge: Kasey L Wright</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">130</div><div class="filing-content">Motion to Continue</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">130</div><div class="filing-content">Motion to Continue</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">131</div><div class="filing-content">**** PRIVATE **** Other &ndash; Not Signed Order (Proposed) Denying Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">132</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">133</div><div class="filing-content">**** PRIVATE **** Other &ndash; Not Signed Order (Proposed) Granting Motion to Continue Evidentiary Hearing</div></div>
+          <div class="filing"><div class="filing-date">10-14-2025</div><div class="filing-num">134</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-15-2025</div><div class="filing-num">135</div><div class="filing-content">**** PRIVATE **** Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-15-2025</div><div class="filing-num"></div><div class="filing-content">Case Disposition is Dismissed</div></div>
+
+          <!-- POST-DISMISSAL: EXPUNGEMENT PROCEEDINGS -->
+          <div class="filing"><div class="filing-date">09-25-2026</div><div class="filing-num">136</div><div class="filing-content">**** PRIVATE **** Respondent Filed: Petition to Expunge Civil Protective Order or Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">09-25-2026</div><div class="filing-num">137</div><div class="filing-content">**** PRIVATE **** Respondent Filed: Certificate of Service</div></div>
+          <div class="filing"><div class="filing-date">09-25-2026</div><div class="filing-num">138</div><div class="filing-content">**** PRIVATE **** Respondent Filed: (Proposed) Order on Petition to Expunge Civil Protective Order or Civil Stalking Injunction</div></div>
+          <div class="filing"><div class="filing-date">09-28-2026</div><div class="filing-num">139</div><div class="filing-content">**** PRIVATE **** Respondent Filed: Amended Return of Service for the Petition to Expunge Civil Stalking Injunction and Proposed Order on Petition to Expunge</div></div>
+          <div class="filing"><div class="filing-date">09-29-2026</div><div class="filing-num">140</div><div class="filing-content">**** PRIVATE **** Filed: Return of Electronic Notification</div></div>
+          <div class="filing"><div class="filing-date">10-26-2026</div><div class="filing-num">141</div><div class="filing-content">**** PRIVATE **** Petitioner Filed: Opposition to Petition to Expunge Civil Protective Order or Civil Stalking Injunction and Exhibits 1-5</div></div>
+          <div class="filing"><div class="filing-date">10-26-2026</div><div class="filing-num">142</div><div class="filing-content">**** PRIVATE **** Filed: Return of Electronic Notification</div></div>
+
+        </div><!-- End of .filings-docket -->
       </div><!-- End of .case-details-body -->
     </details>
-
 
 
 
@@ -1480,7 +1502,7 @@
 
           <details class="case-details" data-aos="fade-up">
             <summary class="case-summary">
-              <h2>Lauren Still Trying to Terrorize Christina</h2>
+              <h2>Post–Civil Suit</h2>
             </summary>
       
             <div class="case-details-body">
@@ -1572,6 +1594,21 @@
             </div><!-- End of .case-details-body -->
           </details>
 
+
+                  <!-- ════════════════════════════════════════════════════════
+         CASE TIMELINE LINK
+         ════════════════════════════════════════════════════════ -->
+
+    <a class="drive-card" href="../../case/HTC/timeline" data-aos="fade-up" style="text-decoration:none;">
+      <div class="drive-icon">
+        <i class="bi bi-signpost-split"></i>
+      </div>
+      <div class="drive-card-body">
+        <h3 class="drive-card-title">Case Timeline</h3>
+        <p class="drive-card-desc"><strong>To the point scrolly timeline</strong>. Color-coded by party with exhibit references.</p>
+      </div>
+      <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
+    </a>
     <!-- ════════════════════════════════════════════════════════
          SOURCE FILES
          ════════════════════════════════════════════════════════ -->
@@ -1587,21 +1624,6 @@
         <p class="drive-card-desc">Source files and dissertations written by students supervised by Jawn Matthias.</p>
       </div>
       <span class="drive-card-cta">Open folder <i class="bi bi-arrow-right"></i></span>
-    </a>
-
-        <!-- ════════════════════════════════════════════════════════
-         CASE TIMELINE LINK
-         ════════════════════════════════════════════════════════ -->
-
-    <a class="drive-card" href="../../case/HTC/timeline" data-aos="fade-up" style="text-decoration:none;">
-      <div class="drive-icon">
-        <i class="bi bi-signpost-split"></i>
-      </div>
-      <div class="drive-card-body">
-        <h3 class="drive-card-title">Case Timeline</h3>
-        <p class="drive-card-desc"><strong>To the point scrolly timeline</strong>. Color-coded by party with exhibit references.</p>
-      </div>
-      <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
     </a>
 
   </section>
