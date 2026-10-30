@@ -52,6 +52,7 @@
     --neutral:          #8a8a8a;
     --accent:           #d4cfc8;
     --disputed:         #b3995c;
+    --context:          #996ea7;
     --grad-header:      linear-gradient(160deg, #181818, #0f0f0f);
     --grad-accent:      linear-gradient(to right, #1f4e44, #c16f38);
     --shadow:            0 2px 12px rgba(0,0,0,0.50);
@@ -77,6 +78,7 @@
     --neutral:          #595959;
     --accent:           #333333;
     --disputed:         #bf9d40;
+    --context:          #996ea7;
     --grad-header:      linear-gradient(160deg, #f4ede3, #ece5d9);
     --grad-accent:      linear-gradient(to right, #4a8a7c, #C04E01);
     --shadow:            0 2px 12px rgba(0,0,0,0.06);
@@ -195,6 +197,9 @@
   }
   .legend-dot.both { 
     background: var(--disputed); 
+  }
+  .legend-dot.context { 
+    background: var(--context); 
   }
   /* --- THEME TOGGLE --- */
   .theme-toggle {
@@ -572,7 +577,8 @@
       font-size: 0.55rem; 
     }
     .chapter-label { 
-      font-size: 0.7rem; 
+      font-size: 0.6rem;
+      letter-spacing: 0.04rem;
     }
     .split-side { 
       font-size: 0.68rem; 
@@ -601,7 +607,7 @@
     Case No. 250404055 ・ Fourth District Court, Utah County
   </div>
   <div class="disclaimer">
-    (currently updating this bad boy with links to exhibits, will remove this when done)
+    (currently updating this with links to exhibits and double-checking dates / events)
   </div>
 </div>
 
@@ -610,6 +616,7 @@
     <div class="legend-item"><div class="legend-dot pet"></div> Lauren's side</div>
     <div class="legend-item"><div class="legend-dot res"></div> Christina's side</div>
     <div class="legend-item"><div class="legend-dot both"></div> Disputed / both</div>
+    <div class="legend-item"><div class="legend-dot context"></div> Context</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
 </div>
@@ -629,30 +636,176 @@
 
   <!-- ====== CHAPTER 1 ====== -->
   <div class="chapter" id="ch1">
-    <div class="chapter-label">Act 1 · The Friendship (2023 thru Early 2025)</div>
+    <div class="chapter-label">Act 1: The Friendship (2023 thru 2024)</div>
 
-    <div class="event">
-      <div class="event-date">March 2023</div>
+    <div class="event context">
+      <div class="event-date">April 18, 2022</div>
+      <div class="event-title">"Hidden Hack Gate"</div>
+      <div class="event-body">HTC posts a Patreon exclusive for anyone interested in what they know so far about a supposed hack.</div>
+      <details>
+        <summary class="sum-detail">Off to a very on-brand start....</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1F2U9mu33Cd1_MEClaN2lNUBgbDVo0qPf/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event context">
+      <div class="event-date">March 22, 2023</div>
+      <div class="event-title">Lauren shit-talkin Tricia Griffith</div>
+      <div class="event-body">Bizarre group chat about Lauren's bizarre transactional acquaintance with Tricia Griffith.</div>
+      <details>
+        <summary class="sum-detail">"Tricia Griffith "novel-lectured-texted" me last night"</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/139TxfqsTg_RCRZ4fhIC00-kskB61vnav/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">March 23, 2023</div>
       <div class="event-title">Lauren's brother injured in ATV accident</div>
-      <div class="event-body">Medical discussions about sperm preservation follow. Lauren later states her brother was not in a coma during these conversations, context that becomes sharply contested when Christina posts a video about him in July 2025.</div>
+      <div class="event-body">Medical discussions about sperm preservation follow. Lauren later states her brother was not in a coma during these conversations but he's not here to speak for himself so I'm keeping this one filed under Red Flag for now.</div>
+      <details>
+        <summary class="sum-detail">Jamis last reply to Lauren on Twitter on Mar 22</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1rCzYpQ0sWlTuqP3dRS8BuxVSK1TsUrBy/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+      <details>
+        <summary class="sum-detail">HTC announces Jamis is fighting for his life on Mar 24</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1q0jEPJ0CLbFpno18dcjMYCwO4QDgolhq/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">March 16, 2023</div>
+      <div class="event-title">True Crime Underground</div>
+      <div class="event-body">Public Service Announcement: You better quit lying in private before the truth gets told in public. I'm not sure if you're suffering from delusions or amnesia, but you're trying to play with OG crashouts-we don't mind exposing what needs to be exposed. Didn't @ you as a courtesy, but don't mistake that for hesitation.</div>
+      <details>
+        <summary class="sum-detail">FB post that appears to be calling out Lauren</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1PdPV7zCImxOnwkaYiFd81aTqenY4NnGD/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
     </div>
 
     <div class="event res">
       <div class="event-date">April 2023</div>
       <div class="event-title">Lindzie meets Lauren</div>
-      <div class="event-body">Lindzie, who works in true crime media, meets Lauren. She has already been working alongside Grayson for some time. This places her in Lauren's circle more than a year before the April 2025 fallout.</div>
+      <div class="event-body">Lindzie, who works in true crime media, meets Lauren. She has already worked alongside Grayson for some time; placing her in Lauren's circle more than a year before the April 2025 fallout.</div>
     </div>
 
-    <div class="event">
+    <div class="event context">
+      <div class="event-date">April 2023</div>
+      <div class="event-title">Lauren shit-talkin Lori Hellis</div>
+      <div class="event-body">Lauren: "I'll title my public post: WTF why do we go live at the same time as the pizza quilting bitch show."</div>
+      <details>
+        <summary class="sum-detail">"That's just embarrassing for her..."</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1pxCjePace-giAEdpkpkhRSP_596MhCWz/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event context">
+      <div class="event-date">May 24, 2023</div>
+      <div class="event-title">Shane Bishop</div>
+      <div class="event-body"></div>
+      <details>
+        <summary class="sum-detail">Email from Shane Bishop</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1oc9beFClsG6BGP1Tc-9xgbZxm7zUWUVs/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event context">
+      <div class="event-date">Augst 2023</div>
+      <div class="event-title">Lauren shit-talkin Summer</div>
+      <div class="event-body"></div>
+      <details>
+        <summary class="sum-detail">Group chat from Aug 2023</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1qy-5w-d25yc9WA7fXTvR673djYaKe8td/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event context">
+      <div class="event-date">September 24, 2023</div>
+      <div class="event-title">Besties with the enemies</div>
+      <div class="event-body">Lauren jokes about being two-faced with colleagues.</div>
+      <details>
+        <summary class="sum-detail">Group chat from Sept 2023</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1U3wJTfgR6JOfFtiCU7ldh6I81e0WpRRf/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event context">
+      <div class="event-date">November 4, 2023</div>
+      <div class="event-title">FIRM Foundation Expo's</div>
+      <div class="event-body">Rod Meldrum confronts Lauren on incorrect information she perpetuated on Mormom Stories.</div>
+      <details>
+        <summary class="sum-detail">iMessage from Jake Blaney on Nov 4th</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1wJ43OmSKzIuobBFylr6grYhs2YD3iEV-/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event context">
+      <div class="event-date">November 9, 2023</div>
+      <div class="event-title">Christina to Lauren: How's it goin?</div>
+      <div class="event-body">Christina reaches out to Lauren to ask about various falsities. Instead of answering for any of them, Lauren appears to block her.</div>
+      <details>
+        <summary class="sum-detail">Email from Christina re: her attempt to clear it up with Lauren</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event context">
+      <div class="event-date">December 16, 2023</div>
+      <div class="event-title">Lauren shit-talkin Gigi</div>
+      <div class="event-body">Lauren pretending Gigi lets other people do the work...</div>
+      <details>
+        <summary class="sum-detail">Lauren's group chat from Dec 2023</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1Z109AepIFaJnsPnKxp-wRL7t6WoF93Vy/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event res">
+      <div class="event-date">February 25, 2024</div>
+      <div class="event-title">Lauren shit-talkin Lori and Mandy</div>
+      <div class="event-body"></div>
+      <details>
+        <summary class="sum-detail">Lauren's group chat from Feb 2024</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1_rBTq9bQmtqVVaZzG-J_GZAIN67rS8Y1/preview" width="320" height="240"></iframe>
+            <iframe src="https://drive.google.com/file/d/1lwJIBxM_6YoTqXJHe6OFxAt3dSpTCv14/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event res">
       <div class="event-date">April 2024</div>
-      <div class="event-title">Lauren and Christina meet</div>
-      <div class="event-body">They connect through mutual interest in a criminal case. Over the following summer, Christina begins doing graphic design work for Lauren, thumbnails and graphics for her true crime content. Grayson Yohr, Lauren's producer/assistant, ends up briefly crossing professional paths a bit more with Christina. Christina also meets Janeese and Lindzie on the first day of the Chad Daybell trial.</div>
+      <div class="event-title">Christina meets Janeese and Lindzie</div>
+      <div class="event-body"><strong>April 1: </strong>Christina meets Janeese and Lindzie on the first day of the Chad Daybell trial.</div>
       <details>
         <summary class="sum-detail">Photo of Lauren and Tom Evans taken by Christina on Apr 2, 2024.</summary>
           <div class="detail-body">
             <iframe src="https://drive.google.com/file/d/1BLBVIZMii8kKWMlfmwJ2G0T_X0_pcf_5/preview"  width="320" height="240"></iframe>
           </div>
       </details>
+      <div class="event-body">Grayson Yohr, Lauren's producer/assistant, ends up briefly crossing professional paths a bit more with Christina during this time. Over the following summer, Christina begins doing graphic design work for Lauren, thumbnails and graphics for her channel.</div>
     </div>
 
     <div class="event res">
@@ -664,19 +817,19 @@
     <div class="event res">
       <div class="event-date">June 1, 2024</div>
       <div class="event-title">CrimeCon Nashville / Chad Daybell sentencing</div>
-      <div class="event-body">Chad Daybell is sentenced in Boise, Idaho. The same weekend, CrimeCon is in Nashville. Christina and Lori D run into Tom Evans and his wife Sadie at CrimeCon, they share a cafeteria experience and exchange numbers. This is the origin of the social friendship that leads to a dinner invite in April 2025, and its abrupt cancellation.</div>
+      <div class="event-body">Chad Daybell is sentenced in Boise, Idaho the same weekend CrimeCon is held in Nashville. Christina and Lori D run into Tom Evans and his wife Sadie at CrimeCon and exchange numbers. This is the origin of the friendship that led to a group dinner invite in April 2025...and its abrupt cancellation.</div>
     </div>
 
     <div class="event">
       <div class="event-date">Summer 2024</div>
       <div class="event-title">Christina reads Tom Evans' book</div>
-      <div class="event-body">As Christina does graphic design work for Lauren, she begins reading Tom Evans's book. She finds facts amiss and lets Lauren know, since Lauren has been publicly promoting his work. The flag goes nowhere.</div>
+      <div class="event-body">As Christina begins working a bit more with Lauren, she begins reading Tom Evans's book. She finds facts amiss and lets Lauren know as a professional courtesy, since Lauren has been publicly promoting his work.</div>
     </div>
 
     <div class="event">
       <div class="event-date">Fall 2024 / Jan 2025</div>
       <div class="event-title">The circle deepens</div>
-      <div class="event-body">Grayson starts full-time with Lauren in October of 2024. Grayson shares a bit of TMI re: Lauren's mental health with Christina while Lauren's mother and brother are both on hospice at the same time. Grayson connects Christina to Susan Hendricks (former CNN/HLN anchor) for design work; they exchange texts but nothing is finalized. Lindzie sends Lauren two friendly texts about a potential podcast collaboration.</div>
+      <div class="event-body">Grayson starts full-time with Lauren and Jawn in October of 2024. Grayson shares a bit of TMI re: Lauren's mental health with Christina while Lauren's mother and brother are both on hospice at the same time. Grayson connects Christina to Susan Hendricks for design work (they exchange texts but nothing is finalized) and Lindzie sends Lauren two friendly texts about a potential podcast collaboration around this time.</div>
     </div>
 
     <div class="event">
@@ -694,7 +847,7 @@
     <div class="event res">
       <div class="event-date">March 2025</div>
       <div class="event-title">Janeese learns Lauren has been talking about her</div>
-      <div class="event-body">Janeese learns that Lauren has been making false statements about her to others, including that "Janeese is a swinger" and that her "husband left her because of stuff." All of it made up. Janeese has screenshots of Lauren admitting she doesn't even know her while making these claims. This sets up the April 15 courthouse confrontation.</div>
+      <div class="event-body">Janeese learns that Lauren has been making false statements about her to others, including that "Janeese is a swinger" and that her "husband left her because of stuff." All of it completely made up and spread by Lauren. Janeese has screenshots of Lauren admitting she doesn't even know her while making these claims. This sets up the April 15 courthouse confrontation.</div>
       <details>
         <summary class="sum-detail">Background: Lauren's prior pattern of conflicts</summary>
           <div class="detail-body">
@@ -781,18 +934,6 @@
       <div class="event-date">April 9, 2025 in the evening</div>
       <div class="event-title">Friend gathering: Lauren says she's been hacked</div>
       <div class="event-body">That night at a gathering of friends, Lauren tells people she's been hacked and being extorted.</div>
-      <details>
-        <summary class="sum-detail">HTC "We were hacked" post</summary>
-          <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1F2U9mu33Cd1_MEClaN2lNUBgbDVo0qPf/preview" width="320" height="240"></iframe>
-          </div>
-      </details>
-      <details>
-        <summary class="sum-detail">Lauren leaves group chat on Messenger</summary>
-          <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1Y8N54A20knaC7HfA9Q222PX3enGzlsWS/preview" width="320" height="240"></iframe>
-          </div>
-      </details>
     </div>
 
     <div class="event pet">
@@ -906,6 +1047,18 @@
         <summary class="sum-detail">Apr 22 email from Christina to Lauren at 7:08 PM</summary>
           <div class="detail-body">
             <iframe src="https://drive.google.com/file/d/1zLIn3v1WpWoSLb7t9O79ew1vkeLc4zdY/preview" width="320" height="240"></iframe>
+          </div>
+      </details>
+    </div>
+
+    <div class="event pet">
+      <div class="event-date">May 1, 2025</div>
+      <div class="event-title">Lauren leaves group chat on Messenger</div>
+      <div class="event-body"></div>
+      <details>
+        <summary class="sum-detail">"I don't come on Messenger much anymore and..."</summary>
+          <div class="detail-body">
+            <iframe src="https://drive.google.com/file/d/1Y8N54A20knaC7HfA9Q222PX3enGzlsWS/preview" width="320" height="240"></iframe>
           </div>
       </details>
     </div>
