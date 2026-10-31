@@ -52,7 +52,7 @@
     --neutral:          #8a8a8a;
     --accent:           #d4cfc8;
     --disputed:         #b3995c;
-    --context:          #996ea7;
+    --ancillary:        #9d9b9e;
     --grad-header:      linear-gradient(160deg, #181818, #0f0f0f);
     --grad-accent:      linear-gradient(to right, #1f4e44, #c16f38);
     --shadow:            0 2px 12px rgba(0,0,0,0.50);
@@ -74,11 +74,11 @@
     --text-body:        #444444;
     --text-dim:         #595959;
     --petitioner:       #9e4817;
-    --respondent:       #3f6b62;
+    --respondent:       #589689;
     --neutral:          #595959;
     --accent:           #333333;
     --disputed:         #bf9d40;
-    --context:          #996ea7;
+    --ancillary:        #6f6e70;
     --grad-header:      linear-gradient(160deg, #f4ede3, #ece5d9);
     --grad-accent:      linear-gradient(to right, #4a8a7c, #C04E01);
     --shadow:            0 2px 12px rgba(0,0,0,0.06);
@@ -120,7 +120,6 @@
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text);
     line-height: 1;
@@ -128,10 +127,11 @@
   }
   .hero .sub {
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.85rem;
+    font-size: 1.3rem;
     color: var(--text-dim);
     transition: color 0.3s ease;
     margin-top: 0.1%;
+    margin-bottom: 0.2%;
     letter-spacing: 0.05em;
   }
   .hero .case-info {
@@ -143,7 +143,7 @@
     font-weight: 600;
   }
   .hero .disclaimer {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     color: var(--disclaimer);
     line-height: 1.6;
     letter-spacing: 0.04em;
@@ -199,7 +199,7 @@
     background: var(--disputed); 
   }
   .legend-dot.context { 
-    background: var(--context); 
+    background: var(--ancillary); 
   }
   /* --- THEME TOGGLE --- */
   .theme-toggle {
@@ -534,11 +534,18 @@
     .here .case-info {
       font-size: 0.65rem; 
     }
+    .hero .disclaimer {
+      font-size: 0.6rem;
+      color: var(--disclaimer);
+      line-height: 1.6;
+      width: 90%;
+      margin: 3% auto;
+  }
     .legend { 
       padding: 0.6rem 0.75rem; 
     }
     .legend-items { 
-      gap: 0.8rem; 
+      gap: 0.6rem; 
     }
     .legend-item { 
       font-size: 0.6rem; 
@@ -577,7 +584,7 @@
       font-size: 0.55rem; 
     }
     .chapter-label { 
-      font-size: 0.6rem;
+      font-size: 0.5rem;
       letter-spacing: 0.04rem;
     }
     .split-side { 
@@ -595,6 +602,21 @@
     color: var(--neutral);
     text-decoration: underline;
   }
+  /* --- EMBED FRAMES --- */
+  .detail-body iframe {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: 420px;
+    border: none;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    background: var(--surface);
+  }
+  .detail-body iframe.tiktok-embed {
+    max-width: 340px;
+    height: 600px;
+  }
 </style>
 </head>
 <body>
@@ -602,21 +624,19 @@
 
 <div class="hero">
   <h1>Matthias v. Reality</h1>
-  <div class="sub">What Really Happened</div>
-  <div class="case-info">
-    Case No. 250404055 ・ Fourth District Court, Utah County
-  </div>
+
   <div class="disclaimer">
-    (currently updating this with links to exhibits and double-checking dates / events)
+    (as of 10/31: updating this with nav links to filings + exhibits<br>
+    &amp; double-checking dates / events / all the things while I'm at it)
   </div>
 </div>
 
 <div class="legend">
   <div class="legend-items">
-    <div class="legend-item"><div class="legend-dot pet"></div> Lauren's side</div>
-    <div class="legend-item"><div class="legend-dot res"></div> Christina's side</div>
-    <div class="legend-item"><div class="legend-dot both"></div> Disputed / both</div>
-    <div class="legend-item"><div class="legend-dot context"></div> Context</div>
+    <div class="legend-item"><div class="legend-dot pet"></div> Lauren</div>
+    <div class="legend-item"><div class="legend-dot res"></div> Christina</div>
+    <div class="legend-item"><div class="legend-dot both"></div> Disputed / Both</div>
+    <div class="legend-item"><div class="legend-dot context"></div> Ancillary</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
 </div>
@@ -646,7 +666,7 @@
       <details>
         <summary class="sum-detail">Off to a very on-brand start....</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1F2U9mu33Cd1_MEClaN2lNUBgbDVo0qPf/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1F2U9mu33Cd1_MEClaN2lNUBgbDVo0qPf/preview"></iframe>
           </div>
       </details>
     </div>
@@ -658,7 +678,7 @@
       <details>
         <summary class="sum-detail">"Tricia Griffith "novel-lectured-texted" me last night"</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/139TxfqsTg_RCRZ4fhIC00-kskB61vnav/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/139TxfqsTg_RCRZ4fhIC00-kskB61vnav/preview"></iframe>
           </div>
       </details>
     </div>
@@ -670,13 +690,13 @@
       <details>
         <summary class="sum-detail">Jamis last reply to Lauren on Twitter on Mar 22</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1rCzYpQ0sWlTuqP3dRS8BuxVSK1TsUrBy/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1rCzYpQ0sWlTuqP3dRS8BuxVSK1TsUrBy/preview"></iframe>
           </div>
       </details>
       <details>
         <summary class="sum-detail">HTC announces Jamis is fighting for his life on Mar 24</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1q0jEPJ0CLbFpno18dcjMYCwO4QDgolhq/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1q0jEPJ0CLbFpno18dcjMYCwO4QDgolhq/preview"></iframe>
           </div>
       </details>
     </div>
@@ -694,7 +714,7 @@
       <details>
         <summary class="sum-detail">"That's just embarrassing for her..."</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1pxCjePace-giAEdpkpkhRSP_596MhCWz/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1pxCjePace-giAEdpkpkhRSP_596MhCWz/preview"></iframe>
           </div>
       </details>
     </div>
@@ -706,7 +726,7 @@
       <details>
         <summary class="sum-detail">Email from Shane Bishop</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1oc9beFClsG6BGP1Tc-9xgbZxm7zUWUVs/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1oc9beFClsG6BGP1Tc-9xgbZxm7zUWUVs/preview"></iframe>
           </div>
       </details>
     </div>
@@ -718,7 +738,7 @@
       <details>
         <summary class="sum-detail">Group chat from Aug 2023</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1qy-5w-d25yc9WA7fXTvR673djYaKe8td/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1qy-5w-d25yc9WA7fXTvR673djYaKe8td/preview"></iframe>
           </div>
       </details>
     </div>
@@ -730,7 +750,7 @@
       <details>
         <summary class="sum-detail">Group chat from Sept 2023</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1U3wJTfgR6JOfFtiCU7ldh6I81e0WpRRf/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1U3wJTfgR6JOfFtiCU7ldh6I81e0WpRRf/preview"></iframe>
           </div>
       </details>
     </div>
@@ -742,7 +762,7 @@
       <details>
         <summary class="sum-detail">iMessage from Jake Blaney on Nov 4th</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1wJ43OmSKzIuobBFylr6grYhs2YD3iEV-/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1wJ43OmSKzIuobBFylr6grYhs2YD3iEV-/preview"></iframe>
           </div>
       </details>
     </div>
@@ -754,7 +774,7 @@
       <details>
         <summary class="sum-detail">The who what why of this one is unclear to me...</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/preview"></iframe>
           </div>
       </details>
     </div>
@@ -766,7 +786,7 @@
       <details>
         <summary class="sum-detail">Lauren's group chat from Dec 2023</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1Z109AepIFaJnsPnKxp-wRL7t6WoF93Vy/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1Z109AepIFaJnsPnKxp-wRL7t6WoF93Vy/preview"></iframe>
           </div>
       </details>
     </div>
@@ -778,8 +798,8 @@
       <details>
         <summary class="sum-detail">Lauren's group chat from Feb 2024</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1_rBTq9bQmtqVVaZzG-J_GZAIN67rS8Y1/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1lwJIBxM_6YoTqXJHe6OFxAt3dSpTCv14/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1_rBTq9bQmtqVVaZzG-J_GZAIN67rS8Y1/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1lwJIBxM_6YoTqXJHe6OFxAt3dSpTCv14/preview"></iframe>
           </div>
       </details>
     </div>
@@ -791,7 +811,7 @@
       <details>
         <summary class="sum-detail">Photo of Lauren and Tom Evans taken by Christina on Apr 2, 2024.</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1BLBVIZMii8kKWMlfmwJ2G0T_X0_pcf_5/preview"  width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1BLBVIZMii8kKWMlfmwJ2G0T_X0_pcf_5/preview" ></iframe>
           </div>
       </details>
       <div class="event-body">Grayson, Lauren’s producer and assistant, briefly overlaps with Christina professionally. That summer, Christina begins creating design work for Lauren’s channel.</div>
@@ -840,7 +860,7 @@
       <details>
         <summary class="sum-detail">Claim filed</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1xiWiz7wtIvytQE6RESOdO1Gffb4xXTLc/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1xiWiz7wtIvytQE6RESOdO1Gffb4xXTLc/preview"></iframe>
           </div>
       </details>
     </div>
@@ -852,7 +872,7 @@
       <details>
         <summary class="sum-detail">FB post that appears to be calling out Lauren</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1PdPV7zCImxOnwkaYiFd81aTqenY4NnGD/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1PdPV7zCImxOnwkaYiFd81aTqenY4NnGD/preview"></iframe>
           </div>
       </details>
     </div>
@@ -897,20 +917,20 @@
       <details>
         <summary class="sum-detail">Lauren's text to Christina @ 9:52 AM</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1fxpJV5nGLOXhW0QXj-ZRo4YuTryj_4CS/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1fxpJV5nGLOXhW0QXj-ZRo4YuTryj_4CS/preview"></iframe>
           </div>
       </details>
       <details>
         <summary class="sum-detail">Christina's text to Lauren @ 2:02 PM</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1wmevwRFcGcfG4l8OcahsFJe1DkVJ2SlE/preview"></iframe>
           </div>
       </details>
       <div class="event-body" style="margin-top:0.5rem">By that evening, Lauren texted Christina threatening legal action. <span class="tag disputed">Both sides agree this happened</span></div>
       <details>
         <summary class="sum-detail">Lauren's text to Christina @ 8:50 PM</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1-huEs_Z4W68nNNtIVF5EylXUXoIS5LGs/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1-huEs_Z4W68nNNtIVF5EylXUXoIS5LGs/preview"></iframe>
           </div>
       </details>
     </div>
@@ -925,7 +945,7 @@
       <details>
         <summary class="sum-detail">C&amp;D from Pace Johnson Law Group</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1P8UCjl6LVXx3hiJXO6TiVGRqKhSWR3Mx/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1P8UCjl6LVXx3hiJXO6TiVGRqKhSWR3Mx/preview"></iframe>
           </div>
       </details>
     </div>
@@ -943,11 +963,11 @@
      <details>
         <summary class="sum-detail">L-I-Z voicemail audio</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1FCcX7dTdmEygoNXoENaIzBin6oVOAS_O/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1FCcX7dTdmEygoNXoENaIzBin6oVOAS_O/preview"></iframe>
           </div>
         <summary class="sum-detail">L-I-Z voicemail transcript</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/13m8Qzy5VFWyatCTyfwu0SPEjFWMnMj0q/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/13m8Qzy5VFWyatCTyfwu0SPEjFWMnMj0q/preview"></iframe>
           </div>
      </details>
     </div>
@@ -959,7 +979,7 @@
       <details>
         <summary class="sum-detail">Christina's Tom and Sarah story</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1YtDtVEgZFTF4itrYI2KV19QMVVo1iHnQ/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1YtDtVEgZFTF4itrYI2KV19QMVVo1iHnQ/preview"></iframe>
           </div>
       </details>
     </div>
@@ -977,7 +997,7 @@
       <details>
         <summary class="sum-detail">Stephanie's email to Lauren's brother</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1Bm2Cjnhdz4WiedwPBv4WWuyeDNlN9Dby/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1Bm2Cjnhdz4WiedwPBv4WWuyeDNlN9Dby/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1002,12 +1022,12 @@
       <details>
         <summary class="sum-detail">Videos in front of the Maricopa Courthouse @ 9:08 AM</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1MFHdKpvwQgxVndS4D_ORK6G5jiOnDbhQ/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1WGyE0jwR0oXjQe-H4gWpb7KFqF7J_Kp6/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1MFHdKpvwQgxVndS4D_ORK6G5jiOnDbhQ/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1WGyE0jwR0oXjQe-H4gWpb7KFqF7J_Kp6/preview"></iframe>
           </div>
           <summary class="sum-detail">Transcript</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1fIBOSzUkOhNu6CuWM05cp3jCgQ08EuRP/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1fIBOSzUkOhNu6CuWM05cp3jCgQ08EuRP/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1025,13 +1045,13 @@
       <details>
         <summary class="sum-detail">11:45 AM: Lauren texts Christina re: Reddit posts about her recycling 10 to Life scripts</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1OW1tXCxErLjdrRZepGAR1MqZ4_tIYOAr/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1OW1tXCxErLjdrRZepGAR1MqZ4_tIYOAr/preview"></iframe>
           </div>
       </details>
       <details>
         <summary class="sum-detail">7:08 PM: Christina emails Lauren to let her know her own mod made the post&mdash;not Christina.</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1zLIn3v1WpWoSLb7t9O79ew1vkeLc4zdY/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1zLIn3v1WpWoSLb7t9O79ew1vkeLc4zdY/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1043,13 +1063,13 @@
       <details>
         <summary class="sum-detail">Lauren emails Christina @ 2:32 PM with batshit bonkers accusations</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1T7Oysv--bxOpWwnCnl_KTu6gJywpjjLp/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1T7Oysv--bxOpWwnCnl_KTu6gJywpjjLp/preview"></iframe>
           </div>
       </details>
       <details>
         <summary class="sum-detail">Lauren and Grayson pose @ 2:58 PM like they aren't scheming</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/10ZJOmuUw0-llm1vILi_cc7YgB_Xb-Rup/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/10ZJOmuUw0-llm1vILi_cc7YgB_Xb-Rup/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1061,7 +1081,7 @@
       <details>
         <summary class="sum-detail">"I don't come on Messenger much anymore and..."</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1Y8N54A20knaC7HfA9Q222PX3enGzlsWS/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1Y8N54A20knaC7HfA9Q222PX3enGzlsWS/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1073,7 +1093,7 @@
       <details>
         <summary class="sum-detail">Meanwhile Lauren tells the group chat: "I just told Larry and Kay via text."</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1DrqWQemo401wnko0xeJl1Hw3S7dIO6YS/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1DrqWQemo401wnko0xeJl1Hw3S7dIO6YS/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1129,7 +1149,7 @@
       <details>
         <summary class="sum-detail">The infamous Proton email</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/112UPkv5NyFuZjfXdZres8cZYU6Ctsh_v/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/112UPkv5NyFuZjfXdZres8cZYU6Ctsh_v/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1189,21 +1209,21 @@
         <summary class="sum-detail">Body cam and phone calls with Officer Boeve on June 19th (click transcripts for video)</summary>
           <summary class="sum-detail">Gigi phone call with Officer Boeve</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1tVSMLphluB_SWiuuOkoIAt_M0IQKCUeu/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1q1XyAIXd0h_vB_9oKHuFIRi1EJHfRMx5/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1tVSMLphluB_SWiuuOkoIAt_M0IQKCUeu/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1q1XyAIXd0h_vB_9oKHuFIRi1EJHfRMx5/preview"></iframe>
           </div>
         <summary class="sum-detail">Stephanie phone call with Officer Boeve</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1JfpOOG7NsFVMLnNaCDY20teaCX5dpuWv/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1I6etWf_KDHMhAs0TAu4cXG3JrAQCfd59/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1JfpOOG7NsFVMLnNaCDY20teaCX5dpuWv/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1I6etWf_KDHMhAs0TAu4cXG3JrAQCfd59/preview"></iframe>
           </div>
         <summary class="sum-detail">Lauren &amp; Grayson body cam vid Part 2</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1GGIHo76qBiOcxsfpXxDlcQGfp5HpzVv3/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1GGIHo76qBiOcxsfpXxDlcQGfp5HpzVv3/preview"></iframe>
           </div>
                 <summary class="sum-detail">Officer Boeve's bonkers police report re: Lauren &amp; Grayson's June 19th shenanigans</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1ci2FRoHbk0pEVvTC7equLWIPZpeFJsjt/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1ci2FRoHbk0pEVvTC7equLWIPZpeFJsjt/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1221,7 +1241,7 @@
       <details>
         <summary class="sum-detail">I want your stories! #redflags #exfriends #empaths #narsissistsurvivor</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7518854167725608205?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7518854167725608205?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1233,7 +1253,7 @@
       <details>
         <summary class="sum-detail">Jun 25 iMessages between Lauren and Mr. Breakfast</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1sD7392B0R-alkiWqBsORMC1QX4zMoNhx/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1sD7392B0R-alkiWqBsORMC1QX4zMoNhx/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1251,12 +1271,12 @@
       <details>
         <summary class="sum-detail">Officer Boeve's body cam of his convo with Christina</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1FF0TypSv-PRxWa8QzTl71cApqRxp-64C/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1xYcAo8MWu797jcRXaxfW_JGityHuXy0O/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1FF0TypSv-PRxWa8QzTl71cApqRxp-64C/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1xYcAo8MWu797jcRXaxfW_JGityHuXy0O/preview"></iframe>
           </div>
         <summary class="sum-detail">Henderson Incident Report HP250703000578</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1ZxjzNTakX7914AVknjS816OaNol6xv_R/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1ZxjzNTakX7914AVknjS816OaNol6xv_R/preview"></iframe>
           </div>
         <details>
         <summary class="sum-detail">Christina's account</summary>
@@ -1280,7 +1300,7 @@
       <details>
         <summary class="sum-detail">POV: You saw the red flags and thought....</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7524036130099055886?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7524036130099055886?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1292,7 +1312,7 @@
       <details>
         <summary class="sum-detail">July 7th iMessages between Lauren and Jawn</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1GHk9wt_xKsztiu0N4nhxkqPcDgf0Vh_b/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1GHk9wt_xKsztiu0N4nhxkqPcDgf0Vh_b/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1304,7 +1324,7 @@
       <details>
         <summary class="sum-detail">MORE RED FLAGS!!</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7524763115506945294?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7524763115506945294?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1316,7 +1336,7 @@
       <details>
         <summary class="sum-detail">POV: A cop can't tell you what law you “broke”</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7525164773965663543?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7525164773965663543?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1328,7 +1348,7 @@
       <details>
         <summary class="sum-detail">POV: gaslit in real time.</summary><span class="tag exhibit">Ex 10</span>
           <div class="detail-body">
-           <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7526334154536013070?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"  allowfullscreen loading="lazy"></iframe>
+           <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7526334154536013070?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"  allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1340,7 +1360,7 @@
       <details>
         <summary class="sum-detail">...but those you care about...you’ll defend them so HARD</summary><span class="tag exhibit">Ex 11</span>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7526606442166488333?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"  allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7526606442166488333?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"  allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1352,7 +1372,7 @@
       <details>
         <summary class="sum-detail">Christina comments "👀👀👀" on HTC's Lauren Matthias Pt. 1 video</summary>
           <div class="detail-body">
-            <iframe width="320" height="240" src="https://www.youtube.com/embed/tAWqHx0wJdE?si=n1J6pvsxxUpA0f4n" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/tAWqHx0wJdE?si=n1J6pvsxxUpA0f4n" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
       </details>
     </div>
@@ -1364,7 +1384,7 @@
       <details>
         <summary class="sum-detail">Felicia emails John Dehlin (Mormon Stories) about Christina's TikTok videos.</summary><span class="tag exhibit">Ex 13</span>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1IwCfHmMmrU19PPu5RqoEuL85KWvChO9t/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1377,7 +1397,7 @@
     <details>
         <summary class="sum-detail">The water’s nice and peaceful in here.</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7528946933109493006?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7528946933109493006?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
   </div>
@@ -1445,7 +1465,7 @@
       <details>
         <summary class="sum-detail">Lauren confronted by Sarah P and Lori D about making false claims and using C&Ds to obstruct people from clearing it up (transcript)</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1C-4XqTofgStM_Qnd-7UzyE_IDuY-3gLO/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1C-4XqTofgStM_Qnd-7UzyE_IDuY-3gLO/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1463,7 +1483,7 @@
       <details>
         <summary class="sum-detail">I literally don’t know what I’d do without her.</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7530798117650697486?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7530798117650697486?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1475,7 +1495,7 @@
       <details>
         <summary class="sum-detail">#hotmic #lawandcrime #truecrime #lorivallow #shady</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7532671673590402334?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7532671673590402334?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1510,7 +1530,7 @@
       <details>
         <summary class="sum-detail">#exfriend #redflags #receipts #truthteller</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7532730242352581902?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7532730242352581902?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1528,7 +1548,7 @@
       <details>
         <summary class="sum-detail">Happy to be hated for the cause.</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7533385629485354253?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7533385629485354253?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1540,7 +1560,7 @@
       <details>
         <summary class="sum-detail">Can someone without a PhD in psychology actually perform forensic evaluations? </summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7535527181913558285?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7535527181913558285?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1552,7 +1572,7 @@
       <details>
         <summary class="sum-detail">Grayson's iMessages with Lauren</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/193wb8CC5gvfbJRauUAvBZkcw0vLWECEy/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/193wb8CC5gvfbJRauUAvBZkcw0vLWECEy/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1564,7 +1584,7 @@
       <details>
         <summary class="sum-detail">#exfriend #unhinged #facts</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7536346343283920183?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7536346343283920183?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1576,7 +1596,7 @@
       <details>
         <summary class="sum-detail">#lovebombing is real. Don’t fall for it!</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7538192026194513207?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7538192026194513207?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1594,7 +1614,7 @@
       <details>
         <summary class="sum-detail">#personalitytype #personalitydisorder #redflags </summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7540435083606363406?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7540435083606363406?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1606,7 +1626,7 @@
       <details>
         <summary class="sum-detail">Email exchange</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1qKxZPOnpbdrfLfagaau1Ue6UzVdmNoUC/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1qKxZPOnpbdrfLfagaau1Ue6UzVdmNoUC/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1618,7 +1638,7 @@
       <details>
         <summary class="sum-detail">#redflag #youtubers #linkedin</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7541532094091005198?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7541532094091005198?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1636,11 +1656,11 @@
       <details>
         <summary class="sum-detail">Declaration of Lauren Matthias</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1gKPrLw8Ca6k-_n-YBgCiQxTUy6lQ-4o-/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1gKPrLw8Ca6k-_n-YBgCiQxTUy6lQ-4o-/preview"></iframe>
           </div>
         <summary class="sum-detail">Declaration of Grayson Yohr</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1xDm8nd993QXjHO2pdDhdwPEYE4WN9pSp/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1xDm8nd993QXjHO2pdDhdwPEYE4WN9pSp/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1652,7 +1672,7 @@
       <details>
         <summary class="sum-detail">#goodfriend #standupforyourself #realfriendship</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7544028738204388622?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7544028738204388622?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1664,7 +1684,7 @@
       <details>
         <summary class="sum-detail">#goodfriend #standupforyourself #realfriendship</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7544028738204388622?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7544028738204388622?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1687,11 +1707,11 @@
       <details>
         <summary class="sum-detail">Baseless Temporary Injunction</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1d4Q5Edu6D09uo6rwMyHs4iZIX_idZG93/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1d4Q5Edu6D09uo6rwMyHs4iZIX_idZG93/preview"></iframe>
           </div>
         <summary class="sum-detail">Email from Bobbi Olson re: Threat to Crime Con vendor</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1GrRXzBd6IkyEdIhk93Vg0c4fU39njPoU/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1703,7 +1723,7 @@
       <details>
         <summary class="sum-detail">Meghan Trainor</summary>
           <div class="detail-body">
-            <iframe height="320" width="240" src="https://www.tiktok.com/player/v1/7546366576375647501?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            <iframe class="tiktok-embed" src="https://www.tiktok.com/player/v1/7546366576375647501?embed_from=webapp_share&music_info=1&description=1&autoplay=1&muted=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
           </div>
       </details>
     </div>
@@ -1716,7 +1736,7 @@
     <details>
         <summary class="sum-detail">Pause to read ♥️</summary>
           <div class="detail-body">
-            <iframe width="320" height="240" src="https://youtube.com/embed/2c_cb4kene0?si=EAyPgNajPphjfyps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/2c_cb4kene0?si=EAyPgNajPphjfyps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
       </details>
   </div>
@@ -1750,17 +1770,17 @@
       <details>
         <summary class="sum-detail">Paul C, a friend of Lauren and Grayson, documented the hotel bar proximity with timestamped smartphone photos at 10:17 PM, estimating Christina was within 20 feet of Lauren.</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1xwmqX8U27pMyHiQb2ciTqKizrM5EhJr_/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1xwmqX8U27pMyHiQb2ciTqKizrM5EhJr_/preview"></iframe>
           </div>
       </details>
       <details>
         <summary class="sum-detail">All 5 body cams from Sept 5th</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/12wyviTt2M-cn9uPveVACC7R1T2wEOusT/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1Px5OStWgTfoN7gBD3z9a8YJ_HoNNhjvT/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1qS4wlbTAePehis-HT6RZhn6KP5mdnrVK/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/11T_BPVV3CHHFCIeMhtUb5QJ0bKMhBkuj/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1LGYfFLRC6dREnxnujXVToO1Xab2rlHQ7/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/12wyviTt2M-cn9uPveVACC7R1T2wEOusT/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1Px5OStWgTfoN7gBD3z9a8YJ_HoNNhjvT/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1qS4wlbTAePehis-HT6RZhn6KP5mdnrVK/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/11T_BPVV3CHHFCIeMhtUb5QJ0bKMhBkuj/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1LGYfFLRC6dREnxnujXVToO1Xab2rlHQ7/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1772,11 +1792,11 @@
     <details>
       <summary class="sum-detail">Metaglasses video</summary>
         <div class="detail-body">
-          <iframe src="https://drive.google.com/file/d/1tHChPedmvALnl_rCmY4kQYF0JtCd0aP7/preview" width="320" height="240"></iframe>
+          <iframe data-src="https://drive.google.com/file/d/1tHChPedmvALnl_rCmY4kQYF0JtCd0aP7/preview"></iframe>
         </div>
       <summary class="sum-detail">Metaglasses video transcript</summary>
         <div class="detail-body">
-          <iframe src="https://drive.google.com/file/d/1aPzxdMGeDZcOHuNJbMrMpo6ZisRLDEfX/preview" width="320" height="240"></iframe>
+          <iframe data-src="https://drive.google.com/file/d/1aPzxdMGeDZcOHuNJbMrMpo6ZisRLDEfX/preview"></iframe>
         </div>
     </details>
     </div>
@@ -1799,7 +1819,7 @@
     <details>
       <summary class="sum-detail">Posts screenshot by Grayson</summary>
         <div class="detail-body">
-          <iframe src="https://drive.google.com/file/d/1mbjm0XRbs34upgDv_U11ar9ImmCJCGSp/preview" width="320" height="240"></iframe>
+          <iframe data-src="https://drive.google.com/file/d/1mbjm0XRbs34upgDv_U11ar9ImmCJCGSp/preview"></iframe>
         </div>
     </details>
     </div>
@@ -1811,7 +1831,7 @@
       <details>
         <summary class="sum-detail">Filing</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/15h01W4D9uhZYJz7xv3iRV4-B0joVxbP5/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/15h01W4D9uhZYJz7xv3iRV4-B0joVxbP5/preview"></iframe>
           </div>
     </details>
     </div>
@@ -1823,7 +1843,7 @@
       <details>
         <summary class="sum-detail">Filing</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1zUq3iPUNG5o0vVpgUuGOCjc5p44IX8Xm/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1zUq3iPUNG5o0vVpgUuGOCjc5p44IX8Xm/preview"></iframe>
           </div>
     </details>
     </div>
@@ -1835,11 +1855,11 @@
       <details>
         <summary class="sum-detail">Enforcement Motion</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1ghcK7dWANUmMl-IJ4H25y6G-0K0dSu8_/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1ghcK7dWANUmMl-IJ4H25y6G-0K0dSu8_/preview"></iframe>
           </div>
         <summary class="sum-detail">Christina's Memo in Opposition and Prehearing Brief</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1Ts_jXtOGxfgvD3q1ZWTsgkZw7Hinxoqi/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1Ts_jXtOGxfgvD3q1ZWTsgkZw7Hinxoqi/preview"></iframe>
           </div>
     </details>
     </div>
@@ -1851,31 +1871,31 @@
       <details>
         <summary class="sum-detail">Declaration of Jawn</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1XSXE7H_8jHDZfltWP1T3mjM2we1Vaqtd/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1XSXE7H_8jHDZfltWP1T3mjM2we1Vaqtd/preview"></iframe>
           </div>
           <summary class="sum-detail">2nd Declaration of Grayson</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1W4FvKeT7pvP5fUEBe2NUSPdKuUewpExG/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1W4FvKeT7pvP5fUEBe2NUSPdKuUewpExG/preview"></iframe>
           </div>
         <summary class="sum-detail">Declaration of Sarah N</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1tIKfd2ugfMb7mCsNbT0llYWCs_h2edLi/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1tIKfd2ugfMb7mCsNbT0llYWCs_h2edLi/preview"></iframe>
           </div>
         <summary class="sum-detail">Declaration of Susan Hendricks</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1ciOo-96Djx8CGgE37s4_OGFvtdOp0oeI/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1ciOo-96Djx8CGgE37s4_OGFvtdOp0oeI/preview"></iframe>
           </div>
         <summary class="sum-detail">Declaration of Janeese S</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1qfV7BXqPSPoMGMqdIXSkDXN4n7aQyLA3/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1qfV7BXqPSPoMGMqdIXSkDXN4n7aQyLA3/preview"></iframe>
           </div>
         <summary class="sum-detail">Declaration of Lindzie H</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1rBXn-4m4m0S7PeNcuIFPko1EIU7eeyxC/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1rBXn-4m4m0S7PeNcuIFPko1EIU7eeyxC/preview"></iframe>
           </div>
         <summary class="sum-detail">Declaration of Lori D</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1ylnKKku02Rzk2dKyhOr9jgC37Y6y3KDH/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1ylnKKku02Rzk2dKyhOr9jgC37Y6y3KDH/preview"></iframe>
           </div>
     </details>
     </div>
@@ -1887,11 +1907,11 @@
       <details>
         <summary class="sum-detail">Third Declaration of Lauren Matthias</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1cK1liz2oElMOlb_0F475ytixaUiHThpL/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1cK1liz2oElMOlb_0F475ytixaUiHThpL/preview"></iframe>
           </div>
         <summary class="sum-detail">Reply Memo in Support of Lauren's Lies</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/12wfumLVSEUYCA2zIFe7ZtOv4RO5nnHs1/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/12wfumLVSEUYCA2zIFe7ZtOv4RO5nnHs1/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1903,12 +1923,12 @@
       <details>
         <summary class="sum-detail">Hearing audio &amp; transcript</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1VNmVg0s0DpZ3Ra1ymDlEaqx9ZntYqlOL/preview" width="320" height="240"></iframe>
-            <iframe src="https://drive.google.com/file/d/1i9aBlIgCheVr4rwgao86rZarkngN7_VZ/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1VNmVg0s0DpZ3Ra1ymDlEaqx9ZntYqlOL/preview"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1i9aBlIgCheVr4rwgao86rZarkngN7_VZ/preview"></iframe>
           </div>
         <summary class="sum-detail">Christina's Objection to Declarations Filed by Lauren</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1xSrCkUgM10OQbUQCxtGNYwFlO1yQs7Gu/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1xSrCkUgM10OQbUQCxtGNYwFlO1yQs7Gu/preview"></iframe>
           </div>
       </details>
 
@@ -1919,7 +1939,7 @@
       <details>
         <summary class="sum-detail">Lauren’s Objections to Respondent’s Declarations</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1kV0-8uolwSFl9b6yvj6gMm5RdATrGpJM/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1kV0-8uolwSFl9b6yvj6gMm5RdATrGpJM/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1931,7 +1951,7 @@
       <details>
         <summary class="sum-detail">NextRequest Portal Request</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/16XDcyac-w8-T9FZsM3_YO-zwxZVNiFtz/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1949,19 +1969,19 @@
       <details>
         <summary class="sum-detail">Certificate of Service</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1zkcsBjZW3kCaGY7OlENt3fuJxKwopqRr/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1zkcsBjZW3kCaGY7OlENt3fuJxKwopqRr/preview"></iframe>
           </div>
         <summary class="sum-detail">Objection to Unspecified, Unverified Media Request for Attendance at Evidentiary Hearing and Access to Court Records</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1AA5U3kjuaDH_79nInbvvbdMnRJyz8C_5/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1AA5U3kjuaDH_79nInbvvbdMnRJyz8C_5/preview"></iframe>
           </div>
           <summary class="sum-detail">Request to Submit for Decision Amended Temporary Civil Stalking Injunction</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1su0QIeR_vLFGOuBQsc_UMWYXj6kar4GL/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1su0QIeR_vLFGOuBQsc_UMWYXj6kar4GL/preview"></iframe>
           </div>
         <summary class="sum-detail">Proposed Temporary Civil Stalking Injunction</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1YBTW-BY_29dZcGqZraf5qt0DyUWJJrZg/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1YBTW-BY_29dZcGqZraf5qt0DyUWJJrZg/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1973,7 +1993,7 @@
       <details>
         <summary class="sum-detail">Motion to Continue</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1nBAdh3VXrl61WXZPAKT2ZRmNKIqyX0Mi/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1nBAdh3VXrl61WXZPAKT2ZRmNKIqyX0Mi/preview"></iframe>
           </div>
       </details>
     </div>
@@ -1985,11 +2005,11 @@
       <details>
         <summary class="sum-detail">Motion to Continue Evidentiary Hearing</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1RsTVFSg9E6TCLYX-utlxKmO-yG0Mjz6n/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1RsTVFSg9E6TCLYX-utlxKmO-yG0Mjz6n/preview"></iframe>
           </div>
         <summary class="sum-detail">Order on Motion to Continue</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/12VgCExENrYJ4HbcVWUrN6GDuzqSbMC4S/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/12VgCExENrYJ4HbcVWUrN6GDuzqSbMC4S/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2017,7 +2037,7 @@
       <details>
         <summary class="sum-detail">Email to Mr. Breakfast</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1WTfnRwBc40x4iDsAN0btm506Mv783iVc/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1WTfnRwBc40x4iDsAN0btm506Mv783iVc/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2029,11 +2049,11 @@
       <details>
         <summary class="sum-detail">Screenshots of Lori's comments</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1FxN1gOndgLS1uaGUO8pcfas4EBKPNMI_/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1FxN1gOndgLS1uaGUO8pcfas4EBKPNMI_/preview"></iframe>
           </div>
         <summary class="sum-detail">Christina's Reply</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1OgvRC5FsSqpiOLXN5u1GAcZb_VSitIRl/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1OgvRC5FsSqpiOLXN5u1GAcZb_VSitIRl/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2045,11 +2065,11 @@
       <details>
         <summary class="sum-detail">Screenshots of Lori's comments</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1kCaSsEgRx96IfnAC1eTzNYUVGayGEQFN/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1kCaSsEgRx96IfnAC1eTzNYUVGayGEQFN/preview"></iframe>
           </div>
         <summary class="sum-detail">CAD sheet</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/12kUfjGN-m8gLwpWex5Rk4EjNSMBXE11h/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/12kUfjGN-m8gLwpWex5Rk4EjNSMBXE11h/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2061,7 +2081,7 @@
       <details>
         <summary class="sum-detail">HTC strikes Kresha</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1vLLjtjkmkZOsuejx9y3FzIszh_370bme/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1vLLjtjkmkZOsuejx9y3FzIszh_370bme/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2102,7 +2122,7 @@
       <details>
         <summary class="sum-detail">Bonkerz letter to Christina’s husband and mom</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1M52nULY-AaQ_kn2T68pdV2ztwQ9czqZY/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1M52nULY-AaQ_kn2T68pdV2ztwQ9czqZY/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2114,7 +2134,7 @@
       <details>
         <summary class="sum-detail">Letter</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1C7APUUfgMZ_man7516flXDqRhz97bf63/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1C7APUUfgMZ_man7516flXDqRhz97bf63/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2126,7 +2146,7 @@
       <details>
         <summary class="sum-detail">Reddit post</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1Ln4KRiMmIo7jT_wAY5Ay7tBwUpU_Cz29/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1Ln4KRiMmIo7jT_wAY5Ay7tBwUpU_Cz29/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2138,7 +2158,7 @@
       <details>
         <summary class="sum-detail">Subreddit archive</summary>
           <div class="detail-body">
-            <iframe src="https://drive.google.com/file/d/1ckvYTo41vfbF1RqNE6oiSzv6uu-pADr8/preview" width="320" height="240"></iframe>
+            <iframe data-src="https://drive.google.com/file/d/1ckvYTo41vfbF1RqNE6oiSzv6uu-pADr8/preview"></iframe>
           </div>
       </details>
     </div>
@@ -2181,7 +2201,7 @@
       <details>
         <summary class="sum-detail">Expungement Presser</summary>
         <div class="detail-body">
-          <iframe src="https://drive.google.com/file/d/1G6f_coLPKTFsuUAMwDi-2Za1GsW-N2ek/preview" width="320" height="240"></iframe>
+          <iframe data-src="https://drive.google.com/file/d/1G6f_coLPKTFsuUAMwDi-2Za1GsW-N2ek/preview"></iframe>
         </div>
       </details>
     </div>
@@ -2286,5 +2306,18 @@
   chapters.forEach(ch => observer.observe(ch));
 </script>
 
+<script>
+  document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open) {
+        det.querySelectorAll('iframe[data-src]').forEach(function(f) {
+          if (!f.src || f.src === window.location.href) {
+            f.src = f.getAttribute('data-src');
+          }
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>
