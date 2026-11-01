@@ -59,7 +59,7 @@
     :root {
       --p-white:   #F5F5F5;
       --p-cream:   #ebe2cd;
-      --p-rust:    #C04E01;
+      --p-rust:    rgb(224,164,129);
       --p-silver:  #D8DADB;
       --p-teal:    #12403C;
       --p-navy:    #060B14;
@@ -73,9 +73,9 @@
       --text-label:     #ebe2cd;
       --text-muted:     rgba(216, 218, 219, 0.50);
 
-      --accent:         #C04E01;
-      --accent-dim:     rgba(192, 78, 1, 0.10);
-      --accent-border:  rgba(192, 78, 1, 0.55);
+      --accent:         rgb(224,164,129);
+      --accent-dim:     rgba(224,164,129,0.10);
+      --accent-border:  rgba(224,164,129,0.55);
 
       --border-mid:     rgba(244, 229, 196, 0.10);
       --border-strong:  rgba(244, 229, 196, 0.26);
@@ -83,9 +83,9 @@
 
       --grad-dark:   linear-gradient(160deg, #060B14 0%, #12403C 100%);
       --grad-g01:    linear-gradient(to bottom, #F5F5F5, #F4E5C4);
-      --grad-g03:    linear-gradient(to right, #D8DADB, #C04E01);
+      --grad-g03:    linear-gradient(to right, #D8DADB, rgb(224,164,129));
       --grad-teal:   linear-gradient(to bottom, #F5F5F5, #12403C);
-      --grad-spine:  linear-gradient(to bottom, #F5F5F5, #F4E5C4, #D8DADB, #C04E01);
+      --grad-spine:  linear-gradient(to bottom, #F5F5F5, #F4E5C4, #D8DADB, rgb(224,164,129));
     }
 
     /* ─── RESET & BASE ─── */
@@ -627,7 +627,7 @@
       position: absolute;
       left: -3px; top: -1px; bottom: -1px;
       width: 3px;
-      background: linear-gradient(to bottom, #D8DADB, #C04E01);
+      background: linear-gradient(to bottom, #D8DADB, rgb(224,164,129));
       border-radius: 10px 0 0 10px;
       pointer-events: none;
     }
@@ -880,7 +880,7 @@
       transform: translateY(-50%);
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: linear-gradient(to bottom, #F5F5F5, #F4E5C4, #D8DADB, #C04E01);
+      background: linear-gradient(to bottom, #F5F5F5, #F4E5C4, #D8DADB, rgb(224,164,129));
       border: 2px solid var(--surface-base);
     }
     .tl-item::after {
@@ -953,7 +953,7 @@
       position: absolute;
       left: -3px; top: 0; bottom: 0;
       width: 3px;
-      background: linear-gradient(to bottom, #D8DADB, #C04E01);
+      background: linear-gradient(to bottom, #D8DADB, rgb(224,164,129));
       border-radius: 6px 0 0 6px;
       pointer-events: none;
     }

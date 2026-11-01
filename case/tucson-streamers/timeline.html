@@ -47,14 +47,14 @@
       --border2:          rgba(244,229,196,0.26);
       --border-subtle:    rgba(18,64,60,0.45);
       /* ── Case Colors — customize per case ── */
-      --c-primary:        #C04E01;
+      --c-primary:        rgb(224,164,129);
       --c-secondary:      #D8DADB;
       --c-accent:         #ebe2cd;
       --c-teal:           #4a8a7c;
       --c-red:            #E63946;
       /* ── Borders ── */
-      --c-primary-dim:    rgba(192,78,1,0.10);
-      --c-primary-border: rgba(192,78,1,0.55);
+      --c-primary-dim:    rgba(224,164,129,0.10);
+      --c-primary-border: rgba(224,164,129,0.55);
       /* ── Font colors ── */
       --text:             #F5F5F5;
       --text2:            #D8DADB;
@@ -62,7 +62,7 @@
       --muted:            rgba(216,218,219,0.50);
       /* ── Cards and gradients ── */
       --card-bg:          rgba(6,11,20,0.45);
-      --grad-g03:         linear-gradient(to right, #D8DADB, #C04E01);
+      --grad-g03:         linear-gradient(to right, #D8DADB, rgb(224,164,129));
       --grad-teal:        linear-gradient(to bottom, #F5F5F5, #12403C);
       /* ── Fonts ── */
       --mono:             'IBM Plex Mono', monospace;
@@ -1038,7 +1038,7 @@ var FOCUS_POINTS = {
 
 // Per-person marker colors
 var COLORS = {
-  streamer: '#C04E01',     // orange: streamers/subjects
+  streamer: 'rgb(224,164,129)',     // orange: streamers/subjects
   sheriff: '#D8DADB',       // light gray: law enforcement
   county: '#ebe2cd',        // cream: county officials
 };
@@ -1113,7 +1113,7 @@ function initMap() {
   // Nancy's house marker (persistent for steps 0-21)
   nancyHouseLayer = L.featureGroup();
   var nancyMarker = L.circleMarker(NANCY_COORDS, {
-    radius: 5, fillColor: '#C04E01', color: '#C04E01',
+    radius: 5, fillColor: 'rgb(224,164,129)', color: 'rgb(224,164,129)',
     weight: 2, opacity: 0.9, fillOpacity: 0.6
   });
   nancyMarker.bindPopup('<b>Nancy Guthrie</b><br/>Residence', { className: 'ev-tip', closeButton: false });
@@ -1156,11 +1156,11 @@ function initMap() {
 
   L.geoJSON(oneWayGeoJSON, {
     style: function(feature) {
-      return {color: '#C04E01', weight: 3, opacity: 0.8};
+      return {color: 'rgb(224,164,129)', weight: 3, opacity: 0.8};
     },
     pointToLayer: function(feature, latlng) {
       var arrowIcon = L.divIcon({
-        html: '<svg width="40" height="40" viewBox="0 0 40 40" style="filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.8));"><path d="M8 32 L32 8 M32 8 L32 24 M32 8 L16 8" stroke="#C04E01" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        html: '<svg width="40" height="40" viewBox="0 0 40 40" style="filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.8));"><path d="M8 32 L32 8 M32 8 L32 24 M32 8 L16 8" stroke="rgb(224,164,129)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         iconSize: [20, 20],
         iconAnchor: [20, 40],
         className: 'arrow-marker'

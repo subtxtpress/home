@@ -41,9 +41,9 @@
       --border2: rgba(244,229,196,0.26);
       --border-subtle: rgba(18,64,60,0.45);
 
-      --red: #C04E01;
-      --red-dim: rgba(192,78,1,0.10);
-      --red-border: rgba(192,78,1,0.55);
+      --red: rgb(224,164,129);
+      --red-dim: rgba(224,164,129,0.10);
+      --red-border: rgba(224,164,129,0.55);
       --amber: #ebe2cd;
       --amber-dim: rgba(235,226,205,0.10);
       --blue: #D8DADB;
@@ -57,7 +57,7 @@
       --muted: rgba(216,218,219,0.50);
 
       --card-bg: rgba(6,11,20,0.45);
-      --grad-g03: linear-gradient(to right, #D8DADB, #C04E01);
+      --grad-g03: linear-gradient(to right, #D8DADB, rgb(224,164,129));
       --grad-teal: linear-gradient(to bottom, #F5F5F5, #12403C);
 
       --mono: 'IBM Plex Mono', monospace;
@@ -523,7 +523,7 @@
   <div class="map-legend" id="map-legend">
     <div class="map-legend-title">Legend</div>
     <div class="map-legend-row">
-      <div class="map-legend-dot" style="background:#C04E01"></div>
+      <div class="map-legend-dot" style="background:rgb(224,164,129)"></div>
       <span class="map-legend-label">Incident Locations</span>
     </div>
     <div class="map-legend-row">
@@ -569,7 +569,7 @@
      LAYER CONFIG
   ════════════════════════════════════════════════════════════════════════ */
   const LAYERS = [
-    { key: 'incident',  label: 'Incident Locations',    color: '#C04E01', on: true },
+    { key: 'incident',  label: 'Incident Locations',    color: 'rgb(224,164,129)', on: true },
     { key: 'medical',   label: 'Medical & Response',     color: '#D8DADB', on: false },
     { key: 'travel',    label: 'Travel & Flight Route',  color: '#4a8a7c', on: false },
     { key: 'phone',     label: 'Phone Activity',         color: '#ebe2cd', on: false },
@@ -596,9 +596,9 @@
   ════════════════════════════════════════════════════════════════════════ */
   const layerMarkerData = {
     incident: [
-      { name: 'ALL SEASON RIVER INN', coords: [47.5595, -120.6981], color: '#C04E01',
+      { name: 'ALL SEASON RIVER INN', coords: [47.5595, -120.6981], color: 'rgb(224,164,129)',
         desc: '<b>Crime Scene</b><br/>8751 Icicle Rd, Leavenworth, WA<br/>Dec 24, 2025 — Assault location' },
-      { name: 'SHENANDOAH ROOM', coords: [47.5596, -120.6978], color: '#C04E01',
+      { name: 'SHENANDOAH ROOM', coords: [47.5596, -120.6978], color: 'rgb(224,164,129)',
         desc: '<b>Hotel Room</b><br/>Upstairs room where Magnolia\'s belongings were located' },
     ],
     medical: [

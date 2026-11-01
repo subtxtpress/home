@@ -42,7 +42,7 @@
     }
     :root {
       /* Brand palette */
-      --peach:   #E8956A;
+      --peach:   rgb(224,164,129);
       --cream:   #F4EDE3;
       --sand:    #DDD0BC;
       --plum:    #3E2436;
@@ -58,13 +58,13 @@
       --text-label:   #7A5063;
       --text-muted:   rgba(68, 55, 60, 0.45);
       /* Accent */
-      --accent:        #E8956A;
-      --accent-border: rgba(232, 149, 106, 0.40);
+      --accent:        rgb(224,164,129);
+      --accent-border: rgba(224,164,129,0.40);
       /* Borders */
       --border-light:  rgba(221, 208, 188, 0.55);
       --border-mid:    rgba(180, 140, 100, 0.22);
       /* Gradients */
-      --grad-neutral: linear-gradient(to right, #DDD0BC, #E8956A);
+      --grad-neutral: linear-gradient(to right, #DDD0BC, rgb(224,164,129));
     }
     html { 
       scroll-behavior: smooth; 
@@ -87,6 +87,8 @@
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
+      font-weight: 700;
+      padding-left: 0.5%;
     }
     .section-label::after {
       content: '';
@@ -331,7 +333,7 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(232, 149, 106, 0.75);
+      color: rgba(224,164,129,0.75);
       margin-bottom: 9px;
     }
     .cover-head {
@@ -363,7 +365,7 @@
     .card-number {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.16em;
       color: var(--accent);
       flex-shrink: 0;
@@ -377,6 +379,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-weight: 700;
     }
     .card-title {
       font-family: 'Raleway', sans-serif;
@@ -428,7 +431,7 @@
       gap: 6px;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -839,7 +842,7 @@
       <!-- 08 Tricia Griffith Property Records -->
       <div class="project-card" data-aos="fade-up" data-aos-delay="60">
         <div class="card-thumb" data-num="08">
-          <div class="cover-glow" style="background: radial-gradient(circle, #C04E01, transparent);"></div>
+          <div class="cover-glow" style="background: radial-gradient(circle, rgb(224,164,129), transparent);"></div>
           <div class="card-cover">
             <div class="cover-rule"></div>
             <span class="cover-cat">Utah · Property Records · Financial Pattern Analysis</span>

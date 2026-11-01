@@ -4,7 +4,7 @@
 :root {
   --p-white:   #F5F5F5;
   --p-cream:   #ebe2cd;
-  --p-rust:    #C04E01;
+  --p-rust:    #bc5f3a;
   --p-silver:  #D8DADB;
   --p-teal:    #12403C;
   --p-navy:    #060B14;
@@ -18,12 +18,12 @@
   --text2:        #D8DADB;
   --muted:        rgba(216, 218, 219, 0.50);
 
-  --accent:        #C04E01;
-  --accent-dim:    rgba(192, 78, 1, 0.12);
-  --accent-border: rgba(192, 78, 1, 0.45);
+  --accent:        #bc5f3a;
+  --accent-dim:    rgba(188,95,58,0.12);
+  --accent-border: rgba(188,95,58,0.45);
 
   --c-poi:    #9D4EDD;
-  --c-tiera:  #C04E01;
+  --c-tiera:  #bc5f3a;
   --c-evid:   #EBE2CD;
   --c-route:  #4A8A7C;
 
@@ -31,7 +31,7 @@
   --border2:  rgba(244, 229, 196, 0.22);
 
   --grad-dark:  linear-gradient(160deg, #060B14 0%, #0d1a28 100%);
-  --grad-spine: linear-gradient(to bottom, #F5F5F5, #F4E5C4, #D8DADB, #C04E01);
+  --grad-spine: linear-gradient(to bottom, #F5F5F5, #F4E5C4, #D8DADB, #bc5f3a);
 
   --font-head: var(--font-head, 'Barlow Condensed', sans-serif);
   --font-mono: var(--font-mono, 'IBM Plex Mono', monospace);
@@ -63,7 +63,7 @@ html, body {
   position: fixed;
   top: 0; left: 0;
   height: 3px;
-  background: linear-gradient(to right, #D8DADB, #C04E01);
+  background: linear-gradient(to right, #D8DADB, #bc5f3a);
   z-index: 1300;
   width: 0;
   transition: width 0.12s ease-out;
@@ -100,8 +100,8 @@ html, body {
 }
 
 .nav-badge {
-  background: rgba(192, 78, 1, 0.14);
-  border: 1px solid rgba(192, 78, 1, 0.40);
+  background: rgba(188,95,58,0.14);
+  border: 1px solid rgba(188,95,58,0.40);
   color: #d97b4a;
   font-family: var(--font-mono);
   font-size: 10px;
@@ -370,8 +370,8 @@ html, body {
   gap: 7px;
   margin-top: 12px;
   padding: 8px 14px;
-  background: rgba(192, 78, 1, 0.10);
-  border: 1px solid rgba(192, 78, 1, 0.40);
+  background: rgba(188,95,58,0.10);
+  border: 1px solid rgba(188,95,58,0.40);
   border-radius: 4px;
   color: var(--c-tiera);
   font-family: var(--font-mono);
@@ -382,7 +382,7 @@ html, body {
 }
 
 .video-btn:hover {
-  background: rgba(192, 78, 1, 0.20);
+  background: rgba(188,95,58,0.20);
   transform: translateY(-1px);
 }
 
@@ -433,7 +433,7 @@ html, body {
 .leaflet-popup-tip { background: rgba(6, 11, 20, 0.92) !important; }
 
 @keyframes markerPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(192, 78, 1, 0.6); }
+  0%   { box-shadow: 0 0 0 0 rgba(188,95,58,0.6); }
   70%  { box-shadow: 0 0 0 14px transparent; }
   100% { box-shadow: 0 0 0 0 transparent; }
 }
@@ -478,7 +478,7 @@ html, body {
   transition: background 0.15s;
 }
 
-.video-close:hover { background: rgba(192,78,1,0.3); }
+.video-close:hover { background: rgba(188,95,58,0.3); }
 
 .video-filename {
   padding: 10px 16px;
@@ -505,7 +505,7 @@ html, body {
 }
 
 .venue-thumb:hover {
-  border-color: rgba(192, 78, 1, 0.5);
+  border-color: rgba(188,95,58,0.5);
   transform: translateY(-1px);
 }
 

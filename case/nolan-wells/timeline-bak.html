@@ -40,7 +40,7 @@
       --bg: #060B14;
       --text: #F5F5F5;
       --text-muted: #D8DADB;
-      --accent: #C04E01;
+      --accent: rgb(224,164,129);
       --teal: #4a8a7c;
       --mono: 'IBM Plex Mono', monospace;
       --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -124,14 +124,14 @@
       margin: 2px 2px;
     }
     .pill-person {
-      background: rgba(192,78,1,0.15);
-      color: #e8956a;
-      border: 1px solid rgba(192,78,1,0.3);
+      background: rgba(224,164,129,0.15);
+      color: rgb(224,164,129);
+      border: 1px solid rgba(224,164,129,0.3);
     }
     .pill-nolan {
-      background: rgba(232,149,106,0.15);
-      color: #e8956a;
-      border: 1px solid rgba(232,149,106,0.3);
+      background: rgba(224,164,129,0.15);
+      color: rgb(224,164,129);
+      border: 1px solid rgba(224,164,129,0.3);
     }
     .pill-warren {
       background: rgba(74,138,124,0.15);
@@ -1654,7 +1654,7 @@ const locations = {
   bodyFound: {
     lat: 30.242014, lng: -88.778409,
     name: 'Body found @ 8:40 AM',
-    color: '#c04e01', zoom: 14
+    color: 'rgb(224,164,129)', zoom: 14
   },
   warrensHome: {
     lat: 30.347661, lng: -88.558525,
@@ -1674,7 +1674,7 @@ const locations = {
   tritonArrival: {
     lat: 30.243508, lng: -88.777755,
     name: 'Triton arrival @ 11:14 AM',
-    color: '#e8956a', zoom: 13,
+    color: 'rgb(224,164,129)', zoom: 13,
     labelOffset: [140, 12]
   },
   palmBeachIsland: {
@@ -1692,13 +1692,13 @@ const locations = {
   tritonIsland: {
     lat: 30.243156, lng: -88.780664,
     name: 'Triton',
-    color: '#e8956a', zoom: 14,
+    color: 'rgb(224,164,129)', zoom: 14,
     noLabel: true
   },
   tritonDistress: {
     lat: 30.288446, lng: -88.790443,
     name: 'Triton in distress @ 4:31 PM',
-    color: '#c04e01', zoom: 13
+    color: 'rgb(224,164,129)', zoom: 13
   },
   tidelineReturn: {
     lat: 30.433458, lng: -88.848619,
@@ -1714,7 +1714,7 @@ const locations = {
   tritonUnderway: {
     lat: 30.419411, lng: -88.828258,
     name: 'Triton underway @ 6:34 PM',
-    color: '#e8956a', zoom: 13
+    color: 'rgb(224,164,129)', zoom: 13
   },
   fortBayou: {
     lat: 30.419464, lng: -88.827825,
@@ -1725,7 +1725,7 @@ const locations = {
   tritonCardinalLn: {
     lat: 30.42513, lng: -89.136214,
     name: 'Triton trailered to Canal Rd @ 7:47 PM',
-    color: '#e8956a', zoom: 12
+    color: 'rgb(224,164,129)', zoom: 12
   },
   oceanSpringsPD: {
     lat: 30.409167, lng: -88.765086,
@@ -1740,7 +1740,7 @@ const locations = {
   mcdonalds: {
     lat: 30.409531, lng: -88.759083,
     name: "McDonald's",
-    color: '#e8956a', zoom: 15
+    color: 'rgb(224,164,129)', zoom: 15
   },
   privateSearch: {
     lat: 30.25242, lng: -88.717975,
@@ -1756,7 +1756,7 @@ const locations = {
   lakeMarsPier: {
     lat: 30.360766, lng: -88.764184,
     name: 'Lake Mars Pier',
-    color: '#c04e01', zoom: 13
+    color: 'rgb(224,164,129)', zoom: 13
   },
   searchEfforts: {
     lat: 30.237256, lng: -88.6583,
@@ -1781,7 +1781,7 @@ const locations = {
   districtAttorney: {
     lat: 30.3656, lng: -88.5589,
     name: 'District Attorney',
-    color: '#e8956a', zoom: 14
+    color: 'rgb(224,164,129)', zoom: 14
   },
   coastGuard: {
     lat: 30.363558, lng: -89.091075,
@@ -1841,14 +1841,14 @@ const gpsRouteData = [
   // Step 3: Palm Beach → Horn Island @ 9:56 AM — peach
   {
     key: 'r2_palmBeachDepart',
-    color: '#E8956A',
+    color: 'rgb(224,164,129)',
     weight: 2.5,
     coords: [[-88.848695, 30.433511], [-88.85618, 30.42559], [-88.856403, 30.423704], [-88.814899, 30.36401], [-88.777954, 30.243535]]
   },
   // Step 11: Horn Island to distress point @ 4:31 PM — red
   {
     key: 'r3_tritonDistress',
-    color: '#C04E01',
+    color: 'rgb(224,164,129)',
     weight: 2.5,
     coords: [[-88.777755, 30.243508], [-88.790442, 30.288414]]
   },

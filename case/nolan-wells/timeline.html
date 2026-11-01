@@ -39,7 +39,7 @@
       --bg:         #060B14;
       --text:       #F5F5F5;
       --text-muted: #D8DADB;
-      --accent:     #C04E01;
+      --accent:     rgb(224,164,129);
       --teal:       #4a8a7c;
       --mono:       'IBM Plex Mono', monospace;
       --body:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -123,9 +123,9 @@
         margin: 2px 2px; 
     }
     .pill-nolan { 
-        background: rgba(232,149,106,0.15); 
-        color:      #e8956a; 
-        border:     1px solid rgba(232,149,106,0.3); 
+        background: rgba(224,164,129,0.15); 
+        color:      rgb(224,164,129); 
+        border:     1px solid rgba(224,164,129,0.3); 
     }
     .pill-warren { 
         background: rgba(74,138,124,0.15);  
@@ -2418,17 +2418,17 @@ map.getPane('markersPane').style.zIndex = 450;
 
 const locations = {
   hornIsland:        { lat: 30.24235,  lng: -88.776574, name: 'Horn Island',                               color: '#c9956a', zoom: 12 },
-  hornIslandWestTip: { lat: 30.24377,  lng: -88.77715,  name: 'West Tip Horn Island',                      color: '#c04e01', zoom: 14 },
+  hornIslandWestTip: { lat: 30.24377,  lng: -88.77715,  name: 'West Tip Horn Island',                      color: 'rgb(224,164,129)', zoom: 14 },
   droneFlight1:      { lat: 30.24338,  lng: -88.77378,  name: '1st drone launch @ 12:40 PM',          color: '#c9956a', zoom: 14 },
   droneFlight2:      { lat: 30.24090,  lng: -88.76610,  name: '2nd drone launch @ 1:22 PM',           color: '#c9956a', zoom: 14 },
   chimneyStacks:     { lat: 30.23320,  lng: -88.64835,  name: 'Chimney Stacks',         color: '#8fa5d8', zoom: 13 },
   dmr:               { lat: 30.433178, lng: -88.936117, name: 'DMR · Biloxi',   color: '#7ab89c', zoom: 13 },
-  lakeMarsPier:      { lat: 30.360766, lng: -88.764184, name: 'Lake Mars Pier · JCSO Command Post',   color: '#c04e01', zoom: 13 },
+  lakeMarsPier:      { lat: 30.360766, lng: -88.764184, name: 'Lake Mars Pier · JCSO Command Post',   color: 'rgb(224,164,129)', zoom: 13 },
   oceanSpringsPD:    { lat: 30.409167, lng: -88.765086, name: 'Edmiston residence',   color: '#8fa5d8', zoom: 14 },
   jacksonSheriff:    { lat: 30.36545,  lng: -88.558317, name: "Jackson County Sheriff's Dept.",            color: '#7a8fb8', zoom: 13, labelOffset: [70, 24] },
   fortBayou:         { lat: 30.419464, lng: -88.827825, name: 'Fort Bayou',                    color: '#4a8a7c', zoom: 14, labelOffset: [80, 13] },
   tidelineDepart:    { lat: 30.433399, lng: -88.848528, name: 'Tideline departs @ 9:56 AM',  color: '#7ab89c', zoom: 14 },
-  tritonDistress:    { lat: 30.288446, lng: -88.790443, name: 'Triton in tow',              color: '#c04e01', zoom: 13 },
+  tritonDistress:    { lat: 30.288446, lng: -88.790443, name: 'Triton in tow',              color: 'rgb(224,164,129)', zoom: 13 },
   pascagoula:        { lat: 30.3462,   lng: -88.5626,   name: 'Pascagoula, MS',                            color: '#7a8fb8', zoom: 13 },
   coroner:           { lat: 30.379697, lng: -88.529708, name: "Jackson Co. Coroner",           color: '#7a8fb8', zoom: 15 },
   medicalexaminerwashingtoDC: { lat: 38.883664, lng: -77.018392, name: "Medical Examiner · Washington, D.C.", color: '#c9956a', zoom: 14 },
@@ -2453,9 +2453,9 @@ const locations = {
   washingtonDC:      { lat: 38.9072,   lng: -77.0369,   name: 'Washington, D.C. · Independent autopsy', color: '#c9956a', zoom: 10 },
   naacpConference:   { lat: 41.8781,   lng: -87.6298,   name: 'NAACP Convention · Chicago',           color: '#c9956a', zoom: 12 },
   mcdonaldsPascagoula: { lat: 30.364636, lng: -88.547961, name: "McDonald's",             color: '#d4a832', zoom: 14, labelOffset: [48, 28] },
-  nolanHome:         { lat: 30.362294,  lng: -88.735494, name: "Nolan's house",                        color: '#c04e01', zoom: 14 },
+  nolanHome:         { lat: 30.362294,  lng: -88.735494, name: "Nolan's house",                        color: 'rgb(224,164,129)', zoom: 14 },
   wyattHome:         { lat: 30.409419,  lng: -88.785119, name: "Wyatt's house",                        color: '#8b7ba8', zoom: 14 },
-  bodyFound:         { lat: 30.243097,  lng: -88.782886, name: 'Body found @ 8:40 AM',    color: '#c04e01', zoom: 14 },
+  bodyFound:         { lat: 30.243097,  lng: -88.782886, name: 'Body found @ 8:40 AM',    color: 'rgb(224,164,129)', zoom: 14 },
   elcaminoLaunch:    { lat: 30.434558,  lng: -88.846844, name: 'El Camino',      color: '#4a8a7c', zoom: 14, labelOffset: [100, 13] },
   triton:            { lat: 30.243766,  lng: -88.777154, name: 'Triton',     color: '#c8b050', zoom: 16, noLabel: true },
   palmBeach:         { lat: 30.243758,  lng: -88.777433, name: 'Palm Beach', color: '#c9956a', zoom: 16, noLabel: true },
@@ -2502,7 +2502,7 @@ const routeColors = {
   warrenFromMcdonalds:      '#ebe2cd',
   warrenWyattFortBayou:     '#ebe2cd',
   palmBeachElCamino:        '#c0a882',
-  tritonElCamino:           '#E8956A',
+  tritonElCamino:           'rgb(224,164,129)',
   bartTideline:             '#7fc4b9',
   tidelineToHorn:           '#4a8a7c',
   tidelineDistress:         '#4a8a7c',
@@ -2510,15 +2510,15 @@ const routeColors = {
   tidelineWaypoint:         '#4a8a7c',
   tidelineToBart:           '#4a8a7c',
   groupToAva:               '#ebe2cd',
-  tritonDistressPoint:      '#E8956A',
-  tritonTowEnds:            '#E8956A',
-  tritonWaypointElCamino:   '#E8956A',
-  tritonElCaminoWaypoint:   '#E8956A',
-  tritonWaypointFortBayou:  '#E8956A',
-  tritonFortBayouElCamino:  '#E8956A',
-  tritonElCaminoSaintMartin:'#E8956A',
-  tritonSaintMartinFortBayou:'#E8956A',
-  tritonCardinalLane:       '#E8956A',
+  tritonDistressPoint:      'rgb(224,164,129)',
+  tritonTowEnds:            'rgb(224,164,129)',
+  tritonWaypointElCamino:   'rgb(224,164,129)',
+  tritonElCaminoWaypoint:   'rgb(224,164,129)',
+  tritonWaypointFortBayou:  'rgb(224,164,129)',
+  tritonFortBayouElCamino:  'rgb(224,164,129)',
+  tritonElCaminoSaintMartin:'rgb(224,164,129)',
+  tritonSaintMartinFortBayou:'rgb(224,164,129)',
+  tritonCardinalLane:       'rgb(224,164,129)',
   coachToHorn:              '#d4a035',
   gexToHorn:                '#5fa8d3',
   tracestinToHorn:          '#9f75cc',

@@ -37,9 +37,9 @@
   --border:        rgba(244,229,196,0.10);
   --border2:       rgba(244,229,196,0.26);
   --border-subtle: rgba(18,64,60,0.45);
-  --red:           #C04E01;
-  --red-dim:       rgba(192,78,1,0.10);
-  --red-border:    rgba(192,78,1,0.55);
+  --red:           rgb(224,164,129);
+  --red-dim:       rgba(224,164,129,0.10);
+  --red-border:    rgba(224,164,129,0.55);
   --amber:         #ebe2cd;
   --amber-dim:     rgba(235,226,205,0.10);
   --blue:          #D8DADB;
@@ -51,7 +51,7 @@
   --text-label:    #ebe2cd;
   --muted:         rgba(216,218,219,0.50);
   --card-bg:       rgba(6,11,20,0.45);
-  --grad-g03:      linear-gradient(to right, #D8DADB, #C04E01);
+  --grad-g03:      linear-gradient(to right, #D8DADB, rgb(224,164,129));
   --grad-teal:     linear-gradient(to bottom, #F5F5F5, #12403C);
   --mono:          'IBM Plex Mono', 'Courier Prime', monospace;
   --body:          'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -258,7 +258,7 @@ body {
 .sev-critical { 
   background: var(--red-dim); 
   color: var(--red); 
-  border: 1px solid rgba(192,78,1,0.4); 
+  border: 1px solid rgba(224,164,129,0.4); 
 }
 .sev-high { 
   background: var(--amber-dim); 
@@ -332,7 +332,7 @@ body {
   color: var(--text); 
 }
 .compare-text mark {
-  background: rgba(192,78,1,0.18);
+  background: rgba(224,164,129,0.18);
   color: var(--red);
   padding: 0 2px;
   font-style: normal;
@@ -485,7 +485,7 @@ a.source-tag:hover {
   font-weight: 700; 
 }
 .step-btn.flag { 
-  border-color: rgba(192,78,1,0.5); 
+  border-color: rgba(224,164,129,0.5); 
 }
 .step-btn.flag.active { 
   background: var(--red); 
@@ -595,7 +595,7 @@ canvas {
   top: -1px; 
   bottom: -1px;
   width: 3px;
-  background: linear-gradient(to bottom, #D8DADB, #C04E01);
+  background: linear-gradient(to bottom, #D8DADB, rgb(224,164,129));
   border-radius: 6px 0 0 6px;
   pointer-events: none;
 }
@@ -1597,9 +1597,9 @@ canvas {
         <div class="fp-legend">
           <div class="fp-leg-row"><div class="fp-leg-dot" style="background:#ebe2cd"></div> Kelsey position</div>
           <div class="fp-leg-row"><div class="fp-leg-dot" style="background:#D8DADB"></div> Noonan position</div>
-          <div class="fp-leg-row"><div class="fp-leg-dot" style="background:#C04E01"></div> Gun / flag point</div>
+          <div class="fp-leg-row"><div class="fp-leg-dot" style="background:rgb(224,164,129)"></div> Gun / flag point</div>
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:#ebe2cd"></div> Movement path</div>
-          <div class="fp-leg-row"><div class="fp-leg-line" style="background:#C04E01"></div> Line of fire</div>
+          <div class="fp-leg-row"><div class="fp-leg-line" style="background:rgb(224,164,129)"></div> Line of fire</div>
           <div class="fp-leg-row"><div class="fp-leg-dot" style="background:rgba(235,226,205,0.55);width:14px;height:2px;border-radius:0"></div> Coat rack / Chair</div>
           <div class="fp-leg-row"><div class="fp-leg-dot" style="background:rgba(74,138,124,0.85)"></div> Kelsey's account</div>
           <div class="fp-leg-row"><div class="fp-leg-line" style="background:rgba(74,138,124,0.7);border-top:1px dashed rgba(74,138,124,0.7)"></div> Her stated path</div>
@@ -2091,11 +2091,11 @@ const steps = [
       ctx.beginPath(); ctx.strokeStyle='#ebe2cd'; ctx.lineWidth=1.5; ctx.setLineDash([3,3]);
       ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y)); ctx.lineTo(ft(pt3.x),fy(pt3.y)); ctx.stroke(); ctx.setLineDash([]);
       dot(pt3.x, pt3.y, '#ebe2cd', 5);
-      ctx.beginPath(); ctx.strokeStyle='#C04E01'; ctx.lineWidth=1.5; ctx.setLineDash([3,3]);
+      ctx.beginPath(); ctx.strokeStyle='rgb(224,164,129)'; ctx.lineWidth=1.5; ctx.setLineDash([3,3]);
       ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y)); ctx.lineTo(ft(pt15.x),fy(pt15.y)); ctx.stroke(); ctx.setLineDash([]);
-      dot(pt15.x, pt15.y, '#C04E01', 5);
+      dot(pt15.x, pt15.y, 'rgb(224,164,129)', 5);
       lbl('3ft',   pt3.x  + 0.3, pt3.y  - 0.6, '#ebe2cd');
-      lbl('~15ft', pt15.x + 0.3, pt15.y - 0.6, '#C04E01');
+      lbl('~15ft', pt15.x + 0.3, pt15.y - 0.6, 'rgb(224,164,129)');
     }
   },
   {
@@ -2104,13 +2104,13 @@ const steps = [
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
       dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
-      dot(POS.gunBox.x,POS.gunBox.y,'#C04E01',6);
+      dot(POS.gunBox.x,POS.gunBox.y,'rgb(224,164,129)',6);
     },
     lbls:()=>{
       // arrowLine + kelseyStart in lbls so neither persists into S5+
       dot(POS.kelseyStart.x,POS.kelseyStart.y,'#ebe2cd',5);
       arrowLine(POS.kelseyStart.x,POS.kelseyStart.y,POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
-      lbl('← GUN BOX',21.0,0.5,'#C04E01');
+      lbl('← GUN BOX',21.0,0.5,'rgb(224,164,129)');
     }
   },
   {
@@ -2121,7 +2121,7 @@ const steps = [
       dot(POS.kelseyLunge.x,POS.kelseyLunge.y,'#ebe2cd');
     },
     lbls:()=>{
-      lbl('CLICK\n(misfire)',POS.kelseyLunge.x+0.6,POS.kelseyLunge.y-0.9,'#C04E01');
+      lbl('CLICK\n(misfire)',POS.kelseyLunge.x+0.6,POS.kelseyLunge.y-0.9,'rgb(224,164,129)');
       lbl('Noonan draws',POS.noonan.x-0.3,POS.noonan.y+0.7,'#D8DADB','right');
     }
   },
@@ -2147,23 +2147,23 @@ const steps = [
     draw:()=>{
       dot(POS.noonan.x,POS.noonan.y,'#D8DADB');
       dot(POS.kelseyBackpedal.x,POS.kelseyBackpedal.y,'#ebe2cd');
-      ctx.beginPath(); ctx.strokeStyle='#C04E01'; ctx.lineWidth=2.5; ctx.setLineDash([]);
+      ctx.beginPath(); ctx.strokeStyle='rgb(224,164,129)'; ctx.lineWidth=2.5; ctx.setLineDash([]);
       ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y));
       ctx.lineTo(ft(POS.kelseyBackpedal.x),fy(POS.kelseyBackpedal.y)); ctx.stroke();
-      dot(POS.gunFound.x,POS.gunFound.y,'#C04E01',9);
+      dot(POS.gunFound.x,POS.gunFound.y,'rgb(224,164,129)',9);
       ctx.strokeStyle='#F5F5F5'; ctx.lineWidth=1.5;
       ctx.beginPath();
       ctx.moveTo(ft(POS.gunFound.x)-5,fy(POS.gunFound.y)-5);
       ctx.lineTo(ft(POS.gunFound.x)+5,fy(POS.gunFound.y)+5);
       ctx.moveTo(ft(POS.gunFound.x)+5,fy(POS.gunFound.y)-5);
       ctx.lineTo(ft(POS.gunFound.x)-5,fy(POS.gunFound.y)+5); ctx.stroke();
-      ctx.beginPath(); ctx.strokeStyle='rgba(192,78,1,0.35)'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+      ctx.beginPath(); ctx.strokeStyle='rgba(224,164,129,0.35)'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
       ctx.moveTo(ft(POS.noonan.x),fy(POS.noonan.y));
       ctx.lineTo(ft(POS.kelseyBackpedal.x),fy(POS.kelseyBackpedal.y)); ctx.stroke(); ctx.setLineDash([]);
     },
     lbls:()=>{
-      lbl('SHOT (chest)', POS.kelseyBackpedal.x + 0.4, POS.kelseyBackpedal.y - 0.5, '#C04E01');
-      lbl('GUN FOUND\nunder leg', POS.gunFound.x + 0.4, POS.gunFound.y + 0.3, '#C04E01');
+      lbl('SHOT (chest)', POS.kelseyBackpedal.x + 0.4, POS.kelseyBackpedal.y - 0.5, 'rgb(224,164,129)');
+      lbl('GUN FOUND\nunder leg', POS.gunFound.x + 0.4, POS.gunFound.y + 0.3, 'rgb(224,164,129)');
     }
   },
   {
@@ -2173,11 +2173,11 @@ const steps = [
       // Her position when shot
       dot(POS.kelseyBackpedal.x, POS.kelseyBackpedal.y, 'rgba(235,226,205,0.7)');
       // Noonan version: gun pointed TOWARD NOONAN at his hallway position → X marker there
-      ctx.beginPath(); ctx.strokeStyle='#C04E01'; ctx.lineWidth=2; ctx.setLineDash([]);
+      ctx.beginPath(); ctx.strokeStyle='rgb(224,164,129)'; ctx.lineWidth=2; ctx.setLineDash([]);
       ctx.moveTo(ft(POS.kelseyBackpedal.x), fy(POS.kelseyBackpedal.y));
       ctx.lineTo(ft(POS.noonan.x), fy(POS.noonan.y)); ctx.stroke();
       // X at Noonan's position (where gun would land/be if pointed at him)
-      ctx.strokeStyle='#C04E01'; ctx.lineWidth=2;
+      ctx.strokeStyle='rgb(224,164,129)'; ctx.lineWidth=2;
       ctx.beginPath();
       ctx.moveTo(ft(POS.noonan.x)-6, fy(POS.noonan.y)-6);
       ctx.lineTo(ft(POS.noonan.x)+6, fy(POS.noonan.y)+6); ctx.stroke();
@@ -2200,7 +2200,7 @@ const steps = [
     lbls:()=>{
       lbl('KELSEY\nwhen shot', POS.kelseyBackpedal.x - 0.4, POS.kelseyBackpedal.y + 0.8, '#ebe2cd', 'right');
       // Noonan physics label — at Noonan's hallway position
-      lbl('NOONAN:\ngun here?', POS.noonan.x - 0.8, POS.noonan.y - 0.25, '#C04E01', 'right');
+      lbl('NOONAN:\ngun here?', POS.noonan.x - 0.8, POS.noonan.y - 0.25, 'rgb(224,164,129)', 'right');
       // Kelsey label
       lbl('↙ KELSEY: lateral\nfall lands here', POS.gunFound.x + 0.4, POS.gunFound.y - 1.4, 'rgba(74,138,124,1)');
     }

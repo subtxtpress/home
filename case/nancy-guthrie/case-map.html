@@ -1796,8 +1796,8 @@ let originResolved = null; // will be set by geocode, shared with runDriveTime
 
 const ORIGIN_LABEL = L.divIcon({
   html:`<div style="display:flex;align-items:center;gap:4px;">
-    <div style="width:20px;height:20px;background:#fff;border:3px solid #E8956A;border-radius:50%;box-shadow:0 0 14px rgba(232,149,106,.9),0 0 40px rgba(232,149,106,.4);flex-shrink:0;"></div>
-    <div style="background:rgba(0,0,0,.9);color:#fff;font-size:12px;padding:3px 10px;border-radius:3px;white-space:nowrap;font-weight:700;border:1px solid #E8956A;letter-spacing:.3px;">5820 N Camino Escalante</div>
+    <div style="width:20px;height:20px;background:#fff;border:3px solid rgb(224,164,129);border-radius:50%;box-shadow:0 0 14px rgba(224,164,129,.9),0 0 40px rgba(224,164,129,.4);flex-shrink:0;"></div>
+    <div style="background:rgba(0,0,0,.9);color:#fff;font-size:12px;padding:3px 10px;border-radius:3px;white-space:nowrap;font-weight:700;border:1px solid rgb(224,164,129);letter-spacing:.3px;">5820 N Camino Escalante</div>
   </div>`,
   className:'', iconSize:[240,24], iconAnchor:[10,12],
 });
@@ -3701,7 +3701,7 @@ const JAMMER_CONFIG = {
 
   // Center pin — peach color to match MAP button
   L.circleMarker(center, {
-    radius: 5, color: '#fff', fillColor: '#E8956A', fillOpacity: 1, weight: 2,
+    radius: 5, color: '#fff', fillColor: 'rgb(224,164,129)', fillOpacity: 1, weight: 2,
   }).bindPopup(
     `<b>\u{1F4F5} Jammer Origin</b><br>5820 N Camino Escalante<br>`
     + `<small>${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}</small><br>`
