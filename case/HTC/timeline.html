@@ -117,6 +117,9 @@
     border-bottom: 1px solid var(--border);
     background: var(--grad-header);
     transition: background 0.3s ease, border-color 0.3s ease;
+    width: 80%;
+    margin: auto;
+    font-style: italic;
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
@@ -127,7 +130,6 @@
   }
   .hero .sub {
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.3rem;
     color: var(--text-dim);
     transition: color 0.3s ease;
     margin-top: 0.1%;
@@ -135,7 +137,6 @@
     letter-spacing: 0.05em;
   }
   .hero .case-info {
-    font-size: 0.6rem;
     color: var(--text-dim);
     line-height: 1.6;
     letter-spacing: 0.06em;
@@ -143,7 +144,6 @@
     font-weight: 600;
   }
   .hero .disclaimer {
-    font-size: 0.6rem;
     color: var(--disclaimer);
     line-height: 1.6;
     letter-spacing: 0.04em;
@@ -152,6 +152,25 @@
     font-style: italic;
     width: 60%;
     margin: 1% auto;
+    text-align: center;
+  }
+  .intro-body {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.75;
+    transition: color 0.3s ease;
+    text-align: center;
+    padding: 1% 0;
+  }
+  .intro-embed {
+    margin: 0 auto;
+  }
+  .intro-link {
+    color: var(--text-dim);
+  }
+  .intro-link:hover {
+    color: var(--disputed);
+    text-decoration: none;
   }
   /* --- LEGEND --- */
   .legend {
@@ -626,28 +645,6 @@
     max-width: 340px;
     height: 600px;
   }
-  .intro {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .intro-body {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    line-height: 1.75;
-    transition: color 0.3s ease;
-    text-align: center;
-    padding: 1% 0;
-  }
-  .intro-embed {
-    margin: 0 auto;
-  }
-  .intro-link {
-    color: var(--text-dim);
-  }
-  .intro-link:hover {
-    color: var(--disputed);
-    text-decoration: none;
-  }
 </style>
 </head>
 <body>
@@ -656,16 +653,12 @@
 <div class="hero">
   <h1>Matthias v. Reality</h1>
 
-  <div class="disclaimer">
-    (as of 10/31: updating this with nav links to filings + exhibits<br>
-    &amp; double-checking dates / context / all the things while I'm at it)
-  </div>
-</div>
-
-<div class="intro">
+  <div class="intro">
   <div class="intro-body">
     <p>Working timeline of events leading up to the batshit insane civil injunction <a class="intro-link" href="../../dockets/HTC/docket" target="_blank">filed by Lauren Matthias</a>.</p>
   </div>
+</div>
+
 </div>
 
 <div class="legend">
@@ -2376,6 +2369,12 @@
 
         <span class="tag filing">Opposition filed</span> <span class="tag disputed">Claims contradicted by record</span>
       </div>
+      <details>
+        <summary class="sum-detail">Opposition to Petition to Expunge Civil Protective Order on Civil Stalking Injunction</summary>
+        <div class="detail-body">
+          <iframe data-src="https://drive.google.com/file/d/1KtUfoWOoa9-fjQcWuxwgF4iFZeyPi33G/preview"></iframe>
+        </div>
+      </details>
     </div>
 
   </div>
@@ -2383,7 +2382,11 @@
 </div>
 
 <div class="footer">
-  <p style="margin-top:0.75rem"><a href="../../dockets/HTC/docket">Back to the HTC Docket <i class="bi bi-box-arrow-up-right"></i></a></p>
+  <p style="margin-top:0.75rem">
+    <a href="../../dockets/HTC/docket">Back to the HTC Docket <i class="bi bi-box-arrow-up-right"></i></a>
+    &nbsp;&nbsp;·&nbsp;&nbsp;
+    <a href="../../dockets/HTC/legal-analysis">Legal Error Analysis <i class="bi bi-box-arrow-up-right"></i></a>
+  </p>
 </div>
 
 <div style="text-align:center;padding:2rem 1.5rem;margin-top:1rem;border-top:1px solid var(--border);color: var(--text-dim);font-size: 0.70rem;">
