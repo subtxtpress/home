@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Zach Adams | Subtxt Press</title>
+  <meta name="description" content="Court dockets for State of TN v. Zachary Rye Adams. Cases 15-CR-30 and 17-CR-10, Decatur and Hardin County Circuit Courts.">
+  <link rel="canonical" href="https://subtxtpress.github.io/home/dockets/zach-adams/docket">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dockets for State of TN v. Zachary Rye Adams">
+  <meta property="og:description" content="Court dockets for State of TN v. Zachary Rye Adams. Cases 15-CR-30 and 17-CR-10, Decatur and Hardin County Circuit Courts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://subtxtpress.github.io/home/dockets/zach-adams/docket">
+  <meta property="og:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Dockets | Subtxt Press">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dockets for State of TN v. Zachary Rye Adams">
+  <meta name="twitter:description" content="Court dockets for State of TN v. Zachary Rye Adams. Cases 15-CR-30 and 17-CR-10, Decatur and Hardin County Circuit Courts.">
+  <meta name="twitter:image" content="https://subtxtpress.github.io/home/assets/img/landscape.jpg">
+  <meta name="twitter:creator" content="@subtxtpress">
+  <!-- Favicons --> 
+  <link rel="apple-touch-icon" sizes="180x180" href="../../icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../icons/icon-16.png">
+  <link rel="icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="manifest" href="../../icons/site.webmanifest">
+  <!-- Fonts-->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --peach:               rgb(224,164,129);
+      --cream:               #F4EDE3;
+      --sand:                #DDD0BC;
+      --plum:                #3E2436;
+      --carmine:             #7A5063;
+      --ink:                 #241620;
+      --surface-page:        #F4EDE3;
+      --surface-card:        #FFFFFF;
+      --surface-elevated:    #EDE5D8;
+      --text-heading:        #241620;
+      --text-body:           #44373C;
+      --text-label:          #7A5063;
+      --text-muted:          rgba(68, 55, 60, 0.45);
+      --accent:              rgb(224,164,129);
+      --accent-border:       rgba(224,164,129,0.40);
+      --border-light:        rgba(221, 208, 188, 0.55);
+      --border-mid:          rgba(180, 140, 100, 0.22);
+      --grad-neutral:        linear-gradient(to right, #DDD0BC, rgb(224,164,129));
+      --status-open:         #2E7D32;
+      --status-closed:       #B71C1C;
+    }
+    html { 
+      scroll-behavior: smooth; 
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface-page);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.005em;
+      text-transform: uppercase;
+      color: var(--text-label);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding: 10px 13px;
+      font-weight: 700;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-mid);
+    }
+    /* ─── Nav ───────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 5vw;
+      transition: background 0.3s, padding 0.3s, border-color 0.3s, box-shadow 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    .site-nav.scrolled {
+      padding: 14px 5vw;
+      background: rgba(244, 237, 227, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--border-light);
+      box-shadow: 0 1px 12px rgba(36, 22, 32, 0.06);
+    }
+    .nav-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .site-nav.scrolled .nav-brand { 
+      color: var(--ink); 
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px;
+      color: rgba(255,255,255,0.8);
+      margin-left: auto;
+      transition: color 0.3s;
+    }
+    .site-nav.scrolled .nav-toggle { 
+      color: var(--ink); 
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover  { 
+      color: #fff; 
+    }
+    .nav-links a.active { 
+      color: var(--peach); 
+    }
+    .site-nav.scrolled .nav-links a { 
+      color: var(--text-label); 
+    }
+    .site-nav.scrolled .nav-links a:hover { 
+      color: var(--ink); 
+    }
+    .site-nav.scrolled .nav-links a.active { 
+      color: var(--accent); 
+    }
+    /* ─── Masthead ──────────────────────────────────────────── */
+    .masthead {
+      position: relative;
+      height: 80vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .masthead-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 52%;
+    }
+    .masthead::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.52)  0%,
+        rgba(0, 0, 0, 0.18) 45%,
+        rgba(0, 0, 0, 0.38) 100%
+      );
+    }
+    .masthead-text {
+      position: absolute;
+      bottom: 72px;
+      left: 5vw;
+      z-index: 2;
+    }
+    .masthead-kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .masthead-kicker::before {
+      content: '';
+      width: 22px;
+      height: 1.5px;
+      background: var(--peach);
+      flex-shrink: 0;
+    }
+    .masthead-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
+    }
+    /* ─── Content Section ───────────────────────────────────── */
+    .content-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 5vw 88px;
+    }
+    /* ─── Filing Entries ────────────────────────────────────── */
+    .filings {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .filings-header {
+      padding: 15px 25px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+    }
+    .filings-header h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      text-align: left;
+      margin: 0;
+    }
+    .filing {
+      display: flex;
+      gap: 24px;
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .filing-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-label);
+      font-weight: 500;
+      flex-shrink: 0;
+      min-width: 75px;
+      letter-spacing: 0.05em;
+    }
+    .filing-content { 
+      flex: 1; 
+    }
+    .filing:last-child { 
+      border-bottom: none; 
+    }
+    .filing-link {
+      color: var(--carmine);
+      font-weight: 600;
+      text-underline-offset: 2px;
+    }
+    .filing-link:hover { 
+      color: var(--ink); 
+    }
+    .filing-bold {
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .filing-note {
+      margin-top: 8px;
+      padding: 14px 20px;
+      background: var(--surface-elevated);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+    /* ─── Drive Link Card ───────────────────────────────────── */
+    .drive-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .drive-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
+    }
+    .drive-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .drive-card-body { 
+      flex: 1; 
+    }
+    .drive-card-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+    .drive-card-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+    .drive-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s, gap 0.2s;
+      flex-shrink: 0; 
+    }
+    .drive-card-cta:hover { 
+      color: var(--ink); 
+      gap: 10px; 
+    }
+    /* ─── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 24px 5vw;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-social a {
+      color: var(--text-muted);
+      font-size: 15px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover { 
+      color: var(--carmine); 
+    }
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .drive-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+      }
+    }
+    @media (max-width: 720px) {
+      .nav-toggle { 
+        display: block; 
+      }
+      .site-nav, .site-nav.scrolled { 
+        padding: 12px 16px; 
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; 
+        left: 0; 
+        right: 0;
+        flex-direction: column;
+        background: var(--surface-page);
+        border-bottom: 1px solid var(--border-light);
+        padding: 12px 20px 16px;
+        gap: 0;
+        box-shadow: 0 4px 16px rgba(36,22,32,0.08);
+      }
+      .nav-links.open { 
+        display: flex; 
+      }
+      .nav-links li { 
+        padding: 8px 0; 
+        border-bottom: 1px solid var(--border-mid); 
+      }
+      .nav-links li:last-child { 
+        border-bottom: none; 
+      }
+      .nav-links a { 
+        font-size: 10px !important; 
+        letter-spacing: 0.12em !important; 
+        color: var(--text-label) !important; 
+      }
+      .nav-links a.active { 
+        color: var(--accent) !important; 
+      }
+      .nav-links a:hover { 
+        color: var(--ink) !important; 
+      }
+      .masthead-text { 
+        left: 20px; 
+        bottom: 52px; 
+      }
+      .content-section { 
+        padding: 32px 16px 56px; 
+      }
+      .filings-header { 
+        padding: 15px 20px; 
+      }
+      .filing { 
+        padding: 14px 20px; 
+        font-size: 13px; 
+        gap: 16px; 
+      }
+      .filing-date { 
+        font-size: 11px; 
+        min-width: 65px; 
+      }
+      .filing-note { 
+        padding: 12px 16px; 
+        font-size: 12px; 
+      }
+      .section-label { 
+        padding: 10px 13px; 
+      }
+      .drive-card { 
+        padding: 14px; 
+        gap: 12px; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+      }
+      .drive-icon { 
+        width: 32px; 
+        height: 32px; 
+        font-size: 14px; 
+        flex-shrink: 0; 
+      }
+      .drive-card-title { 
+        font-size: 0.9rem; 
+        margin-bottom: 0; 
+      }
+      .drive-card-desc { 
+        font-size: 11px; 
+        line-height: 1.4; 
+      }
+      .drive-card-cta { 
+        font-size: 8px; 
+      }
+      .site-footer { 
+        padding: 24px 20px; 
+      }
+      .case-title-bar { 
+        padding: 14px 20px; 
+      }
+      .case-meta { 
+        padding: 18px 20px; 
+        grid-template-columns: 1fr; 
+      }
+      .case-meta-item { 
+        font-size: 12px; 
+      }
+    }
+    /* ─── Case Header ───────────────────────────────────────── */
+    .case-block {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .case-title-bar {
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .case-title-bar h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+      font-weight: 800;
+      color: var(--text-heading);
+      text-align: left;
+      flex: 1;
+      margin: 0;
+    }
+    .status-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .status-badge.open {
+      background: rgba(46, 125, 50, 0.10);
+      border: 1px solid rgba(46, 125, 50, 0.35);
+      color: var(--status-open);
+    }
+    .status-badge.closed {
+      background: rgba(183, 28, 28, 0.08);
+      border: 1px solid rgba(183, 28, 28, 0.30);
+      color: var(--status-closed);
+    }
+    .case-meta {
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 40px;
+    }
+    .case-meta-item {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .case-meta-item strong {
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .case-meta { 
+        grid-template-columns: 1fr; gap: 8px; 
+      }
+    }
+    /* ─── Collapsible Docket Block ──────────────────────────── */
+    details.case-details {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      transition: box-shadow 0.3s;
+    }
+    details.case-details:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
+    }
+    summary.case-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 15px 25px 15px 16px;
+      background: var(--surface-card);
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+    }
+    summary.case-summary::-webkit-details-marker { 
+      display: none; 
+    }
+    summary.case-summary::before {
+      content: '▼';
+      display: inline-flex;
+      width: 10px;
+      color: var(--accent);
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      margin-right: 5px;
+    }
+    details.case-details[open] > summary.case-summary::before { 
+      transform: rotate(0deg); 
+    }
+    details.case-details:not([open]) > summary.case-summary::before { 
+      transform: rotate(-90deg); 
+    }
+    summary.case-summary h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      flex: 1;
+      margin: 0;
+    }
+    details.case-details .filings {
+      border-radius: 0;
+      border: none;
+      border-top: 1px solid var(--border-light);
+      box-shadow: none;
+      margin-bottom: 0;
+    }
+    details.case-details .filings-header {
+      background: var(--surface-elevated);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" id="siteNav">
+    <a href="../../index" class="nav-brand">Subtxt Press</a>
+    <ul class="nav-links">
+      <li><a href="../../index">Home</a></li>
+      <li><a href="../../policies">Policies</a></li>
+      <li><a href="../cases" class="active">Dockets</a></li>
+      <li><a href="../../case/maps">Case Maps</a></li>
+      <li><a href="../../projects/tools">Projects</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <div class="masthead">
+    <img class="masthead-img" src="../../assets/img/landscape.jpg" alt="Red Rock Canyon">
+    <div class="masthead-text" data-aos="fade-up">
+      <p class="masthead-kicker">Dockets</p>
+      <h1 class="masthead-title">Zach Adams</h1>
+    </div>
+  </div>
+
+  <section class="content-section">
+
+    <!-- ═══════════════════════════════════════════════════
+         15-CR-30 · Decatur County Circuit Court · Original Trial
+         ═══════════════════════════════════════════════════ -->
+
+    <div class="section-label">15-CR-30 · Decatur County Circuit Court · Original Trial</div>
+
+    <!-- W2017-00359-CCA-T10B-CO -->
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>State of TN v. Zachary Rye Adams</h2>
+        <span class="status-badge closed">Closed</span>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Case No.:</strong> W2017-00359-CCA-T10B-CO</div>
+        <div class="case-meta-item"><strong>Trial Court No.:</strong> 15-CR-30</div>
+        <div class="case-meta-item"><strong>Appeal Type:</strong> Interlocutory Appeal (T10B)</div>
+        <div class="case-meta-item"><strong>Trial Court:</strong> Decatur County Circuit Court</div>
+        <div class="case-meta-item"><strong>Disposition:</strong> Recusal of Trial Judge Denied</div>
+        <div class="case-meta-item"><strong>Trial Court Judge:</strong> Charles C. McGinley</div>
+        <div class="case-meta-item"><strong>Decision Date:</strong> 02-28-2017</div>
+        <div class="case-meta-item"><strong>Closed:</strong> 03-24-2017</div>
+        <div class="case-meta-item"><strong>Appellant's Counsel:</strong> Jennifer Lynn Thompson</div>
+        <div class="case-meta-item"><strong>Appellee's Counsel:</strong> Andrew Craig Coulam</div>
+      </div>
+    </div>
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary"><h2>Filings &amp; Activity</h2></summary>
+      <div class="case-details-body">
+        <div class="filings">
+
+          <div class="filing">
+            <div class="filing-date">02-24-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Petition for Recusal Appeal</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">02-27-2017</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/14A0htIB5VjOPgHwvl1O-vT8lqyq2SXzy/view" target="_blank">Notice of Filing</a> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">02-28-2017</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1PGyVsotGsS1q17IbCL39sLzsxjvJkx-1/view" target="_blank">Recusal of Trial Judge Denied</a>. Decision Type: Order.
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">03-02-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Miscellaneous Filing</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">03-03-2017</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1TkCBZg8gv0JROLb_WcMqawTfYYVwV420/view" target="_blank">Order Staying Proceedings Denied</a>.
+                  <div class="filing-note">
+                    This matter came before the Court on the motion of the Appellant to stay trial court proceedings. The Appellant sought an Order from this Court staying proceedings while the Appellant’s appeal of his motion for recusal of the trial court judge is pending. This Court has previously issued an opinion affirming the trial court’s denial of the motion to recuse filed by the Appellant. As such, it is hereby ORDERED that the motion to stay trial court proceedings pending appeal is moot. PER CURIAM.<br>
+                    Judges Signed: ALAN E. GLENN, D. KELLY THOMAS, JR., TIMOTHY L. EASTER.
+                  </div>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">03-24-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Mandate Issued</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">03-24-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Sent</span> to Local Archive.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-09-2026</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Sent</span> to State Archive.
+              </div>
+          </div>
+
+        </div><!-- /.filings -->
+      </div><!-- /.case-details-body -->
+    </details>
+
+    <!-- ═══════════════════════════════════════════════════
+         17-CR-10 · Hardin County Circuit Court · Retrial
+         ═══════════════════════════════════════════════════ -->
+
+    <div class="section-label">17-CR-10 · Hardin County Circuit Court · Retrial</div>
+
+    <!-- W2017-01338-CCA-R10-CD -->
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>State of TN v. Zachary Rye Adams</h2>
+        <span class="status-badge closed">Closed</span>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Case No.:</strong> W2017-01338-CCA-R10-CD</div>
+        <div class="case-meta-item"><strong>Trial Court No.:</strong> 17-CR-10</div>
+        <div class="case-meta-item"><strong>Appeal Type:</strong> TRAP 10 Extraordinary Appeal</div>
+        <div class="case-meta-item"><strong>Trial Court:</strong> Hardin County Circuit Court</div>
+        <div class="case-meta-item"><strong>Disposition:</strong> TRAP 10 Denied</div>
+        <div class="case-meta-item"><strong>Trial Court Judge:</strong> Charles C. McGinley</div>
+        <div class="case-meta-item"><strong>Application Filed:</strong> 07-03-2017</div>
+        <div class="case-meta-item"><strong>Application Disposition:</strong> 07-05-2017</div>
+        <div class="case-meta-item"><strong>Closed:</strong> 08-10-2017</div>
+        <div class="case-meta-item"><strong>Appellant's Counsel:</strong> Jerry Gonzalez</div>
+        <div class="case-meta-item"><strong>Appellee's Counsel:</strong> Leslie E. Price</div>
+      </div>
+    </div>
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary"><h2>Filings &amp; Activity</h2></summary>
+      <div class="case-details-body">
+        <div class="filings">
+
+          <div class="filing">
+            <div class="filing-date">07-03-2017</div>
+            <div class="filing-content">
+              <span class="filing-bold">TRAP 10 Extraordinary Appeal</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-03-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Order Transferring Appeal</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-05-2017</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1R5tgHihsA2udrsBNFsgxHacINMbXesvq/view" target="_blank">Case Dispositional Decision</a>. TRAP 10 Denied.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-10-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Mandate Issued</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-10-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Sent</span> to Local Archive.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-18-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Collections-Invoice (Inmate) Past Due</span>. Criminal Reminder.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-06-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Collections-Invoice (Inmate) Past Due</span>.  Criminal Reminder.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-15-2026</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Sent</span> to State Archive.
+              </div>
+          </div>
+
+        </div><!-- /.filings -->
+      </div><!-- /.case-details-body -->
+    </details>
+
+    <!-- W2017-01365-CCA-R10-CD -->
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>State of TN v. Zachary Rye Adams</h2>
+        <span class="status-badge closed">Closed</span>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Case No.:</strong> W2017-01365-CCA-R10-CD</div>
+        <div class="case-meta-item"><strong>Trial Court No.:</strong> 17-CR-10</div>
+        <div class="case-meta-item"><strong>Appeal Type:</strong> TRAP 10 Extraordinary Appeal</div>
+        <div class="case-meta-item"><strong>Trial Court:</strong> Hardin County Circuit Court</div>
+        <div class="case-meta-item"><strong>Disposition:</strong> TRAP 10 Denied</div>
+        <div class="case-meta-item"><strong>Trial Court Judge:</strong> Charles C. McGinley</div>
+        <div class="case-meta-item"><strong>Application Filed:</strong> 07-06-2017</div>
+        <div class="case-meta-item"><strong>Application Disposition:</strong> 07-07-2017</div>
+        <div class="case-meta-item"><strong>Closed:</strong> 08-10-2017</div>
+        <div class="case-meta-item"><strong>Appellant's Counsel:</strong> Jerry Gonzalez</div>
+        <div class="case-meta-item"><strong>Appellee's Counsel:</strong> Andrew Craig Coulam</div>
+      </div>
+    </div>
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary"><h2>Filings &amp; Activity</h2></summary>
+      <div class="case-details-body">
+        <div class="filings">
+
+          <div class="filing">
+            <div class="filing-date">07-06-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">TRAP 10 Extraordinary Appeal</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-07-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Case Dispositional Decision</span>. TRAP 10 Denied.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-10-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Mandate Issued</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-10-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Sent</span> to Local Archive.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-18-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Collections Invoice (Inmate) Past Due</span>. Criminal Reminder.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-06-2017</div>
+              <div class="filing-content">
+                <span class="filing-bold">Collections Invoice (Inmate) Past Due</span>. Criminal Reminder.
+              </div>  
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-15-2026</div>
+              <div class="filing-content">
+              <span class="filing-bold">Appellate Record Sent</span> to State Archive.
+            </div>
+          </div>
+
+        </div><!-- /.filings -->
+      </div><!-- /.case-details-body -->
+    </details>
+
+    <!-- W2020-01208-CCA-R3-CD -->
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>State of TN v. Zachary Rye Adams</h2>
+        <span class="status-badge closed">Closed</span>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Case No.:</strong> W2020-01208-CCA-R3-CD</div>
+        <div class="case-meta-item"><strong>Trial Court No.:</strong> 17-CR-10</div>
+        <div class="case-meta-item"><strong>Appeal Type:</strong> Direct Appeal (R3)</div>
+        <div class="case-meta-item"><strong>Trial Court:</strong> Hardin County Circuit Court</div>
+        <div class="case-meta-item"><strong>Disposition:</strong> Affirmed</div>
+        <div class="case-meta-item"><strong>Trial Court Judge:</strong> Charles C. McGinley</div>
+        <div class="case-meta-item"><strong>Decision Date:</strong> 09-09-2022</div>
+        <div class="case-meta-item"><strong>Decision Type:</strong> Opinion</div>
+        <div class="case-meta-item"><strong>Panel:</strong> Montgomery Jr., Robert H.; Easter, Timothy L.; Ayers, Jill Bartee</div>
+        <div class="case-meta-item"><strong>Closed:</strong> 12-28-2023</div>
+        <div class="case-meta-item"><strong>Appellant's Counsel:</strong> Jennifer Lynn Thompson</div>
+        <div class="case-meta-item"><strong>Appellee's Counsel:</strong> Ronald L. Coleman</div>
+      </div>
+    </div>
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary"><h2>Filings &amp; Activity</h2></summary>
+      <div class="case-details-body">
+        <div class="filings">
+
+          <div class="filing">
+            <div class="filing-date">09-04-2020</div>
+              <div class="filing-content">
+                Initiating Document. <a class="filing-link" href="https://drive.google.com/file/d/1VcnFFEsSbi9FRPkcDZHSXCUzrUj6Y1CV/view" target="_blank">TRAP 3 Notice of Appeal</a> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-17-2020</div>
+              <div class="filing-content">
+                Notice (Incoming). <span class="filing-bold">Miscellaneous Court Forms</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">12-17-2020</div>
+              <div class="filing-content">
+                Appellate Record. <span class="filing-bold">Original Received</span>.
+              </div>
+          </div> 
+          <div class="filing">
+            <div class="filing-date">04-29-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Defect Noted</span>. (Partially Cured).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">05-28-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Defect Noted</span>. (Cured).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-27-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Defect Noted</span>. (Cured).
+              </div> 
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-18-2021</div>
+              <div class="filing-content">
+                Appellate Record. <span class="filing-bold">Original Filed.</span>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-07-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Notice (Outgoing)</span>. Miscellaneous.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-14-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Motion for Extension to File Brief</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-16-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Order Related to Extension Granted.</span>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">11-02-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellant's Brief</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">11-02-2021</div>
+            <div class="filing-content">
+              Case Status. <span class="filing-bold">APPELLANT BRIEFING COMPLETE</span>.
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">11-02-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Notice (Outgoing)</span>. Miscellaneous.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">12-02-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Motion for Extension to File Brief</span> filed by State of Tennessee (Appellee/Plaintiff).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">12-02-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Checked Out</span> by Andrew Craig Coulam.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">12-07-2021</div>
+              <div class="filing-content">
+                <span class="filing-bold">Order Related to Extension Granted</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">01-31-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Motion for Extension to File Brief</span> filed by State of Tennessee (Appellee/Plaintiff).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">02-02-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Order Related to Extension Granted.</span>
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">03-17-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Motion for Extension to File Brief</span> filed by State of Tennessee (Appellee/Plaintiff).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">03-23-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Order Related to Extension Granted</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-18-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Motion to Exceed Page Limitations</span> filed by State of Tennessee (Appellee/Plaintiff).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-18-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellee's Brief Lodged</span> by State of Tennessee (Appellee/Plaintiff).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-19-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Checked In</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-19-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Order to Exceed Page Limitation Granted</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-19-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellee's Brief</span> filed by State of Tennessee (Appellee/Plaintiff).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-19-2022</div>
+              <div class="filing-content">
+                Case Status. <span class="filing-bold">APPELLEE BRIEFING COMPLETE</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">04-29-2022</div>
+              <div class="filing-content">
+                Docket Activity. <span class="filing-bold">Docketed (Oral Argument)</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">05-03-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Reply Brief</span> filed by Adams, Zachary Rye (Appellant/Defendant).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-07-2022</div>
+              <div class="filing-content">
+                Docket Activity. <span class="filing-bold">Oral Argument Heard</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-08-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Checked Out</span> to Court.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-02-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Checked In</span> from Court.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-09-2022</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1T1euTpSbyeU6pILQo-dfTri5ZGMyq47l/view" target="_blank">Opinion Issued</a>. Conviction Affirmed.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-09-2022</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1FDPb3H9RBu3dUnoVLJ9wnselC0xpM5js/view" target="_blank">Judgement</a> filed.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">11-16-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Mandate Issued</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">11-16-2022</div>
+              <div class="filing-content">
+                <span class="filing-bold">Appellate Record Sent</span> to Local Archive.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">05-22-2023</div>
+              <div class="filing-content">
+                Attorney Fee Claim. <span class="filing-bold">Motion for Additional Attorney's Fees (SCt Rule 13)</span> filed by Thompson, Jennifer Lynn (Attorney).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">06-07-2023</div>
+              <div class="filing-content">
+                <span class="filing-bold">Order Granting Motion for Additional Attorney's Fees (SCt Rule 13)</span>.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-11-2023</div>
+              <div class="filing-content">
+                <span class="filing-bold">Notice (Incoming)</span>. Correspondence Received. Filed by Hardin County Circuit Court (Trial Court Clerk).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-17-2023</div>
+              <div class="filing-content">
+                <span class="filing-bold">Notice (Outgoing)</span> Miscellaneous.
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">12-19-2023</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1xF6qYxnk0eFh2crPyAZpZEeSfmuZysHG/view" target="_blank">Motion to Withdraw Archive Record</a> filed by Bates IV, Douglas Thompson (Post-Mandate Attorney).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">12-28-2023</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1-hPiIJ4PcSDapk2nEBk6cgUB_cpw7H5a/view" target="_blank">Order to Check Out Archive Record Granted</a>.
+                  <div class="filing-note">
+                    Douglas Thompson Bates IV, counsel for the Appellant, has filed a motion to withdraw the archived record in the above-captioned matter. Counsel asserts that the record is necessary to the preparation of the Appellant’s pending post-conviction proceeding. The motion is hereby GRANTED. The Clerk of this Court is directed to provide counsel with an electronic copy of the appellate record. Because it appears that the Appellant is indigent, costs associated with this motion shall be taxed to the State.
+                  </div>
+              </div>
+          </div>  
+          <div class="filing">
+            <div class="filing-date">12-06-2024</div>
+              <div class="filing-content">
+                <span class="filing-bold">Notice (Incoming)</span>. Correspondence Received. Filed by Hardin County Circuit Court (Trial Court Clerk).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-11-2026</div>
+              <div class="filing-content">
+                <span class="filing-bold">Motion to Unseal Record</span> filed by State of Tennessee (Appellee/Plaintiff).
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-14-2026</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1gm_95HotroBf8_UhHtOaQ0kZcYgjsq-A/view" target="_blank">Order Unsealing Record.</a>
+                  <div class="filing-note">
+                    This matter is before the Court upon motion of counsel for the State to withdraw the sealed items included in the archived record in the above-captioned appeal. Counsel states those items are needed for review during an upcoming hearing in the trial court regarding a pending motion the State has filed to enforce the prior orders of the trial court placing those items under seal. Said motion is hereby granted. The Clerk shall permit counsel to withdraw the record, including all sealed items, for a period of thirty days. No part of the original record shall be attached to a pleading, introduced as an exhibit, or otherwise used in a proceeding before any court. Moreover, counsel is not permitted to retain copies of any of the sealed items for his files. Counsel is directed to exercise extraordinary diligence to safeguard the record and to return it at the conclusion of the proceeding in the trial court in the same order and condition as it was when he received it. Costs associated with this order shall be taxed to the State.
+                  </div>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">09-14-2026</div>
+              <div class="filing-content">
+                Appellate Record Archive. <span class="filing-bold"> Record Checked Out</span> by Ronald L. Coleman.
+              </div>
+          </div>
+          <div class="filing"> 
+            <div class="filing-date">09-25-2026</div>
+              <div class="filing-content">
+                Appellate Record Archive. <span class="filing-bold">Record Checked In</span>.
+              </div>
+          </div>
+
+        </div><!-- /.filings -->
+      </div><!-- /.case-details-body -->
+    </details>
+
+    <!-- ═══════════════════════════════════════════════════
+         17CR10PC · Hardin County Circuit Court · Post-Conviction
+         ═══════════════════════════════════════════════════ -->
+
+    <div class="section-label">17CR10PC · Hardin County Circuit Court · Post-Conviction</div>
+
+    <!-- W2026-01106-CCA-R3-PC -->
+    <div class="case-block" data-aos="fade-up">
+      <div class="case-title-bar">
+        <h2>Zachary Rye Adams v. State of TN</h2>
+        <span class="status-badge open">Open</span>
+      </div>
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>CCA Case No.:</strong> W2026-01106-CCA-R3-PC</div>
+        <div class="case-meta-item"><strong>Trial Court No.:</strong> 17CR10PC</div>
+        <div class="case-meta-item"><strong>Appeal Type:</strong> Post-Conviction Appeal (R3)</div>
+        <div class="case-meta-item"><strong>Trial Court:</strong> Hardin County Circuit Court</div>
+        <div class="case-meta-item"><strong>Appeal Filed:</strong> 07-22-2026</div>
+        <div class="case-meta-item"><strong>Trial Court Judge:</strong> J. Brent Bradberry</div>
+        <div class="case-meta-item"><strong>Appellant's Counsel:</strong> Dana McLendon III</div>
+        <div class="case-meta-item"><strong>Appellee's Counsel:</strong> Ronald L. Coleman</div>
+      </div>
+    </div>
+
+    <details class="case-details" data-aos="fade-up">
+      <summary class="case-summary"><h2>Filings &amp; Activity</h2></summary>
+      <div class="case-details-body">
+        <div class="filings">
+
+          <div class="filing">
+            <div class="filing-date">07-17-2026</div><div class="filing-content">
+              <a class="filing-link" href="https://drive.google.com/file/d/1f6l_ksO3LtIddHqV5ShumObKZLiDVQ4X/view" target="_blank">Order Denying Post-Conviction Relief.</a>
+            </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-22-2026</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/16w7TcHGkRw79AZ8M4Mgm5JghoS9gzM5H/view" target="_blank">Initiating Document</a>. TRAP 3 Notice of Appeal Filed by Adams, Zachary Rye (Appellant/Petitioner). <span class="filing-bold">Pending.</span>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">07-27-2026</div>
+              <div class="filing-content">
+                <span class="filing-bold">Notice (Incoming)</span>. Miscellaneous Court Forms filed by Adams, Zachary Rye (Appellant/Petitioner).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-03-2026</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1lwf9QGrd6BLPFEgt2PKninHnIy4Cj_pu/view" target="_blank">Motion-Remand to Trial Court</a> filed by State of Tennessee (Appellee/Respondent).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-04-2026</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1HZmp0llXLNLEreqc_agEw0vCXSSe9M2v/view" target="_blank">Response-to Motion</a> filed by Adams, Zachary Rye (Appellant/Petitioner).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">08-06-2026</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1W4UATMa4Wxt_3DmOsxTytz78DkBv4teH/view" target="_blank">Order Finding Motion Moot</a>.
+                  <div class="filing-note">
+                    The Appellant, Zachary Rye Adams, is appealing the denial of his post-conviction petition. He filed notice of appeal on July 22, 2026. The record has not been filed, but the deadline for doing so has not yet expired. Tenn. R. App. P. 24 and 25.<br>
+                    Currently before the Court is the State’s motion for a limited remand to the trial court so it may “seek a protective order” for “certain information [previously ordered by the trial court] to be sealed or confidential.” In its motion, the State alleges “a third party – who gained access to the unredacted discovery while employed as the appellant’s agent – is posting sealed and confidential information on social media and disseminating it via a podcast.” The Appellant opposes. Counsel for the Appellant asserts “[r]emand is unnecessary because the orders the State needs already exist.” Furthermore, counsel insists they are not responsible for the action of a non-party and that they will continue to abide by the directives of the trial court’s protective orders and the Rules of Professional Conduct.<br>
+                    Generally, and as both parties recognize, the jurisdiction of this Court attaches to the case after notice of appeal is filed. See State v. Peele, 58 S.W.3d 701, 705 (Tenn. 2001). However, this Court has the authority to remand matters to the trial court for consideration in certain situations. See, e.g., Tenn. R. App. P. 18, Advisory Commission Comment [2006] (appellate court not precluded from remanding matter to trial court for indigency determination); Tenn. R. App. P. 24(e) (“Any differences regarding whether the record accurately discloses what occurred in the trial court shall be submitted to and settled by the trial court regardless of whether the record has been transmitted to the appellate court.”); Boutrous v. State, No. M2025-01076-CCA-R3-PC, 2026 WL 1804180 (Tenn. Crim. App. June 23, 2026) (Order, Sep. 11, 2025) (remanding matter to trial court for waiver of counsel determination).<br>
+                    That being said, and despite the fact that notice of appeal is on file from the final order in this post-conviction matter, the trial court has not lost the authority to address concerns regarding any prior order it entered regarding the confidentiality of filings in this post-conviction matter. Thus, a remand, or a stay of proceedings on appeal, is not necessary. The State’s motion is, therefore, denied as moot. This appeal shall now continue in accordance with the Rules of Appellate Procedure. Any subsequent order entered by the trial court on the issue of confidentiality of filings in this case may be included in the appellate record, if necessary.
+                  </div>
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-20-2026</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1geRvKVMbyU3embsagu9kDQ56_gNnVNDA/view" target="_blank">Motion for Extension to File-Statement/Transcript of Evidence</a> filed by Adams, Zachary Rye (Appellant/Petitioner).
+              </div>
+          </div>
+          <div class="filing">
+            <div class="filing-date">10-21-2026</div>
+              <div class="filing-content">
+                <a class="filing-link" href="https://drive.google.com/file/d/1jfwki8iLPKOaI3wW87ijUnHI--cuuKEP/view" target="_blank">Order Related to Extension</a> Granted.
+                  <div class="filing-note">
+                    This matter is before the Court upon the Appellant’s motion for additional time to file the transcript of evidence. The Appellant filed notice of appeal on July 22, 2026, but he did not file the instant motion until October 20, 2026. Tenn. R. App. P. 24(b) (transcript due sixty days after notice of appeal filed). The Appellant is requesting until January 19, 2027, to file the complete transcript with the trial court clerk. He indicates the State is unopposed to a thirty-day extension at this time. And although the Appellant suggests the requested extension is at the behest of the court reporters, he failed to attach to his motion their affidavits attesting to the reasons for that request. Tenn. Ct. Crim. App. R. 8, Comments.<br>
+                    The Court recognizes the extent of the proceedings conducted in this post-conviction matter. The Appellant states a portion of those proceedings have already been transcribed. Upon review, the Court hereby grants the requested extension, in part. Accordingly, the Appellant shall now have until December 18, 2026, to file the complete transcript with the trial court clerk. Thereafter, this matter shall continue to proceed in accordance with the Rules of Appellate Procedure. Tenn. R. App. P. 24 and 25 (record due on appeal forty-five days after transcript filed). Should the Appellant require additional time beyond this deadline, he shall include in his motion the affidavits of the reporters attesting to the reason(s) for the request.
+                  </div>
+              </div>
+          </div>
+
+        </div><!-- /.filings -->
+      </div><!-- /.case-details-body -->
+    </details>
+
+    <!-- Case Map -->
+
+    <a class="drive-card" href="../../case/zach-adams/timeline" data-aos="fade-up" style="text-decoration:none;">
+      <div class="drive-icon"><i class="bi bi-signpost-split"></i></div>
+      <div class="drive-card-body">
+        <h3 class="drive-card-title">Case Timeline</h3>
+        <p class="drive-card-desc">Dual-narrative timeline of the Zach Adams murder case and retrial.</p>
+      </div>
+      <span class="drive-card-cta">View timeline <i class="bi bi-arrow-right"></i></span>
+    </a>
+
+  </section>
+
+  <footer class="site-footer">
+    <span class="footer-brand">Subtxt Press</span>
+    <div class="footer-social">
+      <a href="https://substack.com/@subtxtpress" aria-label="Substack"><i class="bi bi-substack"></i></a>
+      <a href="https://www.youtube.com/@subtxtpress" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      <a href="https://x.com/subtxtpress" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, easing: 'ease-out-quart', once: true, offset: 60 });
+
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.innerHTML = open ? '&#10005;' : '&#9776;';
+    });
+  </script>
+
+</body>
+</html>
