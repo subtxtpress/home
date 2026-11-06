@@ -1384,14 +1384,16 @@
         display: none; 
       }
       .nav-title { 
-        font-size: 12px; 
+        font-size: 12px;
+        text-decoration: underline;
+        color: var(--muted);
+      }
+      .nav-title:hover { 
+        color: var(--text);
       }
       .link-label { 
         margin-left: 4px;
-      }
-      .nav-source-link::after { 
-      
-      }
+        font-size: 11px;
     }
   </style>
 </head>
@@ -1399,9 +1401,9 @@
 <body>
 
   <nav class="nav">
-    <span class="nav-title"><a href="timeline" blank="_blank">TN v. Zach Adams</a></span> 
+    <span class="nav-title"><a href="timeline" target="_blank">TN v. Zach Adams</a></span> 
     <span></span>
-    <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">DB's Google Earth Map ↗</span></a>
+    <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">DB's Map ↗</span></a>
     <a class="nav-source-link" href="../../dockets/zach-adams/docket" target="_blank" rel="noopener"><span class="link-label">TN v. ZA Docket ↗</span></a>
   </nav>
 
