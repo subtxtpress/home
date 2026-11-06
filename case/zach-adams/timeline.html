@@ -40,13 +40,19 @@
       padding: 0; 
     }
     :root {
-      --bg:              #111111;/*#060B14;*/
-      --surface:         #1a1a1a;/*#0D1B2A;*/
-      --border:          rgba(244,229,196,0.10);
-      --border2:         rgba(244,229,196,0.22);
-      --text:            #F5F5F5;
-      --text2:           #D8DADB;
-      --muted:           rgba(216,218,219,1);
+      --bg:              #0f0f0f;/*#060B14;*/
+      --surface:         #181818;/*#0D1B2A;*/
+      --border:          rgba(235, 226, 205, 0.10);
+      --border2:         rgba(235, 226, 205, 0.22);
+      --text:            #e6e4e1;
+      --text2:           #e5dddd;
+      --muted:           #8a8a8a;
+      --accent:          #739e94;
+      --grad-accent:     linear-gradient(to right, #1f4e44, #796B5A);
+      --shadow:           0 2px 12px rgba(0,0,0,0.50);
+      --shadow-hover:     0 8px 28px rgba(0,0,0,0.60);
+      --timeline-track:  rgba(38, 87, 76, 0.35);
+      --yellow:          #b3995c;
       /* Bobo family */
       --c-holly:         #e1985d;
       --c-karen:         #bf8dca;
@@ -195,7 +201,7 @@
       font-weight: 800;
       letter-spacing: 0.05em; 
       margin-left: 1.5%;
-      color: var(--text2);
+      color: var(--neutral);
       flex: 1; 
       white-space: nowrap; 
       overflow: hidden; 
@@ -216,27 +222,43 @@
       margin-left: auto; 
       font-family: var(--mono); 
       font-size: 10px;
-      color: var(--muted); 
+      color: var(--text);  
       text-decoration: none; 
-      letter-spacing: 0.04em;
-      opacity: 0.65; 
+      letter-spacing: 0.02em;
+      opacity: 0.9; 
       margin-right: 1%;
       white-space: nowrap; 
       transition: opacity 0.15s, color 0.15s;
     }
     .nav-source-link:hover { 
       opacity: 1; 
-      color: var(--c-zach); 
+      color: var(--accent); 
+    }
+    .docket-link {
+      margin-left: auto; 
+      font-family: var(--serif); 
+      color: var(--muted);  
+      text-decoration: none; 
+      letter-spacing: 0.02em;
+      opacity: 0.9; 
+      margin-right: 1%;
+      white-space: nowrap; 
+      transition: opacity 0.15s, color 0.15s;
+      text-decoration: underline;
+    }
+    .docket-link:hover { 
+      opacity: 1; 
+      color: var(--neutral); 
     }
     .hover {
-      color: var(--c-zach); 
+      color: var(--accent); 
       font-family: var(--mono); 
       font-size: 12px; 
       letter-spacing: 0.06em;
       text-decoration: underline;
     }
     .hover:hover {
-      color: var(--text2); 
+      color: var(--dim); 
     }
     /* ── PROGRESS BAR ── */
     #progress-bar {
@@ -244,7 +266,7 @@
       top: 0; 
       left: 0; 
       height: 3px;
-      background: var(--c-holly); 
+      background: var(--grad-accent); 
       z-index: 1300;
       width: 0; 
       transition: width 0.15s ease-out;
@@ -371,7 +393,7 @@
       line-height: 1.3;
     }
     .step-title {
-      font-family: var(--head); 
+      font-family: var(--text2); 
       font-size: 22px;
       font-weight: 700; 
       color: var(--text);
@@ -664,7 +686,7 @@
     .scroll-hint {
       font-family: var(--mono); 
       font-size: 11px;
-      color: var(--c-zach); 
+      color: var(--muted); 
       margin-top: 20px;
       letter-spacing: 0.08em; 
       animation: pulse 2s infinite;
@@ -691,8 +713,8 @@
     }
     .title-card .dateline {
       font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.08em; 
+      font-size: 11px;
+      letter-spacing: 0.04em; 
       color: var(--c-orange);
       margin-bottom: 8px; 
       text-transform: uppercase;
@@ -701,9 +723,10 @@
     .act-label {
       font-family: var(--mono);
       font-size: 10px;
-      color: var(--c-holly);
+      color: var(--muted);
       margin-bottom: 8px; 
       text-transform: uppercase;
+      font-weight: 500;
     }
     /* ── LEAFLET OVERRIDES ── */
     .leaflet-control-attribution {
@@ -925,7 +948,7 @@
 
 <!-- Nav -->
 <nav class="nav">
-  <div class="nav-title"><em>Tennessee v. <span style="color:var(--c-zach);">Zachary Adams</span></em></div>
+  <div class="nav-title">TN v. Zach Adams <a class="docket-link" href="../../dockets/zach-adams/docket" target="_blank">Docket</a></div>
   <span class="nav-tag">CASE MAP</span>
   <a class="nav-source-link" href="case-map.html?view=full" target="_blank" rel="noopener">DB's toggle map <span class="arrow">&rarr;</span></a>
 </nav>
@@ -948,8 +971,8 @@
 
   <!-- STEP 0: Title -->
   <div class="step title-card" data-step="0" data-clock="April 13, 2011">
-    <div class="dateline" style="color:var(--c-zach);">Apr. 13, 2011 &mdash; Parsons, TN</div>
-    <div class="first-title">Who Took Holly Bobo?</div>
+    <div class="dateline" style="color:var(--dim);">Apr. 13, 2011 &mdash; Parsons, TN</div>
+    <div class="first-title">Who <span style="color:var(--muted);font-weight:800;">Took </span> Holly Bobo?</div>
     <p>On the morning of April 13, 2011, a 20-year-old nursing student was taken from her home in rural Decatur County, Tennessee, and was never seen alive again.</p>
     <p>This is the geographic story of that morning, told through cell tower pings, phone records, testimony, and physical evidence introduced at the trial of Zachary Adams.</p>
     <p style="opacity:0.7;font-size:10px;font-style:italic;">(This is a <strong>work in progress</strong> being updated as I round up and double check details.)</p>
