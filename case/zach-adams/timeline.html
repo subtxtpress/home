@@ -201,7 +201,7 @@
       font-weight: 800;
       letter-spacing: 0.05em; 
       margin-left: 1.5%;
-      color: var(--neutral);
+      color: var(--muted);
       flex: 1; 
       white-space: nowrap; 
       overflow: hidden; 
@@ -237,7 +237,7 @@
     .docket-link {
       margin-left: auto; 
       font-family: var(--serif); 
-      color: var(--muted);  
+      color: var(--text);  
       text-decoration: none; 
       letter-spacing: 0.02em;
       opacity: 0.9; 
@@ -248,7 +248,7 @@
     }
     .docket-link:hover { 
       opacity: 1; 
-      color: var(--neutral); 
+      color: var(--muted); 
     }
     .hover {
       color: var(--accent); 
@@ -649,9 +649,7 @@
       border-top: 1px dashed rgba(244,229,196,0.10);
     }
     details.loc-details summary {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      display: block;
       font-family: var(--mono);
       font-size: 9px;
       letter-spacing: 0.08em;
@@ -662,21 +660,37 @@
       list-style: none;
       user-select: none;
     }
-    details.loc-details summary::-webkit-details-marker { 
+    details.loc-details summary::-webkit-details-marker {
       display: none; 
     }
     details.loc-details summary::after {
-      content: '▾';
-      font-size: 10px;
+      content: '›';
+      font-family: sans-serif;
+      font-size: 14px;
       transition: transform 0.2s;
       display: inline-block;
     }
     details.loc-details[open] summary::after { 
       transform: rotate(-180deg); 
     }
-    details.loc-details summary:hover { 
-      color: var(--text2); 
+    details.loc-details summary:hover {
+      color: var(--text2);
     }
+    details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before {
+      content: '›';
+      font-family: sans-serif;
+      font-size: 14px;
+      display: inline-block;
+      margin-right: 5px;
+      transition: transform 0.2s;
+      line-height: 1;
+    }
+    details[open] summary::before { transform: rotate(90deg); }
     details.loc-details .step .loc-strip,
     details.loc-details .loc-strip {
       border-top: none;

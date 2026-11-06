@@ -39,13 +39,19 @@
       padding: 0; 
     }
     :root {
-      --bg:       #111111;/*#060B14;*/
-      --surface:  #1a1a1a;/*#0D1B2A;*/
-      --border:   rgba(244,229,196,0.10);
-      --border2:  rgba(244,229,196,0.22);
-      --text:     #F5F5F5;
-      --text2:    #D8DADB;
-      --muted:    rgba(216,218,219,0.50);
+      --bg:              #0f0f0f;/*#060B14;*/
+      --surface:         #181818;/*#0D1B2A;*/
+      --border:          rgba(235, 226, 205, 0.10);
+      --border2:         rgba(235, 226, 205, 0.22);
+      --text:            #e6e4e1;
+      --text2:           #e5dddd;
+      --muted:           #8a8a8a;
+      --accent:          #739e94;
+      --grad-accent:     linear-gradient(to right, #1f4e44, #796B5A);
+      --shadow:           0 2px 12px rgba(0,0,0,0.50);
+      --shadow-hover:     0 8px 28px rgba(0,0,0,0.60);
+      --timeline-track:  rgba(38, 87, 76, 0.35);
+      --yellow:          #b3995c;
       /* Person colors */
       --c-holly:  #F4A261;   /* warm amber/gold — Holly Bobo */
       --c-zach:   #E63946;   /* red — Zach Adams */
@@ -140,7 +146,7 @@
       margin-left: auto; 
       font-family: var(--mono); 
       font-size: 10px;
-      color: var(--text3); 
+      color: var(--text); 
       text-decoration: none; 
       letter-spacing: 0.04em;
       opacity: 0.65; 
@@ -1385,9 +1391,10 @@
 <body>
 
   <nav class="nav">
-    <span class="nav-title"><em>State v. Zachary Adams</em></span>
-    <span class="nav-tag">CASE MAP</span>
-    <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">View DB's Google Earth map ↗</span></a>
+    <span class="nav-title">TN v. Zach Adams</span>
+    <span></span>
+    <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">DB's Google Earth Map ↗</span></a><span></span>
+    <a class="nav-source-link" href="../../dockets/zach-adams/docket" target="_blank" rel="noopener"><span class="link-label">TN v. ZA Docket ↗</span></a>
   </nav>
 
   <!-- Main map canvas -->
@@ -1472,8 +1479,8 @@
     <div class="panel-body" id="panel-body">
       <div class="sec-label" id="bm-label">Basemap</div>
       <div class="basemap-row">
-        <button class="bm-btn" id="bm-dark">Dark</button>
-        <button class="bm-btn active" id="bm-satellite">Satellite</button>
+        <button class="bm-btn active" id="bm-dark">Dark</button>
+        <button class="bm-btn" id="bm-satellite">Satellite</button>
       </div>
       <div class="divider"></div>
       <div id="layer-list"></div>
@@ -1805,7 +1812,7 @@
         attribution: '\u00a9 <a href="https://www.esri.com" target="_blank">Esri</a>, Maxar, Earthstar Geographics' }
     ),
   };
-  let activeBasemap = 'satellite';
+  let activeBasemap = 'dark';
 
   function initBasemapToggle() {
     document.getElementById('bm-dark').addEventListener('click', () => switchBasemap('dark'));
@@ -1831,7 +1838,7 @@
       zoom: 13,
       zoomControl: false,
     });
-    BASEMAPS.satellite.addTo(map);
+    BASEMAPS.dark.addTo(map);
     L.control.zoom({ position: 'bottomright' }).addTo(map);
     connectionLayer = L.layerGroup().addTo(map);
 
