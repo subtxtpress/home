@@ -680,7 +680,9 @@
       list-style: none;
       cursor: pointer;
     }
-    details summary::-webkit-details-marker { display: none; }
+    details summary::-webkit-details-marker { 
+      display: none; 
+    }
     details summary::before {
       content: '›';
       font-family: sans-serif;
@@ -690,7 +692,9 @@
       transition: transform 0.2s;
       line-height: 1;
     }
-    details[open] summary::before { transform: rotate(90deg); }
+    details[open] summary::before { 
+      transform: rotate(90deg); 
+    }
     details.loc-details .step .loc-strip,
     details.loc-details .loc-strip {
       border-top: none;
