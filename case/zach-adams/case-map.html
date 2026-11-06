@@ -1380,20 +1380,21 @@
       }
     }
     @media (max-width: 480px) {
-      .nav-tag { 
-        display: none; 
+      .nav {
+        text-align: center;
+        margin-right: 5%;
       }
       .nav-title { 
         font-size: 12px;
         text-decoration: underline;
         color: var(--muted);
       }
-      .nav-title:hover { 
+      .link-label { 
+        font-size: 11px;
+      }
+      .link-label:hover { 
         color: var(--text);
       }
-      .link-label { 
-        margin-left: 4px;
-        font-size: 11px;
     }
   </style>
 </head>
@@ -1401,8 +1402,7 @@
 <body>
 
   <nav class="nav">
-    <span class="nav-title"><a href="timeline" target="_blank">TN v. Zach Adams</a></span> 
-    <span></span>
+    <a class="nav-source-link" href="timeline" target="_blank" rel="noopener"><span class="link-label">Case Map ↗</span></a>
     <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">DB's Map ↗</span></a>
     <a class="nav-source-link" href="../../dockets/zach-adams/docket" target="_blank" rel="noopener"><span class="link-label">TN v. ZA Docket ↗</span></a>
   </nav>
