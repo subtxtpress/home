@@ -442,10 +442,9 @@
       margin-bottom: 8px; 
     }
     .note-card-body { 
-      font-size: 13px; 
-      line-height: 1.6; 
+      font-size: 12px; 
+      line-height: 1.8; 
       color: var(--text-body); 
-
     }
     .note-card-body p { 
       margin-bottom: 8px; 
@@ -623,36 +622,37 @@
       .filings-header { 
         padding: 15px 20px; 
       }
-      .filing { 
-        padding: 14px 20px; 
-        font-size: 13px; 
-        gap: 16px; 
+      .filing {
+        padding: 14px 20px;
+        font-size: 13px;
+        gap: 16px;
+        flex-wrap: nowrap;
+        align-items: flex-start;
       }
-      .filing-date { 
-        font-size: 11px; 
-        min-width: 65px; 
+      .filing-date {
+        font-size: 11px;
+        min-width: 65px;
+        white-space: nowrap;
       }
-      .filings.numbered .filing { 
-        grid-template-columns: 1fr auto; 
-        grid-template-rows: auto auto; 
-        gap: 4px 8px;
-        padding: 12px 16px; 
-        font-size: 13px; 
+      .filings.numbered .filing {
+        grid-template-columns: 65px 24px 1fr;
+        grid-template-rows: auto;
+        gap: 0 10px;
+        padding: 12px 16px;
+        font-size: 13px;
       }
-      .filing-num { 
-        grid-column: 2; 
-        grid-row: 1; 
-        font-size: 11px; 
-        text-align: right; 
+      .filing-num {
+        font-size: 11px;
+        text-align: right;
       }
-      .filings.numbered .filing-date { 
-        grid-column: 1; 
-        grid-row: 1; 
+      .filings.numbered .filing-date {
+        grid-column: 1;
+        grid-row: 1;
       }
-      .filings.numbered .filing-content { 
-        grid-column: 1 / -1; 
-        grid-row: 2; 
-        padding-top: 2px; 
+      .filings.numbered .filing-content {
+        grid-column: 3;
+        grid-row: 1;
+        padding-top: 0;
       }
       .filing-note {
         font-size: smaller;
@@ -684,6 +684,24 @@
         padding: 24px 20px; 
       }
     }
+    @media (max-width:450px) {
+      .note-card { 
+        padding: 24px 28px; 
+        margin-bottom: 32px; 
+      }
+      .note-card-title { 
+        font-size: 0.75rem; 
+        margin-bottom: 10px; 
+      }
+    .note-card-body { 
+      font-size: 10px; 
+      line-height: 2; 
+      }
+      .note-card-body p { 
+        margin-bottom: 1px; 
+        text-align: justify;
+      }
+    }
   </style>
 </head>
 <body>
@@ -711,7 +729,7 @@
   <section class="content-section">
 
     <div class="note-card" data-aos="fade-up">
-      <h3 class="note-card-title">Note on Case Names and Document Redactions</h3>
+      <h3 class="note-card-title">Case Names and Document Redactions</h3>
       <div class="note-card-body">
         <p>The case name below uses an alias to respect the privacy of individuals Tricia Griffith has involved in these matters. The filings below are redacted for anyone wanting to prevent further undue exposure to the people Tricia dragged into the situation, however, this case and the court filings are public record and the original unredacted court documents can be found on the <a style="font-weight:bold;text-decoration:underline;" class="filing-link" href="https://courtsportal.dallascounty.org/DALLASPROD" target="_blank">Dallas County Probate 3 Court portal</a> by searching case for case number <strong>PR-25-03629-3</strong>.</p>
       </div>
@@ -1134,7 +1152,7 @@
 
           <div class="filing">
             <div class="filing-date">06-09-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1XB2-HOKcDUMyMyqb9tcX2L4NOJFnPTe0/view?usp=drive_link" target="_blank">Dismissed on Agreement of Parties</a>
             </div>
@@ -1142,7 +1160,7 @@
 
           <div class="filing">
             <div class="filing-date">06-08-2015</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/14SHbBa_HL59tGG7LNftBrGZU-6798c4E/view?usp=drive_link" target="_blank">Agreed Motion to Dismiss with Prejudice</a> filed.
             </div>
@@ -1150,7 +1168,7 @@
 
           <div class="filing">
             <div class="filing-date">06-08-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1QkatAF4AFMBwL0IGzKJyqDP9tA_3CQAl/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -1158,7 +1176,7 @@
 
           <div class="filing">
             <div class="filing-date">04-06-2015</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1jv4ypHS0B-CGsfM1dTeD-DNRt7hyu7AC/view?usp=drive_link" target="_blank">Order Signed Resetting Trial</a>
             </div>
@@ -1166,7 +1184,7 @@
 
           <div class="filing">
             <div class="filing-date">02-23-2015</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1Vz0EyG7wmjjcGoNIlnDKSJgalj9UG1vq/view?usp=drive_link" target="_blank">Griffith Sur-Reply to Pruitt's Untimely Demand for Jury Trial</a> filed.
             </div>
@@ -1174,7 +1192,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1mvT3AVUpy8_LpnNu_2YPr0j6PyL5atKM/view?usp=drive_link" target="_blank">Griffith's Objection and Response to Pruitt's Untimely Demand for Jury Trial</a> filed.
             </div>
@@ -1182,7 +1200,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1SKSCwdzQFkFCsbFjJ1msuL0ynqYZ5WtZ/view?usp=drive_link" target="_blank">Proposed Order on Plaintiff's Jury Demand</a> filed.
             </div>
@@ -1190,7 +1208,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/15N1O2jAibstP4xaI-eTTj-E3eqkq-IbR/view?usp=drive_link" target="_blank">Plaintiff's Response to Griffith's Objection to Pruitt's Jury Demand</a> filed.
             </div>
@@ -1198,7 +1216,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1ayGU2JJwdhU6RK-Kry8lkJaJYBoivRYe/view?usp=drive_link" target="_blank">Exhibit A (Emails Re: Griffith's Latest Disclosures)</a> filed.
             </div>
@@ -1206,7 +1224,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1z9UxlJUXb_oVC54v5lWJgalj9UG1vqB2JJtxkdz/view?usp=drive_link" target="_blank">Exhibit B (Verification of Ciro J. Samperi)</a> filed.
             </div>
@@ -1214,7 +1232,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1sRBglW8j9iYTMfjC0GbY6r82aFkDh2go/view?usp=drive_link" target="_blank">Exhibit C (Emails Re: Give me a call)</a> filed.
             </div>
@@ -1222,7 +1240,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1zH6SRUEYaTWgtskUlyiWly2nNn4jFoGB/view?usp=drive_link" target="_blank">Exhibit D (Emails Re: Update)</a> filed.
             </div>
@@ -1230,7 +1248,7 @@
 
           <div class="filing">
             <div class="filing-date">02-20-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1rMbCM07tcsAALqAS3a6ynTy9Kz2Y7g1r/view?usp=drive_link" target="_blank">Proposed Order Overruling Defendant's Objection to Plaintiff's Jury Demand</a> filed.
             </div>
@@ -1238,7 +1256,7 @@
 
           <div class="filing">
             <div class="filing-date">02-19-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/13nQbajn3IRPjJdV1eeEJTMNfKnxXUzyv/view?usp=drive_link" target="_blank">Plaintiff's Jury Demand</a> filed.
             </div>
@@ -1246,7 +1264,7 @@
 
           <div class="filing">
             <div class="filing-date">02-12-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1HHvpbDQAApgudjw-a5qe1WS7yWx7wgw7/view?usp=drive_link" target="_blank">Griffith's Notice of Intent to Use Pruitt's Discovery Products Under TRCP 193.7</a> filed.
             </div>
@@ -1254,7 +1272,7 @@
 
           <div class="filing">
             <div class="filing-date">02-12-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1HHvpbDQAApgudjw-a5qe1WS7yWx7wgw7/view?usp=drive_link" target="_blank">Plaintiff's Amended Rule 193.7 Notice</a> filed.
             </div>
@@ -1262,7 +1280,7 @@
 
           <div class="filing">
             <div class="filing-date">02-11-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/10ZfFnF9ZREYBYlhvgvBp8elNByrA3Rjs/view?usp=drive_link" target="_blank">Plaintiff's Rule 193.7 Notice</a> filed.
             </div>
@@ -1270,7 +1288,7 @@
 
           <div class="filing">
             <div class="filing-date">02-05-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1DVgJRKmF_T1TJbQGoQ-eIiKZ3NUoN9dB/view?usp=drive_link" target="_blank">Joint Letter to Court in Advance of Trial</a> filed.
             </div>
@@ -1278,7 +1296,7 @@
 
           <div class="filing">
             <div class="filing-date">02-04-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1m3eoqAS0Sz4hfHGsS-ULWmadzTyVOJRc/view?usp=drive_link" target="_blank">Reporter's Certificate for Oral Deposition of Patricia A. Griffith on January 29, 2015</a> filed.
             </div>
@@ -1286,7 +1304,7 @@
 
           <div class="filing">
             <div class="filing-date">01-26-2015</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1E-AgIBPNVaR9PPhZES_Kw0bCn8l3SVsj/view?usp=drive_link" target="_blank">Defendant's Second Amended Answer</a> filed.
             </div>
@@ -1294,7 +1312,7 @@
 
           <div class="filing">
             <div class="filing-date">01-26-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1NlwHF95R4zBPqM0hbS2-_QI_ANUxTMTk/view?usp=drive_link" target="_blank">Defendant's Amended Answer</a> filed.
             </div>
@@ -1302,7 +1320,7 @@
 
           <div class="filing">
             <div class="filing-date">01-23-2015</div>
-            <div class="filing-num">10</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1kucseaZOaKMHxBwQl3vDWzT_Id7_6Yxx/view?usp=drive_link" target="_blank">Plaintiff's Second Amended Original Petition</a> filed.
             </div>
@@ -1310,7 +1328,7 @@
 
           <div class="filing">
             <div class="filing-date">01-23-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1pFihIK3d43KtbjXWrxqsHq_rjex4VTER/view?usp=drive_link" target="_blank">Order Granting Leave to File Pleading Signed</a>
             </div>
@@ -1318,7 +1336,7 @@
 
           <div class="filing">
             <div class="filing-date">01-23-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/114xRwbmNp72yE6pjxVgQtreOWlnVlGG9u/view?usp=drive_link" target="_blank">Order Signed Denying Trial Continuance</a>
             </div>
@@ -1326,7 +1344,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2015</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1HP4vR_ymRWC1sjP7iRdTIlhc8Zf2B-iq/view?usp=drive_link" target="_blank">Defendant's Response to Plaintiff's Motion for Leave</a> filed.
             </div>
@@ -1334,7 +1352,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1QVGxZQ-uStabzGOwcgOrojLvzvzJlCLX/view?usp=drive_link" target="_blank">Exhibit A (Sept. 24, 2013)</a> filed.
             </div>
@@ -1342,7 +1360,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1VmCjf4_E2qr7xv00vKU97b0QgJkizFUO/view?usp=drive_link" target="_blank">Exhibit B (Emails Re: ABA of Paralegals)</a> filed.
             </div>
@@ -1350,7 +1368,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2015</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1BVrQ0xXbSxiVzuLa0r6PeubHIXqLPxYd/view?usp=drive_link" target="_blank">Defendant's Response to Plaintiff's Motion for Continuance</a> filed.
             </div>
@@ -1358,7 +1376,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1NV-85QQSyL064yWo-TydGWAD8f0_wS9D/view?usp=drive_link" target="_blank">Exhibit A (Emails Re: Defamation?)</a> filed.
             </div>
@@ -1366,7 +1384,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2015</div>
-            <div class="filing-num">11</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1dYDst2ud2UAiWGOh72k9irjAsgldm1Va/view?usp=drive_link" target="_blank">Exhibit B (Emails Re: disclosures)</a> filed.
             </div>
@@ -1374,7 +1392,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/15SDjZxsbQnEp2-_5jMB5xF7AQhgNk83n/view?usp=drive_link" target="_blank">Exhibit C (Emails RE: disclosures)</a> filed.
             </div>
@@ -1382,7 +1400,7 @@
 
           <div class="filing">
             <div class="filing-date">01-08-2015</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1k8jgoxU6Sg001gY3M3N0dMWxtBGrRUJ5/view?usp=drive_link" target="_blank">Plaintiff's Motion for Leave to File Second Amended Petition</a> filed.
             </div>
@@ -1390,7 +1408,7 @@
 
           <div class="filing">
             <div class="filing-date">01-08-2015</div>
-            <div class="filing-num">10</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1SGH2kP6EU0iA0Rt210Pa3SzsogonEqTY/view?usp=drive_link" target="_blank">Exhibit A (Plaintiff's Second Amended Original Petition)</a> filed.
             </div>
@@ -1398,7 +1416,7 @@
 
           <div class="filing">
             <div class="filing-date">01-08-2015</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1NUqnMVNCzCF2C_--TQCGYz8hBOxsqu0N/view?usp=drive_link" target="_blank">Opposed Motion for Continuance</a> filed.
             </div>
@@ -1406,7 +1424,7 @@
 
           <div class="filing">
             <div class="filing-date">01-08-2015</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1KlW6vAiPENwcnNINwZZOz81zSRgepK9S/view?usp=drive_link" target="_blank">Exhibit A (Verification)</a> filed.
             </div>
@@ -1414,7 +1432,7 @@
 
           <div class="filing">
             <div class="filing-date">01-08-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1XuZV2eFu6sL_3VLbZN16Qyhj3DZ4eJk4/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -1422,7 +1440,7 @@
 
           <div class="filing">
             <div class="filing-date">01-08-2015</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1EHoNQVMI-aWEKq-n-ExecdRi4zAypv_z/view?usp=drive_link" target="_blank">Notice of Oral Hearing on Plaintiff's Motion for Leave to File Plaintiff's Second Amended Petition and Plaintiff's Opposed Motion for Continuance</a> filed.
             </div>
@@ -1430,7 +1448,7 @@
 
           <div class="filing">
             <div class="filing-date">12-15-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1KEqo4u8_3ubAH0reRwbuI53G-FKd6nAw/view?usp=drive_link" target="_blank">Defendant's Declaration Invoking Offer-of-Settlement Procedure</a> filed.
             </div>
@@ -1438,7 +1456,7 @@
 
           <div class="filing">
             <div class="filing-date">12-09-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/13m7Q5n9QXoCiBIzepfYUEcffQ3njQPvN/view?usp=drive_link" target="_blank">Order Signed Denying Final Summary Judgement</a>
             </div>
@@ -1446,7 +1464,7 @@
 
           <div class="filing">
             <div class="filing-date">12-08-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1QFgZv4Av-oPVJ3JKQs5VfGmyme8o7aCU/view?usp=drive_link" target="_blank">Proposed Order on Griffith's Traditional Motion For Partial Summary Judgment</a> filed.
             </div>
@@ -1454,7 +1472,7 @@
 
           <div class="filing">
             <div class="filing-date">12-08-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1TI6CmhaiGucUvOFr0UbbWs7kTNLuJuYO/view?usp=drive_link" target="_blank">Proposed Order on Griffith's No-Evidence Motion For Partial Summary Judgment</a> filed.
             </div>
@@ -1462,7 +1480,7 @@
 
           <div class="filing">
             <div class="filing-date">12-05-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1xcPwPBtKiVrtJ50bWQXKvraEclrKe2kk/view?usp=drive_link" target="_blank">Order Signed Denying Motion to Compel Production</a>
             </div>
@@ -1470,7 +1488,7 @@
 
           <div class="filing">
             <div class="filing-date">12-04-2014</div>
-            <div class="filing-num">18</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1m4BKXpjv4-pwkWgUIPD9fvDJgsVaqUC5/view?usp=drive_link" target="_blank">Griffith's (1) Motion to Strike, (2) Reply to Pruitt's Response to Griffith's Amended No-Evidence and Traditional Motions for Partial Summary Judgement, and (3) Request for Attorneys' Fees</a> filed.
             </div>
@@ -1478,7 +1496,7 @@
 
           <div class="filing">
             <div class="filing-date">12-04-2014</div>
-            <div class="filing-num">30</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1HfaHGTFZYBxrmX4q8cvcLjWwJKU_BJeW/view?usp=drive_link" target="_blank">Exhibits</a> filed.
             </div>
@@ -1486,7 +1504,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">13</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1XMUrYHagWwKItaGnxKJalpyoybGuSDft/view?usp=drive_link" target="_blank">Plaintiff's Response to Defendant's Amended No-Evidence and Traditional Motions for Partial Summary Judgment</a> filed.
             </div>
@@ -1494,7 +1512,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">10</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1K25MLIbOeu1mFbU_W1BKggjefMAKRhmj/view?usp=drive_link" target="_blank">Exhibit A (Oral Videotaped Deposition of Patricia A. Griffith on September 27, 2014)</a> filed.
             </div>
@@ -1502,7 +1520,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1LXUP2g0DeHYeAUKnBGgrbb1vRzIuFFxP/view?usp=drive_link" target="_blank">Exhibit B (Affidavit of Donna R. Farrar)</a> filed.
             </div>
@@ -1510,7 +1528,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1NaJh7C5V-21bPnP_5O9Xmyo0jdxi4TKE/view?usp=drive_link" target="_blank">Exhibit C (Affidavit of Connie Hawkins)</a> filed.
             </div>
@@ -1518,7 +1536,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">7</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1GQoAMOQ7tTvBTAauOxQAPF-LC-jqBpng/view?usp=drive_link" target="_blank">Exhibit D (Affidavit of Cynthia Downey)</a> filed.
             </div>
@@ -1526,7 +1544,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1BL9pkRfLhqCd_XT_9fvDJgsVaqUC5/view?usp=drive_link" target="_blank">Exhibit E (Affidavit of Cathy Rhodes)</a> filed.
             </div>
@@ -1534,7 +1552,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">21</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1B07HsKAO36tpRyHgR2F32cdv1qt1bINY/view?usp=drive_link" target="_blank">Exhibit F (Regulations of Websleuths.com, L.L.C.)</a> filed.
             </div>
@@ -1542,7 +1560,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1cgYLBAw114oi9goYqwaHlwYUBCYqYJ5m/view?usp=drive_link" target="_blank">Exhibit G (Oral Deposition of Susan Pruitt on July 10, 2014)</a> filed.
             </div>
@@ -1550,7 +1568,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/18-Q5lZP1nHXxC3nDMRNtlBGXTBiz1zXR/view?usp=drive_link" target="_blank">Exhibit H (Affidavit of Susan Pruitt)</a> filed.
             </div>
@@ -1558,7 +1576,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">194</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1wTQUGieX7vb4dSU1LfY_8e1hcdinbdqh/view?usp=drive_link" target="_blank">Exhibit I (Chase Bank Consolidated Balance Summary)</a> filed.
             </div>
@@ -1566,7 +1584,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1xhxOIkrxKa1ADUn9lWGjVhqnt9nX1fIE/view?usp=drive_link" target="_blank">Exhibit J (Payments received &ndash; Apr 25, 2011 to Jul 6, 2014)</a> filed.
             </div>
@@ -1574,7 +1592,7 @@
 
           <div class="filing">
             <div class="filing-date">12-01-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1CguAasqEItW_GeIfOV2otnu_3SXEqyaS/view?usp=drive_link" target="_blank">Proposed Order on Denying Defendant Patricia Griffith's Amended No-Evidence and Traditional Motions For Partial Summary Judgment</a> filed.
             </div>
@@ -1582,7 +1600,7 @@
 
           <div class="filing">
             <div class="filing-date">11-17-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1YJwrg9iHp64oJEJzckT0kQatzNAM3ZfE/view?usp=drive_link" target="_blank">Notice of Submission for Patricia Griffith's Amended No-Evidence and Traditional Motions for Partial Summary Judgment</a> filed.
             </div>
@@ -1590,7 +1608,7 @@
 
           <div class="filing">
             <div class="filing-date">11-17-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1U6PEejb3L14H9zvFn5aYb6QjPmPWcxH1/view?usp=drive_link" target="_blank">Notice of Oral Hearing for Plaintiff's Motion to Compel Responses Regarding Gambling</a> filed.
             </div>
@@ -1598,7 +1616,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">15</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1l6Y5mWJX5ZSt6AIh9BpDiz1CsRzzIUV0/view?usp=drive_link" target="_blank">Websleuths.com LLC and Patricia Arrington Griffith's First Amended Counter-Petition and Request for Declaratory Judgment</a> filed.
             </div>
@@ -1606,7 +1624,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1HZCsQhO4u9sssL4EfCNs-4OqvsmzDwL1/view?usp=drive_link" target="_blank">Exhibit A (Articles of Organization for Websleuths.com, L.L.C.)</a> filed.
             </div>
@@ -1614,7 +1632,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/11Zg3MgiXSThoFjiXewWLlQ5XSyfS48ML/view?usp=drive_link" target="_blank">Exhibit B (Texas Franchise Tax Public Information Report for 2012)</a> filed.
             </div>
@@ -1622,7 +1640,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1OOyvEZ4X0mKJOchxbotimlSwwiBijsl-/view?usp=drive_link" target="_blank">Exhibit C (Texas Franchise Tax Public Information Report for 2013)</a> filed.
             </div>
@@ -1630,7 +1648,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1AIuRl6AIJKwtvQfiVG3-sOOWnpDJAtlJ/view?usp=drive_link" target="_blank">Exhibit D (Plaintiff Susan Pruitt's Responses to Defendant's First Requests for Discovery)</a> filed.
             </div>
@@ -1638,7 +1656,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1flQG33DMCqpxtgLUXtG2uYC_7vuS/view?usp=drive_link" target="_blank">Exhibit E (Emails Re: Websleuths.com SALARY ADDENDUM)</a> filed.
             </div>
@@ -1646,7 +1664,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">22</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1uv_ytXgi_tTjwjCR2Iif6RDI0Bcgoyb/view?usp=drive_link" target="_blank">Exhibit F (Regulations of Websleuths.com, L.L.C)</a> filed.
             </div>
@@ -1654,7 +1672,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">11</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1swA6EYW5s6UCZHqAyou0tWGh9Q2SAtlr/view?usp=drive_link" target="_blank">Griffith's Amended No Evidence and Traditional Motions for Summary Judgment</a> filed.
             </div>
@@ -1662,7 +1680,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">28</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/12E3bkPeTcuuWdmzsMF0nckEYPKDTS4-m/view?usp=drive_link" target="_blank">Exhibit A (Oral Deposition of Susan Pruitt on July 10, 2014)</a> filed.
             </div>
@@ -1670,7 +1688,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1UfF30ng-KnV0ESlQa4G90ljyiyc_7vuS/view?usp=drive_link" target="_blank">Exhibit B (Emails Re: Websleuths.com SALARY ADDENDUM)</a> filed.
             </div>
@@ -1678,7 +1696,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1xP6pDoTqGZ8HbnGEO9zhrjR7oq3iIE5t/view?usp=drive_link" target="_blank">Exhibit C (Affidavit of Brad Dennis)</a> filed.
             </div>
@@ -1686,7 +1704,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1u_B06R50Znavqic775HzQdgSU9o3Jryk/view?usp=drive_link" target="_blank">Exhibit D (Affidavit of Vicki Pate)</a> filed.
             </div>
@@ -1694,7 +1712,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1zFgwQIZGP34Ois1deMC8_q0hVleW34Ub/view?usp=drive_link" target="_blank">Defendant's Response to Plaintiff's Motion to Compel</a> filed.
             </div>
@@ -1702,7 +1720,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1H-FQlp3Cy34WtuRlqcxOggC05dWEl_CB/view?usp=drive_link" target="_blank">Exhibit A (Lawyer's Reply To Me about Tricia's Response)</a> filed.
             </div>
@@ -1710,7 +1728,7 @@
 
           <div class="filing">
             <div class="filing-date">11-14-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1uQiSq4BRT5KFBofzDD31oDhlGy7MmpCX/view?usp=drive_link" target="_blank">Exhibit B (Affidavit of Michael James Haagenstad)</a> filed.
             </div>
@@ -1718,7 +1736,7 @@
 
           <div class="filing">
             <div class="filing-date">11-13-2014</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1DMDMrU3AkNXKzQNBH-y12M2yNGnLY1Ui/view?usp=drive_link" target="_blank">Reporter's Certificate Oral Videotaped Deposition of Patricia A Griffith September 27, 2014</a> filed.
             </div>
@@ -1726,7 +1744,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">9</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1CbSistwuwohdzZkTVBBTglMNmgog2JUt/view?usp=drive_link" target="_blank">Plaintiff's Motion to Compel Responses Regarding Gambling</a> filed.
             </div>
@@ -1734,7 +1752,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">21</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1pi-_4Yc-4awkOZO3eyfr6Ss_QZVJBpCLW/view?usp=drive_link" target="_blank">Exhibit A (Regulations of Websleuths.com, L.L.C.)</a> filed.
             </div>
@@ -1742,7 +1760,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">52</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1s3E3BZ-RBtTFpPzqIFOatcosseqXWyBQ/view?usp=drive_link" target="_blank">Exhibit B (Oral Videotaped Deposition of Patricia A. Griffith on September 27, 2014)</a> filed.
             </div>
@@ -1750,7 +1768,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">38</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1DMtU-8i1iEsxde4rMXLXKdSuHbulPMkR/view?usp=drive_link" target="_blank">Exhibit C (Chase Bank Service Charge Summary)</a> filed.
             </div>
@@ -1758,7 +1776,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1joihciOnJT8A3Wu9gI6UuBMtf0lTLu5-/view?usp=drive_link" target="_blank">Exhibit D (Emails Re: Tricia served last Monday)</a> filed.
             </div>
@@ -1766,7 +1784,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1ucd7EbgRnWbEp1mFpPzRDaky9C7brcQO/view?usp=drive_link" target="_blank">Exhibit E (Emails Re: Clarification)</a> filed.
             </div>
@@ -1774,7 +1792,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1PYWqwE0c93_DTgdjC15YeY1WB5XNyTwd/view?usp=drive_link" target="_blank">Exhibit F (Emails Re: Good gosh...)</a> filed.
             </div>
@@ -1782,7 +1800,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/16d4REPRFqhP-kHV-x4oYxMO4pLG-4CtT/view?usp=drive_link" target="_blank">Exhibit G (Emails Re: Amazon)</a> filed.
             </div>
@@ -1790,7 +1808,7 @@
 
           <div class="filing">
             <div class="filing-date">11-06-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1XK15JJQZotWCu5TH-xDdGT4bmXdWBpgi/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -1798,7 +1816,7 @@
 
           <div class="filing">
             <div class="filing-date">09-23-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1E4mM5hKAzUm6kNjWLAbmxuZeLMsTeYNW/view?usp=drive_link" target="_blank">Defendant's First Amended Answer</a> filed.
             </div>
@@ -1806,7 +1824,7 @@
 
           <div class="filing">
             <div class="filing-date">09-10-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/128jfl91oZ1nQQI5GoMV0C4YZWsQ9lL0I/view?usp=drive_link" target="_blank">Docket Control/Pretrial Order Signed</a>
             </div>
@@ -1814,7 +1832,7 @@
 
           <div class="filing">
             <div class="filing-date">09-08-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/16vaS02etMxGLhPNLY7ZfE6O-NQsXfvp7/view?usp=drive_link" target="_blank">Letter to Court</a> filed.
             </div>
@@ -1822,7 +1840,7 @@
 
           <div class="filing">
             <div class="filing-date">08-29-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1AafDjqmpC3TTY1EFo8okpcUwc02qnZzd/view?usp=drive_link" target="_blank">Order Signed Granting Trial Continuance</a>
             </div>
@@ -1830,7 +1848,7 @@
 
           <div class="filing">
             <div class="filing-date">08-27-2014</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1I0AlpJF3DPqWNQ13wRLjYVlLUIQ0Uu0x/view?usp=drive_link" target="_blank">Agreed Motion for Continuance</a> filed.
             </div>
@@ -1838,7 +1856,7 @@
 
           <div class="filing">
             <div class="filing-date">08-27-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1iU2_RZeweSNKFQWmHwyC-8RIotFOR8ZNx/view?usp=drive_link" target="_blank">Exhibit A (Verification)</a> filed.
             </div>
@@ -1846,7 +1864,7 @@
 
           <div class="filing">
             <div class="filing-date">08-27-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1bH-apfUc3pfXJ-hxpp_ZQh6MIE5hHqGU/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -1854,7 +1872,7 @@
 
           <div class="filing">
             <div class="filing-date">08-25-2014</div>
-            <div class="filing-num">8</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1T8UdtToxS_XoyiRNygqubL_dfDcjbhwC/view?usp=drive_link" target="_blank">Patricia Griffith Response to Susan Pruitt's Motion for Continuance</a> filed.
             </div>
@@ -1862,7 +1880,7 @@
 
           <div class="filing">
             <div class="filing-date">08-25-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1PYdpIzV4q4zqm4Apf27wDaTdftf42vcj/view?usp=drive_link" target="_blank">Exhibit A (Meagan Hassan emails Re: Pruitt vs. Griffith)</a> filed.
             </div>
@@ -1870,7 +1888,7 @@
 
           <div class="filing">
             <div class="filing-date">08-25-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1x8-f4M92I7lAeI4OfqqB35xdN1WKcSUk/view?usp=drive_link" target="_blank">Exhibit B (Susan Pruitt Depo Excerpt)</a> filed.
             </div>
@@ -1878,7 +1896,7 @@
 
           <div class="filing">
             <div class="filing-date">08-25-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/18-FdqcXJ-hA7IhY9oAYT8XZj6yiiA_ac/view?usp=drive_link" target="_blank">Plaintiff's Motion for Continuance of Defendant's Summary Judgment Hearing</a> filed.
             </div>
@@ -1886,7 +1904,7 @@
 
           <div class="filing">
             <div class="filing-date">08-25-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1lDyLpO4a6GQRfGzqgZQZ_xIEPYoRnTZP/view?usp=drive_link" target="_blank">Exhibit A (Verification)</a> filed.
             </div>
@@ -1894,7 +1912,7 @@
 
           <div class="filing">
             <div class="filing-date">08-25-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1W-db9k1xrXW6eNugGgXDWPoSSsANoPD5/view?usp=drive_link" target="_blank">Proposed Order on Plaintiff's Motion for Continuance of Defendant's Summary Judgment Hearing</a> filed.
             </div>
@@ -1902,7 +1920,7 @@
 
           <div class="filing">
             <div class="filing-date">08-21-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1YbCxknIk-x_2pkCAlhz6JeZ6FYl3hVSe/view?usp=drive_link" target="_blank">Notice of Submission for Patricia Griffith's No-Evidence and Traditional Motions for Partial Summary Judgement</a> filed.
             </div>
@@ -1910,7 +1928,7 @@
 
           <div class="filing">
             <div class="filing-date">08-21-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1PrY1zn--JfQhIM-W93Y60cUmBrv7mnvD/view?usp=drive_link" target="_blank">Plaintiff's Objection to Defendant's Summary Judgment</a> filed.
             </div>
@@ -1918,7 +1936,7 @@
 
           <div class="filing">
             <div class="filing-date">08-21-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/10GZx26MDpPniiusvLop91gydH7m045rI/view?usp=drive_link" target="_blank">Exhibit A (Modified Docket Control Order)</a> filed.
             </div>
@@ -1926,7 +1944,7 @@
 
           <div class="filing">
             <div class="filing-date">08-21-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1l_VtDCixztA4J2BOb-8eLIKhwFdGbu6E/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -1934,7 +1952,7 @@
 
           <div class="filing">
             <div class="filing-date">08-20-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1lWMdcwrvGnHGg7ghhIavxS_QZVJBpCLW/view?usp=drive_link" target="_blank">Motion for Continuance</a> filed.
             </div>
@@ -1942,7 +1960,7 @@
 
           <div class="filing">
             <div class="filing-date">08-20-2014</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1IgrG_00N-C4rohaZrvagSfU1gXHFSlpW/view?usp=drive_link" target="_blank">Exhibit A (Verification)</a> filed.
             </div>
@@ -1950,7 +1968,7 @@
 
           <div class="filing">
             <div class="filing-date">08-20-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/18g7USyVjiOcxvTfkAHlyIV0Nu9Fi2Yx7/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -1958,7 +1976,7 @@
 
           <div class="filing">
             <div class="filing-date">08-19-2014</div>
-            <div class="filing-num">12</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1JOdlJkSmTvMVAVinI0CwfTA7uImyDyWO/view?usp=drive_link" target="_blank">Griffith's No Evidence and Traditional Motions for Partial Summary Judgment</a> filed.
             </div>
@@ -1966,7 +1984,7 @@
 
           <div class="filing">
             <div class="filing-date">08-19-2014</div>
-            <div class="filing-num">28</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1JOdlJkSmTvMVAVinI0CwfTA7uImyDyWO/view?usp=drive_link" target="_blank">Exhibit A (Oral Deposition of Sarah Pruitt on July 10, 2014)</a> filed.
             </div>
@@ -1974,7 +1992,7 @@
 
           <div class="filing">
             <div class="filing-date">08-19-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1b51QT_vpdRPvCnEzHGbmXz4T4mj6nXle/view?usp=drive_link" target="_blank">Exhibit B (Re: Websleuths.com SALARY ADDENDUM)</a> filed.
             </div>
@@ -1982,7 +2000,7 @@
 
           <div class="filing">
             <div class="filing-date">08-19-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1zEkv3n00MB-Jgxv9YB4am5dhV36MkqlL/view?usp=drive_link" target="_blank">Exhibit C (Affidavit of Brad Dennis)</a> filed.
             </div>
@@ -1990,7 +2008,7 @@
 
           <div class="filing">
             <div class="filing-date">08-19-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1Nf8q1qQh7yD0xW6B6CSqGzlxVn1Z9pSi/view?usp=drive_link" target="_blank">Exhibit D (Affidavit of Vicki Pate)</a> filed.
             </div>
@@ -1998,7 +2016,7 @@
 
           <div class="filing">
             <div class="filing-date">07-31-2014</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1PyVNeH5Tp3rDMBOLDUmp1mFpPzRDaky9C7brcQO/view?usp=drive_link" target="_blank">Reporter's Certificate Oral Deposition of Susan Pruitt</a> filed.
             </div>
@@ -2006,7 +2024,7 @@
 
           <div class="filing">
             <div class="filing-date">02-10-2014</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1adVBuDKAZ24_0W9mqYdfHYx90rwJauHv/view?usp=drive_link" target="_blank">Docket Control/Pretrial Order Signed</a>
             </div>
@@ -2014,7 +2032,7 @@
 
           <div class="filing">
             <div class="filing-date">02-05-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1oPCf_ImvB2btVYKJFr05-kuccy9FMuZ_/view?usp=drive_link" target="_blank">Docket Control/Pretrial Order Signed</a>
             </div>
@@ -2022,7 +2040,7 @@
 
           <div class="filing">
             <div class="filing-date">01-27-2014</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/16JGD6wuaouE19tnYrcl9DGawExZ0pBjY/view?usp=drive_link" target="_blank">Agreed Motion for Modified Docket Control Order</a> filed.
             </div>
@@ -2030,7 +2048,7 @@
 
           <div class="filing">
             <div class="filing-date">01-27-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1g0KVrBZHGTYHm0Xbtftg01ECzbRnFV2q/view?usp=drive_link" target="_blank">Exhibit A (Modified Docket Control Order)</a> filed.
             </div>
@@ -2038,7 +2056,7 @@
 
           <div class="filing">
             <div class="filing-date">01-22-2014</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1jvEASXLsBSIVmWgClelDStPHAroRujG0/view?usp=drive_link" target="_blank">Defendant's Answer</a> filed.
             </div>
@@ -2046,7 +2064,7 @@
 
           <div class="filing">
             <div class="filing-date">12-30-2013</div>
-            <div class="filing-num">10</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1zh1ppswI10sr0ClC0x_183hwK-pEsckv/view?usp=drive_link" target="_blank">Websleuths.com LLC's and Patricia Arrington Griffith's Original Counter-Petition and Request for Declaratory Judgment</a> filed.
             </div>
@@ -2054,7 +2072,7 @@
 
           <div class="filing">
             <div class="filing-date">12-30-2013</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1eLdC0wD5xwuKfm9ygCV9FcigePDcVhMF/view?usp=drive_link" target="_blank">Exhibit A (Articles of Organization for Websleuths.com LLC)</a> filed.
             </div>
@@ -2062,7 +2080,7 @@
 
           <div class="filing">
             <div class="filing-date">12-30-2013</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1V1k7_qlHaI0PZCHHSfBENbdOOeAGaC-5/view?usp=drive_link" target="_blank">Exhibit B (Texas Franchise Tax Public Information Report 2012)</a> filed.
             </div>
@@ -2070,7 +2088,7 @@
 
           <div class="filing">
             <div class="filing-date">12-30-2013</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1ZZ4UZFvLEmw2kubLlLNnfN_o9k0iqts7/view?usp=drive_link" target="_blank">Exhibit C (Texas Franchise Tax Public Information Report 2013)</a> filed.
             </div>
@@ -2078,7 +2096,7 @@
 
           <div class="filing">
             <div class="filing-date">12-30-2013</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1ITiByzwVcXj5FoRXudE2jcwTFnlyQWju/view?usp=drive_link" target="_blank">Exhibit D (Plaintiff Susan Pruitt's Responses to Defendant's First Requests for Discovery)</a> filed.
             </div>
@@ -2086,7 +2104,7 @@
 
           <div class="filing">
             <div class="filing-date">12-30-2013</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1jR5VzZBNaAfOBstVsACHfiy6Ntc75Zma/view?usp=drive_link" target="_blank">Exhibit E (Re: Websleuths.com SALARY ADDENDUM)</a> filed.
             </div>
@@ -2094,7 +2112,7 @@
 
           <div class="filing">
             <div class="filing-date">12-30-2013</div>
-            <div class="filing-num">22</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/18Ie33j4Tpxtx9A4NUZIExGuWoo6LAev6/view?usp=drive_link" target="_blank">Exhibit F (Regulations of Websleuths)</a> filed.
             </div>
@@ -2102,7 +2120,7 @@
 
           <div class="filing">
             <div class="filing-date">10-21-2013</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1Mb7uI0v01o5HW87JPT3ayeTTzWaKtPCQ/view?usp=drive_link" target="_blank">Notice of Intention to Take Deposition by Written Questions</a> filed.
             </div>
@@ -2110,7 +2128,7 @@
 
           <div class="filing">
             <div class="filing-date">10-16-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1HC7kQarV5VDYeNYvSHwzGTht9MMEk31O/view?usp=drive_link" target="_blank">Order Striking Websleuth.com LLC's Pleadings</a>
             </div>
@@ -2118,7 +2136,7 @@
 
           <div class="filing">
             <div class="filing-date">10-07-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1fDBt1nkrCG-dnFJszzjbAW4b-3HYTAv5/view?usp=drive_link" target="_blank">Proposed Striking Websleuths.com LLCs Pleadings</a> filed.
             </div>
@@ -2126,7 +2144,7 @@
 
           <div class="filing">
             <div class="filing-date">10-04-2013</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1fRyYL87u-v8H51KCt8NiGT5-9n3PM_OC/view?usp=drive_link" target="_blank">Docket Control/Pretrial Order Signed</a>
             </div>
@@ -2134,7 +2152,7 @@
 
           <div class="filing">
             <div class="filing-date">10-04-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/10DNjf_aLP2L4nLl-oS5Mnp_AJGP-JrDr/view?usp=drive_link" target="_blank">Order Signed Staying Proceedings</a>
             </div>
@@ -2142,7 +2160,7 @@
 
           <div class="filing">
             <div class="filing-date">10-03-2013</div>
-            <div class="filing-num">9</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1fAB6exI6-tQ9ARKBiyE4hTTnudclE9Xl/view?usp=drive_link" target="_blank">Plaintiffs' Amended Original Petition</a> filed.
             </div>
@@ -2150,7 +2168,7 @@
 
           <div class="filing">
             <div class="filing-date">10-03-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1olyhneozJUPbSEpKOMadJvY5gl2i78Rk/view?usp=drive_link" target="_blank">FREEfax Cover Sheet</a> filed.
             </div>
@@ -2158,7 +2176,7 @@
 
           <div class="filing">
             <div class="filing-date">10-03-2013</div>
-            <div class="filing-num">10</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1piENxtZD7uDr8XYxcydXkQcDrFdacI64/view?usp=drive_link" target="_blank">Defendant's (1) Motion For Protection From Discovery And (2) Motion To Quash</a> filed.
             </div>
@@ -2166,7 +2184,7 @@
 
           <div class="filing">
             <div class="filing-date">10-03-2013</div>
-            <div class="filing-num">6</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1s8Uwqvl69NK-DsD1X58PkmEw3e6_MMrH/view?usp=drive_link" target="_blank">Exhibit A (Notice of Intent to Take Depositions)</a> filed.
             </div>
@@ -2174,7 +2192,7 @@
 
           <div class="filing">
             <div class="filing-date">10-03-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1bEmkRqsDOnvn8oumgQrwYw4BE7GfX9ko/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -2182,7 +2200,7 @@
 
           <div class="filing">
             <div class="filing-date">10-02-2013</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1fAB6exI6-tQ9ARKBiyE4hTTnudclE9Xl/view?usp=drive_link" target="_blank">Plaintiffs' Response to Defendant's Special Exceptions</a> filed.
             </div>
@@ -2190,7 +2208,7 @@
 
           <div class="filing">
             <div class="filing-date">10-02-2013</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/18CA-luODuLj6eBqWbG2K90d2GV7DRJhy/view?usp=drive_link" target="_blank">Exhibit A (Defendant's Original Answer And Requests For Disclosure)</a> filed.
             </div>
@@ -2198,7 +2216,7 @@
 
           <div class="filing">
             <div class="filing-date">10-02-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <span class="filing-bold">FREEfax Cover Sheet</span> filed.
             </div>
@@ -2206,7 +2224,7 @@
 
           <div class="filing">
             <div class="filing-date">09-27-2013</div>
-            <div class="filing-num">5</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1OojfTcn4AlyoNoAxcNir5fNvHECmFTMb/view?usp=drive_link" target="_blank">Plaintiffs' Response to Defendant's Motion Requesting Hanszen Laporte, LLP to Show Authority to Act</a> filed.
             </div>
@@ -2214,7 +2232,7 @@
 
           <div class="filing">
             <div class="filing-date">09-27-2013</div>
-            <div class="filing-num">9</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1OULuprwSd1IuiwX8SlGWw3QYR9MkGuOm/view?usp=drive_link" target="_blank">Exhibit A (Retainment Letter)</a> filed.
             </div>
@@ -2222,7 +2240,7 @@
 
           <div class="filing">
             <div class="filing-date">09-27-2013</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1RPQ8eNYW6ssN6baBn4cjg-NdtuYuJ5Sw/view?usp=drive_link" target="_blank">Exhibit B (Defendant's Motion To Show Authority To Act)</a> filed.
             </div>
@@ -2230,7 +2248,7 @@
 
           <div class="filing">
             <div class="filing-date">09-27-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1Nfz6IOl_SjSiSOsbfaa8bWxbj7m3sYOe/view?usp=drive_link" target="_blank">FREEfax Cover Sheet</a> filed.
             </div>
@@ -2238,7 +2256,7 @@
 
           <div class="filing">
             <div class="filing-date">09-11-2013</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1_WPoV0ot2EeD_OSqCzjJQWYvrf0wRm7k/view?usp=drive_link" target="_blank">Notice of Hearing on Defendant's Special Exceptions and Motion to Show Authority</a> filed.
             </div>
@@ -2246,7 +2264,7 @@
 
           <div class="filing">
             <div class="filing-date">09-06-2013</div>
-            <div class="filing-num">4</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/132gTBPBgI9AxY-PK1P8JmI8FqkmQ48wr/view?usp=drive_link" target="_blank">Defendant's Motion Requesting Hanszen Laporte, L.L.P. To Show Authority To Act</a> filed.
             </div>
@@ -2254,7 +2272,7 @@
 
           <div class="filing">
             <div class="filing-date">09-06-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1Jt4ejIuWjWfScrxIhC0eH5H0wGCOnbgE/view?usp=drive_link" target="_blank">Proposed Order</a> filed.
             </div>
@@ -2262,7 +2280,7 @@
 
           <div class="filing">
             <div class="filing-date">08-30-2013</div>
-            <div class="filing-num">3</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1j1_SqfSafhEpvpmp8w8KBfS6gjiC4D9m/view?usp=drive_link" target="_blank">Defendants Original Answer and Requests for Disclosure</a> filed.
             </div>
@@ -2270,7 +2288,7 @@
 
           <div class="filing">
             <div class="filing-date">08-30-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1OkYrRJ-dlpNVAS5SNDaCQ8qjnAYpJRop/view?usp=drive_link" target="_blank">FREEfax Cover Sheet</a> filed.
             </div>
@@ -2278,7 +2296,7 @@
 
           <div class="filing">
             <div class="filing-date">08-16-2013</div>
-            <div class="filing-num">2</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1qLGSMCSvarPDPKjFI0CbPsuFDcfUP_fp/view?usp=drive_link" target="_blank">Citation (Secretary of State Non-Resident Affidavit of Service)</a> filed.
             </div>
@@ -2286,7 +2304,7 @@
 
           <div class="filing">
             <div class="filing-date">08-02-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1CXywjBdaNpNfAXSx5k6h0rHIvkCIKlkX/view?usp=drive_link" target="_blank">Civil Process Pick-Up Form</a> filed.
             </div>
@@ -2294,7 +2312,7 @@
 
           <div class="filing">
             <div class="filing-date">08-01-2013</div>
-            <div class="filing-num">1</div>
+            <div class="filing-num"></div>
             <div class="filing-content">
               <a class="filing-link" href="https://drive.google.com/file/d/1pUGVs2Hny-yAk9SSJDTZY469jEenVmrq/view?usp=drive_link" target="_blank">Civil Case Information Sheet</a> filed.
             </div>
