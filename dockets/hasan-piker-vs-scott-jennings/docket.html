@@ -47,7 +47,7 @@
       --ink:              #241620;
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
-      --surface-elevated: #EDE5D8;
+      --carmine:          #935f76;
       --text-heading:     #241620;
       --text-body:        #44373C;
       --text-label:       #7A5063;
@@ -80,6 +80,8 @@
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
+      font-weight: 700;
+      padding-left: 2%;
     }
     .section-label::after {
       content: '';
@@ -362,11 +364,16 @@
       margin-top: 8px;
       padding: 14px 20px;
       background: var(--surface-elevated);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--carmine);
       border-radius: 0 6px 6px 0;
       font-size: 13px;
       line-height: 1.75;
       color: var(--text-body);
+    }
+    .filing-note p {
+      margin: 1% 0;
+      font-size: smaller;
+      text-align: justify;
     }
     /* ─── Drive Link Card ───────────────────────────────────── */
     .drive-card {
@@ -418,7 +425,7 @@
       gap: 6px;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -672,7 +679,7 @@
           <div class="filing-date">10-27-2026</div>
             <div class="filing-num">2</div>
               <div class="filing-content">
-                <span class="filing-content">SEALED MOTION FOR LEAVE TO FILE DOCUMENT UNDER SEAL</span> filed by HASAN PIKER (This document is SEALED and only available to authorized persons.) (Attachments: # 1 Exhibit Sealed Notice of Residential Address)(Fain, B. Gammon) (Entered: 10/27/2026)
+                <span class="filing-bold">SEALED MOTION FOR LEAVE TO FILE DOCUMENT UNDER SEAL</span> filed by HASAN PIKER (This document is SEALED and only available to authorized persons.) (Attachments: # 1 Exhibit Sealed Notice of Residential Address)(Fain, B. Gammon) (Entered: 10/27/2026)
               </div>
         </div>
 

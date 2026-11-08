@@ -45,12 +45,12 @@
       --cream:            #F4EDE3;
       --sand:             #DDD0BC;
       --plum:             #3E2436;
-      --carmine:          #7A5063;
+      --carmine:          #935f76;
       --ink:              #241620;
       /* Surface colors */
       --surface-page:     #F4EDE3;
       --surface-card:     #FFFFFF;
-      --surface-elevated: #EDE5D8;
+      --surface-elevated: #f5f3ef;
       /* Font colors */
       --text-heading:     #241620;
       --text-body:        #44373C;
@@ -85,6 +85,8 @@
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
+      font-weight: 700;
+      padding-left: 2%;
     }
     .section-label::after {
       content: '';
@@ -423,11 +425,16 @@
       margin-top: 8px;
       padding: 14px 20px;
       background: var(--surface-elevated);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--carmine);
       border-radius: 0 6px 6px 0;
       font-size: clamp(11px, 2.8vw, 13px);
       line-height: 1.75;
       color: var(--text-body);
+    }
+    .filing-note p {
+      margin: 1% 0;
+      font-size: smaller;
+      text-align: justify;
     }
     .docket-table-wrap {
       background: var(--surface-card);
@@ -556,6 +563,7 @@
       text-decoration: none;
       transition: color 0.2s, gap 0.2s;
       flex-shrink: 0;
+      font-weight: 700;
     }
     .drive-card-cta:hover {
       color: var(--ink);
