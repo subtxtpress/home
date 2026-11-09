@@ -39,35 +39,35 @@
       padding: 0; 
     }
     :root {
-      --bg:              #0f0f0f;/*#060B14;*/
-      --surface:         #181818;/*#0D1B2A;*/
-      --border:          rgba(235, 226, 205, 0.10);
-      --border2:         rgba(235, 226, 205, 0.22);
-      --text:            #e6e4e1;
-      --text2:           #e5dddd;
-      --muted:           #8a8a8a;
-      --accent:          #739e94;
-      --grad-accent:     linear-gradient(to right, #1f4e44, #796B5A);
+      --bg:               #0f0f0f;/*#060B14;*/
+      --surface:          #181818;/*#0D1B2A;*/
+      --border:           rgba(235, 226, 205, 0.10);
+      --border2:          rgba(235, 226, 205, 0.22);
+      --text:             #e6e4e1;
+      --text2:            #e5dddd;
+      --muted:            #8a8a8a;
+      --accent:           #739e94;
+      --grad-accent:      linear-gradient(to right, #1f4e44, #796B5A);
       --shadow:           0 2px 12px rgba(0,0,0,0.50);
       --shadow-hover:     0 8px 28px rgba(0,0,0,0.60);
-      --timeline-track:  rgba(38, 87, 76, 0.35);
-      --yellow:          #b3995c;
+      --timeline-track:   rgba(38, 87, 76, 0.35);
+      --yellow:           #b3995c;
       /* Person colors */
-      --c-holly:  #F4A261;   /* warm amber/gold — Holly Bobo */
-      --c-zach:   #E63946;   /* red — Zach Adams */
-      --c-autry:  #57B0DC;   /* blue — Jason Autry */
-      --c-evid:   #EBE2CD;   /* cream/white — evidence & recovery */
-      --c-tower:  #9D4EDD;   /* purple — cell towers */
-      --c-route:  #4A8A7C;   /* teal — GPS trail */
-      --c-other:  #8E9AAF;   /* gray — other */
-      --c-orange: #E8891C;   /* phone timeline */
-      --mono: 'IBM Plex Mono', monospace;
-      --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --head: 'Barlow Condensed', sans-serif;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --nav-h:      48px;
-      --story-h:    0px;    /* narrative bar removed — case map is toggle-only */
-      --panel-w:    280px;
+      --c-holly:          #F4A261;   /* warm amber/gold — Holly Bobo */
+      --c-zach:           #E63946;   /* red — Zach Adams */
+      --c-autry:          #57B0DC;   /* blue — Jason Autry */
+      --c-evid:           #EBE2CD;   /* cream/white — evidence & recovery */
+      --c-tower:          #9D4EDD;   /* purple — cell towers */
+      --c-route:          #4A8A7C;   /* teal — GPS trail */
+      --c-other:          #8E9AAF;   /* gray — other */
+      --c-orange:         #E8891C;   /* phone timeline */
+      --mono:             'IBM Plex Mono', monospace;
+      --body:             'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --head:             'Barlow Condensed', sans-serif;
+      --serif:            'Cormorant Garamond', Georgia, serif;
+      --nav-h:             48px;
+      --story-h:           0px;    /* narrative bar removed — case map is toggle-only */
+      --panel-w:           280px;
     }
     html { 
       width: 100%; 
@@ -83,87 +83,6 @@
       font-family: var(--body);
       font-size: 13px;
       -webkit-font-smoothing: antialiased;
-    }
-    /* ═══════════════════════════════ NAV ═══════════════════════════════ */
-    .nav {
-      position: fixed;
-      top: 0; 
-      left: 0; 
-      right: 0;
-      height: var(--nav-h);
-      background: rgba(6,11,20,0.97);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      padding: 0 14px;
-      z-index: 1200;
-      gap: 10px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .nav-back {
-      display: flex; 
-      align-items: center; 
-      gap: 5px;
-      color: var(--muted); 
-      text-decoration: none;
-      font-family: var(--mono); 
-      font-size: 11px; 
-      letter-spacing: 0.04em;
-      white-space: nowrap; 
-      transition: color 0.2s;
-    }
-    .nav-back:hover { 
-      color: var(--text); 
-    }
-    .nav-sep { 
-      color: var(--border2); 
-    }
-    .nav-title {
-      font-family: var(--serif);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--text);
-      flex: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .nav-title a {
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-title a:hover {
-      color: var(--muted);
-    }
-    .nav-tag {
-      background: rgba(230,57,70,0.14); 
-      border: 1px solid rgba(230,57,70,0.35);
-      color: #e07070; 
-      font-family: var(--mono); 
-      font-size: 10px;
-      padding: 2px 8px; 
-      border-radius: 3px; 
-      letter-spacing: 0.06em;
-      white-space: nowrap; 
-      flex-shrink: 0;
-    }
-    .nav-source-link {
-      margin-left: auto; 
-      font-family: var(--mono); 
-      font-size: 10px;
-      color: var(--text); 
-      text-decoration: none; 
-      letter-spacing: 0.04em;
-      opacity: 0.65; 
-      white-space: nowrap; 
-      transition: opacity 0.15s, color 0.15s;
-    }
-    .nav-source-link:hover { 
-      opacity: 1; 
-      color: var(--text2); 
     }
     /* ═══════════════════════════════ MAP ═══════════════════════════════ */
     #map {
@@ -1380,31 +1299,95 @@
       }
     }
     @media (max-width: 480px) {
-      .nav {
-        text-align: center;
-        margin-right: 5%;
+      .nav-title {
+        font-size: 10px;
+        padding-left: 2%;
+        flex: 0;
       }
-      .nav-title { 
-        font-size: 12px;
-        text-decoration: underline;
-        color: var(--muted);
+      .nav-source-link { 
+        font-size: 7px; 
+        margin-right: 2%;
+        padding: 8px 13px;
       }
-      .link-label { 
-        font-size: 11px;
+    }
+      /* ── NAV ── */
+    .nav {
+      background: rgba(6,11,20,0.97);
+      z-index: 1200; 
+      backdrop-filter: blur(8px); 
+      -webkit-backdrop-filter: blur(8px);
+      padding: 1%;
+      display: flex;
+      align-items: center;
+      height: 50px;
+    }
+    .docket-link:hover { 
+      opacity: 1; 
+      color: var(--muted); 
+    }
+    .nav-title {
+      font-family: var(--serif); 
+      font-size: 15px; 
+      font-weight: 800;
+      letter-spacing: 0.04em; 
+      color: var(--muted);
+      line-height: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-left: 0.5%;
+    }
+    .docket-link {
+      line-height: 1;
+      font-family: var(--serif); 
+      color: var(--text);  
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.9; 
+      transition: opacity 0.15s, color 0.15s;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      margin-left: 3px;
+    }
+    .nav-source-link {
+      font-family: var(--mono); 
+      font-size: 10px;
+      color: #e6e4e1;  
+      text-decoration: none; 
+      letter-spacing: 0.02em; 
+      transition: opacity 0.15s, color 0.15s;
+      line-height: 1;
+      flex: 0;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      border: 1px solid var(--muted);
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-right: 0.5%;
+    }
+    .nav-source-link:hover { 
+      opacity: 1; 
+      color: var(--muted); 
+    }
+    .link-back {
+      color: var(--muted);
+      text-decoration: none;
       }
-      .link-label:hover { 
-        color: var(--text);
-      }
+    .link-back:hover {
+      color: #e6e4e1;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- Nav -->
   <nav class="nav">
-    <a class="nav-source-link" href="timeline" target="_blank" rel="noopener"><span class="link-label">Timeline ↗</span></a>
-    <a class="nav-source-link" href="https://earth.google.com/earth/d/1GEM-lvKOTMQt5XfsM0KHNccPl-ajy_vU" target="_blank" rel="noopener"><span class="link-label">DB's Map ↗</span></a>
-    <a class="nav-source-link" href="../../dockets/zach-adams/docket" target="_blank" rel="noopener"><span class="link-label">TN v. ZA Docket ↗</span></a>
+    <div class="nav-title"><a class="link-back" href="timeline">← Back to Timeline</a><a class="docket-link" href="../../dockets/zach-adams/docket" target="_blank"> / Docket</a></div>
+    <a class="nav-source-link" href="https://earth.google.com/web/@35.8361724,-88.12284465,28.75222328a,83678.34006296d,30.00000002y,0h,0t,0r/data=CgRCAggBMikKJwolCiExR0VNLWx2S09UTVF0NVhmc00wS0hOY2NQbC1hanlfdlUgAToDCgEwQgIIAEoICKGh5IkGEAE?authuser=0" target="_blank" rel="noopener">DB's Google Earth Map</a>
   </nav>
 
   <!-- Main map canvas -->
