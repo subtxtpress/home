@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Episode 2 - Lost Sheep
+October 12, 2026
+
 Chapter 1: Parables and local context
 0:022 seconds [music]
 0:044 seconds In the parable of the lost sheep, a shepherd loses one of his hundred sheep.
@@ -58,7 +61,7 @@ Chapter 4: The community search effort
 6:406 minutes, 40 seconds crimes. And here, as we noted last episode, the TBI wasn't working alone, but instead with both federal and state authorities from a number of agencies.
 6:496 minutes, 49 seconds This led to the TBI creating a virtual command center where the agencies could process the hundreds of tips that were coming in about the case. Here's Kristen
 6:586 minutes, 58 seconds Helm of the TBI talking to ABC News about it.
-7:017 minutes, 1 secondThis is where our virtual command center is. It's a way to organize the information that's coming in to us and a way to disperse that information out to
+7:017 minutes, 1 second This is where our virtual command center is. It's a way to organize the information that's coming in to us and a way to disperse that information out to
 7:107 minutes, 10 seconds investigators. So, right here, tips are coming in and she's just verifying that everything's been followed up on, right?
 7:177 minutes, 17 seconds They've received more than 250 tips from all across the state. They're constantly checking the map, trying to connect the dots.
 7:257 minutes, 25 seconds And then there was the community itself.
@@ -93,7 +96,7 @@ Chapter 5: Discovery of personal items
 10:4110 minutes, 41 seconds It was about about 75 yards down the creek around the about two bins of 3/4 of the way up on 3/4 of the way up. It
 10:5010 minutes, 50 seconds had where there had been a large rain and it had washed up into the kind of like the brush on the side of the creek.
 10:5510 minutes, 55 seconds Now at this point you might be wondering the same thing as us and that's this.
-11:0011 minutesWhen Clint saw Holly and the man in camo walking into the woods, the only thing he saw in either of their hands was a black pipe-haped object in the man's
+11:0011 minutes When Clint saw Holly and the man in camo walking into the woods, the only thing he saw in either of their hands was a black pipe-haped object in the man's
 11:0911 minutes, 9 seconds right hand, he was specifically asked about whether Holly had anything on her, and he said no. And yet, Holly's big
 11:1611 minutes, 16 seconds lunch bag, notebooks, and other items of hers were eventually found strewn around town. And so, first, did Holly really
 11:2511 minutes, 25 seconds hold on to all these items after being bloodied in the carport? And second, if so, why didn't Clinton see any of these items in Holly as she walked into the
@@ -109,7 +112,7 @@ Chapter 6: Sponsor message
 12:3812 minutes, 38 seconds motivating timeline. And god, that feels good. You can even play out your options and pick the fastest one. They will help you run different payment scenarios side
 12:4612 minutes, 46 seconds by side and instantly see how much sooner each one gets you to paying off your debt. You are in control of the plan. I've got a couple of favorite features when it comes to Monarch's app.
 12:5712 minutes, 57 seconds One is that you can ask Monarch's AI assistant anything about your finances.
-13:0113 minutes, 1 secondLike, how much did I spend at restaurants in the last month? And believe me, these kinds of things, like, I don't really keep track. I never have because it's never been easy. Like, we
+13:0113 minutes, 1 second Like, how much did I spend at restaurants in the last month? And believe me, these kinds of things, like, I don't really keep track. I never have because it's never been easy. Like, we
 13:0913 minutes, 9 seconds don't have enough on our plate. But guess what? You don't have to anymore because the AI assistant will tell you exactly what you've been doing. And of course, what is most valuable to me is
 13:1713 minutes, 17 seconds the fact that Monarch is not like other apps. It doesn't just tell you what you've spent. It also helps you set your goals, right? Map out the big purchases
 13:2513 minutes, 25 seconds you have and see if you're on track before it's too late to adjust. And that's exactly what I need. I need somebody to keep me on track. And that
@@ -199,7 +202,7 @@ Chapter 8: Critical confirmation of timeline
 23:3823 minutes, 38 seconds brother. Brasher was a social worker employed at a nursing home with Holly's brother Clint. On May 3rd, 2011, she was
 23:4623 minutes, 46 seconds riding bikes with her little brother in Parsons and playing eyes spy. You may have played it yourself as a kid or with a kid. You know, you say I spy something
 23:5423 minutes, 54 seconds purple or I spy something round and the other person has to guess what you're seeing. Well, Brasher's brother didn't
-24:0124 minutes, 1 secondbeat around the bush. Do you remember when it was your brother's turn him spying something that actually got your attention?
+24:0124 minutes, 1 second beat around the bush. Do you remember when it was your brother's turn him spying something that actually got your attention?
 24:1024 minutes, 10 seconds Yes, ma'am.
 24:1124 minutes, 11 seconds Okay. Tell the jury please what happened.
 24:1324 minutes, 13 seconds Okay. So, we were just playing I spy and he said, "I spy a SIM card." And I was like, "You see a SIM card?" You know, cuz they're pretty small. And he said, "Yeah." And so I said, "Okay." And so,
@@ -208,7 +211,7 @@ Chapter 8: Critical confirmation of timeline
 24:3824 minutes, 38 seconds Street and Camden Road in Parsons, about 2 miles south of where Holly's phone was found by Mackenzie's tree service. Like
 24:4524 minutes, 45 seconds Holly's notebook, lunch bag, and phone, all these items were left to the left of the relevant road, as if a person was throwing them out of the driver's side
 24:5324 minutes, 53 seconds of their vehicle. Putting these pieces together, the timeline that emerges is crystal clear. At about 8:00 a.m., the
-25:0125 minutes, 1 secondman in cam gets holly into his vehicle on the logging road. He then drives due north and a little west for about 26
+25:0125 minutes, 1 second man in cam gets holly into his vehicle on the logging road. He then drives due north and a little west for about 26
 25:0825 minutes, 8 seconds minutes, crossing I40 and entering a large wooded area. Over the next 30 minutes, he kills and does whatever else
 25:1525 minutes, 15 seconds with Holly until 8:56 a.m. The phone then travels east for about 6 minutes until 9:02 a.m., then south for 23
 25:2425 minutes, 24 seconds minutes as the man in camo throws Holly's belongings out of his vehicle, like Holly's lunch bag and her notebook.
@@ -284,7 +287,7 @@ Chapter 10: Excluding the A-Team
 33:3233 minutes, 32 seconds And an initial search of their properties uncovered nothing connecting them to the crime. Then there were their physical characteristics. Recall that
 33:4133 minutes, 41 seconds Clint Bobo said the man in camo was between 510 and 5'11, about 200 lb, broad shouldered, and barrel-chested
 33:5033 minutes, 50 seconds like he used to work out with skinnier legs and shoulderlength dark hair that was covering his neck and touching his collar. Here's how Terry Dykus described the members of the A team.
-34:0034 minutesThe physical description of Zach, what what did Zach Adams appearance what was his physical appearance in April of
+34:0034 minutes The physical description of Zach, what what did Zach Adams appearance what was his physical appearance in April of
 34:0834 minutes, 8 seconds 2011? [laughter] He was Does he look like what he looks now?
 34:1134 minutes, 11 seconds No, he is fattened up nicely. He was a uh 135 lbs is what I documented when I talked to him. 6'2, 6'3, really tall. Uh
 34:2134 minutes, 21 seconds his hair was much shorter, but his face looked totally different. It was sunken in. It looked sort of like the Joker back then. You know, Joker.
@@ -321,7 +324,7 @@ Chapter 10: Excluding the A-Team
 37:3937 minutes, 39 seconds or type of shoe left it. That means that Zach's shoes being Crocs is irrelevant, but the size of those Crocs was not. And
 37:4637 minutes, 46 seconds no, Zach did not have size N Crocs like Clint. Here was testimony by Zach's grandfather, Dick Adams.
 37:5337 minutes, 53 seconds Um, [snorts] since Mr. Adams is your son, a grandson, do you happen to know what size shoe he wears? 13.
-38:0038 minutesA 13. Okay. And do you have uh at some time did you come into possession of Croc shoes that belong to Mr. Adams?
+38:0038 minutes A 13. Okay. And do you have uh at some time did you come into possession of Croc shoes that belong to Mr. Adams?
 38:0838 minutes, 8 seconds Did I? Croc crop shoes.
 38:1938 minutes, 19 seconds Let me pass these shoes up to you at any time. Uh, did you pick up some shoes from the Williamson County Jail for Mr. Adams? I did.
 38:2738 minutes, 27 seconds And are those the shoes that you picked up from the Williamson County Jail? Looks like. Okay.
@@ -356,7 +359,7 @@ Chapter 11: Other investigative leads
 41:4641 minutes, 46 seconds if I Okay, I'll withdraw my question then.
 41:4941 minutes, 49 seconds Thank you. Um, then there were the suspects who could be ruled out, including one of Holly's ex-boyfriends.
 41:5541 minutes, 55 seconds Uh, Blake Barnett was a ex-boyfriend of Holly's.
-42:0042 minutesUh, I believe he was actually not the most current ex-boyfriend, but the ex-boyfriend before that. Um, Mr.
+42:0042 minutes Uh, I believe he was actually not the most current ex-boyfriend, but the ex-boyfriend before that. Um, Mr.
 42:0842 minutes, 8 seconds Barnett worked with Holly's boyfriend's dad, uh, Boo Scott, and
 42:1742 minutes, 17 seconds and he, um, he worked at Food Giant in Parsons, and he was at work at 901 that morning.
 42:2542 minutes, 25 seconds Okay. So, he was at work at 901, but not at the time that she actually disappeared [music] from her home. I mean, here's here's the
@@ -364,7 +367,7 @@ Chapter 11: Other investigative leads
 42:4242 minutes, 42 seconds Her phone is moving at 8:00.
 42:4542 minutes, 45 seconds Her phone that we can tell is disassembled between 9:25 and 9:40.
 42:5342 minutes, 53 seconds So, I'm looking for someone that cannot give a good excuse of where they're at from 7:45 to 9:40. That's all I care
-43:0143 minutes, 1 secondabout because if you're not if you're not where Holly's phone is, I don't care. I don't care where you were at, what you were doing. That's what I'm
+43:0143 minutes, 1 second about because if you're not if you're not where Holly's phone is, I don't care. I don't care where you were at, what you were doing. That's what I'm
 43:1043 minutes, 10 seconds looking at. So Blake Barnett could not have, in my opinion, been the one that kidnapped her. So that's how I ruled him out.
 43:1743 minutes, 17 seconds Okay.
 43:1843 minutes, 18 seconds Of course, this all assumes that this was a one-man job, but as noted above, there are reasons to believe there could have been multiple men involved in
@@ -384,7 +387,7 @@ Chapter 11: Other investigative leads
 44:4244 minutes, 42 seconds Okay. Tell us about that attempted abduction in Dixon. Mexico.
 44:4944 minutes, 49 seconds Well, but this man did um are you aware of he's already testified now. What
 44:5744 minutes, 57 seconds happened in Dixon a week prior to this is irrelevant.
-45:0145 minutes, 1 secondWell, there was a kidnapping 6 days before this one. An attempted kidnapping in Dixon, Tennessee, where a person pulled up in a car and tried to pull a woman who was similar in appearance.
+45:0145 minutes, 1 second Well, there was a kidnapping 6 days before this one. An attempted kidnapping in Dixon, Tennessee, where a person pulled up in a car and tried to pull a woman who was similar in appearance.
 45:1245 minutes, 12 seconds It's irrelevant. He said he ruled this person out. This is your witness.
 45:1745 minutes, 17 seconds Specifically, Jason had a doctor's appointment for kidney stones at 9:30 a.m. So, Agent Dykus ruled him out just like he had Blake Barnett. Other
 45:2445 minutes, 24 seconds suspects were explored because they were just plain strange. What about Joseph Regusa?
@@ -400,7 +403,7 @@ Chapter 11: Other investigative leads
 46:3646 minutes, 36 seconds not by Terry Dykus. Part of this had to do with a man named Keith White who had hired Barnes to build a deck and had met with him that morning.
 46:4446 minutes, 44 seconds How about James Barnes? James Barnes. Yes.
 46:5246 minutes, 52 seconds Um, you know, me personnally, at no point did I ever suspect James
-47:0047 minutesBarnes of doing anything wrong whatsoever. And I know that wasn't necessarily a consensus opinion, but
+47:0047 minutes Barnes of doing anything wrong whatsoever. And I know that wasn't necessarily a consensus opinion, but
 47:0647 minutes, 6 seconds that was my opinion because at 7:47, he's the one that's alerting everybody to, hey, this is happening. It it's it's
 47:1647 minutes, 16 seconds idiotic to think he was involved with it.
 47:1847 minutes, 18 seconds Right. But did you direct an investigation towards him? I did not. Not me personally.
@@ -410,7 +413,7 @@ Chapter 11: Other investigative leads
 47:3847 minutes, 38 seconds Um we went to I was part of this. We went to either Perry County or Wayne County to one of
 47:4647 minutes, 46 seconds his friends house and checked out that area. We searched a huge area. Um we
 47:5247 minutes, 52 seconds talked to Mr. Keith Clark was who was his good buddy. And this is a guy who was supposedly with him at the time that
-48:0048 minutesthey saw Holly and Natalie Bobo, Holly's cousin, walking and they were supposedly staring at him. So we looked at him
+48:0048 minutes they saw Holly and Natalie Bobo, Holly's cousin, walking and they were supposedly staring at him. So we looked at him
 48:0948 minutes, 9 seconds every way we could including his mom who he lived right beside Miss Kathy Wise.
 48:1548 minutes, 15 seconds And so there was Keith White and then there was Keith Clark who was just referenced by Agent Dykus.
 48:2148 minutes, 21 seconds You mentioned Keith Clark. Can we go into Keith Clark? Sure.
@@ -427,7 +430,7 @@ Chapter 11: Other investigative leads
 49:4449 minutes, 44 seconds classify as extremely mean and devious.
 49:4949 minutes, 49 seconds Um he had actually tried to commit a theft at the Bobo house and there were um so he would have been familiar with the Bobo house.
 49:5849 minutes, 58 seconds Correct.
-50:0050 minutes[music]
+50:0050 minutes [music]
 50:0350 minutes, 3 seconds Yes, you heard that right. Dodd had previously tried to burglarize the Bobo's home. And that's not the only time he had been seen around the Bobo's house.
 50:1350 minutes, 13 seconds And he also uh was seen in the area between 8:30 and 12 somewhere in there.
 50:2250 minutes, 22 seconds Uh there's several different witnesses that see him driving a four-wheeler, you know, up on two wheels. The way they explain it, just going crazy, getting around the corner.
@@ -437,7 +440,7 @@ Chapter 11: Other investigative leads
 50:4750 minutes, 47 seconds He had been staying with his grandfather.
 50:4950 minutes, 49 seconds Okay. Hey, let's move on. But um uh you probably don't want me to ask that, but I was saying but at the time
 50:5650 minutes, 56 seconds of the kidnapping, he was supposedly staying with a friend of his and he he had an alibi.
-51:0151 minutes, 1 secondBut but you had some people that had seen him that morning near the Bobo home. Correct.
+51:0151 minutes, 1 second But but you had some people that had seen him that morning near the Bobo home. Correct.
 51:0751 minutes, 7 seconds And for those who subscribed to the theory that the white truck that John Bab saw was connected to Holly's abduction, well, guess what? Dodd had one of those.
 51:1751 minutes, 17 seconds What kind of car did he have?
 51:1951 minutes, 19 seconds He had a uh white white Ford Ranger, I believe.
@@ -464,7 +467,7 @@ Chapter 11: Other investigative leads
 53:3453 minutes, 34 seconds They told me that the scent is kind of weak as if somebody had walked through here a couple of weeks or a week before this happened.
 53:4553 minutes, 45 seconds And um in relation to when uh Holly Bobo had disappeared,
 53:5253 minutes, 52 seconds how long were the dog how much later after she disappeared were the dogs doing their scent search? We It It's
-54:0054 minuteshard to believe, but it was about a week or two weeks after that, you know. Okay.
+54:0054 minutes hard to believe, but it was about a week or two weeks after that, you know. Okay.
 54:0554 minutes, 5 seconds Yes, you heard that right. The S dog detected the slight of Holly going 3 or four miles north from her home to the
 54:1254 minutes, 12 seconds home of John Dodd's grandfather. A slight scent consistent with Holly being there the day she was abducted along the same path that Marshall Walker said her
 54:2154 minutes, 21 seconds cell phone traveled. But despite all this, John Dodd was not the leading suspect for either TBI agent Terry Dykus

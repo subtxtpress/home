@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Episode 4 - Being There
+October 26, 2026
+
 0:000 seconds In the novel Being There and Hal Ashby's 1979 film adaptation Chance, a gardener with what we would now call intellectual
 0:099 seconds disability rises through the ranks of high society through a comedy of errors.
 0:1616 seconds [music]
@@ -8,7 +11,7 @@
 0:4141 seconds [music]
 0:4444 seconds What did I tell you? That's exactly what I mean. The businessman today is at the
 0:5151 seconds mercy of kid lawyers from the SEC. It's happening to everyone, I'm afraid. The way things are going, they'll probably legislate the medical profession as we know it. Right out of existence.
-1:011 minute, 1 secondYes, right out of existence.
+1:011 minute, 1 second Yes, right out of existence.
 1:061 minute, 6 seconds In many ways, being there is its own metaphor for false confessions by those with intellectual disability, especially when law enforcement is putting words into the mouths of the most vulnerable.
 1:161 minute, 16 seconds Studies show there are two types of cases in which individuals with intellectual disability are especially likely to falsely confess to a crime.
 1:241 minute, 24 seconds Those involving sexual murders and those with multiple suspects.
@@ -40,7 +43,7 @@
 4:384 minutes, 38 seconds technically replaced by Joe Walker as lead TBI agent on the case. But Brent Booth, who had been on the case since the start, was calling a lot of the
 4:464 minutes, 46 seconds shots. And he says that a phone call about 7 months after agent Dykus was dismissed changed everything. But was
 4:544 minutes, 54 seconds there a day that you remember when this investigation changed?
-5:015 minutes, 1 secondYes, sir. Did it come in the form of a phone call?
+5:015 minutes, 1 second Yes, sir. Did it come in the form of a phone call?
 5:095 minutes, 9 seconds Sitting at my desk in Jackson, Friday afternoon, 25th January.
 5:155 minutes, 15 seconds [cough and clears throat]
 5:175 minutes, 17 seconds Phone rang. You want to say what year? 2014.
@@ -90,7 +93,7 @@
 10:3710 minutes, 37 seconds Lorine pouches are pouches that swap out the nicotine and give you clean focus and support your enamel the entire time you've got them in your mouth. They work
 10:4510 minutes, 45 seconds like the pouches you've seen before, right? You tuck one in, you go about your day. But each pouch has 50 millig of caffeine, which is about a half a cup
 10:5210 minutes, 52 seconds of coffee plus [music] Ltheonine and alpha GPC for a smooth, steady focus with a no energy crash. And because this
-11:0111 minutes, 1 secondis Lorine, every [music] pouch also has nanohydroxy appetite, the mineral your teeth are made of. So it gives you daily
+11:0111 minutes, 1 second is Lorine, every [music] pouch also has nanohydroxy appetite, the mineral your teeth are made of. So it gives you daily
 11:0811 minutes, 8 seconds enamel support in between brushings. It comes in mint, cinnamon, and mango. And it's nicotine-free as always. I'm a huge
 11:1611 minutes, 16 seconds fan of this idea. It's such an easy way to give you smooth energy and focus without any jitters or crashing. And it's good for your [music] teeth. Look,
 11:2411 minutes, 24 seconds every other pouch out there makes you pick between something that helps you focus and something that's actually good for your teeth. This is the only one designed to do both, and it comes from a
@@ -120,7 +123,7 @@
 14:3914 minutes, 39 seconds So why is this significant beyond what looks like charging crimes against an innocent man? Well, as Beth Boswell recently testified, Brent Booth's claim
 14:4814 minutes, 48 seconds that a phone call in late January 2014 changed everything wasn't totally true.
 14:5314 minutes, 53 seconds So, if somebody said that in late January or late December of
-15:0015 minutes2013 or early January 2014, Sheila Killser called and that changed everything. That wouldn't be true.
+15:0015 minutes 2013 or early January 2014, Sheila Killser called and that changed everything. That wouldn't be true.
 15:1215 minutes, 12 seconds What it changed was I think we was it exclusive? No. We were getting on
 15:1915 minutes, 19 seconds these guys at that point. Beth Boswell traces her interest in the A team of Jason Autry, Shane Austin, Zack Adams,
 15:2615 minutes, 26 seconds and Dylan Adams to the aftermath of Agent Dyus' PowerPoint presentation when he was told to look in a different direction than Terry Britt
@@ -181,7 +184,7 @@
 21:4821 minutes, 48 seconds And um Dylan was devastated, but I never seen Dylan cry.
 21:5721 minutes, 57 seconds It's really really weird. And
 21:5921 minutes, 59 seconds [clears throat]
-22:0022 minutesyou know, uh, I think I took him to a couple brief counseling and they said, "He's fine. He's fine."
+22:0022 minutes you know, uh, I think I took him to a couple brief counseling and they said, "He's fine. He's fine."
 22:0922 minutes, 9 seconds Well, he wasn't fine because for the next two years, I literally had to sleep with him until he could fall asleep.
 22:1822 minutes, 18 seconds Overall, friends and family described Dylan as loyal, someone trying to find his way in the world. Good with his
 22:2522 minutes, 25 seconds hands, but a bit of a follower and bullied a bit by his big brother, whom he followed into a world of chemical dependency. Then there's the second part
@@ -219,7 +222,7 @@
 26:3626 minutes, 36 seconds Brent Boo's subsequent report on February 5th clarifies the A train is Jason Autry and that it was Jason who abducted Holly and hit her too hard.
 26:4526 minutes, 45 seconds [snorts] In this version, Dylan's brother Zach is merely Jason Autry's accessory. And then there's this language. Dylan told her that he went to
 26:5326 minutes, 53 seconds his grandfather's house and when he walked up to the door, he saw a blond-headed girl and his brother and Jason Autry. Dylan said Zack met him at
-27:0127 minutes, 1 secondthe door. She said Dylan's holder, Zack Adams, said to him, "Get out of here. If you tell anybody what you saw here, I'll kill you myself."
+27:0127 minutes, 1 second the door. She said Dylan's holder, Zack Adams, said to him, "Get out of here. If you tell anybody what you saw here, I'll kill you myself."
 27:1027 minutes, 10 seconds [music]
 27:1327 minutes, 13 seconds So, where does this all leave us? There are three main possibilities. The first is that Sheila Kilzer made up this whole
 27:2127 minutes, 21 seconds thing to try and get leniency for her son. Here is how prosecutor Beth Boswell responded when the subject came up at a recent hearing.
@@ -307,7 +310,7 @@
 37:3937 minutes, 39 seconds believe that girl was Holly Bobo at the Adams family residence. And critically, as we'll discuss in a future episode, neither does the state.
 37:4837 minutes, 48 seconds [music]
 37:5437 minutes, 54 seconds [music]
-38:0038 minutes[music]
+38:0038 minutes [music]
 38:0338 minutes, 3 seconds So why do I believe this part of Sheila kills her story? Because Dylan relates something similar to his mom.
 38:0938 minutes, 9 seconds Yeah. If they come in there, Dylan, you ask for attorney. You hear me?
 38:1538 minutes, 15 seconds And I mean it. You stand your ground because they're trying to pin this on Zachary cuz they they can't find nobody else to pin it on.
@@ -404,7 +407,7 @@
 49:4249 minutes, 42 seconds That was only a speculation, sir.
 49:5049 minutes, 50 seconds Are you saying under oath you were concerned about his safety and well-being? Yes, sir. I am.
 49:5649 minutes, 56 seconds With zero credible proof and only speculation. Correct.
-50:0050 minutesSpeculation. Yes, sir. [music] So, first, Dylan was placed with Dennis Benjamin due to mere speculation about his safety rather than anything
+50:0050 minutes Speculation. Yes, sir. [music] So, first, Dylan was placed with Dennis Benjamin due to mere speculation about his safety rather than anything
 50:0850 minutes, 8 seconds concrete. Second, the placement was done to get evidence in the Holly Bobo case, which is a bold admission, but makes sense given that Dennis Benjamin was
 50:1750 minutes, 17 seconds working with the Bobos and the TBI. And third, the placement was so that Dylan's story didn't change. But given what was
 50:2550 minutes, 25 seconds just mentioned and what we know about Dennis Benjamin's interrogation tactics, this seems like a nonsensical and cruel
@@ -483,7 +486,7 @@
 59:3259 minutes, 32 seconds And then it's just because I can almost see it then. I can almost see that conversation happening.
 59:4159 minutes, 41 seconds And then because you have seen her and you know how beautiful she was, you made the comment free.
 59:5059 minutes, 50 seconds You're right. I've been in Decator Can a lot and I ain't seen another one as pretty as her ever since I've been over there.
-1:00:011 hour, 1 secondYou hear that? Is that what happened?
+1:00:011 hour, 1 second You hear that? Is that what happened?
 1:00:101 hour, 10 seconds What happened?
 1:00:121 hour, 12 seconds You told one of your good friends that you all sitting around smoking dope and talking
 1:00:201 hour, 20 seconds and they said, "Fuck this [ __ ] Let's go get it." What led up to that?
@@ -505,7 +508,7 @@
 1:02:341 hour, 2 minutes, 34 seconds Coming back now. Why are you just not throwing it out? Come through.
 1:02:441 hour, 2 minutes, 44 seconds You taking that gun? You better get everything back to you.
 1:02:521 hour, 2 minutes, 52 seconds Jeff Jackson's incredul relates to the fact that Shane Austin's black Chevy S10 truck was broken down at the time of
-1:03:001 hour, 3 minutesHolly's abduction, which is why Dylan now needed to say that Shane was dropped off by his parents. There are also some more moving parts here, which is likely
+1:03:001 hour, 3 minutes Holly's abduction, which is why Dylan now needed to say that Shane was dropped off by his parents. There are also some more moving parts here, which is likely
 1:03:081 hour, 3 minutes, 8 seconds why Jeff Jackson called for a break, which lasted about 13 minutes. And then when they returned, Shane was now the
 1:03:161 hour, 3 minutes, 16 seconds ring leader who spearheaded the abduction of Holly. I'm asking you flat out, did Shane Austin help plan this?
 1:03:271 hour, 3 minutes, 27 seconds Yes, he did.
@@ -562,7 +565,7 @@
 1:09:361 hour, 9 minutes, 36 seconds as this makes clear this was the critical part of Dylan's interrogation the part where Jeff Jackson is trying to get Dylan to finally say how he knows
 1:09:451 hour, 9 minutes, 45 seconds what happened to Holly and Dylan's response is that his brother Zach told him about the abduction after law enforcement found the murder weapon
 1:09:531 hour, 9 minutes, 53 seconds under Jason Autrey's house there's just one problem which you can probably sense from Jeff Jackson's responses which is that no murder weapon was found under
-1:10:011 hour, 10 minutes, 1 secondJason Autry's house or indeed anyone's house. And so Jeff Jackson cycled back around to both this response by Adillant
+1:10:011 hour, 10 minutes, 1 second Jason Autry's house or indeed anyone's house. And so Jeff Jackson cycled back around to both this response by Adillant
 1:10:091 hour, 10 minutes, 9 seconds and his claim about the basement at the close of the interrogation and even after it was over.
 1:10:151 hour, 10 minutes, 15 seconds Is there anything else that you know about where any other evidence is far as you know? We actually have a gun.
 1:10:221 hour, 10 minutes, 22 seconds Somebody does that took it from Shane or Jason Offer's yard on on the road back there on a road.
@@ -570,7 +573,7 @@
 1:10:371 hour, 10 minutes, 37 seconds What colleagues got that gun? That's important to me. I never found out. Okay. Anything else?
 1:10:461 hour, 10 minutes, 46 seconds Are we done? Yeah, we're done.
 1:10:511 hour, 10 minutes, 51 seconds Time is approximately 10:14 p.m. on 17th day of September, 2014.
-1:11:011 hour, 11 minutes, 1 secondThis concludes this interview.
+1:11:011 hour, 11 minutes, 1 second This concludes this interview.
 1:11:031 hour, 11 minutes, 3 seconds How do you know there's a basement in that house?
 1:11:081 hour, 11 minutes, 8 seconds From from the way I look at it, I can just tell you ever tell you there was
 1:11:161 hour, 11 minutes, 16 seconds tell you there's a basement in that house. Yes, sir.
@@ -593,7 +596,7 @@
 1:13:401 hour, 13 minutes, 40 seconds If you're looking for adfree episodes and extra content from us, [music] you can become a patron by going to patreon.com/
 1:13:471 hour, 13 minutes, 47 seconds undisclosed pod. There are different tiers with different perks. So check [music] those out and join today.
 1:13:531 hour, 13 minutes, 53 seconds Looking to support our work on a larger scale? You can make a taxdeductible donation as an individual or through your company directly [music] from our
-1:14:001 hour, 14 minuteswebsite at undisclosed pod.com. Oh, and you can also go there to listen to our episodes. [music] Everything is there from season 1 to the most recent season,
+1:14:001 hour, 14 minutes website at undisclosed pod.com. Oh, and you can also go there to listen to our episodes. [music] Everything is there from season 1 to the most recent season,
 1:14:091 hour, 14 minutes, 9 seconds also including bonus episodes, [music] TJ Weekly, and unfiltered episodes. If you're not already following us online,
 1:14:171 hour, 14 minutes, 17 seconds you can find us on YouTube and X at Undisclosed Pod. On Instagram [music] and Facebook, we're at Undisclosed
 1:14:231 hour, 14 minutes, 23 seconds Podcast. If you want more content from our hosts, Colin [music] is on X and Blue Sky at evidence prof and Robia is

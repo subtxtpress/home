@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Addendum 3
+October 22, 2026
+
 0:055 seconds [music]
 0:1616 seconds [music]
 0:2121 seconds Hi and welcome back to Undisclosed Towards Justice. This is addendum three in our series of the state versus Dylan Adams. As always, I'm Robia Chadri. I'm
@@ -6,7 +9,7 @@
 0:4242 seconds Oh, nice. Does it feel like fall where you're at?
 0:4646 seconds Uh, I mean, [laughter] what you would define as fall, but um, you know, it's still late summer here in South Carolina.
 0:5353 seconds Right. Right. Right. Well, we're experiencing a true fall. you know, my electric fireplace has been on a couple of times. It's nice. It's nice. But, um, I'm glad you got a little bit of a
-1:011 minute, 1 secondbreak. Um, and I'm excited to meet our guest today. Actually, I'll let you introduce him, Colin, since you know him. Yeah. So, our guest today is Luke Lman.
+1:011 minute, 1 second break. Um, and I'm excited to meet our guest today. Actually, I'll let you introduce him, Colin, since you know him. Yeah. So, our guest today is Luke Lman.
 1:091 minute, 9 seconds He is a student at the University of South Carolina School of Law.
 1:141 minute, 14 seconds Luke took my criminal law class in his first year. He's a member of the wrongful conviction club that we started here at South Carolina. and both as part
 1:231 minute, 23 seconds of the club and as my research assistant over the summer into this school year.
@@ -33,7 +36,7 @@
 3:383 minutes, 38 seconds taking the case to a grand jury which is my proposal that prosecutors should be able to take cases to grand juries even if they don't have a conviction review unit to throw out convictions.
 3:473 minutes, 47 seconds Oh that's interesting. Like this you you're you're proposing an entirely new mechanism then. Yeah.
 3:543 minutes, 54 seconds So Forest had 10 alibi witnesses placing him four miles away from the murder. was a murder of Deputy Sheriff William G.
-4:014 minutes, 1 secondHardy in Birmingham. Really, the only evidence against him, which kind of ties into partially Clint Bobo and hearing
+4:014 minutes, 1 second Hardy in Birmingham. Really, the only evidence against him, which kind of ties into partially Clint Bobo and hearing
 4:094 minutes, 9 seconds this man talk to his sister, is a sole ear witness, which is the podcast Beth Schilurn did, an ear witness who said I could recognize his voice on an
 4:174 minutes, 17 seconds incriminating phone call and she was paid by the state unbeknownst to the defense. And so, there's a strong innocence case, but I again applaud
 4:264 minutes, 26 seconds Governor Ivy. She's taken a lot of heat with these past commutations. She's done it again. She's stepped up and commuted to for a sentence, which is great.
@@ -42,7 +45,7 @@
 4:444 minutes, 44 seconds you know, the fact that he had all these alibi witnesses, I don't think you can really present that kind of defense. You can't really present a defense at a grand jury, right?
 4:524 minutes, 52 seconds Not at a pre-trial grand jury. And so as I didn't know there's a post grand jury.
 4:584 minutes, 58 seconds [laughter] Okay. No, I need to learn some criminal procedure.
-5:005 minutesNo, there's not. See, there's not. But grand jury is now a rubber stamp, right?
+5:005 minutes No, there's not. See, there's not. But grand jury is now a rubber stamp, right?
 5:055 minutes, 5 seconds And so grand juries are kind of useless in modern criminal law. So my proposal in the paper is to retrofit the grand jury and allow prosecutors who don't
 5:135 minutes, 13 seconds have conviction review units to take plausible cases of innocence because the DA here believes to Forest is innocent to take it to a post-trial grand jury,
 5:225 minutes, 22 seconds present evidence of innocence and see if in the investigatory function the grand jury can declare in a report this guy was wrongfully convicted.
@@ -50,7 +53,7 @@
 5:355 minutes, 35 seconds Many DA's offices want to start conviction review units. They lack the resources. They lack the public impetus.
 5:425 minutes, 42 seconds And so in this case, okay, in Birmingham, there's not a CRU, but the DA is saying, "We think we got the wrong guy. This gives a mechanism if the CRU is not in place."
 5:505 minutes, 50 seconds Right. All right. Thank you for satisfying my questions. And then you want to talk about like kind of the forensic evidence, right? Um that exists in Holly's case. Tell us about that.
-6:006 minutesYeah. I mean, Robbie, we were just talking before we got on about, you know, you listening to the audio here and we have this fresh palm print on
+6:006 minutes Yeah. I mean, Robbie, we were just talking before we got on about, you know, you listening to the audio here and we have this fresh palm print on
 6:076 minutes, 7 seconds Holly's Mustang. Visually, it looks like Terry Brit's palm print. And the state says, "We don't have a clear enough exemplar from Terry Brit. We have this
 6:166 minutes, 16 seconds hair, going back to your last season, Robia, in his van on the duct tape on the rope. It's microscopically and macroscopically identical to Holly's
 6:246 minutes, 24 seconds hair. True, the mitochondrial DNA is not a match, but that's not conclusive. They today could do nuclear DNA testing and
@@ -65,14 +68,14 @@
 7:387 minutes, 38 seconds And Luke, what's your, you know, going through the files and reading about this palm print and the hair, what's your own take on what the state has and hasn't
 7:467 minutes, 46 seconds done here? I mean, with respect to the palm prints, I certainly think that more could have been done to at least determine whether
 7:537 minutes, 53 seconds Terry Brit could actually have been excluded. I think it's it's fair to speculate that Holly Bobo was certainly
-8:018 minutes, 1 secondon Terry Britt's radar to bring a photo in the in the shepherd potentially of her hair and the wagon, the cadaabver
+8:018 minutes, 1 second on Terry Britt's radar to bring a photo in the in the shepherd potentially of her hair and the wagon, the cadaabver
 8:108 minutes, 10 seconds dog. To Miss Shandre's point, they they have secured their conviction. So it would they don't have a vested interest
 8:178 minutes, 17 seconds in going back and disturbing that. But my my question would be you know how this fits in with the prosecutotorial
 8:268 minutes, 26 seconds duty to you offer uh expulatory evidence to the defense and whether there's a
 8:348 minutes, 34 seconds line between um you know that clear and convincing evidence versus what could potentially serve as clear improvements in evidence.
 8:448 minutes, 44 seconds Yeah. And that's model rule of professional conduct 3.8, the special duties of the prosecutor. And I mean, Ravia, we've [snorts] talked about cases
 8:518 minutes, 51 seconds in which like there is potentially exculpatory evidence. We don't know how the test is going to turn out. I regard it differently when they
-9:009 minutessay we can't exclude Terry Britt as the source of the palm print. Meaning there's a preliminary finding that his
+9:009 minutes say we can't exclude Terry Britt as the source of the palm print. Meaning there's a preliminary finding that his
 9:089 minutes, 8 seconds palm, although low resolution, matches the palm print. There's a difference between that and just saying we have a palm print. H, [clears throat] we're not going to test it.
 9:169 minutes, 16 seconds Right. Right. Colin, it could be that we're just too early in the series, so you don't have to answer this, but is there more forensic evidence like from Holly's remains that could be tested?
 9:289 minutes, 28 seconds No. Yeah. So, those partial remains that they eventually find, there's nothing of forensic value that they're able to test at this point.
@@ -88,7 +91,7 @@
 10:3610 minutes, 36 seconds luxury price tag. But believe me, when you walk out of the house, you're going to look luxury. And now, as the weather gets colder, Quint has everything you
 10:4410 minutes, 44 seconds need to round out your wardrobe. From warm, responsibly sourced down jackets and cozy cashmere scarves and gloves to beautiful 14 karat gold jewelry, which
 10:5310 minutes, 53 seconds adds the perfect finishing touch to all of your looks. Now that fall is in full swing, well, I decided I need a pair of nice dark denim jeans because, you know,
-11:0111 minutes, 1 secondthey look so great with a leather jacket, with some cute boots. So, I picked up Quinc's Bella Stretch straight jeans. They're such a beautiful classic
+11:0111 minutes, 1 second they look so great with a leather jacket, with some cute boots. So, I picked up Quinc's Bella Stretch straight jeans. They're such a beautiful classic
 11:0911 minutes, 9 seconds cut. They are stretchy exactly where they need to be, and they're only 50 bucks, but they make me feel like a million. [music] Everything at Quinc is
 11:1711 minutes, 17 seconds priced 50 to 80% less than similar brands. That's because they work directly with ethical factories and they cut out the middleman, so you're paying
 11:2411 minutes, 24 seconds for quality, not brand markup. And of course, they have much more than just apparel. Quint brings the same approach to everything they make, from hotel
@@ -102,7 +105,7 @@
 12:3512 minutes, 35 seconds the whole time I'm listening and by the way, just so folks know how the sausage is made. This is Colin's season. It's his case. you know, I I am there to
 12:4312 minutes, 43 seconds record with him, but I am listening to these episodes in real time with you as well with all the audio clips. It's completely produced by by Colin. And so,
 12:5212 minutes, 52 seconds as I'm listening, I'm like, why is Terry Britt like not the first person on their radar? And it wasn't until this issue arose and I heard this in the podcast
-13:0013 minutesand I was like in this episode, I I was just shocked and it was it just made my stomach turn. So, do you want to explain it a little bit uh so folks clear for folks?
+13:0013 minutes and I was like in this episode, I I was just shocked and it was it just made my stomach turn. So, do you want to explain it a little bit uh so folks clear for folks?
 13:0813 minutes, 8 seconds Yeah. to make it clear for everyone, I believe it was 2008 when Terry Britt was in his van with his wife Janet, his
 13:1713 minutes, 17 seconds enabler, and it's clear he pulled this sex worker, Tequila Jones, into the van
 13:2413 minutes, 24 seconds and tried to rape her. And he should have been prosecuted and convicted of that crime before 2011, before Holly
@@ -118,7 +121,7 @@
 14:3714 minutes, 37 seconds but the TBI would not have been implicated I think in the snafu right not the TBI itself but the state of Tennessee
 14:4514 minutes, 45 seconds so you think that was enough I I I mean I I figured you know TBI could be like not our problem not our agency we didn't do that and you know I think the state of Tennessee I think
 14:5314 minutes, 53 seconds they were running cover basically they're protecting the state by saying look in another direction.
-15:0015 minutesLucas, do you think that that's the explanation here why Dykus was told to like keep moving away from Terry Britt?
+15:0015 minutes Lucas, do you think that that's the explanation here why Dykus was told to like keep moving away from Terry Britt?
 15:0715 minutes, 7 seconds I think that the state of Tennessee certainly has an interest in not and not looking bad publicly, especially uh with
 15:1415 minutes, 14 seconds respect to a case that affected a small town that everyone knows about that has so much not just local attention but national attention as well.
 15:2415 minutes, 24 seconds Sounds good. All right. Well, I mean, I guess we won't ever really know. I wonder what Terry Dykus has to say about it. You think this is is this his theory as well?
@@ -158,14 +161,14 @@
 19:4319 minutes, 43 seconds family's routine and um so it's got to be somebody who like is like local who's
 19:5119 minutes, 51 seconds there a lot. I don't know like is able to to really keep an eye on her.
 19:5519 minutes, 55 seconds Yeah. Same page. They knew Holly and they were local because they'd have to be local to know about the logging road.
-20:0120 minutes, 1 secondAnd as Marshall Walker notes, they'd have to know a particular road where the items were thrown to the side of the road.
+20:0120 minutes, 1 second And as Marshall Walker notes, they'd have to know a particular road where the items were thrown to the side of the road.
 20:0820 minutes, 8 seconds Yeah. [snorts] All right. Our next question comes from Injector Mimi. I had the exact same thought as Stephanie, which is that the text was basically quote sent but
 20:1520 minutes, 15 seconds buffering in Q. So, it didn't register as sent until 7:42 a.m. Otherwise, someone else sends a text in perfect
 20:2320 minutes, 23 seconds context or a conversation. And we'd have to assume that must be Drew or perhaps Clint. But why even send that message period or that the neighbor is lying?
 20:3420 minutes, 34 seconds Yeah. And so, Robbie, this was posed on Facebook and I had a response because I looked back through the records and I realized I streamlined episode one because
 20:4320 minutes, 43 seconds this was a long episode. I didn't want to make that too long. What I found in my records was at 7:39 a.m.
 20:5120 minutes, 51 seconds Drew, her boyfriend, texted Holly about the hunting issue. And her 7:42 a.m. text was a response to that 7:39 a.m.
-21:0021 minutestext. So, we know her text message at the earliest went out 7:39, 7:40
+21:0021 minutes text. So, we know her text message at the earliest went out 7:39, 7:40
 21:0621 minutes, 6 seconds [snorts]
 21:0721 minutes, 7 seconds and the neighbor still has to do everything he says and call his mom at 7:47.
 21:1421 minutes, 14 seconds And so, the timing the t it doesn't work. I mean, there there's even if she sent her her text right
@@ -175,7 +178,7 @@
 21:4221 minutes, 42 seconds or is this normal? Why would he agree to testify? Why would he have been required to testify if he didn't agree? I also wondered about this.
 21:5021 minutes, 50 seconds So, one, the prosecution called him at trial.
 21:5421 minutes, 54 seconds What? And their state their stated purpose was to show how the initial investigation went off the rails and
-22:0122 minutes, 1 secondTerry Dykus got blinded by confirmation bias regarding Terry Brit. That was the state of purpose at trial was that they
+22:0122 minutes, 1 second Terry Dykus got blinded by confirmation bias regarding Terry Brit. That was the state of purpose at trial was that they
 22:0922 minutes, 9 seconds were trying to make fools out of Terry Dykus and out of Marshall Walker.
 22:1422 minutes, 14 seconds That seems like a really dumb trial strategy. Yes. Yeah.
 22:1722 minutes, 17 seconds Why did Terry Brit agree? Kind of heard his demands at the end of the episode.
@@ -185,7 +188,7 @@
 22:4822 minutes, 48 seconds Now Terry Brit is out and about, folks.
 22:5122 minutes, 51 seconds Just gonna repeat that. All right. Well, I that is okay. What do you think about that that trial strategy, though?
 22:5822 minutes, 58 seconds Because I'm like a little bit shocked to hear that.
-23:0023 minutesI think they front ended it, right? I think they knew if we didn't call him, the defense was going to call him. And
+23:0023 minutes I think they front ended it, right? I think they knew if we didn't call him, the defense was going to call him. And
 23:1023 minutes, 10 seconds if he were a cooperative witness for the defense, that would be horrible for the state. And if he were a reluctant
 23:1723 minutes, 17 seconds witness and tacit turn and not giving up much that would look bad for the state.
 23:2123 minutes, 21 seconds So I think they front ended it by calling him on their own as opposed to waiting for this defense to do so.
@@ -201,7 +204,7 @@
 24:3924 minutes, 39 seconds Drew kills her. Richie panics, helps cover up. Um, you know, I mean, so this is the theory that, uh, GenMC has. I'm
 24:4724 minutes, 47 seconds not going to read the whole thing. Um, although she does go back to the call.
 24:5324 minutes, 53 seconds Let's see. Maybe they take the SIM out of the phone, throw it out separately in attempt to hide the messages between her and Drew. And the 742 text message is puzzling. But could Drew have sent it
-25:0125 minutes, 1 secondhimself from her phone to cover his tracks? Maybe after he hit her. All right. Interesting. So to answer the main question, which is why was Drew not
+25:0125 minutes, 1 second himself from her phone to cover his tracks? Maybe after he hit her. All right. Interesting. So to answer the main question, which is why was Drew not
 25:1025 minutes, 10 seconds ever a suspect, let alone suspect number one, it is this narrative that took hold and continues to hold today in 2026. And
 25:1825 minutes, 18 seconds that is Holly's mother, Karen, coming home like a bad out of hell.
 25:2625 minutes, 26 seconds Shaking Clinton, saying, "How could you think that was Drew? I talked to him on the phone at 7:31. He was hunting down on my mother's property in Bath Springs.
@@ -209,7 +212,7 @@
 25:4425 minutes, 44 seconds miles away. There's no way he could have been at the Bobo residence. And just recently, the unearthed cell phone records for Drew show. Well, in fact,
 25:5225 minutes, 52 seconds he's pinging the home tower and sector for Holly, the same tower she's pinging.
 25:5725 minutes, 57 seconds And so, it was just a blind spot.
-26:0026 minutesHe fell through the cracks. Did they compare his palm print to the palm print?
+26:0026 minutes He fell through the cracks. Did they compare his palm print to the palm print?
 26:0426 minutes, 4 seconds It's not in the record. And he was never interviewed individually. He was always interviewed with his dad. So he just he was never treated as a suspect. So I I
 26:1226 minutes, 12 seconds wouldn't imagine that he was ever checked against the How shoddy. All right. Okay. Then we have a question from Jessica Rodriguez.
 26:1826 minutes, 18 seconds I have two thoughts after listening to this addendum. This is last week's addendum. First, did law enforcement stand around so long because they were
@@ -265,7 +268,7 @@
 32:3332 minutes, 33 seconds gym, I'm right at my car, and he comes up right behind me and he taps me in the shoulder. Freaked me out. And you know, and I and I know I know what his
 32:4232 minutes, 42 seconds Instagram handle is. He's like a fitness guy and I'm like and he starts talking about everything on my social media and and I'm starting to feel like really uncomfortable cuz he's like you know he knows I'm like he could follow me home.
 32:5232 minutes, 52 seconds I live minutes from the house and um and a friend of mine's like you just block him block him. I'm like no but I don't want to block him cuz that could like aggravate him, right? Like
-33:0033 minutesit's like it's like this is this is a dance women do all the time. So I do agree that her tone, the way she's
+33:0033 minutes it's like it's like this is this is a dance women do all the time. So I do agree that her tone, the way she's
 33:0733 minutes, 7 seconds talking to this person, there's no way to know if it was a stranger or somebody she knew just from that. All right, this question comes from Lisa. Do we think
 33:1533 minutes, 15 seconds it's possible that if it was Drew that Drew could have sent the text from Holly's phone and bolstered his own alibi? I don't see much other way to justify this within the timeline.
 33:2433 minutes, 24 seconds Yeah. And it's it's the same issue we had with Don in season 1, which is just the absence of an investigation into Drew. And so all I can say is what his
@@ -273,7 +276,7 @@
 33:4133 minutes, 41 seconds beyond that, we just have no idea. I mean, yeah, people raise good points about Drew, and I just have no real way to confirm or dispel the suspicions
 33:4933 minutes, 49 seconds around him because other than the pings, we don't have much to go about it.
 33:5233 minutes, 52 seconds Yeah. Yeah. Yeah. And I mean, they just didn't properly rule him out. Uh, so Tommy Smith has a a couple comments and
-34:0034 minutesquestions. He said, number one, my dogs do not wake up at 10:00. They wake up and are ready for food when the sun rises. This is usually true for most dogs and cats, noted. So, that's
+34:0034 minutes questions. He said, number one, my dogs do not wake up at 10:00. They wake up and are ready for food when the sun rises. This is usually true for most dogs and cats, noted. So, that's
 34:0934 minutes, 9 seconds interesting. What do you think about that in terms of like everybody talking about their dogs and when the dogs barked and got them up?
 34:1434 minutes, 14 seconds Yeah. So, this is in reference to what Terry Brit's wife Janet told Terry Dykus, right? And I think if I'm not
 34:2334 minutes, 23 seconds reading it wrong in my review of the records, what Janet is saying, not that the dogs woke up at 10:00, but that she was asleep until 10ish.
@@ -324,7 +327,7 @@
 39:4039 minutes, 40 seconds H. So, one, there's nothing in the record about them testing the Mustang, which as far as we know, it was operating
 39:4739 minutes, 47 seconds fine. It had been operating fine, so I'm not aware of any issue there. Um, in terms of Drew reading the text message at 7:42, he does send a follow-up text
 39:5639 minutes, 56 seconds message, which would indicate that he did receive that 7:42 a.m. text message.
-40:0140 minutes, 1 secondAnd so, yes, he did send a follow-up message to that.
+40:0140 minutes, 1 second And so, yes, he did send a follow-up message to that.
 40:0540 minutes, 5 seconds Okay, that's an interesting theory, though, not one I had considered. Um, but you know, I mean, Holly must have known her brother's home. He had a car, right?
 40:1540 minutes, 15 seconds Like, so, uh, all right. Kim says, "Dropping a suspect with that kind of record is a decision somebody made and wrote down.
 40:2240 minutes, 22 seconds As an investigator, that's the memo I would want first. Who made that call when, and what they had in hand that day?" That's true. I mean, is that the
@@ -373,7 +376,7 @@
 45:4045 minutes, 40 seconds And so we'll hear the confession and then we'll hear the Bobos weighing in and saying, "Well, despite what everyone has said about the A team's guilt, we
 45:4945 minutes, 49 seconds completely disagree with that theory." So it's very odd.
 45:5345 minutes, 53 seconds Wow, that's really interesting. I do wonder. I mean, and you know, you talked earlier about proposing like a post
-46:0046 minutestrial grand jury mechanism. I do wish, although at this point, especially after Nan's case, I feel like anything's possible that in cases like this, the
+46:0046 minutes trial grand jury mechanism. I do wish, although at this point, especially after Nan's case, I feel like anything's possible that in cases like this, the
 46:0846 minutes, 8 seconds victim's family had a right like continues to maintain the right to ask for DNA testing. You know, we know in states, um, defendants do, but defendants, it's a it's a uphill battle.
 46:1746 minutes, 17 seconds So it's but I wish there was an existing right for victim's families to be like no we want because I feel like that it
 46:2446 minutes, 24 seconds would just make sense to have something like that on the books. Don't you think?
@@ -399,7 +402,7 @@
 48:4048 minutes, 40 seconds Tequila Jones issue right by that time that they are like willing to look the other way in the face of something. I I
 48:4848 minutes, 48 seconds mean Brit had no incentive to say that, right? Like but to him he's like it seemed to him that they had him dead to rights in that moment.
 48:5748 minutes, 57 seconds Right. Right.
-49:0049 minutesThe only argument would be it's the same false confession that an innocent person can have and it's Terry Britt. But I don't know, Luke, what is your take on
+49:0049 minutes The only argument would be it's the same false confession that an innocent person can have and it's Terry Britt. But I don't know, Luke, what is your take on
 49:0849 minutes, 8 seconds Marshall Walker's blowby-blow of what Terry Brit said when he confronted him?
 49:1249 minutes, 12 seconds I mean, I I certainly don't get the impression that that Terry Brit was was making some
 49:2049 minutes, 20 seconds sort of like sarcastic comments um in the way that the state kind of framed it. I genuinely do think he he wanted to
@@ -408,7 +411,7 @@
 49:4049 minutes, 40 seconds What he's probably thinking is like, well, I could either get a plea deal and get something out of this or they're just going to they're going to charge me with this. I'm going to be tried and I'm going to get the death sentence or a
 49:4849 minutes, 48 seconds life sentence or something, right? Like, I'm they've got me dead to rights is what it sounds like. But the conditions of this interview are not the same as
 49:5649 minutes, 56 seconds the conditions of the kind of interrogations that elicit false confessions.
-50:0050 minutesSo that's why I'm like, no, do not make that comparison between, you know, this and like, let's say, what Jason Carroll went through, right? Um,
+50:0050 minutes So that's why I'm like, no, do not make that comparison between, you know, this and like, let's say, what Jason Carroll went through, right? Um,
 50:0750 minutes, 7 seconds but yeah, I but back to the why do you think his wife has never been charged with anything?
 50:1450 minutes, 14 seconds I think that Terry Britt through his deal on the Tequila Jones case, which
 50:2150 minutes, 21 seconds involved testifying against Zack Adams, was able to get protection for Janet. And so that was in
@@ -432,7 +435,7 @@
 52:3752 minutes, 37 seconds it and then um the the person that abducted her didn't
 52:4652 minutes, 46 seconds realize it until after the fact that the phone was in the backpack and then he started tossing things out the window.
 52:5452 minutes, 54 seconds Anyway, that was my thought. I don't know if you mentioned it and I missed it, but um I thought it was a pretty
-53:0153 minutes, 1 secondgood uh scenario that she had the foresight to keep her backpack with her.
+53:0153 minutes, 1 second good uh scenario that she had the foresight to keep her backpack with her.
 53:0953 minutes, 9 seconds That's it. Keep up the good work. Love listening to you guys.
 53:1453 minutes, 14 seconds One more theory yet. What do you think about that theory?
 53:1653 minutes, 16 seconds I think it's as good of an explanation as any. that she had it sort of in front of her and so Clank can't see it and yeah, I mean that she might have had
@@ -481,7 +484,7 @@
 58:4158 minutes, 41 seconds Like tell like having Clint be like, "All right, we're going to show you.
 58:4558 minutes, 45 seconds Let's try to film how it looked to you as she moved away from you." Right. Like I
 58:5258 minutes, 52 seconds I know they had the reenactment of her mother walking with cousin Richie into the woods, but I don't know there was ever reenactment in the carport.
-59:0159 minutes, 1 secondOkay. Okay. All right. Um, then we have uh Miranda one and two. So, assuming it's a two-parter. All right.
+59:0159 minutes, 1 second Okay. Okay. All right. Um, then we have uh Miranda one and two. So, assuming it's a two-parter. All right.
 59:0959 minutes, 9 seconds Oh my gosh, Colin, you are annihilating this season. It's so good. I literally the episode on Monday dropped like a
 59:1659 minutes, 16 seconds little late and I was biting my nails waiting for it to come out. You're eating and leaving no crumbs, as they say. Okay, my first question is about the dogs. It sounds like we have two
 59:2559 minutes, 25 seconds sets of dogs so far, and I just want to make sure I have them right. Number one, we have search and rescue dogs that go
@@ -550,14 +553,14 @@
 1:06:371 hour, 6 minutes, 37 seconds listening. We will be back in just a few days with um episode 4. Thank you all so much for having me.
 1:06:431 hour, 6 minutes, 43 seconds Looking forward to it. [music] Hi listeners, [music] it's Mele,
 1:06:511 hour, 6 minutes, 51 seconds executive producer of Undisclosed Toward Justice. I wanted to take a moment to thank you, our [music] listeners, for your continued support for over a decade
-1:07:001 hour, 7 minutesnow and for supporting the sponsors of our show. Our community continues to grow and we love being able to engage with you all in so many different ways.
+1:07:001 hour, 7 minutes now and for supporting the sponsors of our show. Our community continues to grow and we love being able to engage with you all in so many different ways.
 1:07:081 hour, 7 minutes, 8 seconds Speaking of which, if you haven't joined our Facebook group yet, all you have to do is search for the Toward Justice community page and answer three simple
 1:07:161 hour, 7 minutes, 16 seconds questions and you're in. Don't feel like typing, but still want to share your thoughts? Easy enough. Leave us a voice note by going to
 1:07:231 hour, 7 minutes, 23 seconds speakpipe.com/unddislosed. [music] If you're looking for adfree episodes and extra content from us, you can
 1:07:301 hour, 7 minutes, 30 seconds become a patron by going to patreon.com/ undisclosed pod. [music] There are different tiers with different perks. So check those out and join today. Looking to support our work on a larger scale?
 1:07:411 hour, 7 minutes, 41 seconds You can make a taxdeductible donation [music] as an individual or through your company directly from our website at undisclosed pod.com. Oh, and you can also go there to listen to our episodes.
 1:07:521 hour, 7 minutes, 52 seconds Everything is there from season 1 to the most recent season, also including bonus episodes, TJ Weekly, and unfiltered
-1:08:001 hour, 8 minutesepisodes. [music] If you're not already following us online, you can find us on YouTube and X at Undisclosed Pod. On
+1:08:001 hour, 8 minutes episodes. [music] If you're not already following us online, you can find us on YouTube and X at Undisclosed Pod. On
 1:08:071 hour, 8 minutes, 7 seconds Instagram and Facebook, we're at Undisclosed Podcast. If you want more content from our hosts, Colin is on X
 1:08:151 hour, 8 minutes, 15 seconds and Blue Sky at evidence prof [music] and Robia is on Instagram at Robia squared 2, the number two. Don't forget
 1:08:231 hour, 8 minutes, 23 seconds to follow, share, rate, and review everywhere. And last but not least, a million thanks to Hannah McCarthy for audio production and for always making

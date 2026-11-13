@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Addendum 4
+November 4, 2026
+
 0:1616 seconds [music]
 0:2222 seconds Hi and welcome back to Undisclosed Towards Justice. This is addendum four of our series on the state versus Dylan Adams. As always, I'm Rabia Chadri. I'm
 0:3030 seconds an attorney and author and I'm here with my [music] colleague Colin Miller. Hey, Colin. Hey, how's it going? I'm good. How are you doing?
@@ -50,7 +53,7 @@
 5:465 minutes, 46 seconds And he had gone in for stealing a car and hitting someone with a car when he was like driving away. So it was like a horrible thing, but it was not like a
 5:545 minutes, 54 seconds intentional murder, right?
 5:565 minutes, 56 seconds And he was in his 80s and they were like, "We can't let you out." Yeah.
-6:016 minutes, 1 secondYeah. With a non, right, Robbie? I mean it was was it 54 or 65 in the factors and it was just because he was released before the opinion was overturned and
+6:016 minutes, 1 second Yeah. With a non, right, Robbie? I mean it was was it 54 or 65 in the factors and it was just because he was released before the opinion was overturned and
 6:096 minutes, 9 seconds they said he lived fine outside and that was the deciding factor and non eventually having his right sentence commuted. Yeah.
 6:166 minutes, 16 seconds Just the logic gets so disturbing and yeah I mean this case the Holly Bobo case I mean it's just every single part
 6:246 minutes, 24 seconds of it beginning to end is just horrific. It's it's pretty horrific. Yeah. Yeah.
@@ -77,7 +80,7 @@
 8:418 minutes, 41 seconds The issue that is and we heard this in the podcast is that he has he has intellectual disability. Can you talk a little bit about his intellectual disability again?
 8:498 minutes, 49 seconds Yeah, he has difficulty reading. He has difficulty telling a story or a narrative, which of course is central to his interrogation.
 8:588 minutes, 58 seconds He wasn't able to hold down a job.
-9:009 minutesUm, his mom, as we heard a bit, I didn't play the whole interview I had with her, but just spoke to his slower mental
+9:009 minutes Um, his mom, as we heard a bit, I didn't play the whole interview I had with her, but just spoke to his slower mental
 9:079 minutes, 7 seconds processing and being able to put things together. And I mean, that's overall.
 9:119 minutes, 11 seconds Was there ever kind of an age assigned to his like kind of intellectual age?
 9:169 minutes, 16 seconds Yeah, I don't I didn't see that in the documents. He was in special education classes, but I didn't see a particular know IQ or mental age that he was Yeah.
@@ -86,7 +89,7 @@
 9:379 minutes, 37 seconds American Way of Killing, investigates America's gun violence crisis. Why is the richest country in the world plagued
 9:449 minutes, 44 seconds by such lethal violence? Through a series of stories, interviews, [music] and archival tape, I confront one of today's most urgent moral dilemmas and
 9:539 minutes, 53 seconds examine why the US has never quite [music] understood its own problem and why you can't fix what you refuse to see
-10:0010 minutesclearly. Get The American Way of Killing at pushkin.fm/auudiobooks,
+10:0010 minutes clearly. Get The American Way of Killing at pushkin.fm/auudiobooks,
 10:0910 minutes, 9 seconds [music]
 10:1410 minutes, 14 seconds you know. Okay. Okay. So, as I'm listening to this, you know, I mean, obviously over and over hearing like um the interrogators just handing him the
 10:2210 minutes, 22 seconds entire story right now. I guess, okay, just let me ask you this because I know you've listened to plenty of interrogation tapes and you know how this goes.
@@ -94,7 +97,7 @@
 10:3710 minutes, 37 seconds that point? And how is an interrogator supposed to work? Let's say somebody's interrogating a a person who is maybe actually complicit,
 10:4410 minutes, 44 seconds knows what they're doing, and is just not going to lay out the story. So, the interrogator is like, "Well, maybe you did this and maybe you did this and maybe like I I mean, it is I can understand the
 10:5310 minutes, 53 seconds technique, but where do you think has crossed the line here?" I think like one thing I think about interrogations is that when we see them
-11:0011 minuteswork, when you see them kind of in the public, they're working on like guilty people, right? you see. And so like
+11:0011 minutes work, when you see them kind of in the public, they're working on like guilty people, right? you see. And so like
 11:0911 minutes, 9 seconds you have this kind of perspective that it's so um it's crafty and it's like effective
 11:1711 minutes, 17 seconds and it you know the you like there's there's almost like a like a scientific methodology behind it, right?
 11:2411 minutes, 24 seconds And you see this sense and especially when you know that the person actually did it, you see the sense of like this works, this gets them, this works, this
@@ -119,7 +122,7 @@
 13:3713 minutes, 37 seconds They were not recorded. Okay. And so I did a little bit of you know research and and it seems like so law enforcement
 13:4413 minutes, 44 seconds I don't think has any duty to like you know make sure that this person is actually competent right and if they have no duty that means that they
 13:5213 minutes, 52 seconds there's like kind of no protection for that person right so what is the defense of that it would just be that later you have to try to say well you know not let
-14:0014 minutesthose statements get admitted or to that's it right that's the only thing you can do after it's been done after it's been done yeah so going back
+14:0014 minutes those statements get admitted or to that's it right that's the only thing you can do after it's been done after it's been done yeah so going back
 14:0814 minutes, 8 seconds to Alabama I think Alabama passed the first law giving special training to law enforcement on how to interrogate people with, you know, autism.
 14:1614 minutes, 16 seconds Okay.
 14:1614 minutes, 16 seconds Intellectual disability. I'm actually working with some legislators here in South Carolina to try to mandate the training here. But yeah, you're right, Rob. Yeah. As in the Brandon Dassie
@@ -137,7 +140,7 @@
 15:3715 minutes, 37 seconds killing him when he's released. And so, as you heard in the audio there, that was the theory by the TBI, he's at risk because Jason Audrey says Zach's
 15:4615 minutes, 46 seconds trying to get him killed, but Zach and Jason are both behind bars. And that's why Joe Walker has to acknowledge there wasn't a plausible threat against Dylan.
 15:5415 minutes, 54 seconds So, that whole thing was a ploy basically to get him to confess to Dennis Benjamin. I think it's fairly obvious.
-16:0116 minutes, 1 secondHow long was he in in Benjamin's custody?
+16:0116 minutes, 1 second How long was he in in Benjamin's custody?
 16:0316 minutes, 3 seconds I think it was about it was just under six weeks when Dennis Benjamin went to the TBI and said, "Well, all of a sudden Dylan has confessed and implicated himself for the first time."
 16:1116 minutes, 11 seconds Can you imagine? I mean, you're essentially being held hostage, right?
 16:1616 minutes, 16 seconds Pretty much like you've been released from jail.
@@ -156,7 +159,7 @@
 17:4417 minutes, 44 seconds it's very difficult down the road. And so yeah, I mean to hear someone in the TBI just blatantly saying the entire
 17:5117 minutes, 51 seconds office shifted and the care and diligence was completely gone, a complete 180. I mean that it kind of lays out the blueprint for what happened here.
 17:5817 minutes, 58 seconds Is that politics?
-18:0018 minutesIt was the retirement of John Mayer who was the former head of the TVI. And so then Jack Vanhuser came in and then
+18:0018 minutes It was the retirement of John Mayer who was the former head of the TVI. And so then Jack Vanhuser came in and then
 18:0818 minutes, 8 seconds yeah, you kind of have these, you know, Jeff Jackson and Brent Booth who, you know, Valerie Trout did not have very favorable things to say regarding their efficacy and their veracity.
 18:1918 minutes, 19 seconds Yeah. Well, she w she must have been out of the TBI by the time she got around saying this. Yeah. I was like because that's not going to happen. She also talks about how um we heard her talk
 18:2818 minutes, 28 seconds about how Jeff Jackson would overt talk when he was interrogating. I mean we he was just leading. He was planting every seed.
@@ -181,7 +184,7 @@
 20:4020 minutes, 40 seconds They told me they did this after the gun was found. No gun was found, right? Yeah.
 20:4620 minutes, 46 seconds You didn't even mention, as Josie said, Shane Austin, who eventually becomes the ring leader according to this story.
 20:5220 minutes, 52 seconds Like at a certain point you have to realize this is not actually a story that's coming from the suspect. I'm giving them everything when they go off book.
-21:0121 minutes, 1 secondIt's not matching up with anything that would exist in reality.
+21:0121 minutes, 1 second It's not matching up with anything that would exist in reality.
 21:0521 minutes, 5 seconds When someone is just seems to just be giving you what you want, right? That they just seem to hear that
 21:1221 minutes, 12 seconds this is what you want and so they're repeating back what you you know there's this kind of obsession that law enforcement has with their gut and their perception, right? Like I had a gut
 21:2121 minutes, 21 seconds feeling. I just knew whatever. But I'm like, but did you have a good feeling about this guy who clearly doesn't have
@@ -208,7 +211,7 @@
 23:4423 minutes, 44 seconds Record, right? It's an official first record. It's the first thing you have, right? It's the first kind of record you have.
 23:5023 minutes, 50 seconds And it's just like, oh, if you control that, you control the whole case.
 23:5523 minutes, 55 seconds Like if you what whatever you decide to add, not add, whatever you decide, whatever story you're thinking. Yeah.
-24:0024 minutesIs is, you know, there's there's no objective report. Yeah.
+24:0024 minutes Is is, you know, there's there's no objective report. Yeah.
 24:0524 minutes, 5 seconds It sounds so silly. It's like duh, but it I it wasn't duh to me. Colin, let me ask you because I'm trying to think of a case in which
 24:1424 minutes, 14 seconds a police report which is which those things are going to be entered into evidence, right, sometimes and like has it No, they're never entered into evidence.
 24:2124 minutes, 21 seconds Rule of evidence 8038 says police reports are inadmissible hearsay because they're unreliable and often slanted against the suspect.
@@ -218,7 +221,7 @@
 24:4024 minutes, 40 seconds Charles Ness for evidence and that's what I blame this on. Oh, man. Yes.
 24:4424 minutes, 44 seconds All right. Okay. So, now we know. And you know what? So, you can't rely on them. If the courts won't accept them, we can't rely on them either.
 24:5424 minutes, 54 seconds [music]
-25:0025 minutes[music]
+25:0025 minutes [music]
 25:0225 minutes, 2 seconds All right. So, um our first question comes from the AB Taylor. Oh, actually, you know, I'm going to let you read this out. I'm gonna let you do this one.
 25:0825 minutes, 8 seconds We get this every I don't know how much you get it, Rob. Yeah, I get this in my inbox every season. So, the AB Taylor wrote on October 5th, I love the work you guys do and all the good you have
 25:1625 minutes, 16 seconds accomplished for these wrongfully convicted, but you're way off base in this one. Very disappointing.
@@ -308,7 +311,7 @@
 34:4134 minutes, 41 seconds for at least give her a cloth. Uh, and he asks, "Was any cloth found or was there blood on any of Holly's discarded items? Was there a blood trail to the
 34:4934 minutes, 49 seconds woods?" Into the woods. That's a good question, actually. As far as I know, there was no blood trail into the woods, which, you know, she has the blood in
 34:5734 minutes, 57 seconds the carport. That's the only blood at the scene that is noted.
-35:0035 minutesThat's interesting because if she's bled that much, shouldn't she be bleeding as she's walking?
+35:0035 minutes That's interesting because if she's bled that much, shouldn't she be bleeding as she's walking?
 35:0535 minutes, 5 seconds Well, that gets the point about maybe a cloth or something that was used to stop the bleeding, right? Um, but no cloth was found at the scene. So, yeah, it's
 35:1435 minutes, 14 seconds just the blood in the carport at the scene. That's the only blood, as far as I know, that was found.
 35:1835 minutes, 18 seconds Well, Mike says that um that you know I I think she might have had stuff in front of her because she was holding something to stop the bleeding and maybe she was told that he was taking her to
@@ -326,7 +329,7 @@
 36:4136 minutes, 41 seconds Yeah. and caveats without pings, you know.
 36:4436 minutes, 44 seconds I'm Well, yeah. I mean, but maybe he's cuz they're having an argument, right, already. And so maybe he's like, I'm going to show up and have a conversation.
 36:5136 minutes, 51 seconds They were having an argument the night before. It's not reflected in their messages that morning, but the night before, yeah, there were allegations of infidel talking to other girls. Yeah.
-37:0137 minutes, 1 secondYeah. Carol Bender says, "I can't let go of a comment made by one of the early guests that Holly's mom may have panicked so quickly because Holly knew
+37:0137 minutes, 1 second Yeah. Carol Bender says, "I can't let go of a comment made by one of the early guests that Holly's mom may have panicked so quickly because Holly knew
 37:0837 minutes, 8 seconds something about something and was potentially going to report it. What was that about?
 37:1337 minutes, 13 seconds About about the mom that the suggestion is what Carol's saying is that maybe Holly's mom was really panicked because she's like, "Oh my god, Holly's in danger because she
 37:2137 minutes, 21 seconds knows something she shouldn't know and she's about to report it." So, can we go back on that? Yeah. What's that theory?
@@ -335,7 +338,7 @@
 37:4137 minutes, 41 seconds helping them to apprehend this drug ring and someone got wind of it and that precipitated the abduction. Again, I
 37:4837 minutes, 48 seconds don't have enough to report fully on the podcast, but that's the theory that's out there and that her mom was aware of this and that led in part to the freak out. That's why she was so freaked out.
 37:5937 minutes, 59 seconds Yeah.
-38:0038 minutesIn addition to the neighbor calling and saying there was a scream coming from your house.
+38:0038 minutes In addition to the neighbor calling and saying there was a scream coming from your house.
 38:0438 minutes, 4 seconds Yeah. Yeah. Um All right. So, Jen asked, Jen Mc760 asked, "My understanding from the podcast, and someone please correct
 38:1138 minutes, 11 seconds me if I'm wrong, is this. He Terry Britt testified as part of a plea deal. After Holly's murder, the state finally got around to charging Brit for the kidnapping and assault of the sex worker
 38:1938 minutes, 19 seconds that happened years earlier. He was given favorable terms for that crime on the condition to testify as the state desired at the trials of the men they were railroading for Holly's murder.
@@ -344,7 +347,7 @@
 38:3838 minutes, 38 seconds certain sentence. He got everything he wanted in exchange for testifying at trial for better or worse.
 38:4838 minutes, 48 seconds Any thoughts? just tail as old as time, right? I mean, like it's it's just it's like almost I always go back to like if we can see
 38:5638 minutes, 56 seconds it, why can't you see it? Police officers like state district attorneys.
-39:0039 minutesI don't But again, to your point, it's like it's not it's not convenient to see it.
+39:0039 minutes I don't But again, to your point, it's like it's not it's not convenient to see it.
 39:0639 minutes, 6 seconds It's not good for your professional life to see it. It's not good for the case to see it and it's not it's I mean, this case is really one of the
 39:1439 minutes, 14 seconds most severe cases of like kind of tunnel vision that I've I've seen. It's remarkable. Yeah, it's remarkable. And I just I I know it's so silly to say this, but I'm like,
 39:2339 minutes, 23 seconds how do you sleep at night? Like Yeah.
@@ -352,7 +355,7 @@
 39:3339 minutes, 33 seconds Listen, some folks not only sleep at night, we've seen a number of cases, including like, you know, Brendan Dassy's case where the prosecutor goes on and he continues to make the argument
 39:4239 minutes, 42 seconds in public, right? They're writing books or doing podcasts or just they're just drilling in and they just have to tripling down. Yeah. [music]
 39:5539 minutes, 55 seconds [music]
-40:0040 minutesAll right. Joseph Ruskovich says, "There truly needs to be protection for individuals with special needs. These officers took advantage of Dylan just to get a conviction, not justice. Reminds me of the Avery case." Yep, we agree.
+40:0040 minutes All right. Joseph Ruskovich says, "There truly needs to be protection for individuals with special needs. These officers took advantage of Dylan just to get a conviction, not justice. Reminds me of the Avery case." Yep, we agree.
 40:1040 minutes, 10 seconds All right. Shaya Ra has a lot of questions and comments. So call I'm going to let you pick and choose what you want to address here.
 40:1640 minutes, 16 seconds Yeah. So she says as part of this, will you seek direct answers from the likes of Sheila Killser, Victor Dinsmore, etc.
 40:2640 minutes, 26 seconds I already said I'm going to be talking to Sheila Kilzer. Um there's other people that she lists that are on my list who I'm close to getting
@@ -360,7 +363,7 @@
 40:4240 minutes, 42 seconds revealing examinations of this case yet." This is fairly straightforward.
 40:4640 minutes, 46 seconds Dylan says, "I was doing drugs with Jason Autry and my brother Zach. They left without an explanation." That's
 40:5440 minutes, 54 seconds what comes from Dylan. And that's that's literally it. every other part of the story other than they found the gun on
-41:0141 minutes, 1 secondthe road or underneath Jason Audrey's house and Shane Austin had Holly in the basement that didn't exist. Everything else comes from the TBI agents.
+41:0141 minutes, 1 second the road or underneath Jason Audrey's house and Shane Austin had Holly in the basement that didn't exist. Everything else comes from the TBI agents.
 41:1441 minutes, 14 seconds My god.
 41:1541 minutes, 15 seconds Yeah, that's the chart.
 41:1841 minutes, 18 seconds The chart is is two rows and it's one thing that comes from Dylan. It's shocking.
@@ -406,7 +409,7 @@
 45:3645 minutes, 36 seconds reputation testimony about the veracity and sincerity and honesty of witnesses.
 45:4245 minutes, 42 seconds And that's where Valerie Trout is allowed to say, you know, in my opinion, Brent Booth would lie to keep his job and was lacking in the sincerity
 45:5045 minutes, 50 seconds department. And so 406 is just factual testimony. I observed this habit of routine, right? And 608A is opinion reputation testimony. In my opinion, he's a liar.
-46:0046 minutesHe has a reputation for being a liar. Okay. All right.
+46:0046 minutes He has a reputation for being a liar. Okay. All right.
 46:0446 minutes, 4 seconds Um, Snoop account says, "So if her stuff was left at the house and picked up rather than with her or the per walking to the woods and we assume Britt is the
 46:1346 minutes, 13 seconds guy who's picking up her stuff, his wife. They would have to be really fast for Clint not to see it. Then where do they go? Where was his car?" So the car
 46:2246 minutes, 22 seconds for the perpetrator, Roma almost certain was on this logging road where the woods led. The only people who lived in a
@@ -414,7 +417,7 @@
 46:3846 minutes, 38 seconds Clint doesn't describe a very fast process. He describes I'm putting on a coat and boots and getting the gun. I would say that probably took at least
 46:4646 minutes, 46 seconds five or six minutes. So, it's not a short amount of time and it's not a huge distance from the home to the logging road. Mhm.
 46:5446 minutes, 54 seconds All right. We have one speak pipe episode uh message this week. We're going to go ahead and save it for next week. We probably have more um because I
-47:0147 minutes, 1 secondknow this we I think we had a shorter turnaround time but okay can I ask a final question of Josie before we wrap up which is Josie and you might not be able
+47:0147 minutes, 1 second know this we I think we had a shorter turnaround time but okay can I ask a final question of Josie before we wrap up which is Josie and you might not be able
 47:1047 minutes, 10 seconds to share but episode seven of your Tujin Kenu series we hear at least three alternate suspects in the
 47:1747 minutes, 17 seconds murder of Scott Mlum including one connected to Teujin's attorney and you play audio from various people
 47:2747 minutes, 27 seconds including her Wesler saying you know I I have some doubts about credibility.
@@ -430,7 +433,7 @@
 48:3848 minutes, 38 seconds But to be honest, like there are some other people I didn't mention just cuz it was like a little bit more tenuous and you know,
 48:4548 minutes, 45 seconds but it's it is one of those situations where I'm like, how often do you hear like three or four people claiming that they know who
 48:5348 minutes, 53 seconds killed this guy? It's clear and they're all sort of related. There's, you know, it's drugrelated, right?
-49:0149 minutes, 1 secondJust drugreated, right? And so I suspect that this Scott Mum was not like a big time drug. Like I suspect that this was kind of like a freak
+49:0149 minutes, 1 second Just drugreated, right? And so I suspect that this Scott Mum was not like a big time drug. Like I suspect that this was kind of like a freak
 49:0949 minutes, 9 seconds situation, not accident, but like not a not planned by a incredibly astute, you
 49:1849 minutes, 18 seconds know, killer, but but you know, the fact that there are just three people out there and more. I mean, Timan told me recently, there is someone in prison with him right now where he said, "I'm right.
 49:2849 minutes, 28 seconds We're on totally fine terms, and I know that he knows who did this. I know he knows who did this." You know, it's just such a crazy

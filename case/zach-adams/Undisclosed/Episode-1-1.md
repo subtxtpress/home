@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Addendum 1
+October 8, 2026
+
 Chapter 1: Introduction of guest
 0:055 seconds [music]
 0:1111 seconds [music]
@@ -42,7 +45,7 @@ Chapter 2: Case origins and context
 4:474 minutes, 47 seconds and we didn't think it would be made right without public scrutiny.
 4:534 minutes, 53 seconds At what point did you then reach out to Colin about this?
 4:564 minutes, 56 seconds That How long has that been? Um, was it a year or so?
-5:015 minutes, 1 secondAbout a year. I had I had been making some some friends with other content creators who were a lot more
+5:015 minutes, 1 second About a year. I had I had been making some some friends with other content creators who were a lot more
 5:095 minutes, 9 seconds knowledgeable than I about this whole world. And uh, one in particular had some connections. And I I'd asked her if
 5:175 minutes, 17 seconds she could put a plug in to um to y'all's work and team. And so we were real thankful to hear from him and just get
 5:255 minutes, 25 seconds any kind of insight or assistance with the case and um been beyond thrilled to find out you guys were going to be covering it.
@@ -57,7 +60,7 @@ Chapter 2: Case origins and context
 6:406 minutes, 40 seconds basically two videos, one at an ATM and one at a BP store that are basically going to completely contradict what
 6:486 minutes, 48 seconds Dylan says in his 4 hour and 20 minute confession with no attorney while he's badgered and had words put into his
 6:566 minutes, 56 seconds mouth by TBI agents Jeff Jackson and Brent Booth.
-7:007 minutesSo, let's get to the first episode um in which kind of the the the crime scene is
+7:007 minutes So, let's get to the first episode um in which kind of the the the crime scene is
 Chapter 3: Holly's relationship
 7:077 minutes, 7 seconds set for us and um so many characters are introduced in this episode. We have gotten multiple comments from listeners saying, "Oh, I have to write this down.
 7:177 minutes, 17 seconds This is not going to be, you know, the kind of listen." But there there's a lot of players in a very tight timeline. I think that's what's fascinating about this. But I want to start off with a
@@ -75,7 +78,7 @@ Chapter 3: Holly's relationship
 8:438 minutes, 43 seconds all. You said you had gone to sleep when we were finished talking earlier. Were you talking, texting, or communicating with some other Everybody knows that somebody turning
 8:518 minutes, 51 seconds off the ringer, somebody has shut off the ringer.
 8:538 minutes, 53 seconds I think there I think there was some suspicion on both sides of the relationship about fidelity. And so I don't think it was idyllic. I I think it
-9:019 minutes, 1 secondwas more fractured than it was presented. I don't think it was dysfunctional relationship, but I don't think it was as perfect as it's been presented.
+9:019 minutes, 1 second was more fractured than it was presented. I don't think it was dysfunctional relationship, but I don't think it was as perfect as it's been presented.
 9:099 minutes, 9 seconds And there's no evidence to suggest that there it was like a violent relationship.
 9:139 minutes, 13 seconds No. and and across the board, the local community, people who I've I've been in touch with who've known them. Yeah.
 9:219 minutes, 21 seconds No one thinks there was violence or that Drew would be harming Holly. But they they argued.
@@ -108,7 +111,7 @@ Chapter 5: Timeline inconsistencies
 12:3512 minutes, 35 seconds Drew is like, "Oh, I had to be at work by 8:00 a.m. this that morning." So, if he's hunting at 7, let's say his mom,
 12:4312 minutes, 43 seconds Clint's mom, talked to Drew at 7:30, a minute before, I don't know, 7:30, 7:31, could he have then been at work by 8:00
 12:5212 minutes, 52 seconds a.m.? It seems like a pretty clear inconsistency. And so, I just wondering how you guys resolve that. And why did
-13:0013 minutesit why is this inconsistency kind of persisted all this time? I had been in this case for well over a year before I
+13:0013 minutes it why is this inconsistency kind of persisted all this time? I had been in this case for well over a year before I
 13:0713 minutes, 7 seconds even was looking at that data, that information. I was much more
 13:1313 minutes, 13 seconds focused on Zach and Dylan's timeline and where they were minuteby minute. And so it was after the PCR had the trial had
 13:2313 minutes, 23 seconds really closed that I was going back and and looking into other aspects of the case that I hadn't had time to to focus
@@ -116,7 +119,7 @@ Chapter 5: Timeline inconsistencies
 13:4013 minutes, 40 seconds consistent with his statements. I just assumed I mean we've got who's always typically the first one
 13:4813 minutes, 48 seconds you're going to look at the significant other of the victim. Yeah.
 13:5213 minutes, 52 seconds He was the last one in contact with the victim. He's who the eyewitness says they saw. Right.
-14:0014 minutesHe was dressed consistently with what the eyewitness is saying. The person they saw was dressed with the hunting gear. It it just seemed like they must
+14:0014 minutes He was dressed consistently with what the eyewitness is saying. The person they saw was dressed with the hunting gear. It it just seemed like they must
 14:1014 minutes, 10 seconds have really checked him. I assumed he was really checked out and so it just it shocked me. I don't Does anybody know at what point in the
 14:1914 minutes, 19 seconds investigation that cell phone evidence came to light? Because I feel like that's the hard one to get around. That
 14:2714 minutes, 27 seconds one is a hard one to get around because as we heard in episode one, it it pinged in that sector at the pertinent time.
@@ -124,7 +127,7 @@ Chapter 5: Timeline inconsistencies
 14:3814 minutes, 38 seconds I I think I was the first one to ever report it. Yeah, Katie's the one who found that. Wow, I did not know that. Okay.
 14:4314 minutes, 43 seconds And something else something else that Katie, I'm sure you found this, but literally I had a meeting of my wrongful conviction club, my students at USC yesterday, and I hadn't gone through the
 14:5214 minutes, 52 seconds entire file, but a student found a document where a statement was made by Buu, who is Drew Scott's dad, and he
-15:0015 minutessays, "We were back in Parson. So, the the hunting ground is in Bath Springs, which is the 20 to 25 miles southeast where Holly's grandmother helmed the hunting ground.
+15:0015 minutes says, "We were back in Parson. So, the the hunting ground is in Bath Springs, which is the 20 to 25 miles southeast where Holly's grandmother helmed the hunting ground.
 15:0815 minutes, 8 seconds [snorts]
 15:0815 minutes, 8 seconds And the student says, you know, yeah, here's a statement by Buu, the father.
 15:1115 minutes, 11 seconds We're back in Parsons, which is where Drew lives and works by 7:30.
@@ -226,7 +229,7 @@ Chapter 6: Evidence and investigation
 26:4826 minutes, 48 seconds up by the dog barking, but there's another version that he did hear the scream. So, we'll hear some confusion on that coming up.
 Chapter 7: Palm print and suspects
 26:5326 minutes, 53 seconds Um, at the end of the episode, it ends by, you know, talking about the palm print, but it just seems like there hasn't been a lot of coverage um in the
-27:0127 minutes, 1 secondwork that you were doing, the exoneration work that Dylan and the other members of that a team were actually excluded as a source of the palm print because should that not rule
+27:0127 minutes, 1 second work that you were doing, the exoneration work that Dylan and the other members of that a team were actually excluded as a source of the palm print because should that not rule
 27:0927 minutes, 9 seconds them all out as being one of, you know, the guy who was in the carport? How has that been handled, Katie?
 27:1527 minutes, 15 seconds They have all been ruled out. Terry R was not ruled out from the handprint because they didn't have a good enough and I think you might whether he enters the scene or not.
 27:2527 minutes, 25 seconds Um, another alternative suspect that was looked at earlier on in the investigation.
@@ -242,7 +245,7 @@ Chapter 7: Palm print and suspects
 28:3828 minutes, 38 seconds professor is the biggest piece of actual innocence evidence that we have in the case regarding these four suspects.
 28:4528 minutes, 45 seconds I'm assuming later in the season, Colin, you are going to get to how that was handled at trial because it seems like that's like one of the most powerful pieces of evidence. And I'm also going
 28:5328 minutes, 53 seconds to assume that this means that that palm print was in fact matched to nobody ever definitively. Right. As Katie notes,
-29:0129 minutes, 1 secondthere's this alternate suspect, Terry Britt, and they have this sort of low res version of his palm print, and they say, "We can't rule him out,
+29:0129 minutes, 1 second there's this alternate suspect, Terry Britt, and they have this sort of low res version of his palm print, and they say, "We can't rule him out,
 29:0829 minutes, 8 seconds but we don't have a clear enough exemplar." Now, why they haven't gotten a clear exemplar?
 29:1229 minutes, 12 seconds This is Is he dead? I mean, like, what what's what's happening?
 29:1529 minutes, 15 seconds He was in federal custody. He had
@@ -306,7 +309,7 @@ Chapter 8: Community and context
 35:4135 minutes, 41 seconds Well, then there's the other bizarre thing which Robbie, we noted in the episode. Clint initially thinks it's Drew.
 35:4835 minutes, 48 seconds Then as he sees the man in Camel walking with Holly into the woods, he thinks, "Oh, that's Cousin Richie.
 35:5335 minutes, 53 seconds Cousin Richie is Drew's supervisor at his job and will be his main alibi witness in this case. And that's the
-36:0136 minutes, 1 secondother person that initially Clint thinks this is." And so it's very strange when you think about who Clint initially thinks the man in camo is.
+36:0136 minutes, 1 second other person that initially Clint thinks this is." And so it's very strange when you think about who Clint initially thinks the man in camo is.
 36:0836 minutes, 8 seconds And Richie hunted frequently on that property and had spoken with Clint actually I think the evening before about hunting on that property.
 36:1736 minutes, 17 seconds Wow. Okay.
 36:1836 minutes, 18 seconds Also, as a teaser, and I know Katie has addressed this before, there's the promise ring that we mentioned in this first episode that Drew had given Holly
@@ -315,7 +318,7 @@ Chapter 8: Community and context
 Chapter 9: Listener Q&A
 36:4536 minutes, 45 seconds all right. We have questions from listeners and, uh, you know, they've only had like a day to turn this around, so uh, but it's gotten so much interest already, so I'm going to go ahead and start going through them. First one is
 36:5436 minutes, 54 seconds Eve from the UK. Eve saying, "I'm definitely doing a second list to get all the names straight." But my big takeaway from it was firstly why her
-37:0137 minutes, 1 secondbrother didn't go outside to confirm it was the boyfriend if he wasn't worried and thought that was the case. And second, how shocking the scene wasn't
+37:0137 minutes, 1 second brother didn't go outside to confirm it was the boyfriend if he wasn't worried and thought that was the case. And second, how shocking the scene wasn't
 37:0937 minutes, 9 seconds preserved at all by the sounds of it, considering the swift and extensive response to the report of her missing.
 37:1637 minutes, 16 seconds So excited to have a new case from you guys. Can't wait to hear the twists and turns. Yeah. So, we haven't talked about that how poorly the crime scene itself was handled.
 37:2537 minutes, 25 seconds Katie, can you address that a bit? And Dana Bobo is the one who secured the carport with pink ribbon he happened to have available.
@@ -331,7 +334,7 @@ Chapter 9: Listener Q&A
 38:4138 minutes, 41 seconds the search took place versus where it probably should have taken place.
 38:4538 minutes, 45 seconds Um, but it is astonishing to me when you have this much law enforcement on the scene so so quickly that they could not
 38:5238 minutes, 52 seconds disperse and have quickly found her. Um, so anyhow, any other issues with how the
-39:0039 minutescrime scene was handled? I mean, is it possible that that that one of the officers left a palm print? Could that they have been that messy? Oh, here's some blood. I'm going to stick my hand on it.
+39:0039 minutes crime scene was handled? I mean, is it possible that that that one of the officers left a palm print? Could that they have been that messy? Oh, here's some blood. I'm going to stick my hand on it.
 39:0839 minutes, 8 seconds I It's I I can't imagine an officer would have put their palm on the Mustang while they're they're in the carport.
 39:1539 minutes, 15 seconds That is just not And the fact that it would be, you know, no glove on their hands. You send a CSI or someone in there. They did a gel lift, as we'll
 39:2339 minutes, 23 seconds see, of a a shoe print in the carport, which has been misreported in the press as potentially belonging to Zach Adams, but clearly it
@@ -392,7 +395,7 @@ Chapter 10: Case staging and final Q&A
 45:3345 minutes, 33 seconds the Reed technique, infamous for causing false confessions on Clint. And that, as we'll see, turns out to be a pivotal moment in the investigation of the case.
 45:4245 minutes, 42 seconds The question goes on to ask or to say that, in my opinion, Clint's account of the behavior of the dogs, Perp, Holly, and Karen are easily discredited.
 45:5345 minutes, 53 seconds In addition, the forgotten weather fallacy. For example, Clint said it was so cold he had to put on a coat, pants, socks, and shoes. However, he sees Holly
-46:0146 minutes, 1 secondbeing led into the woods in just a t-shirt. Now, I concede the fact her warmer clothing could have been in the car, but question how she didn't have at
+46:0146 minutes, 1 second being led into the woods in just a t-shirt. Now, I concede the fact her warmer clothing could have been in the car, but question how she didn't have at
 46:0846 minutes, 8 seconds least one hand in her pocket or arms crossed because of the cold, and Clint says that he had only see a deer call
 46:1646 minutes, 16 seconds being carried with them. However, Holly's wallet, phone, books, lunchbox were later determined to be stolen by the per during the abduction. But Clint
 46:2446 minutes, 24 seconds says he didn't see any of that. I could go on and on about Clint's account to meet so egregious. How in the world could anyone give Clint credit? In my
@@ -407,7 +410,7 @@ Chapter 10: Case staging and final Q&A
 47:3447 minutes, 34 seconds make sense that where Clint's uh focus was and where he had a a visual line.
 47:4247 minutes, 42 seconds I imagine her stuff probably was strewn about in the carport if she just had this altercation and and got injured. So my thinking was always that he's seeing
 47:5147 minutes, 51 seconds Holly walk into the woods with abductor number two while whoever was in the carport with her was still in the carport gathering her belongings to meet
-48:0048 minutesthem in the vehicle. And that would also make sense to me why they may have known from that point that Clint knew that
+48:0048 minutes them in the vehicle. And that would also make sense to me why they may have known from that point that Clint knew that
 48:0948 minutes, 9 seconds someone was there because if if someone was in the carport picking up Holly's things, they would have likely been able to hear Clint on the phone with his mom.
 48:1748 minutes, 17 seconds I have a question about like I'm confused about if Holly had been injured in the carport, why didn't she go back into the house,
 48:2548 minutes, 25 seconds call for help, try to call 911? Why would she further, you know? I mean, if you're hurt, you're not gonna like be like, "Now I'm gonna go into the woods
@@ -425,7 +428,7 @@ Chapter 10: Case staging and final Q&A
 49:4249 minutes, 42 seconds don't think that Clint's involved in this crime. I'll make that clear from the start. But I do question a lot of Clint's choices. is. And I know how old was Clint at the time?
 49:5049 minutes, 50 seconds 25.
 49:5149 minutes, 51 seconds Yeah. Yeah. I mean, it's I I have question marks and I don't want to judge a brother who had this horrible tragedy, but I I do question a lot of the choices that he made.
-50:0050 minutesI think that young people Clint is has a passive personality by accounts of people who know him.
+50:0050 minutes I think that young people Clint is has a passive personality by accounts of people who know him.
 50:0750 minutes, 7 seconds uh he is demographically in the group of individuals who are unlikely to react to an uncommon situation unless they have
 50:1650 minutes, 16 seconds the assurance or agreement of some authority figure. In that kind of situation, you don't want a 25-year-old
 50:2350 minutes, 23 seconds young man. You want a mom cuz she's not going to give a [ __ ] She's going to go make sure everyone's safe and worry about being embarrassed later. a

@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Addendum 2
+October 15, 2026
+
 Chapter 1: Guest introduction
 0:011 second [music]
 0:077 seconds [music]
@@ -16,7 +19,7 @@ Chapter 1: Guest introduction
 1:481 minute, 48 seconds Thank you again, Stephanie, for joining us. Our work is like just is not even parallel. It's kind of like overlapping.
 1:531 minute, 53 seconds Um, you know, we've done a bunch of work out of Tennessee as well. And but first I need to know what your connection to the Alice Murdoch double trial is.
 Chapter 2: The Murdaugh connection
-2:012 minutes, 1 secondYeah. So some would say my husband is ground zero.
+2:012 minutes, 1 second Yeah. So some would say my husband is ground zero.
 2:052 minutes, 5 seconds Um my husband filed the lawsuit that uncovered the financial crimes which were most likely the motive for the murders.
 2:132 minutes, 13 seconds Oh my goodness.
 2:132 minutes, 13 seconds So it was a Netflix documentary. There's a Hulu series with an actor that's based on him. Okay.
@@ -41,7 +44,7 @@ Chapter 3: Investigating Andrew Hayes
 4:364 minutes, 36 seconds mothers. And my son popped in the car and said, "My friend Lucy got up at lunch today, and her dad works for the
 4:434 minutes, 43 seconds Tennessee Innocence Project." And I thought, "Okay." And so he kept on and on and on and I thought, "Okay, I
 4:524 minutes, 52 seconds I'm going to call him." And I knew Jason from from being up at the school. Our kids are theater kids together. And I called Jason and said, "Hey, this is
-5:015 minutes, 1 secondwhat I'm considering. Do you have any cases that I can come talk to you about?" Wow.
+5:015 minutes, 1 second what I'm considering. Do you have any cases that I can come talk to you about?" Wow.
 5:065 minutes, 6 seconds And he he told me about Greg Lance. And I thought, well, I think somebody's done something on Greg Lance. [gasps] Um, and
 5:145 minutes, 14 seconds he told me about Andrews. And when he played me the audio that you hear at the beginning of episode one, I thought
 5:245 minutes, 24 seconds that sounds like a killer to me. And I didn't think that I could take on a wrongful conviction because it's to me
@@ -57,7 +60,7 @@ Chapter 3: Investigating Andrew Hayes
 6:336 minutes, 33 seconds took on the case and Jason, he's the executive director, he made me sign an agreement that he could shut down my podcast at any time, which is not an
 6:416 minutes, 41 seconds ideal way to start any kind of production, but I I really wanted to do it and he did indeed shut it down um about 6 months later.
 6:506 minutes, 50 seconds Uh and then I produced a trailer and let him listen to it and he said, "Okay, go ahead with it." But I think it was because he knew my husband was an attorney and who he was.
-7:007 minutesHe knew that I had such a good background in law and and that I had Andrew's best interest at heart. So yeah.
+7:007 minutes He knew that I had such a good background in law and and that I had Andrew's best interest at heart. So yeah.
 7:097 minutes, 9 seconds Yeah.
 7:097 minutes, 9 seconds Can you tell us how that unfolded or would that be a spoiler? Do we want our listeners to just find the podcast?
 7:157 minutes, 15 seconds Find the podcast for sure. But it unfolded in the most unusual way. The first six episodes is very much me documenting very much like the Holly
@@ -76,7 +79,7 @@ Chapter 3: Investigating Andrew Hayes
 Chapter 4: Clint Bobo's testimony
 8:448 minutes, 44 seconds Colin. I needed to the whiteboard and the bits of string and stuff because there's so many different characters, there's so many different people, there's so many different timelines. But
 8:538 minutes, 53 seconds let's start with Clint again. And Clint to remind those folks is Holly Bobo's brother, okay? Because there's there questions about like his story is not
-9:019 minutes, 1 secondconsistent. And I know that's raised some red flags. But look, in episode one, we heard her brother Clint saying that he had been awakened by the dog barking, not by Holly screaming. But
+9:019 minutes, 1 second consistent. And I know that's raised some red flags. But look, in episode one, we heard her brother Clint saying that he had been awakened by the dog barking, not by Holly screaming. But
 9:109 minutes, 10 seconds then in this week's episode, we learned a couple of different things. One, that the first responding officer wrote down that Clint said that he woke up because
 9:179 minutes, 17 seconds he heard Holly screaming. And the second thing he's that we learn is that Clint admits that he got a call at 7:33 a.m.
 9:269 minutes, 26 seconds and that's when he woke up, but then he went back to sleep. So, can you help us unpack what you think is going on here?
@@ -92,7 +95,7 @@ Chapter 4: Clint Bobo's testimony
 Chapter 5: Sponsor message
 10:4510 minutes, 45 seconds You guys have heard me talk about Lorine, the gum that I've been chewing for, [music] I don't know what, six or eight months now. It's a gum that actually strengthens my tooth enamel.
 10:5310 minutes, 53 seconds And it is the gum that I got to fight my kids for. I love Loren Scum. We are a Loren gum family. But now they are launching something that I'm really
-11:0111 minutes, 1 secondexcited about, a nicotine-free [music] pouch. Loren Co. pouches are pouches that swap out the nicotine and give you clean focus and support your enamel the
+11:0111 minutes, 1 second excited about, a nicotine-free [music] pouch. Loren Co. pouches are pouches that swap out the nicotine and give you clean focus and support your enamel the
 11:1011 minutes, 10 seconds whole time you've got them in. It works like the pouches you've seen before. You tuck one in, you go about your day.
 11:1611 minutes, 16 seconds [music] But each pouch here has 50 mg of caffeine, which is about half a cup of coffee, [music]
 11:2111 minutes, 21 seconds plus elenine, an alpha GPC for a smooth, steady focus with no [music] energy crash. And because this is Lorine, every
@@ -109,7 +112,7 @@ Chapter 6: Analyzing the crime scene
 12:3712 minutes, 37 seconds Middle Tennessee, if not the state of Tennessee. And Clint was in the news quite a bit when when all of this
 12:4512 minutes, 45 seconds happened. I agree with Colin. I have a a son. I don't fault Colin for not chasing
 12:5212 minutes, 52 seconds after the camouflage man. I do think he was groggy. I didn't think about that, Colin, that instead of hearing the dog
-13:0013 minutesbark, perhaps he was hearing her scream and her his groggginess. So, it makes sense.
+13:0013 minutes bark, perhaps he was hearing her scream and her his groggginess. So, it makes sense.
 13:0613 minutes, 6 seconds I also will say this, like we don't know ex Well, I don't know what that screaming was like, but there are plenty of times I've woken up and I'm not sure what woke me up. I'm like, was that a
 13:1413 minutes, 14 seconds door slamming that? What you know, what is it? A car back from like something will startle me and you don't exactly know what it is. Um, so it could be
 13:2213 minutes, 22 seconds that. But I also wonder about the fact that if Holly is being attacked and she's screaming, the dogs, it seems like the dog should be barking consistently.
@@ -118,7 +121,7 @@ Chapter 6: Analyzing the crime scene
 13:3813 minutes, 38 seconds sounded like cats fighting, which again could be dog for a cat or it could be Hollywood was screaming. But wasn't the timing off on that one?
 13:4613 minutes, 46 seconds It seems like it's too early. But going back to our timeline from episode 1, a lot of people question whether Holly was
 13:5313 minutes, 53 seconds screaming actually before 7:40 as opposed to after 7:40. So there are questions about the timeline. She was also texting her boyfriend.
-14:0014 minutesOkay. It's it's a really tight tight timeline when all this happened.
+14:0014 minutes Okay. It's it's a really tight tight timeline when all this happened.
 14:0514 minutes, 5 seconds All right. I want to talk a little bit about like the movements of her phone.
 Chapter 7: Phone movement analysis
 14:0914 minutes, 9 seconds We heard a lot of different like you know folks on this week's episode, their testimony of different officers, investigators. So, US Marshal John
@@ -181,7 +184,7 @@ Chapter 8: Theories on personal items
 20:4220 minutes, 42 seconds Yeah. Yeah, it sounds like somebody that's done it before. We'll get to that in episode three. Absolutely.
 20:4820 minutes, 48 seconds Okay. I am thrilled you all are doing this because as as a resident who has wondered about this case for a very long
 20:5520 minutes, 55 seconds time, I'm thrilled because I thought that I knew what happened and I I really don't think I do.
-21:0121 minutes, 1 secondInteresting. [music]
+21:0121 minutes, 1 second Interesting. [music]
 21:1021 minutes, 10 seconds [music]
 Chapter 9: Alternate suspects and alibis
 21:1421 minutes, 14 seconds There were a lot of suspects introduced in this episode, but one of the things that lead agent TBI agent Terry Dykus said that he ruled anybody out who had
@@ -190,7 +193,7 @@ Chapter 9: Alternate suspects and alibis
 21:3821 minutes, 38 seconds And I think going back to the belongings, I think Clint saw two separate men. One who was crouched with
 21:4521 minutes, 45 seconds Holly in the carport, another who was taking her out to the logging road. I think that first person was the one
 21:5321 minutes, 53 seconds gathering the belongings that eventually went in the car. And when Clint was putting on clothes, he sort of joined them. And so I don't think
-22:0122 minutes, 1 secondBut why do you I have a question. Why do you think anybody would be like, "Let me grab her backpack and stuff." Like, why?
+22:0122 minutes, 1 second But why do you I have a question. Why do you think anybody would be like, "Let me grab her backpack and stuff." Like, why?
 22:0722 minutes, 7 seconds If the risk was, "Look, we just got to get rid of her and they weren't trying to steal the stuff from her." Why even take that stuff?
 22:1422 minutes, 14 seconds There's some dispute about this, but my belief is the killer and the abductors did not know and did not think that
 22:2322 minutes, 23 seconds anyone else was home to see this. And they thought by gathering the items that would keep people in the dark for a longer period of time.
@@ -198,7 +201,7 @@ Chapter 9: Alternate suspects and alibis
 22:4222 minutes, 42 seconds And so I think they were trying to clean up the scene so that it wouldn't be known until much later in the day that she had been abducted. That's my But her car was there.
 22:5022 minutes, 50 seconds That that's the other thing I was thinking too. The car was there.
 22:5322 minutes, 53 seconds But they wouldn't know. The mom and dad would both be at work and Clint usually would not be at home. He just happened to have that day off. M are we going to
-23:0123 minutes, 1 secondget into I'm sure we are like forensics later cuz I wonder if her backpack and and any of the other items had her blood on it.
+23:0123 minutes, 1 second get into I'm sure we are like forensics later cuz I wonder if her backpack and and any of the other items had her blood on it.
 23:0723 minutes, 7 seconds We'll get into forensics including that promise ring that her boyfriend Drew had given her.
 23:1223 minutes, 12 seconds All right, we'll leave that alone for now then. Okay.
 23:1423 minutes, 14 seconds So, so you do think Well, the profiler thought it was one person, but you don't agree.
@@ -231,7 +234,7 @@ Chapter 9: Alternate suspects and alibis
 Chapter 10: Evaluating potential leads
 26:4226 minutes, 42 seconds So I want to go back to that 925 um alibi that um Agent Dyus mentioned because he uses it to rule out. Okay, here's the thing.
 26:5226 minutes, 52 seconds There is a richness of really scary people in Holly Bobo's orbit. Um in in this I every time a new one comes up,
-27:0027 minutesI'm like, "Oh, he's it. He's the one who did it." Um, so he uses this 9:25 a.m.
+27:0027 minutes I'm like, "Oh, he's it. He's the one who did it." Um, so he uses this 9:25 a.m.
 27:0527 minutes, 5 seconds alibi thing to rule out Blake Barnett and Blake was her ex and he had threatened to kill her and he had been arrested for another for a kidnapping in fact a few years earlier.
 27:1527 minutes, 15 seconds Few years later.
 27:1627 minutes, 16 seconds Oh, excuse me. A few years later, you're right. Sorry. Uh, can you talk about how what kind of suspect do you think he was? Do you think it was right to rule him out?
@@ -258,7 +261,7 @@ Chapter 10: Evaluating potential leads
 29:4129 minutes, 41 seconds Nothing in the files to indicate that they compared the palm print to Blake.
 29:4429 minutes, 44 seconds Yeah, that's a problem. That's a big problem then. Okay. Then there's John Dodd too who is another suspect here. He had already burglarized the Boba residence.
 29:5329 minutes, 53 seconds He had been seen in the area that morning. But and then agent Dykus just kind of like was oh well on the fact
-30:0030 minutesthat the S dogs alerted that her scent Holly's scent had been like followed on the like in the air or leading to his
+30:0030 minutes that the S dogs alerted that her scent Holly's scent had been like followed on the like in the air or leading to his
 30:0930 minutes, 9 seconds grandfather's house which is where he lived. So what do you think about that?
 30:1230 minutes, 12 seconds I mean Robbie you're the one who first reported on the S dogs last season. I've done a lot of work on drug detection dogs
 30:1930 minutes, 19 seconds and how effective or uneffective they are. My own research for this season has led me to believe that S dogs have
@@ -267,7 +270,7 @@ Chapter 10: Evaluating potential leads
 30:4330 minutes, 43 seconds saying like it's kind of crazy how these S dogs are are pointing in the direction of this suspect. But I mean John Dodd I've talked to someone who is very high
 30:5130 minutes, 51 seconds on John Dodd as the person who committed the crime. I have not gone down that rabbit hole enough to be able to say anything conclusive, but I mean he's
 30:5930 minutes, 59 seconds certainly something I want to look into more.
-31:0131 minutes, 1 secondWhat do you think about the the S dogs or just do as a suspect? Stephanie, so the S dogs, I've done a lot of research on that. I've looked into the
+31:0131 minutes, 1 second What do you think about the the S dogs or just do as a suspect? Stephanie, so the S dogs, I've done a lot of research on that. I've looked into the
 31:0931 minutes, 9 seconds Sebastian Rogers case, which is a missing boy here in Nashville, and they use the same dogs. So, yeah, I mean, I think there's a lot of credibility
 31:1831 minutes, 18 seconds there. I think they can be really accurate. Dodd does seem like a good suspect. I mean, didn't he also have a white truck? It was hitting around uh
 31:2731 minutes, 27 seconds his grandmother's home or the scent was hitting around his home or his grandmother's home. Um, and the fact
@@ -335,7 +338,7 @@ Chapter 11: Addressing listener questions
 38:4638 minutes, 46 seconds And so, as we'll learn pretty soon after agent Dykus is removed, that is when the investigation sort of takes this left turn.
 Chapter 12: Law enforcement coordination
 38:5538 minutes, 55 seconds Okay. Question from Michelle. Michelle, I'm totally feeling you because I brought this up in last week's addendum.
-39:0039 minutesHow the heck did the police, FBI marshals, TBI not contain the scene and it was unbelievable. The father had to create his own barricade. What Michelle
+39:0039 minutes How the heck did the police, FBI marshals, TBI not contain the scene and it was unbelievable. The father had to create his own barricade. What Michelle
 39:0839 minutes, 8 seconds wants to know is was this was the search launched immediately because to her it sounded like the officers were just hanging out. I mean, Dana Bobo, Holly's
 39:1739 minutes, 17 seconds father, says it was like two hours and you just have marshals and TBI and FBI and they're just sort of milling about the residents and they're not going
 39:2539 minutes, 25 seconds anywhere and he's reaching this boiling point and saying, "Look, go out there and try to track her down. Why are you still here at the
@@ -367,7 +370,7 @@ Chapter 12: Law enforcement coordination
 42:4142 minutes, 41 seconds We'll learn something in episode three to Stephanie's suspect of Terry Britt about the palm print, but beyond that, we don't know anything. Well, Shaya's
 42:4842 minutes, 48 seconds question is, "Was a palm print ever matched with anybody?" Cuz duh. And that'll be episode three.
 42:5342 minutes, 53 seconds Okay. Okay. Um, she also wants to know, "Was there an estimate of how many people entered the carport that morning before her father eventually secured it?"
-43:0143 minutes, 1 secondMy estimate is zero, and that is because they were able to do the gel lift of what I think is clearly Clint's croc.
+43:0143 minutes, 1 second My estimate is zero, and that is because they were able to do the gel lift of what I think is clearly Clint's croc.
 43:1043 minutes, 10 seconds Clint just barely entered the carport to see the blood stain. There's no other shoe prints. His shoe print is not disturbed. And so I don't think anyone
 43:1843 minutes, 18 seconds entered that carport after Clint went and saw the initial blood spots before it was secured.
 43:2343 minutes, 23 seconds Well, that's actually good. Even though they didn't secure the scene. Yeah.
@@ -395,7 +398,7 @@ Chapter 12: Law enforcement coordination
 45:4245 minutes, 42 seconds Okay. And when did the US Marshall drive around to compare the vectors of the cell towers to the pings? So, Marshall
 45:4945 minutes, 49 seconds Walker is on the case within like the first week or so, and he spends six to seven months doing his various drive
 45:5645 minutes, 56 seconds tests to find what he calls this one route that the phone traveled.
-46:0046 minutesOkay. Um, and finally, when did law enforcement know about the 30 minute window of Holly's phone staying in that wooded area?
+46:0046 minutes Okay. Um, and finally, when did law enforcement know about the 30 minute window of Holly's phone staying in that wooded area?
 46:0746 minutes, 7 seconds Yeah, I don't know if we have an exact timeline of when they got her cell terror records, but I mean, usually that takes, you know, a couple weeks at most.
 46:1446 minutes, 14 seconds And so certainly by the end of April, I would guess they would know that it was up there for 30 minutes. Okay.
 46:2546 minutes, 25 seconds [music]
@@ -449,7 +452,7 @@ Chapter 13: Trial evidence and conclusion
 51:4151 minutes, 41 seconds because I mean, that's that's a better rationale than any I've thought of or anyone that I know of has thought of about how this timeline could make any sense.
 51:4951 minutes, 49 seconds Mhm. I mean, I'm assuming she was getting ready to head out of the house and and go to her test. We know that,
 51:5651 minutes, 56 seconds right? She had left her home. She was outside. She had her backpack. She's ready to go.
-52:0152 minutes, 1 secondIt seems like she was texting as she was getting ready to go texting um her boyfriend. But what about the the neighbor?
+52:0152 minutes, 1 second It seems like she was texting as she was getting ready to go texting um her boyfriend. But what about the the neighbor?
 52:0952 minutes, 9 seconds Can you tell me again how he pinpoint the time? Because what if he heard the scream and it was later than he thought it was? Like it was after
 52:1652 minutes, 16 seconds Well, we know his phone call to his mom is at 7:47 a.m. Oh, so that's the Okay. Okay. And pings the cell tower 5 miles east.
 52:2452 minutes, 24 seconds And we know that has to be the case because the mom then calls the school, which is how Karen gets alerted. And so that 7:47 has to be his call. So you're working back from that.

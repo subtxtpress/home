@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Episode 5 - Take Me to the River
+November 2, 2026
+
 Chapter 1: The strange case
 0:011 secondIn 1974, Memphis soul artist Al Green released the song Take Me to the River. David Burn, who had famously covered the song
 0:099 seconds for the Talking Heads, said that Take Me to the River is a song that combines teenage lust with baptism. Not equate,
@@ -34,14 +37,14 @@ Chapter 2: Interrogating Dylan Adams
 3:353 minutes, 35 seconds should still have been forensic evidence that Holly had blood there. And so he had Dylan draw a diagram of exactly
 3:413 minutes, 41 seconds where this large pool of blood was. So the blood that was on the floor and you
 3:493 minutes, 49 seconds draw an X and show me the best you can knowing that this has to be the end of the couch. Where is all the blood at that was on that floor?
-4:004 minutesYou can probably tell exactly where this all headed. The TBI got a search warrant for the Adams family residence so they could do a quote down to the studs
+4:004 minutes You can probably tell exactly where this all headed. The TBI got a search warrant for the Adams family residence so they could do a quote down to the studs
 4:094 minutes, 9 seconds search for forensic evidence that Holly had been there. But of course, they were principally focused on the adjoining couch and wood floor where Dylan said
 4:184 minutes, 18 seconds she bled profusely. Here is Zach and Dylan's grandfather, Dick, talking about that search to Eva Pilgrim for the 2020 podcast, What Happened to Holly Bobo.
 4:284 minutes, 28 seconds They meant to tear everything up. I mean, you can you can look and see they meant to tear everything up.
 4:344 minutes, 34 seconds Dick Adams brought our team to where Zach and Dylan lived. When you first walk in, there's a huge slab of plywood where police ripped up the floor.
 4:474 minutes, 47 seconds They knocked a hole in it to see what was back there. I reckon tore the fan down as they was tearing
 4:544 minutes, 54 seconds the floor out. They used my pick and things to tear this out with, but they cut it out with a saw. I guess they
-5:015 minutes, 1 secondthought the bullet went to the floor, so they cut the floor out and carried the couch. TBI took [music] the couch, parts
+5:015 minutes, 1 second thought the bullet went to the floor, so they cut the floor out and carried the couch. TBI took [music] the couch, parts
 5:085 minutes, 8 seconds of the floorboard, and hundreds of other items from the house, but no DNA was
 5:155 minutes, 15 seconds ever found connecting the men to Holly Bobo's murder. [music] This was a devastating setback for the
 5:245 minutes, 24 seconds TBI because if Holly had been there, there absolutely should have been forensic evidence tying her to the Adams family residence. And so the state
@@ -59,7 +62,7 @@ Chapter 3: The coon hunt theory
 6:446 minutes, 44 seconds I remember. But everybody everybody that came through was in camouflage. But he was the only one standing still.
 6:516 minutes, 51 seconds Okay. Was he Caucasian, African-Amean, Hispanic? He was Caucasian.
 6:576 minutes, 57 seconds Okay. Could you see what color his hair was? It was It had a reddish tint to it.
-7:017 minutes, 1 secondRight. And was he tall, short, thin, stocky? He was tall and fat.
+7:017 minutes, 1 second Right. And was he tall, short, thin, stocky? He was tall and fat.
 7:087 minutes, 8 seconds Okay. Um, what was this individual doing?
 7:137 minutes, 13 seconds So, I was looking in the corner of my eye. I saw him on his cell phone. He had a black flip phone to his left ear,
 7:227 minutes, 22 seconds looking down, scooting some dirt in the ground and looking up at me and Holly. Um, he did
@@ -79,7 +82,7 @@ Chapter 3: The coon hunt theory
 8:358 minutes, 35 seconds Okay. Um, and so it's after you she showed you the picture and told you that was Shane Austin that then you put the two together, isn't it?
 8:448 minutes, 44 seconds Yes. Okay. Um, when you first initially gave the description of the person, you said the per the it was a white male between 57 and 6 feet tall.
 8:548 minutes, 54 seconds Yes. And weighed approximately 250 lbs. Correct. Had glasses. Yes.
-9:009 minutesYou said he was dressed in camouflage clothing and brown boots. Yes.
+9:009 minutes You said he was dressed in camouflage clothing and brown boots. Yes.
 9:039 minutes, 3 seconds And as you said at the [ __ ] hunt, everybody was dressed in camouflage clothing and Correct.
 9:099 minutes, 9 seconds So because the whole idea is you're a lot of those people are there to do [ __ ] hunting, aren't they?
 9:149 minutes, 14 seconds Correct. Yes, not the most scientific procedure possible, but you could still see a jury finding it compelling. And that's because you might recall Terry
@@ -129,7 +132,7 @@ Chapter 5: The story of Shayne Austin
 14:3814 minutes, 38 seconds when Zach Adams was later prosecuted for Holly's murder, the state would claim that it was Shane who abducted Holly from her carport. This was despite
 14:4714 minutes, 47 seconds Holly's brother saying the man who abducted Holly had long dark hair while both the man that Candace described in
 14:5314 minutes, 53 seconds Shane had short red hair. And it was despite Shane being excluded as the source of the palm print on the hood of
-15:0015 minutesHolly's Mustang and sounding nothing like the raspy voiced man that Clint heard arguing with his sister. Again, here's TBI agent Terry Dykus.
+15:0015 minutes Holly's Mustang and sounding nothing like the raspy voiced man that Clint heard arguing with his sister. Again, here's TBI agent Terry Dykus.
 15:1015 minutes, 10 seconds Um, he did not have a deep raspy smoker's voice. somebody that had smoked for 20 years, so that didn't fit. Um,
 15:2015 minutes, 20 seconds none of this mattered to the new team at the TBI who took over after agent Dykus was dismissed. Shane Austin, the other members of the A team were charged in
 15:2815 minutes, 28 seconds connection with Holly's murder and the aftermath of Dylan's supposed statements to Sheila Killser and everything that came in their aftermath.
@@ -160,7 +163,7 @@ Chapter 5: The story of Shayne Austin
 18:3718 minutes, 37 seconds in the Tennessee River. The authorities also thought that Shane was withholding additional information that he had about Holly Bobo. They tested this theory by
 18:4618 minutes, 46 seconds giving Shane two polygraphs, both of which he passed. If we believe the test results, all Shane knew was Zach's claim
 18:5318 minutes, 53 seconds that he dumped Holly's body in the Tennessee River. The authorities, though, did not believe the test results. They thought that Shane was
-19:0119 minutes, 1 secondlying and moved to revoke his immunity, prompting a protracted [music] process.
+19:0119 minutes, 1 second lying and moved to revoke his immunity, prompting a protracted [music] process.
 19:0619 minutes, 6 seconds Here's reporting by News 2. In court, Shane Austin's attorney used words like bullies and tyrannical to describe state prosecutors who want to make an immunity
 19:1419 minutes, 14 seconds agreement null and void. Do you know where Holly's at? Outside the Decar County Courthouse, Shane Austin tried to dodge our cameras and our questions.
 19:2219 minutes, 22 seconds Earlier, his attorney fought to keep an immunity agreement in effect that is shielding Austin from prosecution in connection with the April 2011 abduction and murder of Holly Bobo.
@@ -175,7 +178,7 @@ Chapter 6: Discovery of remains
 20:3620 minutes, 36 seconds We've got a good threeprongong right here. Another one right here. This is what we really want to be finding is this root right here.
 20:4520 minutes, 45 seconds All righty, there we are. The Asian market favors these stress rings. So, that's a very neat little route right there. It's got good quality on it.
 20:5320 minutes, 53 seconds In traditional Chinese medicine, jinsing roots are prized for their apparent medical benefits and the global market for them is worth billions. [music]
-21:0121 minutes, 1 secondJins Singh only grows in certain climates. It used to grow widely in parts of Asia, but was overh harvested generations ago, but it also happens to thrive in the mountains of Appalachia.
+21:0121 minutes, 1 second Jins Singh only grows in certain climates. It used to grow widely in parts of Asia, but was overh harvested generations ago, but it also happens to thrive in the mountains of Appalachia.
 21:1121 minutes, 11 seconds [music]
 21:1221 minutes, 12 seconds Americans have been harvesting and trading the roots with Asia for hundreds of years. [music] In 2013, a pound of Jins Singh was worth nearly $1,300,
 21:2021 minutes, 20 seconds which inspired a lot of small-time diggers and dealers to expand their [music] business.
@@ -201,7 +204,7 @@ Chapter 6: Discovery of remains
 23:3523 minutes, 35 seconds keys with the H keychain, a tube of chapstick, a pack of gum, and a small purse filled with writing utensils and
 23:4323 minutes, 43 seconds lipstick. A larger purse was also found covered in leaves. Hodgej said the purse was almost buried in the ground. Those
 23:5023 minutes, 50 seconds items were all found near Bobo's remains. Nearby, other items were found at the top of a ditch, including a ring, a hair tie, and pink fabric, possibly
-24:0024 minutesfrom a shirt. After a lunch recess, Laura Hodgej returned to the stand. Hajj began by showing two earrings, two pink
+24:0024 minutes from a shirt. After a lunch recess, Laura Hodgej returned to the stand. Hajj began by showing two earrings, two pink
 24:0724 minutes, 7 seconds fibers, a small lotion bottle, the sole of a flip-flop, and ribs that were found near where Holly Bobo's remains were found.
 24:2324 minutes, 23 seconds Now, beyond just disturbing, there are at least three critical things to note about all this. First, as you just heard, Holly's promise ring was with
 24:3124 minutes, 31 seconds some of her belongings near her human remains. But those remains did not include her felanges, aka her finger bones. Animal experts said that this was
@@ -216,7 +219,7 @@ Chapter 6: Discovery of remains
 25:3825 minutes, 38 seconds murder. This ties into a third issue, which was that this discovery was totally consistent with US Marshall
 25:4525 minutes, 45 seconds Walker's theory of where Holly was killed. You might recall that he tracked Holly's cell phone, finding that it traveled north by Northwest right after
 25:5325 minutes, 53 seconds her abduction before it stopped for 30 minutes in a large wooded area. This is where Marshall Walker concluded she was
-26:0126 minutes, 1 secondkilled. And this was the same wooded area where Larry Stone made his discovery.
+26:0126 minutes, 1 second killed. And this was the same wooded area where Larry Stone made his discovery.
 26:1126 minutes, 11 seconds And so knowing that the state was working with the theory that Holly was dumped in the Tennessee River, Marshall Walker told the TBI they had critical radio material that he had given them.
 26:2126 minutes, 21 seconds You sent exhibit 5 to the TBI after the remains were found. Yes. There's a reason for that. Why?
 26:3026 minutes, 30 seconds Um because of the 8 months in she was taken down to the river and thrown in the river. And I completely disagree with that based on my timeline. That
@@ -240,7 +243,7 @@ Chapter 6: Discovery of remains
 28:3428 minutes, 34 seconds person. They spread rumors at my own agency about me. [music] They filed an internal affairs complaint on me. My only one in a 35 year four agency
 28:4228 minutes, 42 seconds career. TBI filed an internal affairs complaint on me. Said that I developed a map after the remains were found, but nobody knows that's true. My agency
 28:5128 minutes, 51 seconds investigated it. I was exonerated. Found no fault. They know that the map was created way before that. [music] But I was called to a meeting with TBI. Uh my
-29:0029 minutesagency told me, my agency attorneys told me I don't need to go to the meeting. I could ignore it. But I went to the TBI meeting and the supervisor, he was
+29:0029 minutes agency told me, my agency attorneys told me I don't need to go to the meeting. I could ignore it. But I went to the TBI meeting and the supervisor, he was
 29:0829 minutes, 8 seconds sitting right here yesterday, right over here yesterday. He sp he treated me like I was some kind of criminal because I had to sit out in the lobby and wait.
 29:1629 minutes, 16 seconds Then I was called in and he spent 34 minutes chastising me, giving me some sermon he prepared about how wrong I
 29:2429 minutes, 24 seconds was. [music] Marshall Walker wasn't the only one treated poorly by the TBI. So was Shane and Austin. He was harassed and heranged
@@ -264,7 +267,7 @@ Chapter 7: Shayne Austin's death
 31:3631 minutes, 36 seconds confession, but no one believed what he said. First, [music] here was recent testimony by Zach Adams's attorney, Jennifer Thompson. But I thought with
 31:4531 minutes, 45 seconds this interview of Dylan Adams, we were going to be able to win the case cuz Dylan's interview was terrible. It was
 31:5431 minutes, 54 seconds very suggestive. So the the investigators, the agents sat down and
-32:0132 minutes, 1 secondfed Dylan information as he's spitting it out. You know, they're correcting him and they're feeding him information. And
+32:0132 minutes, 1 second fed Dylan information as he's spitting it out. You know, they're correcting him and they're feeding him information. And
 32:0932 minutes, 9 seconds some of what he said just could not have been true. And I thought that we were going to be able to win the case by showing the inconsistencies in Dylan's statement.
 32:1932 minutes, 19 seconds Now, you might say that of course defense councils would claim this. But then here was recent testimony by trial prosecutor Paul Hagermanerman. Well,
 32:2732 minutes, 27 seconds let me ask you this. Do you remember a moment when you realized
@@ -281,7 +284,7 @@ Chapter 8: Commercial break
 33:3633 minutes, 36 seconds I grew up in a household where we paid for everything in cash [music] and I carried that practice through into my mid20s where I literally couldn't qualify for a credit card during law
 33:4533 minutes, 45 seconds school. It's something I thought about recently as I was trying to raise my credit score to get a great financing deal on a new car. [music] That's where Kickoff, the number one credit building
 33:5333 minutes, 53 seconds app in the app store, came in. Kickoff helps you build credit easily and affordably [music] with plans starting at just $5 a month. No credit check and
-34:0134 minutes, 1 secondno hidden fees. Kickoff helps build credit fast, [music] and they make it so easy to sign up and get started. Use it with credit under
+34:0134 minutes, 1 second no hidden fees. Kickoff helps build credit fast, [music] and they make it so easy to sign up and get started. Use it with credit under
 34:0834 minutes, 8 seconds 600. Grow an average of 86 points just by paying on time. [music] With transparent, affordable plans starting at just $5 a month, no hidden fees, and
 34:1734 minutes, 17 seconds zero interest. Kickoff helps you score big when it comes to credit. It's simple. You make on-time payments.
 34:2434 minutes, 24 seconds Credit bureaus [music] see good behavior and your credit can grow fast. Plus, the rent reporting feature helps you build credit with the rent you already pay.
@@ -306,7 +309,7 @@ Chapter 9: Jason Autry flips
 36:4236 minutes, 42 seconds My heart sunk. Right. Why did your heart sink?
 36:4936 minutes, 49 seconds Well, because Dylan had already flipped.
 36:5236 minutes, 52 seconds Jason was going to flip. And these guys were innocent. I just didn't understand why
-37:0037 minutesthree guys or two other codefendants that were innocent and had not committed this crime would flip to to say that
+37:0037 minutes three guys or two other codefendants that were innocent and had not committed this crime would flip to to say that
 37:1037 minutes, 10 seconds they did and put themselves somehow in this. It it disturbed me to no end. It disturbed me to no end that his attorneys were having him do this.
 37:2137 minutes, 21 seconds And here was recent testimony by trial prosecutor Paul Hagermanerman. When did you realize Dylan's statement was impossible with the sale records?
 37:3337 minutes, 33 seconds So, uh, when we when I first got on the case, uh, of course Dylan's statement already existed. You know, it it was
@@ -357,7 +360,7 @@ Chapter 9: Jason Autry flips
 42:3342 minutes, 33 seconds And so almost the only thing we have is Jason Autrey's trial testimony. Let's start with this story on a critical component of this case, motive.
 42:4342 minutes, 43 seconds You've already heard the first two motives that were thrown out. According to Sheila Killzer, Clint Boba was in debt and he hired the A team to kidnap
 42:5142 minutes, 51 seconds Holly, beat her and send photos of her bloodied body to their parents for ransom money. And then according to Dylan, Shane led the plot to kidnap
-43:0043 minutesHolly because he fixated on her when they had been in school together even though they had not with the [ __ ] Hunt replacing that theory as a reason Shane
+43:0043 minutes Holly because he fixated on her when they had been in school together even though they had not with the [ __ ] Hunt replacing that theory as a reason Shane
 43:0843 minutes, 8 seconds hyperfixated on Holly. Ultimately, at Zach Adams murder trial, Jason Autri would provide a third theory supposedly coming from the horse's mouth.
 43:1943 minutes, 19 seconds Or how did Zach respond?
 43:2243 minutes, 22 seconds He said the real He said the real reason that we were there was to show Clint how to manufacture meth. He said, "We got
@@ -407,7 +410,7 @@ Chapter 10: Jason's trial testimony
 48:3448 minutes, 34 seconds Adams called you at 8:53 that morning, but he reached voicemail. Does that sound right to you?
 48:4448 minutes, 44 seconds If your records reflect that. Okay. Then the records reflect, would you agree with me that the next phone call is you
 48:5248 minutes, 52 seconds to Mr. Adams at 8:55 a.m.? Yes.
-49:0049 minutesOkay. Now, is that the phone call that you're saying uh he called you? Okay. What happened in
+49:0049 minutes Okay. Now, is that the phone call that you're saying uh he called you? Okay. What happened in
 49:0949 minutes, 9 seconds the second phone call then? That when uh you maybe the voicemail picked up and I I dialed right back. Okay. Possibly that.
 49:1749 minutes, 17 seconds Okay. And so what happened in this second phone call that you had that morning at 8:55?
 49:2449 minutes, 24 seconds That's when they told me they were at Cousins, meaning 30 Yellow Springs Road. Okay.
@@ -434,7 +437,7 @@ Chapter 10: Jason's trial testimony
 51:3451 minutes, 34 seconds The gate was open. Okay. You have a specific memory of that? No, man. The gate was open.
 51:4351 minutes, 43 seconds Okay, that white Nissan pickup was Zach's truck. And you can probably tell from this line of questioning, the defense
 51:5151 minutes, 51 seconds council was especially interested in Jason Audrey's claim that he pulled his PT Cruiser right up to the gate at Shane's trailer. In fact, she had Jason
-52:0052 minutesdraw a diagram of exactly where this gate was. Pass up a piece of blank paper to you.
+52:0052 minutes draw a diagram of exactly where this gate was. Pass up a piece of blank paper to you.
 52:0652 minutes, 6 seconds Can you please sketch for me what it would have looked like that day?
 52:1152 minutes, 11 seconds I can get you what the scene looked like that day.
 52:1552 minutes, 15 seconds Where the trailer was, where the car, let me get you some.
@@ -451,7 +454,7 @@ Chapter 10: Jason's trial testimony
 53:3553 minutes, 35 seconds I instantly got to Mr. Austin and bought a peel,
 53:4153 minutes, 41 seconds bought a morphine, 100 mgram, walked directly back to the PT cruiser, broke it in half, cooked it down, and shot it.
 53:5353 minutes, 53 seconds Few minutes later, I got out and walked back to the 4x4 Nissan where Zach was
-54:0054 minutesstanding at the door and he said, "I need you to help me bury this body." And I told him, I said, "God damn, I hate
+54:0054 minutes standing at the door and he said, "I need you to help me bury this body." And I told him, I said, "God damn, I hate
 54:0754 minutes, 7 seconds that y'all killed little Jojo." He said, "Jason." He said, "That he said train." He didn't say Jason. My nickname was train. He said, "Train? That's Holly
 54:1554 minutes, 15 seconds Bobo." For reference, a man named Little Joe owed a drug debt to Zach Adams, which is why Jason says he thought it was his
 54:2454 minutes, 24 seconds body by the bed of Zach's truck. And the reason you wouldn't know whether it was a man or a woman is that the body was wrapped in a blanket.
@@ -539,7 +542,7 @@ Chapter 11: Disposing of the body
 1:03:381 hour, 3 minutes, 38 seconds And I took off running back over to the truck and I told him I said, "Goddamn, we have been seen or
 1:03:451 hour, 3 minutes, 45 seconds heard." And so, according to Jason, they aborted their plans and loaded Holly's body back
 1:03:531 hour, 3 minutes, 53 seconds in Zach's truck. Then, Zach drove him back to his PT cruiser at the church, and they went their separate ways.
-1:04:001 hour, 4 minutesSubsequently, Jason said that he made contact with Zach again at about 2:15 p.m. that same day for the same purpose as the one that morning, getting a
+1:04:001 hour, 4 minutes Subsequently, Jason said that he made contact with Zach again at about 2:15 p.m. that same day for the same purpose as the one that morning, getting a
 1:04:081 hour, 4 minutes, 8 seconds morphine pill. And according to Jason, their source was a name that we have brought up before, Victor Dinsmore.
 1:04:161 hour, 4 minutes, 16 seconds When is the next time that you saw or spoke to Zack Adams that day? Yes, you did.
 1:04:241 hour, 4 minutes, 24 seconds At approximately 2:15, I established contact again.
@@ -555,7 +558,7 @@ Chapter 11: Disposing of the body
 1:05:361 hour, 5 minutes, 36 seconds Who's there? Shane, Dylan, and Jack were standing outside in front of Dylan's Silverado pickup.
 1:05:461 hour, 5 minutes, 46 seconds Was the white Nissan Frontier there? No.
 1:05:531 hour, 5 minutes, 53 seconds Jason says Victor Dinsmore was doing remodeling work at a house owned by a woman named Doie. And here's what he said happened after they arrived at her
-1:06:011 hour, 6 minutes, 1 secondhouse. They got out of the truck at Dy's and one lick was exchanged. Zach hit Shane.
+1:06:011 hour, 6 minutes, 1 second house. They got out of the truck at Dy's and one lick was exchanged. Zach hit Shane.
 1:06:121 hour, 6 minutes, 12 seconds Den Moore pulls up. I mean, Denmore comes outside and this unidentified lady
 1:06:221 hour, 6 minutes, 22 seconds and stops it. Well, Dinsmore comes out and the fight stops.
 1:06:311 hour, 6 minutes, 31 seconds I look to my right, which is inside the carport, and there's this identified lady standing there. I didn't know who she was. As
@@ -601,7 +604,7 @@ Chapter 11: Disposing of the body
 1:11:341 hour, 11 minutes, 34 seconds Adams family residence. Then when it turned out Shane lived in a trailer with no basement, this location shifted to Shane's parents house. When that house
 1:11:431 hour, 11 minutes, 43 seconds also lacked a basement, this location shifted to Shane's grandmother's house, which it turns out also doesn't have a basement. Nonetheless, that story stuck.
 1:11:521 hour, 11 minutes, 52 seconds And this is where Jason testified the rape of Holly took place. And for the state, there was some significant corroboration for this story. [music]
-1:12:011 hour, 12 minutes, 1 secondThis relates to a man named Gerald Stevens who lived across the street from Jason's grandmother. 2 days after Holly was abducted, he discovered a wadded
+1:12:011 hour, 12 minutes, 1 second This relates to a man named Gerald Stevens who lived across the street from Jason's grandmother. 2 days after Holly was abducted, he discovered a wadded
 1:12:091 hour, 12 minutes, 9 seconds piece of paper in the grass in front of his house.
 1:12:131 hour, 12 minutes, 13 seconds And will you is that the piece of paper that was unfolded in your presence?
 1:12:181 hour, 12 minutes, 18 seconds Yes, ma'am. And it is. And uh the the the first and most memorable thing that that I saw was the name and address of

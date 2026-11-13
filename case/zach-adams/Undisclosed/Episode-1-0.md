@@ -1,3 +1,6 @@
+S9, The State v. Dylan Adams - Episode 1 - Atonement
+October 5, 2026
+
 Chapter 1: Introduction to the case
 0:022 seconds [music]
 0:066 seconds In 2001, Ian Mchuan's award-winning novel, Atonement, was released. In the novel, 13-year-old Brian misinterprets a
@@ -7,7 +10,7 @@ Chapter 1: Introduction to the case
 0:3737 seconds must atone for her mistake. In this season, we're going to explore a story that's the inverse of atonement. A real
 0:4444 seconds world case, the most expensive and exhaustive investigation in the history of the Tennessee Burve investigation.
 0:5252 seconds Not a case in which the siblings saw an innocuous event with their sister that they thought was insidious, but the opposite. A case in which each of the
-1:001 minutefour men prosecuted for committing the crime didn't match the siblings description of the man he heard and saw with his sister. A case in which each
+1:001 minute four men prosecuted for committing the crime didn't match the siblings description of the man he heard and saw with his sister. A case in which each
 1:091 minute, 9 seconds could be excluded as the source of significant forensic evidence right where the sister was attacked. a case in which three of the men were convicted of
 1:181 minute, 18 seconds the crime and the fourth committed suicide after writing a note that the state's prosecution was the persecution
 1:241 minute, 24 seconds of innocent men. A case that gets to the core of how many people might need to atone for their mistakes and misconduct.
@@ -15,7 +18,7 @@ Chapter 1: Introduction to the case
 1:421 minute, 42 seconds Again, sir, I don't know. I I don't feel terrible until I know for sure.
 1:491 minute, 49 seconds You're worried, aren't you?
 1:521 minute, 52 seconds I would hate to think that it would be, but I I'm not certain at this point. No, sir.
-2:002 minutes[music]
+2:002 minutes [music]
 2:142 minutes, 14 seconds [music]
 2:222 minutes, 22 seconds [music]
 2:262 minutes, 26 seconds [music]
@@ -64,7 +67,7 @@ Chapter 3: Timeline of the disappearance
 7:387 minutes, 38 seconds was his supervisor and Holly's older cousin. And Drew also asked Richie whether he would be going turkey hunting the next morning. When he was later
 7:467 minutes, 46 seconds interviewed by a TBI agent, Richie Pratt said, quote, "In hindsight, his conversation with me had no point. It
 7:537 minutes, 53 seconds bothered me." And this was because Richie didn't turkey hunt with Drew.
-8:018 minutes, 1 secondMeanwhile, on April 13th, Holly had a nursing school exam at 8:00 a.m. at the Parson's campus of the University of
+8:018 minutes, 1 second Meanwhile, on April 13th, Holly had a nursing school exam at 8:00 a.m. at the Parson's campus of the University of
 8:098 minutes, 9 seconds Tennessee Martin, just under a 15-inute drive from the family home. In other words, she'd have to leave her house by
 8:158 minutes, 15 seconds about 7:45 a.m. to make it to the test on time. Holly's mother, Karen, says her daughter told her on the morning of
 8:228 minutes, 22 seconds April 13th that she'd woken up at 4:30 a.m. to start studying. Then, 50 minutes
@@ -137,7 +140,7 @@ Chapter 5: The witness account
 16:3616 minutes, 36 seconds Drew stating, quote, "Well, you're still going to hunt there." Again, Holly had to leave by about 7:45 a.m. to make it
 16:4416 minutes, 44 seconds to her test on time. So, this text was sent mere minutes before she'd have to get into her Mustang to avoid being tardy for her test.
 16:5316 minutes, 53 seconds This then takes us to James Barn aka Ed, the next door neighbor to the Bobos.
-17:0117 minutes, 1 secondWhile he lived next door, the houses were about 750 ft apart and separated by a tangle of woods. And apparently the
+17:0117 minutes, 1 second While he lived next door, the houses were about 750 ft apart and separated by a tangle of woods. And apparently the
 17:0817 minutes, 8 seconds adage about good fences making good neighbors does not apply to a tangle of trees because there was a lot of drama between the Bobos and the Barnes. James
 17:1717 minutes, 17 seconds Barnes was a contractor who lived with his girlfriend Cassie Bates and their young son in a trailer on the property.
 17:2317 minutes, 23 seconds There was a house on the property, too, but that's where James mother Kathy Weise lived. At trial, James testified that his mom had gone into town that
@@ -188,7 +191,7 @@ Chapter 7: Clint's observation
 22:3822 minutes, 38 seconds that. So I almost instantly got into a panic at that point.
 22:4222 minutes, 42 seconds Karen says she left her cell phone in her classroom. So, she hightailed it to the library to call the fourth member of her household, her son, Clint. Clint was
 22:5122 minutes, 51 seconds a 25-year-old college student who worked at nursing homes and was studying to become a social worker. Clint had the day off from a counseling internship and
-23:0023 minutessays he wasn't awoken by his sister arguing or screaming at someone, but he was woken up by barking by the family's second dog, Rascal, a Shih Tzu poo.
+23:0023 minutes says he wasn't awoken by his sister arguing or screaming at someone, but he was woken up by barking by the family's second dog, Rascal, a Shih Tzu poo.
 23:1023 minutes, 10 seconds After waking up and without turning on the lights in the house, Clint headed to the front door and looked out the windows but saw nothing. He then walked
 23:1923 minutes, 19 seconds to the window that looks out into the carport just a few feet away. There he heard some voices and saw something when he slightly parted the Venetian blinds.
 23:3023 minutes, 30 seconds Well, I raised the blinds slightly and um saw the silhouette of two individuals underneath that window knelt down.
@@ -196,7 +199,7 @@ Chapter 7: Clint's observation
 23:4123 minutes, 41 seconds So that's what he saw and here's what he heard.
 23:4423 minutes, 44 seconds At first I didn't recognize either voice, but as I listened for just seconds , I could recognize my sister's
 23:5223 minutes, 52 seconds voice and what I thought was her boyfriend Drew's voice. And why did you think it was her boyfriend Drew's voice?
-24:0124 minutes, 1 secondWell, because he was the only male figure in Holly's life besides myself and my dad. So, you were making an assumption.
+24:0124 minutes, 1 second Well, because he was the only male figure in Holly's life besides myself and my dad. So, you were making an assumption.
 24:0924 minutes, 9 seconds That's right.
 24:1024 minutes, 10 seconds In a statement that Clint wrote that same morning, he further elaborated, noting that, quote, "His voice sounded the same as Drew's voice sounds when him
 24:1924 minutes, 19 seconds and Holly are in Holly's room." And while Clint couldn't make out what was being said in the carport, he got a good sense of the general tone of the conversation.
@@ -205,7 +208,7 @@ Chapter 7: Clint's observation
 24:3924 minutes, 39 seconds would just answer back and sounded upset.
 24:4524 minutes, 45 seconds While seeing and hearing this play out, Clint decided to call his mom. Not because he thought Holly was being attacked. He assumed Holly was having a
 24:5324 minutes, 53 seconds lover's quarrel with her boyfriend, Drew. Instead, Clint knew that Holly had to leave their house by about 7:45 a.m.
-25:0025 minutesto get to school by 8. So, he tried to call his mom at 7:51 and 7:52 a.m. to see whether Holly had a day off from
+25:0025 minutes to get to school by 8. So, he tried to call his mom at 7:51 and 7:52 a.m. to see whether Holly had a day off from
 25:0825 minutes, 8 seconds school because Holly did not skip school. But recall that Clint's mother, Karen, said she had left her phone in her classroom while she was in the
 25:1625 minutes, 16 seconds cafeteria with her students. So, she didn't get either of these calls, nor did she get Clint's text message at 7:53
 25:2325 minutes, 23 seconds a.m. in which he wrote, "Call me ASAP."
@@ -224,8 +227,8 @@ Chapter 7: Clint's observation
 26:4626 minutes, 46 seconds That kind of thing?
 26:4726 minutes, 47 seconds Yes. [clears throat] And you have you always been cooperating with them? Yes.
 26:5226 minutes, 52 seconds And you were 20 miles away hunting with your dad? Yes. Talking to some other people? Yes. And texting with Holly?
-27:0027 minutesYes.
-27:0127 minutes, 1 secondBut we now know this was not true or at least incomplete. Because when Drew texted Holly about the permission issue
+27:0027 minutes Yes.
+27:0127 minutes, 1 second But we now know this was not true or at least incomplete. Because when Drew texted Holly about the permission issue
 27:0827 minutes, 8 seconds at 7:18 a.m., he was pinging her home tower and sector many miles away from the hunting ground.
 27:2027 minutes, 20 seconds [music]
 27:2627 minutes, 26 seconds [music]
@@ -258,7 +261,7 @@ Chapter 8: The abduction event
 30:3930 minutes, 39 seconds how do you make noises with it? Do you move it around? No, you blow through it.
 30:4730 minutes, 47 seconds In the wake of Holly's disappearance, there were media reports that Clint had seen his sister being dragged into the woods. But when he testified at trial,
 30:5630 minutes, 56 seconds Clint claimed that those accounts were not accurate.
-31:0031 minutesUm, and so there was nothing about the way they were walking that alarmed you at that time.
+31:0031 minutes Um, and so there was nothing about the way they were walking that alarmed you at that time.
 31:0631 minutes, 6 seconds That is correct. There were some perhaps reports that that she was being drugged into the woods, but you didn't see any evidence that she was being drugged into the woods.
 31:1531 minutes, 15 seconds That's right. And those reports were false.
 31:1831 minutes, 18 seconds If you had seen your sister being drugged into the woods, you would have jumped into action. That's correct. Okay.
@@ -276,7 +279,7 @@ Chapter 9: Law enforcement response
 32:4232 minutes, 42 seconds Somebody has my daughter. Okay. Please get that now.
 32:5032 minutes, 50 seconds Is that where you live? Okay. Okay.
 32:5932 minutes, 59 seconds from California.
-33:0133 minutes, 1 secondOkay, I got off. They're on the way right now. Okay, they're on their way, sweetie.
+33:0133 minutes, 1 second Okay, I got off. They're on the way right now. Okay, they're on their way, sweetie.
 33:1233 minutes, 12 seconds They're on their way, sweet. I got everybody on their way.
 33:1633 minutes, 16 seconds Back at the Bobo residence with [music] Clint having changed into jeans and a jacket, he walked outside. The path where Holly and the man in camo had been
 33:2433 minutes, 24 seconds walking led to one of those logging roads where downed pine trees [music] were hauled. But before reaching that path, Clint peaked in the carport and
@@ -293,7 +296,7 @@ Chapter 9: Law enforcement response
 34:4834 minutes, 48 seconds It's just real quiet.
 34:4934 minutes, 49 seconds Just no man in camouflage anymore. Right. No voices anymore. Right. No Holly anymore.
 34:5834 minutes, 58 seconds Right.
-35:0035 minutesMere moments later, the Bobo's neighbor, Kathy Wise, drove up and told Clint that her son, James, had heard Holly arguing
+35:0035 minutes Mere moments later, the Bobo's neighbor, Kathy Wise, drove up and told Clint that her son, James, had heard Holly arguing
 35:0835 minutes, 8 seconds and screaming with someone. So, at 8:08 a.m., Clint called 911. Of course, Clint's mother, Karen, had called 911 9
 35:1735 minutes, 17 seconds minutes earlier. So, while Clint was still on the line, the Decatur County Police arrived. And as a result, at the
 35:2435 minutes, 24 seconds behest of Sheriff's Deputy Tony Weber, Clint was able to write out a statement about what he had heard and saw while it was fresh in his memory.
@@ -326,7 +329,7 @@ Chapter 10: Investigation and polygraph
 38:3538 minutes, 35 seconds many cooks in the kitchen. According to Dana, it was mostly the latter. It was people wandering, standing, fiddling,
 38:4438 minutes, 44 seconds just like like nobody. No, it was kind of like nobody knew what to do. That's the way I took it at the time.
 38:5338 minutes, 53 seconds Luckily, amidst all the sound and fury of the various agencies, Dana had the foresight to maggyver up a makeshift
-39:0139 minutes, 1 secondbarrier to the blood stains in the carport where Clint had seen Holly and the man in camo crouched. And so what what did you do once you saw people wandering around?
+39:0139 minutes, 1 second barrier to the blood stains in the carport where Clint had seen Holly and the man in camo crouched. And so what what did you do once you saw people wandering around?
 39:1239 minutes, 12 seconds Once I seen Holl's car still in there and something in the garage floor and people wandering around as they please.
 39:2039 minutes, 20 seconds I used I used to cut timber on the side and I always kept pink tape. I took two lawn chairs off the back deck right there. Right there.
 39:2839 minutes, 28 seconds Okay.
@@ -373,7 +376,7 @@ Chapter 11: Post-investigation pressure
 43:4443 minutes, 44 seconds Um they continually accused you of lying.
 43:4743 minutes, 47 seconds Yes. And they continually uh said that you were somehow holding back on some kind of information.
 43:5743 minutes, 57 seconds Withholding information. Yes.
-44:0044 minutesNow, of course, assuming that Clint was telling the truth, that makes him innocent, but it still leaves the issue of atonement that opened this episode.
+44:0044 minutes Now, of course, assuming that Clint was telling the truth, that makes him innocent, but it still leaves the issue of atonement that opened this episode.
 44:0844 minutes, 8 seconds The question of whether Clint should have done more to save his sister was one of the topics broached by Valerie Trout during this polygraph session.
 44:1744 minutes, 17 seconds Do you feel responsible?
 44:2044 minutes, 20 seconds No. I mean, I don't feel responsible for anything that's happened, but I feel like I mean, I could have got grabbed a gun and shot that person.
@@ -422,7 +425,7 @@ Chapter 12: Forensic evidence analysis
 49:4049 minutes, 40 seconds to at some previous point before the car was driven and exposed to the elements.
 49:4549 minutes, 45 seconds It's also this ridge detail that allows experts to compare and contrast a palm print with suspects exemplars. As the
 49:5249 minutes, 52 seconds FBI's page on palm prints notes, quote, "The data represented by these friction ridge impressions allows a determination
-50:0050 minutesthat corresponding areas of friction ridge impressions either originated from the same source or could not have been made by the same source."
+50:0050 minutes that corresponding areas of friction ridge impressions either originated from the same source or could not have been made by the same source."
 50:0950 minutes, 9 seconds And so Lawrence James noting the ridge detail in the palm print of the Mustang was his way of explaining that this was
 50:1650 minutes, 16 seconds a fertile source of forensic comparison based upon class characteristics like flexion creases and delta formations.
 50:2450 minutes, 24 seconds The same goes from saying the palm print was large. On average, a palm print has 10 times more data points than a
@@ -454,7 +457,7 @@ Chapter 13: Closing remarks
 53:4253 minutes, 42 seconds individual or through your company directly from our website at undisclosepod.com.
 53:4753 minutes, 47 seconds Oh, and you can also go there to listen to our episodes. Everything is there from season 1 to the most recent season.
 53:5453 minutes, 54 seconds also including bonus episodes, TJ Weekly, and unfiltered episodes. [music] If you're not already following us
-54:0054 minutesonline, you can find us on YouTube and X at Undisclosed [music] Pod. On Instagram and Facebook, we're at undisclosed
+54:0054 minutes online, you can find us on YouTube and X at Undisclosed [music] Pod. On Instagram and Facebook, we're at undisclosed
 54:0854 minutes, 8 seconds podcast. If you want more content from our hosts, Colin is on X and Blue [music] Sky at evidence prof
 54:1854 minutes, 18 seconds 2, the number two. Don't [music] forget to follow, share, rate, and review everywhere. And last but not least, a
 54:2654 minutes, 26 seconds million thanks to Hannah McCarthy for audio production and for always making the show sound great. Until next time, listeners.

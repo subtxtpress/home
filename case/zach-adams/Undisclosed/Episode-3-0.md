@@ -1,4 +1,7 @@
-0:011 secondThere are two famous sayings about devils that apply to the Holly Bobo case.
+S9, The State v. Dylan Adams - Episode 3 - The Devil You Know
+October 19, 2026
+
+0:011 second There are two famous sayings about devils that apply to the Holly Bobo case.
 0:077 seconds [music]
 0:088 seconds The first is the devil is in the details. While accounts vary, many trace this phrase back to French novelist
 0:1515 seconds Gustav Fluar in the 19th century, but that version leand estal translates as the good god is in the
@@ -14,7 +17,7 @@
 1:331 minute, 33 seconds cracked the Holly Bobo case, even securing an admission by the man who had committed the crime. But then a mere three months later, Dykes was taken off
 1:421 minute, 42 seconds the case based upon the claim he had tunnel vision and had stuck with a devilly knew rather than considering alternate suspects. Meanwhile, Marshall
 1:511 minute, 51 seconds Walker remains convinced to this day that the details of the day that Holly Bobo was abducted point solely in the same direction and away from the four men who had faced prosecution.
-2:012 minutes, 1 secondOkay. Then in in the world that you're functioning in, it's your it's your belief that Terry Britt, let's just say Terry Britt put that bullet at the back of her head. Is that your testimony?
+2:012 minutes, 1 second Okay. Then in in the world that you're functioning in, it's your it's your belief that Terry Britt, let's just say Terry Britt put that bullet at the back of her head. Is that your testimony?
 2:102 minutes, 10 seconds That's what you're going to tell this judge.
 2:112 minutes, 11 seconds I I I believe Answer my question. Your honor, she the witness is allowed. Give him an opportunity to answer.
 2:162 minutes, 16 seconds I do believe that that Terry Brick put a bullet at the back of her head. Yes. Okay.
@@ -79,7 +82,7 @@
 9:359 minutes, 35 seconds claims they only had a lowquality copy of Terry Brit's palm print. And so, while it looked like the palm print in the Mustang, Terry's palm print wasn't
 9:449 minutes, 44 seconds high- res enough to say anything conclusive.
 9:479 minutes, 47 seconds Why they still have never gotten a clear version to make the comparison remains a mystery.
-10:0010 minutes[music]
+10:0010 minutes [music]
 10:0510 minutes, 5 seconds [music]
 10:0810 minutes, 8 seconds It is not uncommon for folks to be struggling with their credit rating.
 10:1210 minutes, 12 seconds [music] For some folks, you know, maybe you had too much fun in your early 20s, went wild with credit cards, but for others, especially in this economy, they've lost jobs, fallen behind on
@@ -106,7 +109,7 @@
 12:4212 minutes, 42 seconds [music]
 12:5112 minutes, 51 seconds [music]
 12:5612 minutes, 56 seconds [music]
-13:0113 minutes, 1 second[music]
+13:0113 minutes, 1 second [music]
 13:0313 minutes, 3 seconds What is clearer is the second thing that law enforcement had in the days after Holly was abducted. Statements by her brother Clint. You might recall that
 13:1113 minutes, 11 seconds Clint told police the man in camo was between 510 and 5'11, [music] about 200 lb, broad shoulder, and barrelchested
 13:2013 minutes, 20 seconds like he used to work out with skinnier legs and shoulderlength dark hair that was covering his neck and touching his collar. Well, guess what? [music] That's
@@ -139,7 +142,7 @@
 16:3616 minutes, 36 seconds So, and real short hair. So, so I [clears throat] let Clint listen to him and he asked, "Is that is that the
 16:4516 minutes, 45 seconds same voice? Two and five and five was Britt, two was Alan Snelling." And I said, "No, it's I can't I can't answer
 16:5316 minutes, 53 seconds that. I just want you to tell me if if you recognize the voice from that morning." Uh, and he says, "Well, you know, they they sound very similar. I
-17:0117 minutes, 1 secondcan't distinguish them, but it's the same tone and the same pitch as what I heard that morning. and both voices.
+17:0117 minutes, 1 second can't distinguish them, but it's the same tone and the same pitch as what I heard that morning. and both voices.
 17:0917 minutes, 9 seconds Now, in full fairness, Clint first leaned more towards Alan Snelling based upon this brief vocal lineup, something the state still clings to today. But
 17:1817 minutes, 18 seconds also in full fairness, Asian Dykus then did an extended vocal lineup in which Clint listened to longer audio samples from both Terry Britt and others, including Alan Snelling.
 17:2817 minutes, 28 seconds So, so the second time you did an extended voice and test, correct? What was the result of the second test?
@@ -228,7 +231,7 @@
 27:4027 minutes, 40 seconds And why would her picture have been in the newsletter?
 27:4527 minutes, 45 seconds I believe she had gotten a scholarship or graduated from high school, something like that. Okay. Did you ever come across a reason why Holly's photograph would have been in the newsletter?
 27:5527 minutes, 55 seconds Yes. When she graduated, she was in there, too. U got a $500 scholarship for something.
-28:0128 minutes, 1 secondAnd this person, this NA that you said her photograph from her yearbook was uh xeroxed, is
+28:0128 minutes, 1 second And this person, this NA that you said her photograph from her yearbook was uh xeroxed, is
 28:0928 minutes, 9 seconds that the same way that it appeared in the newsletter, her yearbook photograph? I believe so.
 28:1728 minutes, 17 seconds Okay. Um, and so what do you remember what school she went to in relationship to Holly?
 28:2428 minutes, 24 seconds I think she went to Riverside, the same school.
@@ -246,7 +249,7 @@
 29:3629 minutes, 36 seconds Britt was stalking Holly's cousin, who looked a lot like her, right around the time that Holly was abducted. Now, the reason I noted above that I wasn't sure
 29:4429 minutes, 44 seconds that agent Dykus was referencing Holly's cousin is because no less than eight separate women all said that Terry Britt was stalking them.
 29:5329 minutes, 53 seconds A total of eight different women has told us different things, and some of them are are a little dated a few years
-30:0030 minutesback, but the all the information is kind of similar. um he would pull up that he got caught, stopped in a road
+30:0030 minutes back, but the all the information is kind of similar. um he would pull up that he got caught, stopped in a road
 30:0830 minutes, 8 seconds staring at these girls. Uh another lady said she she caught him staring and her husband worked as a deputy sheriff.
 30:1930 minutes, 19 seconds So I mean that you you think about how brazen someone had to be to stalk a deputy sheriff's wife, right?
 30:2730 minutes, 27 seconds Just about as brazen as you have to be to go and kidnap somebody off their carport.
@@ -277,7 +280,7 @@
 33:3933 minutes, 39 seconds clean, natural solution. And that's when I found Mars Men. Here's what I love about Marsmen. It's a formula built around natural ingredients [music] that
 33:4833 minutes, 48 seconds have been studied for their ability to support healthy testosterone levels.
 33:5133 minutes, 51 seconds There are no weird stimulants or synthetic hormones. But what got my attention wasn't just the formula. It was who is behind the brand. Marsman has
-34:0034 minutesa medical advisory board to ensure you're getting the best product possible. Dr. Lat Mansour, Marsman's chief medical officer who holds an
+34:0034 minutes a medical advisory board to ensure you're getting the best product possible. Dr. Lat Mansour, Marsman's chief medical officer who holds an
 34:0834 minutes, 8 seconds Oxford doctorate in physiology. [music] Dr. Kyle Gillette, a physician double board certified in fellow medicine and
 34:1534 minutes, 15 seconds obesity medicine. And Dr. Jesse Robot, a licensed pharmacist with a background in biochemistry and human kinetics.
 34:2334 minutes, 23 seconds Since using Marsmen, I felt stronger in my swims and yoga, and I feel more locked in on my work throughout the day.
@@ -293,7 +296,7 @@
 35:4135 minutes, 41 seconds unprecedented step of bugging his whole house. Here is testimony by TBI special agent Brett Booth, who was basically on the case from the beginning.
 35:5135 minutes, 51 seconds We wiretapped his phones.
 35:5335 minutes, 53 seconds That means y'all listening to phones and he doesn't know it. Yes, sir. We wiretapped his house.
-36:0136 minutes, 1 secondThat means he have a wife.
+36:0136 minutes, 1 second That means he have a wife.
 36:0436 minutes, 4 seconds He did. That means he and his wife are in a house and y'all are listening. That's correct. And they don't even know it.
 36:1236 minutes, 12 seconds That's correct. Is that something we do every day? No, sir.
 36:1936 minutes, 19 seconds Is that something we'd ever done in the state of Tennessee? No, sir.
@@ -301,7 +304,7 @@
 36:3436 minutes, 34 seconds the stimulation failed to produce the evidence evidence. As I said, we captured the one conversation uh that we were trying to capture.
 36:4336 minutes, 43 seconds Can you read the the paragraph? The stimulation failed to produce evidence and then the failure occurred in large part because the equipment failed to
 36:5236 minutes, 52 seconds perform as it was intended. Um it was hard to hear. This says unable to hear or understandable conversation.
-37:0137 minutes, 1 secondCorrect. Now, you heard Beth Moswell saying that despite its flaws, the equipment did pick up one key
+37:0137 minutes, 1 second Correct. Now, you heard Beth Moswell saying that despite its flaws, the equipment did pick up one key
 37:0837 minutes, 8 seconds conversation, which she claims proves Terry Brit's innocence. That was the oral communication when we stimulated it
 37:1637 minutes, 16 seconds so that Janet and Terry would enter the house at the same time together and see the search warrant paperwork. And he said, and he said, "I've done a lot of
 37:2437 minutes, 24 seconds paraphrasing. I've done a lot of bad [ __ ] but I didn't touch this boowbo bitch." Okay. But did Terry Brit say this because he was innocent or because he
@@ -309,7 +312,7 @@
 37:4037 minutes, 40 seconds Clint Bobo the day his sister was abducted.
 37:4437 minutes, 44 seconds Was there anything done that made you suspicious of whether Mr. Britt might know he was being wiretapped?
 37:5437 minutes, 54 seconds Um, it did seem that he was cy. Okay.
-38:0138 minutes, 1 secondDid he play music loud? Yes. How often?
+38:0138 minutes, 1 second Did he play music loud? Yes. How often?
 38:0638 minutes, 6 seconds I can't tell you that, but I can tell you that there was a lot of whispering stuff that you normally wouldn't expect
 38:1538 minutes, 15 seconds on uh someone how they communicate inside their own home.
 38:2038 minutes, 20 seconds But beyond that, we have something specific, and this relates not just to Brit's awareness that his house was bugged, but also the weakness of his
@@ -317,7 +320,7 @@
 38:3638 minutes, 36 seconds killing Bobo was not one of the bad things that he had done. But let's take you back through the full events of that day to give context. First, law
 38:4438 minutes, 44 seconds enforcement officers came to Terry Brit's home and asked him about his alibi. Rather than share his own recollections, he called his wife Janet at her job at the local newspaper.
 38:5438 minutes, 54 seconds Here's testimony by FBI special agent Art Vivose about all of this.
-39:0039 minutesBut I just remember when we talked to him uh uh Terry Britt
+39:0039 minutes But I just remember when we talked to him uh uh Terry Britt
 39:0639 minutes, 6 seconds insisted that he contact his wife Janet who was working at the newspaper. and she came out quickly and she came to the
 39:1539 minutes, 15 seconds house and right away went to the safe and got that receipt and they talked about how they went to get the tub that morning.
 39:2439 minutes, 24 seconds Second, after all of this, Terry Britt got a call from his sister.
@@ -350,7 +353,7 @@
 42:3642 minutes, 36 seconds So, several thoughts on this. First, we have to take everything Terry Britt says on these recordings with a huge grain of salt because he was told and knew that
 42:4542 minutes, 45 seconds law enforcement could be listening in on him. Then we know that his claim about not knowing Holly Bobo was false because
 42:5242 minutes, 52 seconds he had her photo in his shed and had been following her and her cousin around Dollar General mere weeks before Holly's
-43:0043 minutesabduction. And finally, that takes us to the day of Holly's abduction. As you heard from Art Viviverro's playbyplay,
+43:0043 minutes abduction. And finally, that takes us to the day of Holly's abduction. As you heard from Art Viviverro's playbyplay,
 43:0843 minutes, 8 seconds Terry Britt had no memory of his alleged alibi until his wife Janet told him about it. Then when he was told, he
 43:1643 minutes, 16 seconds responded by saying that they were home that day by 100 p.m. from tub shopping.
 43:2143 minutes, 21 seconds But we know that that's not true. As you heard Agent Dika say earlier in the episode, the Brits were not at home at 1:45 p.m. when law enforcement came by.
@@ -394,7 +397,7 @@
 47:4247 minutes, 42 seconds And by the way, all the way up to trial, Terry Brit denied having a cell phone.
 47:4847 minutes, 48 seconds Now, initially you lied about having a cellular telephone, didn't you? I lied about what? Having a cellular telephone.
 47:5647 minutes, 56 seconds Who did I lie to? You lied to investigators.
-48:0148 minutes, 1 secondNo. Tell me how I lied and I'll tell you if I did or not.
+48:0148 minutes, 1 second No. Tell me how I lied and I'll tell you if I did or not.
 48:0448 minutes, 4 seconds You denied that you had your own personal cellular telephone, didn't you?
 48:0848 minutes, 8 seconds Um, I didn't have a cell. I don't have a cell phone on that day.
 48:1348 minutes, 13 seconds On that day or any other day? I've never had a cell phone. Okay. Um, there was a cell phone number. It was 73330.
@@ -405,7 +408,7 @@
 48:3648 minutes, 36 seconds And you would call your wife Janet Britt on it on a very frequent basis. Isn't that correct? That is correct.
 48:4448 minutes, 44 seconds Specifically, both Brits had prepaid cell phones that they had bought from Walmart, about a month before Holly Bobo was abducted. And then just 2 days
 48:5348 minutes, 53 seconds before Holly was taken on April 13th, they added a bunch of minutes to these phones. Once again, here's Agent Dykus.
-49:0049 minutesAnd what is that a um receipt for? This is a receipt uh from Walmart again
+49:0049 minutes And what is that a um receipt for? This is a receipt uh from Walmart again
 49:0949 minutes, 9 seconds where a th000 minutes were purchased.
 49:1349 minutes, 13 seconds [clears throat]
 49:1549 minutes, 15 seconds Two different lots of thousand minutes were purchased on April the 11th, 2011.
@@ -421,7 +424,7 @@
 50:3850 minutes, 38 seconds Orion is a smart sleep system that fits right over the mattress you already have and it adjusts the temperature to help you sleep. It's totally personalized to
 50:4650 minutes, 46 seconds you and you and your partner can sleep at different temperatures to improve sleep. You might not have known that your body temperature actually impacts your sleep quality. Getting the
 50:5550 minutes, 55 seconds temperature right can improve your deep sleep, REM sleep, and overnight wakeups.
-51:0051 minutesHere's how it works. You set each side of the bed anywhere from between 50 to 115°.
+51:0051 minutes Here's how it works. You set each side of the bed anywhere from between 50 to 115°.
 51:0551 minutes, 5 seconds While you sleep, the Orion mattress topper senses and measures how your body responds. Orion uses those sensors to
 51:1351 minutes, 13 seconds improve your [music] sleep more every single night, so it gets better the longer and longer that you use it. Now, look, I've done a lot of things over the
 51:2151 minutes, 21 seconds years to try to help me sleep, whether it's melatonin or herbal tea at night or magnesium cream on the bottom of my feet, but adjusting the temperature at
@@ -519,7 +522,7 @@
 1:02:371 hour, 2 minutes, 37 seconds saw Holly at the dollar store uh with Natalie probably about 3 weeks before you started following her. We
 1:02:451 hour, 2 minutes, 45 seconds know you follow other women." And I think what we what we think that you
 1:02:521 hour, 2 minutes, 52 seconds uh started figuring out her timeline and followed her home, started paying attention to uh the vehicles that you got there probably around 7:30 that
-1:03:011 hour, 3 minutes, 1 secondmorning. And you know all the back roads very well. We know that you noticed that the her mother's car was gone. You noticed her father's car was gone. And you thought Clint Boba's car was gone,
+1:03:011 hour, 3 minutes, 1 second morning. And you know all the back roads very well. We know that you noticed that the her mother's car was gone. You noticed her father's car was gone. And you thought Clint Boba's car was gone,
 1:03:101 hour, 3 minutes, 10 seconds but it was actually in a garage out back. I said, you know, Holly comes out at 7:45. I said, you position yourself to grab her when she came out. She
 1:03:171 hour, 3 minutes, 17 seconds fought with you for about 45 seconds  because Mr. Barnes, the next door neighbor, heard you fighting for about 45 seconds .
 1:03:261 hour, 3 minutes, 26 seconds And he heard you. He heard it. So, and I said, "Then you squatted down underneath the patio with her." After fighting with you probably hit her because there was
@@ -534,7 +537,7 @@
 1:04:331 hour, 4 minutes, 33 seconds And I said, "When you came out of that, you got home probably around 9:35
 1:04:401 hour, 4 minutes, 40 seconds and your wife awoke, Jan awoke when the dogs were barking.
 1:04:541 hour, 4 minutes, 54 seconds [music]
-1:05:011 hour, 5 minutes, 1 second[music]
+1:05:011 hour, 5 minutes, 1 second [music]
 1:05:071 hour, 5 minutes, 7 seconds [music]
 1:05:081 hour, 5 minutes, 8 seconds And so there it is. Using his training and experience, Marshall Walker laid out a beat-by-be breakdown of everything he thought happened with Holly's abduction.
 1:05:181 hour, 5 minutes, 18 seconds a theory that lined up with Clint's statements, the cell tower tracking, Holly's belongings, and even Janet's accounting of when and why she woke up.
@@ -559,7 +562,7 @@
 1:07:401 hour, 7 minutes, 40 seconds He admitted to it. He admitted to murdering Holly Boba. Yes.
 1:07:461 hour, 7 minutes, 46 seconds He said, "It sounds like you got it figured out. I'll plead to 20 years. I don't want to die in jail, but I want to be in a different jail."
 1:07:551 hour, 7 minutes, 55 seconds Could another interpretation of that be that he was being a smart alecle? No.
-1:08:011 hour, 8 minutes, 1 secondthat there's no way that's a possibility that he was just I did not messing with you. Nope, I didn't pick up on that.
+1:08:011 hour, 8 minutes, 1 second that there's no way that's a possibility that he was just I did not messing with you. Nope, I didn't pick up on that.
 1:08:091 hour, 8 minutes, 9 seconds Okay. After your what did you say? Five previous experiences of taking statements.
 1:08:151 hour, 8 minutes, 15 seconds I don't know how many I've taken over the years. I've taken quite a few. I spent 35 years in law enforcement.
 1:08:191 hour, 8 minutes, 19 seconds I know you did. And I'm not trying to make light of it. I'm trying to get a picture of your experience. And I thought a minute ago when I asked you how many you had taken, you said 20.
@@ -569,7 +572,7 @@
 1:08:441 hour, 8 minutes, 44 seconds The admission he secured was ignored.
 1:08:471 hour, 8 minutes, 47 seconds Soon, he was taken off the case. As we'll discuss in a later episode, when he told the TBI he had given them Brady
 1:08:541 hour, 8 minutes, 54 seconds material that matched all the evidence and pointed a different direction, they filed an internal affairs complaint against him.
-1:09:011 hour, 9 minutes, 1 secondAnd then there was lead TBI agent Terry Dykus. He was removed from the Holly Bobo case in June 2013, 3 months after
+1:09:011 hour, 9 minutes, 1 second And then there was lead TBI agent Terry Dykus. He was removed from the Holly Bobo case in June 2013, 3 months after
 1:09:091 hour, 9 minutes, 9 seconds Marshall Walker secured Terry Brit's admission. Agent Dykus was accused of having tunnel vision on Terry Britt and refusing to acknowledge that anyone else
 1:09:171 hour, 9 minutes, 17 seconds could have committed the crime. And not just anyone else, but the TBI's prime suspect at the time, Holly's brother,
 1:09:241 hour, 9 minutes, 24 seconds Clint. This came to a head when agent Dykus' supervisor, Jack Vanhuser, ordered him to interrogate Clint Bobo
@@ -602,7 +605,7 @@
 1:12:381 hour, 12 minutes, 38 seconds Why not? Locked up for prostitution, I believe.
 1:12:431 hour, 12 minutes, 43 seconds So, it's not uncommon in our criminal justice system for
 1:12:521 hour, 12 minutes, 52 seconds victims of crime to also be charged with other crimes and being locked up somewhere. Correct.
-1:13:011 hour, 13 minutes, 1 secondCorrect.
+1:13:011 hour, 13 minutes, 1 second Correct.
 1:13:021 hour, 13 minutes, 2 seconds It's the job of the state of Tennessee at the preliminary hearing to make sure the victim is located and brought to
 1:13:101 hour, 13 minutes, 10 seconds court either by subpoena or if they're locked up by transport order. Correct. Correct.
 1:13:171 hour, 13 minutes, 17 seconds And the preliminary hearing was prior to April 13th, 2011. Correct.
