@@ -35,32 +35,32 @@
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- Styles -->
   <style>
-    *, *::before, *::after { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     :root {
-      --peach:            rgb(224,164,129);
-      --cream:            #F4EDE3;
-      --sand:             #DDD0BC;
-      --plum:             #3E2436;
-      --carmine:          #7A5063;
-      --ink:              #241620;
-      --surface-page:     #F4EDE3;
-      --surface-card:     #FFFFFF;
-      --surface-elevated: #EDE5D8;
-      --text-heading:     #241620;
-      --text-body:        #44373C;
-      --text-label:       #7A5063;
-      --text-muted:       rgba(68, 55, 60, 0.45);
-      --accent:           rgb(224,164,129);
-      --accent-border:    rgba(224,164,129,0.40);
-      --border-light:     rgba(221, 208, 188, 0.55);
-      --border-mid:       rgba(180, 140, 100, 0.22);
-      --grad-neutral:     linear-gradient(to right, #DDD0BC, rgb(224,164,129));
-      --status-open:      #2E7D32;
-      --status-closed:    #B71C1C;
+      --peach:               rgb(224,164,129);
+      --cream:               #F4EDE3;
+      --sand:                #DDD0BC;
+      --plum:                #3E2436;
+      --carmine:             #935f76;
+      --ink:                 #241620;
+      --surface-page:        #F4EDE3;
+      --surface-card:        #FFFFFF;
+      --surface-elevated:    #f5f3ef;
+      --text-heading:        #241620;
+      --text-body:           #44373C;
+      --text-label:          #7A5063;
+      --text-muted:          rgba(68, 55, 60, 0.45);
+      --accent:              rgb(224,164,129);
+      --accent-border:       rgba(224,164,129,0.40);
+      --border-light:        rgba(221, 208, 188, 0.55);
+      --border-mid:          rgba(180, 140, 100, 0.22);
+      --grad-neutral:        linear-gradient(to right, #DDD0BC, rgb(224,164,129));
+      --status-open:         #2E7D32;
+      --status-closed:       #B71C1C;
     }
     html { 
       scroll-behavior: smooth; 
@@ -75,14 +75,15 @@
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.005em;
       text-transform: uppercase;
       color: var(--text-label);
       display: flex;
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
-      padding-left: 3.5%;
+      padding: 10px 13px;
+      font-weight: 700;
     }
     .section-label::after {
       content: '';
@@ -90,6 +91,7 @@
       height: 1px;
       background: var(--border-mid);
     }
+    /* ─── Nav ───────────────────────────────────────────────── */
     .site-nav {
       position: fixed;
       top: 0; 
@@ -163,12 +165,13 @@
     .site-nav.scrolled .nav-links a { 
       color: var(--text-label); 
     }
-    .site-nav.scrolled .nav-links a:hover   { 
+    .site-nav.scrolled .nav-links a:hover { 
       color: var(--ink); 
     }
-    .site-nav.scrolled .nav-links a.active  { 
+    .site-nav.scrolled .nav-links a.active { 
       color: var(--accent); 
     }
+    /* ─── Masthead ──────────────────────────────────────────── */
     .masthead {
       position: relative;
       height: 80vh;
@@ -229,11 +232,299 @@
       letter-spacing: 0.02em;
       text-shadow: 0 2px 24px rgba(36, 22, 32, 0.5);
     }
+    /* ─── Content Section ───────────────────────────────────── */
     .content-section {
       max-width: 960px;
       margin: 0 auto;
       padding: 56px 5vw 88px;
     }
+    /* ─── Filing Entries ────────────────────────────────────── */
+    .filings {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+    .filings-header {
+      padding: 15px 25px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+    }
+    .filings-header h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      text-align: left;
+      margin: 0;
+    }
+    .filing {
+      display: flex;
+      gap: 24px;
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .filing-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-label);
+      font-weight: 500;
+      flex-shrink: 0;
+      min-width: 75px;
+      letter-spacing: 0.05em;
+    }
+    .filing-content { 
+      flex: 1; 
+    }
+    .filing:last-child { 
+      border-bottom: none; 
+    }
+    .filing-link {
+      color: var(--carmine);
+      font-weight: 600;
+      text-underline-offset: 2px;
+    }
+    .filing-link:hover { 
+      color: var(--ink); 
+    }
+    .filing-bold {
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .filing-note {
+      margin-top: 8px;
+      padding: 14px 20px;
+      background: var(--surface-elevated);
+      border-left: 3px solid var(--carmine);
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+    .filing-note p {
+      margin: 1% 0;
+      font-size: smaller;
+      text-align: justify;
+    }
+    .list-of-things li {
+      margin: 1% 5%;
+      font-size: smaller;
+    }
+    .sub-list li {
+      margin: 1% 5%;
+      font-size: smaller;
+    }
+    /* ─── Drive Link Card ───────────────────────────────────── */
+    .drive-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-mid);
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .drive-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
+    }
+    .drive-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .drive-card-body { 
+      flex: 1; 
+    }
+    .drive-card-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+    .drive-card-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+    .drive-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s, gap 0.2s;
+      flex-shrink: 0; 
+    }
+    .drive-card-cta:hover { 
+      color: var(--ink); 
+      gap: 10px; 
+    }
+    /* ─── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 24px 5vw;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-social a {
+      color: var(--text-muted);
+      font-size: 15px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover { 
+      color: var(--carmine); 
+    }
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .drive-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+      }
+    }
+    @media (max-width: 720px) {
+      .nav-toggle { 
+        display: block; 
+      }
+      .site-nav, .site-nav.scrolled { 
+        padding: 12px 16px; 
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; 
+        left: 0; 
+        right: 0;
+        flex-direction: column;
+        background: var(--surface-page);
+        border-bottom: 1px solid var(--border-light);
+        padding: 12px 20px 16px;
+        gap: 0;
+        box-shadow: 0 4px 16px rgba(36,22,32,0.08);
+      }
+      .nav-links.open { 
+        display: flex; 
+      }
+      .nav-links li { 
+        padding: 8px 0; 
+        border-bottom: 1px solid var(--border-mid); 
+      }
+      .nav-links li:last-child { 
+        border-bottom: none; 
+      }
+      .nav-links a { 
+        font-size: 10px !important; 
+        letter-spacing: 0.12em !important; 
+        color: var(--text-label) !important; 
+      }
+      .nav-links a.active { 
+        color: var(--accent) !important; 
+      }
+      .nav-links a:hover { 
+        color: var(--ink) !important; 
+      }
+      .masthead-text { 
+        left: 20px; 
+        bottom: 52px; 
+      }
+      .content-section { 
+        padding: 32px 16px 56px; 
+      }
+      .filings-header { 
+        padding: 15px 20px; 
+      }
+      .filing { 
+        padding: 14px 20px; 
+        font-size: 13px; 
+        gap: 16px; 
+      }
+      .filing-date { 
+        font-size: 11px; 
+        min-width: 65px; 
+      }
+      .filing-note { 
+        padding: 12px 16px; 
+        font-size: 12px; 
+      }
+      .section-label { 
+        padding: 10px 13px; 
+      }
+      .drive-card { 
+        padding: 14px; 
+        gap: 12px; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+      }
+      .drive-icon { 
+        width: 32px; 
+        height: 32px; 
+        font-size: 14px; 
+        flex-shrink: 0; 
+      }
+      .drive-card-title { 
+        font-size: 0.9rem; 
+        margin-bottom: 0; 
+      }
+      .drive-card-desc { 
+        font-size: 11px; 
+        line-height: 1.4; 
+      }
+      .drive-card-cta { 
+        font-size: 8px; 
+      }
+      .site-footer { 
+        padding: 24px 20px; 
+      }
+      .case-title-bar { 
+        padding: 14px 20px; 
+      }
+      .case-meta { 
+        padding: 18px 20px; 
+        grid-template-columns: 1fr; 
+      }
+      .case-meta-item { 
+        font-size: 12px; 
+      }
+    }
+    /* ─── Case Header ───────────────────────────────────────── */
     .case-block {
       background: var(--surface-card);
       border: 1px solid var(--border-mid);
@@ -257,11 +548,7 @@
       color: var(--text-heading);
       text-align: left;
       flex: 1;
-    }
-    .case-title-bar h2 a {
-      color: var(--carmine);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+      margin: 0;
     }
     .status-badge {
       font-family: 'IBM Plex Mono', monospace;
@@ -297,82 +584,12 @@
       color: var(--text-heading);
       font-weight: 600;
     }
-    .filings {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 32px;
+    @media (max-width: 900px) {
+      .case-meta {
+        grid-template-columns: 1fr; gap: 8px;
+      }
     }
-    .filings-header {
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      align-items: center;
-    }
-    .filings-header h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-      font-weight: 700;
-      color: var(--text-heading);
-      text-align: left;
-      margin: 0;
-    }
-    .filing {
-      display: flex;
-      gap: 24px;
-      padding: 16px 28px;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-    .filing-date {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--text-label);
-      font-weight: 500;
-      flex-shrink: 0;
-      min-width: 75px;
-      letter-spacing: 0.05em;
-    }
-    .filing-content {
-      flex: 1;
-    }
-    .filing:last-child {
-      border-bottom: none;
-    }
-    .filing-num {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 500;
-      flex-shrink: 0;
-      min-width: 22px;
-      text-align: right;
-    }
-    .filing-link {
-      color: var(--carmine);
-      font-weight: 600;
-      text-underline-offset: 2px;
-    }
-    .filing-link:hover {
-      color: var(--ink);
-    }
-    .filing-bold {
-      font-weight: 600;
-      color: var(--text-heading);
-    }
-    .filing-note {
-      margin-top: 8px;
-      padding: 14px 20px;
-      background: var(--surface-elevated);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 6px 6px 0;
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--text-body);
-    }
+    /* ─── Docket Table ──────────────────────────────────────────── */
     .docket-table-wrap {
       background: var(--surface-card);
       border: 1px solid var(--border-mid);
@@ -382,7 +599,7 @@
       margin-bottom: 32px;
     }
     .docket-table-header {
-      padding: 24px 28px;
+      padding: 25px 15px;
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
@@ -428,87 +645,24 @@
       white-space: normal;
       word-break: break-word;
     }
-    .docket-table .doc-icon {
-      width: 32px;
-      text-align: center;
-      white-space: nowrap;
-    }
     .docket-table tbody tr:last-child td {
       border-bottom: none;
     }
     .docket-table tbody tr:hover {
       background: rgba(224,164,129,0.04);
     }
-    details.case-details {
-      background: var(--surface-card);
-      border: 1px solid var(--border-mid);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 32px;
-      transition: box-shadow 0.3s;
-    }
-    details.case-details:hover {
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10), 0 0 0 1px var(--accent-border);
-    }
-    summary.case-summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 18px 28px;
-      background: var(--surface-card);
-      border-bottom: 1px solid var(--border-light);
-      display: flex !important;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      user-select: none;
-    }
-    summary.case-summary::-webkit-details-marker {
-      display: none;
-    }
-    summary.case-summary::before {
-      content: '▼';
-      display: inline-flex;
-      width: 20px;
-      color: var(--accent);
-      font-size: 12px;
-      flex-shrink: 0;
-      transition: transform 0.3s;
-      margin-right: 8px;
-    }
-    details.case-details[open] > summary.case-summary::before {
-      transform: rotate(0deg);
-    }
-    details.case-details:not([open]) > summary.case-summary::before {
-      transform: rotate(-90deg);
-    }
-    summary.case-summary h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(0.95rem, 1.6vw, 1.35rem);
-      font-weight: 800;
-      color: var(--text-heading);
-      text-align: left;
-      flex: 1;
-      margin: 0;
-    }
-    summary.case-summary h2 a {
-      color: var(--carmine);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .case-details-body {
-      margin-top: 0;
-    }
-    /* Mobile table card layout */
     @media (max-width: 720px) {
-      .docket-table {
+      .docket-table-header {
+        padding: 15px 15px;
+      }
+      .docket-table:not(.doc-table) {
         border-collapse: separate;
         border-spacing: 0 12px;
       }
-      .docket-table thead {
+      .docket-table:not(.doc-table) thead {
         display: none;
       }
-      .docket-table tbody tr {
+      .docket-table:not(.doc-table) tbody tr {
         display: flex;
         flex-direction: column;
         background: var(--surface-card);
@@ -519,19 +673,19 @@
         padding: 16px;
         gap: 12px;
       }
-      .docket-table tbody tr:hover {
+      .docket-table:not(.doc-table) tbody tr:hover {
         background: var(--surface-card);
       }
-      .docket-table td {
+      .docket-table:not(.doc-table) td {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 0;
+        padding: 0 4px 0 0;
         border: none;
         font-size: 14px;
         line-height: 1.5;
       }
-      .docket-table td::before {
+      .docket-table:not(.doc-table) td::before {
         content: attr(data-label);
         font-family: 'IBM Plex Mono', monospace;
         font-size: 10px;
@@ -542,240 +696,69 @@
         min-width: 80px;
         flex-shrink: 0;
       }
-      .docket-table td.wrap {
+      .docket-table:not(.doc-table) td.wrap {
         word-break: normal;
       }
     }
-    .drive-card {
+    /* ─── Collapsible Docket Block ──────────────────────────── */
+    details.case-details {
       background: var(--surface-card);
       border: 1px solid var(--border-mid);
       border-radius: 10px;
-      padding: 28px;
+      overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
       margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      transition: box-shadow 0.3s;
     }
-    .drive-card:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 8px 28px rgba(0, 0, 0, 0.10),
-        0 0 0 1px var(--accent-border);
+    details.case-details:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--accent-border);
     }
-    .drive-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      background: var(--surface-elevated);
-      display: flex;
+    summary.case-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 15px 25px 15px 16px;
+      background: var(--surface-card);
+      display: flex !important;
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      gap: 10px;
+      user-select: none;
+    }
+    summary.case-summary::-webkit-details-marker { 
+      display: none; 
+    }
+    summary.case-summary::before {
+      content: '▼';
+      display: inline-flex;
+      width: 10px;
       color: var(--accent);
-      font-size: 20px;
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      margin-right: 5px;
     }
-    .drive-card-body { 
-      flex: 1; 
+    details.case-details[open] > summary.case-summary::before { 
+      transform: rotate(0deg); 
     }
-    .drive-card-title {
+    details.case-details:not([open]) > summary.case-summary::before { 
+      transform: rotate(-90deg); 
+    }
+    summary.case-summary h2 {
       font-family: 'Raleway', sans-serif;
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 1.4vw, 1.2rem);
       font-weight: 700;
       color: var(--text-heading);
-      margin-bottom: 4px;
+      flex: 1;
+      margin: 0;
     }
-    .drive-card-desc {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-body);
-    }
-    .drive-card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s, gap 0.2s;
-      flex-shrink: 0;
-    }
-    .drive-card-cta:hover {
-      color: var(--ink);
-      gap: 10px;
-    }
-    .site-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 24px 5vw;
+    details.case-details .filings {
+      border-radius: 0;
+      border: none;
       border-top: 1px solid var(--border-light);
+      box-shadow: none;
+      margin-bottom: 0;
     }
-    .footer-brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .footer-social {
-      display: flex;
-      gap: 20px;
-    }
-    .footer-social a {
-      color: var(--text-muted);
-      font-size: 15px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-social a:hover { 
-      color: var(--carmine); 
-    }
-    @media (max-width: 900px) {
-      .case-meta { 
-        grid-template-columns: 1fr;
-        gap: 8px; 
-      }
-      .drive-card { 
-        flex-direction: column; 
-        align-items: flex-start; 
-      }
-      .docket-table { 
-        font-size: 12px; 
-      }
-      .docket-table th, .docket-table td { 
-        padding: 10px 12px; 
-      }
-    }
-    @media (max-width: 720px) {
-      .nav-toggle { 
-        display: block; 
-      }
-      .site-nav,
-      .site-nav.scrolled { 
-        padding: 12px 16px; 
-      }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0; 
-        right: 0;
-        flex-direction: column;
-        background: var(--surface-page);
-        border-bottom: 1px solid var(--border-light);
-        padding: 12px 20px 16px;
-        gap: 0;
-        box-shadow: 0 4px 16px rgba(36,22,32,0.08);
-      }
-      .nav-links.open { 
-        display: flex; 
-      }
-      .nav-links li { 
-        padding: 8px 0; 
-        border-bottom: 1px solid var(--border-mid); 
-      }
-      .nav-links li:last-child { 
-        border-bottom: none; 
-      }
-      .nav-links a { 
-        font-size: 10px !important; 
-        letter-spacing: 0.12em !important; 
-        color: var(--text-label) !important; 
-      }
-      .nav-links a.active { 
-        color: var(--accent) !important; 
-      }
-      .nav-links a:hover { 
-        color: var(--ink) !important; 
-      }
-      .masthead-text { 
-        left: 20px; 
-        bottom: 52px; 
-      }
-      .content-section { 
-        padding: 32px 16px 56px; 
-      }
-      .case-title-bar { 
-        padding: 14px 20px; 
-      }
-      .case-meta { 
-        padding: 18px 20px; 
-      }
-      .case-meta-item { 
-        font-size: 12px; 
-      }
-      .filings-header { 
-        padding: 14px 20px; 
-      }
-      .filing { 
-        padding: 14px 20px; 
-        font-size: 13px; 
-        gap: 16px; 
-      }
-      .filing-date { 
-        font-size: 11px; 
-        min-width: 65px; 
-      }
-      .filing-note { 
-        padding: 12px 16px; 
-        font-size: 12px; 
-      }
-      .docket-table-wrap {  
-
-      }
-      .docket-table-header { 
-        padding: 14px 20px; 
-      }
-      .docket-table { 
-        font-size: 10px; 
-      }
-      .docket-table th { 
-        padding: 8px 8px; 
-        font-size: 8px; 
-        letter-spacing: 0.08em; 
-      }
-      .docket-table td { 
-        padding: 8px 8px; 
-      }
-      .drive-card { 
-        padding: 14px; 
-        gap: 12px; 
-        flex-direction: row !important; 
-        align-items: center !important; 
-      }
-      .drive-icon { 
-        width: 32px; 
-        height: 32px; 
-        font-size: 14px; 
-        flex-shrink: 0; 
-      }
-      .drive-card-body { 
-        flex: 1; 
-      }
-      .drive-card-title { 
-        font-size: 0.9rem; 
-        margin-bottom: 0px; 
-      }
-      .drive-card-desc { 
-        font-size: 11px; 
-        line-height: 1.4; 
-      }
-      .drive-card-cta { 
-        font-size: 8px; 
-      }
-      .site-footer { 
-        padding: 24px 20px; 
-      }
+    details.case-details .filings-header {
+      background: var(--surface-elevated);
     }
   </style>
 </head>
@@ -1099,81 +1082,115 @@
             </div>
             <div class="filing">
               <div class="filing-date">01-21-2026</div>
-                <div class="filing-content">Judge Petro issues an 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1Rd5jsacgb-wx_xOFbsHbAcTxF3B67lKs/view?usp=drive_link" target="_blank">Ex Parte Order of Protection</a>.
+                <div class="filing-content">Judge Petro issues an <a class="filing-link" href="https://drive.google.com/file/d/1Rd5jsacgb-wx_xOFbsHbAcTxF3B67lKs/view?usp=drive_link" target="_blank">Ex Parte Order of Protection</a> on January 21, 2026.
                     <div class="filing-note">
-                       THE COURT HEREBY FINDS AND ORDERS: That there is jurisdiction over the parties and subject matter, and Petitioner has presented sufficient evidence to show: (1) that the victim(s) is (are) in immediate and present danger of domestic abuse, or (2) that the Respondent is scheduled to be released from incarceration within thirty (30) days, and upon the Respondent&rsquo;s release there will be an immediate and present danger of domestic abuse.<br>
-                       [X] That the Petitioner has also presented sufficient evidence to show that the Respondent presents a credible threat to the physical safety of a person named in the order of protection as a family member or household member, a child of the family or household member, or a child of the respondent or enjoined party.<br>
-                       [X] That an Ex Parte Temporary Order of Protection is hereby granted pursuant to the terms herein.<br>
-                       That the Respondent is ordered to appear before the Court on the 17th day of February, 2026 at 9:30 AM in the Courthouse located at 607 Ouachita Ave., Hot Springs, AR 71901, Courtroom 2. The Respondent is hereby restrained from committing any criminal act against the victim(s) including, but not limited to: acts of violence or Domestic Abuse, A.C.A. &sect;9-15-103(3); Harassment A.C.A. &sect;5-71-208; Harassing Communications A.C.A. &sect;5-71-209; Stalking A.C.A. &sect;5-71-229; or Terroristic Threatening A.C.A. &sect;5-13-301.<br>
-                       [X] The Respondent is prohibited from initiating any contact with the victim(s) including but not limited to physical presence, telephonic, electronic, oral, written, visual, or video. Respondent also shall not use a third party to contact the victim(s) except by legal counsel or as authorized by law or court order.<br>
-                       [X] The Respondent is excluded from the Petitioner&rsquo;s residence and the immediate vicinity thereof.
+                       <p>
+                        THE COURT HEREBY FINDS AND ORDERS: That there is jurisdiction over the parties and subject matter, and Petitioner has presented sufficient evidence to show: 
+                          <ol class="sub-list">
+                            <li>that the victim(s) is (are) in immediate and present danger of domestic abuse, or</li>
+                            <li>that the Respondent is scheduled to be released from incarceration within thirty (30) days, and upon the Respondent's release there will be an immediate and present danger of domestic abuse.</li>
+                          </ol>
+                       </p>
+                       <p>
+                        [X] That the Petitioner has also presented sufficient evidence to show that the Respondent presents a credible threat to the physical safety of a person named in the order of protection as a family member or household member, a child of the family or household member, or a child of the respondent or enjoined party.
+                       </p>
+                       <p>
+                        [X] That an Ex Parte Temporary Order of Protection is hereby granted pursuant to the terms herein.
+                       </p>
+                       <p>
+                        That the Respondent is ordered to appear before the Court on the 17th day of February, 2026 at 9:30 AM in the Courthouse located at 607 Ouachita Ave., Hot Springs, AR 71901, Courtroom 2. The Respondent is hereby restrained from committing any criminal act against the victim(s) including, but not limited to: acts of violence or Domestic Abuse, A.C.A. &sect;9-15-103(3); Harassment A.C.A. &sect;5-71-208; Harassing Communications A.C.A. &sect;5-71-209; Stalking A.C.A. &sect;5-71-229; or Terroristic Threatening A.C.A. &sect;5-13-301.
+                       </p>
+                       <p>
+                        [X] The Respondent is prohibited from initiating any contact with the victim(s) including but not limited to physical presence, telephonic, electronic, oral, written, visual, or video. Respondent also shall not use a third party to contact the victim(s) except by legal counsel or as authorized by law or court order.
+                       </p>
+                       <p>
+                        [X] The Respondent is excluded from the Petitioner's residence and the immediate vicinity thereof.
+                       </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">01-21-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Hearing Scheduling Activity</span>.
+                  <span class="filing-bold">Hearing Scheduling Activity</span> on January 21, 2026.
                     <div class="filing-note">
-                      Order of Protection Hearing Scheduled for April 21, 2026 at 9:30 AM in Courtroom 2.
+                      <p>
+                        Order of Protection Hearing Scheduled for April 21, 2026 at 9:30 AM in Courtroom 2.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">02-02-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1eKmtuzkGZSFWB-hv-OBsWYIWLFfIPSi2/view?usp=drive_link" target="_blank">Return of Service</a> filed.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1eKmtuzkGZSFWB-hv-OBsWYIWLFfIPSi2/view?usp=drive_link" target="_blank">Return of Service</a> filed on February 2, 2026.
                     <div class="filing-note">
-                      Jonathan Riches served OOP 01-23-2026 in Pasco County, Florida.
+                      <p>
+                        Jonathan Riches served OOP 01-23-2026 in Pasco County, Florida.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">02-03-2026</div>
-                <div class="filing-content">Jamie Curtis Beal 
-                  <span class="filing-bold">Notice of Appearance</span> e-filed.
+                <div class="filing-content">Jamie Curtis Beal e-files a <span class="filing-bold">Notice of Appearance</span>.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">02-03-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1AOon-ZPKWXhMuSVTIg_pY1PZr8C9mP7G/view?usp=drive_link" target="_blank">Motion for Continuance</a> filed.
+                  Jamie Curtis Beal files a <a class="filing-link" href="https://drive.google.com/file/d/1AOon-ZPKWXhMuSVTIg_pY1PZr8C9mP7G/view?usp=drive_link" target="_blank">Motion for Continuance</a>.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">02-03-2026</div>
-                <div class="filing-content">Judge Petro issues an 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1vkrJwmZQSaSB_ttoPCzi58d12Zcu1XWQ/view?usp=drive_link" target="_blank">Order Granting Continuance</a>.
+                <div class="filing-content">Judge Petro issues an <a class="filing-link" href="https://drive.google.com/file/d/1vkrJwmZQSaSB_ttoPCzi58d12Zcu1XWQ/view?usp=drive_link" target="_blank">Order Granting Continuance</a> on February 3, 2026.
                     <div class="filing-note">
-                      On this day came before the Court the Respondent's Motion for Continuance. From the motion and other matters before the Court, the Court finds that the motion should be GRANTED for good cause shown. IT IS THEREFORE ORDERED: 1. The hearing currently set for February 17, 2026 at 9:30 a.m. is CONTINUED. 2. This matter is reset for hearing on March 17, 2026 at 9:30 a.m. 3. Any ex parte/temporary order of protection presently in effect shall remain in effect until the reset hearing unless modified by further order of the Court. 4. The Clerk shall provide notice of the reset hearing date and time to the parties and counsel of record. IT IS SO ORDERED.
+                      <p>
+                        On this day came before the Court the Respondent's Motion for Continuance. From the motion and other matters before the Court, the Court finds that the motion should be GRANTED for good cause shown. IT IS THEREFORE ORDERED:
+                      </p>
+                      <ol class="sub-list">
+                        <li>The hearing currently set for February 17, 2026 at 9:30 AM is CONTINUED.</li>
+                        <li>This matter is reset for hearing on March 17, 2026 at 9:30 AM.</li>
+                        <li>Any ex parte/temporary order of protection presently in effect shall remain in effect until the reset hearing unless modified by further order of the Court.</li>
+                        <li>The Clerk shall provide notice of the reset hearing date and time to the parties and counsel of record.</li>
+                      </ol>
+                      <p>
+                        IT IS SO ORDERED.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">02-04-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Hearing Scheduling Activity</span>.
+                  <span class="filing-bold">Hearing Scheduling Activity</span> on February 4, 2026.
                     <div class="filing-note">
-                      Order of Protection Hearing Continued.
+                      <p>
+                        Order of Protection Hearing Continued.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">02-04-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Hearing Scheduling Activity</span>.
+                  <span class="filing-bold">Hearing Scheduling Activity</span> on February 4, 2026.
                     <div class="filing-note">
-                      Order of Protection Hearing scheduled.
+                      <p>
+                        Order of Protection Hearing scheduled.
+                      </p>
                     </div>  
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">02-04-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Clerk Note</span>.
+                  <span class="filing-bold">Clerk Note</span> on February 4, 2026.
                     <div class="filing-note">
-                      Sent to S.O. for service, sent a copy of Order to email provided to Petitioner.
+                      <p>
+                        Sent to S.O. for service, sent a copy of Order to email provided to Petitioner.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1192,107 +1209,140 @@
             <div class="filing">
               <div class="filing-date">03-17-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Order of Protection Hearing Held</span>.
+                  <span class="filing-bold">Order of Protection Hearing Held</span> on March 17, 2026.
                     <div class="filing-note">
-                      No action taken. <a class="filing-link" href="#">Transcript</a>.
+                      <p>
+                        No action taken. <a class="filing-link" href="https://drive.google.com/file/d/1t426Ey_s3nowHczws8FjviMTgNMy2K90/view?usp=drive_link">Transcript</a>.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">03-17-2026</div>
-                <div class="filing-content">Judge Petro issues an 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1yV91TnFzYiPi251fgLWU8n1mTriwLPE_/view?usp=drive_link" target="_blank">Order for Continuance</a>.
+                <div class="filing-content">Judge Petro issues an <a class="filing-link" href="https://drive.google.com/file/d/1yV91TnFzYiPi251fgLWU8n1mTriwLPE_/view?usp=drive_link" target="_blank">Order for Continuance</a> on March 17, 2026.
                     <div class="filing-note">
-                      For good cause shown, the Court FINDS and ORDERS as follows: 1. The hearing on Petitioner&rsquo;s Petition for Order of Protection shall be continued until the 21st day of April, 2026, at 9:30 AM and shall be held at the Garland County District Courtroom 2, located in the Garland County District Courts Building, 607 Ouachita Avenue, Hot Springs, Arkansas, 71901. 2. Any Ex Parte Order of Protection previously entered in this matter shall remain in full force and effect without modification pending further orders of the Court. IT IS HEREBY ORDERED, ADJUDGED AND DECREED.
+                      <p>
+                        For good cause shown, the Court FINDS and ORDERS as follows:
+                      </p>
+                      <ol class="sub-list">
+                        <li>The hearing on Petitioner's Petition for Order of Protection shall be continued until the 21st day of April, 2026, at 9:30 AM and shall be held at the Garland County District Courtroom 2, located in the Garland County District Courts Building, 607 Ouachita Avenue, Hot Springs, Arkansas, 71901.</li>
+                        <li>Any Ex Parte Order of Protection previously entered in this matter shall remain in full force and effect without modification pending further orders of the Court</li>
+                      </ol>
+                      <p>
+                        IT IS HEREBY ORDERED, ADJUDGED AND DECREED.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">03-17-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Hearing Scheduling Activity</span>.
+                  <span class="filing-bold">Hearing Scheduling Activity</span> on March 17, 2026.
                     <div class="filing-note">
-                      Order of Continuance scheduled for 04-21-2026. Attorneys Jamie Beal for Respondent and Angela Echols for Petitioner. Agreed to 3 year No Contact Order. Attorneys prepare Order.
+                      <p>
+                        Order of Continuance scheduled for 04-21-2026. Attorneys Jamie Beal for Respondent and Angela Echols for Petitioner. Agreed to 3 year No Contact Order. Attorneys prepare Order.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">03-27-2026</div>
-                <div class="filing-content">Angela Renee Echols files a 
-                  <span class="filing-bold">Notice of Appearance</span>.
+                <div class="filing-content">Angela Renee Echols files a <span class="filing-bold">Notice of Appearance</span>.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">03-30-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1ce4Xi03CGDwB4ggrLjEdbDdIVBASYIeN/view?usp=drive_link" target="_blank">Agreed Order</a> filed.
+                  Judge Petro signs the Parties' <a class="filing-link" href="https://drive.google.com/file/d/1ce4Xi03CGDwB4ggrLjEdbDdIVBASYIeN/view?usp=drive_link" target="_blank">Agreed Order</a> on March 30, 2026.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">03-30-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">AOC Disposition Sheet</span> filed.
+                  <span class="filing-bold">AOC Disposition Sheet</span> filed on March 30, 2026.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">03-30-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Order for Protection Hearing</span>.
+                  Judge Petro issues an <span class="filing-bold">Order for Protection Hearing</span> on March 30, 2026.
                     <div class="filing-note">
-                      Cancelled.
+                      <p>
+                        Cancelled.
+                      </p>
                     </div>    
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">06-24-2026</div>
-                <div class="filing-content">Angela Renee Echols files a 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1SZ7uOxZCx1wrUV4xJA2NJhq_ozDb3MyQ/view?usp=drive_link" taget="_blank">Motion for Contempt</a>.
+                <div class="filing-content">Angela Renee Echols files a <a class="filing-link" href="https://drive.google.com/file/d/1SZ7uOxZCx1wrUV4xJA2NJhq_ozDb3MyQ/view?usp=drive_link" taget="_blank">Motion for Contempt</a>.
                     <div class="filing-note">
-                      <a class="filing-link" href="https://drive.google.com/file/d/1YhX8sPRg2q3bpeVABZW4VqnmUBJBVSog/view?usp=drive_link" target="_blank">Exhibit List</a> | 
-                      <a class="filing-link" href="https://drive.google.com/drive/folders/1J8aMGgtWkuMLfzs8NneDfl5WZ5Bku-r3?usp=drive_link" target="_blank">Exhibits</a>
+                      <p>
+                        <a class="filing-link" href="https://drive.google.com/file/d/1YhX8sPRg2q3bpeVABZW4VqnmUBJBVSog/view?usp=drive_link" target="_blank">Exhibit List</a> | 
+                        <a class="filing-link" href="https://drive.google.com/drive/folders/1J8aMGgtWkuMLfzs8NneDfl5WZ5Bku-r3?usp=drive_link" target="_blank">Exhibits</a>
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">06-26-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1CxQhSjV_AR9xi6R_R2FAlBfPj10pP7Yj/view?usp=drive_link" taget="_blank">Summons</a> issued.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1CxQhSjV_AR9xi6R_R2FAlBfPj10pP7Yj/view?usp=drive_link" taget="_blank">Summons</a> issued on June 26, 2026.
                     <div class="filing-note">
-                      A lawsuit has been filed against you. The relief demanded is stated in the attached complaint. Within 30 days after service of this summons on you (not counting the day you received it) - or 60 days if you are incarcerated in any jail, penitentiary, or other correctional facility in Arkansas - you must file with the clerk of this court a written answer to the complaint or a motion under Rule 12 of the Arkansas Rules of Civil Procedure.<br>
-                      If you fail to respond within the applicable time period, judgment by default may be entered against you for the relief demanded in the complaint.
+                      <p>
+                        A lawsuit has been filed against you. The relief demanded is stated in the attached complaint. Within 30 days after service of this summons on you (not counting the day you received it) - or 60 days if you are incarcerated in any jail, penitentiary, or other correctional facility in Arkansas - you must file with the clerk of this court a written answer to the complaint or a motion under Rule 12 of the Arkansas Rules of Civil Procedure.
+                      </p>
+                      <p>
+                        If you fail to respond within the applicable time period, judgment by default may be entered against you for the relief demanded in the complaint.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">06-29-2026</div>
-                <div class="filing-content">Angela Renee Echols files a 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1TOl75XB3FwTKczja8c4wYoD3tpvRFuj0/view?usp=drive_link" taget="_blank">Notice of Completion of Representation</a>.
+                <div class="filing-content">Angela Renee Echols files a <a class="filing-link" href="https://drive.google.com/file/d/1TOl75XB3FwTKczja8c4wYoD3tpvRFuj0/view?usp=drive_link" taget="_blank">Notice of Completion of Representation</a>.
                     <div class="filing-note">
-                      The undersigned attorney files this notice of completion as a courtesy to the Court and opposing party in this case.
+                      <p>
+                        The undersigned attorney files this notice of completion as a courtesy to the Court and opposing party in this case.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">07-15-2026</div>
-                <div class="filing-content">Jaime T. Phillips files a 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1oxlVr_g8Tc-dpywgffgxj1psj00nDcuB/view?usp=drive_link" taget="_blank">Petitioner's Motion Regarding Respondent's Intentional Evasion of Service, Request for Alternative Service or Other Appropriate Relief, and Request for Expedited Service</a>.
+                <div class="filing-content">Jaime T. Phillips files a <a class="filing-link" href="https://drive.google.com/file/d/1oxlVr_g8Tc-dpywgffgxj1psj00nDcuB/view?usp=drive_link" taget="_blank">Petitioner's Motion Regarding Respondent's Intentional Evasion of Service, Request for Alternative Service or Other Appropriate Relief, and Request for Expedited Service</a>.
                     <div class="filing-note">
-                      This is a motion filed by the petitioner regarding the respondent's intentional evasion of service and request for alternative service or other appropriate relief.
+                      <p>
+                        This is a motion filed by the petitioner regarding the respondent's intentional evasion of service and request for alternative service or other appropriate relief.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">07-16-2026</div>
-                <div class="filing-content">Docket Detail
+                <div class="filing-content">
+                  <span class="filing-bold">Docket Entry</span> on July 16, 2026.
                   <div class="filing-note">
-                    @ 8:11 AM Modified Contact Order
+                    <p>
+                      @ 8:11 AM Modified Contact Order.
+                    </p>
                   </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">09-02-2026</div>
-                <div class="filing-content">The scumbag in a skin suit files 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1uZnCjyz2mePfkKzfBFiOqhHJ_34_0mlH/view?usp=drive_link" taget="_blank">Abusive Psycho’s Motion to Enforce and Terminate Agreed Order for Order to Show Cause and for Civil Contempt</a>.
+                <div class="filing-content">The scumbag in a skin suit files <a class="filing-link" href="https://drive.google.com/file/d/1uZnCjyz2mePfkKzfBFiOqhHJ_34_0mlH/view?usp=drive_link" taget="_blank">Abusive Psycho’s Motion to Enforce and Terminate Agreed Order for Order to Show Cause and for Civil Contempt</a>.
+                </div>
+            </div>
+            <div class="filing">
+              <div class="filing-date">11-13-2026</div>
+                <div class="filing-content">The scumbag in a skin suit files a <a class="filing-link" href="" taget="_blank">Complaint and Demand for Jury Trial</a>.
+                </div>
+            </div>
+            <div class="filing">
+              <div class="filing-date">11-13-2026</div>
+                <div class="filing-content">
+                  <span class="filing-link" href="https://drive.google.com/file/d/1z7vCbJ6_fSA9kzZixV352cY24tdoecvh/view?usp=drive_link" taget="_blank">Summons</span> issued on November 13, 2026..
                 </div>
             </div>
 
@@ -1475,7 +1525,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Hearing Scheduling Activity.</span>
                     <div class="filing-note">
-                      Rescheduled for 05-21-2026.
+                      <p>
+                        Rescheduled for 05-21-2026.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1484,7 +1536,9 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/1y_cloq13YWzD5HcTkc00LjA7X7jJfSmT/view?usp=drive_link" target="_blank">Hearing Order</a> issued.
                     <div class="filing-note">
-                      Defendant appeared. Plaintiff (Jonathan Lee Riches) failed to appear but had notice. <strong>Protective order denied.</strong>
+                      <p>
+                        Defendant appeared. Plaintiff (Jonathan Lee Riches) failed to appear but had notice. <strong>Protective order denied.</strong>
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1493,7 +1547,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Certificate of Transmittal.</span>
                     <div class="filing-note">
-                      Copies of Hearing Order mailed to Plaintiff and Defendant.
+                      <p>
+                        Copies of Hearing Order mailed to Plaintiff and Defendant.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1539,7 +1595,9 @@
                   <a class="filing-link" href="https://drive.google.com/file/d/13Oq1VfEcRjCyzIIQGkCcVCyZxClHQznF/view?usp=drive_link" target="_blank">Complaint for Disorderly Conduct</a> issued.
                 </div>
             </div>
-              
+
+          </div><!-- / .filings -->
+
             <div class="docket-table-wrap" data-aos="fade-up">
               <div class="docket-table-header">
                 <h2>Citation</h2>
@@ -1814,8 +1872,7 @@
 
                   </table><!-- / .docket-table -->
                 </div><!-- / .docket-table-wrap -->
-          
-          </div><!-- / .filings-->
+
       </div><!-- / .case-details-body -->
     </details><!-- CASE 4: Pima County Justice Court vs. Jonathan Lee Riches -->
  
@@ -1857,21 +1914,30 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/1YhCZ6ijC0dtgByAILncFTrURvqhvs8-V/view?usp=drive_link" target="_blank">Affidavit for Probable Cause to arrest Jonathan Lee Riches</a> signed in Chelan County, WA.
                     <div class="filing-note">
-                      The investigation and case against Jonathan Lee Riches in Chelan County for: <strong>9A.36.021 Asault in the secong-degree DV</strong>, <strong>9A.46.020.2B Harrassment threats to kill DV</strong>, and <strong>9A.36.150 Interfering with the reporting of domestic violence</strong> remains open and active.<br>
-                      It appears Chelan County has handed over their case to Pasco County where Jonathan Lee Riches resides due to the fact that Pasco County has the ability to prosecute him without the added obstacle of JLR's ability (and tendency) to flee the jurisdiction.
+                      <p>
+                        The investigation and case against Jonathan Lee Riches in Chelan County for: <strong>9A.36.021 Asault in the secong-degree DV</strong>, <strong>9A.46.020.2B Harrassment threats to kill DV</strong>, and <strong>9A.36.150 Interfering with the reporting of domestic violence</strong> remains open and active.
+                      </p>
+                      <p>
+                        It appears Chelan County has handed over their case to Pasco County where Jonathan Lee Riches resides due to the fact that Pasco County has the ability to prosecute him without the added obstacle of JLR's ability (and tendency) to flee the jurisdiction.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">04-27-2026</div>
                 <div class="filing-content">
-                  <strong>Case 512026MM001741MMAXWS</strong> filed with Clerk.
+                  <strong>Case 512026MM001741MMAXWS</strong> opened on April 27, 206.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">04-27-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1BJZuerowI5gHGW4mO-40DtESXtOpxrEt/view?usp=drive_link" target="_blank">Direct Information Filed: BATTERY 1*M (DV)</a>.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1BJZuerowI5gHGW4mO-40DtESXtOpxrEt/view?usp=drive_link" target="_blank">Direct Information</a> filed on April 27, 2026.
+                    <div class="filing-note">
+                      <p>
+                        Charges filed: BATTERY 1*M (DV).
+                      </p>
+                    </div>
                 </div>
             </div>
             <div class="filing">
@@ -1879,28 +1945,32 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/1f8HEJ0nOeQkm69iwoEHf6FxhwGO9e6Ec/view?usp=drive_link" target="_blank">Notice of Appearance and Written Plea of Not Guilty and Demand for Discovery</a>.
                     <div class="filing-note">
-                      Demand for copy of info waiver of arraignment. Waiver of speedy trial email designation.
+                     <p>
+                       Demand for copy of info waiver of arraignment. Waiver of speedy trial email designation.
+                     </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">05-11-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1N5eL3zsQ-K2M7apmIEgz5w2MW9z93fCt/view?usp=drive_link" target="_blank">Notice</a> issued.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1N5eL3zsQ-K2M7apmIEgz5w2MW9z93fCt/view?usp=drive_link" target="_blank">Notice</a> issued on May 11, 2026.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">05-11-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1rTyWLgJETfgexIz3RvEwkH6VAXFJ7Kpv/view?usp=drive_link" target="_blank">Summons</a> issued.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1rTyWLgJETfgexIz3RvEwkH6VAXFJ7Kpv/view?usp=drive_link" target="_blank">Summons</a> issued on May 11, 2026.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">05-11-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Hearing Scheduling Activity</span>.
+                  <span class="filing-bold">Hearing Scheduling Activity</span> on May 11, 2026.
                     <div class="filing-note">
-                      Arraignment for Jonathan Lee Riches scheduled for June 2, 2026 at 9:00 AM at the West Pasco Judicial Center 1A NPR.  
+                      <p>
+                        Arraignment for Jonathan Lee Riches scheduled for June 2, 2026 at 9:00 AM at the West Pasco Judicial Center 1A NPR. 
+                      </p>
                     </div> 
                 </div>
             </div>
@@ -1925,13 +1995,13 @@
             <div class="filing">
               <div class="filing-date">05-21-2026</div>
                 <div class="filing-content"> 
-                  <a class="filing-link" href="https://drive.google.com/file/d/1X4EAaEIcXkSDgS3rAjZMarW8h-iyYQlw/view?usp=drive_link" target="_blank"">Notice of Confidential Information Within Court File REVIEWED</a> filed.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1X4EAaEIcXkSDgS3rAjZMarW8h-iyYQlw/view?usp=drive_link" target="_blank">Notice of Confidential Information Within Court File REVIEWED</a> filed.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">06-02-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1_nt7aQE9aU6NkzdV4xbpZoE0fuyHrRKP/view?usp=drive_link" target="_blank">Arraignment Form</a> filed.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1_nt7aQE9aU6NkzdV4xbpZoE0fuyHrRKP/view?usp=drive_link" target="_blank">Arraignment</a> on June 6, 2026.
               </div>
             </div>
             <div class="filing">
@@ -1939,23 +2009,29 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/1pv6B8EfwbMVV2QNbUc-LSujS3vgcHUc7/view?usp=drive_link" target="_blank">Notice of Pretrial Conference</a> filed.
                     <div class="filing-note">
-                      Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.<br>
-                      You are further notified that Court Costs and other Assessable Costs including Public Defender fees up to the maximum authorized by F.S. 27.5304 may be assessed against you and you may be heard regarding them.
+                      <p>
+                        Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.
+                      </p>
+                      <p>
+                        You are further notified that Court Costs and other Assessable Costs including Public Defender fees up to the maximum authorized by F.S. 27.5304 may be assessed against you and you may be heard regarding them.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">06-08-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1BWPDJ-sQx8OozrPh2ocpNxqDk7TN9VOQ/view?usp=drive_link" target="_blank">Summons Returned Unserved</a>.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1BWPDJ-sQx8OozrPh2ocpNxqDk7TN9VOQ/view?usp=drive_link" target="_blank">Summons Returned Unserved</a> on June 8, 2026.
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">07-02-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1VnD0AFQECeWZm8Su_TsgD_DAdzTKgnf5/view?usp=drive_link" target="_blank">Court Event Form</a> filed.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1VnD0AFQECeWZm8Su_TsgD_DAdzTKgnf5/view?usp=drive_link" target="_blank">Court Event Form</a> on July 2, 2026.
                     <div class="filing-note">
-                      PTL scheduled for Aug. 13, 2026 @ 9:30 AM.
+                      <p>
+                        PTL scheduled for Aug. 13, 2026 @ 9:30 AM.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1964,16 +2040,20 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/1pB8EWzuY0YtlSbSZmLyerU4nzF75kIL3/view?usp=drive_link" target="_blank">Notice of Pretrial Conference</a> filed.
                     <div class="filing-note">
-                      Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.
+                      <p>
+                        Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">08-13-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/1zQ_YcNSJNmXnerQJaAQym3C7yDEFi3OO/view?usp=drive_link" target="_blank">Court Event Form</a> filed.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1zQ_YcNSJNmXnerQJaAQym3C7yDEFi3OO/view?usp=drive_link" target="_blank">Court Event Form</a> on August 13, 2026.
                     <div class="filing-note">
-                      Pretrial Conference held at West Pasco Judicial Center 1A NPR at 09:30 AM.
+                      <p>
+                        Pretrial Conference held at West Pasco Judicial Center 1A NPR at 09:30 AM.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1982,7 +2062,9 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/16wN9DuLj7rmti-moiXHaGX8dbrQKaEV8/view?usp=drive_link" target="_blank">Notice of Pretrial Conference</a> filed.
                     <div class="filing-note">
-                      Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.
+                      <p>
+                        Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1997,7 +2079,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Pretrial Conference</span> held at 09:30 AM at West Pasco Judicial Center 1A NPR.
                     <div class="filing-note">
-                      Slimy coward ass scumbag no-showed as usual.
+                      <p>
+                        Slimy coward ass scumbag no-showed as usual.
+                      </p>
                     </div>  
                 </div>
             </div>
@@ -2006,7 +2090,9 @@
                 <div class="filing-content">
                   <span class="filing-bold"><a class="filing-link" href="https://drive.google.com/file/d/1kgjRXNj0w0XIo1PMHwPc9RrVwE9scdyx/view?usp=drive_link" target="_blank">Notice of Pretrial Conference</a></span> filed.
                      <div class="filing-note">
-                      Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.
+                      <p>
+                        Your presence is required at this hearing. Failure to appear as required by this notice will result in a warrant being issued for your arrest, and revocation of your Release on Recognizance (ROR) or forfeiture of your bond.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2015,16 +2101,20 @@
                 <div class="filing-content">
                   <span class="filing-bold">Pretrial Conference</span> held at 09:30 AM at West Pasco Judicial Center 1A NPR.
                     <div class="filing-note">
-                      Slimy coward ass scumbag no-showed as usual.
+                      <p>
+                        Slimy coward ass scumbag no-showed as usual.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">10-22-2026</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/192CRUvzyG7G3YeFCDdJzXVAnAaHgw1tz/view?usp=drive_link" target="_blank">Judgment And Sentence</a> entered.
+                  <a class="filing-link" href="https://drive.google.com/file/d/192CRUvzyG7G3YeFCDdJzXVAnAaHgw1tz/view?usp=drive_link" target="_blank">Judgment And Sentence</a> issued on October 22, 2026.
                     <div class="filing-note">
-                      Original charge: 784.03.1a1 &mdash; Battery: Touch or Strike (Misdemeanor 1B, DV). Adjudicated guilty on reduced charge: 877.03 &mdash; Disorderly Conduct: Brawling/Fighting. No trial. No jail sentence. Court costs assessed: $373.00.
+                      <p>
+                        Original charge: 784.03.1a1 &mdash; Battery: Touch or Strike (Misdemeanor 1B, DV). Adjudicated guilty on reduced charge: 877.03 &mdash; Disorderly Conduct: Brawling/Fighting. No trial. No jail sentence. Court costs assessed: $373.00.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2033,14 +2123,32 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/1ZMe2tbXWprKxXdzGATYozWLJL9-0cVTr/view?usp=drive_link" target="_blankd">CC Judgment Costs</a> filed.
                     <div class="filing-note">
-                      Assessment: $373.00. Restitution: $0.00.
+                      <p>
+                        Assessment: $373.00. Restitution: $0.00.
+                      </p>
                     </div>
                 </div>
             </div>
             <div class="filing">
               <div class="filing-date">10-22-2026</div>
                 <div class="filing-content">
-                  <span class="filing-bold">Case Status</span> set to make me lose even more faith in the system.
+                  <a class="filing-link" href="https://drive.google.com/file/d/1fwfhD227CKElqmmwOaY0Wopx-A0xLXaS/view?usp=drive_link" target="_blank">Judgement & Sentence and/or Order of Probation</a> on October 22, 2026.
+                    <div class="filing-note">
+                      <p>
+                        The coward in a skin suit plead guilty in absenta.
+                      </p>
+                    </div>
+                </div>
+            </div>
+            <div class="filing">
+              <div class="filing-date">11-02-2026</div>
+                <div class="filing-content">
+                  <a class="filing-link" href="https://drive.google.com/file/d/1f8dI1RQviUPsNHErymeh4M7l1QueHOnS/view?usp=drive_link" target="_blank">Satisfaction Judgment For Cost And Fee</a> on November 2, 2026.
+                    <div class="filing-note">
+                      <p>
+                        I, Nikki Alvarez-Sowles, Esq., Pasco County Clerk & Comptroller of the Circuit/County Court do hereby acknowledge that the Lien(s) executed by order of the Court in and for the Sixth Judicial Circuit, Pasco County, Florida dated 10/22/2026, recorded in the Official Record Book: 11518, Page: 2187-2188, in the office of the Clerk & Comptroller of Pasco County, State of Florida, securing a sum of money determined by the Court for case number(s) as stated above has been SATISFIED as of November 2, 2026. 
+                      </p>
+                    </div>
                 </div>
             </div>
 
@@ -2084,7 +2192,9 @@
                 <div class="filing-content">
                   <a class="filing-link" href="#">Plaintiff's Original Petition to Enjoin Harassing Behavior and Application for Temporary Restraining Order</a> filed.
                     <div class="filing-note">
-                      Cost: $350.00
+                      <p>
+                        Cost: $350.00
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2093,7 +2203,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Judge's Docket Entry</span>.
                     <div class="filing-note">
-                      Application for TRO denied. Case set for status on June 26.
+                      <p>
+                        Application for TRO denied. Case set for status on June 26.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2102,7 +2214,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Request for Notice</span> filed.
                     <div class="filing-note">
-                      Cost: $8.00
+                      <p>
+                        Cost: $8.00
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2111,7 +2225,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Notice</span> filed.
                     <div class="filing-note">
-                      Service returned unserved...per usual with JLR.
+                      <p>
+                        Service returned unserved...per usual with JLR.
+                      </p>
                     </div>
                 </div> 
             </div>
@@ -2126,7 +2242,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Status Hearing</span> scheduled for 11:00 AM.
                     <div class="filing-note">
-                      Cancelled: Notice of Non-Suit. (Defendant dodged service)
+                      <p>
+                        Cancelled: Notice of Non-Suit. (Defendant dodged service)
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2135,7 +2253,9 @@
                 <div class="filing-content">
                   <span class="filing-bold">Status Hearing</span> scheduled for 9:00 AM.
                     <div class="filing-note">
-                      Cancelled: Reset. (Defendant dodged service)
+                      <p>
+                        Cancelled: Reset. (Defendant dodged service)
+                      </p>
                     </div>
                 </div> 
             </div>
@@ -2178,7 +2298,9 @@
                 <div class="filing-content">
                   <span class="filing-bold"><a class="filing-link" href="https://drive.google.com/file/d/13LYBi_zFfMaRANAIAqO8YVgVIknScP44/view?usp=drive_link" target="_blank">Case fees</a> paid.</span>
                     <div class="filing-note">
-                      $400.00 on Receipt No. 5154421.
+                      <p>
+                        $400.00 on Receipt No. 5154421.
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2317,7 +2439,9 @@
                 <div class="filing-content">
                   <a class="filing-link" href="https://drive.google.com/file/d/1pJ6Xz6nkPrUZ7Edbc-KnwI7cjL2dFWIN/view?usp=drive_link" target="_blank">MINUTE ORDER</a>: Request for Copyright, Trademark, or Patent Information. This case has been designated as a copyright, trademark, or patent case. The Clerk's Office is required to provide information to the Patent and Trademark Office and/or Copyright Office regarding this case. Attached to this docket entry are the required form(s) that must be completed. Plaintiff shall complete the form that is applicable to this particular case. In some cases, you may need to complete both forms.
                     <div class="filing-note">
-                      Within seven (7) days, Plaintiff must submit the required form(s) to the Clerk's Office. Please complete the form and file it with the Court using the specific event: <em>Notice of Filing &mdash; Copyright, Trademark or Patent Information</em>, found under the Other Filings header. Please DO NOT mail the form directly to the Patent or Copyright Office. The Clerk's Office will submit the form. If neither form is required for this case, please file a notice indicating the reason the form is not necessary and use the event listed above. This form must be updated if additional patents, copyrights, or trademarks are alleged in a responsive pleading. (HLA) (Entered: 11-02-2026).
+                      <p>
+                        Within seven (7) days, Plaintiff must submit the required form(s) to the Clerk's Office. Please complete the form and file it with the Court using the specific event: <em>Notice of Filing &mdash; Copyright, Trademark or Patent Information</em>, found under the Other Filings header. Please DO NOT mail the form directly to the Patent or Copyright Office. The Clerk's Office will submit the form. If neither form is required for this case, please file a notice indicating the reason the form is not necessary and use the event listed above. This form must be updated if additional patents, copyrights, or trademarks are alleged in a responsive pleading. (HLA) (Entered: 11-02-2026).
+                      </p>
                     </div>
                 </div>
             </div>
@@ -2325,7 +2449,29 @@
               <div class="filing-date">11-02-2026</div>
               <div class="filing-num">5</div>
                 <div class="filing-content">
-                  <a class="filing-link" href="https://drive.google.com/file/d/169SarpXHsFAljNQ4_SyiFgnsXjI0LUKO/view?usp=drive_link" target="_blank">NOTICE TO SELF-REPRESENTED LITIGANT</a> re informational documents attached: (1) Notice to Self-Represented Litigant, (2) Federal Court Self-Service Clinic Flyer, (3) Fed. R. Civ. P. 5.2, and (4) Notice and Request re Electronic Noticing. (HLA) (Entered: 11-02-2026)
+                  <a class="filing-link" href="https://drive.google.com/file/d/169SarpXHsFAljNQ4_SyiFgnsXjI0LUKO/view?usp=drive_link" target="_blank">NOTICE TO SELF-REPRESENTED LITIGANT</a> re informational documents attached.
+                  <div class="filing-note">
+                    <p>
+                      <ol class="sub-list">
+                        <li>Notice to Self-Represented Litigant</li>
+                        <li>Federal Court Self-Service Clinic Flyer</li>
+                        <li>Fed. R. Civ. P. 5.2, and</li>
+                        <li>Notice and Request re Electronic Noticing. (HLA) (Entered: 11-02-2026)</li>
+                      </ol>
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="filing">
+              <div class="filing-date">11-16-2026</div>
+              <div class="filing-num">6</div>
+                <div class="filing-content">
+                  <a class="filing-link" href="https://drive.google.com/file/d/1MCF2iU6POKMu5dIuXsvvkU0aqh_vQ-2a/view?usp=drive_link" target="_blank">ORDER</a> that Jonathan Lee Riches show cause for failure to comply with LRCiv 3.7(b) before Judge John J Tuchi. Show Cause Hearing set for 12/8/2026 at 10:00 AM in Courtroom 505, 401 West Washington Street, Phoenix, AZ 85003 before Judge John J Tuchi.
+                  <div class="filing-note">
+                    <p>
+                      Attachments: <a class="filing-link" href="https://drive.google.com/file/d/1KwrN2uJBi3pJgpyyG3szmI6khPgsjcnY/view?usp=drive_link" target="_blank">#1 Instructions</a>, <a class="filing-link" href="https://drive.google.com/file/d/1PpnUtA0r0sW-xNOCQU5kuNj-xki0Hv38/view?usp=drive_link" target="_blank">#2 Consent Form</a> (MAP) (Entered: 11/16/2026).
+                    </p>
+                  </div>
                 </div>
             </div>
 
