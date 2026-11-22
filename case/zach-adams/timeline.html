@@ -2357,7 +2357,7 @@
         </ul>
     </div>
 
-    <!-- // 100 : boboHome, tower249, shayneHome, zachHome, camdenBottoms -->
+    <!-- // 100 : hb_0856, tower249, shayneHome, zachHome, camdenBottoms -->
     <div class="step title-card" data-step="100" data-clock="9:00 AM">
       <div class="step-time" style="color:var(--dim);">April 13, 2011</div>
       <div class="step-title">Autry heads to Shayne's</div>
@@ -2421,7 +2421,7 @@
         </figure>
     </div>
 
-    <!-- // 105 : tower249, hb_0906, holladayTower, coxRdTower  -->
+    <!-- // 105 : tower249, hb_0902, holladayTower, coxRdTower  -->
     <div class="step title-card" data-step="105" data-clock="9:02 AM">
       <div class="step-time" style="color:var(--dim);">April 13, 2011</div>
       <div class="step-title">The phones moving in tandem with Holly's phone belonged to Drew's friends&mdash;not the Defendants</div>
@@ -2429,7 +2429,7 @@
         <p>Zach's phone sat parked on his own family's land the entire morning.</p>
     </div>
 
-    <!-- // 106 : tower249, hb_0902, hb_0906, holladayTower  -->
+    <!-- // 106 : tower249, hb_0906, holladayTower  -->
     <div class="step title-card" data-step="106" data-clock="9:06 AM">
       <div class="step-time" style="color:var(--dim);">April 13, 2011</div>
       <div class="step-title">Holly's phone pings the Holladay tower</div>
@@ -4746,12 +4746,14 @@ const STEPS = {
   },
   // 98
   98: {
-    bounds: [hb_0856, POI['tower249'].coord],
-    zoom: { desktop: 12, mobile: 11 },
+    bounds: [hb_0826, POI['hb_0856'].coord, POI['tower249'].coord],
+    zoom: { desktop: 11, mobile: 10 },
     action() {
       setClock('8:56 AM', 'Apr 13, 2011');
-      const a = drawPOI('hb_0856', { pos: 'below', gap: 20 }); 
-      const b = drawPOI('tower249', { pos: 'right', gap: 20}); 
+      const a = drawPOI('hb_0826', { pos: 'below', gap: 20 }); 
+      const b = drawPOI('hb_0856', { pos: 'below', gap: 20 }); 
+      const c = drawPOI('tower249', { pos: 'right', gap: 20}); 
+      makeDot(hb_0826, COLORS.holly, 9, true);
       makeDot(hb_0856, COLORS.holly, 9, true);
       makeDot(tower249, COLORS.holly, 9, true);
       drawLine(hb_0856, tower249, '~2 min', [0, 0.0002]);
